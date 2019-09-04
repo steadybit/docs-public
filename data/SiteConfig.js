@@ -7,6 +7,7 @@ module.exports = {
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: 'The Documentation for the chaosmesh platform.', // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
+  googleAnalyticsID: 'UA-145692204-1', // GA tracking ID.
   userName: 'User', // Username to display in the author segment.
   userTwitter: 'chaosmesh', // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: 'Solingen, Germany', // User location to display in the author segment.
