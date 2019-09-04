@@ -1,0 +1,32 @@
+{
+  "id": "table-of-contents",
+  "chapters": [
+    {
+      "title": "Quick Starts",
+      "entries": [
+        {
+          "entry": "./getting_started.md"
+        }
+      ]
+    },
+    {
+      "title": "Installation",
+      "entries": [
+        {
+          "entry": "./installation_agent.md"
+        },
+        {
+          "entry": "./installation_platform.md"
+        }
+      ]
+    },
+    {
+      "title": "Experiments",
+      "entries": [
+        {
+          "entry": "./experiments_first.md"
+        }
+      ]
+    }
+  ]
+}
