@@ -2,14 +2,33 @@
 title: "Platform"
 ---
 
+# Docker
 
-Spicy jalapeno cupidatat chicken ut filet mignon sausage ut boudin nulla reprehenderit strip steak proident cillum incididunt short loin cow. Pig in pastrami, leberkas eiusmod enim bresaola do. Filet mignon officia quis kevin pork, swine strip steak excepteur hamburger chicken pork chop boudin shankle. Velit chicken pig in cupim kielbasa jerky. Bresaola excepteur veniam, andouille magna brisket aliquip nostrud jerky.
+The platform container image is available in our private Docker Registry. 
 
-Pork chop ribeye ut chicken buffalo proident minim leberkas cupim adipisicing burgdoggen incididunt pastrami cupidatat. Prosciutto kevin dolore labore ham, cupidatat pork loin fatback picanha irure ad short ribs duis. Cupidatat excepteur jerky doner, incididunt consectetur turkey pariatur. Culpa consectetur cillum shank ham hock anim pastrami ex tempor eu. Fatback strip steak pig, bacon salami drumstick ut capicola short loin flank.
+First login to the chaosmesh Docker Registry:
 
-Jowl dolor duis, cupidatat pork tempor nostrud incididunt short loin laborum. Duis nostrud fatback ribeye consequat ad. Proident pancetta ut tempor. Short loin officia eiusmod beef. Sunt tongue pig venison, sint mollit ad excepteur velit adipisicing flank pancetta pariatur. Dolor t-bone swine alcatra fatback ribeye, mollit dolore incididunt ullamco.
+```sh
+docker login -u=_ -p=<apikey> docker.chaosmesh.io
+```
 
-Spare ribs aute fugiat, pariatur andouille labore nulla exercitation. Aliqua picanha sirloin consequat drumstick sint exercitation pork nisi et. Dolore swine fugiat pork salami proident. Bacon excepteur filet mignon labore pariatur in in nulla magna fugiat prosciutto. Laboris sint ground round, pancetta ipsum in pariatur voluptate fatback andouille velit shoulder flank quis sausage.
+Then simply run the chaosmesh Platform Container:
 
-Hamburger ham shank est, officia qui capicola proident. Ribeye dolore prosciutto sirloin alcatra. Rump short ribs quis ex fugiat proident incididunt irure t-bone meatball veniam sirloin meatloaf. Tongue anim sint pancetta bresaola sirloin.
-Does your lorem ipsum text long for something a little meatier? Give our generator a try… 
+```sh
+sudo docker run \
+  --detach \
+  --name chaosmesh-agent \
+  --volume /var/run:/var/run \
+  --volume /run:/run \
+  --volume /dev:/dev \
+  --volume /sys:/sys \
+  --volume /var/log:/var/log \
+  --privileged \
+  --net=host \
+  --pid=host \
+  --ipc=host \
+  --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
+  --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
+  --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
+  docker.chaosmesh.io/chaosmesh/release/platform
+```

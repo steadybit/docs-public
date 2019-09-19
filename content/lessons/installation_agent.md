@@ -2,14 +2,43 @@
 title: "Agent"
 ---
 
+# Docker
 
-Spicy jalapeno cupidatat chicken ut filet mignon sausage ut boudin nulla reprehenderit strip steak proident cillum incididunt short loin cow. Pig in pastrami, leberkas eiusmod enim bresaola do. Filet mignon officia quis kevin pork, swine strip steak excepteur hamburger chicken pork chop boudin shankle. Velit chicken pig in cupim kielbasa jerky. Bresaola excepteur veniam, andouille magna brisket aliquip nostrud jerky.
+The agent container image is available in our private Docker Registry. 
+Please note that the container needs to run in a privileged mode, allowing it to discover and attack your Infratructure.
 
-Pork chop ribeye ut chicken buffalo proident minim leberkas cupim adipisicing burgdoggen incididunt pastrami cupidatat. Prosciutto kevin dolore labore ham, cupidatat pork loin fatback picanha irure ad short ribs duis. Cupidatat excepteur jerky doner, incididunt consectetur turkey pariatur. Culpa consectetur cillum shank ham hock anim pastrami ex tempor eu. Fatback strip steak pig, bacon salami drumstick ut capicola short loin flank.
+First login to the chaosmesh Docker Registry:
 
-Jowl dolor duis, cupidatat pork tempor nostrud incididunt short loin laborum. Duis nostrud fatback ribeye consequat ad. Proident pancetta ut tempor. Short loin officia eiusmod beef. Sunt tongue pig venison, sint mollit ad excepteur velit adipisicing flank pancetta pariatur. Dolor t-bone swine alcatra fatback ribeye, mollit dolore incididunt ullamco.
+```sh
+docker login -u=_ -p=<apikey> docker.chaosmesh.io
+```
 
-Spare ribs aute fugiat, pariatur andouille labore nulla exercitation. Aliqua picanha sirloin consequat drumstick sint exercitation pork nisi et. Dolore swine fugiat pork salami proident. Bacon excepteur filet mignon labore pariatur in in nulla magna fugiat prosciutto. Laboris sint ground round, pancetta ipsum in pariatur voluptate fatback andouille velit shoulder flank quis sausage.
+Then simply run the chaosmesh Platform Container:
 
-Hamburger ham shank est, officia qui capicola proident. Ribeye dolore prosciutto sirloin alcatra. Rump short ribs quis ex fugiat proident incididunt irure t-bone meatball veniam sirloin meatloaf. Tongue anim sint pancetta bresaola sirloin.
-Does your lorem ipsum text long for something a little meatier? Give our generator a try… 
+```sh
+sudo docker run \
+  --detach \
+  --name chaosmesh-agent \
+  --volume /var/run:/var/run \
+  --volume /run:/run \
+  --volume /dev:/dev \
+  --volume /sys:/sys \
+  --volume /var/log:/var/log \
+  --privileged \
+  --net=host \
+  --pid=host \
+  --ipc=host \
+  --env="CHAOSMESH_AGENT_API_KEY=<apikey>" \
+  --env="CHAOSMESH_AGENT_REGISTER_URL=http://platform.chaosmesh.io" \
+  docker.chaosmesh.io/chaosmesh/release/agent
+```
+
+# Linux
+
+The following command will download and run the latest chaosmesh agent package on your system:
+
+```shell
+curl -o install_agent.sh https://setup.chaosmesh.io/agent \
+&& chmod 700 ./install_agent.sh \ 
+&& sudo ./install_agent.sh -a <apikey>
+```
