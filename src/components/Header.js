@@ -7,7 +7,6 @@ import Search from './search/index';
 import Sidebar from "./sidebar";
 import './styles.css';
 
-const help = require('./images/help.svg');
 const isSearchEnabled = Boolean(config.header.search && config.header.search.enabled);
 
 let searchIndices = [];
@@ -25,7 +24,6 @@ const Header = ({location}) => (
           site {
             siteMetadata {
               headerTitle
-              helpUrl
               logo {
                 link
                 image
@@ -44,7 +42,6 @@ const Header = ({location}) => (
         site: {
           siteMetadata: {
             headerTitle,
-            helpUrl,
             logo,
             headerLinks,
           }
@@ -96,9 +93,6 @@ const Header = ({location}) => (
                     );
                   }
                 })}
-                {helpUrl !== '' ?
-                  (<li><a href={helpUrl}><img src={help} alt={'Help icon'}/></a></li>) : null
-                }
               </ul>
             </div>
           </nav>

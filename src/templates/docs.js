@@ -4,7 +4,6 @@ import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
 import React, {Component} from "react";
 import Helmet from "react-helmet";
 import config from '../../config';
-import NextPrevious from '../components/NextPrevious';
 import '../components/styles.css';
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
@@ -16,7 +15,7 @@ export default class MDXRuntimeTest extends Component {
       allMdx,
       mdx,
       site: {
-        siteMetadata: {docsLocation, title}
+        siteMetadata: {title}
       }
     } = data;
 
@@ -83,9 +82,6 @@ export default class MDXRuntimeTest extends Component {
         <div className={'mainWrapper'}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </div>
-        <div className={'addPaddTopBottom'}>
-          <NextPrevious mdx={mdx} nav={nav}/>
-        </div>
       </Layout>
     );
   }
@@ -96,7 +92,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        docsLocation
       }
     }
     mdx(fields: { id: { eq: $id } }) {

@@ -8,7 +8,6 @@ const config = {
     "logo": "",
     "logoLink": "https://chaosmesh.com",
     "title": "",
-    "helpUrl": "",
     "links": [
       {"text": "", "link": ""}
     ],
@@ -30,7 +29,6 @@ const config = {
     "title": "chaosmesh Documentation",
     "description": "chaosmesh Chaos Engineering Platform Documentation",
     "ogImage": null,
-    "docsLocation": "",
     "favicon": null
   },
 };
