@@ -1,7 +1,5 @@
 ---
-title: "Platform"
-metaTitle: "Installation - chaosmesh Platform"
-metaDescription: "Installing the chaosmesh Platform"
+title: "Install as Docker Container"
 ---
 
 # Docker

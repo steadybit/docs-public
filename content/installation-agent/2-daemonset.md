@@ -1,0 +1,3 @@
+---
+title: "Install as Daemonset"
+---

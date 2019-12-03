@@ -1,6 +1,6 @@
 ---
 title: "Home"
-metaTitle: "chaosmesh - Getting Started"
+metaTitle: "chaosmesh documentation"
 metaDescription: ""
 ---
 

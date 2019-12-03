@@ -1,10 +1,6 @@
 ---
-title: "Agent"
-metaTitle: "Installation - Agent"
-metaDescription: "Installing the chaosmesh Agent"
+title: "Install as Docker Container"
 ---
-
-# Docker
 
 The agent container image is available in our private Docker Registry.
 Please note that the container needs to run in a privileged mode, allowing it to discover and attack your Infratructure.
@@ -33,14 +29,4 @@ sudo docker run \
   --env="CHAOSMESH_AGENT_API_KEY=<apikey>" \
   --env="CHAOSMESH_AGENT_REGISTER_URL=http://platform.chaosmesh.io" \
   docker.chaosmesh.io/chaosmesh/release/agent
-```
-
-# Linux
-
-The following command will download and run the latest chaosmesh agent package on your system:
-
-```shell
-curl -o install_agent.sh https://setup.chaosmesh.io/agent \
-&& chmod 700 ./install_agent.sh \
-&& sudo ./install_agent.sh -a <apikey>
 ```
