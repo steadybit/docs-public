@@ -1,88 +1,83 @@
-const config = require('./data/SiteConfig')
-
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-
-module.exports = {
-  pathPrefix: config.pathPrefix,
-  siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix
+require("dotenv").config();
+const queries = require("./src/utils/algolia");
+const config = require("./config");
+const plugins = [
+  'gatsby-plugin-sitemap',
+  'gatsby-plugin-sharp',
+  {
+    resolve: `gatsby-plugin-layout`,
+    options: {
+      component: require.resolve(`./src/templates/docs.js`)
+    }
   },
-  plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`crimson text:400, 400i, 700, 700i`, `space mono:400,700`]
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'lessons',
-        path: `${__dirname}/content/`
-      }
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 690
-            }
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe'
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-autolink-headers'
-        ]
-      }
-    },
-    {
-        resolve: 'gatsby-plugin-google-analytics',
-        options: {
-            trackingId: config.googleAnalyticsID
-        }
-    },
-    {
-      resolve: 'gatsby-plugin-nprogress',
-      options: {
-        color: config.themeColor
-      }
-    },
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-catch-links',
-    'gatsby-plugin-twitter',
-    'gatsby-plugin-sitemap',
-    'gatsby-transformer-json',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: config.siteTitle,
-        short_name: config.siteTitle,
-        description: config.siteDescription,
-        start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: 'minimal-ui',
-        icons: [
-          {
-            src: '/logos/logo-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/logos/logo-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
+  'gatsby-plugin-styled-components',
+  {
+    resolve: 'gatsby-plugin-mdx',
+    options: {
+      gatsbyRemarkPlugins: [
+        {
+          resolve: "gatsby-remark-images",
+          options: {
+            maxWidth: 1035,
+            sizeByPixelDensity: true
           }
-        ]
-      }
+        },
+        {
+          resolve: 'gatsby-remark-copy-linked-files'
+        }
+      ],
+      extensions: [".mdx", ".md"]
+    }
+  },
+  'gatsby-plugin-emotion',
+  'gatsby-plugin-remove-trailing-slashes',
+  'gatsby-plugin-react-helmet',
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: "docs",
+      path: `${__dirname}/content/`
+    }
+  },
+  {
+    resolve: `gatsby-plugin-gtag`,
+    options: {
+      // your google analytics tracking id
+      trackingId: config.gatsby.gaTrackingId,
+      // Puts tracking script in the head instead of the body
+      head: true,
+      // enable ip anonymization
+      anonymize: false,
     },
-    'gatsby-plugin-offline'
-  ]
+  },
+];
+if (config.header.search && config.header.search.enabled && config.header.search.algoliaAppId && config.header.search.algoliaAdminKey) {
+  plugins.push({
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: config.header.search.algoliaAppId, // algolia application id
+        apiKey: config.header.search.algoliaAdminKey, // algolia admin key to index
+        queries,
+        chunkSize: 10000, // default: 1000
+      }
+    }
+  );
 }
+module.exports = {
+  pathPrefix: config.gatsby.pathPrefix,
+  siteMetadata: {
+    title: config.siteMetadata.title,
+    description: config.siteMetadata.description,
+    docsLocation: config.siteMetadata.docsLocation,
+    ogImage: config.siteMetadata.ogImage,
+    favicon: config.siteMetadata.favicon,
+    logo: {link: config.header.logoLink ? config.header.logoLink : '/', image: config.header.logo}, // backwards compatible
+    headerTitle: config.header.title,
+    githubUrl: config.header.githubUrl,
+    helpUrl: config.header.helpUrl,
+    tweetText: config.header.tweetText,
+    headerLinks: config.header.links,
+    siteUrl: config.gatsby.siteUrl,
+  },
+  plugins: plugins
+};

@@ -1,50 +1,21 @@
-const path = require('path')
-const _ = require('lodash')
-const webpackLodashPlugin = require('lodash-webpack-plugin')
+const componentWithMDXScope = require("gatsby-plugin-mdx/component-with-mdx-scope");
+const path = require("path");
+const startCase = require("lodash.startcase");
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators
-  let slug
-  if (node.internal.type === 'MarkdownRemark') {
-    const fileNode = getNode(node.parent)
-    const parsedFilePath = path.parse(fileNode.relativePath)
-    if (
-      Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
-      Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')
-    ) {
-      slug = `/${_.kebabCase(node.frontmatter.slug)}`
-    }
-    if (
-      Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
-      Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
-    ) {
-      slug = `/${_.kebabCase(node.frontmatter.title)}`
-    } else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
-      slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`
-    } else if (parsedFilePath.dir === '') {
-      slug = `/${parsedFilePath.name}/`
-    } else {
-      slug = `/${parsedFilePath.dir}/`
-    }
-    createNodeField({ node, name: 'slug', value: slug })
-  }
-}
-
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
-
+exports.createPages = ({graphql, actions}) => {
+  const {createPage} = actions;
   return new Promise((resolve, reject) => {
-    const lessonPage = path.resolve('src/templates/lesson.jsx')
     resolve(
       graphql(
         `
           {
-            allMarkdownRemark {
+            allMdx {
               edges {
                 node {
-                  frontmatter {
-                    title
+                  fields {
+                    id
                   }
+                  tableOfContents
                   fields {
                     slug
                   }
@@ -55,24 +26,67 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         `
       ).then(result => {
         if (result.errors) {
-          reject(result.errors)
+          console.log(result.errors); // eslint-disable-line no-console
+          reject(result.errors);
         }
-        result.data.allMarkdownRemark.edges.forEach(edge => {
-          createPage({
-              path: edge.node.fields.slug,
-              component: lessonPage,
-              context: {
-                  slug: edge.node.fields.slug
-              }
-          })
-        })
-      })
-    )
-  })
-}
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  if (stage === 'build-javascript') {
-    config.plugin('Lodash', webpackLodashPlugin, null)
+        // Create blog posts pages.
+        result.data.allMdx.edges.forEach(({node}) => {
+          createPage({
+            path: node.fields.slug ? node.fields.slug : "/",
+            component: path.resolve("./src/templates/docs.js"),
+            context: {
+              id: node.fields.id
+            }
+          });
+        });
+      })
+    );
+  });
+};
+
+exports.onCreateWebpackConfig = ({actions}) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
+      alias: {$components: path.resolve(__dirname, "src/components")}
+    }
+  });
+};
+
+exports.onCreateBabelConfig = ({actions}) => {
+  actions.setBabelPlugin({
+    name: "@babel/plugin-proposal-export-default-from"
+  });
+};
+
+exports.onCreateNode = ({node, getNode, actions}) => {
+  const {createNodeField} = actions;
+
+  if (node.internal.type === `Mdx`) {
+    const parent = getNode(node.parent);
+    let value = parent.relativePath.replace(parent.ext, "");
+
+    if (value === "index") {
+      value = "";
+    }
+
+    createNodeField({
+      name: `slug`,
+      node,
+      value: `/${value}`
+    });
+
+    createNodeField({
+      name: "id",
+      node,
+      value: node.id
+    });
+
+    createNodeField({
+      name: "title",
+      node,
+      value: node.frontmatter.title || startCase(parent.name)
+    });
   }
-}
+};
