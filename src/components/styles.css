@@ -26,42 +26,6 @@ a {
   color: #2A81A6;
 }
 
-.video-responsive {
-  position: relative;
-  padding-bottom: 56.2%;
-}
-
-.video-responsive iframe {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.divider {
-  height: 30px;
-  margin: 0 15px;
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.navBarULRight {
-}
-
-.githubIcon {
-  width: 15px;
-  margin-right: 5px;
-}
-
-.githubSection {
-  display: flex;
-  align-items: center;
-  opacity: 0.7;
-}
-
-.githubSection:hover {
-  text-decoration: none;
-  opacity: 1;
-}
-
 .formElement {
   background-color: transparent;
   padding: 4px;
@@ -568,45 +532,6 @@ img {
 
 /* end image */
 
-.communitySection {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.authorSection, .authorName {
-  display: flex;
-  align-items: center;
-}
-
-.authorImg img {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  min-width: 75px;
-  max-width: 75px;
-  min-height: 75px;
-  max-height: 75px;
-}
-
-.authorDetails {
-  padding-left: 10px;
-}
-
-.authorDesc {
-  padding-top: 5px;
-  font-size: 14px;
-}
-
-.authorName img {
-  margin-left: 10px;
-  display: inline-block;
-  width: 20px;
-}
-
-.authorName img:hover {
-  opacity: 0.7;
-}
-
 @media (max-width: 767px) {
   hr {
     margin-top: 0;
@@ -669,14 +594,6 @@ img {
     display: block;
   }
 
-  .mobileView {
-    text-align: center !important;
-  }
-
-  .gitBtn {
-    display: inline-block;
-  }
-
   .mainWrapper {
     padding: 0 15px;
   }
@@ -724,15 +641,6 @@ img {
   .navBarCollapse {
     padding-right: 10px;
     padding-left: 10px;
-  }
-
-  .githubBtn {
-    padding: 10px 10px;
-  }
-
-  .divider {
-    margin: 0 5px;
-    height: 20px;
   }
 
   .hitWrapper {
