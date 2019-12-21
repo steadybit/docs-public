@@ -116,6 +116,20 @@ a:hover .headerTitle {
   align-items: center;
   z-index: 1;
   padding: 32px;
+  padding-right: 12px;
+}
+
+.box {
+  display: table-cell;
+  min-width: 0px;
+}
+
+.boxGitter {
+  display: table-cell;
+  background: radial-gradient(ellipse at center, rgba(52, 55, 59, 0.25) 8.3333%, transparent 0%);
+  background-position: 0 0;
+  background-size: 1.5rem 1.5rem;
+  width: 100%;
 }
 
 .navBarHeader {

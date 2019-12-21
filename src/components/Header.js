@@ -50,7 +50,7 @@ const Header = ({location}) => (
       const finalLogoLink = logo.link !== '' ? logo.link : '/';
       return (
         <div className={'navBarWrapper'}>
-          <nav className={'navbar navbar-default navBarDefault'}>
+          <nav className={'navbar navbar-default navBarDefault box'}>
             <div className={'navbar-header navBarHeader'}>
               <Link to={finalLogoLink} className={'navbar-brand navBarBrand'}>
                 {logo.image !== '' ?
@@ -99,6 +99,8 @@ const Header = ({location}) => (
               </ul>
             </div>
           </nav>
+          <div className={'boxGitter'}>
+          </div>
         </div>
       );
     }}
