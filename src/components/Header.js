@@ -60,6 +60,9 @@ const Header = ({location}) => (
                 }
                 <div className={"headerTitle"} dangerouslySetInnerHTML={{__html: headerTitle}}/>
               </Link>
+              <Link to={finalLogoLink} className={'navbar-brand navBarBrand'}>
+                | Docs
+              </Link>
               <button type="button" className={'navbar-toggle collapsed navBarToggle'} data-toggle="collapse" data-target="#navbar" aria-expanded="false"
                       aria-controls="navbar">
                 <span className={'sr-only'}>Toggle navigation</span>

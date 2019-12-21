@@ -2,5 +2,6 @@
 title: "Platform Installation (On-Prem)"
 ---
 
-* [Installing the Platform](installation-platform/1-platform)
-* [Installing the Agent](installation-platform/2-agent)
+* [Docker](installation-platform/1-docker)
+* [Host](installation-platform/2-host)
+* [Advanced Configuration](installation-platform/3-advanced-configuration)

@@ -1,8 +1,6 @@
 import {graphql, StaticQuery} from "gatsby";
 import React from "react";
 import styled from "react-emotion";
-import {ExternalLink} from "react-feather";
-import config from '../../../config';
 import '../styles.css';
 import Tree from './tree';
 
@@ -84,17 +82,6 @@ const SidebarLayout = () => (
             <Tree
               edges={allMdx.edges}
             />
-            <Divider/>
-            {config.sidebar.links.map((link, key) => {
-              if (link.link !== '' && link.text !== '') {
-                return (
-                  <ListItem key={key} to={link.link}>
-                    {link.text}
-                    <ExternalLink size={14}/>
-                  </ListItem>
-                );
-              }
-            })}
           </ul>
         </aside>
       );

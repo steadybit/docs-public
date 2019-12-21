@@ -19,12 +19,12 @@ const Content = styled('main')`
   display: flex;
   flex-grow: 1;
   margin: 0px 88px;
-  margin-top: 3rem;
+  margin-top: 1rem;
 
   @media only screen and (max-width: 1023px) {
     padding-left: 0;
     margin: 0 10px;
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 `;
 

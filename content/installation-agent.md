@@ -2,5 +2,7 @@
 title: "Agent Installation"
 ---
 
-* [Installing the Platform](installation-platform/1-platform)
-* [Installing the Agent](installation-platform/2-agent)
+* [Docker](installation-agent/1-docker)
+* [Kubernetes Daemon Set](installation-agent/2-daemonset)
+* [Host](installation-agent/3-host)
+* [Advanced Configuration](installation-agent/4-advanced-configuration)
