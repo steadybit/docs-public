@@ -2,8 +2,16 @@
 title: "Install as Docker Container"
 ---
 
+# Oneliner 
+
 The agent container image is available in our private Docker Registry.
 Please note that the container needs to run in a privileged mode, allowing it to discover and attack your Infratructure.
+
+```sh
+curl -sfL https://get.chaosmesh.io/agent.sh | sh -s -- -a <api-key>
+```
+
+# Manual setup
 
 First login to the chaosmesh Docker Registry:
 
@@ -27,6 +35,5 @@ sudo docker run \
   --pid=host \
   --ipc=host \
   --env="CHAOSMESH_AGENT_API_KEY=<apikey>" \
-  --env="CHAOSMESH_AGENT_REGISTER_URL=http://platform.chaosmesh.io" \
-  docker.chaosmesh.io/chaosmesh/release/agent
+  docker.chaosmesh.io/chaosmesh/agent
 ```
