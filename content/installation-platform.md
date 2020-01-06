@@ -1,5 +1,5 @@
 ---
-title: "Platform Installation (On-Prem)"
+title: "Platform Installation"
 ---
 
 * [Docker](installation-platform/1-docker)
