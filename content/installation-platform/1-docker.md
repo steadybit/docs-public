@@ -18,17 +18,18 @@ First login to the chaosmesh Docker Registry:
 docker login -u=_ -p=<apikey> docker.chaosmesh.io
 ```
 
-Then run the chaosmesh Platform Docker Container with the following command:
+Then run the chaosmesh Platform Docker Container with the following command.
+Please note that you might need to add additional env vars for the authentication using LDAP / OAuth2.
 
 ```sh
 sudo docker run \
   --detach \
-  --name chaosmesh-agent \
+  --name chaosmesh-platfom \
   --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
   --env="CHAOSMESH_TENANT_NAME=<replace-with-tenant-name>" \
   --env="CHAOSMESH_TENANT_KEY=<replace-with-tenant-key>" \
   --env="CHAOSMESH_TENANT_APIKEY=<replace-with-api-key>" \
-  docker.chaosmesh.io/chaosmesh/platform
+  docker.chaosmesh.io/chaosmesh/platform:latest
 ```
