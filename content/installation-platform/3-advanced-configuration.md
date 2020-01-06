@@ -49,4 +49,4 @@ By default every user is assigned the `user` role, for a user to become `admin`,
 | CHAOSMESH_AUTH_OAUTH2_ISSUER_URI              | mandatory | URI for the OpenID Connect discovery endpoint. | `https://keycloak/auth/realms/demo`
 | CHAOSMESH_AUTH_OAUTH2_CLIENT_ID               | mandatory | The client ID to use for the OIDC registration | `chaosmesh`
 | CHAOSMESH_AUTH_OAUTH2_CLIENT_SECRET           | mandatory | The client secret to use for the OIDC registration | `ijhdfpjdf80wiphubfqwd113342r`
-| CHAOSMESH_AUTH_OAUTH2_USER_NAME_ATTRIBUTE     | default: `name` | Name of the attribute that will be used as name for the user | `ijhdfpjdf80wiphubfqwd113342r`
+| CHAOSMESH_AUTH_OAUTH2_USER_NAME_ATTRIBUTE     | default: `name` | Name of the attribute that will be used as name for the user | `name`

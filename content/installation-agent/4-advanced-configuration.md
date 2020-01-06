@@ -22,6 +22,6 @@ title: "Advanced Configuration"
 | CHAOSMESH_DISCOVERY_ENV_LIST                      | List of environment variables to inlude in the discovery      |                                          |
 | CHAOSMESH_LABEL_*                                 | All env vars with this prefix will be added as label          |                                          |
 | CHAOSMESH_FEATURES_UPDATE_INTERVAL                | Update Interval for Features                                  | `PT6H` (6 Hours)                         |
-| CHAOSMESH_AGENT_AWS_EC2_METADATA_URL              | AWS EC2 Metadata URL        __                                | `http://169.254.169.254/latest/`         |
-| CHAOSMESH_MVN_REPOSITORIES                        | chaosmesh Maven feature repository                            | See org.ops4j.pax.url.mvn.cfg            |
+| CHAOSMESH_AGENT_AWS_EC2_METADATA_URL              | AWS EC2 Metadata URL                                          | `http://169.254.169.254/latest/`         |
+| CHAOSMESH_MVN_REPOSITORIES                        | chaosmesh Maven feature repositories                          | `https://artifacts.chaosmesh.io/repository/features-public@id=chaosmesh-features@snapshots@snapshotsUpdate=always,https://artifacts.chaosmesh.io/repository/releases-public@id=chaosmesh-releases@snapshots@snapshotsUpdate=always,http://repo1.maven.org/maven2@id=central` |
 | CHAOSMESH_HTTP_ENDPOINT_PORT                      | HTTP endpoint port for the health check url                   | `42999`                                  |

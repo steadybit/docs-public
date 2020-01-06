@@ -1,3 +1,7 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 @import "~inter-ui/inter.css";
 
 html, body, input, textarea, button {
@@ -240,44 +244,6 @@ pre {
   border-style: solid none solid solid;
   border-width: 1px 0 1px 1px;
   border-color: transparent currentcolor transparent transparent;
-}
-
-.rightSideTitle {
-  font-size: 10px;
-  line-height: 1;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  padding: 7px 24px 7px 16px;
-  border-left: 1px solid #E2E5E8;
-  color: #8E969D;
-}
-
-.rightSideBar {
-  width: 100%;
-  background-color: #fff;
-  border-right: 1px solid #E2E5E8;
-  height: 100vh;
-  overflow: auto;
-  padding-left: 24px;
-  position: sticky;
-  top: 0;
-}
-
-.rightSideBarUL {
-  margin-top: 32px;
-}
-
-.rightSideBarUL li {
-  list-style-type: none;
-  border-left: 1px solid #E2E5E8;
-}
-
-.rightSideBarUL li a {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.5;
-  padding: 7px 24px 7px 16px;
 }
 
 .hideFrontLine .collapser {
