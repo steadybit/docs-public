@@ -2,7 +2,7 @@
 title: "Install as Docker Container"
 ---
 
-# Oneliner 
+### Oneliner 
 
 The agent container image is available in our private Docker Registry.
 Please note that the container needs to run in a privileged mode, allowing it to discover and attack your Infratructure.
@@ -11,7 +11,7 @@ Please note that the container needs to run in a privileged mode, allowing it to
 curl -sfL https://get.chaosmesh.io/agent.sh | sh -s -- -a <api-key>
 ```
 
-# Manual setup
+### Manual setup
 
 First login to the chaosmesh Docker Registry:
 

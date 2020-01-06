@@ -2,7 +2,7 @@
 title: "Install as Docker Container"
 ---
 
-# Oneliner
+### Oneliner
 
 The platform container image is available in our private Docker Registry.
 
@@ -10,7 +10,7 @@ The platform container image is available in our private Docker Registry.
 curl -sfL https://get.chaosmesh.io/platform.sh | sh -s -- -a <api-key> -d <jdbc-url> -u <jdbc-user> -p <jdbc-password>
 ```
 
-# Manual setup
+### Manual setup
 
 First login to the chaosmesh Docker Registry:
 
