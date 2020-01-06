@@ -1,3 +1,27 @@
 ---
 title: "Advanced Configuration"
 ---
+
+| Name                                              | Description                                                   | Default                                  |
+|---------------------------------------------------|---------------------------------------------------------------|------------------------------------------|
+| CHAOSMESH_AGENT_REGISTER_URL                      | The baseUrl where the agent registers.                        |                                          |
+| CHAOSMESH_DOWNLOAD_USER                           | The User to authenticate with the feature repository          | `_`                                      |
+| CHAOSMESH_DOWNLOAD_PASSWORD                       | The Password to authenticate with the feature repository      | CHAOSMESH_AGENT_API_KEY                  |
+| CHAOSMESH_AGENT_API_KEY                           | The API key the agent uses                                    |                                          |
+| CHAOSMESH_LOG_LEVEL                               | Sets the loglevel for the com.chaosmesh logger                | `INFO`                                   |
+| CHAOSMESH_LOG_CONSOLE                             | Sets the loglevel threshold for the console logger            | `ALL`                                    |
+| CHAOSMESH_AGENT_REGISTER_TIMEOUT                  | Timeout for the registration request.                         | `5s`                                     |
+| CHAOSMESH_AGENT_REGISTER_INTERVAL                 | The interval how often the agent registers at the platform.   | `5s`                                     |
+| CHAOSMESH_AGENT_EXPERIMENT_TIMEOUT                | Timeout for the request to connect to an experiment.          | `5s`                                     |
+| CHAOSMESH_AGENT_EXPERIMENT_KEEP_ALIVE_INTERVAL    | Interval how often a keep alive is sent during an experiment. | `5s`                                     |
+| CHAOSMESH_AGENT_EXPERIMENT_KEEP_ALIVE_TIMEOUT     | Timeout for a keep alive during an experiment                 | `5s`                                     |
+| CHAOSMESH_AGENT_EXPERIMENT_KEEP_ALIVE_MISSED_ACKS | Max. Number of missed acknowledgements during an experiment.  | `5`                                      |
+| CHAOSMESH_AGENT_DISCOVERY_INTERVAL                | The interval of often the agent runs the discovery.           | `5s`                                     |
+| CHAOSMESH_AGENT_DISCOVERY_TIMEOUT                 | Timeout for the discovery.                                    | `10s`                                    |
+| CHAOSMESH_DOCKER_SOCKET                           | Docker Socket to connect to.                                  | `/var/run/docker.sock`                   |
+| CHAOSMESH_DISCOVERY_ENV_LIST                      | List of environment variables to inlude in the discovery      |                                          |
+| CHAOSMESH_LABEL_*                                 | All env vars with this prefix will be added as label          |                                          |
+| CHAOSMESH_FEATURES_UPDATE_INTERVAL                | Update Interval for Features                                  | `PT6H` (6 Hours)                         |
+| CHAOSMESH_AGENT_AWS_EC2_METADATA_URL              | AWS EC2 Metadata URL        __                                | `http://169.254.169.254/latest/`         |
+| CHAOSMESH_MVN_REPOSITORIES                        | chaosmesh Maven feature repository                            | See org.ops4j.pax.url.mvn.cfg            |
+| CHAOSMESH_HTTP_ENDPOINT_PORT                      | HTTP endpoint port for the health check url                   | `42999`                                  |
