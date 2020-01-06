@@ -21,9 +21,13 @@ docker login -u=_ -p=<apikey> docker.chaosmesh.io
 Then run the chaosmesh Platform Docker Container with the following command.
 Please note that you might need to add additional env vars for the authentication using LDAP / OAuth2.
 
+We require two ports to be open: One for Http (80) in the and one for websocket connections (7878 - currently cannot be changed.)
+
 ```sh
 sudo docker run \
   --detach \
+  -p "80:8080" \
+  -p "7878:7878" \
   --name chaosmesh-platfom \
   --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
