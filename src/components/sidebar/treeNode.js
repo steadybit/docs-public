@@ -1,7 +1,5 @@
 import React from "react";
 import config from '../../../config';
-import ClosedSvg from '../images/closed';
-import OpenedSvg from '../images/opened';
 import Link from "../link";
 
 const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, ...rest}) => {
@@ -21,14 +19,6 @@ const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, .
     <li
       className={calculatedClassName}
     >
-      {!config.sidebar.frontLine && title && hasChildren ? (
-        <button
-          onClick={collapse}
-          className='collapser'>
-          {!isCollapsed ? <OpenedSvg/> : <ClosedSvg/>}
-        </button>
-      ) : null}
-
       {title && (
         <Link
           to={url}
