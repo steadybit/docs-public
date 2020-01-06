@@ -2,7 +2,7 @@
 title: "Install as Docker Container"
 ---
 
-# Oneliner 
+# Oneliner
 
 The platform container image is available in our private Docker Registry.
 
@@ -27,9 +27,8 @@ sudo docker run \
   --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
-  --env="CHAOSMESH_TENANT_NAME=onprem" \
-  --env="CHAOSMESH_TENANT_KEY=onprem" \
+  --env="CHAOSMESH_TENANT_NAME=<replace-with-tenant-name>" \
+  --env="CHAOSMESH_TENANT_KEY=<replace-with-tenant-key>" \
   --env="CHAOSMESH_TENANT_APIKEY=<replace-with-api-key>" \
-  --env="CHAOSMESH_TENANT_DDL_MODE=upgrade" \
   docker.chaosmesh.io/chaosmesh/platform
 ```
