@@ -1,9 +1,25 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 require("dotenv").config();
 const queries = require("./src/utils/algolia");
 const config = require("./config");
 const plugins = [
   'gatsby-plugin-sitemap',
   'gatsby-plugin-sharp',
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `chaosmesh-docs`,
+      short_name: `website`,
+      start_url: `/`,
+      background_color: `#ED220B`,
+      theme_color: `#ED220B`,
+      display: `standalone`,
+      icon: `src/assets/images/logo.svg`
+    },
+  },
   {
     resolve: `gatsby-plugin-layout`,
     options: {

@@ -1,3 +1,7 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 import {graphql, StaticQuery} from 'gatsby';
 import React from 'react';
 import config from '../../config.js';
@@ -37,7 +41,7 @@ const Header = ({location}) => (
         }
         `}
     render={(data) => {
-      const logoImg = require('./images/logo.svg');
+      const logoImg = require('../assets/images/brand.svg');
       const {
         site: {
           siteMetadata: {
