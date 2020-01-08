@@ -1,8 +1,12 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 import React from "react";
 import {connectSearchBox} from "react-instantsearch-dom";
-
 import styled, {css} from "styled-components";
 import {Search} from "styled-icons/fa-solid/Search";
+import './search.css';
 
 const SearchIcon = styled(Search)`
   width: 1em;
@@ -59,7 +63,6 @@ const Form = styled.form`
 `;
 
 export default connectSearchBox(({refine, ...rest}) => {
-    const searchCustom = '';
     const preventSubmit = (e) => {
       e.preventDefault();
     };
@@ -67,7 +70,7 @@ export default connectSearchBox(({refine, ...rest}) => {
       <Form className={'formElement'} onSubmit={preventSubmit}>
         <SearchIcon/>
         <Input
-          className={'searchInput ' + searchCustom}
+          className={'searchInput'}
           type="text"
           placeholder="Search"
           aria-label="Search"

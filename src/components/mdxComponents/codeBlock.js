@@ -1,9 +1,11 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 import Highlight, {defaultProps} from "prism-react-renderer";
 import prismTheme from "prism-react-renderer/themes/vsDark";
 import * as React from "react";
 import {LiveEditor, LiveError, LivePreview, LiveProvider} from "react-live";
-import '../styles.css';
-
 import Pre from "./pre";
 
 /** Removes the last token from a code example if it's empty. */

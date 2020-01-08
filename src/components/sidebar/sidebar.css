@@ -1,0 +1,140 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
+@media only screen and (max-width: 50rem) {
+  .sideBar {
+    width: 100%;
+    position: relative;
+  }
+}
+
+.sideBarUL {
+  margin-top: 32px;
+}
+
+.sideBarUL li {
+  list-style-type: none;
+  width: auto;
+}
+
+.sideBarUL li a {
+  color: #1D2D3A;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 32px;
+  padding: 7px 25px 7px 10px;
+  border-style: solid none solid solid;
+  border-width: 1px 0 1px 1px;
+  border-color: transparent currentcolor transparent transparent;
+}
+
+.hideFrontLine .collapser {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-top: 7px;
+  position: absolute;
+  right: 20px;
+  z-index: 1;
+}
+
+.hideFrontLine .active > a {
+  color: #ED220B !important;
+}
+
+.firstLevel ul li .collapser svg path {
+  fill: currentColor !important;
+}
+
+.active .collapser > svg > path {
+  fill: #2A81A6 !important;
+}
+
+.firstLevel ul .item ul .item {
+  border-left: 0px solid #8E969D;
+}
+
+.sideBar {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  padding-left: 0;
+  position: sticky;
+  top: 0;
+  padding-right: 0;
+  background-color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+  .sideBar {
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1023px) {
+  .sideBar {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .sideBar {
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+.sideBarUL .item .parent {
+  list-style: none;
+  padding: 0;
+  padding-bottom: 32px;
+  padding-left: 40px;
+}
+
+.sideBarUL .item .child > a {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-right: 35px;
+  padding-left: 15px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #858B96;
+}
+
+.sideBarUL .item > a:hover {
+  color: #ED220B;
+}
+
+.showFrontLine .item > a:hover {
+  color: #ED220B;
+}
+
+.showFrontLine .active > a {
+  color: #ED220B;
+}
+
+.sideBarUL .item .item {
+  margin-left: 16px;
+}
+
+.firstLevel > ul > .item {
+  margin-left: 0 !important;
+}
+
+.showFrontLine .item .item {
+  border-left: 1px solid #e6ecf1;
+  border-left-color: rgb(230, 236, 241);
+  padding: 0;
+  width: calc(100% - 16px) !important;
+}
+
+.showFrontLine .item .active > a {
+  border-color: rgb(230, 236, 241) !important;
+  border-style: solid none solid solid;
+  border-width: 1px 0 1px 1px;
+  color: #ED220B;
+}

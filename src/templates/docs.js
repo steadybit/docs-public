@@ -1,10 +1,13 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 import {Layout} from "$components";
 import {graphql} from "gatsby";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
 import React, {Component} from "react";
 import Helmet from "react-helmet";
 import config from '../../config';
-import '../components/styles.css';
 
 const forcedNavOrder = config.sidebar.forcedNavOrder;
 

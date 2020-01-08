@@ -1,7 +1,11 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 import {graphql, StaticQuery} from "gatsby";
 import React from "react";
 import styled from "react-emotion";
-import '../styles.css';
+import './sidebar.css';
 import Tree from './tree';
 
 // eslint-disable-next-line no-unused-vars

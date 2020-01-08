@@ -1,0 +1,95 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
+
+.formElement {
+  background-color: transparent;
+  padding: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.formElement:focus {
+  outline: none;
+  border: none;
+}
+
+.formElement svg path {
+  fill: currentColor;
+}
+
+.searchInput {
+  width: calc(100% - 26px);
+  background-color: transparent !important;
+  border-width: 0 !important;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.searchInput:focus, .searchInput:visited, .searchInput:hover, .searchInput:focus-within {
+  outline: none;
+  border: 0;
+}
+
+.searchWrapper {
+  padding-left: 0;
+  padding-right: 20px;
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+}
+
+.searchWrapper a {
+  font-weight: 500;
+}
+
+.hitWrapper {
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  position: absolute;
+  max-width: 600px;
+  top: 40px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
+  height: auto;
+  max-height: 80vh;
+  overflow: scroll;
+  left: 0;
+}
+
+.showResults {
+  display: block;
+}
+
+.hideResults {
+  display: none;
+}
+
+.hitWrapper span {
+  color: #1D2D3A;
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .searchWrapper {
+    padding: 20px 0 10px;
+  }
+
+  .hitWrapper {
+    width: 100%;
+    right: 0;
+    top: 35px;
+    max-height: fit-content;
+    position: static;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hitWrapper {
+    max-width: 500px;
+  }
+
+  .searchWrapper {
+    padding-left: 0;
+  }
+}

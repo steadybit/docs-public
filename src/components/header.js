@@ -5,11 +5,10 @@
 import {graphql, StaticQuery} from 'gatsby';
 import React from 'react';
 import config from '../../config.js';
+import './header.css';
 import Link from './link';
-
 import Search from './search/index';
 import Sidebar from "./sidebar";
-import './styles.css';
 
 const isSearchEnabled = Boolean(config.header.search && config.header.search.enabled);
 

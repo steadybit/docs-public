@@ -1,13 +1,16 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 import algoliasearch from "algoliasearch/lite";
 import React, {createRef, useEffect, useState} from "react";
 import {Configure, connectStateResults, Hits, Index, InstantSearch,} from "react-instantsearch-dom";
-
 import styled, {css} from 'styled-components';
 import {Search} from "styled-icons/fa-solid/Search";
 import config from "../../../config.js";
-import '../styles.css';
 import * as hitComps from "./hitComps";
 import Input from "./input";
+import './search.css';
 import {PoweredBy} from "./styles";
 
 const SearchIcon = styled(Search)`

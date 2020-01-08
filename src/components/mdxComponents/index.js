@@ -1,3 +1,7 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 import React from "react";
 import Heading from "../heading";
 import AnchorTag from "./anchor";
@@ -6,7 +10,6 @@ import CodeBlock from "./codeBlock";
 import Pre from "./pre";
 import Text from "./text";
 
-/* eslint-disable react/display-name */
 export default {
   h1: props => <Heading id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} is="h1" fontSize={[5, 6]}/>,
   h2: props => <Heading id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} is="h2" fontSize={[4]}/>,
