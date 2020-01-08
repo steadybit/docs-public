@@ -2,14 +2,21 @@
 title: "Install Platform as Docker Container"
 navTitle: "Docker Container"
 ---
+chaosmesh is currently always installed as docker container. The platform container image is available in the chaosmesh Docker Registry.
+
+## Prerequisites
+
+At least a Docker installation and a PostgresSQL database is required to run the platform. The corresponding connection parameters for the database are passed to the installation script.
 
 ## Oneliner
 
-The platform container image is available in our private Docker Registry.
+For a quick setup you can use this Oneliner: 
 
 ```sh
-curl -sfL https://get.chaosmesh.io/platform.sh | sh -s -- -a <api-key> -d <jdbc-url> -u <jdbc-user> -p <jdbc-password>
+curl -sfL https://get.chaosmesh.io/platform.sh | sh -s -- -a <api-key> -d <jdbc-url> -e <jdbc-user> -f <jdbc-password> -p <ui-password>
 ```
+
+With this installation variant, only one user (admin) with administration rights is created. For use in production, we strongly recommend that you connect an internal LDAP or OIDC provider.
 
 ## Manual setup
 
@@ -19,10 +26,30 @@ First login to the chaosmesh Docker Registry:
 docker login -u=_ -p=<apikey> docker.chaosmesh.io
 ```
 
-Then run the chaosmesh Platform Docker Container with the following command.
-Please note that you might need to add additional env vars for the authentication using LDAP / OAuth2.
+Then run the chaosmesh Platform Docker Container with one of the following example commands.
+We always require two ports to be open: One for Http (80) and one for websocket connections (7878 - currently cannot be changed.)
 
-We require two ports to be open: One for Http (80) in the and one for websocket connections (7878 - currently cannot be changed.)
+### Static
+
+```sh
+docker run \
+  --detach \
+  --name chaosmesh-platform \
+  -p 80:8080 \
+  -p 7878:7878 \
+  --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
+  --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
+  --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
+  --env="CHAOSMESH_TENANT_NAME=<replace-with-tenant-name>" \
+  --env="CHAOSMESH_TENANT_KEY=<replace-with-tenant-key>" \
+  --env="CHAOSMESH_TENANT_APIKEY=<replace-with-api-key>" \
+  --env="CHAOSMESH_AUTH_PROVIDER=static" \
+  --env="CHAOSMESH_AUTH_STATIC_USERNAME=admin" \
+  --env="CHAOSMESH_AUTH_STATIC_PASSWORD={noop}admin" \
+  docker.chaosmesh.io/chaosmesh/platform:latest
+```
+
+### Embedded LDAP
 
 ```sh
 sudo docker run \
@@ -36,5 +63,58 @@ sudo docker run \
   --env="CHAOSMESH_TENANT_NAME=<replace-with-tenant-name>" \
   --env="CHAOSMESH_TENANT_KEY=<replace-with-tenant-key>" \
   --env="CHAOSMESH_TENANT_APIKEY=<replace-with-api-key>" \
+  --env="SPRING_LDAP_EMBEDDED_PORT=8389" \
+  --env="SPRING_LDAP_EMBEDDED_BASE_DN=dc=chaosmesh,dc=com" \
+  --env="CHAOSMESH_AUTH_PROVIDER=LDAP" \
+  --env="CHAOSMESH_AUTH_LDAP_URL=ldap://localhost:8389/dc=chaosmesh,dc=com" \
+  --env="CHAOSMESH_AUTH_LDAP_SYNC_ADMIN_GROUP_DN=cn=chaosmesh_admin,ou=groups,dc=chaosmesh,dc=com" \
+  --env="CHAOSMESH_AUTH_LDAP_SYNC_USER_GROUP_DN=cn=chaosmesh_user,ou=groups,dc=chaosmesh,dc=com" \
+  --env="CHAOSMESH_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER=ou=teams,ou=groups,dc=chaosmesh,dc=com" \
   docker.chaosmesh.io/chaosmesh/platform:latest
 ```
+
+### External LDAP
+
+```sh
+sudo docker run \
+  --detach \
+  -p "80:8080" \
+  -p "7878:7878" \
+  --name chaosmesh-platfom \
+  --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
+  --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
+  --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
+  --env="CHAOSMESH_TENANT_NAME=<replace-with-tenant-name>" \
+  --env="CHAOSMESH_TENANT_KEY=<replace-with-tenant-key>" \
+  --env="CHAOSMESH_TENANT_APIKEY=<replace-with-api-key>" \
+  --env="CHAOSMESH_AUTH_PROVIDER=LDAP" \
+  --env="CHAOSMESH_AUTH_LDAP_URL=<replace-with-ldap-url>" \
+  --env="CHAOSMESH_AUTH_LDAP_SYNC_ADMIN_GROUP_DN=<replace-with-admin-group-dn>" \
+  --env="CHAOSMESH_AUTH_LDAP_SYNC_USER_GROUP_DN=<replace-with-user-group-dn>" \
+  --env="CHAOSMESH_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER=<replace-with-team-search-filter>" \
+  docker.chaosmesh.io/chaosmesh/platform:latest
+```
+
+### OpenId Connect (OIDC)
+
+```sh
+sudo docker run \
+  --detach \
+  -p "80:8080" \
+  -p "7878:7878" \
+  --name chaosmesh-platfom \
+  --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
+  --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
+  --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
+  --env="CHAOSMESH_TENANT_NAME=<replace-with-tenant-name>" \
+  --env="CHAOSMESH_TENANT_KEY=<replace-with-tenant-key>" \
+  --env="CHAOSMESH_TENANT_APIKEY=<replace-with-api-key>" \
+  --env="CHAOSMESH_AUTH_PROVIDER=oauth2" \
+  --env="CHAOSMESH_AUTH_OAUTH2_ISSUER_URI=<replace-with-issuer-uri>" \
+  --env="CHAOSMESH_AUTH_OAUTH2_CLIENT_ID=<replace-with-client-id>" \
+  --env="CHAOSMESH_AUTH_OAUTH2_CLIENT_SECRET=<replace-with-client-secret>" \
+  --env="CHAOSMESH_AUTH_OAUTH2_USER_NAME_ATTRIBUTE=<replace-with-username-attribute>" \
+  docker.chaosmesh.io/chaosmesh/platform:latest
+```
+
+Please note that you might need to add additional env vars for the authentication using LDAP / OAuth2.
