@@ -17,7 +17,7 @@ html, body, input, textarea, button {
 html, body {
   font-size: 18px;
   line-height: 1.8;
-  color: #1D2D3A;
+  color: rgb(59, 69, 78);
 }
 
 * {
@@ -40,11 +40,6 @@ a:hover .headerTitle {
   opacity: 0.8;
 }
 
-.mainWrapper {
-  color: rgb(59, 69, 78);
-  max-width: 750px;
-}
-
 pre {
   background-color: #F6F7F8;
 }
@@ -63,7 +58,7 @@ pre {
 .titleWrapper {
   display: flex;
   align-items: center;
-  border-bottom: 0px solid rgb(230, 236, 241);
+  border-bottom: 0 solid rgb(230, 236, 241);
   margin-bottom: 32px;
 }
 
@@ -78,6 +73,7 @@ pre {
 
 table {
   padding: 0;
+  width: 100%;
 }
 
 table tr {
