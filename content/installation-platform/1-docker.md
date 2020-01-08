@@ -16,7 +16,7 @@ For a quick setup you can use this Oneliner:
 curl -sfL https://get.chaosmesh.io/platform.sh | sh -s -- -a <api-key> -d <jdbc-url> -e <jdbc-user> -f <jdbc-password> -p <ui-password>
 ```
 
-With this installation variant, only one user (admin) with administration rights is created. For use in production, we strongly recommend that you connect an internal LDAP or OIDC provider.
+With this installation variant, only one user (admin) with administration rights is created. For use in production, we strongly recommend that you connect an internal LDAP or OIDC provider as described below.
 
 ## Manual setup
 
