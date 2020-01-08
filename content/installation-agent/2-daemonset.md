@@ -1,5 +1,6 @@
 ---
 title: "Install on Kubernetes"
+navTitle: "Kubernetes"
 ---
 
 ### Daemonset
