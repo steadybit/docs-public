@@ -1,5 +1,6 @@
 ---
-title: "Advanced Configuration"
+title: "Advanced Agent Configuration"
+navTitle: "Advanced Configuration"
 ---
 
 | Name                                                | Description                                                   | Default                                  |

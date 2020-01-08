@@ -1,8 +1,9 @@
 ---
-title: "Advanced Configuration"
+title: "Advanced Platform Configuration"
+navTitle: "Advanced Configuration"
 ---
 
-### Database Configuration
+## Database Configuration
 
 Chaosmesh requires a PostgresSQL 11 database.
 
@@ -12,7 +13,7 @@ Chaosmesh requires a PostgresSQL 11 database.
 | `SPRING_DATASOURCE_USERNAME` | yes | Database Username <br/> **Example:** `postgres`
 | `SPRING_DATASOURCE_PASSWORD` | yes | Database Password <br/> **Example:** `postgres`
 
-### Tenant Configuration
+## Tenant Configuration
 
 | Environment Variable         | Required  | Description
 |------------------------------|-----------|------------
@@ -20,7 +21,7 @@ Chaosmesh requires a PostgresSQL 11 database.
 | `CHAOSMESH_TENANT_KEY`       | yes | Key for the tenant assigned to you  <br/> **Example:** `demo`
 | `CHAOSMESH_TENANT_API_KEY`   | yes | Api-Key for the tenant assigned to you. Treat it as sensitive information. <br/> **Example:** `abcdefghijklmn`
 
-### LDAP-Authentication
+## LDAP-Authentication
 
 You can use a LDAP Server for user authentication.
 
@@ -37,7 +38,7 @@ You can use a LDAP Server for user authentication.
 | `CHAOSMESH_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE`  |     | The attribute to use as Team name <br/> **Example:** `cn=chaosmesh_admin,ou=groups,dc=chaosmesh,dc=com`
 | `CHAOSMESH_AUTH_SYNC_CRON`                      |     | Cron Expression which defines the periods for the LDAP synchronization <br/> **Default:** `0 0 */2 ? * * *`
 
-### OpenID-Connect Authentication
+## OpenID-Connect Authentication
 
 You can use an OpenID Connect compatible authentication provider for user authentication.
 

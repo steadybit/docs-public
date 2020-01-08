@@ -9,27 +9,6 @@
   }
 }
 
-.sideBarUL {
-  margin-top: 32px;
-}
-
-.sideBarUL li {
-  list-style-type: none;
-  width: auto;
-}
-
-.sideBarUL li a {
-  color: #1D2D3A;
-  font-size: 22px;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 32px;
-  padding: 7px 25px 7px 10px;
-  border-style: solid none solid solid;
-  border-width: 1px 0 1px 1px;
-  border-color: transparent currentcolor transparent transparent;
-}
-
 .hideFrontLine .collapser {
   background: transparent;
   border: none;
@@ -53,7 +32,7 @@
 }
 
 .firstLevel ul .item ul .item {
-  border-left: 0px solid #8E969D;
+  border-left: 0 solid #8E969D;
 }
 
 .sideBar {
@@ -81,27 +60,49 @@
 
 @media only screen and (max-width: 1023px) {
   .sideBar {
-    width: 100%;
     height: 100vh;
   }
 }
 
+.sideBarUL {
+  margin-top: 32px;
+}
+
+.sideBarUL .item {
+  list-style-type: none;
+  width: auto;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.sideBarUL .item a {
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+}
+
 .sideBarUL .item .parent {
+  font-size: 22px;
+  line-height: 1.45;
   list-style: none;
-  padding: 0;
-  padding-bottom: 32px;
-  padding-left: 40px;
+  padding: 0 0 0 40px;
+  margin-bottom: 32px;
+}
+
+.sideBarUL .item .parent > a {
+  color: #1D2D3A;
+}
+
+.sideBarUL .item .parent > ul {
+  margin-top: 8px;
+}
+
+.sideBarUL .item .child {
+  font-size: 18px;
+  line-height: 1.33;
 }
 
 .sideBarUL .item .child > a {
-  text-decoration: none;
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  padding-right: 35px;
-  padding-left: 15px;
-  font-size: 18px;
-  line-height: 24px;
   color: #858B96;
 }
 

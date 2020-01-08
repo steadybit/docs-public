@@ -1,12 +1,13 @@
 ---
 title: "Designing Experiments"
+navTitle: "Design"
 ---
 
-### Name
+## Name
 In the create dialog you should first enter a **name** for the Experiment.
 The name can be edited after creation.
 
-### Team
+## Team
 Each experiment is associated with a team, in case you are member in more than one team you can change the team via the dropdown next to the name.
 This association cannot be changed after creation. This association deals multiple purposes:
 
@@ -15,19 +16,19 @@ This association cannot be changed after creation. This association deals multip
 2. **Run/Edit Permissions:** Only members of the associated team are permitted to edit or execute the experiment.
 3. **Attack/Target Restrictions:** The team settings determine which attacks and/or targets are eligible for the experiment
 
-### Hypothesis
+## Hypothesis
 You should write a hypothesis for your experiment describing the steady state, the actions/events and the expected behaviour.
 The hypothesis could read like this:
 _"When requests for the recommendation service exceeds 1000ms the catalog responds within 1000ms using an empty recommendation list."_
 
-### Attack
+## Attack
 Now you are ready to choose a suitable attack to match your hypothesis.
 The attacks are divided into the categories `Resource`, `State` and `Network`.
 Each attack is capable of attacking a specific target type (`Process`, `Container` or `Host`).
 Choose the attack with the desired effect and the matching target type for your experiment.
 After choosing you may provide additional parameters for the attack.
 
-### Blast Radius
+## Blast Radius
 Now you need to specifiy the blast radius of the experiment.
 The blast radius is narrowed down by choosing attributes.
 If the team is restricted to certain targets, the mandatory attributes will be shown.
@@ -45,7 +46,7 @@ When the experiment is due to be executed those attributes are resolved into a c
 
 In case the mandatory attributes for the team changes all new attributes will be added to the experiments when executing, but the removed ones will also be kept to not accidentally increase the blast radius.
 
-### Steady State Check
+## Steady State Check
 You may add an automated steady state check to the experiment.
 The check is executed before and during the experiment.
 If the check fails at any time the experiment is immediately stopped.

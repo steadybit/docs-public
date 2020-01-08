@@ -3,7 +3,7 @@ title: "Getting started"
 metaTitle: "chaosmesh documentation"
 metaDescription: "chaosmesh - Chaos Engineering Platform"
 ---
-### Welcome to chaosmesh
+## Welcome to chaosmesh
 Our chaosmesh platform that helps to proactively reduce downtime and provide visibility into systems to detect issues. We follow the principles of Chaos Engineering and help you to stay in control of your chaos experiments.
 
 To use chaosmesh, you can use our platform as Software as a Service (SaaS) or run it locally in your own infrastructure.

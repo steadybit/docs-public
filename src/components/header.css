@@ -14,13 +14,12 @@
   display: flex;
   align-items: center;
   z-index: 1;
-  padding: 32px;
-  padding-right: 12px;
+  padding: 32px 40px;
 }
 
 .box {
   display: table-cell;
-  min-width: 0px;
+  min-width: 0;
 }
 
 .boxGitter {

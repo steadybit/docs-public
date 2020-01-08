@@ -1,5 +1,6 @@
 ---
 title: "Scheduling Experiments"
+navTitle: "Schedule"
 ---
 
 It is advised to execute an experiment at least once successfully before automating.

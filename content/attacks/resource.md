@@ -1,7 +1,7 @@
 ---
-title: "Resource"
+title: "Resource Attacks"
+navTitle: "Resource"
 metaTitle: "Resource Attacks - chaosmesh Docs"
-
 metaDescription: "chaosmesh state attacks can cause turbulent conditions on the infrastructure and platform level"
 ---
 
@@ -11,9 +11,7 @@ You can find out how your application behaves when the machine it is running on 
 
 > All attacks can have a <b>Host</b> or a <b>Container</b> as their target, the configuration is the same.
 
----
-
-### Stress CPU
+## Stress CPU
 Generate CPU load for one or more cores
 
 | Parameter   |      Description      | Default |
@@ -22,8 +20,7 @@ Generate CPU load for one or more cores
 | CPU Load |  How much CPU should be consumed? | 80 |
 | Duration |  How long should CPU be consumed? | 30s |
 
----
-### Stress IO
+## Stress IO
 Generate read/write operation on hard disks.
 
 > If the Stress IO attack is executed on a host, the `stress-ng` tool is required.
@@ -33,8 +30,7 @@ Generate read/write operation on hard disks.
 | Duration |  How long should IO be consumed? | 30s |
 | Workers |  Note that this can cause systems to trip the kernel OOM killer on Linux systems if not enough physical memory and swap is not available | 1 |
 
----
-### Stress Memory
+## Stress Memory
 Allocate a specific amount of memory.
 
 > If Stress Memory attack is executed on a host, the `stress-ng` tool is required.

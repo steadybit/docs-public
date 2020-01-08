@@ -1,5 +1,6 @@
 ---
-title: "State"
+title: "State Attacks"
+navTitle: "State"
 metaTitle: "State Attacks - chaosmesh Docs"
 metaDescription: "chaosmesh state attacks can cause turbulent conditions on the infrastructure and platform level"
 ---
@@ -8,38 +9,28 @@ With the state attacks you can cause turbulent conditions on the infrastructure 
 
 The state attacks support Docker Containers, a Host or Processes. This information is determined by the Auto Discovery and processed and analyzed in the chaosmesh Platform.
 
----
-### Target - Container
-
-#### Pause
+## Pause Container
 Pauses one or more Docker Container for a certain time.
 
 | Parameter   |      Description      | Default |
 |----------|-------------|-------------|
 | Duration | How long should the container be paused? | 30s |
 
-#### Stop
+## Stop Container
 Terminates one or more Docker Containers.
 
 | Parameter   |      Description      | Default |
 |----------|-------------|-------------|
 | Graceful |  Should the container be stopped gracefully using the `SIGTERM` or immediately killed using the `SIGKILL` | true |
 
-
----
-### Target - Host
-#### Shutdown
+## Shutdown Host
 Perform a host reboot or shutdown.
 
 | Parameter   |      Description      | Default |
 |----------|-------------|-------------|
 | Reboot | Should the host reboot after shutting down? | true |
 
----
-### Target - Process
-Only processes on a host can currently be stopped.
-
-#### Stop
+## Stop Process
 Terminates the specified process, useful for simulating application or dependency crashes.
 
 | Parameter   |      Description      | Default |

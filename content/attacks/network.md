@@ -1,14 +1,13 @@
 ---
-title: "Network"
+title: "Network Attacks"
+navTitle: "Network"
 ---
 Find out how lost or delayed traffic affects your application with our network attacks. Test how your service behaves when it can't reach the required resources internally or externally. You can limit the effects by specifying host names, IP addresses or port numbers.
 
+> All attacks can have a **Host** or a **Container** as their target, the configuration is the same.
 
-> All attacks can have a <b>Host</b> or a <b>Container</b> as their target, the configuration is the same.
 
----
-
-### Delay Traffic
+## Delay Traffic
 Inject latency into all matching egress traffic.
 
 This attack can be adjusted using the following parameters and the effects can be limited.
@@ -22,8 +21,7 @@ This attack can be adjusted using the following parameters and the effects can b
 | Network Interface | Target Network Interface which should be attacked | eth0 |
 | Port Number | Restrict to which port number the traffic is delayed | |
 
----
-### Drop Traffic
+## Drop Traffic
 Drops all matching network traffic.
 
 This attack can be adjusted using the following parameters and the effects can be limited.
@@ -37,8 +35,7 @@ This attack can be adjusted using the following parameters and the effects can b
 | Network Interface | Target Network Interface which should be attacked | eth0 |
 | Port Number | Restrict to which port number the traffic is delayed | |
 
----
-### Limit Bandwith
+## Limit Bandwidth
 Limits bandwith for all matching network traffic.
 
 This attack can be adjusted using the following parameters and the effects can be limited.

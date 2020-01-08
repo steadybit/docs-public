@@ -5,8 +5,7 @@
 import Highlight, {defaultProps} from "prism-react-renderer";
 import prismTheme from "prism-react-renderer/themes/vsDark";
 import * as React from "react";
-import {LiveEditor, LiveError, LivePreview, LiveProvider} from "react-live";
-import Pre from "./pre";
+import '../styles.css';
 
 /** Removes the last token from a code example if it's empty. */
 function cleanTokens(tokens) {
@@ -21,26 +20,16 @@ function cleanTokens(tokens) {
   return tokens;
 }
 
-/* eslint-disable react/jsx-key */
-const CodeBlock = ({children: exampleCode, ...props}) => {
-  if (props["react-live"]) {
-    return (
-      <LiveProvider code={exampleCode}>
-        <LiveEditor/>
-        <LiveError/>
-        <LivePreview/>
-      </LiveProvider>
-    );
-  } else {
-    return (
-      <Highlight
-        {...defaultProps}
-        code={exampleCode}
-        language="javascript"
-        theme={prismTheme}
-      >
-        {({className, style, tokens, getLineProps, getTokenProps}) => (
-          <Pre className={className} style={style} p={3}>
+const CodeBlock = ({children: exampleCode}) => {
+  return (
+    <Highlight
+      {...defaultProps}
+      code={exampleCode}
+      language="javascript"
+      theme={prismTheme}
+    >
+      {({className, style, tokens, getLineProps, getTokenProps}) => (
+        <pre className={className + ' pre'} style={style}>
             {cleanTokens(tokens).map((line, i) => {
               let lineClass = {};
               let isDiff = false;
@@ -62,15 +51,15 @@ const CodeBlock = ({children: exampleCode, ...props}) => {
               const diffStyle = {'userSelect': 'none', 'MozUserSelect': '-moz-none', 'WebkitUserSelect': 'none'};
               let splitToken;
               return (
-                <div {...lineProps}>
+                <div {...lineProps} key={line + i}>
                   {line.map((token, key) => {
                     if (isDiff) {
-                      if ((key === 0 || key === 1) & (token.content.charAt(0) === '+' || token.content.charAt(0) === '-')) {
+                      if ((key === 0 || key === 1) && (token.content.charAt(0) === '+' || token.content.charAt(0) === '-')) {
                         if (token.content.length > 1) {
                           splitToken = {'types': ['template-string', 'string'], 'content': token.content.slice(1)};
                           const firstChar = {'types': ['operator'], 'content': token.content.charAt(0)};
                           return (
-                            <React.Fragment>
+                            <React.Fragment key={token + key}>
                               <span {...getTokenProps({token: firstChar, key})} style={diffStyle}/>
                               <span {...getTokenProps({token: splitToken, key})} />
                             </React.Fragment>
@@ -88,11 +77,10 @@ const CodeBlock = ({children: exampleCode, ...props}) => {
                 </div>
               );
             })}
-          </Pre>
-        )}
-      </Highlight>
-    );
-  }
+          </pre>
+      )}
+    </Highlight>
+  );
 };
 
 export default CodeBlock;

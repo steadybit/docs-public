@@ -1,14 +1,18 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 import React, {useState} from 'react';
 import config from '../../../config';
 import TreeNode from './treeNode';
 
 const calculateTreeData = edges => {
   const originalData = config.sidebar.ignoreIndex ? edges.filter(({node: {fields: {slug}}}) => slug !== '/') : edges;
-  const tree = originalData.reduce((accu, {node: {fields: {slug, title}}}) => {
+  const tree = originalData.reduce((accu, {node: {fields: {slug, title}, frontmatter: {navTitle}}}) => {
     const parts = slug.split('/');
     let {items: prevItems} = accu;
     for (const part of parts.slice(1, -1)) {
-      let tmp = prevItems.find(({label}) => label == part);
+      let tmp = prevItems.find(({label}) => label === part);
       if (tmp) {
         if (!tmp.items) {
           tmp.items = [];
@@ -22,25 +26,25 @@ const calculateTreeData = edges => {
     const existingItem = prevItems.find(({label}) => label === parts[parts.length - 1]);
     if (existingItem) {
       existingItem.url = slug;
-      existingItem.title = title;
+      existingItem.title = navTitle || title;
     } else {
       prevItems.push({
         label: parts[parts.length - 1],
         url: slug,
         items: [],
-        title
+        title: navTitle || title
       });
     }
     return accu;
   }, {items: []});
   const {sidebar: {forcedNavOrder = []}} = config;
-  const tmp = [...forcedNavOrder];
-  tmp.reverse();
-  return tmp.reduce((accu, slug) => {
+  const reversedNavOrder = [...forcedNavOrder];
+  reversedNavOrder.reverse();
+  return reversedNavOrder.reduce((accu, slug) => {
     const parts = slug.split('/');
     let {items: prevItems} = accu;
     for (const part of parts.slice(1, -1)) {
-      let tmp = prevItems.find(({label}) => label == part);
+      let tmp = prevItems.find(({label}) => label === part);
       if (tmp) {
         if (!tmp.items) {
           tmp.items = [];
@@ -70,21 +74,10 @@ const calculateTreeData = edges => {
 
 
 const Tree = ({edges}) => {
-  const [treeData] = useState(() => {
-    return calculateTreeData(edges);
-  });
-  const [collapsed, setCollapsed] = useState({});
-  const toggle = (url) => {
-    setCollapsed({
-      ...collapsed,
-      [url]: !collapsed[url],
-    });
-  };
+  const [treeData] = useState(() => calculateTreeData(edges));
   return (
     <TreeNode
       className={`${config.sidebar.frontLine ? 'showFrontLine' : 'hideFrontLine'} firstLevel`}
-      setCollapsed={toggle}
-      collapsed={collapsed}
       {...treeData}
     />
   );

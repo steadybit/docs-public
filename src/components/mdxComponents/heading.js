@@ -1,3 +1,7 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 import system from "@rebass/components/emotion";
 
 const Heading = system(

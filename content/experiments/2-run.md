@@ -1,8 +1,9 @@
 ---
 title: "Running Experiments"
+navTitle: "Run"
 ---
 
-### Run
+## Run
 Every member is permitted to run the experiments belonging to the team.
 If you hit the `Run` button the experiment is immediately started when the following conditions are met:
 
@@ -26,13 +27,13 @@ If all conditions are met the experiment is started and goes through the followi
 If an agent looses the connection to the platform during an experiment, it will immediately stop and rollback running attacks.
 There are some attacks (like `Stop Container`) which can't be rolled back due to it's nature.
 
-### Reports
+## Reports
 
 Each execution is recorded and the results can be viewed in the `Reports` section.
 In the detailed view for the execution you can document any **findings** you made by the experiment.
 You can also indicate if any additional action is required to mitigate the incident in the future.
 
-### Canceling/Preventing Experiments
+## Canceling/Preventing Experiments
 
 In the case the running experiment causes unforeseen severe errors any authenticated user can stop any running experiment by clicking the stop button.
 

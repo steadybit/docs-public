@@ -15,7 +15,7 @@ html, body, input, textarea, button {
 }
 
 html, body {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.8;
   color: rgb(59, 69, 78);
 }
@@ -40,35 +40,72 @@ a:hover .headerTitle {
   opacity: 0.8;
 }
 
-pre {
-  background-color: #F6F7F8;
+
+.heading1 {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.33;
+  margin: 40px 0 16px;
+}
+
+.heading1 + .heading1,
+.heading1:first-child {
+  margin-top: 16px;
+}
+
+.heading2 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.45;
+  margin: 40px 0 16px;
+}
+
+.heading1 + .heading2,
+.heading2:first-child {
+  margin-top: 16px;
+}
+
+.heading3 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.33;
+  margin: 40px 0 16px;
+}
+
+.heading2 + .heading3,
+.heading3:first-child {
+  margin-top: 16px;
+}
+
+.heading4 {
+  margin: 16px 0;
+}
+
+.heading5 {
+  margin: 16px 0;
+}
+
+.heading6 {
+  margin: 16px 0;
+}
+
+.paragraph {
+  margin: 16px 0 24px;
+}
+
+blockquote .paragraph {
+  margin: 0;
+}
+
+.pre {
+  margin: 0;
+  padding: 16px;
+  overflow: auto;
 }
 
 .mainWrapper ul, .mainWrapper ol {
   margin: 24px 0;
   padding: 0 0 0 40px;
-}
-
-.mainWrapper ul li, .mainWrapper ol li {
-  font-size: 16px;
-  line-height: 1.8;
-  font-weight: 400;
-}
-
-.titleWrapper {
-  display: flex;
-  align-items: center;
-  border-bottom: 0 solid rgb(230, 236, 241);
-  margin-bottom: 32px;
-}
-
-.title {
-  font-size: 32px;
-  line-height: 1.5;
-  font-weight: 500;
-  padding: 0;
-  flex: 1;
-  margin-top: 0;
 }
 
 table {
@@ -114,11 +151,6 @@ img {
   hr {
     margin-top: 0;
     margin-bottom: 0;
-  }
-
-  .titleWrapper {
-    padding: 0 15px;
-    display: block;
   }
 
   .mainWrapper {
