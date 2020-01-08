@@ -1,141 +1,116 @@
 /*
  * Copyright 2020 chaosmesh GmbH. All rights reserved.
  */
-
-@media only screen and (max-width: 50rem) {
-  .sideBar {
-    width: 100%;
-    position: relative;
-  }
-}
-
-.hideFrontLine .collapser {
-  background: transparent;
-  border: none;
-  outline: none;
-  margin-top: 7px;
-  position: absolute;
-  right: 20px;
-  z-index: 1;
-}
-
-.hideFrontLine .active > a {
-  color: #ED220B !important;
-}
-
-.firstLevel ul li .collapser svg path {
-  fill: currentColor !important;
-}
-
-.active .collapser > svg > path {
-  fill: #2A81A6 !important;
-}
-
-.firstLevel ul .item ul .item {
-  border-left: 0 solid #8E969D;
-}
-
-.sideBar {
-  width: 100%;
-  height: 100vh;
-  overflow: auto;
+.sidebar {
   padding-left: 0;
-  position: sticky;
-  top: 0;
   padding-right: 0;
-  background-color: #fff;
+  display: block;
+  white-space: nowrap;
 }
 
-@media only screen and (max-width: 767px) {
-  .sideBar {
-    padding-left: 0;
+.sidebar__brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 0;
+}
+
+@media (min-width: 767px) {
+  .sidebar__brand {
+    margin: 32px 40px;
   }
 }
 
-@media (min-width: 767px) and (max-width: 1023px) {
-  .sideBar {
-    padding-left: 0;
+.sidebar__brand div {
+  display: inline-block;
+  color: #858B96;
+  border-left: 1px solid #858B96;
+  margin-left: 12px;
+  padding-left: 12px;
+}
+
+.sidebar__brand img {
+  height: 32px;
+}
+
+@media (min-width: 767px) {
+  .sidebar {
+    width: 344px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
   }
 }
 
-@media only screen and (max-width: 1023px) {
-  .sideBar {
-    height: 100vh;
+.table-of-contents {
+  display: none;
+  margin: 40px 40px;
+  border-bottom: 1px solid #858B96;
+}
+
+.table-of-contents.show {
+  display: block;
+}
+
+.table-of-contents__toggle {
+  border: 1px solid #858B96;
+  height: 44px;
+  margin-left: 8px;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+@media (min-width: 767px) {
+  .table-of-contents {
+    display: block;
+    border-bottom: none;
+  }
+  .table-of-contents__toggle {
+    display: none;
   }
 }
 
-.sideBarUL {
-  margin-top: 32px;
-}
-
-.sideBarUL .item {
+.table-of-contents .item {
   list-style-type: none;
   width: auto;
   margin-bottom: 8px;
   white-space: nowrap;
 }
 
-.sideBarUL .item a {
+.table-of-contents .item > a {
   text-decoration: none;
   display: inline-block;
   width: 100%;
 }
 
-.sideBarUL .item .parent {
+.table-of-contents .item.active > a,
+.table-of-contents .item > a:hover {
+  color: #ED220B !important;
+}
+
+.table-of-contents .item .parent {
   font-size: 22px;
   line-height: 1.45;
   list-style: none;
-  padding: 0 0 0 40px;
   margin-bottom: 32px;
 }
 
-.sideBarUL .item .parent > a {
+.table-of-contents .item .parent > a {
   color: #1D2D3A;
 }
 
-.sideBarUL .item .parent > ul {
+.table-of-contents .item .parent > ul {
   margin-top: 8px;
 }
 
-.sideBarUL .item .child {
+.table-of-contents .item .child {
   font-size: 18px;
   line-height: 1.33;
-}
-
-.sideBarUL .item .child > a {
-  color: #858B96;
-}
-
-.sideBarUL .item > a:hover {
-  color: #ED220B;
-}
-
-.showFrontLine .item > a:hover {
-  color: #ED220B;
-}
-
-.showFrontLine .active > a {
-  color: #ED220B;
-}
-
-.sideBarUL .item .item {
   margin-left: 16px;
 }
 
-.firstLevel > ul > .item {
-  margin-left: 0 !important;
-}
-
-.showFrontLine .item .item {
-  border-left: 1px solid #e6ecf1;
-  border-left-color: rgb(230, 236, 241);
-  padding: 0;
-  width: calc(100% - 16px) !important;
-}
-
-.showFrontLine .item .active > a {
-  border-color: rgb(230, 236, 241) !important;
-  border-style: solid none solid solid;
-  border-width: 1px 0 1px 1px;
-  color: #ED220B;
+.table-of-contents .item .child > a {
+  color: #858B96;
 }

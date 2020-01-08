@@ -1,3 +1,7 @@
+/*
+ * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ */
+
 const config = {
   "gatsby": {
     "pathPrefix": "",
@@ -5,12 +9,6 @@ const config = {
     "gaTrackingId": "UA-145692204-1"
   },
   "header": {
-    "logo": "",
-    "logoLink": "https://chaosmesh.com",
-    "title": "",
-    "links": [
-      {"text": "", "link": ""}
-    ],
     "search": {
       "enabled": false,
       "indexName": "",
@@ -26,9 +24,7 @@ const config = {
   },
   "siteMetadata": {
     "title": "chaosmesh Documentation",
-    "description": "chaosmesh Chaos Engineering Platform Documentation",
-    "ogImage": null,
-    "favicon": null
+    "description": "chaosmesh Chaos Engineering Platform Documentation"
   },
 };
 

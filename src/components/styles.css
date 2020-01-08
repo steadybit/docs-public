@@ -15,7 +15,7 @@ html, body, input, textarea, button {
 }
 
 html, body {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.8;
   color: rgb(59, 69, 78);
 }
@@ -39,7 +39,6 @@ a:hover .headerTitle {
   text-decoration: none;
   opacity: 0.8;
 }
-
 
 .heading1 {
   font-size: 36px;
@@ -109,30 +108,26 @@ blockquote .paragraph {
 }
 
 table {
-  padding: 0;
   width: 100%;
+  font-size: 18px;
+  line-height: 1.45;
+  table-layout: fixed;
+  max-width: max-content;
+  display: block;
 }
 
-table tr {
+table tr th,
+table tr td {
   border-top: 1px solid #F1F2F4;
-  background-color: white;
+  border-bottom: 1px solid #F1F2F4;
+  text-align: left;
   margin: 0;
-  padding: 0;
+  padding: 6px 12px;
 }
 
 table tr th {
-  font-weight: bold;
-  border: 1px solid #F1F2F4;
-  text-align: left;
-  margin: 0;
-  padding: 6px 13px;
-}
-
-table tr td {
-  border: 1px solid #F1F2F4;
-  text-align: left;
-  margin: 0;
-  padding: 6px 13px;
+  border-top: none;
+  font-weight: 600;
 }
 
 table tr th :first-child, table tr td :first-child {

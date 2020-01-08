@@ -76,10 +76,7 @@ const calculateTreeData = edges => {
 const Tree = ({edges}) => {
   const [treeData] = useState(() => calculateTreeData(edges));
   return (
-    <TreeNode
-      className={`${config.sidebar.frontLine ? 'showFrontLine' : 'hideFrontLine'} firstLevel`}
-      {...treeData}
-    />
+    <TreeNode {...treeData} />
   );
 };
 
