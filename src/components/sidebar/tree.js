@@ -74,10 +74,8 @@ const calculateTreeData = edges => {
 
 
 const Tree = ({edges}) => {
-  const [treeData] = useState(() => calculateTreeData(edges));
-  return (
-    <TreeNode {...treeData} />
-  );
+  const [rootNode] = useState(() => calculateTreeData(edges));
+  return rootNode.items.map(item => <TreeNode key={item.url} {...item} />);
 };
 
 export default Tree;

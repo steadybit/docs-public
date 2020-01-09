@@ -10,11 +10,9 @@ const TreeNode = ({className = '', url, title, items}) => {
   const hasChildren = items.length !== 0;
   const location = typeof document !== 'undefined' ? document.location : undefined;
   const active = location && (location.pathname === url || location.pathname === (config.gatsby.pathPrefix + url));
-  const calculatedClassName = `${className} item ${active ? 'active' : ''} ${hasChildren ? 'parent' : 'child'}`;
+  const calculatedClassName = `${className} item ${active ? 'active' : ''}`;
   return (
-    <li
-      className={calculatedClassName}
-    >
+    <li className={calculatedClassName}>
       {title ? (<Link to={url}>{title}</Link>) : null}
       {hasChildren ? (
         <ul>

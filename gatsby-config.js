@@ -38,9 +38,7 @@ const plugins = [
             sizeByPixelDensity: true
           }
         },
-        {
-          resolve: 'gatsby-remark-copy-linked-files'
-        }
+        'gatsby-remark-copy-linked-files',
       ],
       extensions: [".mdx", ".md"]
     }

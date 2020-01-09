@@ -90,27 +90,27 @@
   color: #ED220B !important;
 }
 
-.table-of-contents .item .parent {
+.table-of-contents > .item {
   font-size: 22px;
   line-height: 1.45;
   list-style: none;
   margin-bottom: 32px;
 }
 
-.table-of-contents .item .parent > a {
+.table-of-contents > .item > a {
   color: #1D2D3A;
 }
 
-.table-of-contents .item .parent > ul {
+.table-of-contents > .item > ul {
   margin-top: 8px;
 }
 
-.table-of-contents .item .child {
+.table-of-contents > .item .item {
   font-size: 18px;
   line-height: 1.33;
   margin-left: 16px;
 }
 
-.table-of-contents .item .child > a {
+.table-of-contents > .item .item > a {
   color: #858B96;
 }
