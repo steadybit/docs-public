@@ -21,6 +21,17 @@ Chaosmesh requires a PostgresSQL 11 database.
 | `CHAOSMESH_TENANT_KEY`       | yes | Key for the tenant assigned to you  <br/> **Example:** `demo`
 | `CHAOSMESH_TENANT_API_KEY`   | yes | Api-Key for the tenant assigned to you. Treat it as sensitive information. <br/> **Example:** `abcdefghijklmn`
 
+## Static-Authentication
+
+You can use a static username/password to authenticate as an admin user
+
+| Environment Variable                            | Required  | Description
+|-------------------------------------------------|-----------|------------
+| `CHAOSMESH_AUTH_PROVIDER`                       | yes | Use `STATIC` for static authentication <br/> **Example:** `LDAP`
+| `CHAOSMESH_AUTH_STATIC_USERNAME`                | yes | Username <br/> **Example:** `admin`
+| `CHAOSMESH_AUTH_STATIC_PASSWORD`                | yes | Password <br/> **Example:** `{noop}admin`
+
+
 ## LDAP-Authentication
 
 You can use a LDAP Server for user authentication.
