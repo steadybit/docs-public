@@ -11,6 +11,7 @@ The chaosmesh agents periodically sends discovery data to the platform using htt
 If there is an experiment to be executed for the agent, the agent connects via a websocket to the platform and receives the attacks to be executed.
 In case this connection is interrupted the agents immediately stops and rollbacks any active attack.
 
-The agents are self updating, by default the agent queries our repository every 6h for updates and will install the updates immediately.
+The agents are self updating.
+By default the agent queries our repository every 6h for updates and will install the updates immediately.
 
 

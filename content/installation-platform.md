@@ -1,5 +1,6 @@
 ---
 title: "Platform Installation"
+metaTitle: "Platform Installation - chaosmesh Docs"
 ---
 
 * [Docker](installation-platform/1-docker)

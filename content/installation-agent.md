@@ -1,5 +1,6 @@
 ---
 title: "Agent Installation"
+metaTitle: "Agent Installation - chaosmesh Docs"
 ---
 
 Please choose one of the following deployment options:
