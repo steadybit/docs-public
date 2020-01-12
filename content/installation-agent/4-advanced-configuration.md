@@ -14,6 +14,7 @@ navTitle: "Advanced Configuration"
 | -b                | `CHAOSMESH_DOWNLOAD_USER`                           | The User to authenticate with the feature repository <br/> **Default:** `_`
 | -c                | `CHAOSMESH_DOWNLOAD_PASSWORD`                       | The Password to authenticate with the feature repository <br/> **Default:** CHAOSMESH_AGENT_API_KEY
 | -l                | `CHAOSMESH_LOG_LEVEL`                               | Sets the loglevel for the com.chaosmesh logger <br/> **Default:** `INFO`
+|                   | `CHAOSMESH_ROOT_LOG_LEVEL`                          | Sets the loglevel for the root logger <br/> **Default:** `ERROR`
 |                   | `CHAOSMESH_LOG_CONSOLE`                             | Sets the loglevel threshold for the console logger <br/> **Default:** `ALL`
 |                   | `CHAOSMESH_AGENT_REGISTER_TIMEOUT`                  | Timeout for the registration request. <br/> **Default:** `5s`
 |                   | `CHAOSMESH_AGENT_REGISTER_INTERVAL`                 | The interval how often the agent registers at the platform. <br/> **Default:** `5s`
