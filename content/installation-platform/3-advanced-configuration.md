@@ -12,6 +12,7 @@ Chaosmesh requires a PostgresSQL 11 database.
 | `SPRING_DATASOURCE_URL`      | yes | JDBC Url for the database connection <br/> **Example:** `jdbc:postgresql://postgres:5432/chaosmeshdb`
 | `SPRING_DATASOURCE_USERNAME` | yes | Database Username <br/> **Example:** `postgres`
 | `SPRING_DATASOURCE_PASSWORD` | yes | Database Password <br/> **Example:** `postgres`
+| `CHAOSMESH_DB_WEB_ENABLED`   |     | Enable Http Endpoint for Database export <br/> **Default:** `true`
 
 ## Tenant Configuration
 

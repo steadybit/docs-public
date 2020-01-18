@@ -12,6 +12,7 @@ See the table for the permissions:
 | Create Team            |   <1>   |            |             |                        |
 | Delete Team            |   <1>   |    <1>     |             |                        |
 | Manage Team Members    |   <1>   |    <1>     |             |                        |
+| Manage Access Tokens   |    x    |     x      |             |                        |
 | Edit Team Restrictions |    x    |     x      |             |                        |
 | Create Experiment      |         |     x      |       x     |                        |
 | Edit Experiment        |         |     x      |       x     |                        |
@@ -22,5 +23,7 @@ See the table for the permissions:
 | View Experiment        |         |            |             |            x           |
 | Stop all Attacks       |         |            |             |            x           |
 | Resume all Attacks     |         |            |             |            x           |
+| Database Export        |  <2>    |            |             |                        |
 
 <1> unless synced via LDAP
+<2> unless disabled via configuration
