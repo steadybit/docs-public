@@ -27,7 +27,7 @@ metadata:
   namespace: chaosmesh-agent
 type: Opaque
 data:
-  key: # echo -n <replace-with-api-key> | base64
+  key: <echo -n <replace-with-api-key> | base64> 
 ---
 apiVersion: v1
 kind: Secret
@@ -35,7 +35,7 @@ metadata:
   name: regcredinternal
   namespace: chaosmesh-agent
 data:
-  .dockerconfigjson: # echo -n '{"auths":{"docker.chaosmesh.io":{"username":"_","password":"<replace-with-api-key>","auth":"#echo -n _:<replace-with-api-key> | base64"}}}' |base64
+  .dockerconfigjson: <echo -n '{"auths":{"docker.chaosmesh.io":{"username":"_","password":"<replace-with-api-key>","auth":"#echo -n _:<replace-with-api-key> | base64"}}}' | base64>
 type: kubernetes.io/dockerconfigjson
 ---
 apiVersion: apps/v1
