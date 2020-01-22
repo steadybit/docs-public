@@ -36,11 +36,15 @@ You can use a static username/password to authenticate as an admin user
 ## LDAP-Authentication
 
 You can use a LDAP Server for user authentication.
+By default the ldap is accessed anonymously, unless `CHAOSMESH_AUTH_LDAP_MANAGER_DN` and `CHAOSMESH_AUTH_LDAP_MANAGER_PASSWORD` is set.
+The users are authenticated by doing a bind with their credentials, unless `CHAOSMESH_AUTH_LDAP_METHOD` is set to `password-compare`.
 
 | Environment Variable                            | Required  | Description
 |-------------------------------------------------|-----------|------------
 | `CHAOSMESH_AUTH_PROVIDER`                       | yes | Use `LDAP` for LDAP-Authentication <br/> **Example:** `LDAP`
 | `CHAOSMESH_AUTH_LDAP_URL`                       | yes | LDAP-Server URL <br/> **Example:** `ldap://openldap:389/dc=chaosmesh,dc=com`
+| `CHAOSMESH_AUTH_LDAP_MANAGER_DN`                |     | Username (DN) of the "manager" user identity is used to authenticate to a LDAP server. If omitted anonymous access will be used. **Example:** `uid=admin,ou=system`
+| `CHAOSMESH_AUTH_LDAP_MANAGER_PASSWORD`          |     | The password for the manager DN. This is required if the manager-dn is specified.
 | `CHAOSMESH_AUTH_LDAP_USER_DN_PATTERNS`          |     | The search pattern to find the usernames <br/> **Default:** `uid={0},ou=people`
 | `CHAOSMESH_AUTH_LDAP_METHOD            `        |     | The method to authenticate the user. Either `bind` or `password-compare`. <br/> **Default:** `bind`
 | `CHAOSMESH_AUTH_LDAP_PASSWORD_ATTRIBUTE`        |     | The attribute in the directory which contains the user password, used if using `password-compare` <br/> **Default:** `userPassword`
