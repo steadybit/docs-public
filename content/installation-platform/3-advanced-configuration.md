@@ -36,6 +36,7 @@ You can use a static username/password to authenticate as an admin user
 ## LDAP-Authentication
 
 You can use a LDAP Server for user authentication.
+
 By default the ldap is accessed anonymously, unless `CHAOSMESH_AUTH_LDAP_MANAGER_DN` and `CHAOSMESH_AUTH_LDAP_MANAGER_PASSWORD` is set.
 The users are authenticated by doing a bind with their credentials, unless `CHAOSMESH_AUTH_LDAP_METHOD` is set to `password-compare`.
 
@@ -68,3 +69,15 @@ By default every user is assigned the `user` role, for a user to become `admin`,
 | `CHAOSMESH_AUTH_OAUTH2_CLIENT_ID`               | yes | The client ID to use for the OIDC registration <br/> **Example:** `chaosmesh`
 | `CHAOSMESH_AUTH_OAUTH2_CLIENT_SECRET`           | yes | The client secret to use for the OIDC registration <br/> **Example:** `ijhdfpjdf80wiphubfqwd113342r`
 | `CHAOSMESH_AUTH_OAUTH2_USER_NAME_ATTRIBUTE`     |     | Name of the attribute that will be used as name for the user <br/> **Default:** `name`
+
+## Using SSL/TLS Encryption
+
+SSL can be configured by setting the various `SERVER_SSL_*` properties and requires a java keystore (typically PKCS12).
+
+| Environment Variable                         | Required  | Description
+|----------------------------------------------|-----------|------------
+| `SERVER_SSL_KEY_STORE`                       |     | Path to the key store that holds the SSL certificate (typically a `.jks` or `.p12` file). <br/> **Example:** `file:/keystores/chaosmesh.p12`
+| `SERVER_SSL_KEY_STORE_TYPE`                  |     | Type of the keystore  <br/> **Example:** `PKCS12`
+| `SERVER_SSL_KEY_STORE_PASSWORD`              |     | Password used to access the key store
+| `SERVER_SSL_KEY_ALIAS`                       |     | Alias that identifies the key in the keystore to be used
+| `SERVER_SSL_KEY_PASSWORD`                    |     | Password used to access the key in the key store.
