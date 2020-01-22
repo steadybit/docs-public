@@ -42,7 +42,8 @@ You can use a LDAP Server for user authentication.
 | `CHAOSMESH_AUTH_PROVIDER`                       | yes | Use `LDAP` for LDAP-Authentication <br/> **Example:** `LDAP`
 | `CHAOSMESH_AUTH_LDAP_URL`                       | yes | LDAP-Server URL <br/> **Example:** `ldap://openldap:389/dc=chaosmesh,dc=com`
 | `CHAOSMESH_AUTH_LDAP_USER_DN_PATTERNS`          |     | The search pattern to find the usernames <br/> **Default:** `uid={0},ou=people`
-| `CHAOSMESH_AUTH_LDAP_PASSWORD_ATTRIBUTE`        |     | The attribute in the directory which contains the user password <br/> **Default:** `userPassword`
+| `CHAOSMESH_AUTH_LDAP_METHOD            `        |     | The method to authenticate the user. Either `bind` or `password-compare`. <br/> **Default:** `bind`
+| `CHAOSMESH_AUTH_LDAP_PASSWORD_ATTRIBUTE`        |     | The attribute in the directory which contains the user password, used if using `password-compare` <br/> **Default:** `userPassword`
 | `CHAOSMESH_AUTH_SYNC_ADMIN_GROUP_DN`            | yes | The DN for the groupOfNames/groupOfUniqueNames for the `Admin` users <br/> **Example:** `cn=chaosmesh_admin,ou=groups,dc=chaosmesh,dc=com`
 | `CHAOSMESH_AUTH_SYNC_USER_GROUP_DN`             | yes | The DN for the groupOfNames/groupOfUniqueNames for the `User` users <br/> **Example:** `cn=chaosmesh_user,ou=groups,dc=chaosmesh,dc=com`
 | `CHAOSMESH_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER`   |     | The filter for the groupOfNames/groupOfUniqueNames for the teams <br/> **Example:** `ou=teams,ou=groups,dc=chaosmesh,dc=com`
