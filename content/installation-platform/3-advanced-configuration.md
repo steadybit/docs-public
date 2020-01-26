@@ -21,6 +21,7 @@ Chaosmesh requires a PostgresSQL 11 database.
 | `CHAOSMESH_TENANT_NAME`      | yes | Name for the tenant assigned to you <br/> **Example:** `Demo Org`
 | `CHAOSMESH_TENANT_KEY`       | yes | Key for the tenant assigned to you  <br/> **Example:** `demo`
 | `CHAOSMESH_TENANT_API_KEY`   | yes | Api-Key for the tenant assigned to you. Treat it as sensitive information. <br/> **Example:** `abcdefghijklmn`
+| `CHAOSMESH_WEB_PUBLIC_URL`   |     | URL to point to your chaosmesh installation. Used for links in notifications.
 
 ## Static-Authentication
 
