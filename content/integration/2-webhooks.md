@@ -8,6 +8,10 @@ You can use Webhooks to recieve notifications via Slack or to integrate with you
 
 ## Slack Notifications
 
+You can use this Webhook to receive Slack/Rocket Chat messages, whenever a experiment is executed or experimenting is stopped/continued.
+
+> If you use an on-prem installation make sure to set the `CHAOSMESH_WEB_PUBLIC_URL`, so we can add links to open chaosmesh via links in the message.
+
 | | |
 |--------------|-------|
 | **Name**     | The name for this integration will not show up in the message. |
