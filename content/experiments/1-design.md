@@ -11,10 +11,10 @@ The name can be edited after creation.
 Each experiment is associated with a team, in case you are member in more than one team you can change the team via the dropdown next to the name.
 This association cannot be changed after creation. This association deals multiple purposes:
 
-1. **Short Handle:** After creation the experiment design is assigned a unqiue key with the team prefix (e.g. `SRE-23`).
+1. **Short Handle:** After creation the experiment design is assigned a unique key with the team prefix (e.g. `SRE-23`).
    This short handle can be easily recognized by the user and is a good way to reference experiments in your communication.
 2. **Run/Edit Permissions:** Only members of the associated team are permitted to edit or execute the experiment.
-3. **Attack/Target Restrictions:** The team settings determine which attacks and/or targets are eligible for the experiment
+3. **Attack/Target Restrictions:** The team settings determine which attacks and/or targets are eligible for the experiment.
 
 ## Hypothesis
 You should write a hypothesis for your experiment describing the steady state, the actions/events and the expected behaviour.
@@ -32,8 +32,8 @@ After choosing you may provide additional parameters for the attack.
 Now you need to specifiy the blast radius of the experiment.
 The blast radius is narrowed down by choosing attributes.
 If the team is restricted to certain targets, the mandatory attributes will be shown.
-You can filter down the the list with the available attributes using the search field.
-Selecting an attribute is done by clicking on it, deselecting by clicking on the attribute in the list on the right hand side.
+You can filter down the list with the available attributes using the search field.
+An attribute is selected by clicking on it, deselecting by clicking on the attribute in the list on the right hand side.
 
 After selecting the attributes you must limit the selected targets to a fixed number or percentage.
 This is mandatory to not accidentally attack all instances. 100% is a valid value - but you need to be explicit about that.
@@ -52,5 +52,5 @@ The check is executed before and during the experiment.
 If the check fails at any time the experiment is immediately stopped.
 
 Currently only a simple http check is supported.
-The check issues a http `GET` request on the specified URL and asserts the returned status to be successful.
+The check issues an http `GET` request on the specified URL and asserts the returned status to be successful.
 The URL must be reachable from the platform server.

@@ -16,7 +16,7 @@ Selecting target restrictions works the same way as defining a blast radius.
 You can think of it as a maximum blast radius this team can attack.
 The restrictions can be edited after creation by admins or team owners.
 
-If restrictions for teams with existing experiments are removed, the blast radius of the experiments are not widened.
+If restrictions for teams with existing experiments are removed, the blast radius of the experiments is not widened.
 If you add restrictions to teams with existing experiments, the new restrictions will be applied to the experiments.
 
 ## Managing Team Members

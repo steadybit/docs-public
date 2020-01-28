@@ -5,8 +5,8 @@ navTitle: "Host"
 
 ## Host Targets
 
-Each agent contributes the host it's running on as target.
-For each host the following attributes are provided:
+Each host on which an agent is running is reported as target.
+Following attributes are provided for host targets:
  * Hostname
  * Domainname
  * OS Family

@@ -10,6 +10,6 @@ You can either choose to execute the experiment just one time using the `Start A
 
 If a scheduled experiment fails to meet the preconditions any execution is recorded with the failure reason.
 
-If an experiment is due to be executing while experimenting is disabled, it will fail.
+If an experiment is due to be executed while experimenting is disabled, it will fail.
 The run will not be caught up after experimenting is continued, it will be executed the next time it is due (only when using a cron expression).
 
