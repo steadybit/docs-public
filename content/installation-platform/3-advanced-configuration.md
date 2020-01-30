@@ -77,6 +77,7 @@ SSL can be configured by setting the various `SERVER_SSL_*` properties and requi
 
 | Environment Variable                         | Required  | Description
 |----------------------------------------------|-----------|------------
+| `SERVER_PORT`                                |     | Port to use <br/> **Default:** `8080`
 | `SERVER_SSL_KEY_STORE`                       |     | Path to the key store that holds the SSL certificate (typically a `.jks` or `.p12` file). <br/> **Example:** `file:/keystores/chaosmesh.p12`
 | `SERVER_SSL_KEY_STORE_TYPE`                  |     | Type of the keystore  <br/> **Example:** `PKCS12`
 | `SERVER_SSL_KEY_STORE_PASSWORD`              |     | Password used to access the key store
