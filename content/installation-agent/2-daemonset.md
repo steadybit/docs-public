@@ -8,7 +8,7 @@ navTitle: "Kubernetes"
 To install and configure chaosmesh within Kubernetes as a DaemonSet you need to define the DaemonSet YAML file.
 Below you will see an example of a YAML file to run the chaosmesh agent. Please replace the string 'replace-with-api-key' with your specific API-Key and run the shown commands to encode the key correctly.
 
-```bash
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
