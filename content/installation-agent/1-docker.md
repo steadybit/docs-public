@@ -8,13 +8,13 @@ navTitle: "Docker Container"
 To use chaosmesh with the SaaS platform you only need a docker installation on the host where the attacks will be executed.
 In a future release we will provide more installation options.
 
-## Oneliner 
+## Oneliner
 
 The agent container image is available in the chaosmesh Docker Registry.
 Please note that the container needs to run in a privileged mode, allowing it to discover and attack your Infratructure.
 And check before installation whether the platform is accessible via the corresponding ports (443 and 7878).
 
-```sh
+```bash
 curl -sfL https://get.chaosmesh.io/agent.sh | sh -s -- -a <api-key> -e <platform-url>
 ```
 
@@ -22,13 +22,13 @@ curl -sfL https://get.chaosmesh.io/agent.sh | sh -s -- -a <api-key> -e <platform
 
 First login to the chaosmesh Docker Registry:
 
-```sh
+```bash
 docker login -u=_ -p=<apikey> docker.chaosmesh.io
 ```
 
 Then run the chaosmesh Agent Container:
 
-```sh
+```bash
 sudo docker run \
   --detach \
   --name chaosmesh-agent \

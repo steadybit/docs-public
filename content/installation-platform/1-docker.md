@@ -12,7 +12,7 @@ At least a Docker installation and a PostgresSQL database is required to run the
 
 For a quick setup you can use this Oneliner:
 
-```sh
+```bash
 curl -sfL https://get.chaosmesh.io/platform.sh | sh -s -- -a <api-key> -d <jdbc-url> -e <jdbc-user> -f <jdbc-password> -p <ui-password>
 ```
 
@@ -22,7 +22,7 @@ With this installation variant, only one user (admin) with administration rights
 
 First login to the chaosmesh Docker Registry:
 
-```sh
+```bash
 docker login -u=_ -p=<apikey> docker.chaosmesh.io
 ```
 
@@ -31,7 +31,7 @@ We always require two ports to be open: One for Http (80) and one for websocket 
 
 ### Static
 
-```sh
+```bash
 docker run \
   --detach \
   --name chaosmesh-platform \
@@ -51,7 +51,7 @@ docker run \
 
 ### Embedded LDAP
 
-```sh
+```bash
 sudo docker run \
   --detach \
   -p "80:8080" \
@@ -75,7 +75,7 @@ sudo docker run \
 
 ### External LDAP
 
-```sh
+```bash
 sudo docker run \
   --detach \
   -p "80:8080" \
@@ -97,7 +97,7 @@ sudo docker run \
 
 ### OpenId Connect (OIDC)
 
-```sh
+```bash
 sudo docker run \
   --detach \
   -p "80:8080" \
