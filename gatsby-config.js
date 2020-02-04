@@ -26,7 +26,6 @@ const plugins = [
       component: require.resolve(`./src/templates/docs.js`)
     }
   },
-  'gatsby-plugin-styled-components',
   {
     resolve: 'gatsby-plugin-mdx',
     options: {
@@ -43,7 +42,6 @@ const plugins = [
       extensions: [".mdx", ".md"]
     }
   },
-  'gatsby-plugin-emotion',
   'gatsby-plugin-remove-trailing-slashes',
   'gatsby-plugin-react-helmet',
   {

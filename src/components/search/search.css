@@ -43,25 +43,30 @@
 }
 
 .hitWrapper {
-  background-color: #fff;
-  padding: 4px;
-  border-radius: 4px;
-  position: absolute;
-  max-width: 600px;
-  top: 40px;
-  border: 1px solid #ccc;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
-  height: auto;
+  display: none;
   max-height: 80vh;
   overflow: scroll;
+  z-index: 2;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
   left: 0;
+  right: 0;
+  top: calc(100% + 0.5em);
+  width: 80vw;
+  height: auto;
+  max-width: 30em;
+  box-shadow: 0 0 5px 0;
+  padding: 0.7em 1em 0.4em;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.showResults {
+.hitWrapper.showResults {
   display: block;
 }
 
-.hideResults {
+.hitWrapper.hideResults {
   display: none;
 }
 
@@ -92,4 +97,51 @@
   .searchWrapper {
     padding-left: 0;
   }
+}
+
+.hitWrappper > * + * {
+  padding-top: 1em !important;
+  border-top: 2px solid darkgray;
+}
+.hitWrappper li + li {
+  margin-top: 0.7em;
+  padding-top: 0.7em;
+  border-top: 1px solid lightgray;
+}
+.hitWrappper * {
+  margin-top: 0;
+  padding: 0;
+  color: black !important;
+}
+.hitWrappper ul {
+  list-style: none;
+}
+.hitWrappper mark {
+  color: lightblue;
+  background: darkblue;
+}
+.hitWrappper header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3em;
+}
+.hitWrappper header h3 {
+  color: black;
+  background: gray;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+.hitWrappper h3 {
+  color: black;
+  margin: 0 0 0.5em;
+}
+.hitWrappper h4 {
+  color: black;
+  margin-bottom: 0.3em;
+}
+
+.ais-InstantSearch__root {
+  position: relative;
+  display: grid;
+  grid-gap: 1em;
 }

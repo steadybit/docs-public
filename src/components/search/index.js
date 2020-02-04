@@ -5,100 +5,16 @@
 import algoliasearch from "algoliasearch/lite";
 import React, {createRef, useEffect, useState} from "react";
 import {Configure, connectStateResults, Hits, Index, InstantSearch,} from "react-instantsearch-dom";
-import styled, {css} from 'styled-components';
-import {Search} from "styled-icons/fa-solid/Search";
+import styled from 'styled-components';
 import config from "../../../config.js";
 import * as hitComps from "./hitComps";
 import Input from "./input";
 import './search.css';
 import {PoweredBy} from "./styles";
 
-const SearchIcon = styled(Search)`
-  width: 1em;
-  pointer-events: none;
-`;
-
-const HitsWrapper = styled.div`
-  display: ${props => (props.show ? `grid` : `none`)};
-  max-height: 80vh;
-  overflow: scroll;
-  z-index: 2;
-  -webkit-overflow-scrolling: touch;
-  position: absolute;
-  right: 0;
-  top: calc(100% + 0.5em);
-  width: 80vw;
-  max-width: 30em;
-  box-shadow: 0 0 5px 0;
-  padding: 0.7em 1em 0.4em;
-  background: white;
-  border-radius: ${props => props.theme.smallBorderRadius};
-  > * + * {
-    padding-top: 1em !important;
-    border-top: 2px solid ${props => props.theme.darkGray};
-  }
-  li + li {
-    margin-top: 0.7em;
-    padding-top: 0.7em;
-    border-top: 1px solid ${props => props.theme.lightGray};
-  }
-  * {
-    margin-top: 0;
-    padding: 0;
-    color: black !important;
-  }
-  ul {
-    list-style: none;
-  }
-  mark {
-    color: ${props => props.theme.lightBlue};
-    background: ${props => props.theme.darkBlue};
-  }
-  header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.3em;
-    h3 {
-      color: black;
-      background: ${props => props.theme.gray};
-      padding: 0.1em 0.4em;
-      border-radius: ${props => props.theme.smallBorderRadius};
-    }
-  }
-  h3 {
-    color: black;
-    margin: 0 0 0.5em;
-  }
-  h4 {
-    color: black;
-    margin-bottom: 0.3em;
-  }
-`;
-const Root = styled.div`
-  position: relative;
-  display: grid;
-  grid-gap: 1em;
-`;
-
-const focus = css`
-  background: white;
-  color: ${props => props.theme.darkBlue};
-  cursor: text;
-  width: 5em;
-  + ${SearchIcon} {
-    color: ${props => props.theme.darkBlue};
-    margin: 0.3em;
-  }
-`;
-
 const Results = connectStateResults(
   ({searchState: state, searchResults: res, children}) =>
     res && res.query && res.nbHits > 0 ? children : `No results for '${state.query}'`
-);
-
-const Stats = connectStateResults(
-  ({searchResults: res}) =>
-    res && res.query && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
 );
 
 const useClickOutside = (ref, handler, events) => {
@@ -115,7 +31,7 @@ const useClickOutside = (ref, handler, events) => {
   });
 };
 
-export default function SearchComponent({indices, collapse, hitsAsGrid}) {
+export default function SearchComponent({indices, collapse}) {
   const ref = createRef();
   const [query, setQuery] = useState(``);
   const [focus, setFocus] = useState(false);
@@ -130,10 +46,10 @@ export default function SearchComponent({indices, collapse, hitsAsGrid}) {
       searchClient={searchClient}
       indexName={indices[0].name}
       onSearchStateChange={({query}) => setQuery(query)}
-      root={{Root, props: {ref}}}
+      root={{props: {ref}}}
     >
       <Input onFocus={() => setFocus(true)} {...{collapse, focus}} />
-      <HitsWrapper className={'hitWrapper ' + displayResult} show={query.length > 0 && focus} asGrid={hitsAsGrid}>
+      <div className={'hitWrapper ' + displayResult}>
         {indices.map(({name, title, hitComp}) => {
           return (
             <Index key={name} indexName={name}>
@@ -144,7 +60,7 @@ export default function SearchComponent({indices, collapse, hitsAsGrid}) {
           );
         })}
         <PoweredBy/>
-      </HitsWrapper>
+      </div>
       <Configure hitsPerPage={5}/>
     </InstantSearch>
   );
