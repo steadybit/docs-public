@@ -4,7 +4,8 @@ navTitle: "Network"
 ---
 Find out how lost or delayed traffic affects your application with our network attacks. Test how your service behaves when it can't reach the required resources internally or externally. You can limit the effects by specifying host names, IP addresses or port numbers.
 
-> All attacks can have a **Host** or a **Container** as their target, the configuration is the same.
+> All attacks can have a **Host** or a **Container** as their target, the configuration is the same.<br/>
+> If you are not using our container images for the agents, you need install the `tc` (from the iproute2 package) tool to attack **Hosts**.
 
 ## Delay Traffic
 Inject latency into all matching egress traffic.
