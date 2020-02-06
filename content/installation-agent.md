@@ -17,6 +17,7 @@ Please choose one of the following deployment options:
 
 * [Docker](installation-agent/1-docker)
 * [Kubernetes DaemonSet](installation-agent/2-daemonset)
+* [Host](installation-agent/3-host)
 
 More configuration options:
 
