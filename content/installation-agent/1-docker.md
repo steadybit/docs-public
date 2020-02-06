@@ -41,7 +41,7 @@ sudo docker run \
   --net=host \
   --pid=host \
   --ipc=host \
-  --env="CHAOSMESH_AGENT_API_KEY=<apikey>" \
+  --env="CHAOSMESH_AGENT_KEY=<apikey>" \
   --env="CHAOSMESH_AGENT_REGISTER_URL=<platform-url>" \
   docker.chaosmesh.io/chaosmesh/agent
 ```

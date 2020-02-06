@@ -5,7 +5,7 @@ navTitle: "Advanced Configuration"
 
 | agent.sh Argument | Environment Variable                                | Description
 |-------------------|-----------------------------------------------------|----------------------------------------------------------------------------------------------------------
-| -a                | `CHAOSMESH_AGENT_API_KEY`                           | The API key the agent uses <br/> **Example:** `abcdefghijklmn`
+| -a                | `CHAOSMESH_AGENT_KEY`                               | The API key the agent uses <br/> **Example:** `abcdefghijklmn`
 | -e                | `CHAOSMESH_AGENT_REGISTER_URL`                      | The baseUrl where the agent registers. <br/> **Default:** `https://platform.chaosmesh.io`
 | -i                | `CHAOSMESH_AGENT_DOCKER_IMAGE`                      | The Agent Docker image to use. <br/> **Default:** `docker.chaosmesh.io/chaosmesh/agent:latest`
 | -r                | `CHAOSMESH_DOCKER_REGISTRY`                         | The Agent Docker registry to use. <br/> **Default:** `docker.chaosmesh.io`
