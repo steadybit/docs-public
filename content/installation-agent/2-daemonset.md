@@ -64,7 +64,7 @@ spec:
         env:
         - name: CHAOSMESH_AGENT_REGISTER_URL
           value: "https://platform.chaosmesh.io"
-        - name: CHAOSMESH_AGENT_API_KEY
+        - name: CHAOSMESH_AGENT_KEY
           valueFrom:
             secretKeyRef:
               name: chaosmesh-agent-secret-api-key
