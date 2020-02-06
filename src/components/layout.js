@@ -6,6 +6,7 @@ import {MDXProvider} from "@mdx-js/react";
 import React from "react";
 import mdxComponents from "./mdxComponents";
 import Sidebar from "./sidebar";
+import Footer from "./footer";
 
 const Layout = ({children, location}) => (
   <MDXProvider components={mdxComponents}>
@@ -15,6 +16,7 @@ const Layout = ({children, location}) => (
       <article className={'content'}>
         {children}
       </article>
+      <Footer/>
     </main>
   </MDXProvider>
 );
