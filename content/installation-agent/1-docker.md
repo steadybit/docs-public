@@ -15,7 +15,7 @@ Please note that the container needs to run in a privileged mode, allowing it to
 And check before installation whether the platform is accessible via the corresponding ports (443 and 7878).
 
 ```bash
-curl -sfL https://get.chaosmesh.io/agent.sh | sh -s -- -a <api-key> -e <platform-url>
+curl -sfL https://get.chaosmesh.io/agent.sh | sh -s -- -a <agent-key> -e <platform-url>
 ```
 
 ## Manual setup
