@@ -7,6 +7,9 @@ Find out how lost or delayed traffic affects your application with our network a
 > All attacks can have a **Host** or a **Container** as their target, the configuration is the same.<br/>
 > If you are not using our container images for the agents, you need install the `tc` (from the iproute2 package) tool to attack **Hosts**.
 
+> If you are going to attack containers using network attacks, **all containers in the target's namespace** (e.g. all containers belonging to the same Kubernetes Pod or Replica Set) will be affected.
+> In case you want to target the traffic of a single container in the namespace you can for example use the port parameter to limit the blast radius.
+
 ## Delay Traffic
 Inject latency into all matching egress traffic.
 
