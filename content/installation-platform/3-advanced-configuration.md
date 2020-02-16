@@ -27,7 +27,7 @@ Chaosmesh requires a PostgresSQL 11 database.
 | Environment Variable         | Required  | Description
 |------------------------------|-----------|------------
 | `CHAOSMESH_WEB_PUBLIC_URL`   |     | URL to point to your chaosmesh installation. Used for links in notifications.
-| `CHAOSMESH_WEB_PUBLIC_EXPERIMENT_PORT`   |     | By default the Websocket connection are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.
+| `CHAOSMESH_WEB_PUBLIC_EXPERIMENT_PORT`   |     | By default the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.
 
 
 
