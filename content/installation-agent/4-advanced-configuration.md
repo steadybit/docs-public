@@ -10,9 +10,9 @@ navTitle: "Advanced Configuration"
 | -i                | `CHAOSMESH_AGENT_DOCKER_IMAGE`                      | The Agent Docker image to use. <br/> **Default:** `docker.chaosmesh.io/chaosmesh/agent:latest`
 | -r                | `CHAOSMESH_DOCKER_REGISTRY`                         | The Agent Docker registry to use. <br/> **Default:** `docker.chaosmesh.io`
 | -u                | `CHAOSMESH_DOCKER_REGISTRY_USER`                    | User for authenticating against the Docker Registry. <br/> **Default:** `_`
-| -p                | `CHAOSMESH_DOCKER_REGISTRY_PASSWORD`                | Password for authenticating against the Docker Registry. <br/> **Default:** CHAOSMESH_AGENT_API_KEY
+| -p                | `CHAOSMESH_DOCKER_REGISTRY_PASSWORD`                | Password for authenticating against the Docker Registry. <br/> **Default:** CHAOSMESH_AGENT_KEY
 | -b                | `CHAOSMESH_DOWNLOAD_USER`                           | The User to authenticate with the feature repository <br/> **Default:** `_`
-| -c                | `CHAOSMESH_DOWNLOAD_PASSWORD`                       | The Password to authenticate with the feature repository <br/> **Default:** CHAOSMESH_AGENT_API_KEY
+| -c                | `CHAOSMESH_DOWNLOAD_PASSWORD`                       | The Password to authenticate with the feature repository <br/> **Default:** CHAOSMESH_AGENT_KEY
 | -l                | `CHAOSMESH_LOG_LEVEL`                               | Sets the loglevel for the com.chaosmesh logger <br/> **Default:** `INFO`
 |                   | `CHAOSMESH_ROOT_LOG_LEVEL`                          | Sets the loglevel for the root logger <br/> **Default:** `ERROR`
 |                   | `CHAOSMESH_LOG_CONSOLE`                             | Sets the loglevel threshold for the console logger <br/> **Default:** `ALL`
