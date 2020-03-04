@@ -22,3 +22,17 @@ In case the containers are running inside Kubernetes the following additional in
  * Pod Namespace
  * Kubernetes Container Name
  * `app.kubernetes.io/` labels
+
+### Kubernetes API Server
+
+Our agent is able to communicate directly with the `Kubernetes API Server` to get more details about containers and pods.
+This optional feature can be given to the agents when deploying the `DaemonSet` by setting up a `ServiceAccount`.
+
+Additional information is provided by `
+* Deployments
+* ReplicaSets
+* StatefulSets
+* DaemonSets
+
+
+
