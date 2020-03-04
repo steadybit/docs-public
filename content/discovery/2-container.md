@@ -34,5 +34,6 @@ Additional information is provided by `
 * StatefulSets
 * DaemonSets
 
-
+Our central platform prepares this additional information and uses it to identify new potential targets.
+Thus it is possible to attack a dedicated Kubernetes `Deployment` or to cause failures in a `ReplicaSet`.
 
