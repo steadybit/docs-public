@@ -114,8 +114,9 @@ spec:
 
 To get even more information and insights, a `Service Account` and `RBAC Authorization` can be configured for the `chaosmesh-agent`. More information about [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) or [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is available in the Kubernetes docs.
 If this access is possible for the agent installed via the DaemonSet, they provide further information to the platform to identify potential targets.
-Further information is described in the section [Container Discovery](discovery/2-container).
+Further information is described in the section [Container Discovery](../discovery/2-container).
 
+##### Example YAML file
 ```yaml
 apiVersion: v1
 kind: Namespace
