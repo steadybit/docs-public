@@ -33,11 +33,27 @@ sudo docker run \
   --detach \
   --name chaosmesh-agent \
   --volume /var/run:/var/run \
-  --volume /run:/run \
-  --volume /dev:/dev \
-  --volume /sys:/sys \
-  --volume /var/log:/var/log \
   --privileged \
+  --net=host \
+  --pid=host \
+  --ipc=host \
+  --env="CHAOSMESH_AGENT_KEY=<apikey>" \
+  --env="CHAOSMESH_AGENT_REGISTER_URL=<platform-url>" \
+  docker.chaosmesh.io/chaosmesh/agent
+```
+
+In case you need to run the container non-privileged you can add the individual capabilities:
+´´´
+--security-opt apparmor:unconfined \
+sudo docker run \
+  --detach \
+  --name chaosmesh-agent \
+  --volume /var/run:/var/run \
+  --cap-add=NET_ADMIN \
+  --cap-add=SYS_BOOT \
+  --cap-add=SYS_TIME \
+  --cap-add=KILL \
+  --security-opt apparmor:unconfined \
   --net=host \
   --pid=host \
   --ipc=host \

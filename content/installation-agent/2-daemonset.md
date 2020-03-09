@@ -81,34 +81,14 @@ spec:
         securityContext:
           privileged: true
         volumeMounts:
-        - name: dev
-          mountPath: /dev
-        - name: run
-          mountPath: /run
         - name: var-run
           mountPath: /var/run
-        - name: sys
-          mountPath: /sys
-        - name: log
-          mountPath: /var/log
       imagePullSecrets:
       - name: regcredinternal
       volumes:
-      - name: dev
-        hostPath:
-          path: /dev
-      - name: run
-        hostPath:
-          path: /run
       - name: var-run
         hostPath:
           path: /var/run
-      - name: sys
-        hostPath:
-          path: /sys
-      - name: log
-        hostPath:
-          path: /var/log
 ```
 ### Configure a Kubernetes Service Account & RBAC Authorization
 
