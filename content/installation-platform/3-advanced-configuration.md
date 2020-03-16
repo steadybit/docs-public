@@ -70,7 +70,7 @@ The users are authenticated by doing a bind with their credentials, unless `CHAO
 
 You can use an OpenID Connect compatible authentication provider for user authentication.
 
-By default every user is assigned the `user` role, for a user to become `admin`, the attribute `chaosmesh:role` with value `admin` must be included in the oidc token.
+> The first user to login will be assigned the `ADMIN` role, all other will be assigned the `USER` role. The roles can be changed by an admin user via the UI.
 
 | Environment Variable                            | Required  | Description
 |-------------------------------------------------|-----------|------------
