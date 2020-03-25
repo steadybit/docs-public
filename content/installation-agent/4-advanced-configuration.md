@@ -10,9 +10,9 @@ navTitle: "Advanced Configuration"
 | -i                | `CHAOSMESH_AGENT_DOCKER_IMAGE`                      | The Agent Docker image to use. <br/> **Default:** `docker.chaosmesh.io/chaosmesh/agent:latest`
 | -r                | `CHAOSMESH_DOCKER_REGISTRY`                         | The Agent Docker registry to use. <br/> **Default:** `docker.chaosmesh.io`
 | -u                | `CHAOSMESH_DOCKER_REGISTRY_USER`                    | User for authenticating against the Docker Registry. <br/> **Default:** `_`
-| -p                | `CHAOSMESH_DOCKER_REGISTRY_PASSWORD`                | Password for authenticating against the Docker Registry. <br/> **Default:** CHAOSMESH_AGENT_API_KEY
+| -p                | `CHAOSMESH_DOCKER_REGISTRY_PASSWORD`                | Password for authenticating against the Docker Registry. <br/> **Default:** CHAOSMESH_AGENT_KEY
 | -b                | `CHAOSMESH_DOWNLOAD_USER`                           | The User to authenticate with the feature repository <br/> **Default:** `_`
-| -c                | `CHAOSMESH_DOWNLOAD_PASSWORD`                       | The Password to authenticate with the feature repository <br/> **Default:** CHAOSMESH_AGENT_API_KEY
+| -c                | `CHAOSMESH_DOWNLOAD_PASSWORD`                       | The Password to authenticate with the feature repository <br/> **Default:** CHAOSMESH_AGENT_KEY
 | -l                | `CHAOSMESH_LOG_LEVEL`                               | Sets the loglevel for the com.chaosmesh logger <br/> **Default:** `INFO`
 |                   | `CHAOSMESH_ROOT_LOG_LEVEL`                          | Sets the loglevel for the root logger <br/> **Default:** `ERROR`
 |                   | `CHAOSMESH_LOG_CONSOLE`                             | Sets the loglevel threshold for the console logger <br/> **Default:** `ALL`
@@ -22,8 +22,9 @@ navTitle: "Advanced Configuration"
 |                   | `CHAOSMESH_AGENT_EXPERIMENT_KEEP_ALIVE_INTERVAL`    | Interval how often a keep alive is sent during an experiment. <br/> **Default:** `5s`
 |                   | `CHAOSMESH_AGENT_EXPERIMENT_KEEP_ALIVE_TIMEOUT`     | Timeout for a keep alive during an experiment <br/> **Default:** `5s`
 |                   | `CHAOSMESH_AGENT_EXPERIMENT_KEEP_ALIVE_MISSED_ACKS` | Max. Number of missed acknowledgements during an experiment. <br/> **Default:** `5`
-|                   | `CHAOSMESH_AGENT_DISCOVERY_INTERVAL`                | The interval of often the agent runs the discovery. <br/> **Default:** `5s`
+|                   | `CHAOSMESH_AGENT_DISCOVERY_INTERVAL`                | The interval of often the agent runs the discovery. <br/> **Default:** `30s`
 |                   | `CHAOSMESH_AGENT_DISCOVERY_TIMEOUT`                 | Timeout for the discovery. <br/> **Default:** `10s`
+|                   | `CHAOSMESH_AGENT_GZIP_ENABLED`                      | The interval of often the agent runs the discovery. <br/> **Default:** `true`
 |                   | `CHAOSMESH_DOCKER_SOCKET`                           | Docker Socket to connect to. <br/> **Default:** `/var/run/docker.sock`
 |                   | `CHAOSMESH_DISCOVERY_ENV_LIST`                      | List of environment variables to inlude in the discovery <br/> **Example:** `CHAOSMESH_DISCOVERY_ENV_LIST=STAGE,REGION`
 |                   | `CHAOSMESH_LABEL_*`                                 | All env vars with this prefix will be added as label <br/> **Example:** `CHAOSMESH_LABEL_STAGE=test`

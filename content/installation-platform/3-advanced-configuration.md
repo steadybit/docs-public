@@ -21,7 +21,16 @@ Chaosmesh requires a PostgresSQL 11 database.
 | `CHAOSMESH_TENANT_NAME`      | yes | Name for the tenant assigned to you <br/> **Example:** `Demo Org`
 | `CHAOSMESH_TENANT_KEY`       | yes | Key for the tenant assigned to you  <br/> **Example:** `demo`
 | `CHAOSMESH_TENANT_API_KEY`   | yes | API key for the tenant assigned to you. Treat it as sensitive information. <br/> **Example:** `foobar`
+
+## Web Configuration
+
+| Environment Variable         | Required  | Description
+|------------------------------|-----------|------------
 | `CHAOSMESH_WEB_PUBLIC_URL`   |     | URL to point to your chaosmesh installation. Used for links in notifications.
+| `CHAOSMESH_WEB_PUBLIC_EXPERIMENT_PORT`   |     | By default the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.
+
+
+
 
 ## Static-Authentication
 
@@ -61,7 +70,7 @@ The users are authenticated by doing a bind with their credentials, unless `CHAO
 
 You can use an OpenID Connect compatible authentication provider for user authentication.
 
-By default every user is assigned the `user` role, for a user to become `admin`, the attribute `chaosmesh:role` with value `admin` must be included in the oidc token.
+> The first user to login will be assigned the `ADMIN` role, all other will be assigned the `USER` role. The roles can be changed by an admin user via the UI.
 
 | Environment Variable                            | Required  | Description
 |-------------------------------------------------|-----------|------------
