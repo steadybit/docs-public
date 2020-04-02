@@ -21,7 +21,7 @@ navTitle: "Advanced Configuration"
 |                   | `CHAOSMESH_AGENT_EXPERIMENT_TIMEOUT`                | Timeout for the request to connect to an experiment. <br/> **Default:** `5s`
 |                   | `CHAOSMESH_AGENT_EXPERIMENT_KEEP_ALIVE_INTERVAL`    | Interval how often a keep alive is sent during an experiment. <br/> **Default:** `5s`
 |                   | `CHAOSMESH_AGENT_EXPERIMENT_KEEP_ALIVE_TIMEOUT`     | Timeout for a keep alive during an experiment <br/> **Default:** `5s`
-|                   | `CHAOSMESH_AGENT_EXPERIMENT_KEEP_ALIVE_MISSED_ACKS` | Max. Number of missed acknowledgements during an experiment. <br/> **Default:** `5`
+|                   | `CHAOSMESH_AGENT_EXPERIMENT_KEEP_ALIVE_MISSED_ACKS` | Max. Number of missed acknowledgements during an experiment. <br/> **Default:** `3`
 |                   | `CHAOSMESH_AGENT_DISCOVERY_INTERVAL`                | The interval of often the agent runs the discovery. <br/> **Default:** `30s`
 |                   | `CHAOSMESH_AGENT_DISCOVERY_TIMEOUT`                 | Timeout for the discovery. <br/> **Default:** `10s`
 |                   | `CHAOSMESH_AGENT_GZIP_ENABLED`                      | The interval of often the agent runs the discovery. <br/> **Default:** `true`
