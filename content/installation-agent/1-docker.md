@@ -23,7 +23,7 @@ curl -sfL https://get.chaosmesh.io/agent.sh | sh -s -- -a <agent-key> -e <platfo
 First login to the chaosmesh Docker Registry:
 
 ```bash
-docker login -u=_ -p=<apikey> docker.chaosmesh.io
+docker login -u=_ -p=<agent-key> docker.chaosmesh.io
 ```
 
 Then run the chaosmesh Agent Container:
@@ -37,7 +37,7 @@ sudo docker run \
   --net=host \
   --pid=host \
   --ipc=host \
-  --env="CHAOSMESH_AGENT_KEY=<apikey>" \
+  --env="CHAOSMESH_AGENT_KEY=<agent.key>" \
   --env="CHAOSMESH_AGENT_REGISTER_URL=<platform-url>" \
   docker.chaosmesh.io/chaosmesh/agent
 ```
@@ -49,7 +49,7 @@ We also provide a static version of docker image `docker.chaosmesh.io/chaosmesh/
 ## Non-privileged container
 
 In case you need to run the container non-privileged you can add the individual capabilities:
-´´´
+```bash
 --security-opt apparmor:unconfined \
 sudo docker run \
   --detach \
@@ -63,7 +63,7 @@ sudo docker run \
   --net=host \
   --pid=host \
   --ipc=host \
-  --env="CHAOSMESH_AGENT_KEY=<apikey>" \
+  --env="CHAOSMESH_AGENT_KEY=<agent-key>" \
   --env="CHAOSMESH_AGENT_REGISTER_URL=<platform-url>" \
   docker.chaosmesh.io/chaosmesh/agent
 ```

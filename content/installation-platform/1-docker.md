@@ -23,7 +23,7 @@ With this installation variant, only one user (admin) with administration rights
 First login to the chaosmesh Docker Registry:
 
 ```bash
-docker login -u=_ -p=<apikey> docker.chaosmesh.io
+docker login -u=_ -p=<agent-key> docker.chaosmesh.io
 ```
 
 Then run the chaosmesh Platform Docker Container with one of the following example commands.

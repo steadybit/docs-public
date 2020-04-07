@@ -21,7 +21,7 @@ function cleanTokens(tokens) {
 }
 
 const CodeBlock = ({children, className}) => {
-  const language = className.replace(/language-/, '');
+  const language = className ? className.replace(/language-/, '') : '';
   return (
     <Highlight {...defaultProps} language={language} code={children} theme={prismTheme}>
       {({className, style, tokens, getLineProps, getTokenProps}) => (

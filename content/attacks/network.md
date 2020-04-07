@@ -61,3 +61,35 @@ This attack can be adjusted using the following parameters and the effects can b
 | Network Interface | Target Network Interface which should be attacked | eth0 |
 | Port Number | Restrict to which port number the traffic is reduced | |
 
+## Package Corruption
+Inject corrupt packets by introducing single bit error at a random offset into network traffic.
+
+This attack can be adjusted using the following parameters and the effects can be limited.
+
+| Parameter   |      Description      | Default |
+|----------|-------------|-------------|
+| Package Corruption|  How much traffic should be allowed per second? | 1024kbit |
+| Duration |    How much of the traffic should be corrupted??   | 15% |
+| Hostname |    Restrict to which hosts the traffic is corrupted?   | |
+| IP Address | Restrict to which IP address the traffic is corrupted | |
+| Network Interface | Target Network Interface which should be attacked | eth0 |
+| Port Number | Restrict to which port number the traffic is corrupted | |
+
+## Blackhole
+Drops all network traffic (IN/OUT/FORWARDED).
+
+This attack can be adjusted using the following parameters and the effects can be limited.
+
+| Parameter   |      Description      | Default |
+|----------|-------------|-------------|
+| Duration |  How long should traffic been blocked?   | 30s |
+
+## DNS
+Blocks access to DNS servers for a specific duration.
+
+This attack can be adjusted using the following parameters and the effects can be limited.
+
+| Parameter   |      Description      | Default |
+|----------|-------------|-------------|
+| Duration |  How long should the DNS traffic be blocked?   | 30s |
+| DNS Port |  DNS port number | 53 |
