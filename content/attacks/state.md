@@ -42,5 +42,5 @@ Changes the clock time of a host.
 
 | Parameter   |      Description      | Default |
 |----------|-------------|-------------|
-| Offset |  The offset that will be added to the current time. | true |
+| Offset |  The offset that will be added to the current time. | 1h |
 | Disable NTP |  Prevent NTP from correcting time during attack. | true |
