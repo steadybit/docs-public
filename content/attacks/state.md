@@ -36,3 +36,11 @@ Terminates the specified process, useful for simulating application or dependenc
 | Parameter   |      Description      | Default |
 |----------|-------------|-------------|
 | Graceful |  Should the process be stopped gracefully using the `SIGTERM` or immediately killed using the `SIGKILL` | true |
+
+## Time Travel
+Changes the clock time of a host.
+
+| Parameter   |      Description      | Default |
+|----------|-------------|-------------|
+| Offset |  The offset that will be added to the current time. | true |
+| Disable NTP |  Prevent NTP from correcting time during attack. | true |
