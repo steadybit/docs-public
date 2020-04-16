@@ -23,9 +23,10 @@ This attack can be adjusted using the following parameters and the effects can b
 | Network Delay | How much should the traffic be delayed? | 500ms |
 | Network Interface | Target Network Interface which should be attacked | eth0 |
 | Port Number | Restrict to which port number the traffic is delayed | |
+| Jitter | Random +-30% jitter to network delay | true |
 
 The network delay operates at the ip level and affects single packets.
-Thus you may encounter http requests theat are delayed by a multiple of the specified delay.
+Thus you may encounter http requests that are delayed by a multiple of the specified delay.
 
 In this example the egress traffic is delayed by 500ms.
 If you tap the wire (using tcpdump) and feed it into Wireshark it looks like this:
