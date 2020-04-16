@@ -11,7 +11,7 @@ Find out how lost or delayed traffic affects your application with our network a
 > In case you want to target the traffic of a single container in the namespace you can for example use the port parameter to limit the blast radius.
 
 ## Delay Traffic
-Inject latency into all matching egress traffic.
+Inject latency into all matching traffic.
 
 This attack can be adjusted using the following parameters and the effects can be limited.
 
@@ -28,7 +28,7 @@ This attack can be adjusted using the following parameters and the effects can b
 The network delay operates at the ip level and affects single packets.
 Thus you may encounter http requests that are delayed by a multiple of the specified delay.
 
-In this example the egress traffic is delayed by 500ms.
+In this example the traffic is delayed by 500ms.
 If you tap the wire (using tcpdump) and feed it into Wireshark it looks like this:
 ![tcpdump delay example](./tcpdump.png)
 1. The first incoming packet initiates the tcp connection and is accepted by the second packet, which is delayed exactly be the 500ms. <br/>
