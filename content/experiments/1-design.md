@@ -51,6 +51,17 @@ You may add an automated steady state check to the experiment.
 The check is executed before and during the experiment.
 If the check fails at any time the experiment is immediately stopped.
 
-Currently only a simple http check is supported.
+### HTTP State Check
 The check issues an http `GET` request on the specified URL and asserts the returned status to be successful.
 The URL must be reachable from the platform server.
+
+### Instana State Check
+Instana detects three major types of events to help you manage the Quality of Service of your applications:
+- Issues
+- Incidents
+- Changes
+
+With our integration, we track changes in the system via the API provided by Instana and react to them within the execution of an experiment.
+If Instana reports an `issue` or `incident` during execution, the experiment is automatically aborted and marked as failed. Our report contains a short summary and a link to the corresponding time window in Instana.
+`Changes` noticed by Instana do not lead to an abort, since it may be intentional to start or shut down instances. Also check the Instana docs [Instana Events & Incidents](https://docs.instana.io/core_concepts/events_and_incidents/)
+
