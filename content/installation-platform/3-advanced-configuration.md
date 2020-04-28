@@ -29,8 +29,21 @@ Chaosmesh requires a PostgresSQL 11 database.
 | `CHAOSMESH_WEB_PUBLIC_URL`   |     | URL to point to your chaosmesh installation. Used for links in notifications.
 | `CHAOSMESH_WEB_PUBLIC_EXPERIMENT_PORT`   |     | By default the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.
 
+## Integration Configuration
 
+### Instana
 
+| Environment Variable         | Required  | Description
+|------------------------------|-----------|------------
+| `CHAOSMESH_INTEGRATION_INSTANA_BASE_URL`   |     | Base URL of your Instana tenant.
+| `CHAOSMESH_INTEGRATION_INSTANA_API_TOKEN`   |     | API-Token for accessing the Instana API to check the steady state of your system (See also https://docs.instana.io/api/web/).
+
+### Grafana
+
+| Environment Variable         | Required  | Description
+|------------------------------|-----------|------------
+| `CHAOSMESH_INTEGRATION_GRAFANA_BASE_URL`   |     | Base URL of your Grafana server.
+| `CHAOSMESH_INTEGRATION_GRAFANA_DASHBOARD_ID`   |     | The Dashboard-Id which should be used.
 
 ## Static-Authentication
 
