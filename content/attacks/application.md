@@ -3,7 +3,7 @@ title: "Application Attacks"
 navTitle: "Application"
 ---
 
-# Spring MVC Controller Delay
+## Spring MVC Controller Delay
 
 Inject latency into a Spring™ MVC controller.
 The delay is applied before the handler method is executed.
@@ -16,7 +16,7 @@ The delay is applied before the handler method is executed.
 | Delay | How much should the traffic be delayed? | 500ms |
 | Jitter | Random +-30% jitter to network delay | true |
 
-# Spring MVC Controller Delay
+## Spring MVC Controller Delay
 
 Injects a RuntimeException into a Spring™ MVC controller.
 The exception is thrown before the handler method is executed.
