@@ -6,6 +6,7 @@ metaDescription: "chaosmesh platform offers you extensive, safe and customizable
 Our chaosmesh platform offers you extensive, safe and customizable attacks.
 The scope of the attacks covers the following categories:
 
+* [Application](attacks/application)
 * [Network](attacks/network)
 * [Resource](attacks/resource)
 * [State](attacks/state)
