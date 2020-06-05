@@ -11,16 +11,21 @@ If you hit the `Run` button the experiment is immediately started when the follo
 2. There is no other experiment running.
 3. The blast radius resolves to one or more targets.
 
-If one of the condition is not met, you'll get an error message, but the execution is not recorded.
+If one of the condition is not met, you'll get an error message and the execution is not recorded.
+If all conditions are met the experiment is started.
 
-If all conditions are met the experiment is started and goes through the following states :
+
+## Experiment Phases
+
+![experiment phases](./experiment-phases.png)
 
 | State   | Description    |
 |---------|----------------|
 | CREATED | The experiment was created and is waiting for the agents to connect and the state check to be executed.
-| PREPARED | All agents taking part in the experiment are connected and the state check reported at least one success.
-| EXECUTING | The attacks are started and executing right now.
-| SUCCESSFUL | All attacks executed successfully and the state check reported no failures.
+| PREPARED | All agents taking part in the experiment are connected, the state check reported at least one success and the warm up begins.
+| ATTACKS_STARTED | The warm up has ended and attacks were started and are executing right now.
+| ATTACKS_STOPPED | The attacks were stopped and the cool down begins.
+| SUCCESSFUL | All attacks executed successfully, the cool down has ended and the state check reported no failures.
 | CANCELED | The experiment was canceled by user interaction and all attacks were rolled back.
 | FAILED | The execution failed, the reason is indicated in the UI. Can be any one of: <ul><li>Failed attack execution or rollback</li><li>Failed state check</li><li>Agent disconnected unexpectedly.</li></ul>
 
