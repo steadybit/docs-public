@@ -64,7 +64,6 @@ spec:
     spec:
       serviceAccountName: chaosmesh-agent
       hostIPC: true
-      hostNetwork: true
       hostPID: true
       containers:
       - name: chaosmesh-agent
