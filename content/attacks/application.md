@@ -6,7 +6,7 @@ Our platform supports the injection of errors and latency at runtime. Our Discov
 You can choose between many different attacks on the application level and there will be more and more.
 
 
-### Java
+## Java
 #### Method Delay
 Inject latency into any Java based application.
 The delay is applied before the handler method is executed.
@@ -32,7 +32,7 @@ When an exception is thrown the handler itself will not be executed.
 | Erroneous Call Rate | How many percent of requests should trigger an exception? | 100 |
 
 
-### Spring
+## Spring
 
 #### MVC Controller Delay
 
