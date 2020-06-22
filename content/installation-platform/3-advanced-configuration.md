@@ -3,6 +3,11 @@ title: "Advanced Platform Configuration"
 navTitle: "Advanced Configuration"
 ---
 
+## Debug Docker Images
+
+The platform docker image doesn't contain any shell by default.
+In case you need to exec into the container using a shell for debugging purposes, we provide an additional debug variant whith the `:<version>-debug` tag.
+
 ## Database Configuration
 
 Chaosmesh requires a PostgresSQL 11 database.
@@ -65,7 +70,7 @@ The users are authenticated by doing a bind with their credentials, unless `CHAO
 
 ## OpenID-Connect Authentication
 
-You can use an OpenID Connect compatible authentication provider for user authentication.
+You can use an OpenID Connect compatible authentication provider for user authentication. Chaosmesh uses the `authorization_code` grant type.
 
 > The first user to login will be assigned the `ADMIN` role, all other will be assigned the `USER` role. The roles can be changed by an admin user via the UI.
 

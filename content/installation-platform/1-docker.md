@@ -49,30 +49,6 @@ docker run \
   docker.chaosmesh.io/chaosmesh/platform:latest
 ```
 
-### Embedded LDAP
-
-```bash
-sudo docker run \
-  --detach \
-  -p "80:8080" \
-  -p "7878:7878" \
-  --name chaosmesh-platfom \
-  --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
-  --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
-  --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
-  --env="CHAOSMESH_TENANT_NAME=<replace-with-tenant-name>" \
-  --env="CHAOSMESH_TENANT_KEY=<replace-with-tenant-key>" \
-  --env="CHAOSMESH_TENANT_AGENTKEY=<replace-with-api-key>" \
-  --env="SPRING_LDAP_EMBEDDED_PORT=8389" \
-  --env="SPRING_LDAP_EMBEDDED_BASE_DN=dc=chaosmesh,dc=com" \
-  --env="CHAOSMESH_AUTH_PROVIDER=LDAP" \
-  --env="CHAOSMESH_AUTH_LDAP_URL=ldap://localhost:8389/dc=chaosmesh,dc=com" \
-  --env="CHAOSMESH_AUTH_LDAP_SYNC_ADMIN_GROUP_DN=cn=chaosmesh_admin,ou=groups,dc=chaosmesh,dc=com" \
-  --env="CHAOSMESH_AUTH_LDAP_SYNC_USER_GROUP_DN=cn=chaosmesh_user,ou=groups,dc=chaosmesh,dc=com" \
-  --env="CHAOSMESH_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER=ou=teams,ou=groups,dc=chaosmesh,dc=com" \
-  docker.chaosmesh.io/chaosmesh/platform:latest
-```
-
 ### External LDAP
 
 ```bash
