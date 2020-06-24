@@ -1,12 +1,28 @@
 ---
-title: "Platform"
+title: "Release Notes - Platform"
+navTitle: "Platform"
 metaTitle: "Release Notes Platform - chaosmesh Docs"
 ---
 
-## Table of contents
+## 0.0.28
+#### Improvements:
+ * Hide Agent-Key in UI by default
+ * Provide debug container images `platform:<version>-debug` (e.g. `chaosmesh/platform:0.0.28-debug`)
 
-* [Release 0.0.28](platform/1-RN-0028)
-* [Release 0.0.27](platform/2-RN-0027)
-* [Release 0.0.26](platform/3-RN-0026)
-* [Release 0.0.25](platform/4-RN-0025)
+## 0.0.27
+#### Bugfixes
+ * Disable AWS Paramstore per default. Needs to be activated explicitly when running in SaaS mode.
 
+## 0.0.26
+#### Improvements
+ * Allow the platform to run behind proxies doing path rewriting by setting the `CHAOSMESH_WEB_PUBLIC_URL`
+ * Allow deletion of execution reports
+ * Verify Attack version during experiment preparation.
+ * Redirect from live-view to report if experiment has ended more than 60s ago
+
+## 0.0.25
+#### Features
+ * Add warm-up and cool-down to experiments
+ * Add experiments opt-In for webhooks with corresponding scope
+#### Bugfixes
+ * Mark state checks as stopped when experiment is canceled before first check execution.
