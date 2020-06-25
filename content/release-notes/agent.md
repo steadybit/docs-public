@@ -12,7 +12,7 @@ metaTitle: "Release Notes Agent - chaosmesh Docs"
 #### Features
  * Add Java Method Delay Attack
  * Add Java Method Exception Attack
- * Add Java JDBC datasource Discovery
+ * Add Java JDBC Datasource Discovery
  * Add Spring JDBC Template Delay Attack
  * Add Spring JDBC Template Exception Attack
 #### Improvements
