@@ -4,6 +4,10 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - chaosmesh Docs"
 ---
 
+## 0.0.30
+#### Bugfixes:
+ * Add missing EventTarget polyfill for Safari
+
 ## 0.0.28
 #### Improvements:
  * Hide Agent-Key in UI by default
