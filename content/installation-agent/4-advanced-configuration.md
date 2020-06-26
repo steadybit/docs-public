@@ -16,6 +16,7 @@ navTitle: "Advanced Configuration"
 | -l                | `CHAOSMESH_LOG_LEVEL`                               | Sets the loglevel for the com.chaosmesh logger <br/> **Default:** `INFO`
 |                   | `CHAOSMESH_ROOT_LOG_LEVEL`                          | Sets the loglevel for the root logger <br/> **Default:** `ERROR`
 |                   | `CHAOSMESH_LOG_CONSOLE`                             | Sets the loglevel threshold for the console logger <br/> **Default:** `ALL`
+|                   | `CHAOSMESH_LOG_FORMAT`                              | Sets the log format for the console logger (`json` or `text`) <br/> **Default:** `text`
 |                   | `CHAOSMESH_AGENT_REGISTER_TIMEOUT`                  | Timeout for the registration request. <br/> **Default:** `5s`
 |                   | `CHAOSMESH_AGENT_REGISTER_INTERVAL`                 | The interval how often the agent registers at the platform. <br/> **Default:** `5s`
 |                   | `CHAOSMESH_AGENT_EXPERIMENT_TIMEOUT`                | Timeout for the request to connect to an experiment. <br/> **Default:** `5s`
