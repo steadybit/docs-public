@@ -4,6 +4,14 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - chaosmesh Docs"
 ---
 
+## 0.0.31
+
+#### Improvements:
+ * Enable JSON log format using `LOGGING_FORMAT=json`
+
+#### Bugfixes:
+ * Document Findings is disabled
+
 ## 0.0.30
 #### Bugfixes:
  * Add missing EventTarget polyfill for Safari
