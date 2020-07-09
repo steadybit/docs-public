@@ -18,6 +18,8 @@ And check before installation whether the platform is accessible via the corresp
 curl -sfL https://get.chaosmesh.io/agent.sh | sh -s -- -a <agent-key> -e <platform-url>
 ```
 
+For your convenience you can use the [setup page](https://platform.chaosmesh.io/settings/agentsetup) in the SaaS platform, where your agent key is already prepared in the command.
+
 ## Manual setup
 
 First login to the chaosmesh Docker Registry:
