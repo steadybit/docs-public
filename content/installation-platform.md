@@ -5,7 +5,7 @@ metaTitle: "Platform Installation - chaosmesh Docs"
 
 ## Prerequisites
 
-To install the platform, access to the following URL via HTTPS (443) is required:
+To install the platform on your own premises, access to the following URL via HTTPS (443) is required:
 
 * https://docker.chaosmesh.io (Docker Image)
 
