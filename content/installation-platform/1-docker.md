@@ -13,7 +13,7 @@ At least a Docker installation and a PostgresSQL database is required to run the
 For a quick setup you can use this Oneliner:
 
 ```bash
-curl -sfL https://get.chaosmesh.io/platform.sh | sh -s -- -a <api-key> -d <jdbc-url> -e <jdbc-user> -f <jdbc-password> -p <ui-password>
+curl -sfL https://get.chaosmesh.io/platform.sh | sh -s -- -a <agent-key> -d <jdbc-url> -e <jdbc-user> -f <jdbc-password> -p <ui-password>
 ```
 
 With this installation variant, only one user (admin) with administration rights is created. For use in production, we strongly recommend that you connect an internal LDAP or OIDC provider as described below.
@@ -42,7 +42,7 @@ docker run \
   --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
   --env="CHAOSMESH_TENANT_NAME=<replace-with-tenant-name>" \
   --env="CHAOSMESH_TENANT_KEY=<replace-with-tenant-key>" \
-  --env="CHAOSMESH_TENANT_AGENTKEY=<replace-with-api-key>" \
+  --env="CHAOSMESH_TENANT_AGENTKEY=<replace-with-agent-key>" \
   --env="CHAOSMESH_AUTH_PROVIDER=static" \
   --env="CHAOSMESH_AUTH_STATIC_USERNAME=admin" \
   --env="CHAOSMESH_AUTH_STATIC_PASSWORD={noop}admin" \
@@ -62,7 +62,7 @@ sudo docker run \
   --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
   --env="CHAOSMESH_TENANT_NAME=<replace-with-tenant-name>" \
   --env="CHAOSMESH_TENANT_KEY=<replace-with-tenant-key>" \
-  --env="CHAOSMESH_TENANT_AGENTKEY=<replace-with-api-key>" \
+  --env="CHAOSMESH_TENANT_AGENTKEY=<replace-with-agent-key>" \
   --env="CHAOSMESH_AUTH_PROVIDER=LDAP" \
   --env="CHAOSMESH_AUTH_LDAP_URL=<replace-with-ldap-url>" \
   --env="CHAOSMESH_AUTH_LDAP_SYNC_ADMIN_GROUP_DN=<replace-with-admin-group-dn>" \
@@ -84,7 +84,7 @@ sudo docker run \
   --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
   --env="CHAOSMESH_TENANT_NAME=<replace-with-tenant-name>" \
   --env="CHAOSMESH_TENANT_KEY=<replace-with-tenant-key>" \
-  --env="CHAOSMESH_TENANT_AGENTKEY=<replace-with-api-key>" \
+  --env="CHAOSMESH_TENANT_AGENTKEY=<replace-with-agent-key>" \
   --env="CHAOSMESH_AUTH_PROVIDER=oauth2" \
   --env="CHAOSMESH_AUTH_OAUTH2_ISSUER_URI=<replace-with-issuer-uri>" \
   --env="CHAOSMESH_AUTH_OAUTH2_CLIENT_ID=<replace-with-client-id>" \
