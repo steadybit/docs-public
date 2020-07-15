@@ -14,6 +14,12 @@ As with all deployments in Kubernetes, make use of namespaces to keep things org
 It allows you to tag and isolate the agents or even stop all of them at once by simply deleting the `chaosmesh-agent` namespace.
 
 Please replace the string `replace-with-api-key` with your specific API-Key and run the shown commands to encode the key correctly.
+
+This needs to be done in three steps:
+1. Run `echo -n _:<replace-with-api-key> | base64` and fill in the result into the value for the `auth` key
+2. Run `echo -n '{"auths":{"docker.chaosmesh.io":{"auth":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
+3. Fill in the result from Step 2 into the value for the `.dockerconfigjson` key
+
 Once the YAML file is customized you can start it with kubectl:
 
 ##### Example kubectl command
@@ -44,7 +50,7 @@ metadata:
   name: regcredinternal
   namespace: chaosmesh-agent
 data:
-  .dockerconfigjson: <echo -n '{"auths":{"docker.chaosmesh.io":{"username":"_","password":"<replace-with-api-key>","auth":"#echo -n _:<replace-with-api-key> | base64"}}}' | base64>
+  .dockerconfigjson: <echo -n '{"auths":{"docker.chaosmesh.io":{"auth":"<echo -n _:<replace-with-api-key> | base64>"}}}' | base64>
 type: kubernetes.io/dockerconfigjson
 ---
 apiVersion: apps/v1
@@ -170,7 +176,7 @@ metadata:
   name: regcredinternal
   namespace: chaosmesh-agent
 data:
-  .dockerconfigjson: <echo -n '{"auths":{"docker.chaosmesh.io":{"username":"_","password":"<replace-with-api-key>","auth":"#echo -n _:<replace-with-api-key> | base64"}}}' | base64>
+  .dockerconfigjson: <echo -n '{"auths":{"docker.chaosmesh.io":{"auth":"<echo -n _:<replace-with-api-key> | base64>"}}}' | base64>
 type: kubernetes.io/dockerconfigjson
 ---
 apiVersion: apps/v1
