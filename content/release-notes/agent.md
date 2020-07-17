@@ -3,6 +3,17 @@ title: "Release Notes - Agent"
 navTitle: "Agent"
 metaTitle: "Release Notes Agent - chaosmesh Docs"
 ---
+## 2020-07-17
+#### Improvements
+ * Support JSON output using CHAOSMESH_LOG_FORMAT=json
+ * Filter sidecars in container discovery
+ * Set default timeout for discovery to 10s
+#### Bugfixes:
+ * ignore JAVA_TOOL_OPTIONS when performing java agent attachment
+ * warning for failed pull of sidecar image is only emitted every 10min
+ * improve error handling for started sidecar containers
+ * Fix Broken Pipe when discovering Kubernetes
+
 ## 2020-06-24
 #### Bugfixes
  * Fix NoSuchMethodError when discovering JVMs
