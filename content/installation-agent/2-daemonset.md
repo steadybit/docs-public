@@ -7,17 +7,17 @@ navTitle: "Kubernetes"
 
 #### Installation through YAML file
 
-To install and configure chaosmesh within `Kubernetes` as a `DaemonSet` you need to define the `DaemonSet` YAML file.
-Below you will see an example of a YAML file to run the chaosmesh agent.
+To install and configure steadybit within `Kubernetes` as a `DaemonSet` you need to define the `DaemonSet` YAML file.
+Below you will see an example of a YAML file to run the steadybit agent.
 
-As with all deployments in Kubernetes, make use of namespaces to keep things organized. The following YAML creates a Namespace called `chaosmesh-agent` in which the `DaemonSet` will be created.
-It allows you to tag and isolate the agents or even stop all of them at once by simply deleting the `chaosmesh-agent` namespace.
+As with all deployments in Kubernetes, make use of namespaces to keep things organized. The following YAML creates a Namespace called `steadybit-agent` in which the `DaemonSet` will be created.
+It allows you to tag and isolate the agents or even stop all of them at once by simply deleting the `steadybit-agent` namespace.
 
 Please replace the string `replace-with-agent-key` with your specific Agent-Key and run the shown commands to encode the key correctly.
 
 This needs to be done in three steps:
 1. Run `echo -n _:<replace-with-agent-key> | base64` and fill in the result into the value for the `auth` key
-2. Run `echo -n '{"auths":{"docker.chaosmesh.io":{"auth":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
+2. Run `echo -n '{"auths":{"docker.steadybit.io":{"auth":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
 3. Fill in the result from Step 2 into the value for the `.dockerconfigjson` key
 
 
@@ -27,18 +27,18 @@ Example:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: chaosmesh-agent
+  name: steadybit-agent
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: chaosmesh-agent
-  namespace: chaosmesh-agent
+  name: steadybit-agent
+  namespace: steadybit-agent
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: chaosmesh-agent-role
+  name: steadybit-agent-role
 rules:
   - apiGroups: ["batch"]
     resources:
@@ -70,22 +70,22 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: chaosmesh-agent-role-binding
-  namespace: chaosmesh-agent
+  name: steadybit-agent-role-binding
+  namespace: steadybit-agent
 subjects:
   - kind: ServiceAccount
-    name: chaosmesh-agent
-    namespace: chaosmesh-agent
+    name: steadybit-agent
+    namespace: steadybit-agent
 roleRef:
   kind: ClusterRole
-  name: chaosmesh-agent-role
+  name: steadybit-agent-role
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: chaosmesh-agent-secret-agent-key
-  namespace: chaosmesh-agent
+  name: steadybit-agent-secret-agent-key
+  namespace: steadybit-agent
 type: Opaque
 data:
   key: <echo -n <replace-with-agent-key> | base64>
@@ -94,41 +94,41 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: regcredinternal
-  namespace: chaosmesh-agent
+  namespace: steadybit-agent
 data:
-  .dockerconfigjson: <echo -n '{"auths":{"docker.chaosmesh.io":{"auth":"<echo -n _:<replace-with-agent-key> | base64>"}}}' | base64>
+  .dockerconfigjson: <echo -n '{"auths":{"docker.steadybit.io":{"auth":"<echo -n _:<replace-with-agent-key> | base64>"}}}' | base64>
 type: kubernetes.io/dockerconfigjson
 ---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: chaosmesh-agent
-  namespace: chaosmesh-agent
+  name: steadybit-agent
+  namespace: steadybit-agent
 spec:
   selector:
     matchLabels:
-      app: chaosmesh-agent
+      app: steadybit-agent
   template:
     metadata:
       labels:
-        app: chaosmesh-agent
-        com.chaosmesh.agent: "true"
+        app: steadybit-agent
+        com.steadybit.agent: "true"
     spec:
-      serviceAccountName: chaosmesh-agent
+      serviceAccountName: steadybit-agent
       hostIPC: true
       hostNetwork: true
       hostPID: true
       containers:
-      - name: chaosmesh-agent
-        image: docker.chaosmesh.io/chaosmesh/agent
+      - name: steadybit-agent
+        image: docker.steadybit.io/steadybit/agent
         imagePullPolicy: Always
         env:
-        - name: CHAOSMESH_AGENT_REGISTER_URL
-          value: "https://platform.chaosmesh.io"
-        - name: CHAOSMESH_AGENT_KEY
+        - name: STEADYBIT_AGENT_REGISTER_URL
+          value: "https://platform.steadybit.io"
+        - name: STEADYBIT_AGENT_KEY
           valueFrom:
             secretKeyRef:
-              name: chaosmesh-agent-secret-agent-key
+              name: steadybit-agent-secret-agent-key
               key: key
         securityContext:
           privileged: true
@@ -151,10 +151,10 @@ spec:
 Once the YAML file is customized you can apply it with `kubectl`:
 
 ```bash
-kubectl apply -f chaosmesh-agent.yml
+kubectl apply -f steadybit-agent.yml
 ```
 
-To get even more information and insights, the above manifest contains a `Service Account` and `RBAC Authorization` for the `chaosmesh-agent`.
+To get even more information and insights, the above manifest contains a `Service Account` and `RBAC Authorization` for the `steadybit-agent`.
 With the access to the K8s API, the agent can provide further information to the platform for identifying potential targets.
 More information about [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) or [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is available in the Kubernetes docs.
 

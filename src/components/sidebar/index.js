@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ * Copyright 2020 steadybit GmbH. All rights reserved.
  */
 
 import {graphql, StaticQuery} from "gatsby";
@@ -36,7 +36,7 @@ const SidebarLayout = () => {
         return (
           <aside className={'sidebar'}>
             <div className={'sidebar__brand'}>
-              <Link to={'https://docs.chaosmesh.io'}>
+              <Link to={'https://docs.steadybit.io'}>
                 <img src={logoImg} alt={'logo'}/>
                 <div>Docs</div>
               </Link>

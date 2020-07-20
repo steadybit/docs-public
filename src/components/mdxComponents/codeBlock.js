@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ * Copyright 2020 steadybit GmbH. All rights reserved.
  */
 
 import Highlight, {defaultProps} from "prism-react-renderer";

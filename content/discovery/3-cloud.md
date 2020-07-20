@@ -11,7 +11,7 @@ If the agent is running on AWS it will query the AWS Metadata and add the follow
  * AWS Tags (needs IAM Role)
  * AWS EKS Info (needs IAM Role; if running as part of EKS)
 
-> To read the metadata the IAM role `arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess` must be assigned to the EC2 instance running the chaosmesh agent.
+> To read the metadata the IAM role `arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess` must be assigned to the EC2 instance running the steadybit agent.
 
 ## Azure
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ * Copyright 2020 steadybit GmbH. All rights reserved.
  */
 
 require("dotenv").config();
@@ -11,7 +11,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `chaosmesh-docs`,
+      name: `steadybit-docs`,
       short_name: `website`,
       start_url: `/`,
       background_color: `#ED220B`,

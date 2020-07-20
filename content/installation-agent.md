@@ -1,15 +1,15 @@
 ---
 title: "Agent Installation"
-metaTitle: "Agent Installation - chaosmesh Docs"
+metaTitle: "Agent Installation - steadybit Docs"
 ---
 
 ## Prerequisites
 
 To install the agent, access to the following URLs via HTTPS (443) is required:
 
-* https://docker.chaosmesh.io (Docker Image)
-* https://artifacts.chaosmesh.io (Bundles)
-* https://get.chaosmesh.io (Setup Scripts)
+* https://docker.steadybit.io (Docker Image)
+* https://artifacts.steadybit.io (Bundles)
+* https://get.steadybit.io (Setup Scripts)
 
 ## Setup
 

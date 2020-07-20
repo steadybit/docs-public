@@ -1,11 +1,11 @@
 ---
 title: "Release Notes - Agent"
 navTitle: "Agent"
-metaTitle: "Release Notes Agent - chaosmesh Docs"
+metaTitle: "Release Notes Agent - steadybit Docs"
 ---
 ## 2020-07-17
 #### Improvements
- * Support JSON output using CHAOSMESH_LOG_FORMAT=json
+ * Support JSON output using STEADYBIT_LOG_FORMAT=json
  * Filter sidecars in container discovery
  * Set default timeout for discovery to 10s
 #### Bugfixes:
@@ -60,7 +60,7 @@ metaTitle: "Release Notes Agent - chaosmesh Docs"
  * Discover Spring Applications and it's MVC mappings
 #### Improvements
  * Add jitter parameter to Delay Network Traffic Delay Attack
- * Exclude the Chaosmesh Platform from all Network Traffic Attacks
+ * Exclude the Steadybit Platform from all Network Traffic Attacks
 #### Bugfixes
  * Force the communication to Java Agent use UTF-8
  * Unload all Java Agent Plugins when the Java Agent is unloaded

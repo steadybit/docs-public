@@ -1,6 +1,6 @@
 ---
 title: "Integration"
-metaTitle: "Integration - chaosmesh Docs"
+metaTitle: "Integration - steadybit Docs"
 ---
 
 * [API](integration/1-api)
