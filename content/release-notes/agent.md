@@ -3,6 +3,13 @@ title: "Release Notes - Agent"
 navTitle: "Agent"
 metaTitle: "Release Notes Agent - chaosmesh Docs"
 ---
+## 2020-07-21
+#### Features:
+ * Introduce commandline flag `chaosmesh.agent.disable-javattachment` for excluding target jvms from discovery.
+#### Bugfixes:
+ * Fix ClassDefNotFoundError caused by chaosmesh java attachment on JBoss Undertow
+ * Fix wrong log level for negative discovery of spring beans
+
 ## 2020-07-17
 #### Improvements
  * Support JSON output using CHAOSMESH_LOG_FORMAT=json
