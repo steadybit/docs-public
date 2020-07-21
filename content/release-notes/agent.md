@@ -7,7 +7,7 @@ metaTitle: "Release Notes Agent - steadybit Docs"
 #### Features:
  * Introduce commandline flag `chaosmesh.agent.disable-javattachment` for excluding target jvms from discovery.
 #### Bugfixes:
- * Fix ClassDefNotFoundError caused by chaosmesh java attachment on JBoss Undertow
+ * Fix NoClassDefFoundError caused by chaosmesh java attachment on JBoss Undertow
  * Fix wrong log level for negative discovery of spring beans
 
 ## 2020-07-17
