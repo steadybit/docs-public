@@ -4,6 +4,11 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - chaosmesh Docs"
 ---
 
+## 0.0.32
+
+#### Improvements:
+ * Add agent setup page for kubernetes daemonset
+
 ## 0.0.31
 
 #### Improvements:
