@@ -4,6 +4,11 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - chaosmesh Docs"
 ---
 
+## 0.0.33
+
+#### Bugfixes:
+ * Fix performance regression in orphaned target deletion
+
 ## 0.0.32
 
 #### Improvements:
