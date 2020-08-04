@@ -3,6 +3,10 @@ title: "Release Notes - Agent"
 navTitle: "Agent"
 metaTitle: "Release Notes Agent - steadybit Docs"
 ---
+## 2020-08-04
+#### Bugfixes:
+ * Don't rollback container network attacks when target container is not running.
+
 ## 2020-07-21
 #### Features:
  * Introduce commandline flag `chaosmesh.agent.disable-javattachment` for excluding target jvms from discovery.
