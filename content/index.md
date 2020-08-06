@@ -1,10 +1,10 @@
 ---
-title: "Welcome to steadybit eDocz"
+title: "Getting started"
 metaTitle: "steadybit docs"
 metaDescription: "steadybit - Chaos Engineering Platform"
 ---
 
-## Let's get you start hackin' gut
+## Welcome to chaosmesh
 
 Our steadybit platform that helps to proactively reduce downtime and provide visibility into systems to detect issues.
 We follow the principles of Chaos Engineering and help you to stay in control of your chaos experiments.
