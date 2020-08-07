@@ -3,6 +3,12 @@ title: "Release Notes - Agent"
 navTitle: "Agent"
 metaTitle: "Release Notes Agent - steadybit Docs"
 ---
+## 2020-08-07
+#### Bugfixes:
+ * ignore JAVA_TOOL_OPTIONS when performing java agent attachment
+#### Improvements:
+ * Copy all container attributes to application if it runs in container
+
 ## 2020-08-04
 #### Bugfixes:
  * Don't rollback container network attacks when target container is not running.

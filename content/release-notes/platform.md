@@ -4,7 +4,6 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - steadybit Docs"
 ---
 
-=======
 ## 0.0.34
 
 #### Bugfixes:
