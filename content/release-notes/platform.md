@@ -4,6 +4,11 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - chaosmesh Docs"
 ---
 
+## 0.0.34
+
+#### Bugfixes:
+ * Add missing colon in k8s daemonset template
+
 ## 0.0.33
 
 #### Bugfixes:
