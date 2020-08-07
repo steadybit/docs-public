@@ -5,7 +5,7 @@ metaTitle: "Release Notes Agent - chaosmesh Docs"
 ---
 ## 2020-08-07
 #### Bugfixes:
- * ignore JAVA_TOOL_OPTIONS when performing java agent attachment
+ * ignore _JAVA_OPTIONS when performing java agent attachment
 #### Improvements:
  * Copy all container attributes to application if it runs in container
 
