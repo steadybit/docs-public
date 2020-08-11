@@ -1,6 +1,6 @@
 ---
 title: "Experiments"
-metaTitle: "Experiments - chaosmesh Docs"
+metaTitle: "Experiments - steadybit Docs"
 ---
 
 * [Design](experiments/1-design)

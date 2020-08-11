@@ -1,9 +1,9 @@
 ---
 title: "Attacks"
-metaTitle: "Attacks - chaosmesh Docs"
-metaDescription: "chaosmesh platform offers you extensive, safe and customizable attacks"
+metaTitle: "Attacks - steadybit Docs"
+metaDescription: "steadybit platform offers you extensive, safe and customizable attacks"
 ---
-Our chaosmesh platform offers you extensive, safe and customizable attacks.
+Our steadybit platform offers you extensive, safe and customizable attacks.
 The scope of the attacks covers the following categories:
 
 * [Application](attacks/application)

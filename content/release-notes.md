@@ -1,7 +1,7 @@
 ---
 title: "Release Notes"
-metaTitle: "Release Notes - chaosmesh Docs"
-metaDescription: "chaosmesh platform offers you extensive, safe and customizable attacks"
+metaTitle: "Release Notes - steadybit Docs"
+metaDescription: "steadybit platform offers you extensive, safe and customizable attacks"
 ---
 ## Table of contents
 * [Release Notes Agent](release-notes/agent)

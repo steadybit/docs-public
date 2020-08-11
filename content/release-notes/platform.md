@@ -1,7 +1,7 @@
 ---
 title: "Release Notes - Platform"
 navTitle: "Platform"
-metaTitle: "Release Notes Platform - chaosmesh Docs"
+metaTitle: "Release Notes Platform - steadybit Docs"
 ---
 
 ## 0.0.34
@@ -34,7 +34,7 @@ metaTitle: "Release Notes Platform - chaosmesh Docs"
 ## 0.0.28
 #### Improvements:
  * Hide Agent-Key in UI by default
- * Provide debug container images `platform:<version>-debug` (e.g. `chaosmesh/platform:0.0.28-debug`)
+ * Provide debug container images `platform:<version>-debug` (e.g. `steadybit/platform:0.0.28-debug`)
 
 ## 0.0.27
 #### Bugfixes
@@ -42,7 +42,7 @@ metaTitle: "Release Notes Platform - chaosmesh Docs"
 
 ## 0.0.26
 #### Improvements
- * Allow the platform to run behind proxies doing path rewriting by setting the `CHAOSMESH_WEB_PUBLIC_URL`
+ * Allow the platform to run behind proxies doing path rewriting by setting the `STEADYBIT_WEB_PUBLIC_URL`
  * Allow deletion of execution reports
  * Verify Attack version during experiment preparation.
  * Redirect from live-view to report if experiment has ended more than 60s ago

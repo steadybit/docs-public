@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 chaosmesh GmbH. All rights reserved.
+ * Copyright 2019 steadybit GmbH. All rights reserved.
  */
 
 import React from 'react';
@@ -9,8 +9,8 @@ export default function () {
   return (
     <footer className="cm-footer">
       <div className="cm-inside">
-             <span className="cm-copyright">Need Help? Get in touch <a href="https://www.chaosmesh.com/contact/">with us</a></span>
-        <span className="cm-copyright">© chaosmesh. All rights reserved.</span>
+        <span className="cm-copyright">Need Help? Get in touch <a href="https://www.steadybit.com/contact/">with us</a></span>
+        <span className="cm-copyright">© steadybit. All rights reserved.</span>
       </div>
     </footer>
   );

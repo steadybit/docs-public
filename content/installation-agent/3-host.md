@@ -3,8 +3,8 @@ title: "Install on Linux Hosts"
 navTitle: "Linux Hosts"
 ---
 
-The following command will download and run the latest chaosmesh agent package on your system:
+The following command will download and run the latest steadybit agent package on your system:
 
 ```shell
-curl -sfL https://get.chaosmesh.io/agent-linux.sh | sh -s -- -a <agent-k**ey> -e <platform-url>
+curl -sfL https://get.steadybit.io/agent-linux.sh | sh -s -- -a <agent-k**ey> -e <platform-url>
 ```

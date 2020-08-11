@@ -1,4 +1,4 @@
-# 📝 chaosmesh Documentation Website
+# 📝 steadybit Documentation Website
 
 Used Gatsby Starter: https://github.com/hasura/gatsby-gitbook-starter/tree/b92c4470a89590180b8c4664e932cf0650c47d79
 

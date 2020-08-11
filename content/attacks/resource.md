@@ -1,8 +1,8 @@
 ---
 title: "Resource Attacks"
 navTitle: "Resource"
-metaTitle: "Resource Attacks - chaosmesh Docs"
-metaDescription: "chaosmesh state attacks can cause turbulent conditions on the infrastructure and platform level"
+metaTitle: "Resource Attacks - steadybit Docs"
+metaDescription: "steadybit state attacks can cause turbulent conditions on the infrastructure and platform level"
 ---
 
 Resource attacks are a good starting point to start Chaos Engineering.

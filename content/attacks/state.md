@@ -1,13 +1,13 @@
 ---
 title: "State Attacks"
 navTitle: "State"
-metaTitle: "State Attacks - chaosmesh Docs"
-metaDescription: "chaosmesh state attacks can cause turbulent conditions on the infrastructure and platform level"
+metaTitle: "State Attacks - steadybit Docs"
+metaDescription: "steadybit state attacks can cause turbulent conditions on the infrastructure and platform level"
 ---
 
 With the state attacks you can cause turbulent conditions on the infrastructure and platform level and for example increase the CPU load for a certain period of time. Each attack at this level can be configured in detail.
 
-The state attacks support Docker Containers, a Host or Processes. This information is determined by the Auto Discovery and processed and analyzed in the chaosmesh Platform.
+The state attacks support Docker Containers, a Host or Processes. This information is determined by the Auto Discovery and processed and analyzed in the steadybit Platform.
 
 ## Pause Container
 Pauses one or more Docker Container for a certain time.

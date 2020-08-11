@@ -1,6 +1,6 @@
 ---
 title: "Teams and Users"
-metaTitle: "Teams and Users - chaosmesh Docs"
+metaTitle: "Teams and Users - steadybit Docs"
 ---
 
 * [Teams](teams-and-users/1-teams)

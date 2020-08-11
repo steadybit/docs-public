@@ -1,9 +1,9 @@
 ---
 title: "Discovery"
-metaTitle: "Discovery - chaosmesh Docs"
+metaTitle: "Discovery - steadybit Docs"
 ---
 
-The chaosmesh agent discovers attack targets on your systems by leveraging different technologies:
+The steadybit agent discovers attack targets on your systems by leveraging different technologies:
 
 * [Host](discovery/1-host)
 * [Container](discovery/2-container)

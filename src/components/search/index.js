@@ -1,11 +1,10 @@
 /*
- * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ * Copyright 2020 steadybit GmbH. All rights reserved.
  */
 
 import algoliasearch from "algoliasearch/lite";
 import React, {createRef, useEffect, useState} from "react";
 import {Configure, connectStateResults, Hits, Index, InstantSearch,} from "react-instantsearch-dom";
-import styled from 'styled-components';
 import config from "../../../config.js";
 import * as hitComps from "./hitComps";
 import Input from "./input";

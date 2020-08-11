@@ -1,7 +1,7 @@
 ---
 title: "Steady State"
-metaTitle: "Steady State - chaosmesh Docs"
-metaDescription: "chaosmesh platform offers you extensive, safe and customizable attacks"
+metaTitle: "Steady State - steadybit Docs"
+metaDescription: "steadybit platform offers you extensive, safe and customizable attacks"
 ---
 One of the most important parts of Chaos Engineering is to understand the behavior of the system under normal conditions.
 

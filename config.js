@@ -1,11 +1,11 @@
 /*
- * Copyright 2020 chaosmesh GmbH. All rights reserved.
+ * Copyright 2020 steadybit GmbH. All rights reserved.
  */
 
 const config = {
   "gatsby": {
     "pathPrefix": "",
-    "siteUrl": "https://docs.chaosmesh.com",
+    "siteUrl": "https://docs.steadybit.com",
     "gaTrackingId": "UA-145692204-1"
   },
   "header": {
@@ -23,8 +23,8 @@ const config = {
     "ignoreIndex": true,
   },
   "siteMetadata": {
-    "title": "chaosmesh Documentation",
-    "description": "chaosmesh Chaos Engineering Platform Documentation"
+    "title": "steadybit Documentation",
+    "description": "steadybit Chaos Engineering Platform Documentation"
   },
 };
 

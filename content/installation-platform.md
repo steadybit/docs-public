@@ -1,13 +1,13 @@
 ---
 title: "Platform Installation"
-metaTitle: "Platform Installation - chaosmesh Docs"
+metaTitle: "Platform Installation - steadybit Docs"
 ---
 
 ## Prerequisites
 
 To install the platform on your own premises, access to the following URL via HTTPS (443) is required:
 
-* https://docker.chaosmesh.io (Docker Image)
+* https://docker.steadybit.io (Docker Image)
 
 ## Setup
 

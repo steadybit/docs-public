@@ -6,7 +6,7 @@ navTitle: "Container"
 ## Docker
 
 The agent discovers any running container communication with the docker daemon using `/var/run/docker.sock`.
-You can configure a different docker socket by setting the environment variable `CHAOSMESH_DOCKER_SOCKET` for the agent.
+You can configure a different docker socket by setting the environment variable `STEADYBIT_DOCKER_SOCKET` for the agent.
 
 For each container the following attributes are provided:
  * Container Name

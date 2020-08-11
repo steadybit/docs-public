@@ -1,16 +1,16 @@
 ---
 title: "Notifications & Webhooks"
-metaTitle: "Notifications & Webhooks - chaosmesh Docs"
+metaTitle: "Notifications & Webhooks - steadybit Docs"
 ---
 
-You can configure Webhooks in chaosmesh under Settings > Notifications & Webhooks.
+You can configure Webhooks in steadybit under Settings > Notifications & Webhooks.
 You can use Webhooks to recieve notifications via Slack or to integrate with you custom tooling.
 
 ## Slack Notifications
 
 You can use this Webhook to receive Slack/Rocket Chat messages, whenever a experiment is executed or experimenting is stopped/continued.
 
-> If you use an on-prem installation make sure to set the `CHAOSMESH_WEB_PUBLIC_URL`, so we can add links to open chaosmesh via links in the message.
+> If you use an on-prem installation make sure to set the `STEADYBIT_WEB_PUBLIC_URL`, so we can add links to open steadybit via links in the message.
 
 | | |
 |--------------|-------|
@@ -33,7 +33,7 @@ You can use this Webhook to receive Slack/Rocket Chat messages, whenever a exper
 
 ### Content
 
-The content type is `application/json` and the message is described in our [OpenAPI specification](https://platform.chaosmesh.io/api/spec.json) as `WebhookPayload`.
+The content type is `application/json` and the message is described in our [OpenAPI specification](https://platform.steadybit.io/api/spec.json) as `WebhookPayload`.
 
 ### Verifying the Signature
 
