@@ -4,6 +4,27 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - chaosmesh Docs"
 ---
 
+
+## 0.0.38
+
+#### Improvements:
+ * Allow selecting multiple values for an attribute in blast-radius / team-restrictions
+
+## 0.0.37
+
+#### Improvements:
+ * Dependency Updates
+
+## 0.0.36
+
+#### Improvements:
+ * Allow saving experiment without an attack
+
+## 0.0.35
+
+#### Bugfixes:
+ * Replace flaky auto-save in findings with save button.
+
 ## 0.0.34
 
 #### Bugfixes:
