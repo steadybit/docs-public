@@ -13,4 +13,4 @@ To use steadybit, you can use our platform as Software as a Service (SaaS) or [r
 
 Once you have an environment available, the next step is to [install an agent](installation-agent/) on each of your hosts to run experiments.
 
-If you need additional help, [contact](https://steadybit.com/contact/) us.
+If you need additional help, [contact](https://www.steadybit.com/contact) us.
