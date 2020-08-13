@@ -4,7 +4,7 @@ metaTitle: "steadybit docs"
 metaDescription: "steadybit - Chaos Engineering Platform"
 ---
 
-## Welcome to chaosmesh
+## Welcome to steadybit
 
 Our steadybit platform that helps to proactively reduce downtime and provide visibility into systems to detect issues.
 We follow the principles of Chaos Engineering and help you to stay in control of your chaos experiments.
