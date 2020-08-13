@@ -3,6 +3,11 @@ title: "Release Notes - Agent"
 navTitle: "Agent"
 metaTitle: "Release Notes Agent - steadybit Docs"
 ---
+## 2020-08-13
+#### Bugfixes:
+ * Fix typo in _JAVA_OPTIONS
+ * Use growing threadpool for discovery, to reduce timeouts caused by queuing
+
 ## 2020-08-07
 #### Bugfixes:
  * ignore _JAVA_OPTIONS when performing java agent attachment
