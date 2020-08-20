@@ -3,6 +3,21 @@ title: "Release Notes - Agent"
 navTitle: "Agent"
 metaTitle: "Release Notes Agent - steadybit Docs"
 ---
+
+## 2020-08-19
+
+> **First steadybit release**
+>
+> Update
+>
+> Just grab the new setup instructions from the [platforms agent setup page](https://platform.steadybit.io/settings/agentsetup)
+>
+> OR
+>
+> 1. Switch to the `docker.steadybit.io/steadybit/agent` docker image.
+> 2. If you're deploying on kubernetes you need to update the `dockerconfigjson` secret with the registry authentication.
+> 3. Change all `CHAOSMESH_*` environment variables to `STEADYBIT_*`.
+
 ## 2020-08-13
 #### Bugfixes:
  * Fix typo in _JAVA_OPTIONS

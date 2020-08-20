@@ -4,6 +4,19 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - steadybit Docs"
 ---
 
+## 0.1.3
+
+> **First steadybit release**
+>
+> Update
+> 1. Switch to the `docker.steadybit.io/steadybit/platform` docker image.
+> 2. If you're deploying on kubernetes you need to update the `dockerconfigjson` secret with the registry authentication.
+> 3. Change all `CHAOSMESH_*` environment variables to `STEADYBIT_*`.
+> 4. We can provide you a db-migration script if you want to keep your data.
+
+#### Features:
+ * Added Agent log viewer
+
 
 ## 0.0.38
 
