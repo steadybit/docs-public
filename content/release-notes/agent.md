@@ -17,6 +17,8 @@ metaTitle: "Release Notes Agent - steadybit Docs"
 > 1. Switch to the `docker.steadybit.io/steadybit/agent` docker image.
 > 2. If you're deploying on kubernetes you need to update the `dockerconfigjson` secret with the registry authentication.
 > 3. Change all `CHAOSMESH_*` environment variables to `STEADYBIT_*`.
+> 4. If you are using our SaaS platform set `STEADYBIT_AGENT_REGISTER_URL=https://platform.steadybit.io`
+
 
 ## 2020-08-13 (0.0.40)
 #### Bugfixes:
