@@ -4,6 +4,19 @@ navTitle: "Agent"
 metaTitle: "Release Notes Agent - steadybit Docs"
 ---
 
+## 2020-08-19 (0.1.4)
+
+#### Bugfixes:
+ * Fix wrong sidecar image
+ * Fix NPE in DataSourceDiscovery
+ * initialize kubernetes client only when KUBERNETES_SERVICE_HOST is set and cache the availability
+ * Fix missing Kubernetes labels on Applications
+
+#### Improvements:
+ * Skip jvm attachment when container has label `com.steadybit.agent/jvm-attach=false`
+ * Ignore k8s cluster resource tag in aws metadata
+
+
 ## 2020-08-19 (0.1.3)
 
 > **First steadybit release**
@@ -17,6 +30,8 @@ metaTitle: "Release Notes Agent - steadybit Docs"
 > 1. Switch to the `docker.steadybit.io/steadybit/agent` docker image.
 > 2. If you're deploying on kubernetes you need to update the `dockerconfigjson` secret with the registry authentication.
 > 3. Change all `CHAOSMESH_*` environment variables to `STEADYBIT_*`.
+> 4. If you are using our SaaS platform set `STEADYBIT_AGENT_REGISTER_URL=https://platform.steadybit.io`
+
 
 ## 2020-08-13 (0.0.40)
 #### Bugfixes:

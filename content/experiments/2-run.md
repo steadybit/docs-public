@@ -25,7 +25,7 @@ If all conditions are met the experiment is started.
 | PREPARED | All agents taking part in the experiment are connected, the state check reported at least one success and the warm up begins.
 | ATTACKS_STARTED | The warm up has ended and attacks were started and are executing right now.
 | ATTACKS_STOPPED | The attacks were stopped and the cool down begins.
-| SUCCESSFUL | All attacks executed successfully, the cool down has ended and the state check reported no failures.
+| COMPLETED | All attacks were executed, the cool down has ended and the state check reported no failures.
 | CANCELED | The experiment was canceled by user interaction and all attacks were rolled back.
 | FAILED | The execution failed, the reason is indicated in the UI. Can be any one of: <ul><li>Failed attack execution or rollback</li><li>Failed state check</li><li>Agent disconnected unexpectedly.</li></ul>
 
