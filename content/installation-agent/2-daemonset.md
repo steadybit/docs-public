@@ -35,6 +35,39 @@ metadata:
   name: steadybit-agent
   namespace: steadybit-agent
 ---
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: chaosmesh-agent
+spec:
+  privileged: true
+  allowPrivilegeEscalation: true
+  allowedHostPaths:
+    - pathPrefix: "/var/run"
+    - pathPrefix: "/var/log"
+  volumes:
+    - configMap
+    - downwardAPI
+    - emptyDir
+    - persistentVolumeClaim
+    - secret
+    - projected
+    - hostPath
+  hostNetwork: true
+  hostPorts:
+    - min: 0
+      max: 65535
+  hostIPC: true
+  hostPID: true
+  runAsUser:
+    rule: "RunAsAny"
+  seLinux:
+    rule: "RunAsAny"
+  supplementalGroups:
+    rule: "RunAsAny"
+  fsGroup:
+    rule: "RunAsAny"
+---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -66,6 +99,11 @@ rules:
       - "pods"
       - "replicationcontrollers"
     verbs: ["get", "list", "watch"]
+  - apiGroups: ["policy"]
+    resources: ["podsecuritypolicies"]
+    verbs:     ["use"]
+    resourceNames:
+      - chaosmesh-agent
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -159,6 +197,4 @@ With the access to the K8s API, the agent can provide further information to the
 More information about [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) or [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is available in the Kubernetes docs.
 
 Further information about our discovery feature is described in the section [Container Discovery](../discovery/2-container).
-
-
 
