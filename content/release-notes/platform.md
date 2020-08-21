@@ -4,6 +4,11 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - steadybit Docs"
 ---
 
+## 0.1.4
+ * Rename SUCCESSFUL to COMPLETED
+ * Add PodSecurityPolicy to K8s template
+ * Save logs from actions
+
 ## 0.1.3
 
 > **First steadybit release**

@@ -4,6 +4,19 @@ navTitle: "Agent"
 metaTitle: "Release Notes Agent - steadybit Docs"
 ---
 
+## 2020-08-19 (0.1.4)
+
+#### Bugfixes:
+ * Fix wrong sidecar image
+ * Fix NPE in DataSourceDiscovery
+ * initialize kubernetes client only when KUBERNETES_SERVICE_HOST is set and cache the availability
+ * Fix missing Kubernetes labels on Applications
+
+#### Improvements:
+ * Skip jvm attachment when container has label `com.steadybit.agent/jvm-attach=false`
+ * Ignore k8s cluster resource tag in aws metadata
+
+
 ## 2020-08-19 (0.1.3)
 
 > **First steadybit release**
