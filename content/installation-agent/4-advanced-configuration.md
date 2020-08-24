@@ -33,3 +33,4 @@ navTitle: "Advanced Configuration"
 |                   | `STEADYBIT_AGENT_AWS_EC2_METADATA_URL`              | AWS EC2 Metadata URL <br/> **Default:** `http://169.254.169.254/latest/`
 | -m                | `STEADYBIT_MVN_REPOSITORIES`                        | steadybit Maven feature repositories <br/> **Default:** `https://artifacts.steadybit.io/repository/features-public@id=steadybit-features@snapshots@snapshotsUpdate=always,https://artifacts.steadybit.io/repository/releases-public@id=steadybit-releases@snapshots@snapshotsUpdate=always,https://repo1.maven.org/maven2@id=central` |
 |                   | `STEADYBIT_HTTP_ENDPOINT_PORT`                      | HTTP endpoint port for the health check url <br/> **Default:** `42999`
+|                   | `STEADYBIT_AGENT_ACTIONS_ENABLED`                   | Should this agent be eligible for executing actions? <br/> **Default:** `true`
