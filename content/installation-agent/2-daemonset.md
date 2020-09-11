@@ -156,6 +156,7 @@ spec:
       hostIPC: true
       hostNetwork: true
       hostPID: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: steadybit-agent
         image: docker.steadybit.io/steadybit/agent
