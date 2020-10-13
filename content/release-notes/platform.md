@@ -4,6 +4,15 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - steadybit Docs"
 ---
 
+## Prepared for next versions
+ * Static-Authentication accepts lists of users. Configuration needs to be updated, for example
+  ```
+    STEADYBIT_AUTH_STATIC_0_USERNAME:admin
+    STEADYBIT_AUTH_STATIC_0_PASSWORD:...
+    STEADYBIT_AUTH_STATIC_1_USERNAME:user
+    STEADYBIT_AUTH_STATIC_1_PASSWORD:...
+  ```
+
 ## 0.1.4
  * Rename SUCCESSFUL to COMPLETED
  * Add PodSecurityPolicy to K8s template
