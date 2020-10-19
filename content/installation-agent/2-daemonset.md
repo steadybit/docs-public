@@ -186,6 +186,8 @@ spec:
           path: /var/log
 ```
 
+For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the yaml.
+
 Once the YAML file is customized you can apply it with `kubectl`:
 
 ```bash
