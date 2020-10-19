@@ -18,7 +18,7 @@ And check before installation whether the platform is accessible via the corresp
 curl -sfL https://get.steadybit.io/agent.sh | sh -s -- -a <agent-key> -e <platform-url>
 ```
 
-For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agentsetup) in the SaaS platform, where your agent key is already prepared in the command.
+For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command.
 
 ## Manual setup
 
