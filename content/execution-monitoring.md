@@ -8,6 +8,6 @@ To perform experiments it is recommended to have a base load in the system. With
 
 The following tools are currently supported:
 
-* [K6](load-tests/1-k6)
-* [Gatling](load-tests/2-gatling)
-* [JMeter](load-tests/3-jmeter)
+* [K6](content/execution-monitoring/1-k6)
+* [Gatling](content/execution-monitoring/2-gatling)
+* [JMeter](content/execution-monitoring/3-jmeter)
