@@ -18,7 +18,7 @@ const config = {
     }
   },
   "sidebar": {
-    "forcedNavOrder": ['experiments', 'attacks', 'discovery','steady-state', 'teams-and-users', 'architecture', 'integration', 'installation-agent', 'installation-platform', 'changelog'],
+    "forcedNavOrder": ['getting-started', 'architecture', 'experiments', 'attacks', 'discovery', 'execution-monitoring', 'teams-and-users', 'integration', 'installation-agent', 'installation-platform', 'release-notes'],
     "frontline": false,
     "ignoreIndex": true,
   },
