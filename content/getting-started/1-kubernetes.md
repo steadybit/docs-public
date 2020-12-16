@@ -145,7 +145,7 @@ You can also find a detailed description in our [docs](https://docs.steadybit.io
 In our steadybit platform you will find in the section `.../settings/agents/setup` all details to install agents in your system. Please select the Kubernetes
 tab and copy the YAML file prepared there.
 
-![install steadybit agent](./k8s-daemonset-agent.png)
+![install steadybit agent](img-1-k8s/k8s-daemonset-agent.png)
 
 Create a DaemonSet based on the YAML file:
 
@@ -157,5 +157,39 @@ That's all, ready to start your first experiment!
 
 ## Step 4 - Run your first experiment
 
+We will now use steadybit to find out how our shopping demo behaves when there is increased latency in the network for a backend service. This latency should
+only happen for a specific type of container. One of the reasons for this is that we don't want to negatively impact our colleagues unnecessarily if we want to
+do this kind of testing later on in a real Kubernetes cluster.
+
+Please create a new experiment for the infrastructure section:
+
+![Create experiment step 1](img-1-k8s/exp-infra-step-1.png)
+
+Like everything in life, our experiment needs a fitting name:
+
+![Create experiment step 2](img-1-k8s/exp-infra-step-2.png)
+
+Our target for our experiment is a container running in Kubernetes. Therefore, we select Container for the type of targets. We want our experiment to be
+repeatable as often as we like, so we describe our target container with attributes and not by a unique name:
+
+![Create experiment step 3](img-1-k8s/exp-infra-step-3.png)
+
+In the current deployment, none of the services are scaled, which doesn't really make sense and only supports this demo. For this reason we also get only 1
+affected container for the attack radius. In real life you would see more than 1 affected container and can then control how many of them should be affected by
+this experiment:
+
+![Create experiment step 4](img-1-k8s/exp-infra-step-4.png)
+
+Our experiment is to inject latency into the network in order to find out how this affects our application and more importantly what our customers' experience
+is in this case.
+
+![Create experiment step 5](img-1-k8s/exp-infra-step-5.png)
+
+For now, let's skip the Execution and Monitoring section. Normally, here you would create an appropriate load test that is executed during the experiment and
+connect your monitoring solution. You can read more about this in our [docs](../execution-monitoring).
+
+![Create experiment step 6](img-1-k8s/exp-infra-step-6.png)
+![Create experiment step 7](img-1-k8s/exp-infra-step-7.png)
+![Create experiment step 8](img-1-k8s/exp-infra-step-8.png)
 
 
