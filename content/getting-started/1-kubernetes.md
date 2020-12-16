@@ -8,6 +8,13 @@ it handles network latency. By using steadybit, we will slow down individual Kub
 [Kubernetes](https://kubernetes.io/), also known as k8s, is an open source system for automating the deployment, scaling, and management of containerized
 applications. We are using [minikube](https://minikube.sigs.k8s.io/docs/) to set up a local Kubernetes cluster on macOS, Linux or Windows.
 
+Basically, the getting started is split into 4 steps. If you have already done the first steps, get in directly via the short link.
+
+- [Step 1 - Start your minikube cluster](#step1-startyourminikubecluster)
+- [Step 2 - Install steadybit agent](#step2-installsteadybitagent)
+- [Step 3 - Deploying shopping demo](#step3-deployingthesteadybitshopping-demo)
+- [Step 4 - Run your first experiment](#step4-runyourfirstexperiment)
+
 ## Prerequisites
 
 - a running [minikube](https://minikube.sigs.k8s.io/docs/start/) installation
@@ -29,7 +36,27 @@ kubectl get po -A
 
 If you don't have `kubectl` installed yet, check this out: [How to install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-## Step 2 - Deploying the steadybit shopping-demo
+## Step 2 - Install steadybit agent
+
+We take an agent-based approach to help you identify goals and run experiments. The installation of our steadybit agents is very simple. In the case of
+Kubernetes, you can install our agents in Kubernetes as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
+
+You can also find a detailed description in our [docs](https://docs.steadybit.io/installation-agent/2-daemonset).
+
+In our steadybit platform you will find in the section `.../settings/agents/setup` all details to install agents in your system. Please select the Kubernetes
+tab and copy the YAML file prepared there.
+
+![install steadybit agent](img-1-k8s/k8s-daemonset-agent.png)
+
+Create a DaemonSet based on the YAML file:
+
+```bash
+kubectl apply -f YOUR-FILE-NAME.yaml
+```
+
+That's all, ready to start your first experiment!
+
+## Step 3 - Deploying the steadybit shopping-demo
 
 In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by 4 distributed
 and scaled services.
@@ -134,27 +161,6 @@ The result is an aggregated list of all products of the services `toys`, `hot-de
   "statusHotDeals": "REMOTE_SERVICE"
 }
 ```
-
-## Step 3 - Install steadybit agent
-
-We take an agent-based approach to help you identify goals and run experiments. The installation of our steadybit agents is very simple. In the case of
-Kubernetes, you can install our agents in Kubernetes as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
-
-You can also find a detailed description in our [docs](https://docs.steadybit.io/installation-agent/2-daemonset).
-
-In our steadybit platform you will find in the section `.../settings/agents/setup` all details to install agents in your system. Please select the Kubernetes
-tab and copy the YAML file prepared there.
-
-![install steadybit agent](img-1-k8s/k8s-daemonset-agent.png)
-
-Create a DaemonSet based on the YAML file:
-
-```bash
-kubectl apply -f YOUR-FILE-NAME.yaml
-```
-
-That's all, ready to start your first experiment!
-
 ## Step 4 - Run your first experiment
 
 We will now use steadybit to find out how our shopping demo behaves when there is increased latency in the network for a backend service. This latency should
@@ -186,10 +192,32 @@ is in this case.
 ![Create experiment step 5](img-1-k8s/exp-infra-step-5.png)
 
 For now, let's skip the Execution and Monitoring section. Normally, here you would create an appropriate load test that is executed during the experiment and
-connect your monitoring solution. You can read more about this in our [docs](../execution-monitoring).
+connect your monitoring solution.
+
+You can read more about this in our [docs](../execution-monitoring).
 
 ![Create experiment step 6](img-1-k8s/exp-infra-step-6.png)
+
+Now everything is ready and we can start the experiment. In the next 30 seconds there will be an increased latency in the Fashion-bestseller service.
+
+You can track this by checking the response of the `shopping-demo` endpoint `/products`.
+
 ![Create experiment step 7](img-1-k8s/exp-infra-step-7.png)
-![Create experiment step 8](img-1-k8s/exp-infra-step-8.png)
+
+You should notice that in the `fashionResponse` section only the `fallback` is displayed and you do not see any products. One good thing is the fact that the
+latency we injected does not also have a negative impact on the gateway service. However, the current behavior can still be improved, for example by scaling the
+services.
+
+## Conclusion
+
+You have now successfully run an experiment with steadybit in a Kubernetes environment. You could discover how big the impact of a little latency is in a
+non-scaled system.
+
+What are the next steps?
+
+How about scaling the fashion-bestseller service and then running your new experiment again to increase availability and resilience.
+
+
+
 
 
