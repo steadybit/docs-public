@@ -69,7 +69,7 @@ The command `minikube tunnel` creates a route to services deployed with type Loa
 minikube tunnel
 ```
 
-With the following command you can now determine the external IP and port to access the `gateway` LoadBalancer:
+With the following command you can now determine the external IP and port to access the `gateway` service:
 
 ```bash
 kubectl get svc -n steadybit-demo
@@ -92,6 +92,70 @@ Visit `http://{EXTERNAL-IP}:{PORT}/products` in your browser to retrieve the agg
 curl http://{EXTERNAL-IP}:{PORT}/products
 ```
 
+The result is an aggregated list of all products of the services `toys`, `hot-deals` and `fashion`:
+
+```bash
+{
+  "fashionResponse": {
+    "responseType": "REMOTE_SERVICE",
+    "products": [
+      {
+        "id": "e9f0bec4-989c-4b9f-8bf9-334622e915ad",
+        "name": "Bob Mailor Slim Jeans",
+        "category": "FASHION"
+      },
+      {
+        "id": "b110185b-d808-4104-b605-08a90b1248ce",
+        "name": "Lewi's Jeanshose 511 Slim Fit",
+        "category": "FASHION"
+      },
+      {
+        "id": "222d7084-3cc7-43c3-890f-4598aa44eb2f",
+        "name": "Urban Classics Shirt Shaped Long Tee",
+        "category": "FASHION"
+      }
+    ]
+  },
+  "toysResponse": {
+    "responseType": "REMOTE_SERVICE",
+    "products": [
+      ...
+    ]
+  },
+  "hotDealsResponse": {
+    "responseType": "REMOTE_SERVICE",
+    "products": [
+      ...
+    ]
+  },
+  "duration": 112,
+  "statusFashion": "REMOTE_SERVICE",
+  "statusToys": "REMOTE_SERVICE",
+  "statusHotDeals": "REMOTE_SERVICE"
+}
+```
+
 ## Step 3 - Install steadybit agent
 
-tbd...
+We take an agent-based approach to help you identify goals and run experiments. The installation of our steadybit agents is very simple. In the case of
+Kubernetes, you can install our agents in Kubernetes as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
+
+You can also find a detailed description in our [docs](https://docs.steadybit.io/installation-agent/2-daemonset).
+
+In our steadybit platform you will find in the section `.../settings/agents/setup` all details to install agents in your system. Please select the Kubernetes
+tab and copy the YAML file prepared there.
+
+![install steadybit agent](./k8s-daemonset-agent.png)
+
+Create a DaemonSet based on the YAML file:
+
+```bash
+kubectl apply -f YOUR-FILE-NAME.yaml
+```
+
+That's all, ready to start your first experiment!
+
+## Step 4 - Run your first experiment
+
+
+
