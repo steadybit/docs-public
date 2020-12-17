@@ -5,6 +5,22 @@ navTitle: "Kubernetes"
 
 ### Daemonset
 
+#### Installation using the Helm chart
+
+To install the chart, retrieve your steadybit agent key from the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform and run:
+
+```bash
+helm repo add steadybit https://steadybit.github.io/helm-charts
+helm repo update
+kubectl create namespace steadybit-agent
+helm install steadybit-agent --namespace steadybit-agent --set agent.key=<replace-with-agent-key> steadybit/steadybit-agent
+```
+
+To configure the installation, specify the values on the command line using the --set flag, or provide a yaml file with your values using the -f flag.
+
+For a detailed list of all the configuration parameters, please see our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-agent).
+
+
 #### Installation through YAML file
 
 To install and configure steadybit within `Kubernetes` as a `DaemonSet` you need to define the `DaemonSet` YAML file.
