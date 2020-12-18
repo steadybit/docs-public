@@ -41,7 +41,39 @@ If you don't have `kubectl` installed yet, check this out: [How to install kubec
 We take an agent-based approach to help you identify goals and run experiments. The installation of our steadybit agents is very simple. In the case of
 Kubernetes, you can install our agents in Kubernetes as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
 
-You can also find a detailed description in our [docs](https://docs.steadybit.io/installation-agent/2-daemonset).
+### Step 2.1 - Helm
+
+If you haven't installed Helm yet, go [here](https://helm.sh/docs/intro/quickstart/) to get started. Once Helm is installed and configured, the next steps are
+to add the repo and install the agent.
+
+Add the repo for the steadybit Helm chart:
+
+```bash
+helm repo add steadybit https://steadybit.github.io/helm-charts
+helm repo update
+````
+
+Create a namespace for the steadybit Kubernetes agent:
+
+```bash
+kubectl create namespace steadybit-agent
+```
+
+In our steadybit platform you will find in the section `.../settings/agents/setup` your agent key.
+
+![copy steadybit agent key](img-1-k8s/k8s-agent-key.png)
+
+Please copy the agent key and paste it:
+
+```bash
+helm install steadybit-agent steadybit/steadybit-agent \
+              --namespace steadybit-agent \
+              --set agent.key=STEADYBIT_AGENT_KEY
+```
+
+That's all, ready to start your first experiment!
+
+### Step 2.2 - DaemonSet YAML
 
 In our steadybit platform you will find in the section `.../settings/agents/setup` all details to install agents in your system. Please select the Kubernetes
 tab and copy the YAML file prepared there.
@@ -215,7 +247,7 @@ non-scaled system.
 
 What are the next steps?
 
-How about scaling the fashion-bestseller service and then running your new experiment again to increase availability and resilience.
+How about scaling the fashion-bestseller service and then running your new experiment again to increase availability and resilience?
 
 
 
