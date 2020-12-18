@@ -61,7 +61,7 @@ Create a namespace for the steadybit Kubernetes agent:
 kubectl create namespace steadybit-agent
 ```
 
-In our steadybit platform you will find in the section `.../settings/agents/setup` your agent key.
+In our steadybit platform you will find under section `.../settings/agents/setup` your agent key.
 
 ![copy steadybit agent key](img-1-k8s/k8s-agent-key.png)
 
@@ -77,8 +77,8 @@ That's all, ready to start your first experiment!
 
 ### Step 2.2 - DaemonSet YAML
 
-In our steadybit platform you will find in the section `.../settings/agents/setup` all details to install agents in your system. Please select the Kubernetes
-tab and copy the YAML file prepared there.
+In our steadybit platform you will find under section `.../settings/agents/setup` all details to install agents in your system. Please select the Kubernetes tab
+and copy the YAML file prepared there.
 
 ![install steadybit agent](img-1-k8s/k8s-daemonset-agent.png)
 
@@ -93,9 +93,11 @@ That's all, ready to start your first experiment!
 ## Step 3 - Deploying the steadybit shopping-demo
 
 In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by 4 distributed
-and scaled services.
+services.
 
-First you need to download our shopping demo app, run following command:
+![shopping-demo-app](img-1-k8s/demo-app-diagram.png)
+
+First you need to download our shopping demo app, run following `git clone` command:
 
 ```bash
 git clone https://github.com/steadybit/shopping-demo.git
