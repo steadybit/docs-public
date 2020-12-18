@@ -41,6 +41,8 @@ If you don't have `kubectl` installed yet, check this out: [How to install kubec
 We take an agent-based approach to help you identify goals and run experiments. The installation of our steadybit agents is very simple. In the case of
 Kubernetes, you can install our agents in Kubernetes as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
 
+You can either install our agent directly using a [Helm](https://helm.sh/) chart or use the YAML file to install it using `kubectl`.
+
 ### Step 2.1 - Helm
 
 If you haven't installed Helm yet, go [here](https://helm.sh/docs/intro/quickstart/) to get started. Once Helm is installed and configured, the next steps are
