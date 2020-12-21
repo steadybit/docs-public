@@ -33,7 +33,7 @@ Please replace the string `replace-with-agent-key` with your specific Agent-Key 
 
 This needs to be done in three steps:
 1. Run `echo -n _:<replace-with-agent-key> | base64` and fill in the result into the value for the `auth` key
-2. Run `echo -n '{"auths":{"docker.steadybit.io":{"auth":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
+2. Run `echo -n '{"auths":{"docker.steadybit.io":{"auths":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
 3. Fill in the result from Step 2 into the value for the `.dockerconfigjson` key
 
 
