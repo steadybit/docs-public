@@ -12,4 +12,5 @@ To install the platform on your own premises, access to the following URL via HT
 ## Setup
 
 * [Docker](installation-platform/1-docker)
+* [Kubernetes](installation-platform/2-k8s)
 * [Advanced Configuration](installation-platform/3-advanced-configuration)
