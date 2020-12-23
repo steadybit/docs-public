@@ -48,8 +48,8 @@ You can use a static username/password to authenticate as an admin user
 | Environment Variable                            | Required  | Description
 |-------------------------------------------------|-----------|------------
 | `STEADYBIT_AUTH_PROVIDER`                       | yes | Use `STATIC` for static authentication <br/> **Example:** `LDAP`
-| `STEADYBIT_AUTH_STATIC_USERNAME`                | yes | Username <br/> **Example:** `admin`
-| `STEADYBIT_AUTH_STATIC_PASSWORD`                | yes | Password <br/> **Example:** `{noop}admin`
+| `STEADYBIT_AUTH_STATIC_0_USERNAME`              | yes | Username <br/> **Example:** `admin`
+| `STEADYBIT_AUTH_STATIC_0_PASSWORD`              | yes | Password <br/> **Example:** `{noop}admin`
 
 
 ## LDAP-Authentication

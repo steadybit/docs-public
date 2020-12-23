@@ -44,8 +44,8 @@ docker run \
   --env="STEADYBIT_TENANT_KEY=<replace-with-tenant-key>" \
   --env="STEADYBIT_TENANT_AGENTKEY=<replace-with-agent-key>" \
   --env="STEADYBIT_AUTH_PROVIDER=static" \
-  --env="STEADYBIT_AUTH_STATIC_USERNAME=admin" \
-  --env="STEADYBIT_AUTH_STATIC_PASSWORD={noop}admin" \
+  --env="STEADYBIT_AUTH_STATIC_0_USERNAME=admin" \
+  --env="STEADYBIT_AUTH_STATIC_0_PASSWORD={noop}admin" \
   docker.steadybit.io/steadybit/platform:latest
 ```
 
