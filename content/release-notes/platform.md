@@ -4,7 +4,7 @@ navTitle: "Platform"
 metaTitle: "Release Notes Platform - steadybit Docs"
 ---
 
-## Prepared for next versions
+## 0.2.0
  * Static-Authentication accepts lists of users. Configuration needs to be updated, for example
   ```
     STEADYBIT_AUTH_STATIC_0_USERNAME:admin
