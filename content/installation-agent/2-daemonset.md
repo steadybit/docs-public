@@ -20,6 +20,46 @@ To configure the installation, specify the values on the command line using the 
 
 For a detailed list of all the configuration parameters, please see our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-agent).
 
+#### Installation using Terraform
+
+It is also possible to install the Helm chart with Terraform. For that the official `helm_release` resource will be used.
+Analogous to the above procedure, the [agent key](https://platform.steadybit.io/settings/agents/setup) needs to be specified.
+See the following provider and resource definition for Terraform:
+
+```bash
+provider "helm" {
+  kubernetes {
+    config_path = "~/.kube/config"
+  }
+}
+
+resource "helm_release" "steadybit_helm_chart" {
+  name  = "steadybit-agent"
+  chart = "steadybit/steadybit-agent"
+
+  set {
+    name  = "agent.key"
+    value = "<replace-with-agent-key>"
+  }
+}
+```
+
+To configure additional parameters, specify the values directly in the terraform file, using the following syntax:
+
+```bash
+set {
+    name  = "agent.registerUrl"
+    value = "https://platform.steadybit.io"
+  }
+```
+
+Apply the Terraform definition:
+
+```bash
+terraform apply -var agent_key="<replace-with-agent-key>"
+```
+
+See this [GitHub Repository](https://github.com/steadybit/terraform-examples) for the complete source code.
 
 #### Installation through YAML file
 
