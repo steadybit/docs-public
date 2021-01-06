@@ -34,3 +34,8 @@ navTitle: "Advanced Configuration"
 | -m                | `STEADYBIT_MVN_REPOSITORIES`                        | steadybit Maven feature repositories <br/> **Default:** `https://artifacts.steadybit.io/repository/features-public@id=steadybit-features@snapshots@snapshotsUpdate=always,https://artifacts.steadybit.io/repository/releases-public@id=steadybit-releases@snapshots@snapshotsUpdate=always,https://repo1.maven.org/maven2@id=central` |
 |                   | `STEADYBIT_HTTP_ENDPOINT_PORT`                      | HTTP endpoint port for the health check url <br/> **Default:** `42999`
 |                   | `STEADYBIT_AGENT_ACTIONS_ENABLED`                   | Should this agent be eligible for executing actions? <br/> **Default:** `true`
+|                   | `STEADYBIT_REPOSITORY_PROXY_HOST`                   | Hostname of a proxy to access steadybit repository <br/>
+|                   | `STEADYBIT_REPOSITORY_PROXY_PORT`                   | Port of a proxy to access steadybit repository <br/>
+|                   | `STEADYBIT_REPOSITORY_PROXY_PROTOCOL`               | Protocol of a proxy to access steadybit repository <br/> **Default:** `http`
+|                   | `STEADYBIT_REPOSITORY_PROXY_USER`                   | Username of a proxy to access steadybit repository <br/>
+|                   | `STEADYBIT_REPOSITORY_PROXY_PASSWORD`               | Password of a proxy to access steadybit repository <br/>
