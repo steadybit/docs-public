@@ -20,5 +20,5 @@ curl -H"Authorization: accessToken xxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" ht
 
 ### OpenApi Specification
 
-We provide a [OpenApi 3.0 Specification](https://www.openapis.org/) for the API on https://platform.steadybit.io/api/spec.json.
-In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec.json`.
+We provide a [OpenApi 3.0 Specification for the API](https://platform.steadybit.io/api/spec) as well as a [interactive documentation](https://platform.steadybit.io/api/swagger).
+In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
