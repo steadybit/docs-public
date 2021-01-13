@@ -37,7 +37,7 @@ The content type is `application/json` and the message is described in our [Open
 
 ### Verifying the Signature
 
-If a secret is provided a signature of the body is computed using `HMAC SHA-256` and sent as `X-CM-Signature` http header.
+If a secret is provided a signature of the body is computed using `HMAC SHA-256` and sent as `X-SB-Signature` http header.
 You can use this header to verify the message.
 
 Here is an example of doing this in Java:
