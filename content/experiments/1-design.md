@@ -49,8 +49,8 @@ to not accidentally increase the blast radius.
 
 ## Execution and Monitoring
 
-You may add an automated steady state check to the experiment. The check is executed before and during the experiment. If the check fails at any time the
-experiment is immediately stopped.
+You may add an automated state checks to the experiment. The check is executed before and during the experiment. If the check fails at any time the experiment
+is immediately stopped.
 
 [Execution and Monitoring](content/monitoring)
 

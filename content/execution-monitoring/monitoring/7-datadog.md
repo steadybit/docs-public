@@ -29,10 +29,11 @@ See the following URLs for helpful informations to setup and obtain the keys:
 
 ### Usage
 
-Once Datadog has been configured in the platform's settings, you will find a button to `Add Datadog Steady State Check` in the experiment creation dialog.
+Once Datadog has been configured in the platform's settings, you will find a `Datadog State Check` in section `Execution and Monitoring` within the
+configuration dialog of an experiment.
 
-You only have to choose a Datadog Monitor from the list you want to check during the experiment execution.
-To learn more about this topic, just check out these URLs and create the Monitors you need for your specific use case.
+You only have to choose a Datadog Monitor from the list you want to check during the experiment execution. To learn more about this topic, just check out these
+URLs and create the Monitors you need for your specific use case.
 
 Useful resources:
 - [Setup Datadog Monitors](https://docs.datadoghq.com/monitors/)

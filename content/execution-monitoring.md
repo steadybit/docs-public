@@ -24,3 +24,4 @@ the state before, during and after the execution of an experiment.
 * [Instana](execution-monitoring/5-instana)
 * [Http Check](execution-monitoring/6-http-check)
 * [Datadog](execution-monitoring/7-datadog)
+* [New Relic](execution-monitoring/8-newrelic)

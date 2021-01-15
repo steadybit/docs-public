@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 steadybit GmbH. All rights reserved.
+ * Copyright 2021 steadybit GmbH. All rights reserved.
  */
 
 const config = {
@@ -18,7 +18,7 @@ const config = {
     }
   },
   "sidebar": {
-    "forcedNavOrder": ['getting-started', 'architecture', 'experiments', 'attacks', 'discovery', 'execution-monitoring', 'teams-and-users', 'integration', 'installation-agent', 'installation-platform', 'release-notes'],
+    "forcedNavOrder": ['architecture', 'experiments', 'attacks', 'discovery', 'execution-monitoring', 'areas', 'teams-and-users', 'integration', 'installation-agent', 'installation-platform', 'release-notes'],
     "frontline": false,
     "ignoreIndex": true,
   },
