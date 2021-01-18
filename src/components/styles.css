@@ -1,10 +1,10 @@
 /*
- * Copyright 2020 steadybit GmbH. All rights reserved.
+ * Copyright 2021 steadybit GmbH. All rights reserved.
  */
 
 @import "~inter-ui/inter.css";
-@import "~fontsource-montserrat/index.css";
-@import "~fontsource-montserrat/700-normal.css";
+@import "~@fontsource/montserrat/index.css";
+@import "~@fontsource/montserrat/700.css";
 
 :root {
   --coral: #f94d4c;
@@ -268,16 +268,6 @@ code {
   padding: 0 4px;
   color: var(--slateDark);
   border-radius: 2px;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .hitWrapper {
-    max-width: 500px;
-  }
-
-  .searchWrapper {
-    padding-left: 0;
-  }
 }
 
 .content {

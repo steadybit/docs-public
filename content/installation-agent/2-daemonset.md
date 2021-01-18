@@ -5,6 +5,62 @@ navTitle: "Kubernetes"
 
 ### Daemonset
 
+#### Installation using the Helm chart
+
+To install the chart, retrieve your steadybit agent key from the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform and run:
+
+```bash
+helm repo add steadybit https://steadybit.github.io/helm-charts
+helm repo update
+kubectl create namespace steadybit-agent
+helm install steadybit-agent --namespace steadybit-agent --set agent.key=<replace-with-agent-key> steadybit/steadybit-agent
+```
+
+To configure the installation, specify the values on the command line using the --set flag, or provide a yaml file with your values using the -f flag.
+
+For a detailed list of all the configuration parameters, please see our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-agent).
+
+#### Installation using Terraform
+
+It is also possible to install the Helm chart with Terraform. For that the official `helm_release` resource will be used.
+Analogous to the above procedure, the [agent key](https://platform.steadybit.io/settings/agents/setup) needs to be specified.
+See the following provider and resource definition for Terraform:
+
+```bash
+provider "helm" {
+  kubernetes {
+    config_path = "~/.kube/config"
+  }
+}
+
+resource "helm_release" "steadybit_helm_chart" {
+  name  = "steadybit-agent"
+  chart = "steadybit/steadybit-agent"
+
+  set {
+    name  = "agent.key"
+    value = "<replace-with-agent-key>"
+  }
+}
+```
+
+To configure additional parameters, specify the values directly in the terraform file, using the following syntax:
+
+```bash
+set {
+    name  = "agent.registerUrl"
+    value = "https://platform.steadybit.io"
+  }
+```
+
+Apply the Terraform definition:
+
+```bash
+terraform apply -var agent_key="<replace-with-agent-key>"
+```
+
+See this [GitHub Repository](https://github.com/steadybit/terraform-examples) for the complete source code.
+
 #### Installation through YAML file
 
 To install and configure steadybit within `Kubernetes` as a `DaemonSet` you need to define the `DaemonSet` YAML file.
@@ -17,7 +73,7 @@ Please replace the string `replace-with-agent-key` with your specific Agent-Key 
 
 This needs to be done in three steps:
 1. Run `echo -n _:<replace-with-agent-key> | base64` and fill in the result into the value for the `auth` key
-2. Run `echo -n '{"auths":{"docker.steadybit.io":{"auth":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
+2. Run `echo -n '{"auths":{"docker.steadybit.io":{"auths":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
 3. Fill in the result from Step 2 into the value for the `.dockerconfigjson` key
 
 

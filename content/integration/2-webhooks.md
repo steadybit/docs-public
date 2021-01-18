@@ -33,7 +33,7 @@ You can use this Webhook to receive Slack/Rocket Chat messages, whenever a exper
 
 ### Content
 
-The content type is `application/json` and the message is described in our [OpenAPI specification](https://platform.steadybit.io/api/spec.json) as `WebhookPayload`.
+The content type is `application/json` and the message is described in our [OpenAPI specification](https://platform.steadybit.io/api/spec) as `WebhookPayload`.
 
 ### Verifying the Signature
 

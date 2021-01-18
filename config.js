@@ -1,24 +1,15 @@
 /*
- * Copyright 2020 steadybit GmbH. All rights reserved.
+ * Copyright 2021 steadybit GmbH. All rights reserved.
  */
 
 const config = {
   "gatsby": {
     "pathPrefix": "",
-    "siteUrl": "https://docs.steadybit.com",
+    "siteUrl": "https://docs.steadybit.io",
     "gaTrackingId": "UA-145692204-1"
   },
-  "header": {
-    "search": {
-      "enabled": false,
-      "indexName": "",
-      "algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
-      "algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
-      "algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
-    }
-  },
   "sidebar": {
-    "forcedNavOrder": ['experiments', 'attacks', 'discovery','steady-state', 'teams-and-users', 'architecture', 'integration', 'installation-agent', 'installation-platform', 'changelog'],
+    "forcedNavOrder": ['experiments', 'attacks', 'discovery', 'execution-monitoring', 'areas', 'teams-and-users', 'integration', 'architecture', 'installation-agent', 'installation-platform', 'release-notes'],
     "frontline": false,
     "ignoreIndex": true,
   },
