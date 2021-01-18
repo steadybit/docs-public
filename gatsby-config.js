@@ -1,9 +1,8 @@
 /*
- * Copyright 2020 steadybit GmbH. All rights reserved.
+ * Copyright 2021 steadybit GmbH. All rights reserved.
  */
 
 require("dotenv").config();
-const queries = require("./src/utils/algolia");
 const config = require("./config");
 const plugins = [
   'gatsby-plugin-sitemap',
@@ -64,18 +63,7 @@ const plugins = [
     },
   },
 ];
-if (config.header.search && config.header.search.enabled && config.header.search.algoliaAppId && config.header.search.algoliaAdminKey) {
-  plugins.push({
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: config.header.search.algoliaAppId, // algolia application id
-        apiKey: config.header.search.algoliaAdminKey, // algolia admin key to index
-        queries,
-        chunkSize: 10000, // default: 1000
-      }
-    }
-  );
-}
+
 module.exports = {
   pathPrefix: config.gatsby.pathPrefix,
   siteMetadata: {
@@ -83,9 +71,6 @@ module.exports = {
     description: config.siteMetadata.description,
     ogImage: config.siteMetadata.ogImage,
     favicon: config.siteMetadata.favicon,
-    logo: {link: config.header.logoLink ? config.header.logoLink : '/', image: config.header.logo}, // backwards compatible
-    headerTitle: config.header.title,
-    headerLinks: config.header.links,
     siteUrl: config.gatsby.siteUrl,
   },
   plugins: plugins
