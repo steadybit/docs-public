@@ -62,6 +62,12 @@ const plugins = [
       anonymize: false,
     },
   },
+  {
+    resolve: 'gatsby-plugin-robots-txt',
+    options: {
+      policy: [{ userAgent: '*', disallow: '/' }]
+    }
+  }
 ];
 
 module.exports = {
