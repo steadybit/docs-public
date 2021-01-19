@@ -38,3 +38,4 @@ URLs and create the Monitors you need for your specific use case.
 Useful resources:
 - [Setup Datadog Monitors](https://docs.datadoghq.com/monitors/)
 - [Getting Started with Monitors](https://docs.datadoghq.com/getting_started/application/monitors)
+- [Create a monitor](https://app.datadoghq.eu/help/quick_start)
