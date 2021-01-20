@@ -277,7 +277,25 @@ What are the next steps?
 
 How about scaling the fashion-bestseller service and then running your new experiment again to increase availability and resilience?
 
+```bash
+kubectl scale deploy fashion-bestseller --replicas=3 --namespace steadybit-demo
+```
 
+Verify by running:
+
+```bash
+kubectl get deployments -A
+
+NAMESPACE        NAME                 READY   UP-TO-DATE   AVAILABLE   AGE
+kube-system      coredns              1/1     1            1           128d
+steadybit-demo   fashion-bestseller   3/3     3            3           1h49m
+steadybit-demo   gateway              1/1     1            1           1h49m
+steadybit-demo   hot-deals            1/1     1            1           1h49m
+steadybit-demo   postgres             1/1     1            1           1h49m
+steadybit-demo   toys-bestseller      1/1     1            1           1h49m
+```
+
+One big advantage is that you can re-run your experiment stored in steadybit at any time.
 
 
 
