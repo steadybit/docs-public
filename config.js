@@ -9,7 +9,7 @@ const config = {
     "gaTrackingId": "UA-145692204-1"
   },
   "sidebar": {
-    "forcedNavOrder": ['experiments', 'attacks', 'discovery', 'execution-monitoring', 'areas', 'teams-and-users', 'integration', 'architecture', 'installation-agent', 'installation-platform', 'release-notes'],
+    "forcedNavOrder": ['getting-started', 'experiments', 'attacks', 'discovery', 'execution-monitoring', 'areas', 'teams-and-users', 'integration', 'architecture', 'installation-agent', 'installation-platform', 'release-notes'],
     "frontline": false,
     "ignoreIndex": true,
   },
