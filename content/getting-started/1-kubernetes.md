@@ -1,9 +1,8 @@
 ---
-title: "How to install & use steadybit with Kubernetes locally"
-navTitle: "Kubernetes locally"
+title: "How to install & use steadybit with Kubernetes minikube"
+navTitle: "Kubernetes minikube"
 ---
-This getting started will show you how to install and use steadybit locally with Kubernetes. We will run an ecommerce application in Kubernetes and find out how
-it handles network latency. By using steadybit, we will slow down individual Kubernetes pods at the network level.
+This getting started will show you how to install and use steadybit locally with Kubernetes on minikube. We will run an ecommerce application in Kubernetes and find out how it handles network latency. By using steadybit, we will slow down individual Kubernetes pods at the network level.
 
 [Kubernetes](https://kubernetes.io/), also known as k8s, is an open source system for automating the deployment, scaling, and management of containerized
 applications. We are using [minikube](https://minikube.sigs.k8s.io/docs/) to set up a local Kubernetes cluster on macOS, Linux or Windows.
