@@ -87,7 +87,7 @@ You can use an OpenID Connect compatible authentication provider for user authen
 | `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`              | yes | URI for the OpenID Connect discovery endpoint. <br/> **Example:** `https://keycloak/auth/realms/demo`
 | `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`               | yes | The client ID to use for the OIDC registration <br/> **Example:** `steadybit`
 | `STEADYBIT_AUTH_OAUTH2_CLIENT_SECRET`           | yes | The client secret to use for the OIDC registration <br/> **Example:** `ijhdfpjdf80wiphubfqwd113342r`
-| `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE`     |     | Name of the attribute that will be used as name for the user <br/> **Default:** `name`
+| `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE`     |     | Name of the attribute that will be used as name for the user <br/> **Default:** `username`
 
 ## Using SSL/TLS Encryption
 
