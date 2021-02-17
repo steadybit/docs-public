@@ -94,7 +94,7 @@ metadata:
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
-  name: chaosmesh-agent
+  name: steadybit-agent
 spec:
   privileged: true
   allowPrivilegeEscalation: true
@@ -155,11 +155,15 @@ rules:
       - "pods"
       - "replicationcontrollers"
     verbs: ["get", "list", "watch"]
-  - apiGroups: ["policy"]
-    resources: ["podsecuritypolicies"]
-    verbs:     ["use"]
+  - apiGroups: [ "policy" ]
+    resources: [ "podsecuritypolicies" ]
+    verbs: [ "use" ]
     resourceNames:
-      - chaosmesh-agent
+      - steadybit-agent
+  - apiGroups: [ "autoscaling" ]
+    resources:
+      - "horizontalpodautoscalers"
+    verbs: [ "get", "list", "watch" ]
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
