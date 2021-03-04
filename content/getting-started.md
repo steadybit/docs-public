@@ -3,15 +3,20 @@ title: "Getting started"
 metaTitle: "Getting started - steadybit Docs"
 ---
 
-## Prerequisites
+## Introduction
+We have prepared a series of useful guides and docs to make your start with steadybit as smooth as possible.
 
-We take an agent-based approach at steadybit. Our agents communicate with the steadybit platform, which is either operated by us as a SaaS platform or by you as
-an on-prem variant. In this getting started we assume that this platform is available. If you have questions about the on-prem variant, please have a look at
-our docs and contact us.
+### Setting up steadybit
+As you have already notice, you can use our SaaS service or rely on the self-hosted version.
+The following two guides allow you to get started quickly and lead you through the necessary steps.
 
-### Kubernetes
+* [Running steadybit on our SaaS Platform](getting-started/1-getting-started-saas)
+* [Running steadybit self-hosted (on-prem)](getting-started/2-getting-started-onprem)
 
-* [How to install & use steadybit with Kubernetes locally](getting-started/1-kubernetes)
-* [How to install & use steadybit with AWS EKS Kubernetes](getting-started/2-aws-eks-kubernetes)
+### Getting started in Kubernetes
+In the following getting started guides we assume that our platform is configured and available.
+
+* [How to install & use steadybit with Kubernetes locally](getting-started/3-kubernetes)
+* [How to install & use steadybit with AWS EKS Kubernetes](getting-started/4-aws-eks-kubernetes)
 
 

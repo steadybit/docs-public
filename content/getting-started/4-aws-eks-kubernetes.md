@@ -2,6 +2,7 @@
 title: "How to install & use steadybit with Kubernetes managed by AWS EKS"
 navTitle: "Kubernetes AWS EKS"
 ---
+## Introduction
 This getting started will show you how to install and use steadybit with Kubernetes managed by AWS Elastic Kubernetes Service (AWS EKS). We will run an
 ecommerce application in Kubernetes and find out how it handles network latency. By using steadybit, we will slow down individual Kubernetes pods at the network
 level.
