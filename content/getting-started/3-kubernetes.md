@@ -108,7 +108,7 @@ git clone https://github.com/steadybit/shopping-demo.git
 Now we use kubectl to deploy the demo by running the following command:
 
 ```bash
-kubectl apply -f shopping-demo/deployments/kubernetes-minikube
+kubectl apply -f k8s-manifests.yml
 ```
 
 Verify that all Shopping Demo pods are running:
