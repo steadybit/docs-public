@@ -84,6 +84,7 @@
     display: block;
     border-bottom: none;
   }
+
   .table-of-contents__toggle {
     display: none;
   }
@@ -123,6 +124,10 @@
 .table-of-contents > .item > ul {
   margin-top: 4px;
   margin-left: 8px;
+}
+
+.table-of-contents > .item > ul ul {
+  margin-left: 16px;
 }
 
 .table-of-contents > .item .item {
