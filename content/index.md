@@ -6,11 +6,17 @@ metaDescription: "steadybit - Chaos Engineering Platform"
 
 ## Welcome to steadybit
 
-Steadybit helps you to proactively reduce downtime and provides visibility into your systems to detect issues. We follow the principles of Chaos Engineering and
-help you to stay in control of your chaos experiments.
+Steadybit helps you to proactively reduce downtime and provides visibility into your systems to detect resilience issues. We follow the principles of Chaos
+Engineering and help you to stay in control of your chaos experiments.
 
-To use steadybit, you can use our platform as Software as a Service (SaaS) or [run it locally](installation-platform/) in your own infrastructure (on-prem).
+Steadybit uses an agent-based approach consisting of a central platform - being the center of control for you - and agents - deployed in your system to discover running hosts, containers and applications.
 
-Once you have an environment available, the next step is to [install an agent](installation-agent/) on each of your hosts to run experiments.
+To get started, check out one of these:
+- New to steadybit? [Get started by installing agents to your system](content/setup/installation-agent)
+- [Play around](getting-started) with steadybit and our demo shop application
+- Install the steadybit [platform on-premise](content/setup/installation-platform)
 
-If you need additional help, [contact us](https://www.steadybit.com/contact).
+Want to learn more? How about
+- Understanding our [agent-based architecture](architecture)
+
+If you need help, [contact us](https://www.steadybit.com/contact).

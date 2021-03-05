@@ -56,7 +56,7 @@ short explanation of the data structure.
 
 Below you see an example widget that can be configured on your New Relic dashboard. This helps you to correlate the execution of an experiment with other dashboard widgets.
 
-![New Relic Insights Example](./8-new-relic-insights.png)
+![New Relic Insights Example](content/use/execution-monitoring/monitoring/8-new-relic-insights.png)
 
 Events of steadybit are published as the custom event `ExperimentExecution` which can be queried using `NRQL`.
 Therefore, go within New Relic to the Dashboard, add a new widget of type chart and use for instance the following `NRQL`:

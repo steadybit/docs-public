@@ -30,7 +30,7 @@ Thus you may encounter http requests that are delayed by a multiple of the speci
 
 In this example the traffic is delayed by 500ms.
 If you tap the wire (using tcpdump) and feed it into Wireshark it looks like this:
-![tcpdump delay example](./tcpdump.png)
+![tcpdump delay example](content/learn/attacks/tcpdump.png)
 1. The first incoming packet initiates the tcp connection and is accepted by the second packet, which is delayed exactly be the 500ms. <br/>
 2. With the fourth packet we receive an http request in the payload. Which is acknowledged and answered with an http response in packet four to seven, which are also delayed by 500ms and thus the total latency for the http request sums up to 1 second.
 

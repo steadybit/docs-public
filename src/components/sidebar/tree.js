@@ -59,7 +59,7 @@ const calculateTreeData = (edges) => {
     { items: [] }
   );
   const {
-    sidebar: { forcedNavOrder = [], forcedSubNavOrder = [] },
+    sidebar: { forcedNavOrder = [] },
   } = config;
   const reversedNavOrder = [...forcedNavOrder];
   reversedNavOrder.reverse();
@@ -81,18 +81,6 @@ const calculateTreeData = (edges) => {
     // sort items alphabetically.
     prevItems.map((item) => {
       item.items = item.items.sort(function (a, b) {
-        const forcedOrder = forcedSubNavOrder[item.label];
-        if (
-          forcedOrder &&
-          forcedOrder.indexOf(a.label) >= 0 &&
-          forcedOrder.indexOf(b.label) >= 0
-        ) {
-          if (forcedOrder.indexOf(a.label) > forcedOrder.indexOf(b.label))
-            return -1;
-          if (forcedOrder.indexOf(a.label) < forcedOrder.indexOf(b.label))
-            return 1;
-          return 0;
-        }
         if (a.label < b.label) return -1;
         if (a.label > b.label) return 1;
         return 0;

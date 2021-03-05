@@ -1,6 +1,6 @@
 ---
-title: "Running steadybit self-hosted (on-prem)"
-navTitle: "Running steadybit self-hosted"
+title: "How to setup On-Prem (self-hosted)"
+navTitle: "How to setup On-Prem (self-hosted)"
 ---
 ## Introduction
 This guide helps you with the initial setup of our steadybit platform and leads you step by step through the first setup.

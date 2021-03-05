@@ -1,5 +1,6 @@
 ---
-title: "Agent Installation"
+title: "Install Agent"
+navTitle: "Install Agent"
 metaTitle: "Agent Installation - steadybit Docs"
 ---
 

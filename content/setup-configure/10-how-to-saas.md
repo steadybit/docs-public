@@ -1,6 +1,6 @@
 ---
-title: "Running steadybit on our SaaS Platform"
-navTitle: "Running steadybit on SaaS"
+title: "How to set up SaaS Platform"
+navTitle: "How to set up SaaS Platform"
 ---
 ## Introduction
 This guide helps you with the initial setup of our steadybit platform and leads you step by step through the first setup.
@@ -37,7 +37,7 @@ Once the agents are rolled out, they connect to the platform and appear in the l
 You can see in the overview of all agents where they are operated and which agent type they are.
 Simple access to the log file of the agent is also possible.
 
-If you want to know more details, check out the section [Installation Agent](../installation-agent)
+If you want to know more details, check out the section [Installation Agent](content/setup/installation-agent)
 
 ## Step 2 - Set Up Areas
 
@@ -57,13 +57,13 @@ Creating teams is possible only with the `admin` permission. Within teams there 
 
 Thus, the teams can manage themselves and run experiments in the areas assigned to them.
 
-If you want to know more details, check out the section [Teams and Users](../teams-and-users)
+If you want to know more details, check out the section [Teams and Users](content/setup/teams-and-users)
 
 ## Step 4 - Set Up Monitoring & Integrations
 
 We provide many integrations to monitoring systems.
 Use these integrations to improve our analysis and to keep control during the execution of experiments.
 
-Our list of all integrations to Monitoring Tools, Application Performance Monitoring (APM) and other tools can be found in the sections under [Execution and Monitoring](../execution-monitoring).
+Our list of all integrations to Monitoring Tools, Application Performance Monitoring (APM) and other tools can be found in the sections under [Execution and Monitoring](content/use/execution-monitoring).
 
 That's all, ready to start your first experiment!

@@ -3,7 +3,7 @@ title: "Architecture"
 metaTitle: "Architecture - steadybit Docs"
 ---
 
-![steadybit architecture](./architecture-1.svg)
+![steadybit architecture](content/learn/architecture-1.svgecture-1.svg)
 
 The steadybit platform never connects to the agent, all connections are initiated by the agent, regardless of the deployment model.
 

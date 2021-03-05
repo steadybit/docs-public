@@ -1,5 +1,6 @@
 ---
-title: "Platform Installation"
+title: "Install Platform"
+navTitle: "Install Platform"
 metaTitle: "Platform Installation - steadybit Docs"
 ---
 

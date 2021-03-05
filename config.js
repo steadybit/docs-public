@@ -16,12 +16,6 @@ const config = {
       "integrate",
       "release-notes",
     ],
-    forcedSubNavOrder: {
-      "setup-configure": ["configure-monitoring", "areas"],
-      use: [],
-      learn: [],
-      integrate: [],
-    },
     frontline: false,
     ignoreIndex: true,
   },

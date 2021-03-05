@@ -1,36 +1,67 @@
 ---
-title: "How to install & use steadybit with Kubernetes minikube"
-navTitle: "Kubernetes minikube"
+title: "How to install & use steadybit with Kubernetes managed by AWS EKS"
+navTitle: "How to attack demo-shop (AWS EKS)"
 ---
-This getting started will show you how to install and use steadybit locally with Kubernetes on minikube. We will run an ecommerce application in Kubernetes and find out how it handles network latency. By using steadybit, we will slow down individual Kubernetes pods at the network level.
+## Introduction
+This getting started will show you how to install and use steadybit with Kubernetes managed by AWS Elastic Kubernetes Service (AWS EKS). We will run an
+ecommerce application in Kubernetes and find out how it handles network latency. By using steadybit, we will slow down individual Kubernetes pods at the network
+level.
 
 [Kubernetes](https://kubernetes.io/), also known as k8s, is an open source system for automating the deployment, scaling, and management of containerized
-applications. We are using [minikube](https://minikube.sigs.k8s.io/docs/) to set up a local Kubernetes cluster on macOS, Linux or Windows.
+applications. We are using [AWS EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) to set up a Kubernetes cluster.
 
 Basically, the getting started is split into 4 steps. If you have already done the first steps, get in directly via the short link.
 
-- [Step 1 - Start your minikube cluster](#step1-startyourminikubecluster)
+- [Step 1 - Create your EKS cluster](#step1-startyourminikubecluster)
 - [Step 2 - Install steadybit agent](#step2-installsteadybitagent)
 - [Step 3 - Deploying shopping demo](#step3-deployingthesteadybitshopping-demo)
 - [Step 4 - Run your first experiment](#step4-runyourfirstexperiment)
 
 ## Prerequisites
 
-- a running [minikube](https://minikube.sigs.k8s.io/docs/start/) installation
+- [AWS account](https://aws.amazon.com/de/account/)
+- [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+- [AWS eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)
+- [Kuberentes kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - a running [steadybit](https://www.steadybit.com/try-for-free) platform (Saas or on-prem)
 
-## Step 1 - Start your minikube cluster
+## Step 1 - Create your AWS Elastic Kubernetes Service (AWS EKS) cluster and nodes
+
+Verfiy your AWS CLI configuration by running:
+
+```bash
+aws --version
+```
+
+Your output should be similiar to:
+
+```bash
+aws-cli/2.0.44 Python/3.8.5 Darwin/19.6.0 source/x86_64
+```
+
+Create your Amazon EKS cluster and containing 2 nodes by running the following command. More details are available
+at [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)
 
 From a terminal, run:
 
 ```bash
-minikube start
+eksctl create cluster \
+--name steadybit-demo-cluster \
+--region us-west-2
 ```
 
 If you already have installed `kubectl` you can access your cluster with:
 
 ```bash
-kubectl get po -A
+kubectl get nodes
+```
+
+Your output should be look like:
+
+```bash
+NAME                                           STATUS   ROLES    AGE    VERSION
+ip-192-168-53-195.us-west-2.compute.internal   Ready    <none>   113s   v1.17.12-eks-7684af
+ip-192-168-68-23.us-west-2.compute.internal    Ready    <none>   118s   v1.17.12-eks-7684af
 ```
 
 If you don't have `kubectl` installed yet, check this out: [How to install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
@@ -62,7 +93,7 @@ kubectl create namespace steadybit-agent
 
 In our steadybit platform you will find under section `.../settings/agents/setup` your agent key.
 
-![copy steadybit agent key](img-1-k8s/k8s-agent-key.png)
+![copy steadybit agent key](content/use/img-1-k8sse/img-1-k8s/k8s-agent-key.png)
 
 Please copy the agent key and paste it:
 
@@ -79,7 +110,7 @@ That's all, ready to start your first experiment!
 In our steadybit platform you will find under section `.../settings/agents/setup` all details to install agents in your system. Please select the Kubernetes tab
 and copy the YAML file prepared there.
 
-![install steadybit agent](img-1-k8s/k8s-daemonset-agent.png)
+![install steadybit agent](content/use/img-1-k8sse/img-1-k8s/k8s-daemonset-agent.png)
 
 Create a DaemonSet based on the YAML file:
 
@@ -94,10 +125,7 @@ That's all, ready to start your first experiment!
 In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by 4 distributed
 services.
 
-![shopping-demo-app](img-1-k8s/demo-app-diagram.png)
-
-If you want to learn more about our demo, please take a look at our GitHub
-repository: [https://github.com/steadybit/shopping-demo](https://github.com/steadybit/shopping-demo)
+![shopping-demo-app](content/use/img-1-k8sse/img-1-k8s/demo-app-diagram.png)
 
 First you need to download our shopping demo app, run following `git clone` command:
 
@@ -108,7 +136,7 @@ git clone https://github.com/steadybit/shopping-demo.git
 Now we use kubectl to deploy the demo by running the following command:
 
 ```bash
-kubectl apply -f k8s-manifests.yml
+kubectl apply -f demo-deployment/
 ```
 
 Verify that all Shopping Demo pods are running:
@@ -126,12 +154,6 @@ gateway-7fc74f7f9b-tshzg              1/1     Running   0          11s
 hot-deals-75cb898ff7-wrnxc            1/1     Running   0          10s
 postgres-68f9db56cc-wxxth             1/1     Running   0          10s
 toys-bestseller-6df5bd864f-kzrt9      1/1     Running   0          11s
-```
-
-The command `minikube tunnel` creates a route to services deployed with type LoadBalancer and sets their Ingress to their ClusterIP.
-
-```bash
-minikube tunnel
 ```
 
 With the following command you can now determine the external IP and port to access the `gateway` service:
@@ -208,40 +230,40 @@ do this kind of testing later on in a real Kubernetes cluster.
 
 Please create a new experiment for the infrastructure section:
 
-![Create experiment step 1](img-1-k8s/exp-infra-step-1.png)
+![Create experiment step 1](content/use/img-1-k8sse/img-1-k8s/exp-infra-step-1.png)
 
 Like everything in life, our experiment needs a fitting name:
 
-![Create experiment step 2](img-1-k8s/exp-infra-step-2.png)
+![Create experiment step 2](content/use/img-1-k8sse/img-1-k8s/exp-infra-step-2.png)
 
 Our target for our experiment is a container running in Kubernetes. Therefore, we select Container for the type of targets. We want our experiment to be
 repeatable as often as we like, so we describe our target container with attributes and not by a unique name:
 
-![Create experiment step 3](img-1-k8s/exp-infra-step-3.png)
+![Create experiment step 3](content/use/img-1-k8sse/img-1-k8s/exp-infra-step-3.png)
 
 In the current deployment, none of the services are scaled, which doesn't really make sense and only supports this demo. For this reason we also get only 1
 affected container for the attack radius. In real life you would see more than 1 affected container and can then control how many of them should be affected by
 this experiment:
 
-![Create experiment step 4](img-1-k8s/exp-infra-step-4.png)
+![Create experiment step 4](content/use/img-1-k8sse/img-1-k8s/exp-infra-step-4.png)
 
 Our experiment is to inject latency into the network in order to find out how this affects our application and more importantly what our customers' experience
 is in this case.
 
-![Create experiment step 5](img-1-k8s/exp-infra-step-5.png)
+![Create experiment step 5](content/use/img-1-k8sse/img-1-k8s/exp-infra-step-5.png)
 
 For now, let's skip the Execution and Monitoring section. Normally, here you would create an appropriate load test that is executed during the experiment and
 connect your monitoring solution.
 
-You can read more about this in our [docs](../execution-monitoring).
+You can read more about this in our [docs](content/use/execution-monitoring).
 
-![Create experiment step 6](img-1-k8s/exp-infra-step-6.png)
+![Create experiment step 6](content/use/img-1-k8sse/img-1-k8s/exp-infra-step-6.png)
 
 Now everything is ready and we can start the experiment. In the next 30 seconds there will be an increased latency in the Fashion-bestseller service.
 
 You can track this by checking the response of the `shopping-demo` endpoint `/products`.
 
-![Create experiment step 7](img-1-k8s/exp-infra-step-7.png)
+![Create experiment step 7](content/use/img-1-k8sse/img-1-k8s/exp-infra-step-7.png)
 
 You should notice that in the `fashionResponse` section only the `fallback` is displayed and you do not see any products. One good thing is the fact that the
 latency we injected does not also have a negative impact on the gateway service. However, the current behavior can still be improved, for example by scaling the
@@ -275,3 +297,6 @@ steadybit-demo   toys-bestseller      1/1     1            1           1h49m
 ```
 
 One big advantage is that you can re-run your experiment stored in steadybit at any time.
+
+
+
