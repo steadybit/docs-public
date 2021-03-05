@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 steadybit GmbH. All rights reserved.
+ * Copyright 2021 steadybit GmbH. All rights reserved.
  */
 .sidebar {
   padding-left: 0;
@@ -70,6 +70,11 @@
   display: block;
 }
 
+.table-of-contents img {
+  width: 16px;
+  height: 16px;
+}
+
 .table-of-contents__toggle {
   border: 0 none;
   height: 44px;
@@ -103,7 +108,9 @@
 
 .table-of-contents .item > a {
   text-decoration: none;
-  display: inline-block;
+  display: grid;
+  grid-template-columns: auto 16px;
+  align-items: center;
   width: 100%;
   font-size: 18px;
   font-weight: normal;
@@ -121,13 +128,9 @@
   color: var(--coral);
 }
 
-.table-of-contents > .item > ul {
+.table-of-contents > .item ul {
   margin-top: 4px;
   margin-left: 8px;
-}
-
-.table-of-contents > .item > ul ul {
-  margin-left: 16px;
 }
 
 .table-of-contents > .item .item {
