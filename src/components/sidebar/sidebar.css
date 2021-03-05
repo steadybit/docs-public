@@ -29,7 +29,7 @@
 
 @media (min-width: 767px) {
   .sidebar__brand {
-    padding: 32px;
+    padding: 20px;
   }
 }
 
@@ -52,7 +52,7 @@
 
 @media (min-width: 767px) {
   .sidebar {
-    width: 280px;
+    width: 20rem;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -62,7 +62,7 @@
 
 .table-of-contents {
   display: none;
-  margin: 32px;
+  margin: 20px;
   border-bottom: 1px solid transparent;
 }
 
@@ -98,13 +98,10 @@
 .table-of-contents .item {
   list-style-type: none;
   width: auto;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   white-space: nowrap;
 }
 
-.table-of-contents > .item {
-  margin: 24px 0;
-}
 
 .table-of-contents .item > a {
   text-decoration: none;
