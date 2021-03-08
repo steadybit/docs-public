@@ -6,6 +6,14 @@ import React, { useState } from "react";
 import config from "../../../config";
 import TreeNode from "./treeNode";
 
+const sortChildItems = (item) => {
+  item.items = item.items.sort(function (a, b) {
+    if (a.label < b.label) return -1;
+    if (a.label > b.label) return 1;
+    return 0;
+  });
+  item.items.map(sortChildItems);
+};
 const calculateTreeData = (edges) => {
   const originalData = config.sidebar.ignoreIndex
     ? edges.filter(
@@ -79,13 +87,7 @@ const calculateTreeData = (edges) => {
       prevItems = tmp.items;
     }
     // sort items alphabetically.
-    prevItems.map((item) => {
-      item.items = item.items.sort(function (a, b) {
-        if (a.label < b.label) return -1;
-        if (a.label > b.label) return 1;
-        return 0;
-      });
-    });
+    prevItems.map(sortChildItems);
     const index = prevItems.findIndex(
       ({ label }) => label === parts[parts.length - 1]
     );
