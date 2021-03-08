@@ -10,7 +10,6 @@ import iconChevronRight from "../../assets/images/icon-chevron-right.svg";
 import iconChevronDown from "../../assets/images/icon-chevron-down.svg";
 
 const TreeNode = ({ className = "", url, title, items }) => {
-  const [isHidden, setHidden] = React.useState(true);
   const hasChildren = items.length !== 0;
   const location =
     typeof document !== "undefined" ? document.location : undefined;
@@ -18,7 +17,9 @@ const TreeNode = ({ className = "", url, title, items }) => {
     location &&
     (location.pathname === url ||
       location.pathname === config.gatsby.pathPrefix + url);
-  const calculatedClassName = `${className} item ${active ? "active" : ""}`;
+  const initialVisible = location && location.pathname.includes(url);
+  const [isHidden, setHidden] = React.useState(!initialVisible);
+  const calculatedClassName = `${className} item${active ? " active" : ""}`;
   return (
     <li className={calculatedClassName}>
       {title ? (
