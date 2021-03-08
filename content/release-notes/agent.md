@@ -1,7 +1,6 @@
 ---
 title: "Release Notes - Agent"
 navTitle: "Agent"
-metaTitle: "Release Notes Agent - steadybit Docs"
 ---
 
 ## 2020-08-19 (0.1.4)

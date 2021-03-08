@@ -1,6 +1,5 @@
 ---
 title: "Notifications & Webhooks"
-metaTitle: "Notifications & Webhooks - steadybit Docs"
 ---
 
 You can configure Webhooks in steadybit under Settings > Notifications & Webhooks.

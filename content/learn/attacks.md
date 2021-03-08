@@ -1,6 +1,5 @@
 ---
 title: "Attacks"
-metaTitle: "Attacks - steadybit Docs"
 metaDescription: "steadybit platform offers you extensive, safe and customizable attacks"
 ---
 Our steadybit platform offers you extensive, safe and customizable attacks.

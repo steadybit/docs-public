@@ -1,6 +1,5 @@
 ---
 title: "API"
-metaTitle: "API - steadybit Docs"
 ---
 
 The steadybit Web API allows interfacing with the platform to create, start, stop experiments, etc.

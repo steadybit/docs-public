@@ -1,6 +1,6 @@
 ---
-title: "Areas"
-metaTitle: "Areas - steadybit Docs"
+title: "Set Up Areas"
+metaTitle: "Set Up Areas - steadybit Docs"
 ---
 No one knows your system better than you, so it is obvious that you should be able to structure the discovery information we gather.
 

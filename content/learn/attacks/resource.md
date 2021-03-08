@@ -1,7 +1,6 @@
 ---
 title: "Resource Attacks"
 navTitle: "Resource"
-metaTitle: "Resource Attacks - steadybit Docs"
 metaDescription: "steadybit state attacks can cause turbulent conditions on the infrastructure and platform level"
 ---
 

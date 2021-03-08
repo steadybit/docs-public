@@ -1,6 +1,5 @@
 ---
 title: "Discovery"
-metaTitle: "Discovery - steadybit Docs"
 ---
 
 The steadybit agent discovers attack targets on your systems by leveraging different technologies:

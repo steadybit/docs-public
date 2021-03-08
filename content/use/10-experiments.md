@@ -1,6 +1,5 @@
 ---
 title: "Experiments"
-metaTitle: "Experiments - steadybit Docs"
 ---
 Our steadybit platform helps you to plan, orchestrate and execute regular check-ups by running assisted experiments and helps you to focus on fixing the
 relevant problems.

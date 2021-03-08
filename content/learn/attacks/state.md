@@ -1,7 +1,6 @@
 ---
 title: "State Attacks"
 navTitle: "State"
-metaTitle: "State Attacks - steadybit Docs"
 metaDescription: "steadybit state attacks can cause turbulent conditions on the infrastructure and platform level"
 ---
 

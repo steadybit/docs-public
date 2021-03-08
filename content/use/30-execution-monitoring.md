@@ -1,6 +1,5 @@
 ---
 title: "Execution and Monitoring"
-metaTitle: "Execution and Monitoring - steadybit Docs"
 metaDescription: "steadybit platform offers you extensive, safe and customizable attacks"
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: "Architecture"
-metaTitle: "Architecture - steadybit Docs"
 ---
 
 ![steadybit architecture](content/learn/architecture-1.svgecture-1.svg)

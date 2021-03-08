@@ -10,7 +10,8 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      "setup-configure",
+      "getting-started",
+      "install-configure",
       "use",
       "learn",
       "integrate",
