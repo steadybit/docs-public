@@ -1,9 +1,8 @@
 /*
- * Copyright 2020 steadybit GmbH. All rights reserved.
+ * Copyright 2021 steadybit GmbH. All rights reserved.
  */
 
 import { Layout } from "$components";
-import { graphql } from "gatsby";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
 import React, { Component } from "react";
 import Helmet from "react-helmet";
@@ -14,15 +13,18 @@ export default class MDXRuntimeTest extends Component {
     const { data } = this.props;
     const { mdx } = data;
 
-    const metaTitle = mdx.frontmatter.metaTitle;
-    const metaDescription = mdx.frontmatter.metaDescription;
+    const navTitle = mdx && mdx.fields ? mdx.fields.title : null;
+    const metaTitle = mdx && mdx.frontmatter ? mdx.frontmatter.metaTitle : null;
+    const metaDescription =
+      mdx && mdx.frontmatter ? mdx.frontmatter.metaDescription : null;
 
     let canonicalUrl = config.gatsby.siteUrl;
     canonicalUrl =
       config.gatsby.pathPrefix !== "/"
         ? canonicalUrl + config.gatsby.pathPrefix
         : canonicalUrl;
-    canonicalUrl = canonicalUrl + mdx.fields.slug;
+    canonicalUrl =
+      mdx && mdx.fields ? canonicalUrl + mdx.fields.slug : canonicalUrl;
 
     return (
       <Layout {...this.props}>
@@ -44,9 +46,11 @@ export default class MDXRuntimeTest extends Component {
           ) : null}
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
-        <h1 className={"heading h1"}>{mdx.fields.title}</h1>
+        <h1 className={"heading h1"}>
+          {mdx && mdx.fields ? mdx.fields.title : null}
+        </h1>
         <div className={"mainWrapper"}>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
+          {mdx ? <MDXRenderer>{mdx.body}</MDXRenderer> : null}
         </div>
       </Layout>
     );
