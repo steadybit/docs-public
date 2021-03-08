@@ -28,6 +28,9 @@ Now you are ready to choose a suitable attack to match your hypothesis. The atta
 attack is capable of attacking a specific target type (`Process`, `Container` or `Host`). Choose the attack with the desired effect and the matching target type
 for your experiment. After choosing you may provide additional parameters for the attack.
 
+## Area
+--- TODO MANUEL --
+
 ## Attack Radius
 Now you need to specifiy the blast radius of the experiment.
 The blast radius is narrowed down by choosing attributes.
