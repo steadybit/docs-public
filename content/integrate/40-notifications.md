@@ -1,7 +1,7 @@
 ---
-title: "Notifications & Webhooks"
+title: "Notifications (Slack)"
 ---
-
+TODO
 You can configure Webhooks in steadybit under Settings > Notifications & Webhooks.
 You can use Webhooks to recieve notifications via Slack or to integrate with you custom tooling.
 

@@ -2,7 +2,7 @@
 title: "Architecture"
 ---
 
-![steadybit architecture](content/learn/architecture-1.svgecture-1.svg)
+![steadybit architecture](10-architecture.svg)
 
 The steadybit platform never connects to the agent, all connections are initiated by the agent, regardless of the deployment model.
 

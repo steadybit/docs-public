@@ -17,7 +17,7 @@ If all conditions are met the experiment is started.
 
 ## Experiment Phases
 
-![experiment phases](content/use/experiments/experiment-phases.png)
+![experiment phases](experiment-phases.png)
 
 | State   | Description    |
 |---------|----------------|
