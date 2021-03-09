@@ -17,25 +17,26 @@ const TreeNode = ({ className = "", url, title, items }) => {
     location &&
     (location.pathname === url ||
       location.pathname === config.gatsby.pathPrefix + url);
-  const initialVisible = location && location.pathname.includes(url);
-  const [isHidden, setHidden] = React.useState(!initialVisible);
+  const [isHiddenForced, setForceHidden] = React.useState(false);
+  const isVisible =
+    location && location.pathname.includes(url) && !isHiddenForced;
   const calculatedClassName = `${className} item${active ? " active" : ""}`;
   return (
     <li className={calculatedClassName}>
       {title ? (
-        <Link to={url} onClick={() => setHidden(!isHidden)}>
+        <Link to={url} onClick={() => setForceHidden(isVisible)}>
           {title}
           {hasChildren ? (
             <img
-              src={isHidden ? iconChevronRight : iconChevronDown}
-              alt={isHidden ? "chevron right" : "chevron down"}
+              src={isVisible ? iconChevronDown : iconChevronRight}
+              alt={isVisible ? "chevron down" : "chevron right"}
             />
           ) : null}
         </Link>
       ) : null}
       {hasChildren ? (
         <AnimatePresence initial={false}>
-          {!isHidden ? (
+          {isVisible ? (
             <motion.div
               style={{ overflow: "hidden" }}
               initial={{ height: 0 }}
@@ -43,7 +44,7 @@ const TreeNode = ({ className = "", url, title, items }) => {
               exit={{ height: 0 }}
               as={"ul"}
             >
-              <ul style={{ display: isHidden ? "none" : "block" }}>
+              <ul style={{ display: isVisible ? "block" : "none" }}>
                 {items.map((item) => (
                   <TreeNode key={item.url} {...item} />
                 ))}
