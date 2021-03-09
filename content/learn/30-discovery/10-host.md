@@ -1,6 +1,6 @@
 ---
-title: "Host Discovery"
-navTitle: "Host"
+title: "Discovery of Host Targets"
+navTitle: "Host Targets"
 ---
 
 ## Host Targets

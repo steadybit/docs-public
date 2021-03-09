@@ -24,4 +24,4 @@ That's all we need to react to the events and incidents in Instana.
 
 ### Usage
 
-Once Instana has been configured in the platform's settings, you can use the `Instana State Check` in an experiment. Detailed explanation can be found in [Using Monitoring / Instana](../../use/30-monitoring/5-instana).
+Once Instana has been configured in the platform's settings, you can use the `Instana State Check` in an experiment. Detailed explanation can be found in [Learn / Monitoring / Instana](../../learn/50-monitoring/30-instana).

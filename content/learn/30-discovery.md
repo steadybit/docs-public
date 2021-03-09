@@ -1,5 +1,5 @@
 ---
-title: "Discovery of Targets"
+title: "Discovery"
 ---
 
 The steadybit agent discovers attack targets on your systems by leveraging different technologies:

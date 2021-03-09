@@ -2,14 +2,11 @@
 title: "Running Experiments"
 navTitle: "Run"
 ---
-
-## Run
 Every member is permitted to run the experiments belonging to the team.
-If you hit the `Run` button the experiment is immediately started when the following conditions are met:
+If you hit the `Start` button the experiment is immediately started when the following conditions are met:
 
 1. Experimenting is currently enabled.
-2. There is no other experiment running.
-3. The blast radius resolves to one or more targets.
+2. The blast radius resolves to one or more targets.
 
 If one of the condition is not met, you'll get an error message and the execution is not recorded.
 If all conditions are met the experiment is started.

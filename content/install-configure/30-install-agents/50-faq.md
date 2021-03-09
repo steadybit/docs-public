@@ -3,7 +3,7 @@ title: "FAQ"
 navTitle: "FAQ"
 ---
 
-## How do I exclude my JVM from the discovery mechanism?
+### How do I exclude my JVM from the discovery mechanism?
 
 You can add the label `com.steadybit.agent/jvm-attach=false` to your container and the agent will not perform an attachment.
 

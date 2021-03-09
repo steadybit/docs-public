@@ -1,6 +1,6 @@
 ---
-title: "Application Discovery"
-navTitle: "Application"
+title: "Discovery of Application Targets"
+navTitle: "Application Targets"
 ---
 
 ## Spring

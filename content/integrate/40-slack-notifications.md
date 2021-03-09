@@ -1,5 +1,5 @@
 ---
-title: "Notifications (Slack)"
+title: "Slack Notifications"
 ---
 TODO
 You can configure Webhooks in steadybit under Settings > Notifications & Webhooks.

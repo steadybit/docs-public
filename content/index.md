@@ -14,10 +14,10 @@ Steadybit uses an agent-based approach consisting of a central platform - being 
 ### You want to set up steadybit?
 - See how to get started [using the SaaS platform](getting-started/10-set-up-saas) or [how to set up the on-prem platform](getting-started/20-set-up-onprem)
 - Learn about different ways to [install the Agents](install-configure/30-install-agents) depending on your system's needs
-- Read more about our [agent-based architecture](architecture)
+- Read more about our [agent-based architecture](learn/10-architecture)
 
 ### Starting to use steadybit?
 - Run your [first experiment in local Kubernetes](getting-started/30-run-experiment-local) or [in AWS EKS](getting-started/40-run-experiment-eks)
-- Learn more about [experiments](use/10-experiments)
+- Learn more about [experiments](use/10-experiments), [scenarios](use/20-scenarios) or [weakspots](use/30-weakspots)
 
 If you need help, [contact us](https://www.steadybit.com/contact).

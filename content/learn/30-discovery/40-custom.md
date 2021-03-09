@@ -1,6 +1,6 @@
 ---
-title: "Customizing Discovery"
-navTitle: "Custom"
+title: "Discovery in a Custom Context"
+navTitle: "Customizing Context"
 ---
 
 ## Custom Attributes

@@ -1,6 +1,6 @@
 ---
-title: "Container Discovery"
-navTitle: "Container"
+title: "Discovery of Container Targets"
+navTitle: "Container Targets"
 ---
 
 ## Docker
@@ -37,5 +37,5 @@ Additional information is provided by `
 Our central platform prepares this additional information and uses it to identify new potential targets.
 Thus it is possible to attack a dedicated Kubernetes `Deployment` or to cause failures in a `ReplicaSet`.
 
-We have described how this can be achieved and what is required in the [Install on Kubernetes](content/setup/installation-agent/2-daemonset.md) section.
+We have described how this can be achieved and what is required in the [Install on Kubernetes](../../install-configure/30-install-agents/20-daemonset) section.
 

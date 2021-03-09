@@ -1,5 +1,5 @@
 ---
-title: "Install Platform as Docker Container"
+title: "Install as Docker Container"
 navTitle: "Docker Container"
 ---
 steadybit is currently always installed as docker container. The platform container image is available in the steadybit Docker Registry.

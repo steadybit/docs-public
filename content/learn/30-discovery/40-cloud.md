@@ -1,6 +1,6 @@
 ---
-title: "Cloud Discovery"
-navTitle: "Cloud"
+title: "Discovery in Cloud Context"
+navTitle: "Cloud Context"
 ---
 
 ## AWS
