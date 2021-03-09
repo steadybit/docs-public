@@ -24,7 +24,10 @@ const TreeNode = ({ className = "", url, title, items }) => {
   return (
     <li className={calculatedClassName}>
       {title ? (
-        <Link to={url} onClick={() => setForceHidden(isVisible)}>
+        <Link
+          to={url}
+          onClick={() => setForceHidden(active && !isHiddenForced)}
+        >
           {title}
           {hasChildren ? (
             <img
