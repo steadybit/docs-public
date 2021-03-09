@@ -155,6 +155,10 @@ rules:
       - "pods"
       - "replicationcontrollers"
     verbs: ["get", "list", "watch"]
+  - apiGroups: [ "" ]
+    resources:
+      - "pods"
+    verbs: [ "delete" ]
   - apiGroups: [ "policy" ]
     resources: [ "podsecuritypolicies" ]
     verbs: [ "use" ]
