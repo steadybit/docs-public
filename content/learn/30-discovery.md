@@ -14,4 +14,4 @@ In addition, the agent gathers information about the context where the targets a
 * [Cloud Context](30-discovery/40-cloud) for support of major Cloud Providers
 * [Custom](30-discovery/50-custom) to configure context for on-prem solutions
 
-Read about [adding custom attributes](content/learn/discovery/4-custom)
+Read about [adding custom attributes](30-discovery/50-custom)

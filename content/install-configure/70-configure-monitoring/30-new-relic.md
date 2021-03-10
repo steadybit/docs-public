@@ -22,7 +22,7 @@ was previously created in New Relic. That's all we need to react on events of Ne
 
 #### Usage
 
-Once New Relic has been configured in the platform's settings, you can use the `New Relic State Check` in an experiment. Detailed explanation can be found in [Learn / Monitoring / New Relic](../../learn/40-integrate-monitoring/40-newrelic).
+Once New Relic has been configured in the platform's settings, you can use the `New Relic State Check` in an experiment. Detailed explanation can be found in [Learn / Integrate Monitoring / New Relic](../../learn/40-integrate-monitoring/40-newrelic).
 
 ## steadybit to New Relic
 
@@ -78,7 +78,7 @@ Attribute | Description | Values
 `targetName` | Name of the target | e.g. `k8s_fashion-bestseller_fashion-bestseller-bb896d756...`, `ip-10-2-3-122`
 `k8s.container.name`)| Name of the container | e.g. `fashion-bestseller`
 `container.host` | Name of the target | e.g. `ip-10-2-3-122`
-... | All remaining attributes available also in the [discovery](discovery) and [design of experiments](1-design) | ...
+... | All remaining attributes available also in the [discovery](../../learn/30-discovery) and [design of experiments](../../use/10-experiments/10-design) | ...
 
 ### Useful Resources
 

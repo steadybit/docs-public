@@ -13,4 +13,4 @@ Under `Settings/Monitoring Integrations` you have to enter the `Prometheus base 
 That's all we need to react to the alerts provided by Prometheus.
 
 ### Usage
-Once Prometheus has been configured in the platform's settings, you can use the `Prometheus State Check` in an experiment. Detailed explanation can be found in [Learn / Monitoring / Prometheus](../../learn/40-integrate-monitoring/50-prometheus).
+Once Prometheus has been configured in the platform's settings, you can use the `Prometheus State Check` in an experiment. Detailed explanation can be found in [Learn / Integrate Monitoring / Prometheus](../../learn/40-integrate-monitoring/50-prometheus).

@@ -6,7 +6,7 @@ No one knows your system better than you, so it is obvious that you should be th
 It's up to you whether you use areas to separate parts of your system from each other (like "bounded contexts" in domain driven design) or to separate your environments (like development, QA and Production).
 
 ## Define an Area
-To create or change an area go to `/settings/access control/areas` and choose to either add an area or edit an existing one. An area consists of a name as well as a definition of which targets to include. For that our [discovery data](../learn/discovery) is used to define which targets should be included.
+To create or change an area go to `/settings/access control/areas` and choose to either add an area or edit an existing one. An area consists of a name as well as a definition of which targets to include. For that our [discovery data](../learn/30-discovery) is used to define which targets should be included.
 
 ![areas](img-areas/add-area.png)
 

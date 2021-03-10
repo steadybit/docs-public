@@ -263,5 +263,5 @@ To get even more information and insights, the above manifest contains a `Servic
 With the access to the K8s API, the agent can provide further information to the platform for identifying potential targets.
 More information about [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) or [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is available in the Kubernetes docs.
 
-Further information about our discovery feature is described in the section [Container Discovery](../discovery/2-container).
+You can learn more about our discovery of containers in the section [Learn / Discovery / Container](../../learn/30-discovery/20-container).
 
