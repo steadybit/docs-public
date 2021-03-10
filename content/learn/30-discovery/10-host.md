@@ -13,6 +13,8 @@ Following attributes are provided for host targets:
  * OS Version
  * Ipv4 Addresses
 
+In addition, you can [customize the context of the host](50-custom).
+
 ## Process Targets
 
 The agent discovers all running processes by reading `/proc` and will report them to the platform.
