@@ -22,7 +22,7 @@ was previously created in New Relic. That's all we need to react on events of Ne
 
 #### Usage
 
-Once New Relic has been configured in the platform's settings, you can use the `New Relic State Check` in an experiment. Detailed explanation can be found in [Learn / Monitoring / New Relic](../../learn/50-monitoring/50-newrelic).
+Once New Relic has been configured in the platform's settings, you can use the `New Relic State Check` in an experiment. Detailed explanation can be found in [Learn / Monitoring / New Relic](../../learn/40-integrate-monitoring/40-newrelic).
 
 ## steadybit to New Relic
 

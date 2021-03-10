@@ -62,4 +62,4 @@ for your experiment. When having picked one, you may want to provide additional 
 
 ### Execution and Monitoring
 
-The final step is about getting some load into your system and automatically checking before and during the experiment the state of your system. We skip these for now and refer to the corresponding sections of [Load Tests](../../learn/40-loadtests) and [Monitoring](../../learn/50-monitoring).
+The final step is about getting some load into your system and automatically checking before and during the experiment the state of your system. We skip these for now and refer to the corresponding sections of [Load Tests](../../learn/40-loadtests) and [Monitoring](../../learn/40-integrate-monitoring).

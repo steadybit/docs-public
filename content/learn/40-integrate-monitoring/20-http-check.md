@@ -1,6 +1,5 @@
 ---
-title: "HTTP"
-navTitle: "HTTP"
+title: "HTTP Check"
 ---
 
 The check issues a HTTP `GET` request on the specified URL and asserts the returned status to be successful (HTTP status 2xx). Therefore, the URL must be
