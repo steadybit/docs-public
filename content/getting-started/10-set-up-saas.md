@@ -63,6 +63,8 @@ If you want to know more details, check out the section [Teams and Users](../ins
 We provide many integrations to monitoring systems.
 Use these integrations to improve our analysis and to keep control during the execution of experiments.
 
-Our list of all integrations to Monitoring Tools, Application Performance Monitoring (APM) and other tools can be found in the sections under [Execution and Monitoring](../install-configure/70-configure-monitoring).
+To get you started, learn how to [configure your monitoring](../install-configure/70-configure-monitoring).
 
-That's all, ready to start your first experiment!
+That's all, ready to start your first experiment! Check out one of these getting started:
+- [How to run an experiment with a local Kubernetes cluster and a demo application](30-run-experiment-local)
+- [How to run an experiment with a AWS EKS and a demo application](40-run-experiment-eks)
