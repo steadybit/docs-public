@@ -1,6 +1,5 @@
 ---
 title: "Set Up Areas"
-metaTitle: "Set Up Areas - steadybit Docs"
 ---
 No one knows your system better than you, so it is obvious that you should be the one who structures the discovered targets.
 It's up to you whether you use areas to separate parts of your system from each other (like "bounded contexts" in domain driven design) or to separate your environments (like development, QA and Production).

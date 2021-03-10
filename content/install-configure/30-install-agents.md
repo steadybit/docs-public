@@ -1,6 +1,5 @@
 ---
 title: "Install Agents"
-metaTitle: "Install Agents - steadybit Docs"
 ---
 
 ## Prerequisites

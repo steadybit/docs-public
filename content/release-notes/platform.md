@@ -1,7 +1,6 @@
 ---
 title: "Release Notes - Platform"
 navTitle: "Platform"
-metaTitle: "Release Notes Platform - steadybit Docs"
 ---
 
 ## 0.2.0

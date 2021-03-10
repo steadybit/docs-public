@@ -1,6 +1,5 @@
 ---
 title: "Manage Teams and Users"
-metaTitle: "Manage Teams and Users - steadybit Docs"
 ---
 
 Steadybit lives transparency by allowing every user to see the performed actions of other teams and users. Even so, a Role-Based-Access-Control (RBAC) give you

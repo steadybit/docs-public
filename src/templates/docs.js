@@ -13,8 +13,13 @@ export default class MDXRuntimeTest extends Component {
     const { data } = this.props;
     const { mdx } = data;
 
-    const navTitle = mdx && mdx.fields ? mdx.fields.title : null;
-    const metaTitle = mdx && mdx.frontmatter ? mdx.frontmatter.metaTitle : null;
+    const title = mdx && mdx.fields ? mdx.fields.title : null;
+    const metaTitle =
+      mdx && mdx.frontmatter && mdx.frontmatter.metaTitle
+        ? mdx.frontmatter.metaTitle
+        : title
+        ? `${title} - steadybit Docs`
+        : null;
     const metaDescription =
       mdx && mdx.frontmatter ? mdx.frontmatter.metaDescription : null;
 

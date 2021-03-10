@@ -1,6 +1,5 @@
 ---
 title: "Set Up SaaS Platform"
-metaTitle: "Set Up SaaS Platform - steadybit Docs"
 ---
 This guide helps you with the initial setup of our steadybit SaaS platform and leads you step by step through the first setup.
 

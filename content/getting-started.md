@@ -1,6 +1,5 @@
 ---
 title: "Getting Started"
-metaTitle: "Getting Started - steadybit Docs"
 ---
 You are completely new to steadybit? Excellent, this section is especially for you!
 Below you find useful guides to make your start as smooth as possible.

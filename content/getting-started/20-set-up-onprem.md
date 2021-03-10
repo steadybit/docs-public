@@ -1,6 +1,5 @@
 ---
 title: "Set Up On-Prem (Self Hosted)"
-metaTitle: "Set Up On-Prem (Self Hosted) - steadybit Docs"
 ---
 This guide helps you with the initial setup of our steadybit platform On-Prem and leads you step by step through the first setup.
 It is explicitly of use for environments where it is not yet possible to take advantage of our SaaS platform and the need to self-host our platform.

@@ -1,7 +1,6 @@
 ---
 title: "Install and Configure"
 navTitle: "Install & Configure"
-metaTitle: "Install and Configure - steadybit Docs"
 ---
 
 Before starting to use steadybit you need to install and configure some parts of it once.
