@@ -35,6 +35,7 @@ export default class MDXRuntimeTest extends Component {
     canonicalUrl =
       mdx && mdx.fields ? canonicalUrl + mdx.fields.slug : canonicalUrl;
 
+    const enhancedCallbacks = enhanceBreadcrumbs(crumbs, allMdx);
     return (
       <Layout {...this.props}>
         <Helmet>
@@ -55,7 +56,15 @@ export default class MDXRuntimeTest extends Component {
           ) : null}
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
-        <Breadcrumb crumbs={enhanceBreadcrumbs(crumbs, allMdx)} />
+        {enhancedCallbacks.length > 0 ? (
+          <>
+            <Breadcrumb crumbs={enhanceBreadcrumbs(crumbs, allMdx)} />
+            <span className="breadcrumb__separator" aria-hidden="true">
+              {" "}
+              /
+            </span>
+          </>
+        ) : null}
         <h1 className={"heading h1"}>
           {mdx && mdx.fields ? mdx.fields.title : null}
         </h1>
@@ -93,7 +102,6 @@ const enhanceBreadcrumbs = (crumbs, allMdx) => {
         return { ...crumb, crumbLabel };
       })
       .splice(0, crumbs.length - 1),
-    {},
   ];
 };
 export const pageQuery = graphql`

@@ -291,6 +291,10 @@ code {
   }
 }
 
+.breadcrumb {
+  display: inline-block;
+}
+
 .breadcrumb__list {
   list-style: none;
 }

@@ -73,15 +73,6 @@ const plugins = [
     options: {
       // useAutoGen: required 'true' to use autogen
       useAutoGen: true,
-      // autoGenHomeLabel: optional 'Home' is default
-      autoGenHomeLabel: `Root`,
-      // crumbLabelUpdates: optional, update specific crumbLabels in the path
-      crumbLabelUpdates: [
-        {
-          pathname: "/book",
-          crumbLabel: "Books",
-        },
-      ],
     },
   },
 ];
