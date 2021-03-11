@@ -99,7 +99,7 @@ a:hover .headerTitle {
 .h1 {
   font-size: 44px;
   line-height: 1.33;
-  margin: 40px 0 16px;
+  margin: 16px 0 16px;
 }
 
 .h1 + .h1,
@@ -285,7 +285,20 @@ code {
   .content {
     margin: 4rem 4rem 10rem;
   }
+
   .content-wrapper {
     margin-left: 21rem;
   }
+}
+
+.breadcrumb__list {
+  list-style: none;
+}
+
+.breadcrumb__list__item {
+  display: inline-block;
+}
+
+.breadcrumb__separator {
+  color: var(--neutral700)
 }

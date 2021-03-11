@@ -9,17 +9,29 @@ import { AnimatePresence, motion } from "framer-motion";
 import iconChevronRight from "../../assets/images/icon-chevron-right.svg";
 import iconChevronDown from "../../assets/images/icon-chevron-down.svg";
 
+function getPathname(location) {
+  return location.pathname.substr(-1) === "/"
+    ? location.pathname.slice(0, -1)
+    : location.pathname;
+}
+
+function isLocationActiveCanonical(location, url) {
+  if (location && location.pathname) {
+    return getPathname(location).includes(url);
+  }
+  return false;
+}
+
 const TreeNode = ({ className = "", url, title, items }) => {
   const hasChildren = items.length !== 0;
   const location =
     typeof document !== "undefined" ? document.location : undefined;
   const active =
     location &&
-    (location.pathname === url ||
+    (getPathname(location) === url ||
       location.pathname === config.gatsby.pathPrefix + url);
   const [isHiddenForced, setForceHidden] = React.useState(false);
-  const isVisible =
-    location && location.pathname.includes(url) && !isHiddenForced;
+  const isVisible = isLocationActiveCanonical(location, url) && !isHiddenForced;
   const calculatedClassName = `${className} item${active ? " active" : ""}`;
   return (
     <li className={calculatedClassName}>
