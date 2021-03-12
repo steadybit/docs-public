@@ -1,7 +1,7 @@
 ---
-title: "Set up Platform & Agents"
+title: "Set up SaaS Platform & Agents"
 ---
-This guide helps you with the initial setup of our steadybit platform and leads you step by step through the first setup.
+This guide helps you with the initial setup of our steadybit SaaS platform and leads you step by step through the first setup.
 
 >If you are not using our SaaS and would like to know how to self-host our platform, please go to [Set Up On-Prem (self-hosted)](20-set-up-onprem).
 >

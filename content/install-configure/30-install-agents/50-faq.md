@@ -1,6 +1,5 @@
 ---
 title: "FAQ"
-navTitle: "FAQ"
 ---
 
 ### How do I exclude my JVM from the discovery mechanism?

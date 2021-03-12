@@ -1,6 +1,5 @@
 ---
 title: "Instana"
-navTitle: "Instana"
 ---
 Instana is a fully automated Application Performance Management (APM) solution designed specifically for the challenges of managing microservice and
 cloud-native applications.

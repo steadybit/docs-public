@@ -1,6 +1,5 @@
 ---
 title: "Prometheus"
-navTitle: "Prometheus"
 ---
 
 Prometheus is able to manage so-called alerts and trigger them in certain situations. With our integration we can react to the alerts and use them for automatic steady state checks in experiments.

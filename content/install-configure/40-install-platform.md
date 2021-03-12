@@ -1,6 +1,5 @@
 ---
-title: "Install Platform"
-navTitle: "Install Platform"
+title: "Install Platform (On-Prem)"
 ---
 
 ## Prerequisites

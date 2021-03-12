@@ -1,6 +1,5 @@
 ---
 title: "Monitoring"
-navTitle: "Monitoring"
 ---
 
 Keeping an eye on your system while making chaos is crucical. Therefore, you can use your monitoring integration to check the health of the system during the

@@ -1,6 +1,5 @@
 ---
 title: "JMeter"
-navTitle: "JMeter"
 ---
 [JMeter](https://jmeter.apache.org/) is open source software, designed to load test functional behavior and measure performance.
 You can integrate the execution of JMeter load tests directly into your experiments.

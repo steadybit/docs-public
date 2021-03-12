@@ -1,6 +1,5 @@
 ---
 title: "New Relic"
-navTitle: "New Relic"
 ---
 
 New Relic One is an observability platform, offering support from monoliths to serverless. It helps engineers to instrument, analyze, troubleshoot and optimize the entire software stack - all from one place.

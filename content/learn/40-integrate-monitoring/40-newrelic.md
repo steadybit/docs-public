@@ -1,6 +1,5 @@
 ---
 title: "New Relic"
-navTitle: "New Relic"
 ---
 
 There are two general possibilities to integrate with New Relic:

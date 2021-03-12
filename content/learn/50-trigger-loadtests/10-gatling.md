@@ -1,6 +1,5 @@
 ---
 title: "Gatling"
-navTitle: "Gatling"
 ---
 [Gatling](https://gatling.io/) is an open-source load- and performance-testing framework based on Scala, Akka and Netty.
 You can integrate the execution of Gatling load tests directly into your experiments.

@@ -1,6 +1,5 @@
 ---
 title: "Prometheus"
-navTitle: "Prometheus"
 ---
 
 ## Prometheus

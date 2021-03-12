@@ -1,6 +1,5 @@
 ---
 title: "Learn about steadybit"
-navTitle: "Learn about steadybit"
 ---
 You want to know more about steadybit and cover the details? Or something is simply not working out?
 
