@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 steadybit GmbH. All rights reserved.
+ * Copyright 2021 steadybit GmbH. All rights reserved.
  */
 .sidebar {
   padding-left: 0;
@@ -29,7 +29,7 @@
 
 @media (min-width: 767px) {
   .sidebar__brand {
-    padding: 32px;
+    padding: 20px;
   }
 }
 
@@ -52,7 +52,7 @@
 
 @media (min-width: 767px) {
   .sidebar {
-    width: 280px;
+    width: 21rem;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -62,12 +62,17 @@
 
 .table-of-contents {
   display: none;
-  margin: 32px;
+  margin: 20px;
   border-bottom: 1px solid transparent;
 }
 
 .table-of-contents.show {
   display: block;
+}
+
+.table-of-contents img {
+  width: 16px;
+  height: 16px;
 }
 
 .table-of-contents__toggle {
@@ -84,6 +89,7 @@
     display: block;
     border-bottom: none;
   }
+
   .table-of-contents__toggle {
     display: none;
   }
@@ -92,17 +98,20 @@
 .table-of-contents .item {
   list-style-type: none;
   width: auto;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   white-space: nowrap;
 }
 
 .table-of-contents > .item {
-  margin: 24px 0;
+  margin-bottom: 12px;
 }
+
 
 .table-of-contents .item > a {
   text-decoration: none;
-  display: inline-block;
+  display: grid;
+  grid-template-columns: auto 16px;
+  align-items: center;
   width: 100%;
   font-size: 18px;
   font-weight: normal;
@@ -120,9 +129,9 @@
   color: var(--coral);
 }
 
-.table-of-contents > .item > ul {
+.table-of-contents > .item ul {
   margin-top: 4px;
-  margin-left: 8px;
+  margin-left: 10px;
 }
 
 .table-of-contents > .item .item {

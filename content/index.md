@@ -1,16 +1,23 @@
 ---
-title: "steadybit docs"
-metaTitle: "steadybit docs"
+title: "steadybit Docs"
+metaTitle: "steadybit Docs"
 metaDescription: "steadybit - Chaos Engineering Platform"
 ---
 
 ## Welcome to steadybit
 
-Steadybit helps you to proactively reduce downtime and provides visibility into your systems to detect issues. We follow the principles of Chaos Engineering and
-help you to stay in control of your chaos experiments.
+Steadybit provides you visibility into your systems to detect resilience issues proactively and reduce downtime. We follow the principles of Chaos
+Engineering and help you to stay in control of your chaos experiments.
 
-To use steadybit, you can use our platform as Software as a Service (SaaS) or [run it locally](installation-platform/) in your own infrastructure (on-prem).
+Steadybit uses an agent-based approach consisting of a central platform - being the center of control for you - and agents - deployed in your system to discover running hosts, containers and applications.
 
-Once you have an environment available, the next step is to [install an agent](installation-agent/) on each of your hosts to run experiments.
+### You want to set up steadybit?
+- See how to get started [using the SaaS platform](getting-started/10-set-up-saas) or [how to set up the on-prem platform](getting-started/20-set-up-onprem)
+- Learn about different ways to [install the Agents](install-configure/30-install-agents) depending on your system's needs
+- Read more about our [agent-based architecture](learn/10-architecture)
 
-If you need additional help, [contact us](https://www.steadybit.com/contact).
+### Starting to use steadybit?
+- Run your [first experiment in local Kubernetes](getting-started/30-run-experiment-local) or [in AWS EKS](getting-started/40-run-experiment-eks)
+- Learn more about [experiments](use/10-experiments)
+
+If you need help, [contact us](https://www.steadybit.com/contact).

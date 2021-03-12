@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 steadybit GmbH. All rights reserved.
+ * Copyright 2021 steadybit GmbH. All rights reserved.
  */
 
 import React from "react";
@@ -52,7 +52,7 @@ export default {
   p: (props) => <p className="paragraph" {...props} />,
   pre: (props) => <pre className="pre" {...props} />,
   table: (props) => (
-    <div class="responsive-table">
+    <div className="responsive-table">
       <table {...props} />
     </div>
   ),

@@ -5,8 +5,8 @@
 require("dotenv").config();
 const config = require("./config");
 const plugins = [
-  'gatsby-plugin-sitemap',
-  'gatsby-plugin-sharp',
+  "gatsby-plugin-sitemap",
+  "gatsby-plugin-sharp",
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
@@ -16,17 +16,17 @@ const plugins = [
       background_color: `#ED220B`,
       theme_color: `#ED220B`,
       display: `standalone`,
-      icon: `src/assets/images/logo.svg`
+      icon: `src/assets/images/logo.svg`,
     },
   },
   {
     resolve: `gatsby-plugin-layout`,
     options: {
-      component: require.resolve(`./src/templates/docs.js`)
-    }
+      component: require.resolve(`./src/templates/docs.js`),
+    },
   },
   {
-    resolve: 'gatsby-plugin-mdx',
+    resolve: "gatsby-plugin-mdx",
     options: {
       gatsbyRemarkPlugins: [
         {
@@ -34,22 +34,22 @@ const plugins = [
           options: {
             wrapperStyle: "margin-left: 0; margin-right: 0;",
             backgroundColor: "transparent",
-            disableBgImageOnAlpha: true
-          }
+            disableBgImageOnAlpha: true,
+          },
         },
-        'gatsby-remark-copy-linked-files',
+        "gatsby-remark-copy-linked-files",
       ],
-      extensions: [".mdx", ".md"]
-    }
+      extensions: [".mdx", ".md"],
+    },
   },
-  'gatsby-plugin-remove-trailing-slashes',
-  'gatsby-plugin-react-helmet',
+  "gatsby-plugin-remove-trailing-slashes",
+  "gatsby-plugin-react-helmet",
   {
     resolve: "gatsby-source-filesystem",
     options: {
       name: "docs",
-      path: `${__dirname}/content/`
-    }
+      path: `${__dirname}/content/`,
+    },
   },
   {
     resolve: `gatsby-plugin-gtag`,
@@ -63,11 +63,18 @@ const plugins = [
     },
   },
   {
-    resolve: 'gatsby-plugin-robots-txt',
+    resolve: "gatsby-plugin-robots-txt",
     options: {
-      policy: [{ userAgent: '*', disallow: '/' }]
-    }
-  }
+      policy: [{ userAgent: "*", disallow: "/" }],
+    },
+  },
+  {
+    resolve: `gatsby-plugin-breadcrumb`,
+    options: {
+      // useAutoGen: required 'true' to use autogen
+      useAutoGen: true,
+    },
+  },
 ];
 
 module.exports = {
@@ -79,5 +86,5 @@ module.exports = {
     favicon: config.siteMetadata.favicon,
     siteUrl: config.gatsby.siteUrl,
   },
-  plugins: plugins
+  plugins: plugins,
 };

@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 steadybit GmbH. All rights reserved.
+ * Copyright 2021 steadybit GmbH. All rights reserved.
  */
 
 import Highlight, { defaultProps } from "prism-react-renderer";
@@ -97,7 +97,6 @@ const prismTheme = {
 
 const CodeBlock = ({ children, className }) => {
   const language = className ? className.replace(/language-/, "") : "";
-  console.log(language);
   return (
     <Highlight
       {...defaultProps}

@@ -1,17 +1,19 @@
 ---
-title: "Getting started"
-metaTitle: "Getting started - steadybit Docs"
+title: "Getting Started"
 ---
+You are completely new to steadybit? Excellent, this section is especially for you!
+Below you find useful guides to make your start as smooth as possible.
 
-## Prerequisites
+### Setting up steadybit
+Before leveraging steadybit you have to set it up once. Therefore, you can either use our SaaS service or rely on the self-hosted version.
 
-We take an agent-based approach at steadybit. Our agents communicate with the steadybit platform, which is either operated by us as a SaaS platform or by you as
-an on-prem variant. In this getting started we assume that this platform is available. If you have questions about the on-prem variant, please have a look at
-our docs and contact us.
+* [Set up steadybit using SaaS platform](getting-started/10-set-up-saas)
+* [Set up steadybit as On-Prem (self hosted)](getting-started/20-set-up-onprem)
 
-### Kubernetes
+### The next step: Run an experiment in Kubernetes
+The platform is installed and teams configured? Learn how to run your first experiment in Kubernetes.
 
-* [How to install & use steadybit with Kubernetes locally](getting-started/1-kubernetes)
-* [How to install & use steadybit with AWS EKS Kubernetes](getting-started/2-aws-eks-kubernetes)
+* [Run experiments in local Kubernetes](getting-started/30-run-experiment-local)
+* [Run experiments in AWS EKS Kubernetes](getting-started/40-run-experiment-eks)
 
 
