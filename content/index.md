@@ -18,6 +18,6 @@ Steadybit uses an agent-based approach consisting of a central platform - being 
 
 ### Starting to use steadybit?
 - Run your [first experiment in local Kubernetes](getting-started/30-run-experiment-local) or [in AWS EKS](getting-started/40-run-experiment-eks)
-- Learn more about [experiments](use/10-experiments), [scenarios](use/20-scenarios) or [weakspots](use/30-weakspots)
+- Learn more about [experiments](use/10-experiments)
 
 If you need help, [contact us](https://www.steadybit.com/contact).
