@@ -39,3 +39,4 @@ navTitle: "Advanced Configuration"
 |                   | `STEADYBIT_REPOSITORY_PROXY_PROTOCOL`               | Protocol of a proxy to access steadybit repository <br/> **Default:** `http`
 |                   | `STEADYBIT_REPOSITORY_PROXY_USER`                   | Username of a proxy to access steadybit repository <br/>
 |                   | `STEADYBIT_REPOSITORY_PROXY_PASSWORD`               | Password of a proxy to access steadybit repository <br/>
+| -t static         |                                                     | Use the static version of the agent. When using Docker please use the static version of the image: `docker.steadybit.io/steadybit/agent-static` |

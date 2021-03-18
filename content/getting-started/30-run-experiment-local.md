@@ -91,9 +91,9 @@ That's all, ready to start your first experiment!
 ## Step 3 - Deploying the steadybit shopping-demo
 
 In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by 4 distributed
-services.
+backend services and a simple UI.
 
-![shopping-demo-app](img-run/demo-app-diagram.png)
+![shopping-demo-app](img-run/demo-app-architecture.jpg)
 
 If you want to learn more about our demo, please take a look at our GitHub
 repository: [https://github.com/steadybit/shopping-demo](https://github.com/steadybit/shopping-demo)
