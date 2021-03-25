@@ -40,8 +40,6 @@ docker run \
   --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
-  --env="STEADYBIT_TENANT_NAME=<replace-with-tenant-name>" \
-  --env="STEADYBIT_TENANT_KEY=<replace-with-tenant-key>" \
   --env="STEADYBIT_TENANT_AGENTKEY=<replace-with-agent-key>" \
   --env="STEADYBIT_AUTH_PROVIDER=static" \
   --env="STEADYBIT_AUTH_STATIC_0_USERNAME=admin" \
@@ -60,8 +58,6 @@ sudo docker run \
   --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
-  --env="STEADYBIT_TENANT_NAME=<replace-with-tenant-name>" \
-  --env="STEADYBIT_TENANT_KEY=<replace-with-tenant-key>" \
   --env="STEADYBIT_TENANT_AGENTKEY=<replace-with-agent-key>" \
   --env="STEADYBIT_AUTH_PROVIDER=LDAP" \
   --env="STEADYBIT_AUTH_LDAP_URL=<replace-with-ldap-url>" \
@@ -82,8 +78,6 @@ sudo docker run \
   --env="SPRING_DATASOURCE_URL=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_USERNAME=<replace-with-jdbc-url>" \
   --env="SPRING_DATASOURCE_PASSWORD=<replace-with-jdbc-url>" \
-  --env="STEADYBIT_TENANT_NAME=<replace-with-tenant-name>" \
-  --env="STEADYBIT_TENANT_KEY=<replace-with-tenant-key>" \
   --env="STEADYBIT_TENANT_AGENTKEY=<replace-with-agent-key>" \
   --env="STEADYBIT_AUTH_PROVIDER=oauth2" \
   --env="STEADYBIT_AUTH_OAUTH2_ISSUER_URI=<replace-with-issuer-uri>" \

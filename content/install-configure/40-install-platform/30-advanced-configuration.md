@@ -23,9 +23,7 @@ Steadybit requires a PostgresSQL 11 database.
 
 | Environment Variable         | Required  | Description
 |------------------------------|-----------|------------
-| `STEADYBIT_TENANT_NAME`      | yes | Name for the tenant assigned to you <br/> **Example:** `Demo Org`
-| `STEADYBIT_TENANT_KEY`       | yes | Key for the tenant assigned to you  <br/> **Example:** `demo`
-| `STEADYBIT_TENANT_API_KEY`   | yes | API key for the tenant assigned to you. Treat it as sensitive information. <br/> **Example:** `foobar`
+| `STEADYBIT_TENANT_AGENTKEY`   | yes | Agent key for the tenant assigned to you. Treat it as sensitive information. <br/> **Example:** `foobar`
 
 ## Web Configuration
 
