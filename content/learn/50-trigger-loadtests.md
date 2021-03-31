@@ -2,9 +2,12 @@
 title: "Trigger Load Tests"
 ---
 
-To perform experiments it is recommended to have a base load in the system. With steadybit it is possible to execute a load test automatically.
+We recommend to have a base load in the system in order to perform experiments.
+To achieve that you can integrate your load test into steadybit and execute a load test automatically.
 
 Therefore, we can trigger one of the following load tests
 - [Gatling](50-trigger-loadtests/10-gatling)
 - [JMeter](50-trigger-loadtests/20-jmeter)
 - [K6](50-trigger-loadtests/30-k6)
+
+In case you are new to load tests and haven't chosen a framework yet, we recommend you to choose K6.
