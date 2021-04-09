@@ -13,7 +13,7 @@ Before leveraging steadybit you have to set it up once. Therefore, you can eithe
 ### The next step: Run an experiment in Kubernetes
 The platform is installed and teams configured? Learn how to run your first experiment in Kubernetes.
 
-* [Run experiments in local Kubernetes](getting-started/30-run-experiments-local)
-* [Run experiments in AWS EKS Kubernetes](getting-started/40-run-experiments-eks)
+* [Run experiments in local Kubernetes](getting-started/30-run-experiment-local)
+* [Run experiments in AWS EKS Kubernetes](getting-started/40-run-experiment-eks)
 
 
