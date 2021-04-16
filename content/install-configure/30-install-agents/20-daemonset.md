@@ -148,6 +148,7 @@ rules:
     verbs: ["get", "list", "watch"]
   - apiGroups: [""]
     resources:
+      - "events"
       - "namespaces"
       - "services"
       - "endpoints"
