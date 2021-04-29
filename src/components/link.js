@@ -12,13 +12,15 @@ const Link = ({ to, ...props }) =>
   ) : (
     <a
       {...props}
+      href={to}
       style={{ cursor: "pointer", ...(props.style ? props.style : {}) }}
-      onClick={() => {
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
         if (props.onClick) {
           props.onClick();
         }
         navigate(to);
-        return false;
       }}
     />
   );
