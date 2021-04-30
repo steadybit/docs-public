@@ -17,6 +17,7 @@ const plugins = [
       theme_color: `#ED220B`,
       display: `standalone`,
       icon: `src/assets/images/logo.svg`,
+      crossOrigin: `use-credentials`, // prevents 401 for the manifest, which can trigger a 429
     },
   },
   {
