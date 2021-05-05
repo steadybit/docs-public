@@ -15,7 +15,6 @@ const config = {
       "use",
       "learn",
       "integrate",
-      "release-notes",
     ],
     frontline: false,
     ignoreIndex: true,
