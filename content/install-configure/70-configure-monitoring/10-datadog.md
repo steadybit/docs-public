@@ -25,4 +25,4 @@ See the following URLs for helpful informations to setup and obtain the keys:
 
 ### Usage
 
-Once Datadog has been configured in the platform's settings, you can use the `Datadog State Check` in an experiment. Detailed explanation can be found in [Learn / Integrate Monitoring / Data Dog](../../learn/40-integrate-monitoring/10-datadog).
+Once Datadog has been configured in the platform's settings, you can use the `Datadog State Check` in an experiment. Detailed explanation can be found in [Integrate / Monitoring / Data Dog](../../integrate/30-monitoring/10-datadog).
