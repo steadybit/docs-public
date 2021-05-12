@@ -1,8 +1,16 @@
 ---
 title: "Monitoring"
 ---
-
 Keeping an eye on your system while making chaos is crucical. Therefore, you can use your monitoring integration to check the health of the system during the
-execution of experiments.
+execution of experiments. In case something unusal happens experiments are aborted automatically to prevent further harm. We automatically check the state
+before, during and after the execution of an experiment.
 
-To achieve that you have to [configure your monitoring system once](../install-configure/70-configure-monitoring) and afterwards [learn how to check monitoring during executions here](../learn/40-integrate-monitoring).
+In order to make use of a monitoring integration you have to [configure them once](../install-configure/70-configure-monitoring).
+
+Find out, how to make use of
+- [Datadog](30-monitoring/10-datadog)
+- [HTTP Check](30-monitoring/20-http-check)
+- [Instana](30-monitoring/30-instana)
+- [New Relic](30-monitoring/40-newrelic)
+- [Prometheus](30-monitoring/50-prometheus)
+
