@@ -184,6 +184,30 @@ roleRef:
   name: steadybit-agent-role
   apiGroup: rbac.authorization.k8s.io
 ---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: steadybit-agent
+  namespace: steadybit-agent
+rules:
+  - apiGroups: [ "coordination.k8s.io" ]
+    resources:
+      - "leases"
+    verbs: [ "get", "list", "watch", "create", "update" ]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: steadybit-agent
+subjects:
+  - kind: ServiceAccount
+    name: steadybit-agent
+    namespace: steadybit-agent
+roleRef:
+  kind: Role
+  name: steadybit-agent
+  apiGroup: rbac.authorization.k8s.io
+---
 apiVersion: v1
 kind: Secret
 metadata:
@@ -234,6 +258,20 @@ spec:
             secretKeyRef:
               name: steadybit-agent-secret-agent-key
               key: key
+        - name: STEADYBIT_KUBERNETES_CLUSTER_NAME
+          value: my-k8s-cluster
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: STEADYBIT_AGENT_POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: STEADYBIT_AGENT_POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
         securityContext:
           privileged: true
         volumeMounts:
