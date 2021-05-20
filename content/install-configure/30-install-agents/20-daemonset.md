@@ -279,6 +279,8 @@ spec:
           mountPath: /var/run
         - name: log
           mountPath: /var/log
+        - name: sys-kernel
+          mountPath: /sys/kernel
       imagePullSecrets:
       - name: regcredinternal
       volumes
@@ -288,6 +290,9 @@ spec:
       - name: log
         hostPath:
           path: /var/log
+      - name: sys-kernel
+        hostPath:
+          path: /sys/kernel
 ```
 
 For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the yaml.
