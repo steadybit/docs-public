@@ -9,7 +9,7 @@ There are two ways to setup the agent:
 
 ##  ECS Task definition
 
-For your convenience we have prepared an example task definition to use. Please fill in the missing "<replace-with->" prefixed fields:
+For your convenience we have prepared an example task definition to use. Please fill in the missing "replace-with" prefixed fields:
 
 ```
 {
