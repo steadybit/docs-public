@@ -110,4 +110,4 @@ For your convenience we have prepared an example task definition to use. Please 
 
 ##   EC2 User Data
 
-See the Amazon ECS Container Instance documentation for using User Data mechanism on new EC2 instances. See the [Install on Linux Hosts](install-configure/30-install-agents/30-host) section for setting up the agent.
+See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html) for using User Data mechanism on new EC2 instances. See also our [Install on Linux Hosts](install-configure/30-install-agents/30-host) section for setting up the agent.
