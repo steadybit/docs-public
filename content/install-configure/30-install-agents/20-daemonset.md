@@ -169,6 +169,10 @@ rules:
     resources:
       - "horizontalpodautoscalers"
     verbs: [ "get", "list", "watch" ]
+  - apiGroups: [ "networking.k8s.io" ]
+    resources:
+      - "ingresses"
+    verbs: [ "get", "list", "watch" ]
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
