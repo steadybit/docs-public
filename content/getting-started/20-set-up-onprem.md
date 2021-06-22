@@ -13,7 +13,7 @@ If you want to use our self-hosted service, you have already received an invitat
 
 ![on-boarding](img-set-up/step1-setup-platform.png)
 
-You are only a view steps away from your first experiment with steadybit:
+You are only a few steps away from your first experiment with steadybit:
 
 - [Step 1 - Get your key](#step1-getyourkey)
 - [Step 2 - Install Platform](#step2-installplatform)
