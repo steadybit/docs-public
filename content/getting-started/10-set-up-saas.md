@@ -6,16 +6,29 @@ This guide helps you with the initial setup of our steadybit SaaS platform and l
 >If you are not using our SaaS and would like to know how to self-host our platform, please go to [Set Up On-Prem (self-hosted)](20-set-up-onprem).
 >
 
-![on-boarding](img-set-up/step1-setup-platform.png)
+Setting up steadybit is simple, just follow these steps:
 
-You are only 4 steps away from your first experiment with steadybit:
-
-- [Step 1 - Install Agents](#step1-installagents)
-- [Step 2 - Set Up Areas](#step2-setupareas)
-- [Step 3 - Invite Users and Create Teams](#step3-inviteusersandcreateteams)
-- [Step 4 - Set Up Monitoring & Integrations](#step4-setupmonitoring&integrations)
+- [Step 0 - Check Prerequisites](#step-0---check-prerequisites)
+- [Step 1 - Install Agents](#step-1---install-agents)
+- [Step 2 - Let steadybit discover your system](#step-2---let-steadybit-discover-your-system)
+- [Step 3 - Run your first experiment](#step-3---run-your-first-experiment)
 
 In case something is not working out for you, [let us help you](https://www.steadybit.com/contact)!
+
+## Step 0 - Check Prerequisites
+Steadybit is right now invitation only. After receiving the invitation mail you can login to the [steadybit platform](https://platform.steadybit.io/) with your e-mail address and a temporary password.
+This temporary password needs to be changed immediately at first login.
+After that, you will be guided through the steadybit on-boarding process
+
+![on-boarding](img-set-up/step0-setup-agents.png)
+
+To complete the on-boarding and install an agent, make sure that access to the following URLs via HTTPS (443) is possible:
+
+* https://docker.steadybit.io (Docker Image)
+* https://artifacts.steadybit.io (Bundles)
+* https://get.steadybit.io (Setup Scripts)
+
+
 
 ## Step 1 - Install Agents
 Our agents continuously gather and deliver target data to the platform, helping you to create targeted experiments based on always up-to-date data.
@@ -23,47 +36,38 @@ Therefore, it is necessary that you deploy the agents at the locations where you
 
 > Without discovery data, no experiments are possible.
 
-Please log in to our platform with your credentials and go to `/settings/agents/setup` or simply use our on boarding.
 We offer our agents for different platforms and have made the installation as easy as possible for you.
+You can find the different installation scripts directly in our platform after logging in, e.g. Kubernetes using Helm, Docker or directly running on a Linux host.
+When using Kubernetes, we recommend using Helm.
 
-![agents](img-set-up/set-up-agents.png)
+Simply copy your agent key, replace it with the placeholder in the installation script and execute it next to your system.
 
-Once the agents are rolled out, they connect to the platform and appear in the list of installed agents.
+![on-boarding](img-set-up/step1-setup-agents.png)
 
-![agents finished](img-set-up/set-up-agents-finished.png)
+Once an agent is rolled out, they connect to the platform and appear in bottom of the page. This may take a few minutes. Afterwards you are able to continue with the on-boarding by clicking continue.
 
-You can see in the overview of all agents where they are operated and which agent type they are.
-Simple access to the log file of the agent is also possible.
+## Step 2 - Let steadybit discover your system
+Now, the steadybit Agent is busy discovering your system and gives you an overview what has been found.
+After completing initial discovery, you can open up steadybit and start with your first experiment
 
-If you want to know more details, check out the section [Installation Agent](../install-configure/30-install-agents)
+![agents finished](img-set-up/step2-agents-discover.png)
 
-## Step 2 - Set Up Areas
 
-Our agents provide us with continuously updated information about your systems.
-You as an `admin` can define areas and later assign them to teams, so that you and your colleagues can keep track.
+## Step 3 - Run your first experiment
+That's it!
+You are welcomed by our Dashboard giving you access to all relevant information and you are ready to take off by creating a first experiment.
 
-![areas](img-set-up/areas.png)
+![steadybit Dashboard](img-set-up/step3-dashboard.png)
 
-If you want to know more details, check out the section [Set Up Areas](../install-configure/50-set-up-areas)
 
-## Step 3 - Invite Users and Create Teams
+## Next steps
 
-You can group users to teams. Each team owns separate permissions for areas, allowing fine grained access control for your experiments.
-Creating teams is possible only with the `admin` permission. Within teams there can be owners who manage the team and its members.
+Check out one of these getting started to start your first experiment:
+- [Run an experiment with a local Kubernetes cluster and a demo application](30-run-experiment-local)
+- [Run an experiment with an AWS EKS and a demo application](40-run-experiment-eks)
 
-![teams](img-set-up/teams.png)
-
-Thus, the teams can manage themselves and run experiments in the areas assigned to them.
-
-If you want to know more details, check out the section [Teams and Users](../install-configure/60-teams-and-users)
-
-## Step 4 - Set Up Monitoring & Integrations
-
-We provide many integrations to monitoring systems.
-Use these integrations to improve our analysis and to keep control during the execution of experiments.
-
-To get you started, learn how to [configure your monitoring](../install-configure/70-configure-monitoring).
-
-That's all, ready to start your first experiment! Check out one of these getting started:
-- [How to run an experiment with a local Kubernetes cluster and a demo application](30-run-experiment-local)
-- [How to run an experiment with a AWS EKS and a demo application](40-run-experiment-eks)
+Looking for more advanced steps?
+- [How to install more agents](../install-configure/30-install-agents)
+- [Learn how to configure your monitoring](../install-configure/70-configure-monitoring).
+- [Invite more users and group them to teams](../install-configure/60-teams-and-users)
+- [Structure your system by setting up Areas](../install-configure/50-set-up-areas)
