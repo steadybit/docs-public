@@ -22,7 +22,7 @@ association cannot be changed after creation. This association deals multiple pu
 1. **Short Handle:** After creation the experiment design is assigned a unique key with the team prefix (e.g. `SRE-23`). This short handle can be easily
    recognized by the user and is a good way to reference experiments in your communication.
 2. **Run/Edit Permissions:** Only members of the associated team are permitted to edit or execute the experiment.
-3. **Attack/Target Restrictions:** The team settings determine which attacks and/or targets are eligible for the experiment.
+3. **Attack/Target Permissions:** The team settings determine which attacks and/or targets are eligible for the experiment.
 
 #### Which outcome are you expecting?
 

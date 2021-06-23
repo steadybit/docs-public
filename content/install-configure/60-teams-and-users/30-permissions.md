@@ -13,7 +13,7 @@ See the table for the permissions:
 | Delete Team            |   <1>   |    <1>     |             |                        |
 | Manage Team Members    |   <1>   |    <1>     |             |                        |
 | Manage Access Tokens   |    x    |     x      |             |                        |
-| Edit Team Restrictions |    x    |     x      |             |                        |
+| Edit Team Permissions |    x    |     x      |             |                        |
 | Create Experiment      |         |     x      |       x     |                        |
 | Edit Experiment        |         |     x      |       x     |                        |
 | Delete Experiment      |    x    |     x      |       x     |                        |
