@@ -35,7 +35,8 @@ sudo docker run \
   --detach \
   --name steadybit-agent \
   --volume /var/run:/var/run \
-  --volume /sys/kernel:/sys/kernel \
+  --volume /var/run/docker.sock:/var/run/docker.sock \
+  --volume /sys:/sys \
   --privileged \
   --net=host \
   --pid=host \
@@ -58,7 +59,8 @@ sudo docker run \
   --detach \
   --name steadybit-agent \
   --volume /var/run:/var/run \
-  --volume /sys/kernel:/sys/kernel \
+  --volume /var/run/docker.sock:/var/run/docker.sock \
+  --volume /sys:/sys \
   --cap-add=NET_ADMIN \
   --cap-add=SYS_BOOT \
   --cap-add=SYS_TIME \
