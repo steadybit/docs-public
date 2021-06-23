@@ -25,6 +25,8 @@ After that, you see the following page which we need later on.
 Before continuing, make sure that access to the following URLs via HTTPS (443) is possible from your location of installation:
 
 * https://docker.steadybit.io and https://index.docker.io (Docker Image)
+* https://artifacts.steadybit.io (Agent Bundles)
+* https://get.steadybit.io (Setup Scripts)
 
 
 ## Step 1 - Get your keys
@@ -79,10 +81,15 @@ curl -sfL https://get.steadybit.io/platform.sh | sh -s -- -a <agent-key> -d <jdb
 ```
 
 ## What's next?
-Done, the platform is running and we have created a default admin user to be used to login.
+Done, the platform is running.
+The default login for the on-prem platform is
+
+- username: admin
+- password: admin
+
 Now you can set it up by connecting the first agents to it.
 
-We'll show you how to do that in our [Set up Platform & Agents](10-set-up-platform-agents#step-1---install-agents).
+We'll show you how to do that in our getting started [Set up Platform & Agents](10-set-up-platform-agents#step-1---install-agents), at step 1.
 
 ### Productive Usage
 As mentioned above, this getting started helped to set up quickly a steadybit platform.
