@@ -18,6 +18,10 @@ const config = {
     ],
     frontline: false,
     ignoreIndex: true,
+    ignorePath: [
+      "/getting-started/10-set-up-saas",
+      "/getting-started/20-set-up-onprem",
+    ],
   },
   siteMetadata: {
     title: "steadybit Documentation",

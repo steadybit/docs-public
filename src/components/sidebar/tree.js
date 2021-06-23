@@ -15,7 +15,7 @@ const sortChildItems = (item) => {
   item.items.map(sortChildItems);
 };
 const calculateTreeData = (edges) => {
-  const originalData = config.sidebar.ignoreIndex
+  const navData = config.sidebar.ignoreIndex
     ? edges.filter(
         ({
           node: {
@@ -24,6 +24,15 @@ const calculateTreeData = (edges) => {
         }) => slug !== "/"
       )
     : edges;
+  const originalData = config.sidebar.ignorePath
+    ? navData.filter(
+        ({
+          node: {
+            fields: { slug },
+          },
+        }) => !config.sidebar.ignorePath.some((item) => item === slug)
+      )
+    : navData;
   const tree = originalData.reduce(
     (
       accu,
