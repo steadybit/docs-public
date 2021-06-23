@@ -12,7 +12,7 @@ Engineering and help you to stay in control of your chaos experiments.
 Steadybit uses an agent-based approach consisting of a central platform - being the center of control for you - and agents - deployed in your system to discover running hosts, containers and applications.
 
 ### You want to set up steadybit?
-- See how to get started [using the SaaS platform](getting-started/10-set-up-saas) or [how to set up the on-prem platform](getting-started/20-set-up-onprem)
+- See how to get started [setting up the platform](getting-started/10-set-up-platform-agents) or - in case you can't use the SaaS - [how to host the on prem platform in your environment](getting-started/20-install-onprem)
 - Learn about different ways to [install the Agents](install-configure/30-install-agents) depending on your system's needs
 - Read more about our [agent-based architecture](learn/10-architecture)
 

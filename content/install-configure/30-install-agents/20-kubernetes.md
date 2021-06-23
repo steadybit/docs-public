@@ -12,8 +12,10 @@ To install the chart, retrieve your steadybit agent key from the [setup page](ht
 ```bash
 helm repo add steadybit https://steadybit.github.io/helm-charts
 helm repo update
-kubectl create namespace steadybit-agent
-helm install steadybit-agent --namespace steadybit-agent --set agent.key=<replace-with-agent-key> steadybit/steadybit-agent
+helm install steadybit-agent --namespace steadybit-agent \
+  --create-namespace \
+  --set agent.key=<replace-with-agent-key> \
+  steadybit/steadybit-agent
 ```
 
 To configure the installation, specify the values on the command line using the --set flag, or provide a yaml file with your values using the -f flag.
