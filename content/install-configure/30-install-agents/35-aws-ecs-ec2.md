@@ -7,7 +7,21 @@ This page describes how to install the agent into an Elastic Container Service (
 
 There are two ways to setup the agent:
 
-##  ECS Task definition
+##  ECS Task
+
+### Secret for accessing the agent image
+
+First you need to [create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html)
+for accessing our private Docker Registry (docker.steadybit.io) to download the agent image.
+
+```
+{
+  "username": "_",
+  "password": "<replace-with-agent-key>"
+}
+```
+
+### Example
 
 For your convenience we have prepared an example task definition to use. Please fill in the missing "replace-with" prefixed fields:
 
@@ -36,7 +50,10 @@ For your convenience we have prepared an example task definition to use. Please 
                     "name": "STEADYBIT_AGENT_KEY",
                     "value": "<replace-with-agent-key>"
                 }
-            ]
+            ],
+            "repositoryCredentials": {
+              "credentialsParameter": "<replace-with-secret-arn-from-secretmanager>"
+            },
             "mountPoints": [
                 {
                     "readOnly": false,
@@ -64,8 +81,8 @@ For your convenience we have prepared an example task definition to use. Please 
                     "sourceVolume": "var_log"
                 }
             ],
-            "image": "steadybit/agent:latest",
-            "name": "steadybit-agent",
+            "image": "docker.steadybit.io/steadybit/agent:latest",
+            "name": "steadybit-agent"
         }
     ],
     "volumes": [
@@ -108,6 +125,11 @@ For your convenience we have prepared an example task definition to use. Please 
 }
 ```
 
+
 ##   EC2 User Data
 
 See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html) for using User Data mechanism on new EC2 instances. See also our [Install on Linux Hosts](install-configure/30-install-agents/30-host) section for setting up the agent.
+
+# AWS Metadata
+
+For querying metadata the IAM role `arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess` must be assigned to the EC2 instance running the steadybit agent.

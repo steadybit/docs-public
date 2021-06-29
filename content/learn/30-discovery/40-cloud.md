@@ -8,7 +8,7 @@ If the agent is running on AWS it will query the AWS Metadata and add the follow
  * AWS Account
  * AWS Region
  * AWS Zone
- * AWS Tags (needs IAM Role)
+ * AWS Tags (needs IAM Role [AmazonEC2ReadOnlyAccess](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-iam-awsmanpol.html))
  * AWS EKS Info (needs IAM Role; if running as part of EKS)
 
 > To read the metadata the IAM role `arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess` must be assigned to the EC2 instance running the steadybit agent.
