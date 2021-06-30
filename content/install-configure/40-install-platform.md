@@ -7,6 +7,7 @@ title: "Install Platform (On-Prem)"
 To install the platform on your own premises, access to the following URL via HTTPS (443) is required:
 
 * https://docker.steadybit.io and https://index.docker.io (Docker Image)
+* https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
 
 ## Setup
 

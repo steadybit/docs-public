@@ -29,6 +29,7 @@ To complete the on-boarding and install an agent, make sure that access to the f
 * https://docker.steadybit.io and https://index.docker.io (Docker Image)
 * https://artifacts.steadybit.io (Agent Bundles)
 * https://get.steadybit.io (Setup Scripts)
+* https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
 
 ## Step 1 - Install Agents
 Our agents continuously gather and deliver target data to the platform, helping you to create targeted experiments based on always up-to-date data.
