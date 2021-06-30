@@ -27,6 +27,7 @@ Before continuing, make sure that access to the following URLs via HTTPS (443) i
 * https://docker.steadybit.io and https://index.docker.io (Docker Image)
 * https://artifacts.steadybit.io (Agent Bundles)
 * https://get.steadybit.io (Setup Scripts)
+* https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
 
 
 ## Step 1 - Get your keys
