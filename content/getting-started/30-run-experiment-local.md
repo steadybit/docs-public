@@ -60,7 +60,8 @@ In our steadybit platform you will find under section `.../settings/agents/setup
 Please copy the agent key and replace it below. In addition, you also need to set the cluster name you are installing the agents into:
 
 ```bash
-helm install steadybit-agent --namespace steadybit-agent \
+helm install steadybit-agent \
+  --namespace steadybit-agent \
   --create-namespace \
   --set agent.key=<replace-with-agent-key> \
   --set cluster.name=<replace-with-cluster-name> \
