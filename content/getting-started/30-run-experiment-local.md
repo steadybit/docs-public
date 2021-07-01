@@ -53,22 +53,18 @@ helm repo add steadybit https://steadybit.github.io/helm-charts
 helm repo update
 ````
 
-Create a namespace for the steadybit Kubernetes agent:
-
-```bash
-kubectl create namespace steadybit-agent
-```
-
 In our steadybit platform you will find under section `.../settings/agents/setup` your agent key.
 
 ![copy steadybit agent key](img-run/k8s-agent-key.png)
 
-Please copy the agent key and paste it:
+Please copy the agent key and replace it below. In addition, you also need to set the cluster name you are installing the agents into:
 
 ```bash
-helm install steadybit-agent steadybit/steadybit-agent \
-              --namespace steadybit-agent \
-              --set agent.key=STEADYBIT_AGENT_KEY
+helm install steadybit-agent --namespace steadybit-agent \
+  --create-namespace \
+  --set agent.key=<replace-with-agent-key> \
+  --set cluster.name=<replace-with-cluster-name> \
+  steadybit/steadybit-agent
 ```
 
 That's all, ready to start your first experiment!
