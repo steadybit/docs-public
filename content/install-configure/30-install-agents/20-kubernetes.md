@@ -21,6 +21,8 @@ helm install steadybit-agent --namespace steadybit-agent \
 
 To configure the installation, specify the values on the command line using the --set flag, or provide a yaml file with your values using the -f flag.
 
+> By default, the agent assumes that your cluster uses the Docker container runtime. If this is not the case, you need to set `agent.containerRuntime` to either `containerd` or `crio`.
+
 For a detailed list of all the configuration parameters, please see our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-agent).
 
 #### Installation using Terraform
