@@ -1,13 +1,13 @@
 /*
  * Copyright 2021 steadybit GmbH. All rights reserved.
  */
-
-import { Layout } from "$components";
-import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
-import React, { Component } from "react";
-import Helmet from "react-helmet";
-import config from "../../config";
-import { Breadcrumb } from "gatsby-plugin-breadcrumb";
+import { graphql } from 'gatsby';
+import { Layout } from '$components';
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
+import React, { Component } from 'react';
+import Helmet from 'react-helmet';
+import config from '../../config';
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb';
 
 export default class MDXRuntimeTest extends Component {
   render() {
@@ -15,7 +15,7 @@ export default class MDXRuntimeTest extends Component {
     const { mdx, allMdx } = data;
 
     const {
-      breadcrumb: { crumbs },
+      breadcrumb: { crumbs }
     } = pageContext;
     const title = mdx && mdx.fields ? mdx.fields.title : null;
     const metaTitle =
@@ -104,6 +104,7 @@ const enhanceBreadcrumbs = (crumbs, allMdx) => {
       .splice(0, crumbs.length - 1),
   ];
 };
+
 export const pageQuery = graphql`
   query($id: String!) {
     site {

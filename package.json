@@ -15,6 +15,7 @@
     "gatsby": "^2.32.8",
     "gatsby-link": "^2.9.0",
     "gatsby-plugin-breadcrumb": "^11.0.0",
+    "gatsby-plugin-fathom": "^2.1.0",
     "gatsby-plugin-gtag": "^1.0.13",
     "gatsby-plugin-layout": "^1.8.0",
     "gatsby-plugin-manifest": "^2.10.0",
@@ -34,9 +35,9 @@
     "lodash.flatten": "^4.4.0",
     "lodash.startcase": "^4.4.0",
     "prism-react-renderer": "^1.1.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-helmet": "^5.2.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0"
   },
   "scripts": {
     "start": "gatsby develop",
