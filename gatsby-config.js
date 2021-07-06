@@ -76,6 +76,16 @@ const plugins = [
       useAutoGen: true,
     },
   },
+  {
+    resolve: 'gatsby-plugin-fathom',
+    options: {
+      // Your custom domain, defaults to `cdn.usefathom.com`
+      trackingUrl: 'aardvark.steadybit.com',
+      // Unique site id
+      siteId: 'BSRLFSIA',
+      honorDnt: false
+    }
+  }
 ];
 
 module.exports = {
