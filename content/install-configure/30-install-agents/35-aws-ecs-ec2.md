@@ -132,4 +132,19 @@ See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.co
 
 # AWS Metadata
 
-For querying metadata the IAM role `arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess` must be assigned to the EC2 instance running the steadybit agent.
+For querying metadata the IAM role `arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess` must be assigned to the EC2 Task Definition running the steadybit agent.
+
+Alternatively you can create your own policy with the following IAM permissions and attach that to the Task Definition Role:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "ec2:Describe*",
+            "Resource": "*"
+        }
+    ]
+}
+```
