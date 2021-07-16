@@ -54,7 +54,6 @@ We also provide a static version of docker image `docker.steadybit.io/steadybit/
 
 In case you need to run the container non-privileged you can add the individual capabilities:
 ```bash
---security-opt apparmor:unconfined \
 sudo docker run \
   --detach \
   --name steadybit-agent \
