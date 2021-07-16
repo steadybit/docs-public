@@ -7,7 +7,34 @@ This page describes how to install the agent into an Elastic Container Service (
 
 There are two ways to setup the agent:
 
+##   EC2 User Data
+
+Note: This is the preferred mechanism to deploy the agent across your ECS on EC2 clusters!
+
+See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html) for using User Data mechanism on new EC2 instances. See also our [Install on Linux Hosts](install-configure/30-install-agents/30-host) section for setting up the agent.
+
+# AWS Metadata
+
+For querying metadata the IAM role `arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess` must be assigned to the EC2 Task Definition running the steadybit agent.
+
+Alternatively you can create your own policy with the following IAM permissions and attach that to the Task Definition Role:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "ec2:Describe*",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 ##  ECS Task
+
+Note: Due to security issues the Host Shutdown Attack will not work with this setup method.
 
 ### Secret for accessing the agent image
 
@@ -126,25 +153,4 @@ For your convenience we have prepared an example task definition to use. Please 
 ```
 
 
-##   EC2 User Data
 
-See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html) for using User Data mechanism on new EC2 instances. See also our [Install on Linux Hosts](install-configure/30-install-agents/30-host) section for setting up the agent.
-
-# AWS Metadata
-
-For querying metadata the IAM role `arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess` must be assigned to the EC2 Task Definition running the steadybit agent.
-
-Alternatively you can create your own policy with the following IAM permissions and attach that to the Task Definition Role:
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "ec2:Describe*",
-            "Resource": "*"
-        }
-    ]
-}
-```
