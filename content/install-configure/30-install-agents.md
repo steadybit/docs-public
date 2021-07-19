@@ -19,4 +19,4 @@ Please choose one of the following deployment options:
 * [Kubernetes DaemonSet](30-install-agents/20-kubernetes)
 * [Host](30-install-agents/30-host)
 
-More configuration options can be found in [Advanced Configuration](30-install-agents/40-advanced-configuration)
+More configuration options can be found in [Advanced Configuration](30-install-agents/50-advanced-configuration)
