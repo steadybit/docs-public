@@ -65,9 +65,6 @@ const plugins = [
   },
   {
     resolve: "gatsby-plugin-robots-txt",
-    options: {
-      policy: [{ userAgent: "*", disallow: "/" }],
-    },
   },
   {
     resolve: `gatsby-plugin-breadcrumb`,
