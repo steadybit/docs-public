@@ -4,19 +4,24 @@ navTitle: "State"
 metaDescription: "steadybit state attacks can cause turbulent conditions on the infrastructure and platform level"
 ---
 
-With the state attacks you can cause turbulent conditions on the infrastructure and platform level and for example increase the CPU load for a certain period of time. Each attack at this level can be configured in detail.
-
-The state attacks support Docker Containers, a Host or Processes. This information is determined by the Auto Discovery and processed and analyzed in the steadybit Platform.
+With the state attacks you can try out what happens when a single process, a container or an entire hosts fails.
+These attacks can be useful to see for example:
+ - Does an application handle all in-flight requests gracefully on shutdown?
+ - Properly configured readiness checks; Does the application handles all traffic successfully after startup?
+ - Is the container/host restarted or replaced automatically and does the application recover?
+ - How long does the application need to recover?
 
 ## Pause Container
-Pauses one or more Docker Container for a certain time.
+Pauses one or more container for a certain time.
+
+*Note:* Only available for the docker container runtime
 
 | Parameter   |      Description      | Default |
 |----------|-------------|-------------|
 | Duration | How long should the container be paused? | 30s |
 
 ## Stop Container
-Terminates one or more Docker Containers.
+Terminates one or more containers.
 
 | Parameter   |      Description      | Default |
 |----------|-------------|-------------|
