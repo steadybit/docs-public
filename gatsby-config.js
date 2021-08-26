@@ -33,7 +33,7 @@ const plugins = [
         {
           resolve: "gatsby-remark-images",
           options: {
-            wrapperStyle: "margin-left: 0; margin-right: 0;",
+            wrapperStyle: "margin: auto",
             backgroundColor: "transparent",
             disableBgImageOnAlpha: true,
           },

@@ -1,6 +1,5 @@
 ---
 title: "Attacks"
-metaDescription: "steadybit platform offers you extensive, safe and customizable attacks"
 ---
 Our steadybit platform offers you extensive, safe and customizable attacks.
 The scope of the attacks covers the following categories:

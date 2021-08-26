@@ -40,5 +40,5 @@ You can also indicate if any additional action is required to mitigate the incid
 In the case the running experiment causes unforeseen severe errors any authenticated user can stop any running experiment by clicking the stop button.
 
 You can prevent further executions if you disable experimenting using the `Stop All` button.
-If you disable experimenting, no (manual or scheduled) experiments will be executed until experimenting is continued.
+If you disable experimenting, no experiments (neither via UI nor API) will be executed until experimenting is continued.
 Stopping and continuing experimenting can be triggered by any authenticated user.

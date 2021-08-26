@@ -6,4 +6,3 @@ relevant problems instead of wasting time to discover them.
 
 * Define the attacks to perform by [designing an experiment](10-experiments/10-design)
 * [Run an experiment](10-experiments/20-run) to see it in action
-* Want to automate it? [Schedule an experiment](10-experiments/30-schedule)
