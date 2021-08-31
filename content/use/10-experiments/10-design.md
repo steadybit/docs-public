@@ -21,9 +21,10 @@ An experiment generally consists of the following elements:
 - **Team**: Each experiment is associated with a team.
   In case you are member in more than one team you can change it at experiment creation time.
   After creation, it can not be changed.
-  Based on the team:
 
-  1. **Short Handle:** Each experiment gets a unique key with team prefix (e.g. `SRE-23`) which can be used e.g. to trigger an experiment via the [api](/integrate/10-api).
+  The team influences the experiment in the following aspects:
+
+  1. **Short Handle:** Each experiment gets a unique key with team prefix (e.g. `SRE-23`) which can be used e.g. to trigger an experiment via the [API](/integrate/10-api).
   2. **Run/Edit Permissions:** Only members of the associated team are permitted to edit or execute the experiment.
   3. **Attack/Target Permissions:** The team settings determine which attacks and/or targets are eligible for the experiment.
 
@@ -47,14 +48,14 @@ It consists of the following four steps:
 ![Create Experiment - Step 1: Define](create-experiment-step1.png)
 
   2. **Select Target**
-  For selecting the target you want to attack you need first choose the target kind.
+  For selecting the target you want to attack you need to select the target kind first.
   We support various target kinds like e.g. hosts, containers, JVM applications.
 
-  Our recommended way is to select them by attributes where you can use the [discovery data](../../learn/30-discovery) to specify a query.
+  Our recommended way is to select them by attributes where you can use the [discovery data](../../learn/30-discovery) to specify them with a dynamically evaluated query.
   Since these attributes are discovered by the agents and can change from one moment to the next, it is wise to choose stable attributes.
   Good examples are labels, namespaces or symbolic names - whereas a unique identifier of targets (like the container id) are usually a bad idea.
   When the experiment is due to be executed those attributes are resolved into a concrete set of targets to be attacked.
-  To preview the targets which would be affected if the experiment would be executed right now, click the "show targets" button at the bottom right.
+  You can use the "show targets" button next to the query to evaluate it's effect and preview matching targets.
 
   As an alternative and more static approach you can also choose from a list based on names.
   For some target types (e.g. application) the target definition is always specified via the list as it is inherent stable.
@@ -91,7 +92,7 @@ After that, you can add attacks, actions, checks and load tests to your experime
 ![Create Experiment - Editor](create-experiment-blank.png)
 
 As soon as the element is placed you can configure it on the right hand side.
-Specifying e.g. for an attack the target and attack radius.
+Specifying e.g. for an attack the target and attack radius (see previous section).
 
 ![Create Experiment - Editor](create-experiment-blank2.png)
 
@@ -102,7 +103,7 @@ This way, you only need to specify the targets but don't need to specify the seq
 
 ![Create Experiment - Template](create-experiment-template.png)
 
-Just click on each element to define e.g. for an attack the target and attack radius on the right hand side.
+Just click on each element to define e.g. for an attack the target and attack radius on the right hand side (see previous section).
 
 ### Additional Elements
 If you want to learn more about elements which can be added to the experiment, check out sections for

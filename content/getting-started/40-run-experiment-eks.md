@@ -240,7 +240,7 @@ To keep things simple, we choose the Global area to get access to everything ste
 
 ![Create experiment step 2](img-run/experiment-step2.png)
 
-### 4.2 Select Targets
+### Step 4.2 Select Targets
 
 In the next step we can define our target.
 Since our target of our experiment is a container running in Kubernetes, we select Container as target kind.
@@ -248,7 +248,7 @@ Furthermore, we want our experiment to be reusable even after container restarts
 
 ![Create experiment step 3](img-run/experiment-step3.png)
 
-### 4.3 Set Impact and Attack Radius
+### Step 4.3 Set Impact and Attack Radius
 
 Going to the next step, we can define how large our impact is.
 When having a scaled system you may want to start with a small attack radius first - affecting only one container and not all replicas.
@@ -257,7 +257,7 @@ Since in the current deployment none of the services are scaled, we keep the def
 
 ![Create experiment step 4](img-run/experiment-step4.png)
 
-### 4.4 Select Attack
+### Step 4.4 Select Attack
 
 Last but not least: We choose the attack.
 We want to simulate unavailability of the `hot-deals` container by isolating it from others.
@@ -265,7 +265,7 @@ Therefore, we choose the attack "blackhole" on network level.
 
 ![Create experiment step 5](img-run/experiment-step5.png)
 
-### 4.4 Save Experiment
+### Step 4.4 Save Experiment
 
 That's it, we can finalize the wizard by saving the experiment.
 You can now add additional attacks, checks and actions to the experiment or simply run our first experiment.
@@ -273,7 +273,7 @@ Of course, we choose the fun part and run it immediately!
 
 ![Create experiment step 6](img-run/experiment-step6.png)
 
-### 4.4 Run Experiment
+### Step 4.4 Run Experiment
 Before running the experiment make sure to have the `/products`-endpoint open in your browser.
 While running the experiment simply refresh it multiple times to check for effects.
 
@@ -284,7 +284,7 @@ When hitting the "run experiment"-button you see the steadybit execution window.
 ![Run experiment - execution window](img-run/experiment-run2.png)
 
 You should notice that the `/products`-endpoint will not work while `hot-deals` is unavailable.
-This is not desirable as there are other products which still ould have been browsed by the customers of the online shop.
+This is not desirable as there are other products which could have been browsed by the customers of the online shop.
 You can improve this behavior by adding appropriate fallbacks or scaling the services.
 
 ## Conclusion
