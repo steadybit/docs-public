@@ -10,21 +10,8 @@ There are two general possibilities to integrate with New Relic:
 ## New Relic to steadybit
 
 We are able to react to the different events of New Relic and process them within the execution of an experiment. Once New Relic has
-been [configured](../../install-configure/70-configure-monitoring/30-new-relic#newrelictosteadybit) by your admin, you will find a `New Relic State Check` in
-section `Execution and Monitoring` within the configuration dialog of an experiment. The filtering of events is possible on New Relic Product, Entity Type and
-Event Type. We are supporting the following types of events and products are supported.
-
-##### Product
-
-APM, Browser, Mobile, Servers, Plugins, Synthetics, Infrastructure, Alerts
-
-##### Event Type
-
-Application, Server, Key Transaction, Plugin, Mobile Application, Brwoser Application, Monitor, Host
-
-##### Entity Type
-
-Notfication, Deployment, Incident (open/close), Violation (open/close), Instrumentation
+been [configured](../../install-configure/70-configure-monitoring/30-new-relic#newrelictosteadybit) by your admin, you will automatically find all events of `New Relic` in
+the [execution view](../../use/10-experiments/20-run) of an experiment.
 
 ## steadybit to New Relic
 

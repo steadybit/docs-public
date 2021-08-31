@@ -10,6 +10,6 @@ To be precise, steadybit currently integrates with
 - [New Relic](70-configure-monitoring/30-new-relic) (bi-directional)
 - [Prometheus](70-configure-monitoring/40-prometheus)
 
-In addition, you can use a simple [HTTP Status Check when executing an experiment](../integrate/30-monitoring/20-http-check).
+In addition, you can use a simple [HTTP Status Check when executing an experiment](../learn/15-actions/20-http-call).
 
 Are you missing your favorite monitoring tool? Don't hesitate to [let us know](https://www.steadybit.com/contact).
