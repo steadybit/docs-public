@@ -9,7 +9,6 @@ In order to make use of a monitoring integration you have to [configure them onc
 
 Find out, how to make use of
 - [Datadog](30-monitoring/10-datadog)
-- [HTTP Check](30-monitoring/20-http-check)
 - [Instana](30-monitoring/30-instana)
 - [New Relic](30-monitoring/40-newrelic)
 - [Prometheus](30-monitoring/50-prometheus)

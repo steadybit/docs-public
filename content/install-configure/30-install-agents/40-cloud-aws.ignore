@@ -7,6 +7,10 @@ This page describes how to install the cloud agent on AWS. This setup is not int
 API af the Cloud Provider to execute attacks on this level. For attacking the host and software running on Virtual Machines running on AWS EC2,
 refer to the [Install on Linux Hosts](30-install-agents/30-host) documentation.
 
+We recommend to run the Cloud Agent in a separate subnet to be sure that the agent is still working properly,
+when you are attacking the cloud resources (e.g. shutting down an EC2 instance or attacking networks).
+The subnet of the agent will always be excluded from network based attacks.
+
 # AWS API Access
 
 For querying metadata and using the AWS API executing the attacks a suitable IAM policy needs to be created.
@@ -23,7 +27,16 @@ See this example IAM policy which enables the agent to discover and attack your 
           "ec2:StopInstances",
           "ec2:TerminateInstances",
           "ec2:StartInstances",
-          "ec2:RebootInstances"
+          "ec2:RebootInstances",
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeVpcs",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeNetworkAcls",
+          "ec2:CreateNetworkAcl",
+          "ec2:CreateNetworkAclEntry",
+          "ec2:ReplaceNetworkAclAssociation",
+          "ec2:DeleteNetworkAcl",
+          "ec2:CreateTags",
         ],
         Effect: "Allow",
         Resource: "*"

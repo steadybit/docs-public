@@ -1,14 +1,16 @@
 ---
 title: "Run experiments in AWS EKS"
 ---
-This getting started will show you how to install and use steadybit with Kubernetes managed by AWS Elastic Kubernetes Service (AWS EKS). We will run an
-ecommerce application in Kubernetes and find out how it handles network latency. By using steadybit, we will slow down individual Kubernetes pods at the network
-level.
+This getting started will show you how to install and use steadybit with Kubernetes managed by AWS Elastic Kubernetes Service (AWS EKS).
+We will run an ecommerce application in Kubernetes and find out how it handles network latency.
+By using steadybit, we will slow down individual Kubernetes pods at the network level.
 
 [Kubernetes](https://kubernetes.io/), also known as k8s, is an open source system for automating the deployment, scaling, and management of containerized
-applications. We are using [AWS EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) to set up a Kubernetes cluster.
+applications.
+We are using [AWS EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) to set up a Kubernetes cluster.
 
-Basically, the getting started is split into 4 steps. If you have already done the first steps, get in directly via the short link.
+Basically, the getting started is split into 4 steps.
+If you have already done the first steps, get in directly via the short link.
 
 - [Step 1 - Create your EKS cluster](#step1-startyourminikubecluster)
 - [Step 2 - Install steadybit agent](#step2-installsteadybitagent)
@@ -37,8 +39,8 @@ Your output should be similiar to:
 aws-cli/2.0.44 Python/3.8.5 Darwin/19.6.0 source/x86_64
 ```
 
-Create your Amazon EKS cluster and containing 2 nodes by running the following command. More details are available
-at [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)
+Create your Amazon EKS cluster and containing 2 nodes by running the following command.
+More details are available at [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)
 
 From a terminal, run:
 
@@ -66,15 +68,16 @@ If you don't have `kubectl` installed yet, check this out: [How to install kubec
 
 ## Step 2 - Install steadybit agent
 
-We take an agent-based approach to help you identify goals and run experiments. The installation of our steadybit agents is very simple. In the case of
-Kubernetes, you can install our agents in Kubernetes as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
+We take an agent-based approach to help you identify goals and run experiments.
+The installation of our steadybit agents is very simple.
+In the case of Kubernetes, you can install our agents in Kubernetes as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
 
 You can either install our agent directly using a [Helm](https://helm.sh/) chart or use the YAML file to install it using `kubectl`.
 
-### Step 2.1 - Helm
+### Option 2.1 - Helm
 
-If you haven't installed Helm yet, go [here](https://helm.sh/docs/intro/quickstart/) to get started. Once Helm is installed and configured, the next steps are
-to add the repo and install the agent.
+If you haven't installed Helm yet, go [here](https://helm.sh/docs/intro/quickstart/) to get started.
+Once Helm is installed and configured, the next steps are to add the repo and install the agent.
 
 Add the repo for the steadybit Helm chart:
 
@@ -87,7 +90,8 @@ In our steadybit platform you will find under section `.../settings/agents/setup
 
 ![copy steadybit agent key](img-run/k8s-agent-key.png)
 
-Please copy the agent key and replace it below. In addition, you also need to set the cluster name you are installing the agents into:
+Please copy the agent key and replace it below.
+In addition, you also need to set the cluster name you are installing the agents into:
 
 ```bash
 helm install steadybit-agent \
@@ -100,10 +104,10 @@ helm install steadybit-agent \
 
 That's all, ready to start your first experiment!
 
-### Step 2.2 - DaemonSet YAML
+### Option 2.2 - DaemonSet YAML
 
-In our steadybit platform you will find under section `.../settings/agents/setup` all details to install agents in your system. Please select the Kubernetes tab
-and copy the YAML file prepared there.
+In our steadybit platform you will find under section `.../settings/agents/setup` all details to install agents in your system.
+Please select the Kubernetes tab and copy the YAML file prepared there.
 
 ![install steadybit agent](img-run/k8s-daemonset-agent.png)
 
@@ -117,10 +121,13 @@ That's all, ready to start your first experiment!
 
 ## Step 3 - Deploying the steadybit shopping-demo
 
-In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by 4 distributed
-backend services and a simple UI.
+In order to give you a quick and easy start, we have developed a small demo application.
+Our shopping demo is a small product catalog provided by 4 distributed backend services and a simple UI.
 
 ![shopping-demo-app](img-run/demo-app-architecture.jpg)
+
+If you want to learn more about our demo, please take a look at our GitHub
+repository: [https://github.com/steadybit/shopping-demo](https://github.com/steadybit/shopping-demo)
 
 First you need to download our shopping demo app, run following `git clone` command:
 
@@ -219,62 +226,81 @@ The result is an aggregated list of all products of the services `toys`, `hot-de
 
 ## Step 4 - Run your first experiment
 
-We will now use steadybit to find out how our shopping demo behaves when there is increased latency in the network for a backend service. This latency should
-only happen for a specific type of container. One of the reasons for this is that we don't want to negatively impact our colleagues unnecessarily if we want to
-do this kind of testing later on in a real Kubernetes cluster.
+We will now use steadybit to find out how our shopping demo behaves when one of the backend service can not be reached.
+Therefore, we simulate the unavailability of one container (`hot-deals`) by isolating it on network level.
+This approach is less invasive than stopping it.
 
-Please create a new experiment for the infrastructure section:
+To do that, we start by creating a new experiment via our Wizard, which guides us through every step:
 
-![Create experiment step 1](img-run/exp-infra-step-1.png)
+![Create experiment step 1](img-run/experiment-step1.png)
 
-Like everything in life, our experiment needs a fitting name:
+### Step 4.1 Define Experiment
+First step is to give our experiment a meaningful name and define the environment where to be executed.
+To keep things simple, we choose the Global area to get access to everything steadybit has discovered and not being limited in scope/permissions yet.
 
-![Create experiment step 2](img-run/exp-infra-step-2.png)
+![Create experiment step 2](img-run/experiment-step2.png)
 
-Our target for our experiment is a container running in Kubernetes. Therefore, we select Container for the type of targets. We want our experiment to be
-repeatable as often as we like, so we describe our target container with attributes and not by a unique name:
+### Step 4.2 Select Targets
 
-![Create experiment step 3](img-run/exp-infra-step-3.png)
+In the next step we can define our target.
+Since our target of our experiment is a container running in Kubernetes, we select Container as target kind.
+Furthermore, we want our experiment to be reusable even after container restarts, so we describe our target container with attributes and not by a unique name.
 
-In the current deployment, none of the services are scaled, which doesn't really make sense and only supports this demo. For this reason we also get only 1
-affected container for the attack radius. In real life you would see more than 1 affected container and can then control how many of them should be affected by
-this experiment:
+![Create experiment step 3](img-run/experiment-step3.png)
 
-![Create experiment step 4](img-run/exp-infra-step-4.png)
+### Step 4.3 Set Impact and Attack Radius
 
-Our experiment is to inject latency into the network in order to find out how this affects our application and more importantly what our customers' experience
-is in this case.
+Going to the next step, we can define how large our impact is.
+When having a scaled system you may want to start with a small attack radius first - affecting only one container and not all replicas.
 
-![Create experiment step 5](img-run/exp-infra-step-5.png)
+Since in the current deployment none of the services are scaled, we keep the default of only one affected container.
 
-For now, let's skip the Execution and Monitoring section. Normally, here you would create an appropriate load test that is executed during the experiment and
-connect your monitoring solution.
+![Create experiment step 4](img-run/experiment-step4.png)
 
-You can read more about this in our [docs](content/use/execution-monitoring).
+### Step 4.4 Select Attack
 
-![Create experiment step 6](img-run/exp-infra-step-6.png)
+Last but not least: We choose the attack.
+We want to simulate unavailability of the `hot-deals` container by isolating it from others.
+Therefore, we choose the attack "blackhole" on network level.
 
-Now everything is ready and we can start the experiment. In the next 30 seconds there will be an increased latency in the Fashion-bestseller service.
+![Create experiment step 5](img-run/experiment-step5.png)
 
-You can track this by checking the response of the `shopping-demo` endpoint `/products`.
+### Step 4.4 Save Experiment
 
-![Create experiment step 7](img-run/exp-infra-step-7.png)
+That's it, we can finalize the wizard by saving the experiment.
+You can now add additional attacks, checks and actions to the experiment or simply run our first experiment.
+Of course, we choose the fun part and run it immediately!
 
-You should notice that in the `fashionResponse` section only the `fallback` is displayed and you do not see any products. One good thing is the fact that the
-latency we injected does not also have a negative impact on the gateway service. However, the current behavior can still be improved, for example by scaling the
-services.
+![Create experiment step 6](img-run/experiment-step6.png)
+
+### Step 4.4 Run Experiment
+Before running the experiment make sure to have the `/products`-endpoint open in your browser.
+While running the experiment simply refresh it multiple times to check for effects.
+
+![Run experiment - system under test](img-run/experiment-run1.png)
+
+When hitting the "run experiment"-button you see the steadybit execution window.
+
+![Run experiment - execution window](img-run/experiment-run2.png)
+
+You should notice that the `/products`-endpoint will not work while `hot-deals` is unavailable.
+This is not desirable as there are other products which could have been browsed by the customers of the online shop.
+You can improve this behavior by adding appropriate fallbacks or scaling the services.
 
 ## Conclusion
 
-You have now successfully run an experiment with steadybit in a Kubernetes environment. You could discover how big the impact of a little latency is in a
-non-scaled system.
+You have now successfully run an experiment with steadybit in a Kubernetes environment.
+You have discovered the impact of an unavailable service in a non-scaled system.
 
 What are the next steps?
 
-How about scaling the fashion-bestseller service and then running your new experiment again to increase availability and resilience?
+You can extend the experiment by adding the HTTP action.
+This way, you see the availability of the `/product`-endpoint directly in steadybit and don't need to check it manually.
+
+After that, how about scaling the `hot-deals` service and then running your new experiment again to check increased resilience?
 
 ```bash
-kubectl scale deploy fashion-bestseller --replicas=3 --namespace steadybit-demo
+kubectl scale deploy hot-deals --replicas=3 --namespace steadybit-demo
 ```
 
 Verify by running:
@@ -284,14 +310,11 @@ kubectl get deployments -A
 
 NAMESPACE        NAME                 READY   UP-TO-DATE   AVAILABLE   AGE
 kube-system      coredns              1/1     1            1           128d
-steadybit-demo   fashion-bestseller   3/3     3            3           1h49m
+steadybit-demo   fashion-bestseller   1/1     1            3           1h49m
 steadybit-demo   gateway              1/1     1            1           1h49m
-steadybit-demo   hot-deals            1/1     1            1           1h49m
+steadybit-demo   hot-deals            3/3     3            3           1h49m
 steadybit-demo   postgres             1/1     1            1           1h49m
 steadybit-demo   toys-bestseller      1/1     1            1           1h49m
 ```
 
 One big advantage is that you can re-run your experiment stored in steadybit at any time.
-
-
-
