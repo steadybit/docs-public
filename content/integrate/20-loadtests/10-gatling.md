@@ -4,37 +4,41 @@ title: "Gatling"
 [Gatling](https://gatling.io/) is an open-source load- and performance-testing framework based on Scala, Akka and Netty.
 You can integrate the execution of Gatling load tests directly into your experiments.
 
-### Usage
 
-When using the default, the load test will perform a GET request every second on the target url with the number of virtual users.
+## Integrate Custom Load Tests
 
-### Parameters
+We base our integration of custom load test on the concept of Docker-images.
+Therefore, you need a Docker Hub user or a private Docker registry as prerequisite.
+After that, just follow the steps below to integrate your custom load test:
 
-| Parameter   | Environment Variable   |      Description      | Default | Required |
-|----------|-------------|-------------|-------------|-------------|
-| Duration | DURATION | How long should the load test run? | inherited from experiment duration | no |
-| Virtual Users | VUS | How many virtual users should be started? | 1 | yes |
-| Docker Image | - |  Which image should be used for executing the action? | - | yes |
-
-
-### Custom Gatling Tests
-For using a custom load test you can exchange the `/opt/gatling/user-files/simulations/basic.scala` file with your custom one.
+1. Place your Gatling load test file in a separate folder. We assume for this steps that it is named *custom.scala*. Alternatively, download an example [custom.scala](attachments/gatling/custom.scala) load test and adjust it as needed.
+2. Put a [Dockerfile](attachments/gatling/Dockerfile) into the same directory which simply copies the custom load test into the Docker image. It looks like:
 
 ```
 # Inherit existing image
 FROM steadybit/action-gatling:latest
 
-# provide custom test
-COPY custom.scala /opt/gatling/user-files/simulations/basic.scala
+# Provide custom test
+COPY custom.scala /script.js
 ```
 
-#### Extended explanation
+3. Build the docker image and tag it with your own Docker Hub user by running ` docker build . --tag <your-docker-hub-huser>/action-gatling:latest`.
+3. Login to dockerhub via `docker login`
+4. Push the Docker image to Docker Hub Registry via `docker push <your-docker-hub-huser>/action-gatling:latest`
+5. In the experiment using the Gatling load test you have to specify `<your-docker-hub-huser>/action-gatling:latest` as *Docker Image* parameter.
 
-1. Create a custom.scala Gatling file. At best you use the attached [custom.scala](content/integrate/20-loadtests/attachments/gatling/custom.scala) file as starting point, as it demonstrates how the passed in parameters are used.
-2. Put the custom.jmx and the attached [Dockerfile](attachments/gatling/Dockerfile) into the same directory and run the following command in the same directory: docker build --tag `<your-docker-hub-huser>/action-gatling:latest` .
-3. Login to dockerhub: docker login
-4. Push the image docker push `<your-docker-hub-huser>/action-gatling:latest`
-5. In the experiment with the Gatling load test use `<your-docker-hub-huser>/action-gatling:latest` for the Docker Image parameter.
-6. Only in case the image is not public and requires authentication to be pulled: configure the Pull-Secrets in the platform via Application Settings -> Agents -> Pull Secrets
-   Tip: Instead of the dockerhub registry you can also use a custom one - you then need to use a prefixed image tag and the correct login
+![Experiment with Custom Gatling Load Test](10-experiment-gatling.png)
 
+In case the image is not public and requires authentication to be pulled you can configure the Pull-Secrets in the platform via Application Settings -> Agents -> Pull Secrets.
+
+**Tip:** Instead of the dockerhub registry you can also use a custom one - you then need to use a prefixed image tag and the correct login
+
+### Parameters
+
+Within the Gatling load test you have access to the following parameters as environment variables.
+You can use them in the script via e.g. `${__ENV.DURATION}` as shown in the attached [custom.scala](attachments/gatling/custom.scala).
+
+| Parameter   | Environment Variable   |      Description      | Default |
+|----------|-------------|-------------|-------------|-------------|
+| Duration | DURATION | How long should the load test run? | inherited from experiment duration |
+| Virtual Users | VUS | How many virtual users should be started? | 1 |
