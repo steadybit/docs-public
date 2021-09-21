@@ -4,8 +4,8 @@ title: "Teams"
 Teams are the grouping element for multiple users. Each team consists of multiple users and owns separate permissions for areas and attacks, allowing fine grained access control for your experiments.
 Creating teams is possible only with the `admin` permission. Within teams there can be owners who manage the team and its members.
 
-## Default Team: Global
-Per default one team is created called Global (key: GBL). It contains only the first user of steadybit and has access to the [Global-area](../50-set-up-areas).
+## Default Team: Admin
+Per default one team is created called Admin (key: ADM). It contains only the first user of steadybit and has access to the [Global-area](../50-set-up-areas).
 
 ## Creating Teams
 In the create dialog you should first enter a **name** for the Team.

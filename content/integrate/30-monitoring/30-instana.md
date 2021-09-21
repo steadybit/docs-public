@@ -6,3 +6,5 @@ cloud-native applications.
 
 Once Instana has been [configured](../../install-configure/70-configure-monitoring/20-instana) by your admin, you will automatically find all events of `Instana` in
 the [execution view](../../use/10-experiments/20-run) of an experiment.
+
+![Execution View - Instana Events](executionInstana.png)
