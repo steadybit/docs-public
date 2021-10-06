@@ -8,6 +8,7 @@ navTitle: "Advanced Configuration"
 | agent.sh Argument | Environment Variable                                | Description
 |-------------------|-----------------------------------------------------|----------------------------------------------------------------------------------------------------------
 | -a                | `STEADYBIT_AGENT_KEY`                               | The API key the agent uses <br/> **Example:** `foobar`
+| -h                |                                                     | Override the hostname for the docker container to use. Useful on docker for mac
 | -e                | `STEADYBIT_AGENT_REGISTER_URL`                      | The baseUrl where the agent registers. <br/> **Default:** `https://platform.steadybit.io`
 | -i                | `STEADYBIT_AGENT_DOCKER_IMAGE`                      | The Agent Docker image to use. <br/> **Default:** `docker.steadybit.io/steadybit/agent:latest`
 | -r                | `STEADYBIT_DOCKER_REGISTRY`                         | The Agent Docker registry to use. <br/> **Default:** `docker.steadybit.io`
