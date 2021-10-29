@@ -52,9 +52,9 @@ If you are using the dynamic agent with auto updates enabled, but your network s
 you can simply change the repository location and use your own Maven repository as a mirror.
 In this case you need to setup the following environment variables or provide the corresponding arguments to the agent.sh script (see above):
 
-* STEADYBIT_DOWNLOAD_USER=<user>
-* STEADYBIT_DOWNLOAD_PASSWORD=<password>
-* STEADYBIT_MVN_REPOSITORIES=https://repo1.maven.org/maven2@id=central,https://<path-to-feature-repo>@id=steadybit-features@snapshots@snapshotsUpdate=always,https://<path-to-release-repo>@id=steadybit-releases
+* `STEADYBIT_DOWNLOAD_USER=<user>`
+* `STEADYBIT_DOWNLOAD_PASSWORD=<password>`
+* `STEADYBIT_MVN_REPOSITORIES=https://repo1.maven.org/maven2@id=central,https://<path-to-feature-repo>@id=steadybit-features@snapshots@snapshotsUpdate=always,https://<path-to-release-repo>@id=steadybit-releases`
 
 Please note: It is very important to follow the URL pattern given above so that the mapping of the repository ids can be done correctly.
 
@@ -63,31 +63,28 @@ Please note: It is very important to follow the URL pattern given above so that 
 Those three repositories needs to be mirrored by your own repository:
 
 * Agent Features
-
-Name: steadybit-features
-Format: Maven2
-Type: Proxy
-Version Policy: Mixed
-URL: https://artifacts.steadybit.io/repository/features-public
-Username: _
-Password: ${STEADYBIT_AGENT_KEY}
+  - Name: `steadybit-features`
+  - Format: `Maven2`
+  - Type: `Proxy`
+  - Version Policy: `Mixed`
+  - URL: `https://artifacts.steadybit.io/repository/features-public`
+  - Username: _
+  - Password: `${STEADYBIT_AGENT_KEY}`
 
 * Agent Releases
-
-Name: steadybit-releases
-Format: Maven2
-Type: Proxy
-Version Policy: Mixed
-URL: https://artifacts.steadybit.io/repository/releases-public
-Username: _
-Password: ${STEADYBIT_AGENT_KEY}
+  - Name: `steadybit-releases`
+  - Format: `Maven2`
+  - Type: `Proxy`
+  - Version Policy: `Mixed`
+  - URL: `https://artifacts.steadybit.io/repository/releases-public`
+  - Username: _
+  - Password: `${STEADYBIT_AGENT_KEY}`
 
 * Maven Central
-
-Format: Maven2
-Type: Proxy
-Version Policy: Mixed
-URL: https://repo1.maven.org/maven2
+  - Format: `Maven2`
+  - Type: `Proxy`
+  - Version Policy: `Mixed`
+  - URL: `https://repo1.maven.org/maven2`
 
 ### Example setup for custom Maven repository
 
