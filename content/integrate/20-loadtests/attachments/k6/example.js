@@ -12,7 +12,7 @@ export let options = {
 };
 
 export default function () {
-  let response = http.get('https:\\www.google.com');
+  let response = http.get(`${__ENV.TARGETURL}`);
   check(response, { 'status was 200': r => r.status == 200 });
   sleep(1);
 }

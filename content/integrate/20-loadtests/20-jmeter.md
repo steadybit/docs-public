@@ -1,48 +1,34 @@
 ---
 title: "JMeter"
 ---
-[JMeter](https://jmeter.apache.org/) is open source software, designed to load test functional behavior and measure performance.
-You can integrate the execution of JMeter load tests directly into your experiments.
+[JMeter](https://jmeter.apache.org/) is open source software, designed to load test functional behavior and measure performance. You can integrate the execution
+of JMeter load tests directly into your experiments.
 
-## Integrate Custom Load Tests
+## Integrate JMeter Load Tests
 
-We base our integration of custom load test on the concept of Docker-images.
-Therefore, you need a Docker Hub user or a private Docker registry as prerequisite.
-After that, just follow the steps below to integrate your custom load test:
+To use JMeter you need to upload your JMeter-Test-File. This can be done simply by adding a step of type "Loadtest", choose "JMeter" as Loadtest-Type and use
+the provided File-Upload.
 
-1. Place your JMeter load test file in a separate folder. We assume for this steps that it is named *custom.jmx*. Alternatively, download an example [custom.jmx](attachments/jmeter/custom.jmx) load test and adjust it as needed.
-2. Put a [Dockerfile](attachments/jmeter/Dockerfile) into the same directory which simply copies the custom load test into the Docker image. It looks like:
-
-```
-# Inherit existing image
-FROM steadybit/action-jmeter:latest
-
-# Provide custom test
-COPY custom.jmx /script.js
-```
-
-3. Build the docker image and tag it with your own Docker Hub user by running ` docker build . --tag <your-docker-hub-huser>/action-jmeter:latest`.
-3. Login to dockerhub via `docker login`
-4. Push the Docker image to Docker Hub Registry via `docker push <your-docker-hub-huser>/action-jmeter:latest`
-5. In the experiment using the JMeter load test you have to specify `<your-docker-hub-huser>/action-jmeter:latest` as *Docker Image* parameter.
-
-![Experiment with Custom JMeter Load Test](20-experiment-jmeter.png)
-
-In case the image is not public and requires authentication to be pulled you can configure the Pull-Secrets in the platform via Application Settings -> Agents -> Pull Secrets.
-
-**Tip:** Instead of the dockerhub registry you can also use a custom one - you then need to use a prefixed image tag and the correct login
+![Experiment with JMeter Load Test](20-experiment-jmeter.png)
 
 ### Parameters
 
-Within the JMeter load test you have access to the following parameters as environment variables.
-You can use them in the script via e.g. `${__ENV.DURATION}` as shown in the attached [custom.jmx](attachments/jmeter/custom.jmx).
+Within the JMeter load test you have access to your provided parameters. You can use them in the script via e.g. `${__P(TARGET)}` as shown in the
+attached [example.jmx](attachments/jmeter/example.jmx). The parameter `DURATION` is always accessible in your script, it contains the estimated total duration
+of your experiment, based on the duration of the other steps in seconds.
+
+If you don't know where to start, feel free to use our [example.jmx](attachments/jmeter/example.jmx). It is a very basic script and will just perform some
+HTTP-Calls on a specified endpoint. You can find a table of parameters below:
 
 | Parameter   | Environment Variable   |      Description      | Default |
 |----------|-------------|-------------|-------------|-------------|
-| Duration | DURATION | How long should the load test run? | inherited from experiment duration |
+| Duration | DURATION | How long should the load test run? | will be passed to the loadtest from steadybit, inherited from experiment duration |
 | Virtual Users | VUS | How many virtual users should be started? | 1 |
+| Target Host | TARGET_HOST | Which host should be targeted? (i.e. `www.steadybit.com`) | |
+| Target Protocol | TARGET_PROTOCOL | Which protocol should be used? (`http` | `https`) | `http` |
+| Target Port | TARGET_PORT | Which port should be used? (Remember to use port 443 if you choose `https`) | 80 |
+| Target Path | TARGET_PATH | Which path should be targeted? | `/`  |
 
 ### Report
-After execution, the JMeter report will be transferred to the platform.
-By default, the location `/jmeter/result.jtl` will be used as file location.
-However, you can change this location to another one using the *Additional Settings* in the experiments settings.
+
+After execution, the JMeter report `/jmeter/result.jtl` will be transferred to the platform.
