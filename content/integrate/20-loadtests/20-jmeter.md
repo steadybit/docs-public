@@ -31,4 +31,15 @@ HTTP-Calls on a specified endpoint. You can find a table of parameters below:
 
 ### Report
 
-After execution, the JMeter report `/jmeter/result.jtl` will be transferred to the platform.
+If your script contains a JMeter-Listener writing a log-file, we will transfer it to the steadybit platform after the execution.
+
+We will override the file-name to `result.jtl`.
+
+### Step result / Assertions
+
+You can use [jmeter assertions](https://jmeter.apache.org/usermanual/component_reference.html#assertions) to control the loadtest-step-result in the platform.
+
+Please make sure to configure your report to use xml-format and include the assertion results into the xml.
+![Report Configuration](attachments/jmeter/jmeter-assertions-report.png)
+
+We will scan the report for non empty `<failureMessage>`-Tags and let the step fail if there are any.
