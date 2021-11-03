@@ -85,6 +85,7 @@ You can use an OpenID Connect compatible authentication provider for user authen
 | `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`               | yes | The client ID to use for the OIDC registration <br/> **Example:** `steadybit`
 | `STEADYBIT_AUTH_OAUTH2_CLIENT_SECRET`           | yes | The client secret to use for the OIDC registration <br/> **Example:** `ijhdfpjdf80wiphubfqwd113342r`
 | `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE`     |     | Name of the attribute that will be used as name for the user <br/> **Default:** `username`
+| `STEADYBIT_AUTH_OAUTH2_TEAM_NAME_ATTRIBUTE`     |     | Name of the attribute that will be used to pick up the assigned team names from. steadybit automatically creates the specified teams in the platform and assigns the user to them.<br/> **Default:** `groups` <br/>  **Example value in OIDC provider for single team:** `team1` <br/> **Example value in OIDC provider for multiple teams:** `["team1","team2"]`
 
 ## Using SSL/TLS Encryption
 
