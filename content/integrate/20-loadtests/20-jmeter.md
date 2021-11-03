@@ -39,7 +39,4 @@ We will override the file-name to `result.jtl`.
 
 You can use [jmeter assertions](https://jmeter.apache.org/usermanual/component_reference.html#assertions) to control the loadtest-step-result in the platform.
 
-Please make sure to configure your report to use xml-format and include the assertion results into the xml.
-![Report Configuration](attachments/jmeter/jmeter-assertions-report.png)
-
 We will scan the report for non empty `<failureMessage>`-Tags and let the step fail if there are any.
