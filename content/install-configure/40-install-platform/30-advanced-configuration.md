@@ -32,7 +32,6 @@ Steadybit requires a PostgresSQL 11 database.
 | `STEADYBIT_WEB_PUBLIC_URL`   |     | URL to point to your steadybit installation. Use this if you platform is running behind a reverse proxy doing path rewriting. Also it is used for the links in notifications.
 | `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT`   |     | By default the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.
 
-
 ## Log Configuration
 
 | Environment Variable         | Required  | Description
@@ -86,6 +85,7 @@ You can use an OpenID Connect compatible authentication provider for user authen
 | `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`               | yes | The client ID to use for the OIDC registration <br/> **Example:** `steadybit`
 | `STEADYBIT_AUTH_OAUTH2_CLIENT_SECRET`           | yes | The client secret to use for the OIDC registration <br/> **Example:** `ijhdfpjdf80wiphubfqwd113342r`
 | `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE`     |     | Name of the attribute that will be used as name for the user <br/> **Default:** `username`
+| `STEADYBIT_AUTH_OAUTH2_TEAM_NAME_ATTRIBUTE`     |     | Name of the attribute that will be used to pick up the assigned team names from. steadybit automatically creates the specified teams in the platform and assigns the user to them.<br/> **Default:** `groups` <br/>  **Example value in OIDC provider for single team:** `team1` <br/> **Example value in OIDC provider for multiple teams:** `["team1","team2"]`
 
 ## Using SSL/TLS Encryption
 

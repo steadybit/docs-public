@@ -5,8 +5,7 @@ navTitle: "Docker Container"
 
 ## Prerequisites
 
-To use steadybit with the SaaS platform you only need a docker installation on the host where the attacks will be executed.
-In a future release we will provide more installation options.
+To use steadybit with the SaaS platform you only need Docker on the host where the attacks will be executed.
 
 ## Oneliner
 
@@ -48,11 +47,11 @@ sudo docker run \
 
 ## Static Agent
 
-We also provide a static version of docker image `docker.steadybit.io/steadybit/agent-static` having which already includes all features and has the auto-updates disabled by default.
+We also provide a static version of docker image `docker.steadybit.io/steadybit/agent-static` having which already includes all features and has auto updates disabled by default.
 
 ## Non-privileged container
 
-In case you need to run the container non-privileged you can add the individual capabilities:
+In case you need to run the container non-privileged you can add the individual capabilities with `--cap-add`:
 ```bash
 sudo docker run \
   --detach \

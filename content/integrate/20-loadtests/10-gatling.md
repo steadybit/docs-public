@@ -27,7 +27,7 @@ COPY custom.scala /script.js
 4. Push the Docker image to Docker Hub Registry via `docker push <your-docker-hub-huser>/action-gatling:latest`
 5. In the experiment using the Gatling load test you have to specify `<your-docker-hub-huser>/action-gatling:latest` as *Docker Image* parameter.
 
-![Experiment with Custom Gatling Load Test](10-experiment-gatling.png)
+![Experiment with Custom Gatling Load Test](attachments/gatling/experiment-gatling.png)
 
 In case the image is not public and requires authentication to be pulled you can configure the Pull-Secrets in the platform via Application Settings -> Agents -> Pull Secrets.
 
