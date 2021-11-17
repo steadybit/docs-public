@@ -31,6 +31,7 @@ Steadybit requires a PostgresSQL 11 database.
 |------------------------------|-----------|------------
 | `STEADYBIT_WEB_PUBLIC_URL`   |     | URL to point to your steadybit installation. Use this if you platform is running behind a reverse proxy doing path rewriting. Also it is used for the links in notifications.
 | `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT`   |     | By default the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.
+| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL`   |     | By default the Websocket connections are advertised on the same url name as the agents registers to. If you run a separate loadbalancer for the websockets you can override the advertised url.
 
 ## Log Configuration
 
