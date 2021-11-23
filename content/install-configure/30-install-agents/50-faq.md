@@ -12,4 +12,14 @@ If the application is not running as container, add the `steadybit.agent.disable
 java -Dsteadybit.agent.disable-javattachment -jar spring-boot-sample.jar --server.port=0
 ```
 
+### How much system resources (CPU/Memory) does the agent consume?
 
+The resource consumption of the agent depends significantly on the following influencing factors and can therefore not be named exactly:
+
+* Discovered targets
+* Configured discovery interval (default ist 5000ms)
+* Active experiments
+* Active actions
+
+There is also a hibernation feature, which disables all attacks, the discovery mechanism and minimizes communication to the platform.
+However, it can generally be said that the resource consumption is very low and basically not noticeable in normal operation.

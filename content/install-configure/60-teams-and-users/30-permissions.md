@@ -7,23 +7,20 @@ See the table for the permissions:
 
 | Permission/Role        |  Admin  | Team Owner | Team Member | Any Authenticated User |
 |------------------------|---------|------------|-------------|------------------------|
+| Change User Role (Admin, User)       |   <1>   |            |             |                        |
 | Remove User            |   <1>   |            |             |                        |
-| Change User Role       |   <1>   |            |             |                        |
 | Create Team            |   <1>   |            |             |                        |
 | Delete Team            |   <1>   |    <1>     |             |                        |
-| Manage Team Members    |   <1>   |    <1>     |             |                        |
-| Manage Access Tokens   |    x    |     x      |             |                        |
+| Manage* Team Members    |   <1>   |    <1>     |             |                        |
+| Manage* Access Tokens   |    x    |     x      |             |                        |
 | Edit Team Permissions |    x    |     x      |             |                        |
-| Create Experiment      |         |     x      |       x     |                        |
-| Edit Experiment        |         |     x      |       x     |                        |
-| Delete Experiment      |    x    |     x      |       x     |                        |
+| Manage* Experiments      |         |     x      |       x     |                        |
 | Run Experiment         |         |     x      |       x     |                        |
-| Schedule Experiment    |         |     x      |       x     |                        |
 | Stop Experiment        |         |            |             |            x           |
 | View Experiment        |         |            |             |            x           |
-| Stop all Attacks       |         |            |             |            x           |
-| Resume all Attacks     |         |            |             |            x           |
+| [Emergency Stops](/use/10-experiments/30-prevent-execution)       |         |            |             |            x           |
 | Database Export        |  <2>    |            |             |                        |
 
-<1> unless synced via LDAP
-<2> unless disabled via configuration
+- \* Manage means create, update and delete
+- <1> unless synced via LDAP
+- <2> unless disabled via configuration
