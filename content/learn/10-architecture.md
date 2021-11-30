@@ -19,4 +19,6 @@ Important to note is that the steadybit platform never connects to the agent, *a
 The agents are self updating.
 By default the agent queries our repository every 6h for updates and will install the updates immediately.
 
+See also [this documentation](install-configure/30-install-agents) for more details about the communication paths.
+
 
