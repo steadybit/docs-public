@@ -41,7 +41,6 @@ sudo docker run \
   --pid=host \
   --ipc=host \
   --env="STEADYBIT_AGENT_KEY=<agent.key>" \
-  --env="STEADYBIT_AGENT_REGISTER_URL=<platform-url>" \
   docker.steadybit.io/steadybit/agent
 ```
 
@@ -71,3 +70,5 @@ sudo docker run \
   --env="STEADYBIT_AGENT_REGISTER_URL=<platform-url>" \
   docker.steadybit.io/steadybit/agent
 ```
+
+## Logging
