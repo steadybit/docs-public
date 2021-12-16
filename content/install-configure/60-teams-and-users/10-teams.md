@@ -16,12 +16,11 @@ The key cannot be changed after the creation.
 Each experiment belonging to this team, will be assigned an identifier with the team key as prefix.
 
 ## Permissions
-In the edit/create dialog you can give permissions to
+In the edit/create dialog admins can give permissions to
 - the attacks a team is allowed to execute and
 - which [areas](../50-set-up-areas) containing different targets the team is allowed to operate on.
 
 You can think of it as a maximum blast radius this team can attack.
-The permissions can be edited after creation by admins or team owners.
 
 If permissions for teams with existing experiments are removed, the blast radius of the experiments is not widened.
 If you add permissions to teams with existing experiments, the new permissions will be applied to the experiments.
