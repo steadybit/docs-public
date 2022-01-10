@@ -11,12 +11,12 @@ This is the place where __every__ target that steadybit has discovered will be i
 So, using Global for the start is fine (when trying out steadybit), but on the long run dangerous and you should create your own.
 
 ## Define your own Area
-To create or change an area go to `/settings/access control/areas` and choose to either add an area or edit an existing one.
+To create or change an area go to `/settings/areas` and choose to either add an area or edit an existing one.
 An area consists of a
 - **Name**: A meaningful name helps to find the area afterwards (e.g. "Onlineshop DEV" or "Contract Management PROD").
 - **Included Targets**: The targets belonging to an area are specified by using our [discovery data](../learn/30-discovery). This is the upper limit of targets that can be attacked when running an experiment in a certain area.
 - **Team**: For using that area to run an experiment you need to assign the team to it.
-  This can be done from Area-perspective (`/settings/access control/areas` ) as well as from Team-perspective (`/settings/access control/teams`).
+  This can be done from Area-perspective (`/settings/areas` ) as well as from Team-perspective (`/settings/teams`).
   It limits access to the users of a team to certain areas (so systems and environments).
 
 Areas can be defined using two different modes
