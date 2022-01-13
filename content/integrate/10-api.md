@@ -31,7 +31,7 @@ curl \
 name: "Experiment API Test"
 type: "infrastructure"
 team: "TEST"
-environments:
+environment:
   - "Global"
 attack:
   type: "host-cpu-attack"
