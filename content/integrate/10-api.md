@@ -5,6 +5,7 @@ title: "API"
 The steadybit Web API allows interfacing with the platform to create, start, stop experiments, etc.
 
 ### Tokens
+
 In order to use the API you need to create an API access token via the user interface.
 API access tokens are managed by the admin and team owners and is bound to a single team.
 
@@ -30,7 +31,7 @@ curl \
 name: "Experiment API Test"
 type: "infrastructure"
 team: "TEST"
-areas:
+environments:
   - "Global"
 attack:
   type: "host-cpu-attack"
@@ -46,11 +47,13 @@ attack:
 ```
 
 The `Location` header of the response indicates the url of the newly created experiment:
+
 ```
 location: https://platform.steadybit.io/api/experiments/TEST-1
 ```
 
 You can then run the experiment:
+
 ```bash
 curl \
   -i \
