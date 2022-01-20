@@ -6,7 +6,7 @@ No one knows your system better than you, so it is obvious that you should be th
 
 It's up to you whether you use environments to separate parts of your system from each other (like "bounded contexts" in domain driven design), to separate your environments (like development, QA and Production) or simply both.
 
-## Default Environment: Global
+## Default Area: Global
 
 Per default, your system contains one environment called `Global`.
 This is the place where **every** target that steadybit has discovered will be in.
@@ -42,7 +42,7 @@ After that you can add Kubernetes namespaces and deployments to your environment
 Don't forget to finally assign the environment to a team and give it a meaningful name.
 That's it, you are ready to use that environment in an experiment!
 
-### Advanced Environments
+### Advanced Environment
 
 An advanced environment is needed in case
 

@@ -12,7 +12,7 @@ In general, you have three possibilities to get started:
 
 - **Wizard (guided creation)**: to create your first experiment in a simple and lightweight way
 - **Blank**: in case you exactly know what to design and just need to get it done
-- **Templates**: benefit from existing recipes and only aply them to your environment
+- **Templates**: benefit from existing recipes and only apply them to your setup
 
 Before going into each approach, let's cover the basic elements of an experiment.
 
