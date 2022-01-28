@@ -1,13 +1,14 @@
 ---
 title: "Install On-Prem Platform"
 ---
+
 This guide helps you with the initial installation and deployment of our steadybit platform On-Premise.
-It is explicitly of use for environments where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself.
+It is explicitly of use for spaces where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself.
 After completing this getting started, continue by [setting up steadybit](10-set-up-platform-agents)
 
->If you are interested in using our SaaS platform, [let us know](https://www.steadybit.com/request-demo) and continue directly with the getting started of how to [set up the platform](10-set-up-platform-agents).
+> If you are interested in using our SaaS platform, [let us know](https://www.steadybit.com/request-demo) and continue directly with the getting started of how to [set up the platform](10-set-up-platform-agents).
 
-Installing and deploying the steadybit platform in your environment is simple:
+Installing and deploying the steadybit platform on your servers is simple:
 
 - [Step 0 - Check Prerequisites](#step-0---check-prerequisites)
 - [Step 1 - Get your key](#step-1---get-your-keys)
@@ -16,6 +17,7 @@ Installing and deploying the steadybit platform in your environment is simple:
 If you need help, please [reach out to us](https://www.steadybit.com/contact).
 
 ## Step 0 - Check Prerequisites
+
 You should have already received an invitation mail for the [steadybit platform](https://platform.steadybit.io/) where you can login with your e-mail address and a temporary password.
 This temporary password needs to be changed immediately at first login.
 After that, you see the following page which we need later on.
@@ -24,13 +26,13 @@ After that, you see the following page which we need later on.
 
 Before continuing, make sure that access to the following URLs via HTTPS (443) is possible from your location of installation:
 
-* https://docker.steadybit.io and https://index.docker.io (Docker Image)
-* https://artifacts.steadybit.io (Agent Bundles)
-* https://get.steadybit.io (Setup Scripts)
-* https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
-
+- https://docker.steadybit.io and https://index.docker.io (Docker Image)
+- https://artifacts.steadybit.io (Agent Bundles)
+- https://get.steadybit.io (Setup Scripts)
+- https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
 
 ## Step 1 - Get your keys
+
 After logging in into the [steadybit platform](https://platform.steadybit.io/) you get access to the **Agent Key**.
 The Agent Key is needed to install the platform and connect the steadybit agents against it.
 
@@ -39,9 +41,11 @@ The Agent Key is needed to install the platform and connect the steadybit agents
 So, simply copy the agent key from here and use it in the next step to deploy the platform.
 
 ## Step 2 - Deploy Platform
+
 Our platform is installed as Docker container. The platform container image is available in the steadybit Docker Registry.
 
 Please choose one of the following deployment options:
+
 - [Step 2.1 - Kubernetes](#step2.1-kubernetes)
 - [Step 2.2 - Docker](#step2.1-docker)
 
@@ -61,6 +65,7 @@ helm install steadybit-platform \
   --set agent.key=<replace-with-agent-key> \
   steadybit/steadybit-platform
 ```
+
 To make it convenient for you, we have a default for everything.
 That's also why we include the necessary Postgres database and set up everything for you automatically.
 Nevertheless, feel free to adjust parameters after having a look on the helm chart in our public [GitHub repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-platform).
@@ -82,6 +87,7 @@ curl -sfL https://get.steadybit.io/platform.sh | sh -s -- -a <agent-key> -d <jdb
 ```
 
 ## What's next?
+
 Done, the platform is running.
 The default login for the on-prem platform is
 
@@ -93,8 +99,10 @@ Now you can set it up by connecting the first agents to it.
 We'll show you how to do that in our getting started [Set up Platform & Agents](10-set-up-platform-agents#step-1---install-agents), at step 1.
 
 ### Productive Usage
+
 As mentioned above, this getting started helped to set up quickly a steadybit platform.
 
 Before using steadybit
+
 - configure your own Postgres database as [described here](../install-configure/40-install-platform/30-advanced-configuration).
 - we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](../install-configure/40-install-platform/10-docker#externalldap).

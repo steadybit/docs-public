@@ -1,6 +1,7 @@
 ---
 title: "Run experiments in AWS EKS"
 ---
+
 This getting started will show you how to install and use steadybit with Kubernetes managed by AWS Elastic Kubernetes Service (AWS EKS).
 We will run an ecommerce application in Kubernetes and find out how it handles network latency.
 By using steadybit, we will slow down individual Kubernetes pods at the network level.
@@ -84,7 +85,7 @@ Add the repo for the steadybit Helm chart:
 ```bash
 helm repo add steadybit https://steadybit.github.io/helm-charts
 helm repo update
-````
+```
 
 In our steadybit platform you will find under section `.../settings/agents/setup` your agent key.
 
@@ -235,8 +236,9 @@ To do that, we start by creating a new experiment via our Wizard, which guides u
 ![Create experiment step 1](img-run/experiment-step1.png)
 
 ### Step 4.1 Define Experiment
+
 First step is to give our experiment a meaningful name and define the environment where to be executed.
-To keep things simple, we choose the Global area to get access to everything steadybit has discovered and not being limited in scope/permissions yet.
+To keep things simple, we choose the Global environment to get access to everything steadybit has discovered and not being limited in scope/permissions yet.
 
 ![Create experiment step 2](img-run/experiment-step2.png)
 
@@ -274,6 +276,7 @@ Of course, we choose the fun part and run it immediately!
 ![Create experiment step 6](img-run/experiment-step6.png)
 
 ### Step 4.4 Run Experiment
+
 Before running the experiment make sure to have the `/products`-endpoint open in your browser.
 While running the experiment simply refresh it multiple times to check for effects.
 
