@@ -3,7 +3,7 @@ title: "Design an Experiment"
 navTitle: "Design"
 ---
 To get you started with an experiment you first need to design it.
-That means, defining e.g. where to execute it (area, targets) and what should be done (attack, actions, checks).
+That means, defining e.g. where to execute it (environment, targets) and what should be done (attack, actions, checks).
 
 In general, you have three possibilities to get started:
 
@@ -33,9 +33,10 @@ An experiment generally consists of the following elements:
   See this example of a hypothesis:
 _"When requests for the recommendation service exceeds 1000ms the catalog responds within 1000ms using an empty recommendation list."_
 
-- **Area**: An experiment is always executed in one specific area of your system landscape.
-  This area spans a set of targets belonging to a subsystem (like "bounded contexts" in domain driven design) as well as a specific environment (e.g. Development or Production).
-  How the [areas are configured and assigned to your team](../../install-configure/50-set-up-areas) is up to your admin.
+- **Environment**: An experiment is always executed in one specific environment of your system landscape.
+  This environment spans a set of targets which you want to address in an experiment.
+  For instance a set of containers and JVM applications of a Development environment.
+  How the [environments are configured and assigned to your team](../../install-configure/50-set-up-environments) is up to your admin.
 
 ### Design Experiment via Wizard
 
@@ -43,7 +44,7 @@ The wizard guides you step by step through the creation of the experiment.
 It consists of the following four steps:
 
   1. **Define Experiment**
-  First things first: Define the basic elements of the experiments like name, hypothesis and area (see above).
+  First things first: Define the basic elements of the experiments like name, hypothesis and environment (see above).
 
 ![Create Experiment - Step 1: Define](create-experiment-step1.png)
 
@@ -84,7 +85,7 @@ After saving the experiment you are ready to [run it directly](/use/10-experimen
 ### Design Blank Experiment
 
 When choosing to start by a blank experiment, you land directly into our experiment editor.
-In case your team has only access to one area, it is automatically chosen. Otherwise you have to define in which area you want to experiment.
+In case your team has only access to one environment, it is automatically chosen. Otherwise you have to define in which environment you want to experiment.
 In addition, you can define the remaining basic elements (name and hypothesis) at any point you like.
 
 After that, you can add attacks, actions, checks and load tests to your experiment by using drag'n drop.
