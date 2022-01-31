@@ -25,7 +25,7 @@ Once New Relic has been configured in the platform's settings, you can use the `
 
 ## steadybit to New Relic
 
-By connecting steadybit to New Relic Insights you are able to investigate the effect of an attack within your familiar monitoring environment (e.g. New Relic
+By connecting steadybit to New Relic Insights you are able to investigate the effect of an attack within your familiar monitoring setup (e.g. New Relic
 dashboards). Thus you can see the direct effect of an attack to certain metrics like erroneous calls, CPU usage or whatever metric is important to you.
 
 ### Configuration

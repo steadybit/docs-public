@@ -7,6 +7,7 @@ Before starting to use steadybit you need to install and configure some parts of
 To do that we provide you simple [Getting Started Guides](getting-started) as well as detailed information in here.
 
 ### Install steadybit
+
 - Learn how to [install the Agents](install-configure/30-install-agents) depending on your deployment options
 - Read how to [install the Platform On Prem](install-configure/40-install-platform) in your environment
 
