@@ -12,7 +12,6 @@ To do that we provide you simple [Getting Started Guides](getting-started) as we
 - Read how to [install the Platform On Prem](install-configure/40-install-platform) in your environment
 
 ### Configure steadybit
-
-- [Configure Environments](install-configure/50-set-up-areas) to divide your system
+- [Configure Environments](install-configure/50-set-up-environments) to divide your system
 - Learn how to manage your organisation using [Teams and Users](install-configure/60-teams-and-users)
 - Get useful insights by [configuring your Monitoring](install-configure/70-configure-monitoring) and using it while performing experiments

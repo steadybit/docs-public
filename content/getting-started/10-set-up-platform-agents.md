@@ -75,4 +75,4 @@ Looking for more advanced steps?
 - [How to install more agents](../install-configure/30-install-agents)
 - [Learn how to configure your monitoring](../install-configure/70-configure-monitoring).
 - [Invite more users and group them to teams](../install-configure/60-teams-and-users)
-- [Structure your system by setting up Environments](../install-configure/50-set-up-areas)
+- [Structure your system by setting up Environments](../install-configure/50-set-up-environments)

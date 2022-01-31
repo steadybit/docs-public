@@ -1,13 +1,11 @@
 ---
 title: "Teams"
 ---
-
 Teams are the grouping element for multiple users. Each team consists of multiple users and owns separate permissions for environments and attacks, allowing fine grained access control for your experiments.
 Creating teams is possible only with the `admin` permission. Within teams there can be owners who manage the team and its members.
 
 ## Default Team: Admin
-
-Per default one team is created called Admin (key: ADM). It contains only the first user of steadybit and has access to the [Global-environment](../50-set-up-areas).
+Per default one team is created called Admin (key: ADM). It contains only the first user of steadybit and has access to the [Global-environment](../50-set-up-environments).
 
 ## Creating Teams
 
@@ -23,7 +21,7 @@ Each experiment belonging to this team, will be assigned an identifier with the 
 In the edit/create dialog admins can give permissions to
 
 - the attacks a team is allowed to execute and
-- which [environments](../50-set-up-areas) containing different targets the team is allowed to operate on.
+- which [environments](../50-set-up-environments) containing different targets the team is allowed to operate on.
 
 You can think of it as a maximum blast radius this team can attack.
 

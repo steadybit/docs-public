@@ -37,16 +37,17 @@ An experiment generally consists of the following elements:
   _"When requests for the recommendation service exceeds 1000ms the catalog responds within 1000ms using an empty recommendation list."_
 
 - **Environment**: An experiment is always executed in one specific environment of your system landscape.
-  This environment spans a set of targets belonging to a subsystem (like "bounded contexts" in domain driven design) as well as a specific environment (e.g. Development or Production).
-  How the [environments are configured and assigned to your team](../../install-configure/50-set-up-areas) is up to your admin.
+  This environment spans a set of targets which you want to address in an experiment.
+  For instance a set of containers and JVM applications of a Development environment.
+  How the [environments are configured and assigned to your team](../../install-configure/50-set-up-environments) is up to your admin.
 
 ### Design Experiment via Wizard
 
 The wizard guides you step by step through the creation of the experiment.
 It consists of the following four steps:
 
-1. **Define Experiment**
-   First things first: Define the basic elements of the experiments like name, hypothesis and environment (see above).
+  1. **Define Experiment**
+  First things first: Define the basic elements of the experiments like name, hypothesis and environment (see above).
 
 ![Create Experiment - Step 1: Define](create-experiment-step1.png)
 

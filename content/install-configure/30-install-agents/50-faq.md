@@ -14,12 +14,14 @@ java -Dsteadybit.agent.disable-javattachment -jar spring-boot-sample.jar --serve
 
 ### How much system resources (CPU/Memory) does the agent consume?
 
-The resource consumption of the agent depends significantly on the following influencing factors and can therefore not be named exactly:
+The resource consumption of the agent depends significantly on the following influencing factors:
 
 * Discovered targets
 * Configured discovery interval (default ist 5000ms)
 * Active experiments
 * Active actions
+
+You can expect an average overhead of 250m CPU and  512-768MB of memory.
 
 There is also a hibernation feature, which disables all attacks, the discovery mechanism and minimizes communication to the platform.
 However, it can generally be said that the resource consumption is very low and basically not noticeable in normal operation.

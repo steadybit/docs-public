@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 steadybit GmbH. All rights reserved.
+ * Copyright 2022 steadybit GmbH. All rights reserved.
  */
 
 const config = {
@@ -21,6 +21,7 @@ const config = {
     ignorePath: [
       "/getting-started/10-set-up-saas",
       "/getting-started/20-set-up-onprem",
+      "/install-configure/50-set-up-areas",
     ],
   },
   siteMetadata: {

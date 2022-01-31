@@ -238,7 +238,7 @@ To do that, we start by creating a new experiment via our Wizard, which guides u
 ### Step 4.1 Define Experiment
 
 First step is to give our experiment a meaningful name and define the environment where to be executed.
-To keep things simple, we choose the Global environment to get access to everything steadybit has discovered and not being limited in scope/permissions yet.
+To keep things simple, we choose the `Global` environment to get access to everything steadybit has discovered and not being limited in scope/permissions yet.
 
 ![Create experiment step 2](img-run/experiment-step2.png)
 
