@@ -23,7 +23,7 @@ To configure the installation, specify the values on the command line using the 
 
 > By default, the agent assumes that your cluster uses the Docker container runtime. If this is not the case, you need to set `agent.containerRuntime` to either `containerd` or `crio`.
 
-For a detailed list of all the configuration parameters, please see our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-agent).
+For a detailed list of all the configuration parameters, please see our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-agent).
 
 #### Installation using Terraform
 
@@ -77,10 +77,10 @@ It allows you to tag and isolate the agents or even stop all of them at once by 
 Please replace the string `replace-with-agent-key` with your specific Agent-Key and run the shown commands to encode the key correctly.
 
 This needs to be done in three steps:
+
 1. Run `echo -n _:<replace-with-agent-key> | base64` and fill in the result into the value for the `auth` key
 2. Run `echo -n '{"auths":{"docker.steadybit.io":{"auths":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
 3. Fill in the result from Step 2 into the value for the `.dockerconfigjson` key
-
 
 Example:
 
@@ -317,4 +317,3 @@ With the access to the K8s API, the agent can provide further information to the
 More information about [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) or [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is available in the Kubernetes docs.
 
 You can learn more about our discovery of containers in the section [Learn / Discovery / Container](../../learn/30-discovery/20-container).
-

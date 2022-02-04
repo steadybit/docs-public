@@ -68,7 +68,7 @@ helm install steadybit-platform \
 
 To make it convenient for you, we have a default for everything.
 That's also why we include the necessary Postgres database and set up everything for you automatically.
-Nevertheless, feel free to adjust parameters after having a look on the helm chart in our public [GitHub repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-platform).
+Nevertheless, feel free to adjust parameters after having a look on the helm chart in our public [GitHub repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-platform).
 
 > **BE AWARE:** The database is not backed up and if the pod is deleted the data is lost!
 >
