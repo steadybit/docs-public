@@ -1,13 +1,12 @@
 ---
-title: "Install Cloud Agent on AWS"
-navTitle: "Cloud Agent (AWS)"
+title: "Install Cloud Service Agent on AWS"
+navTitle: "AWS Cloud Service Agent"
 ---
 
-This page describes how to install the cloud agent on AWS. This setup is not intented to run infrastructure based attacks, because it is using the
-API af the Cloud Provider to execute attacks on this level. For attacking the host and software running on Virtual Machines running on AWS EC2,
-refer to the [Install on Linux Hosts](30-install-agents/30-host) documentation.
+> Continue, if you want to install the cloud service agent to attack AWS cloud resources.
+> In case you are interested in host based attacks, attacking e.g. the host and software running on it,  refer to [Docker](30-install-agents/10-docker), [Kubernetes](30-install-agents/20-kubernetes) or [Linux Hosts](30-install-agents/30-host) installation documentation.
 
-We recommend to run the Cloud Agent in a separate subnet to be sure that the agent is still working properly,
+We recommend running the Cloud Agent in a separate subnet to be sure that the agent is still working properly,
 when you are attacking the cloud resources (e.g. shutting down an EC2 instance or attacking networks).
 The subnet of the agent will always be excluded from network based attacks.
 
