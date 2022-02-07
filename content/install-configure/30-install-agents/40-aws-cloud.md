@@ -10,7 +10,7 @@ We recommend running the Cloud Agent in a separate subnet to be sure that the ag
 when you are attacking the cloud resources (e.g. shutting down an EC2 instance or attacking networks).
 The subnet of the agent will always be excluded from network based attacks.
 
-# AWS API Access
+## AWS API Access
 
 For querying metadata and using the AWS API executing the attacks a suitable IAM policy needs to be created.
 See this example IAM policy which enables the agent to discover and attack your AWS (EC2) resources.
@@ -86,7 +86,7 @@ so make sure to edit the "Trust Relationship" with something like the following:
   }
 ```
 
-# EC2
+## EC2
 
 The following command will download and run the latest steadybit agent package on your EC2 instance:
 
@@ -100,9 +100,9 @@ See also the [Amazon ECS Container Instance documentation](https://docs.aws.amaz
 for using User Data mechanism on new EC2 instances to automate the agent installation.
 
 
-# ECS Task
+## ECS Task
 
-## Secret for accessing the agent image
+### Secret for accessing the agent image
 
 First you need to [create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html)
 for accessing our private Docker Registry (docker.steadybit.io) to download the agent image.
@@ -114,7 +114,7 @@ for accessing our private Docker Registry (docker.steadybit.io) to download the 
 }
 ```
 
-## Example
+### Example
 
 For your convenience we have prepared an example task definition to use for ECS in EC2 (or FARGATE). Please fill in the missing "replace-with" prefixed fields:
 
@@ -152,7 +152,7 @@ For your convenience we have prepared an example task definition to use for ECS 
 }
 ```
 
-# Running outside of AWS
+## Running outside of AWS
 
 You can also dedicate any agent running outside of your AWS infrastructure to communicate with the AWS API.
 In this case you need to setup an IAM with API credentials which is allowed to access the resources already described in the section above.
