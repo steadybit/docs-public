@@ -13,12 +13,20 @@ To install the agent, access to the following URLs via HTTPS (443) is required:
 * https://get.steadybit.io (Setup Scripts)
 * https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
 
-## Setup
+## Setup of Host Agents
 
-Please choose one of the following deployment options:
+One option of agents to be installed is a host agent that runs on a physical host and discovers all targets running on that host.
+Therefore, we offer the following deployment options:
 
 * [Docker](30-install-agents/10-docker)
-* [Kubernetes DaemonSet](30-install-agents/20-kubernetes)
+* [Kubernetes](30-install-agents/20-kubernetes)
 * [Host](30-install-agents/30-host)
 
 More configuration options can be found in [Advanced Configuration](30-install-agents/50-advanced-configuration)
+
+## Setup of Cloud Service Agents
+
+An alternative of the host agents are cloud service agents which discover cloud services based on API discovery.
+We currently support only AWS and will extend it soon.
+
+* [AWS Cloud Agent](30-install-agents/40-aws-cloud)

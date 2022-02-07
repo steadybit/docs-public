@@ -1,5 +1,5 @@
 ---
-title: "Install Agent as Docker Container"
+title: "Install as Docker Container"
 navTitle: "Docker Container"
 ---
 

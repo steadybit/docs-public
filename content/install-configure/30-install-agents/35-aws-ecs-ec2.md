@@ -1,9 +1,9 @@
 ---
-title: "Install Agent on Amazon Elastic Container Service (ECS) running on EC2"
+title: "Install on Amazon Elastic Container Service (ECS) running on EC2"
 navTitle: "AWS ECS (EC2)"
 ---
 
-This page describes how to install the agent into an Elastic Container Service (ECS) cluster running on EC2 using [ECS Daemon Scheduling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html#service_scheduler).
+This page describes how to install the host-based agent into an Elastic Container Service (ECS) cluster running on EC2 using [ECS Daemon Scheduling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html#service_scheduler).
 
 There are two ways to setup the agent:
 
