@@ -13,7 +13,7 @@ Steadybit uses an agent-based approach consisting of a central platform - being 
 
 ### You want to set up steadybit?
 
-- See how to get started [setting up the platform](getting-started/10-set-up-platform-agents) or - in case you can't use the SaaS - [how to host the on prem platform on your servers](getting-started/20-install-onprem)
+- See how to get started [setting up the platform](getting-started/10-set-up-platform-agents)
 - Learn about different ways to [install the Agents](install-configure/30-install-agents) depending on your system's needs
 - Read more about our [agent-based architecture](learn/10-architecture)
 

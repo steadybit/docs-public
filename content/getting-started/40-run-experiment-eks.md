@@ -24,7 +24,7 @@ If you have already done the first steps, get in directly via the short link.
 - [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 - [AWS eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)
 - [Kuberentes kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-- a running [steadybit](https://www.steadybit.com/try-for-free) platform (Saas or on-prem)
+- a running [steadybit](https://www.steadybit.com/try-for-free) platform
 
 ## Step 1 - Create your AWS Elastic Kubernetes Service (AWS EKS) cluster and nodes
 

@@ -3,6 +3,10 @@ title: "Advanced Platform Configuration"
 navTitle: "Advanced Configuration"
 ---
 
+## Machine Requirements (minimum)
+
+The machine you are installing steadybit onto, must have 4 CPUs and 8 GB available memory.
+
 ## Debug Docker Images
 
 The platform docker image doesn't contain any shell by default.

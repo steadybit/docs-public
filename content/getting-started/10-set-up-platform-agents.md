@@ -5,8 +5,6 @@ navTitle: "Set up Platform & Agents"
 
 This guide helps you with the initial setup of our steadybit platform and leads you step by step through the first setup.
 
-> If you are not using our SaaS and would like to know how to deploy our platform on your servers, please read first [install On-Prem (self-hosted)](20-install-onprem).
-
 Setting up steadybit is simple, just follow these steps:
 
 - [Step 0 - Check Prerequisites](#step-0---check-prerequisites)

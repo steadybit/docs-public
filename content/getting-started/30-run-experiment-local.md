@@ -20,7 +20,7 @@ If you have already done the first steps, get in directly via the short link.
 ## Prerequisites
 
 - a running [minikube](https://minikube.sigs.k8s.io/docs/start/) installation
-- a running [steadybit](https://www.steadybit.com/try-for-free) platform (Saas or on-prem)
+- a running [steadybit](https://www.steadybit.com/try-for-free) platform
 
 ## Step 1 - Start your minikube cluster
 

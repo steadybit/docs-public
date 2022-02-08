@@ -8,6 +8,13 @@ steadybit is currently always installed as docker container. The platform contai
 
 At least a Docker installation and a PostgresSQL database is required to run the platform. The corresponding connection parameters for the database are passed to the installation script.
 
+As the platform will be delivered as a Docker image. Currently the following Docker versions are supported:
+
+* 20.10+
+* 19.03+
+* 18.03+
+* 1.13
+
 ## Oneliner
 
 For a quick setup you can use this Oneliner:
