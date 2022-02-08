@@ -22,7 +22,7 @@ You should have already received an invitation mail for the [steadybit platform]
 This temporary password needs to be changed immediately at first login.
 After that, you see the following page which we need later on.
 
-![Get your keys](content/install-configure/img-install-platform/step0-onprem.png)
+![Get your keys](img-install-platform/step0-onprem.png)
 
 Before continuing, make sure that access to the following URLs via HTTPS (443) is possible from your location of installation:
 
@@ -41,7 +41,7 @@ The platform itself exposes the following ports:
 After logging in into the [steadybit platform](https://platform.steadybit.io/) you get access to the **Agent Key**.
 The Agent Key is needed to install the platform and connect the steadybit agents against it.
 
-![Get your keys](content/install-configure/img-install-platform/step1-get-your-keys.png)
+![Get your keys](img-install-platform/step1-get-your-keys.png)
 
 So, simply copy the agent key from here and use it in the next step to deploy the platform.
 
