@@ -81,9 +81,9 @@ For the docker agent you need to run the container with additional environment v
 You can set these by adding the following arguments to the `docker run` command:
 
 ```bash
-  --env="STEADYBIT_AGENT_PROXY_HOST=hostname or address of your proxy" \
-  --env="STEADYBIT_AGENT_PROXY_PORT=port of your proxy" \
-  --env="STEADYBIT_AGENT_PROXY_PROTOCOL=proxy protocol e.g. http" \
-  --env="STEADYBIT_AGENT_PROXY_USER=username of the proxy (if needed)" \
-  --env="STEADYBIT_AGENT_PROXY_PASSWORD=password of the proxy (if needed)" \
+  --env="STEADYBIT_AGENT_PROXY_HOST=<hostname or address of your proxy"> \
+  --env="STEADYBIT_AGENT_PROXY_PORT=<port of your proxy>" \
+  --env="STEADYBIT_AGENT_PROXY_PROTOCOL=<proxy protocol e.g. http>" \
+  --env="STEADYBIT_AGENT_PROXY_USER=<username of the proxy (if needed)>" \
+  --env="STEADYBIT_AGENT_PROXY_PASSWORD=<password of the proxy (if needed)>" \
 ```

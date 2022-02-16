@@ -28,20 +28,20 @@ For the configuring the proxy you need to edit two files after installation:
 
 **Either:** when using systemd edit `/opt/steadybit/agent/etc/systemd.env` and set the values for these variables:
 ```bash
-STEADYBIT_AGENT_PROXY_HOST=hostname or address of your proxy
-STEADYBIT_AGENT_PROXY_PORT=port of your proxy
-STEADYBIT_AGENT_PROXY_PROTOCOL=proxy protocol e.g. http
-STEADYBIT_AGENT_PROXY_USER=username of the proxy (if needed)
-STEADYBIT_AGENT_PROXY_PASSWORD=password of the proxy (if needed)
+STEADYBIT_AGENT_PROXY_HOST=<hostname or address of your proxy>
+STEADYBIT_AGENT_PROXY_PORT=<port of your proxy>
+STEADYBIT_AGENT_PROXY_PROTOCOL=<proxy protocol e.g. http>
+STEADYBIT_AGENT_PROXY_USER=<username of the proxy (if needed)>
+STEADYBIT_AGENT_PROXY_PASSWORD=<password of the proxy (if needed)>
 ```
 
 **Or:** when using Init V edit `/etc/default/steadybit-agent` and set the values for these variables:
 ```sh
-export STEADYBIT_AGENT_PROXY_HOST="hostname or address of your proxy"
-export STEADYBIT_AGENT_PROXY_PORT="port of your proxy"
-export STEADYBIT_AGENT_PROXY_PROTOCOL="proxy protocol e.g. http"
-export STEADYBIT_AGENT_PROXY_USER="username of the proxy (if needed)"
-export STEADYBIT_AGENT_PROXY_PASSWORD="password of the proxy (if needed)"
+export STEADYBIT_AGENT_PROXY_HOST="<hostname or address of your proxy>"
+export STEADYBIT_AGENT_PROXY_PORT="<port of your proxy>"
+export STEADYBIT_AGENT_PROXY_PROTOCOL="<proxy protocol e.g. http>"
+export STEADYBIT_AGENT_PROXY_USER="<username of the proxy (if needed)>"
+export STEADYBIT_AGENT_PROXY_PASSWORD="<password of the proxy (if needed)>"
 ```
 <br/>
 
@@ -53,14 +53,15 @@ Edit `/opt/steadybit/agent/etc/mvn-settings.xml` uncomment the `<proxies/>` sect
   <proxy>
     <id>agent-proxy</id>
     <active>true</active>
-    <host>hostname or address of your proxy</host>
-    <port>port of your proxy</port>
-    <protocol>proxy protocol e.g. http</protocol>
-    <username>username of the proxy (if needed)</username>
-    <password>password of the proxy (if needed)</password>
+    <host><!-- hostname or address of your proxy--></host>
+    <port><!-- port of your proxy --></port>
+    <protocol><!-- proxy protocol e.g. http --></protocol>
+    <username><!-- username of the proxy (if needed) --></username>
+    <password><!-- password of the proxy (if needed) --></password>
   </proxy>
 </proxies>
 ```
+<br/>
 
 #### 3) Restart Steadybit Agent service
 
