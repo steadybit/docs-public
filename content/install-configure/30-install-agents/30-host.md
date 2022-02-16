@@ -62,6 +62,11 @@ Edit `/opt/steadybit/agent/etc/mvn-settings.xml` uncomment the `<proxies/>` sect
 </proxies>
 ```
 
+#### 3) Restart Steadybit Agent service
+
+**Either:** when using systemd: `systemctl daemon-reload && systemctl restart steadybit`
+**Or:** when using Init V: `service steadybit-agent restart`
+
 ### Uninstall Agent From Linux Hosts
 The steadybit Agent is installed via the system-default package manager.
 So, depending on your Linux distribution you can uninstall the Agent by using one of the following commands.
