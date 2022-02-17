@@ -6,10 +6,10 @@ title: "FAQ"
 
 You can add the label `com.steadybit.agent/jvm-attach=false` to your container and the agent will not perform an attachment.
 
-If the application is not running as container, add the `steadybit.agent.disable-javattachment` flag to your JVM commandline like in this example:
+If the application is not running as container, add the `steadybit.agent.disable-jvm-attachment` flag to your JVM commandline like in this example:
 
 ```
-java -Dsteadybit.agent.disable-javattachment -jar spring-boot-sample.jar --server.port=0
+java -Dsteadybit.agent.disable-jvm-attachment -jar spring-boot-sample.jar --server.port=0
 ```
 
 ### How much system resources (CPU/Memory) does the agent consume?
