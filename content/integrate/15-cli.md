@@ -6,8 +6,7 @@ The [steadybit CLI](https://github.com/steadybit/cli) allows you to connect your
 
 ### Intention
 
-With the CLI you can connect your repositories to steadybit. So you are able to link your deployment with Steadybit via attributes in a yml file and define
-resilience requirements for it. These resilience requirements can then be validated with Steadybit.
+The Steadybit CLI enables you to define resilience expectations and resilience policies that your services need to comply with through configuration files that live next to your services' code. This allows you to implement gitops practices easily.
 
 ### Installation
 
