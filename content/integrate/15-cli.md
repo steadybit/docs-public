@@ -18,4 +18,4 @@ npm install -g steadybit
 
 ### Usage
 
-The CLI is mostly self explaining. For a detailed documentatio have a look at our public GitHub repository [steadybit CLI](https://github.com/steadybit/cli)
+The CLI is mostly self explaining. For a detailed documentation have a look at our public GitHub repository [steadybit CLI](https://github.com/steadybit/cli)
