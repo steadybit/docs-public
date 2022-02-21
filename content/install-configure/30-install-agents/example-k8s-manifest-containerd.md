@@ -1,8 +1,4 @@
 ```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: steadybit-agent
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -10,80 +6,46 @@ metadata:
   name: steadybit-agent
   namespace: steadybit-agent
 ---
-apiVersion: policy/v1beta1
-kind: PodSecurityPolicy
+apiVersion: v1
+kind: Secret
+metadata:
+  name: docker-steadybit-io
+  namespace: steadybit-agent
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: <echo -n '{"auths":{"docker.steadybit.io":{"auth":"<echo -n _:<replace-with-agent-key> | base64>"}}}' | base64>
+---
+apiVersion: v1
+kind: Secret
 metadata:
   name: steadybit-agent
-spec:
-  privileged: true
-  allowPrivilegeEscalation: true
-  allowedHostPaths:
-    - pathPrefix: "/var/run"
-    - pathPrefix: "/var/log"
-  volumes:
-    - configMap
-    - downwardAPI
-    - emptyDir
-    - persistentVolumeClaim
-    - secret
-    - projected
-    - hostPath
-  hostNetwork: true
-  hostPorts:
-    - min: 0
-      max: 65535
-  hostIPC: true
-  hostPID: true
-  runAsUser:
-    rule: "RunAsAny"
-  seLinux:
-    rule: "RunAsAny"
-  supplementalGroups:
-    rule: "RunAsAny"
-  fsGroup:
-    rule: "RunAsAny"
+  namespace: steadybit-agent
+type: Opaque
+data:
+  key: "<echo -n <replace-with-agent-key> | base64>+"
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: steadybit-agent-role
+  name: steadybit-agent
 rules:
-  - apiGroups: ["batch"]
+  - apiGroups: [ "batch" ]
     resources:
       - "jobs"
-    verbs: ["get", "list", "watch"]
-  - apiGroups: ["extensions"]
+    verbs: [ "get", "list", "watch" ]
+  - apiGroups: [ "extensions" ]
     resources:
       - "deployments"
       - "replicasets"
       - "ingresses"
-    verbs: ["get", "list", "watch"]
-  - apiGroups: ["apps"]
+    verbs: [ "get", "list", "watch" ]
+  - apiGroups: [ "apps" ]
     resources:
       - "deployments"
       - "replicasets"
       - "daemonsets"
       - "statefulsets"
-    verbs: ["get", "list", "watch"]
-  - apiGroups: [""]
-    resources:
-      - "events"
-      - "namespaces"
-      - "services"
-      - "endpoints"
-      - "nodes"
-      - "pods"
-      - "replicationcontrollers"
-    verbs: ["get", "list", "watch"]
-  - apiGroups: [ "" ]
-    resources:
-      - "pods"
-    verbs: [ "delete" ]
-  - apiGroups: [ "policy" ]
-    resources: [ "podsecuritypolicies" ]
-    verbs: [ "use" ]
-    resourceNames:
-      - steadybit-agent
+    verbs: [ "get", "list", "watch" ]
   - apiGroups: [ "autoscaling" ]
     resources:
       - "horizontalpodautoscalers"
@@ -92,19 +54,33 @@ rules:
     resources:
       - "ingresses"
     verbs: [ "get", "list", "watch" ]
+  - apiGroups: [ "" ]
+    resources:
+      - "events"
+      - "namespaces"
+      - "services"
+      - "endpoints"
+      - "nodes"
+      - "pods"
+      - "pods/log"
+      - "replicationcontrollers"
+    verbs: [ "get", "list", "watch" ]
+  - apiGroups: [ "" ]
+    resources:
+      - "pods"
+    verbs: [ "delete", "patch" ]
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: steadybit-agent-role-binding
-  namespace: steadybit-agent
+  name: steadybit-agent
 subjects:
   - kind: ServiceAccount
     name: steadybit-agent
     namespace: steadybit-agent
 roleRef:
   kind: ClusterRole
-  name: steadybit-agent-role
+  name: steadybit-agent
   apiGroup: rbac.authorization.k8s.io
 ---
 kind: Role
@@ -131,24 +107,6 @@ roleRef:
   name: steadybit-agent
   apiGroup: rbac.authorization.k8s.io
 ---
-apiVersion: v1
-kind: Secret
-metadata:
-  name: steadybit-agent-secret-agent-key
-  namespace: steadybit-agent
-type: Opaque
-data:
-  key: <echo -n <replace-with-agent-key> | base64>
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: regcredinternal
-  namespace: steadybit-agent
-data:
-  .dockerconfigjson: <echo -n '{"auths":{"docker.steadybit.io":{"auth":"<echo -n _:<replace-with-agent-key> | base64>"}}}' | base64>
-type: kubernetes.io/dockerconfigjson
----
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -157,11 +115,15 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: steadybit-agent
+      app.kubernetes.io/name: steadybit-agent
+      app.kubernetes.io/instance: steadybit-agent
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
   template:
     metadata:
       labels:
-        app: steadybit-agent
         com.steadybit.agent: "true"
     spec:
       serviceAccountName: steadybit-agent
@@ -170,50 +132,97 @@ spec:
       hostPID: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
-      - name: steadybit-agent
-        image: docker.steadybit.io/steadybit/agent
-        imagePullPolicy: Always
-        env:
-        - name: STEADYBIT_AGENT_REGISTER_URL
-          value: "https://platform.steadybit.io"
-        - name: STEADYBIT_AGENT_KEY
-          valueFrom:
-            secretKeyRef:
-              name: steadybit-agent-secret-agent-key
-              key: key
-        - name: STEADYBIT_KUBERNETES_CLUSTER_NAME
-          value: my-k8s-cluster
-        - name: POD_IP
-          valueFrom:
-            fieldRef:
-              fieldPath: status.podIP
-        - name: STEADYBIT_AGENT_POD_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
-        - name: STEADYBIT_AGENT_POD_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        securityContext:
-          privileged: true
-        volumeMounts:
-        - name: var-run
-          mountPath: /var/run
-        - name: log
-          mountPath: /var/log
-        - name: sys-kernel
-          mountPath: /sys/kernel
+        - name: steadybit-agent
+          image: "docker.steadybit.io/steadybit/agent:latest"
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: 512Mi
+              cpu: 250m
+            limits:
+              memory: 768Mi
+              cpu: 1500m
+
+          livenessProbe:
+            httpGet:
+              host: 127.0.0.1
+              port: 42899
+              path: /health
+            initialDelaySeconds: 300
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 5
+          env:
+            - name: STEADYBIT_AGENT_REGISTER_URL
+              value: "https://platform.steadybit.io"
+            - name: STEADYBIT_AGENT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: steadybit-agent
+                  key: key
+            - name: STEADYBIT_KUBERNETES_CLUSTER_NAME
+              value: "<replace-with-cluster-name>"
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: STEADYBIT_AGENT_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: STEADYBIT_AGENT_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: STEADYBIT_AGENT_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: STEADYBIT_HTTP_ENDPOINT_PORT
+              value: "42899"
+            - name: STEADYBIT_AGENT_MODE
+              value: "default"
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: steadybit-agent-state
+              mountPath: /var/lib/steadybit-agent
+            - name: container-sock
+              mountPath: /run/containerd/containerd.sock
+            - name: cgroup-root
+              mountPath: /sys/fs/cgroup
+            - name: sys
+              mountPath: /sys
+            - name: runc-root
+              mountPath: /run/containerd/runc/k8s.io
+            - name: container-run
+              mountPath: /run/containerd
+            - name: container-namespaces
+              mountPath: /var/run
+              mountPropagation: Bidirectional
       imagePullSecrets:
-      - name: regcredinternal
-      volumes
-      - name: var-run
-        hostPath:
-          path: /var/run
-      - name: log
-        hostPath:
-          path: /var/log
-      - name: sys-kernel
-        hostPath:
-          path: /sys/kernel
+        - name: docker-steadybit-io
+      volumes:
+        - name: steadybit-agent-state
+          hostPath:
+            path: /var/lib/steadybit-agent
+        - name: container-sock
+          hostPath:
+            path: /run/containerd/containerd.sock
+        - name: cgroup-root
+          hostPath:
+            path: /sys/fs/cgroup
+        - name: sys
+          hostPath:
+            path: /sys
+        - name: runc-root
+          hostPath:
+            path: /run/containerd/runc/k8s.io
+        - name: container-run
+          hostPath:
+            path: /run/containerd
+        - name: container-namespaces
+          hostPath:
+            path: /var/run
 ```
