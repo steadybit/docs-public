@@ -1,10 +1,11 @@
 /*
- * Copyright 2021 steadybit GmbH. All rights reserved.
+ * Copyright 2022 steadybit GmbH. All rights reserved.
  */
 
-import React from "react";
-import AnchorTag from "./anchor";
-import CodeBlock from "./codeBlock";
+import React from 'react';
+import AnchorTag from './anchor';
+import CodeBlock from './codeBlock';
+import Collapsible from './collapsible';
 
 export default {
   h1: (props) => (
@@ -63,4 +64,5 @@ export default {
   // TODO add `ul`
   // TODO add `li`
   // TODO add `table`
+  Collapsible,
 };
