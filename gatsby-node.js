@@ -1,15 +1,20 @@
-const componentWithMDXScope = require("gatsby-plugin-mdx/component-with-mdx-scope");
-const path = require("path");
-const startCase = require("lodash.startcase");
+/*
+ * Copyright 2022 steadybit GmbH. All rights reserved.
+ */
 
-exports.createPages = ({graphql, actions}) => {
-  const {createPage} = actions;
+const componentWithMDXScope = require('gatsby-plugin-mdx/component-with-mdx-scope');
+const path = require('path');
+const startCase = require('lodash.startcase');
+
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
+
   return new Promise((resolve, reject) => {
     resolve(
       graphql(
         `
           {
-            allMdx {
+            allMdx(filter: {fileAbsolutePath: {glob: "**/[^_]*.{md,mdx}"}}) {
               edges {
                 node {
                   fields {
@@ -31,44 +36,44 @@ exports.createPages = ({graphql, actions}) => {
         }
 
         // Create blog posts pages.
-        result.data.allMdx.edges.forEach(({node}) => {
-          createPage({
-            path: node.fields.slug ? node.fields.slug : "/",
-            component: path.resolve("./src/templates/docs.js"),
-            context: {
-              id: node.fields.id
-            }
+        result.data.allMdx.edges.forEach(({ node }) => {
+            createPage({
+              path: node.fields.slug ? node.fields.slug : '/',
+              component: path.resolve('./src/templates/docs.js'),
+              context: {
+                id: node.fields.id
+              }
+            });
           });
-        });
       })
     );
   });
 };
 
-exports.onCreateWebpackConfig = ({actions}) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
-      alias: {$components: path.resolve(__dirname, "src/components")}
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      alias: { $components: path.resolve(__dirname, 'src/components') }
     }
   });
 };
 
-exports.onCreateBabelConfig = ({actions}) => {
+exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
-    name: "@babel/plugin-proposal-export-default-from"
+    name: '@babel/plugin-proposal-export-default-from'
   });
 };
 
-exports.onCreateNode = ({node, getNode, actions}) => {
-  const {createNodeField} = actions;
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
     const parent = getNode(node.parent);
-    let value = parent.relativePath.replace(parent.ext, "");
+    let value = parent.relativePath.replace(parent.ext, '');
 
-    if (value === "index") {
-      value = "";
+    if (value === 'index') {
+      value = '';
     }
 
     createNodeField({
@@ -78,13 +83,13 @@ exports.onCreateNode = ({node, getNode, actions}) => {
     });
 
     createNodeField({
-      name: "id",
+      name: 'id',
       node,
       value: node.id
     });
 
     createNodeField({
-      name: "title",
+      name: 'title',
       node,
       value: node.frontmatter.title || startCase(parent.name)
     });
