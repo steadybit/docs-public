@@ -1,13 +1,13 @@
 /*
- * Copyright 2020 steadybit GmbH. All rights reserved.
+ * Copyright 2022 steadybit GmbH. All rights reserved.
  */
 
-import { graphql, StaticQuery } from "gatsby";
-import React from "react";
-import logoImg from "../../assets/images/brand.svg";
-import Link from "../link";
-import "./sidebar.css";
-import Tree from "./tree";
+import { graphql, StaticQuery } from 'gatsby';
+import React from 'react';
+import logoImg from '../../assets/images/brand.svg';
+import Link from '../link';
+import './sidebar.css';
+import Tree from './tree';
 
 const SidebarLayout = () => {
   const [showToc, setShowToc] = React.useState(false);
@@ -16,7 +16,7 @@ const SidebarLayout = () => {
     <StaticQuery
       query={graphql`
         query {
-          allMdx {
+          allMdx(filter: {fileAbsolutePath: {glob: "**/[^_]*.{md,mdx}"}}) {
             edges {
               node {
                 fields {

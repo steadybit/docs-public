@@ -36,6 +36,6 @@ In case you want to learn more about the suggested experiments, continue reading
 However, you can always create a [manual experiment by your own](/use/10-experiments) in case you exactly know what you want to check.
 
 > ## Call for Feedback
-> Landscape and Resilience Score are two relatively new features which we would like to get your opinion on.
+> Landscape and Resilience Score are two new features which we would like to get your opinion on.
 > Feel free to [reach out to us](https://www.steadybit.com/contact) and share your experience.
 

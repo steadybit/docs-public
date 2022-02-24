@@ -107,5 +107,5 @@ code `200 - OK`.
 ![Input Param](30-img-resilience-score/score-http-endpoint.png)
 
 > ## Call for Feedback
-> Landscape and Resilience Score are two relatively new features which we would like to get your opinion on.
+> Landscape and Resilience Score are two new features which we would like to get your opinion on.
 > Feel free to [reach out to us](https://www.steadybit.com/contact) and share your experience.

@@ -16,7 +16,7 @@ API token management can be found in Access Control → API Access Tokens.
 We provide a [OpenApi 3.0 Specification for the API](https://platform.steadybit.io/api/spec) as well as an [interactive documentation](https://platform.steadybit.io/api/swagger).
 In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
 
-### Example
+### Example: Create Experiment
 
 This is how you can create an experiment (json is supported as well):
 
@@ -51,6 +51,8 @@ The `Location` header of the response indicates the url of the newly created exp
 ```
 location: https://platform.steadybit.io/api/experiments/TEST-1
 ```
+
+### Example: Run Experiment
 
 You can then run the experiment:
 

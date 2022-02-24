@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 steadybit GmbH. All rights reserved.
+ * Copyright 2022 steadybit GmbH. All rights reserved.
  */
 import { graphql } from 'gatsby';
 import { Layout } from '$components';
@@ -130,7 +130,7 @@ export const pageQuery = graphql`
         metaDescription
       }
     }
-    allMdx {
+    allMdx(filter: {fileAbsolutePath: {glob: "**/[^_]*.{md,mdx}"}}) {
       edges {
         node {
           fields {

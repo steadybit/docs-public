@@ -2,6 +2,12 @@
  * Copyright 2020 steadybit GmbH. All rights reserved.
  */
 
-export mdxComponents from "./mdxComponents";
-export Layout from "./layout";
-export Link from "./link";
+import mdxComponents from './mdxComponents';
+import Layout from './layout';
+import Link from './link';
+
+export {
+  mdxComponents,
+  Link,
+  Layout
+};
