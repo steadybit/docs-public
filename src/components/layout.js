@@ -7,15 +7,19 @@ import React from "react";
 import mdxComponents from "./mdxComponents";
 import Sidebar from "./sidebar";
 import Footer from "./footer";
+import useHeap from '../utils/heap';
 
-const Layout = ({ children, location }) => (
-  <MDXProvider components={mdxComponents}>
-    <Sidebar location={location} />
-    <main className={"content-wrapper"}>
-      <article className={"content"}>{children}</article>
-      <Footer />
-    </main>
-  </MDXProvider>
-);
+const Layout = ({ children, location }) => {
+  useHeap();
+  return (
+    <MDXProvider components={mdxComponents}>
+      <Sidebar location={location} />
+      <main className={'content-wrapper'}>
+        <article className={'content'}>{children}</article>
+        <Footer />
+      </main>
+    </MDXProvider>
+  );
+};
 
 export default Layout;
