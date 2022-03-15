@@ -52,7 +52,7 @@ This should print a whole lot of information. Most relevant are the `Verify retu
 
 This happens for self-signed certificates. You can typically resolve these problems through the `STEADYBIT_AGENT_EXTRA_CERTS_PATH` environment variable. This environment variable should point to a directory containing your root certificates. The agent will load all certificates in this directory into the Java key store upon agent startup. This, in turn, makes the agent trust your custom certificates.
 
-You can also check environment variable' effect by adding the `-CAfile root-certificate.pem` command-line argument to the `openssl` command shown in the previous section.
+You can also check the environment variable's effect by adding the `-CAfile root-certificate.pem` command-line argument to the `openssl` command shown in the previous section.
 
 #### Verify return code: 21 (unable to verify the first certificate)
 
