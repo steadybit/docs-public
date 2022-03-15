@@ -43,7 +43,7 @@ At runtime, this will typically manifest in the agent through log entries like t
 To analyze the situation from your end, we recommend starting by ensuring that TLS is correctly configured. You can do so via the `openssl` command-line tool.
 
 ```
-openssl s_client -showcerts -connect {{YOUR DOMAIN HERE}}:443
+openssl s_client -showcerts -connect {{YOUR DOMAIN HERE}}:443 -servername {{YOUR DOMAIN HERE}}
 ```
 
 This should print a whole lot of information. Most relevant are the `Verify return code:` sections. These sections should always report `Verify return code: 0 (ok)`. For other return codes, please check out the following sub-sections:
