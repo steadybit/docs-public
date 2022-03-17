@@ -34,6 +34,10 @@ Perform a host reboot or shutdown.
 |----------|-------------|-------------|
 | Reboot | Should the host reboot after shutting down? | true |
 
+> **Reboot with Kubernetes**
+> If you're using the reboot option on Kubernetes nodes, it might be the case that the host finished rebooting and restarting the containers before the control plane takes notice.
+> You can verify the behaviour of this attack for example by using the `uptime` command on the hosts.
+
 ## Stop Processes
 Stops targeted processes on the host in the given time period. Useful for simulating unexpected process failures.
 
