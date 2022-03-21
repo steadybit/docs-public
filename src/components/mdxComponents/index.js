@@ -6,6 +6,7 @@ import React from 'react';
 import AnchorTag from './anchor';
 import CodeBlock from './codeBlock';
 import Collapsible from './collapsible';
+import Terminal from './Terminal';
 
 export default {
   h1: (props) => (
@@ -65,4 +66,5 @@ export default {
   // TODO add `li`
   // TODO add `table`
   Collapsible,
+  Terminal
 };

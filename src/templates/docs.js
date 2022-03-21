@@ -1,6 +1,9 @@
 /*
  * Copyright 2022 steadybit GmbH. All rights reserved.
  */
+
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import { graphql } from 'gatsby';
 import { Layout } from '$components';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
@@ -71,6 +74,7 @@ export default class MDXRuntimeTest extends Component {
         <div className={"mainWrapper"}>
           {mdx ? <MDXRenderer>{mdx.body}</MDXRenderer> : null}
         </div>
+        <ToastContainer hideProgressBar theme="dark" />
       </Layout>
     );
   }

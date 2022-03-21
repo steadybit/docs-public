@@ -1,0 +1,32 @@
+.terminal {
+  position: relative;
+  padding: 16px 32px;
+  text-indent: 8px;
+  background: var(--neutral100);
+  border: 1px solid var(--neutral200);
+  text-align: left;
+  overflow: auto;
+  font-family: monospace;
+  border-radius: 2px;
+}
+
+.terminal::before {
+  position: absolute;
+  content: "$";
+  left: 16px;
+  color: var(--neutral600);
+}
+
+.terminal-copy {
+  position: absolute;
+  top: 19px;
+  right: 16px;
+  color: var(--neutral600);
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.terminal-copy:hover {
+  color: var(--neutral800);
+}
