@@ -30,24 +30,33 @@ const TreeNode = ({ className = "", url, title, items }) => {
     location &&
     (getPathname(location) === url ||
       location.pathname === config.gatsby.pathPrefix + url);
-  const [isHiddenForced, setForceHidden] = React.useState(false);
-  const isVisible = isLocationActiveCanonical(location, url) && !isHiddenForced;
+  const [isVisibleForced, setVisibleForced] = React.useState(false);
+  const isVisible = isLocationActiveCanonical(location, url) || isVisibleForced;
   const calculatedClassName = `${className} item${active ? " active" : ""}`;
   return (
     <li className={calculatedClassName}>
       {title ? (
-        <Link
-          to={url}
-          onClick={() => setForceHidden(active && !isHiddenForced)}
-        >
-          {title}
+        <div className="sidebar-title">
+          <Link to={url}>
+            {title}
+          </Link>
+
           {hasChildren ? (
-            <img
-              src={isVisible ? iconChevronDown : iconChevronRight}
-              alt={isVisible ? "chevron down" : "chevron right"}
-            />
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setVisibleForced(!isVisibleForced);
+              }}
+            >
+              <img
+                src={isVisible ? iconChevronDown : iconChevronRight}
+                alt={isVisible ? "chevron down" : "chevron right"}
+              />
+            </a>
           ) : null}
-        </Link>
+        </div>
       ) : null}
       {hasChildren ? (
         <AnimatePresence initial={false}>

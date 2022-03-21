@@ -35,7 +35,7 @@ const SidebarLayout = () => {
         return (
           <aside className={"sidebar"}>
             <div className={"sidebar__brand"}>
-              <Link to={"https://docs.steadybit.io"}>
+              <Link to={"/"}>
                 <img src={logoImg} alt={"logo"} />
                 <div>Docs</div>
               </Link>
