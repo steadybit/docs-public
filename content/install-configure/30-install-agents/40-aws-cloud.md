@@ -44,31 +44,23 @@ See this example IAM policy which enables the agent to discover and attack your 
 }
 ```
 
-This role needs to be attached to the IAM role of the AWS resource, which is running the agent (see below).
-The IAM role containing the permissions from above needs to be able to perform the "AssumeRole" action,
-so make sure to edit the "Trust Relationship" with something like the following:
+This policy needs to be attached to the IAM role of the AWS resource, which is running the agent. The IAM role needs to be able to perform the "AssumeRole" action, so make sure to add a Trust Relationship. (see examples below)
 
-### ECS
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        Effect: "Allow",
-        Principal: {
-          "Service": [
-            "ecs-tasks.amazonaws.com"
-          ]
-        },
-        Action: "sts:AssumeRole"
-      }
-    ]
-  }
+## Installation on EC2 Instance
+
+The following command will download and run the latest steadybit agent package on your EC2 instance:
+
+```shell
+curl -sfL https://get.steadybit.io/agent-linux.sh | sh -s -- -a <agent-key> -e <platform-url> -o aws
 ```
 
-### EC2
+For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command.
 
+See also the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
+for using User Data mechanism on new EC2 instances to automate the agent installation.
+
+### Trust Relationship for EC2
 ```
 {
     "Version": "2012-10-17",
@@ -86,21 +78,8 @@ so make sure to edit the "Trust Relationship" with something like the following:
   }
 ```
 
-## EC2
 
-The following command will download and run the latest steadybit agent package on your EC2 instance:
-
-```shell
-curl -sfL https://get.steadybit.io/agent-linux.sh | sh -s -- -a <agent-key> -e <platform-url> -o aws
-```
-
-For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command.
-
-See also the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
-for using User Data mechanism on new EC2 instances to automate the agent installation.
-
-
-## ECS Task
+## Installation as ECS Task
 
 ### Secret for accessing the agent image
 
@@ -151,6 +130,57 @@ For your convenience we have prepared an example task definition to use for ECS 
     ]
 }
 ```
+### Trust Relationship for ECS
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        Effect: "Allow",
+        Principal: {
+          "Service": [
+            "ecs-tasks.amazonaws.com"
+          ]
+        },
+        Action: "sts:AssumeRole"
+      }
+    ]
+  }
+```
+
+## Installation in EKS
+You can use our helm-chart with the parameter `agent.mode=aws`.
+
+### Authorization in EKS with WebIdentityTokenFileCredentialsProvider
+
+Compare to [AWS: IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
+
+1. Create an OIDC Provider
+2. Create an IAM Role with the Policy from above
+3. Allow the Role to be "assumed" by the OIDC Provider
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::<ACCOUNT>:oidc-provider/oidc.eks.<REGION>.amazonaws.com/id/<ID>"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    "oidc.eks.<REGION>.amazonaws.com/id/<ID>:aud": "sts.amazonaws.com",
+                    "oidc.eks.<REGION>.amazonaws.com/id/<ID>:sub": "system:serviceaccount:<SERVICE-ACCOUNT-NAMESPACE>:<SERVICE-ACCOUNT-NAME>"
+                }
+            }
+        }
+    ]
+}
+```
+4. Associate the IAM Role to your Kubernetes Service Account. If you are using our helm charts to create the Service Account, you can use the parameter `serviceAccount.eksRoleArn`.
 
 ## Running outside of AWS
 
