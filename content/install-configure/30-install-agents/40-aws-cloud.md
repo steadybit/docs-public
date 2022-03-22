@@ -20,7 +20,7 @@ See this example IAM policy which enables the agent to discover and attack your 
     "Version": "2012-10-17",
     "Statement": [
       {
-        Action: [
+        "Action": [
           "ec2:DescribeInstances",
           "ec2:DescribeTags",
           "ec2:StopInstances",
@@ -35,10 +35,10 @@ See this example IAM policy which enables the agent to discover and attack your 
           "ec2:CreateNetworkAclEntry",
           "ec2:ReplaceNetworkAclAssociation",
           "ec2:DeleteNetworkAcl",
-          "ec2:CreateTags",
+          "ec2:CreateTags"
         ],
-        Effect: "Allow",
-        Resource: "*"
+        "Effect": "Allow",
+        "Resource": "*"
       }
     ]
 }
@@ -66,13 +66,13 @@ for using User Data mechanism on new EC2 instances to automate the agent install
     "Version": "2012-10-17",
     "Statement": [
       {
-        Effect: "Allow",
-        Principal: {
+        "Effect": "Allow",
+        "Principal": {
           "Service": [
             "ec2.amazonaws.com"
           ]
         },
-        Action: "sts:AssumeRole"
+        "Action": "sts:AssumeRole"
       }
     ]
   }
@@ -137,13 +137,13 @@ For your convenience we have prepared an example task definition to use for ECS 
     "Version": "2012-10-17",
     "Statement": [
       {
-        Effect: "Allow",
-        Principal: {
+        "Effect": "Allow",
+        "Principal": {
           "Service": [
             "ecs-tasks.amazonaws.com"
           ]
         },
-        Action: "sts:AssumeRole"
+        "Action": "sts:AssumeRole"
       }
     ]
   }
