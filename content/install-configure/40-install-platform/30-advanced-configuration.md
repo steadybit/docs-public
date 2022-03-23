@@ -83,14 +83,15 @@ You can use an OpenID Connect compatible authentication provider for user authen
 
 > The first user to login will be assigned the `ADMIN` role, all other will be assigned the `USER` role. The roles can be changed by an admin user via the UI.
 
-| Environment Variable                            | Required  | Description
-|-------------------------------------------------|-----------|------------
-| `STEADYBIT_AUTH_PROVIDER`                       | yes | Use `OAUTH2` for OIDC-Authentication <br/> **Example:** `OAUTH2`
-| `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`              | yes | URI for the OpenID Connect discovery endpoint. <br/> **Example:** `https://keycloak/auth/realms/demo`
-| `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`               | yes | The client ID to use for the OIDC registration <br/> **Example:** `steadybit`
-| `STEADYBIT_AUTH_OAUTH2_CLIENT_SECRET`           | yes | The client secret to use for the OIDC registration <br/> **Example:** `ijhdfpjdf80wiphubfqwd113342r`
-| `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE`     |     | Name of the OidcIdToken attribute that will be used to identify the user <br/> **Default:** `sub`
-| `STEADYBIT_AUTH_OAUTH2_CLAIMS_TEAM_NAME_ATTRIBUTE_NAME`     |     | Name of the OidcIdToken claims attribute that will be used to pick up the assigned team names from. steadybit automatically creates the specified teams in the platform and assigns the user to them.<br/> **Default:** `groups` <br/>  **Example value in OIDC provider for single team:** `team1` <br/> **Example value in OIDC provider for multiple teams:** `["team1","team2"]`
+| Environment Variable                                    | Required | Description
+|---------------------------------------------------------|----------|------------
+| `STEADYBIT_AUTH_PROVIDER`                               | yes      | Use `OAUTH2` for OIDC-Authentication <br/> **Example:** `OAUTH2`
+| `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`                      | yes      | URI for the OpenID Connect discovery endpoint. <br/> **Example:** `https://keycloak/auth/realms/demo`
+| `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`                       | yes      | The client ID to use for the OIDC registration <br/> **Example:** `steadybit`
+| `STEADYBIT_AUTH_OAUTH2_CLIENT_SECRET`                   | yes      | The client secret to use for the OIDC registration <br/> **Example:** `ijhdfpjdf80wiphubfqwd113342r`
+| `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE`             |          | Name of the OidcIdToken attribute that will be used to identify the user <br/> **Default:** `sub`
+| `STEADYBIT_AUTH_OAUTH2_FULL_NAME_ATTRIBUTE`             |          | Name of the OidcIdToken attribute that will be used to pick the full name of the user <br/> **Default:** `name`
+| `STEADYBIT_AUTH_OAUTH2_CLAIMS_TEAM_NAME_ATTRIBUTE_NAME` |          | Name of the OidcIdToken claims attribute that will be used to pick up the assigned team names from. steadybit automatically creates the specified teams in the platform and assigns the user to them.<br/> **Default:** `groups` <br/>  **Example value in OIDC provider for single team:** `team1` <br/> **Example value in OIDC provider for multiple teams:** `["team1","team2"]`
 
 ## Using SSL/TLS Encryption
 
