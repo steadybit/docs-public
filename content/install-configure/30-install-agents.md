@@ -4,7 +4,7 @@ title: "Install Agents"
 
 ## Prerequisites
 
-To install the agent, access to the following URLs via HTTPS (443) is required:
+To install the agent, you must be able to access the following URLs via HTTPS (443) on your target environment:
 
 * https://platform.steadybit.io (Platform)
 * https://docker.steadybit.io and https://index.docker.io (Docker Image)
