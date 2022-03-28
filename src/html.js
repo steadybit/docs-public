@@ -21,6 +21,8 @@ export default class HTML extends React.Component {
             rel="stylesheet"
           />
 
+          <script dangerouslySetInnerHTML={{__html: "if (window.location.hostname === 'docs.steadybit.io') {window.location.hostname = 'www.steadybit.com';}"}} />
+
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
