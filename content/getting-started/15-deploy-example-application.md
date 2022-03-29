@@ -15,7 +15,7 @@ Simply follow these two steps:
 
 - You have already signed up for an account [on our website](https://www.steadybit.com/get-started/)
 - You are able to login into the [Steadybit SaaS platform](https://platform.steadybit.io/)
-- You have [Kuberentes kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed
+- You have [Kubernetes kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed
 
 ## Step 1 - Check out example application
 In order to give you a quick and easy start, we have developed a small demo application.
