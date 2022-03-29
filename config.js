@@ -21,6 +21,8 @@ const config = {
     ignorePath: [
       "/getting-started/10-set-up-saas",
       "/getting-started/20-set-up-onprem",
+      "/getting-started/30-run-experiment-local",
+      "/getting-started/40-run-experiment-eks",
       "/install-configure/50-set-up-areas",
     ],
   },
