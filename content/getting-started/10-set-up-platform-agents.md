@@ -46,5 +46,5 @@ You are welcomed by our Dashboard giving you access to all relevant information,
 ![steadybit Dashboard](img-set-up/step3-dashboard.png)
 
 Start using Steadybit by
-  - [defining your resilience expectations](getting-started/20-define-resilience-expectations) for your services
-  - or by [designing and running your first experiment](getting-started/30-run-experiment)
+  - [defining your resilience expectations](20-define-resilience-expectations) for your services
+  - or by [designing and running your first experiment](30-run-experiment)
