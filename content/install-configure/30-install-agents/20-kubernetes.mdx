@@ -5,6 +5,7 @@ navTitle: "Kubernetes"
 
 
 
+
 import ExampleK8sDocker from './_example-k8s-manifest-docker.md';
 import ExampleK8sContainerd from './_example-k8s-manifest-containerd.md';
 
@@ -19,6 +20,7 @@ helm install steadybit-agent --namespace steadybit-agent \
   --create-namespace \
   --set agent.key=<replace-with-agent-key> \
   --set cluster.name=<replace-with-cluster-name> \
+  --set agent.containerRuntime=containerd \
   steadybit/steadybit-agent
 ```
 
@@ -85,12 +87,12 @@ This needs to be done in three steps:
 2. Run `echo -n '{"auths":{"docker.steadybit.io":{"auths":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
 3. Fill in the result from Step 2 into the value for the `.dockerconfigjson` key
 
-<Collapsible title={'Example Manifests using the Docker Container Runtime'}>
-  <ExampleK8sDocker/>
-</Collapsible>
-
 <Collapsible title={'Example Manifests using the ContainerD Container Runtime'}>
   <ExampleK8sContainerd/>
+</Collapsible>
+
+<Collapsible title={'Example Manifests using the Docker Container Runtime'}>
+  <ExampleK8sDocker/>
 </Collapsible>
 
 For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the yaml.
