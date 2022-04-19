@@ -4,7 +4,7 @@ title: "Attacks"
 Our steadybit platform offers you extensive, safe and customizable attacks.
 The scope of the attacks covers the following categories:
 
-* [Application](20-attacks/application)
+* [JVM Application](20-attacks/application)
 * [Network](20-attacks/network)
 * [Resource](20-attacks/resource)
 * [State](20-attacks/state)

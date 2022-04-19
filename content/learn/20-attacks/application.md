@@ -1,13 +1,12 @@
 ---
-title: "Application Attacks"
-navTitle: "Application"
+title: "JVM Application Attacks"
+navTitle: "JVM Application"
 ---
 Our platform supports the injection of errors and latency at runtime. Our Discovery determines the potential targets and the appropriate attacks.
 You can choose between many different attacks on the application level and there will be more and more.
 
 
-## Java
-#### Method Delay
+## Method Delay
 Inject latency into any Java based application.
 The delay is applied before the handler method is executed.
 
@@ -19,7 +18,7 @@ The delay is applied before the handler method is executed.
 | Delay | How much should the traffic be delayed? | 500ms |
 | Jitter | Random +-30% jitter to network delay | true |
 
-### Method Exception
+## Method Exception
 Injects a RuntimeException into a Spring™ MVC controller.
 The exception is thrown before the handler method is executed.
 When an exception is thrown the handler itself will not be executed.
@@ -32,9 +31,7 @@ When an exception is thrown the handler itself will not be executed.
 | Erroneous Call Rate | How many percent of requests should trigger an exception? | 100 |
 
 
-## Spring
-
-#### MVC Controller Delay
+## Spring MVC Controller Delay
 
 Inject latency into a Spring™ MVC controller.
 The delay is applied before the handler method is executed.
@@ -47,7 +44,7 @@ The delay is applied before the handler method is executed.
 | Delay | How much should the traffic be delayed? | 500ms |
 | Jitter | Random +-30% jitter to network delay | true |
 
-#### MVC Controller Delay
+## Spring MVC Controller Exception
 
 Injects a RuntimeException into a Spring™ MVC controller.
 The exception is thrown before the handler method is executed.
@@ -60,7 +57,7 @@ When an exception is thrown the handler itself will not be executed.
 | Duration | How long should the traffic be delayed? | 30s |
 | Erroneous Call Rate | What percentage of requests should trigger an exception? | 100 |
 
-#### JDBC Template Delay
+## Spring JDBC Template Delay
 
 Delay a Spring™ JDBC Template response by the given duration.
 
@@ -72,7 +69,7 @@ Delay a Spring™ JDBC Template response by the given duration.
 | Jitter | Random +-30% jitter to network delay | true |
 | JDBC Connection Url | Which JDBC connection should be attacked? | Any |
 
-#### JDBC Template Exception
+## Spring JDBC Template Exception
 
 Throws an exception in a  Spring™ JDBC Template.
 
