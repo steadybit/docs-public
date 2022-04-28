@@ -9,7 +9,7 @@ of JMeter load tests directly into your experiments.
 To use JMeter you need to upload your JMeter-Test-File. This can be done simply by adding a step of type "Loadtest", choose "JMeter" as Loadtest-Type and use
 the provided File-Upload.
 
-![Experiment with JMeter Load Test](20-experiment-jmeter.png)
+![Experiment with JMeter Load Test](attachments/jmeter/experiment-jmeter.png)
 
 ### Parameters
 
