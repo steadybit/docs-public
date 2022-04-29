@@ -4,7 +4,8 @@ navTitle: "AWS Cloud Service Agent"
 ---
 
 > Continue, if you want to install the cloud service agent to attack AWS cloud resources.
-> In case you are interested in host based attacks, attacking e.g. the host and software running on it,  refer to [Docker](30-install-agents/10-docker), [Kubernetes](30-install-agents/20-kubernetes) or [Linux Hosts](30-install-agents/30-host) installation documentation.
+> In case you are interested in host based attacks, attacking e.g. the host and software running on it, refer to [Docker](30-install-agents/10-docker)
+> , [Kubernetes](30-install-agents/20-kubernetes) or [Linux Hosts](30-install-agents/30-host) installation documentation.
 
 We recommend running the Cloud Agent in a separate subnet to be sure that the agent is still working properly,
 when you are attacking the cloud resources (e.g. shutting down an EC2 instance or attacking networks).
@@ -44,8 +45,8 @@ See this example IAM policy which enables the agent to discover and attack your 
 }
 ```
 
-This policy needs to be attached to the IAM role of the AWS resource, which is running the agent. The IAM role needs to be able to perform the "AssumeRole" action, so make sure to add a Trust Relationship. (see examples below)
-
+This policy needs to be attached to the IAM role of the AWS resource, which is running the agent. The IAM role needs to be able to perform the "AssumeRole"
+action, so make sure to add a Trust Relationship. (see examples below)
 
 ## Installation on EC2 Instance
 
@@ -55,12 +56,14 @@ The following command will download and run the latest steadybit agent package o
 curl -sfL https://get.steadybit.io/agent-linux.sh | sh -s -- -a <agent-key> -e <platform-url> -o aws
 ```
 
-For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command.
+For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already
+prepared in the command.
 
 See also the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
 for using User Data mechanism on new EC2 instances to automate the agent installation.
 
 ### Trust Relationship for EC2
+
 ```
 {
     "Version": "2012-10-17",
@@ -77,7 +80,6 @@ for using User Data mechanism on new EC2 instances to automate the agent install
     ]
   }
 ```
-
 
 ## Installation as ECS Task
 
@@ -130,6 +132,7 @@ For your convenience we have prepared an example task definition to use for ECS 
     ]
 }
 ```
+
 ### Trust Relationship for ECS
 
 ```
@@ -150,6 +153,7 @@ For your convenience we have prepared an example task definition to use for ECS 
 ```
 
 ## Installation in EKS
+
 You can use our helm-chart with the parameter `agent.mode=aws`.
 
 ### Authorization in EKS with WebIdentityTokenFileCredentialsProvider
@@ -180,7 +184,9 @@ Compare to [AWS: IAM roles for service accounts](https://docs.aws.amazon.com/eks
     ]
 }
 ```
-4. Associate the IAM Role to your Kubernetes Service Account. If you are using our helm charts to create the Service Account, you can use the parameter `serviceAccount.eksRoleArn`.
+
+4. Associate the IAM Role to your Kubernetes Service Account. If you are using our helm charts to create the Service Account, you can use the
+   parameter `serviceAccount.eksRoleArn`.
 
 ## Running outside of AWS
 
@@ -195,3 +201,10 @@ AWS_ACCESS_KEY_ID=<replace-with-aws-access-key>
 AWS_SECRET_ACCESS_KEY=<replace-with-aws-secret-access-key>
 ```
 
+## Multiple Instances
+
+If you want to run multiple instances of the AWS-Cloud-Agent you need to consider, that the agent needs an unique identifier. By default the hostname is used
+for that. If you are running multiple instances on the same host, you can provide a identifier via `STEADYBIT_AGENT_IDENTIFIER`.
+
+If you are using our helm charts to install an AWS-Cloud-Agent, you currently need to use a own namespace for each agent. The namespace is then used as
+identifier.
