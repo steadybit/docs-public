@@ -53,7 +53,7 @@ rules:
       - "replicasets"
       - "daemonsets"
       - "statefulsets"
-    verbs: [ "get", "list", "watch" ]
+    verbs: [ "get", "list", "watch", "patch" ]
   - apiGroups: [ "autoscaling" ]
     resources:
       - "horizontalpodautoscalers"
