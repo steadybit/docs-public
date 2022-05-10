@@ -1,3 +1,5 @@
+### Installation on EC2 Instance
+
 The following command will download and run the latest steadybit agent package on your EC2 instance:
 
 ```shell
@@ -10,7 +12,7 @@ prepared in the command.
 See also the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
 for using User Data mechanism on new EC2 instances to automate the agent installation.
 
-### Trust Relationship for EC2
+#### Trust Relationship for EC2
 
 ```
 {

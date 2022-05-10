@@ -1,4 +1,6 @@
-### Secret for accessing the agent image
+### Installation as ECS Task
+
+#### Secret for accessing the agent image
 
 First you need to [create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html)
 for accessing our private Docker Registry (docker.steadybit.io) to download the agent image.
@@ -10,7 +12,7 @@ for accessing our private Docker Registry (docker.steadybit.io) to download the 
 }
 ```
 
-### Example
+#### Example
 
 For your convenience we have prepared an example task definition to use for ECS in EC2 (or FARGATE). Please fill in the missing "replace-with" prefixed fields:
 
@@ -48,7 +50,7 @@ For your convenience we have prepared an example task definition to use for ECS 
 }
 ```
 
-### Trust Relationship for ECS
+#### Trust Relationship for ECS
 
 ```
 {

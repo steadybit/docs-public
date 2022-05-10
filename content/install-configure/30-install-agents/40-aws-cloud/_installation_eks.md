@@ -1,6 +1,8 @@
+### Installation in EKS
+
 You can use our helm-chart with the parameter `agent.mode=aws`.
 
-### Authorization in EKS with WebIdentityTokenFileCredentialsProvider
+#### Authorization in EKS with WebIdentityTokenFileCredentialsProvider
 
 Compare to [AWS: IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
 
