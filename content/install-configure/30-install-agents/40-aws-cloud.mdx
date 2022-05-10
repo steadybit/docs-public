@@ -34,22 +34,22 @@ The following policies needs to be attached to the IAM role. If you don't want t
 creating an environment variable `STEADYBIT_AGENT_DISCOVERIES_DISABLED` containing a comma separated list of discovery names.
 
 - EC2-Instance Discovery and Attack:
-- Discovery-Name: Ec2InstancesDiscovery
-- Required Policy
+  - Discovery-Name: Ec2InstancesDiscovery
+  - Required Policy
 <Collapsible title={'Show'}>
   <PolicyEc2Instances/>
 </Collapsible>
 
 - Availability Zone Discovery and Zone Blackhole Attack:
-- Discovery-Name: AvailabilityZoneDiscovery
-- Required Policy
+  - Discovery-Name: AvailabilityZoneDiscovery
+  - Required Policy
 <Collapsible title={'Show'}>
   <PolicyAvailabilityZone/>
 </Collapsible>
 
 - Integrate AWS FIS Experiments:
-- Discovery-Name: FisExperimentTemplateDiscovery
-- Required Policy
+  - Discovery-Name: FisExperimentTemplateDiscovery
+  - Required Policy
 <Collapsible title={'Show'}>
   <PolicyFisExperiments/>
 </Collapsible>
