@@ -26,9 +26,6 @@ The current features are:
 - Blackhole Availability Zones
 - Integrate AWS FIS Experiments
 
-We recommend running the cloud agent in a separate subnet to be sure that the agent is still working properly, when you are attacking the cloud resources. The
-subnet of the agent will be excluded from network based attacks like the Blackhole Zone Attack.
-
 ## Required permissions for AWS API Access
 
 For querying metadata and using the AWS API executing the attacks a suitable IAM role needs to be created.
@@ -56,7 +53,6 @@ creating an environment variable `STEADYBIT_AGENT_DISCOVERIES_DISABLED` containi
 <Collapsible title={'Show'}>
   <PolicyFisExperiments/>
 </Collapsible>
-
 
 ## Authentication
 
@@ -90,10 +86,22 @@ You can find more information about best matching ways to provide credentials in
   <InstallationOutside/>
 </Collapsible>
 
-## Multiple Instances
+## F.A.Q
 
-If you want to run multiple instances of the AWS-Cloud-Agent you need to consider, that the agent needs a unique identifier. By default, the hostname is used
-for that. If you are running multiple instances on the same host, you can provide an identifier via `STEADYBIT_AGENT_IDENTIFIER`.
+Q: Can I run multiple instances of the agent on the same host?
 
-If you are using our helm charts to install an AWS-Cloud-Agent, you currently need to use an own namespace for each agent. The namespace is then used as
-identifier.
+A: Yes, you can. If you want to run multiple instances of the AWS-Cloud-Agent you need to consider, that the agent needs a unique identifier. By default, the hostname is used
+for that. If you are running multiple instances on the same host, you need to provide an identifier via `STEADYBIT_AGENT_IDENTIFIER`.
+
+---
+
+Q: Can I run multiple instances of the agent using the helm chart?
+
+A: Yes, but you currently need to use an own namespace for each agent. The namespace is then used as identifier.
+
+---
+
+Q: How can I make sure, that I don't attack the agent itself?
+
+A: We recommend running the cloud agent in a separate subnet to be sure that the agent is still working properly, when you are attacking the cloud resources. The
+subnet of the agent will be excluded from network based attacks like the Blackhole Zone Attack.
