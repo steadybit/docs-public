@@ -50,8 +50,11 @@ For your convenience we have prepared an example task definition to use for ECS 
 }
 ```
 
-#### Trust Relationship for ECS
+#### Authentication
 
+The `taskRoleArn` needs to have the required permissions mentioned before.
+
+Make sure, that the role can be assumed by ECS and provide a trust relationship to the role.
 ```
 {
     "Version": "2012-10-17",
