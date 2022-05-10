@@ -26,7 +26,7 @@ The current features are:
 - Blackhole Availability Zones
 - Integrate AWS FIS Experiments
 
-## Required permissions for AWS API Access
+## <a name="permissions"></a>Required permissions for AWS API Access
 
 For querying metadata and using the AWS API executing the attacks a suitable IAM role needs to be created.
 
@@ -34,22 +34,22 @@ The following policies needs to be attached to the IAM role. If you don't want t
 creating an environment variable `STEADYBIT_AGENT_DISCOVERIES_DISABLED` containing a comma separated list of discovery names.
 
 - EC2-Instance Discovery and Attack:
-  - Discovery-Name: Ec2InstancesDiscovery
-  - Required Policy
+- Discovery-Name: Ec2InstancesDiscovery
+- Required Policy
 <Collapsible title={'Show'}>
   <PolicyEc2Instances/>
 </Collapsible>
 
 - Availability Zone Discovery and Zone Blackhole Attack:
-  - Discovery-Name: AvailabilityZoneDiscovery
-  - Required Policy
+- Discovery-Name: AvailabilityZoneDiscovery
+- Required Policy
 <Collapsible title={'Show'}>
   <PolicyAvailabilityZone/>
 </Collapsible>
 
 - Integrate AWS FIS Experiments:
-  - Discovery-Name: FisExperimentTemplateDiscovery
-  - Required Policy
+- Discovery-Name: FisExperimentTemplateDiscovery
+- Required Policy
 <Collapsible title={'Show'}>
   <PolicyFisExperiments/>
 </Collapsible>
@@ -85,6 +85,47 @@ You can find more information about best matching ways to provide credentials in
 <Collapsible title={'Installation outside of AWS'}>
   <InstallationOutside/>
 </Collapsible>
+
+## Assume-Role into multiple AWS accounts
+
+By default, the agent uses the provided credentials to discover all resources in the belonging AWS account.
+
+Another option is to provide a comma separated list of role-ARNs via the environment variable `STEADYBIT_AGENT_AWS_ASSUME_ROLE_LIST`. The provided credentials
+are then only used to assume-role into the given role-ARNs.
+
+In this case make sure:
+- The provided credentials are allowed to assume the provided role-ARNs.
+  - Policy Example to allow AssumeRole
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Effect": "Allow",
+              "Action": "sts:AssumeRole",
+              "Resource": "arn:aws:iam::<TARGET-ACCOUNT>:role/steadybit-agent"
+          }
+      ]
+  }
+  ```
+- The given roles themself have all [required permissions](#permissions).
+- The given roles do have trust relationship to allow to be assumed by the given credentials.
+  - Example trust relationship
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "arn:aws:iam::<ACCOUNT-RUNNING-THE-AGENT>:<ROLE-RUNNING-THE-AGENT>"
+              },
+              "Action": "sts:AssumeRole",
+              "Condition": {}
+          }
+      ]
+  }
+  ```
 
 ## F.A.Q
 
