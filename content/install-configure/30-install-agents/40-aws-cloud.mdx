@@ -3,23 +3,27 @@ title: "Install Cloud Service Agent on AWS"
 navTitle: "AWS Cloud Service Agent"
 ---
 
-import PolicyAvailabilityZone from './_policy_availability_zones.md';
-import PolicyEc2Instances from './_policy_ec2_instances.md';
-import PolicyFisExperiments from './_policy_fis_experiments.md';
+import PolicyAvailabilityZone from './40-aws-cloud/_policy_availability_zones.md';
+import PolicyEc2Instances from './40-aws-cloud/_policy_ec2_instances.md';
+import PolicyFisExperiments from './40-aws-cloud/_policy_fis_experiments.md';
+import InstallationEc2 from './40-aws-cloud/_installation_ec2.md';
+import InstallationEcs from './40-aws-cloud/_installation_ecs.md';
+import InstallationEks from './40-aws-cloud/_installation_eks.md';
+import InstallationOutside from './40-aws-cloud/_installation_outside.md';
 
 
 > Continue, if you want to install the cloud service agent to attack AWS cloud resources.
 > In case you are interested in host based attacks, attacking e.g. the host and software running on it, refer to [Docker](30-install-agents/10-docker)
 > , [Kubernetes](30-install-agents/20-kubernetes) or [Linux Hosts](30-install-agents/30-host) installation documentation.
 
-## Capabilitities
+## Capabilities
 
 The cloud service agent uses cloud apis to interact with cloud resources.
 
 The current features are:
 
 - Discover and shutdown EC2 instances
-- Blackhole Availablity Zones
+- Blackhole Availability Zones
 - Integrate AWS FIS Experiments
 
 We recommend running the cloud agent in a separate subnet to be sure that the agent is still working properly, when you are attacking the cloud resources. The
@@ -30,183 +34,66 @@ subnet of the agent will be excluded from network based attacks like the Blackho
 For querying metadata and using the AWS API executing the attacks a suitable IAM role needs to be created.
 
 The following policies needs to be attached to the IAM role. If you don't want to provide permission for a particular feature, you can disable the discovery by
-creating an environment variable `STEADYBIT_AGENT_DISCOVERIES_DISABLED` containing a comma seprated list of discovery names.
+creating an environment variable `STEADYBIT_AGENT_DISCOVERIES_DISABLED` containing a comma separated list of discovery names.
 
 - EC2-Instance Discovery and Attack:
-  - Discovery-Name: Ec2InstancesDiscovery
-<Collapsible title={'Required Policy'}>
+- Discovery-Name: Ec2InstancesDiscovery
+- Required Policy
+<Collapsible title={'Show'}>
   <PolicyEc2Instances/>
 </Collapsible>
 
 - Availability Zone Discovery and Zone Blackhole Attack:
-  - Discovery-Name: AvailabilityZoneDiscovery
-<Collapsible title={'Required Policy'}>
+- Discovery-Name: AvailabilityZoneDiscovery
+- Required Policy
+<Collapsible title={'Show'}>
   <PolicyAvailabilityZone/>
 </Collapsible>
 
 - Integrate AWS FIS Experiments:
-  - Discovery-Name: FisExperimentTemplateDiscovery
-<Collapsible title={'Required Policy'}>
+- Discovery-Name: FisExperimentTemplateDiscovery
+- Required Policy
+<Collapsible title={'Show'}>
   <PolicyFisExperiments/>
 </Collapsible>
 
-## Installation on EC2 Instance
 
-The following command will download and run the latest steadybit agent package on your EC2 instance:
+## Authentication
 
-```shell
-curl -sfL https://get.steadybit.io/agent-linux.sh | sh -s -- -a <agent-key> -e <platform-url> -o aws
-```
+The agent is using the [default credentials provider chain](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html#credentials-chain).
+You can pass credentials using the following sequence:
 
-For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already
-prepared in the command.
+1. Java System Properties (`aws.accessKeyId` and `aws.secretAccessKey`)
+2. Environment variables (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`)
+3. Web identity token from AWS STS
+4. The shared credentials and config files
+5. Amazon ECS container credentials
+6. Amazon EC2 instance profile credentials
 
-See also the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
-for using User Data mechanism on new EC2 instances to automate the agent installation.
+You can find more information about best matching ways to provide credentials in the following installation guides.
 
-### Trust Relationship for EC2
+## Installation guides
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Principal": {
-          "Service": [
-            "ec2.amazonaws.com"
-          ]
-        },
-        "Action": "sts:AssumeRole"
-      }
-    ]
-  }
-```
+<Collapsible title={'Installation on EC2 Instance'}>
+  <InstallationEc2/>
+</Collapsible>
 
-## Installation as ECS Task
+<Collapsible title={'Installation as ECS Task'}>
+  <InstallationEcs/>
+</Collapsible>
 
-### Secret for accessing the agent image
+<Collapsible title={'Installation in EKS'}>
+  <InstallationEks/>
+</Collapsible>
 
-First you need to [create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html)
-for accessing our private Docker Registry (docker.steadybit.io) to download the agent image.
-
-```
-{
-  "username": "_",
-  "password": "<replace-with-agent-key>"
-}
-```
-
-### Example
-
-For your convenience we have prepared an example task definition to use for ECS in EC2 (or FARGATE). Please fill in the missing "replace-with" prefixed fields:
-
-```
-{
-    "family": "steadybit-agent",
-    "requiresCompatibilities": [
-        "<EC2 or FARGATE>"
-    ],
-    "networkMode": "awsvpc",
-    "cpu": "512",
-    "memory": "1024",
-    "taskRoleArn": "<replace-with-task-role-arn>",
-    "executionRoleArn": "<replace-with-execution-role-arn>",
-    "containerDefinitions": [
-        {
-            "portMappings": [],
-            "environment": [
-                {
-                    "name": "STEADYBIT_AGENT_KEY",
-                    "value": "<replace-with-agent-key>"
-                },
-                {
-                    "name": "STEADYBIT_AGENT_MODE",
-                    "value": "aws"
-                }
-            ],
-            "repositoryCredentials": {
-              "credentialsParameter": "<replace-with-secret-arn-from-secretmanager>"
-            },
-            "image": "docker.steadybit.io/steadybit/agent:latest",
-            "name": "steadybit-agent"
-        }
-    ]
-}
-```
-
-### Trust Relationship for ECS
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Principal": {
-          "Service": [
-            "ecs-tasks.amazonaws.com"
-          ]
-        },
-        "Action": "sts:AssumeRole"
-      }
-    ]
-  }
-```
-
-## Installation in EKS
-
-You can use our helm-chart with the parameter `agent.mode=aws`.
-
-### Authorization in EKS with WebIdentityTokenFileCredentialsProvider
-
-Compare to [AWS: IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
-
-1. Create an OIDC Provider
-2. Create an IAM Role with the Policy from above
-3. Allow the Role to be "assumed" by the OIDC Provider
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "Federated": "arn:aws:iam::<ACCOUNT>:oidc-provider/oidc.eks.<REGION>.amazonaws.com/id/<ID>"
-            },
-            "Action": "sts:AssumeRoleWithWebIdentity",
-            "Condition": {
-                "StringEquals": {
-                    "oidc.eks.<REGION>.amazonaws.com/id/<ID>:aud": "sts.amazonaws.com",
-                    "oidc.eks.<REGION>.amazonaws.com/id/<ID>:sub": "system:serviceaccount:<SERVICE-ACCOUNT-NAMESPACE>:<SERVICE-ACCOUNT-NAME>"
-                }
-            }
-        }
-    ]
-}
-```
-
-4. Associate the IAM Role to your Kubernetes Service Account. If you are using our helm charts to create the Service Account, you can use the
-   parameter `serviceAccount.eksRoleArn`.
-
-## Running outside of AWS
-
-You can also dedicate any agent running outside of your AWS infrastructure to communicate with the AWS API. In this case you need to setup an IAM with API
-credentials which is allowed to access the resources already described in the section above.
-
-The following variables needs to be added to the environment configuration:
-
-```
-AWS_REGION=<replace-with-region-to-attack>
-AWS_ACCESS_KEY_ID=<replace-with-aws-access-key>
-AWS_SECRET_ACCESS_KEY=<replace-with-aws-secret-access-key>
-```
+<Collapsible title={'Installation outside of AWS'}>
+  <InstallationOutside/>
+</Collapsible>
 
 ## Multiple Instances
 
-If you want to run multiple instances of the AWS-Cloud-Agent you need to consider, that the agent needs an unique identifier. By default the hostname is used
-for that. If you are running multiple instances on the same host, you can provide a identifier via `STEADYBIT_AGENT_IDENTIFIER`.
+If you want to run multiple instances of the AWS-Cloud-Agent you need to consider, that the agent needs a unique identifier. By default, the hostname is used
+for that. If you are running multiple instances on the same host, you can provide an identifier via `STEADYBIT_AGENT_IDENTIFIER`.
 
-If you are using our helm charts to install an AWS-Cloud-Agent, you currently need to use a own namespace for each agent. The namespace is then used as
+If you are using our helm charts to install an AWS-Cloud-Agent, you currently need to use an own namespace for each agent. The namespace is then used as
 identifier.
