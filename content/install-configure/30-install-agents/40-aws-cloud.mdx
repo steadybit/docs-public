@@ -33,6 +33,10 @@ For querying metadata and using the AWS API executing the attacks a suitable IAM
 The following policies needs to be attached to the IAM role. If you don't want to provide permission for a particular feature, you can disable the discovery by
 creating an environment variable `STEADYBIT_AGENT_DISCOVERIES_DISABLED` containing a comma separated list of discovery names.
 
+- All Discoveries need to call `sts:GetCallerIdentity`
+
+
+
 - EC2-Instance Discovery and Attack:
   - Discovery-Name: Ec2InstancesDiscovery
   - Required Policy
@@ -128,6 +132,13 @@ In this case make sure:
   ```
 
 ## F.A.Q
+
+---
+Q: The agent is running, but I can't see any AWS Attacks.
+
+A: Maybe you missed allowing your team to execute the attack? Check your team settings and add the required permissions.
+
+---
 
 Q: Can I run multiple instances of the agent on the same host?
 
