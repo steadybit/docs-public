@@ -7,7 +7,7 @@ The audit log retains historical information about actions triggered within the 
  - When was the experiment executed, by whom, and which hosts did it affect?
  - When did we engage the experiment kill switch?
 
-At the moment, only a handful of activities are logged for audition purposes. In the future, this will be extended.
+At the moment, only a handful of activities are logged for auditing purposes. In the future, this will be extended.
 
 You can access the audit log through the `/api/audit-log` endpoint. For more information, please see our [API documentation](https://platform.steadybit.io/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Audit%20Log).
 
