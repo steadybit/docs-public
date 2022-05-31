@@ -115,4 +115,4 @@ If you want to learn more about elements which can be added to the experiment, c
 
 - adding [Load Tests](../../integrate/20-loadtests)
 - integrating [Monitoring](../../integrate/30-monitoring)
-- checking [HTTP calls](../../learn/15-actions/20-http-call), [POD counts](../../learn/15-actions/10-pod-count) and [Prometheus Metrics](../../learn/15-actions/30-prometheus).
+- checking [HTTP calls](../../learn/15-actions/20-http-call), [POD counts](../../learn/15-actions/10-pod-count), [Prometheus Metrics](../../learn/15-actions/30-prometheus) or our [Postman Integration](../../learn/15-actions/40-postman).
