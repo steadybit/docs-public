@@ -18,7 +18,7 @@ You can use the `POD Count`-check in one of the following nature:
 
 ## Example
 
-![Example POD count configuration](podCountExample.png)
+![Example POD count configuration](10-pod-count.png)
 
 This POD count would check whether all PODs of the `gateway`-deployment in the `steadybit-demo` are ready within 10 seconds.
 The minimum resolution of this check is one second.
