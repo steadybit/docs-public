@@ -22,9 +22,9 @@ We are using [newman](https://github.com/postmanlabs/newman) to run your collect
 ![Postman Integration Configuration](40-postman.png)
 
 ## Outputs
-We are using the reporters `cli` and `json`.
+We are using the reporters `cli`, `json-summary` and `htmlextra`.
 
-You can download the `json`-report in the experiment run log after the experiment has finished.
+You can download the `json-summary` and `htmlextra` -report in the experiment run log after the experiment has finished. We omit the response bodies in the htmlextra-report.
 
 The `cli`-output can be accessed by clicking on the `Action Logs`-tab in the experiment run view and supports a live view during experiment execution.
 
