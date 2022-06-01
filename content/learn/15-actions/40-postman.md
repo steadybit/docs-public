@@ -14,7 +14,8 @@ We are using [newman](https://github.com/postmanlabs/newman) to run your collect
 | Collection Id         | Yes      | The collectionId to run. Find out your collectionId by fetching all collection from the postman api with `https://api.getpostman.com/collections?apikey=$apiKey`      |
 | Environment Id        | No       | The environmentId to use. Find out your environmentId by fetching all environments from the postman api with `https://api.getpostman.com/environments?apikey=$apiKey` |
 | Environment Variables | No       | Additional environment variables, will be passed to newman with `--env-var key=value`                                                                                 |
-| Verbose               | No       | Should we enable verbose logging?                                                                                                                                     |
+| Iterations            | No       | Number of iterations to run the collection, will be passed to newman with `-n`                                                                                        |
+| Verbose               | No       | Should we enable verbose logging? Will be passed to newman with `--verbose`                                                                                           |
 | Timeout               | Yes      | The timeout of your collection, wil be passed to newman with `--timeout`                                                                                              |
 
 ## Example
