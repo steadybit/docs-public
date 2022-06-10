@@ -59,11 +59,11 @@
   * [Prometheus Metrics](use-steadybit/15-actions/30-prometheus.md)
   * [Postman Integration](use-steadybit/15-actions/40-postman.md)
 * [Attacks](use-steadybit/20-attacks/README.md)
-  * [JVM Application Attacks](use-steadybit/20-attacks/application.md)
   * [State Attacks](use-steadybit/20-attacks/state.md)
   * [Resource Attacks](use-steadybit/20-attacks/resource.md)
   * [Network Attacks](use-steadybit/20-attacks/network.md)
   * [Kubernetes Attacks](use-steadybit/20-attacks/kubernetes.md)
+  * [JVM Application Attacks](use-steadybit/20-attacks/application.md)
 * [Landscape](use-steadybit/20-landscape.md)
 * [Discovery](use-steadybit/30-discovery/README.md)
   * [Host Targets](use-steadybit/30-discovery/10-host.md)
@@ -72,7 +72,7 @@
   * [Cloud](use-steadybit/30-discovery/40-cloud.md)
   * [Customizing](use-steadybit/30-discovery/50-custom.md)
 * [Using Load Tests](use-steadybit/40-loadtests.md)
-* [Use your monitoring](use-steadybit/50-monitoring.md)
+* [Using Monitoring](use-steadybit/50-monitoring.md)
 
 ## Integrate with Steadybit
 
