@@ -12,7 +12,6 @@
 
 ## Install and Configure
 
-* [Install and Configure](install-and-configure/install-configure.md)
 * [Install Agents](install-and-configure/30-install-agents/README.md)
   * [Install as Docker Container](install-and-configure/30-install-agents/10-docker.md)
   * [Install on Kubernetes](install-and-configure/30-install-agents/20-kubernetes/README.md)
@@ -50,6 +49,7 @@
 
 * [Experiments](use-steadybit/10-experiments/README.md)
 * [Resilience Policies](use-steadybit/60-resilience-expectations.md)
+* [Landscape](use-steadybit/20-landscape.md)
 * [Actions](use-steadybit/15-actions/README.md)
   * [Pod Count](use-steadybit/15-actions/10-pod-count.md)
   * [HTTP Call](use-steadybit/15-actions/20-http-call.md)
@@ -61,15 +61,12 @@
   * [Network Attacks](use-steadybit/20-attacks/network.md)
   * [Kubernetes Attacks](use-steadybit/20-attacks/kubernetes.md)
   * [JVM Application Attacks](use-steadybit/20-attacks/application.md)
-* [Landscape](use-steadybit/20-landscape.md)
 * [Discovery](use-steadybit/30-discovery/README.md)
   * [Host Targets](use-steadybit/30-discovery/10-host.md)
   * [Container Targets](use-steadybit/30-discovery/20-container.md)
   * [Spring Java Applications](use-steadybit/30-discovery/30-application.md)
   * [Cloud](use-steadybit/30-discovery/40-cloud.md)
   * [Customizing](use-steadybit/30-discovery/50-custom.md)
-* [Using Load Tests](use-steadybit/40-loadtests.md)
-* [Using Monitoring](use-steadybit/50-monitoring.md)
 
 ## Integrate with Steadybit
 
