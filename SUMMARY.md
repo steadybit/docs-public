@@ -4,8 +4,8 @@
 
 ## Quick Start
 
-* [Before you start](quick-start/getting-started.md)
-* [Set Up Agents](quick-start/10-set-up-platform-agents.md)
+* [First Steps](getting-started.md)
+* [Easy Start: Install Agents](quick-start/10-set-up-platform-agents.md)
 * [Deploy Example Application](quick-start/15-deploy-example-application.md)
 * [Define Resilience Policies](quick-start/20-define-resilience-expectations.md)
 * [Run an Experiment](quick-start/30-run-experiment.md)
