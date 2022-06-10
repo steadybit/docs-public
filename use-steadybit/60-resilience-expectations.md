@@ -1,15 +1,24 @@
 ---
-title: "Defining Resilience Expectations"
-navTitle: "Defining Expectations"
+title: Resilience Expectations
 ---
+
+# Resilience Policies
+
+## Introduction
+
+You can think about resilience expectations like linting or security rules (ESLint, SonarQube, dependency auditing and more) for your systems' resilience. Resilience expectations help you identify issues and (non-) compliance with the desired state. For example, Steadybit can outline that a particular Kubernetes configuration best practice isn't followed or that an HTTP request is missing timeouts or retries. Resilience expectations are declarative by nature. This means that resilience expectations are easy to get started with. No need for a resilience or chaos engineering expert!
+
+Expectations can be authored as part of a service definition. Learn more about this process as part of our [getting started guide](../getting-started/20-define-resilience-expectations/) or our [definition deep dive](../use/60-resilience-expectations/20-definition/).
+
+
 
 Resilience expectations can be expressed by referring to tasks (either an experiment or a weak spot) or policies (collections of tasks). The following sections explain the fundamentals of tasks and policies.
 
-## Definitions
+### Definitions
 
 Task and policy definitions are reusable and shareable YAML files accompanied by documentation. These define desirable system characteristics and how Steadybit could verify these. Task and policy definitions are maintained within public GitHub repositories versioned through git references. For example, Steadybit's definitions reside within the [steadybit/definitions](https://github.com/steadybit/definitions) repository.
 
-### Task Definitions
+#### Task Definitions
 
 A task is either a (chaos engineering) experiment or a checked weak spot. Ideally, a task is configurable so that it is reusable across services. For example, a task may define an experiment that verifies correct rolling restart behavior for a provided Kubernetes deployment.
 
@@ -35,9 +44,9 @@ experiment:
   # https://github.com/steadybit/definitions/blob/0.2.2/kubernetes/deployments/experiments/recovery-of-single-host/task.yml
 ```
 
-### Policy Definitions
+#### Policy Definitions
 
-Policies act as collections of [task references](#references). They are helpful to establish and verify best practices that require more than a single task. Common use cases combine both a weak spot and an experiment task into a policy, e.g., to create a unit that combines analysis based on configuration/runtime data (weak spot) and runtime verification (experiment). Alternatively, you could use policies to enforce a set of best practices defined by an SRE team.
+Policies act as collections of [task references](60-resilience-expectations.md#references). They are helpful to establish and verify best practices that require more than a single task. Common use cases combine both a weak spot and an experiment task into a policy, e.g., to create a unit that combines analysis based on configuration/runtime data (weak spot) and runtime verification (experiment). Alternatively, you could use policies to enforce a set of best practices defined by an SRE team.
 
 The following example shows that the structure of a policy definition is similar to that of a service definition ([source](https://github.com/steadybit/definitions/blob/0.2.2/kubernetes/deployments/policies/rolling-update/policy.yml)).
 
@@ -57,10 +66,9 @@ tasks:
         containerName: '{{container.name}}'
 ```
 
-## References
+### References
 
 References are found within service and policy definitions. These establish links and configure tasks for verification by the Steadybit platform. These references express an expectation that services will need to fulfill. The following excerpt shows how a service definition could reference policies and tasks. Also, note that `parameters` are defined for both.
-
 
 ```yml
 policies:
