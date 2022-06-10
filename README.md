@@ -1,70 +1,26 @@
-# 📝 steadybit Documentation Website
-
-Used Gatsby Starter: https://github.com/hasura/gatsby-gitbook-starter/tree/b92c4470a89590180b8c4664e932cf0650c47d79
-
-## Develop locally
-
-```sh
-npm install
-npm run start
-```
-
-## Create production build
-
-```sh
-npm run build
-```
-
-
-## Configure
-
-Write markdown files in `content` folder.
-
-Open `config.js` for templating variables. Broadly configuration is available for `gatsby`, `header`, `sidebar` and `siteMetadata`.
-
-- `gatsby` config for global configuration like
-    - `pathPrefix` - Gatsby Path Prefix
-    - `siteUrl` - Gatsby Site URL
-    - `gaTrackingId` - Google Analytics Tracking ID
-
-- `header` config for site header configuration like
-    - `title` - The title that appears on the top left
-    - `links` - Links on the top right
-    - `search` - Enable search and [configure Algolia](https://www.gatsbyjs.org/docs/adding-search-with-algolia/)
-
-- `sidebar` config for navigation links configuration
-    - `forcedNavOrder` for left sidebar navigation order. It should be in the format "/<filename>"
-    - `frontLine` - whether to show a front line at the beginning of a nested menu.(Collapsing capability would be turned of if this option is set to true)
-    - `links` - Links on the bottom left of the sidebar
-    - `ignoreIndex` - Set this to true if the index.md file shouldn't appear on the left sidebar navigation. Typically this can be used for landing pages.
-
-- `siteMetadata` config for website related configuration
-    - `title` - Title of the website
-    - `description` - Description of the website
-    - `ogImage` - Social Media share og:image tag
-
-- For sub nesting in left sidebar, create a folder with the same name as the top level `.md` filename and the sub navigation is auto-generated. The sub navigation is alphabetically ordered.
-
-## Live Code Editor
-
-To render react components for live editing, add the `react-live=true` to the code section. For example:
-
-```javascript react-live=true
-<button>Edit my text</button>
-```
-
-In the above code, just add `javascript react-live=true` after the triple quote ``` to start rendering react components that can be edited by users.
-
-## 🤖 SEO friendly
-
-This is a static site and comes with all the SEO benefits. Configure meta tags like title and description for each markdown file using MDX Frontmatter
-
-```markdown
 ---
-title: "Title of the page"
-navTitle: "Navigation Link, if it differs from title"
-metaDescription: "Meta Description Tag for this page"
+title: "Steadybit Docs"
+metaTitle: "Steadybit Docs"
+metaDescription: "Steadybit - Chaos Engineering Platform"
 ---
-```
 
-Canonical URLs are generated automatically.
+## Welcome to Steadybit
+
+Steadybit provides you visibility into your systems to detect resilience issues proactively and reduce downtime.
+We follow the principles of Chaos Engineering and help you to stay in control of your chaos experiments.
+
+
+### Getting started with Steadybit
+We use an agent-based approach consisting of a central SaaS platform - being the center of control for you - and agents - deployed in your system to discover running hosts, containers and applications.
+
+Just follow these few steps to get started:
+
+1. Sign up for a new account [on our Website](https://www.steadybit.com/get-started/)
+2. [Install agents](getting-started/10-set-up-platform-agents) to discover your system
+   - if you like, you can deploy an [example application on Minikube or AWS EKS](getting-started/15-deploy-example-application) beforehand to easier play around with Steadybit
+3. Start using Steadybit by
+   - [defining your resilience expectations](getting-started/20-define-resilience-expectations) for your services
+   - or by [designing and running your first experiment](getting-started/30-run-experiment)
+
+
+If you need help, [contact us](https://www.steadybit.com/contact).
