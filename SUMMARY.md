@@ -72,13 +72,12 @@
   * [Discovery in Cloud Context](use-steadybit/30-discovery/40-cloud.md)
   * [Discovery in a Custom Context](use-steadybit/30-discovery/50-custom.md)
 * [Using Load Tests](use-steadybit/40-loadtests.md)
-* [Add Monitoring](use-steadybit/50-monitoring.md)
+* [Use your monitoring](use-steadybit/50-monitoring.md)
 
 ## Integrate with Steadybit
 
 * [API](integrate-with-steadybit/10-api.md)
   * [Interactive API Documentation](https://platform.steadybit.io/api/swagger)
-  * [Page 1](integrate-with-steadybit/10-api/page-1.md)
 * [CLI](integrate-with-steadybit/15-cli.md)
 * [Load Tests](integrate-with-steadybit/20-loadtests/README.md)
   * [Gatling](integrate-with-steadybit/20-loadtests/10-gatling.md)
