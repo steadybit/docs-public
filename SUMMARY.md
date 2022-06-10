@@ -48,10 +48,7 @@
 
 ## Use Steadybit
 
-* [Experiments](use-steadybit/10-experiments/README.md)
-  * [Design an Experiment](use-steadybit/10-experiments/10-design.md)
-  * [Run an Experiment](use-steadybit/10-experiments/20-run.md)
-  * [Prevent Execution of Experiments](use-steadybit/10-experiments/30-prevent-execution.md)
+* [Experiments](use-steadybit/10-experiments.md)
 * [Resilience Policies](use-steadybit/60-resilience-expectations.md)
 * [Actions](use-steadybit/15-actions/README.md)
   * [Pod Count](use-steadybit/15-actions/10-pod-count.md)
