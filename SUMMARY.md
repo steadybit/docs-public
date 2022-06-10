@@ -48,7 +48,7 @@
 
 ## Use Steadybit
 
-* [Experiments](use-steadybit/10-experiments.md)
+* [Experiments](use-steadybit/10-experiments/README.md)
 * [Resilience Policies](use-steadybit/60-resilience-expectations.md)
 * [Actions](use-steadybit/15-actions/README.md)
   * [Pod Count](use-steadybit/15-actions/10-pod-count.md)
