@@ -8,9 +8,7 @@
 * [Set Up Agents](quick-start/10-set-up-platform-agents.md)
 * [Deploy Example Application](quick-start/15-deploy-example-application.md)
 * [Define Resilience Expectations](quick-start/20-define-resilience-expectations.md)
-* [Run experiments in local Kubernetes](quick-start/30-run-experiment-local.md)
 * [Run an Experiment](quick-start/30-run-experiment.md)
-* [Run experiments in AWS EKS](quick-start/40-run-experiment-eks.md)
 
 ## Install and Configure
 
