@@ -76,7 +76,8 @@
 
 ## Integrate with Steadybit
 
-* [API](integrate-with-steadybit/10-api.md)
+* [API](integrate-with-steadybit/10-api/README.md)
+  * [Page 1](integrate-with-steadybit/10-api/page-1.md)
 * [CLI](integrate-with-steadybit/15-cli.md)
 * [Load Tests](integrate-with-steadybit/20-loadtests/README.md)
   * [Gatling](integrate-with-steadybit/20-loadtests/10-gatling.md)
