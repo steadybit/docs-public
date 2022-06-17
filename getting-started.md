@@ -18,7 +18,7 @@ You are completely new to Steadybit? Excellent, this section is just right for y
 
 If you feel comfortable and want to take the next steps, how about the following:
 
-* [How to install more agents](install-configure/30-install-agents/)
-* [Learn how to configure your monitoring](install-configure/70-configure-monitoring/)
+* [How to install more agents](install-configure/install-agents/)
+* [Learn how to configure your monitoring](install-configure/configure-monitoring/)
 * [Invite more users and group them to teams](install-configure/60-teams-and-users/)
 * [Structure your system by setting up Environments](install-configure/50-set-up-environments/)
