@@ -14,7 +14,7 @@ In case you need to exec into the container using a shell for debugging purposes
 
 ## Database Configuration
 
-Steadybit requires a PostgresSQL 11 database.
+Steadybit requires a PostgresSQL 13 database.
 
 | Environment Variable         | Required  | Description
 |------------------------------|-----------|------------
@@ -22,6 +22,19 @@ Steadybit requires a PostgresSQL 11 database.
 | `SPRING_DATASOURCE_USERNAME` | yes | Database Username <br/> **Example:** `postgres`
 | `SPRING_DATASOURCE_PASSWORD` | yes | Database Password <br/> **Example:** `postgres`
 | `STEADYBIT_DB_WEB_ENABLED`   |     | Enable Http Endpoint for Database export <br/> **Default:** `true`
+
+## Message Broker Configuration
+
+For running the platform with multiple instances, a Redis message broker is required.
+
+| Environment Variable       | Required | Description
+|----------------------------|----------|------------
+| `SPRING_REDIS_HOST`        | yes      | Redis server host <br/> **Example:** `redis`
+| `SPRING_REDIS_PORT`        |          | Redis server port <br/> **Default:** `6379`
+| `SPRING_REDIS_USERNAME`    |          | Redis Username
+| `SPRING_REDIS_PASSWORD`    |          | Redis Password
+| `SPRING_REDIS_SSL`         |          | Wether to enable ssl support. <br/> **Default:** `false`
+| `SPRING_REDIS_CLIENT_NAME` |          | Client name to be set on connections with CLIENT SETNAME.
 
 ## Tenant Configuration
 
