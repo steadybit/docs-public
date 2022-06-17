@@ -18,7 +18,7 @@
   * [Install on Linux Hosts](install-and-configure/install-agents/host.md)
   * [Install on Amazon Elastic Container Service (ECS) running on EC2](install-and-configure/install-agents/aws-ecs-ec2.md)
   * [Install AWS Cloud Service Agent](install-and-configure/install-agents/aws-cloud/README.md)
-  * [Agent Configuration](install-and-configure/install-agents/advanced-configuration.md)
+  * [Configuration Options](install-and-configure/install-agents/advanced-configuration.md)
   * [FAQ](install-and-configure/install-agents/faq.md)
 * [Install On-Prem Platform](install-and-configure/install-on-prem-platform/README.md)
   * [Install as Docker Container](install-and-configure/install-on-prem-platform/docker.md)
