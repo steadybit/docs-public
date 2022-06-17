@@ -5,13 +5,17 @@ You are completely new to Steadybit? Excellent, this section is just right for y
 #### Start using Steadybit
 
 1. [Sign up for a new account](https://www.steadybit.com/get-started/) for your own Steadybit tenant
-2. [Install agents](content/getting-started/10-set-up-platform-agents/) to discover your system\*
-3. Start using Steadybit by either
-   * [defining your resilience expectations](content/getting-started/20-define-resilience-expectations/) for your services or
-   * by [designing and running your first experiment](content/getting-started/30-run-experiment/)
+2. [Install agents](content/getting-started/10-set-up-platform-agents/) to discover your system
+3.  Start using Steadybit by either
+
+    * [defining your resilience expectations](content/getting-started/20-define-resilience-expectations/) for your services
+
+    \-OR-
+
+    * by [designing and running your first experiment](content/getting-started/30-run-experiment/)
 
 {% hint style="info" %}
-\*If you don't want to get started on your own system, but play around with Steadybit in an example environment, you can use the [sample application on Minikube or AWS EKS](content/getting-started/15-deploy-example-application/).
+If you don't want to get started on your own system, but play around with Steadybit in an example environment, you can use the [sample application on Minikube or AWS EKS](content/getting-started/15-deploy-example-application/).
 {% endhint %}
 
 #### Looking for more advanced steps?

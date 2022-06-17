@@ -96,7 +96,7 @@ Otherwise, you'll get an error message and the experiment is not started.
 
 As soon as the experiment starts, the platform automatically switches over to the execution view. The first step of the platform is to establish the connection to the matching agents. In addition, the running experiment is indicated at the top right execution icon.
 
-![Experiment Execution View](experiment-run.png)
+![Experiment Execution View](<../../quick-start/run-experiment-run2 (1).png>)
 
 The execution view consists of the following elements.
 
@@ -105,7 +105,7 @@ The execution view consists of the following elements.
 * **Deployment Replica Count**: When using an experiment in a Kubernetes context we will automatically monitor how many PODs are ready in your cluster and indicate whenever there is a discrepancy.
 * **Kubernetes Event Log**: When using an experiment in a Kubernetes context we provide you access to the Kubernetes Events so that you can identify what exactly happens in the Kubernetes cluster.
 * **HTTP Call**: If your experiment contains a `HTTP Call`-action you can see the response time as well as HTTP response status as a separate widget in the execution window.
-* **Monitoring Events**: In case your admin has connected a monitoring solution to steadybit (like [Datadog](../../content/integrate/30-monitoring/10-datadog/), [Instana](../../content/integrate/30-monitoring/30-instana/), [New Relic](../../content/integrate/30-monitoring/40-newrelic/) or [Prometheus](broken-reference)) you can see occuring events and alerts of your setup directly in the execution view.
+* **Monitoring Events**: In case your admin has connected a monitoring solution to steadybit (like [Datadog](../../content/integrate/30-monitoring/10-datadog/), [Instana](../../content/integrate/30-monitoring/30-instana/), [New Relic](../../content/integrate/30-monitoring/40-newrelic/) or [Prometheus](broken-reference/)) you can see occuring events and alerts of your setup directly in the execution view.
 
 Every execution has a unique identifier (e.g. **#33131**), which you can use to identify older executions (visible on the left side).
 

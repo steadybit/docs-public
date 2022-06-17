@@ -5,10 +5,10 @@
 ## Quick Start
 
 * [First Steps](getting-started.md)
-* [Easy Start: Install Agents](quick-start/set-up-agents.md)
+* [Install Agents](quick-start/set-up-agents.md)
+* [Run an Experiment](quick-start/run-experiment.md)
 * [Deploy Example Application](quick-start/deploy-example-application.md)
 * [Define Resilience Policies](quick-start/define-resilience-expectations.md)
-* [Run an Experiment](quick-start/run-experiment.md)
 
 ## Install and Configure
 
@@ -67,11 +67,11 @@
 * [API](integrate-with-steadybit/api.md)
   * [Interactive API Documentation](https://platform.steadybit.io/api/swagger)
 * [CLI](integrate-with-steadybit/cli.md)
+* [Webhooks](integrate-with-steadybit/webhooks.md)
+* [Slack Notifications](integrate-with-steadybit/slack-notifications.md)
 * [Monitoring](integrate-with-steadybit/monitoring/README.md)
   * [Instana](integrate-with-steadybit/monitoring/instana.md)
   * [New Relic](integrate-with-steadybit/monitoring/newrelic.md)
   * [Prometheus](integrate-with-steadybit/monitoring/prometheus.md)
   * [Datadog](integrate-with-steadybit/monitoring/datadog.md)
-* [Slack Notifications](integrate-with-steadybit/slack-notifications.md)
 * [Audit Log](integrate-with-steadybit/audit-log.md)
-* [Webhooks](integrate-with-steadybit/webhooks.md)
