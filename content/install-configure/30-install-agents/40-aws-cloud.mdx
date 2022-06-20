@@ -146,10 +146,3 @@ for that. If you are running multiple instances on the same host, you need to pr
 Q: Can I run multiple instances of the agent using the helm chart?
 
 A: Yes, but you currently need to use an own namespace for each agent. The namespace is then used as identifier.
-
----
-
-Q: How can I make sure, that I don't attack the agent itself?
-
-A: We recommend running the cloud agent in a separate subnet to be sure that the agent is still working properly, when you are attacking the cloud resources. The
-subnet of the agent will be excluded from network based attacks like the Blackhole Zone Attack.
