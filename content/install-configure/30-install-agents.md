@@ -8,7 +8,7 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 
 * https://platform.steadybit.io (Platform)
 * https://docker.steadybit.io and https://index.docker.io (Docker Image)
-* https://artifacts.steadybit.io (Bundles)
+* https://artifacts.steadybit.io (Linux Installation)
 * https://licenses.steadybit.io (License Validation)
 * https://get.steadybit.io (Setup Scripts)
 * https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
