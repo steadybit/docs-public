@@ -44,10 +44,6 @@ sudo docker run \
   docker.steadybit.io/steadybit/agent
 ```
 
-## Static Agent
-
-We also provide a static version of docker image `docker.steadybit.io/steadybit/agent-static` having which already includes all features and has auto updates disabled by default.
-
 ## Non-privileged container
 
 In case you need to run the container non-privileged you can add the individual capabilities with `--cap-add`:
