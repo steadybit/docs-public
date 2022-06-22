@@ -132,6 +132,8 @@ spec:
   template:
     metadata:
       labels:
+        app.kubernetes.io/name: steadybit-agent
+        app.kubernetes.io/instance: steadybit-agent
         com.steadybit.agent: "true"
     spec:
       serviceAccountName: steadybit-agent
