@@ -5,7 +5,7 @@ You are completely new to Steadybit? Excellent, this section is just right for y
 #### Start using Steadybit
 
 1. [Sign up for a new account](https://www.steadybit.com/get-started/) for your own Steadybit tenant
-2. [Install agents](content/getting-started/10-set-up-platform-agents/) to discover your system
+2. [Install agents](quick-start/set-up-agents.md) to discover your system
 3.  Start using Steadybit by either
 
     * [defining your resilience expectations](content/getting-started/20-define-resilience-expectations/) for your services
