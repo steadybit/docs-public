@@ -8,7 +8,7 @@ Teams are the grouping element for multiple users. Each team consists of multipl
 
 ### Default Team: Admin
 
-Per default one team is created called Admin (key: ADM). It contains only the first user of steadybit and has access to the [Global-environment](../../content/install-configure/50-set-up-environments/).
+Per default one team is created called Admin (key: ADM). It contains only the first user of steadybit and has access to the [Global-environment](../../install-and-configure/manage-environments/README.md).
 
 ### Creating Teams
 
@@ -21,7 +21,7 @@ You must enter a **key** for the tea consisting on one to eight characters. The 
 In the edit/create dialog admins can give permissions to
 
 * the attacks a team is allowed to execute and
-* which [environments](../../content/install-configure/50-set-up-environments/) containing different targets the team is allowed to operate on.
+* which [environments](../../install-and-configure/manage-environments/README.md) containing different targets the team is allowed to operate on.
 
 You can think of it as a maximum blast radius this team can attack.
 

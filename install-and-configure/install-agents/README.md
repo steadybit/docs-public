@@ -19,14 +19,14 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 
 One option of agents to be installed is a host agent that runs on a physical host and discovers all targets running on that host. Therefore, we offer the following deployment options:
 
-* [Docker](../../content/install-configure/30-install-agents/10-docker/)
-* [Kubernetes](../../content/install-configure/30-install-agents/20-kubernetes/)
-* [Host](../../content/install-configure/30-install-agents/30-host/)
+* [Docker](docker.md)
+* [Kubernetes](kubernetes/README.md)
+* [Host](host.md)
 
-More configuration options can be found in [Advanced Configuration](../../content/install-configure/30-install-agents/50-advanced-configuration/)
+More configuration options can be found in [Advanced Configuration](../install-agents/advanced-configuration.md)
 
 ### Setup of Cloud Service Agents
 
 An alternative of the host agents are cloud service agents which discover cloud services based on API discovery. We currently support only AWS and will extend it soon.
 
-* [AWS Cloud Agent](../../content/install-configure/30-install-agents/40-aws-cloud/)
+* [AWS Cloud Agent](../install-agents/aws-cloud/README.md)

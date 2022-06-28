@@ -17,7 +17,7 @@ Per default, your system contains one environment called `Global`. This is the p
 To create or change an environment go to `/settings/environments` and choose to either add an environment or edit an existing one. An environment consists of a
 
 * **Name**: A meaningful name helps to find the environment afterwards (e.g. "Onlineshop DEV" or "Contract Management PROD").
-* **Included Targets**: The targets belonging to an environment are specified by using our [discovery data](../use/30-discovery/). This is the upper limit of targets that can be attacked when running an experiment in a certain environment.
+* **Included Targets**: The targets belonging to an environment are specified by using our [discovery data](../../use-steadybit/discovery/README.md). This is the upper limit of targets that can be attacked when running an experiment in a certain environment.
 * **Team**: For using that environment to run an experiment you need to assign the team to it. This can be done from environment-perspective (`/settings/environments` ) as well as from Team-perspective (`/settings/teams`). It limits access to the users of a team to certain environments (so systems and environments).
 
 Environments can be defined using two different modes
@@ -52,4 +52,4 @@ Don't forget to finally assign the environment to a team and give it a meaningfu
 
 ### Use Environments
 
-Once the environments are defined and assigned to teams, you can make use of them when e.g. [designing an experiment](../use/experiments/10-design/).
+Once the environments are defined and assigned to teams, you can make use of them when e.g. [designing an experiment](../../use-steadybit/experiments/README.md).

@@ -13,7 +13,7 @@ There are two ways to setup the agent:
 
 Note: This is the preferred mechanism to deploy the agent across your ECS on EC2 clusters!
 
-See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch\_container\_instance.html) for using User Data mechanism on new EC2 instances. See also our [Install on Linux Hosts](../../content/install-configure/30-install-agents/install-configure/30-install-agents/30-host/) section for setting up the agent.
+See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch\_container\_instance.html) for using User Data mechanism on new EC2 instances. See also our [Install on Linux Hosts](host.md) section for setting up the agent.
 
 ## AWS Metadata
 

@@ -7,7 +7,7 @@ navTitle: AWS Cloud Service Agent
 
 import PolicyAvailabilityZone from './40-aws-cloud/\_policy\_availability\_zones.md'; import PolicyEc2Instances from './40-aws-cloud/\_policy\_ec2\_instances.md'; import PolicyFisExperiments from './40-aws-cloud/\_policy\_fis\_experiments.md'; import InstallationEc2 from './40-aws-cloud/\_installation\_ec2.md'; import InstallationEcs from './40-aws-cloud/\_installation\_ecs.md'; import InstallationEks from './40-aws-cloud/\_installation\_eks.md'; import InstallationOutside from './40-aws-cloud/\_installation\_outside.md';
 
-> Continue, if you want to install the cloud service agent to attack AWS cloud resources. In case you are interested in host based attacks, attacking e.g. the host and software running on it, refer to [Docker](../../../content/install-configure/30-install-agents/30-install-agents/10-docker/) , [Kubernetes](../../../content/install-configure/30-install-agents/30-install-agents/20-kubernetes/) or [Linux Hosts](../../../content/install-configure/30-install-agents/30-install-agents/30-host/) installation documentation.
+> Continue, if you want to install the cloud service agent to attack AWS cloud resources. In case you are interested in host based attacks, attacking e.g. the host and software running on it, refer to [Docker](../../install-agents/docker.md) , [Kubernetes](../../install-agents/kubernetes/README.md) or [Linux Hosts](../../install-agents/host.md) installation documentation.
 
 ### Capabilities
 
