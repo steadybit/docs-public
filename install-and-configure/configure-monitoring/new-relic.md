@@ -21,7 +21,7 @@ Under `Settings/Monitoring Integrations/New Relic` you can enable the State Chec
 
 **Usage**
 
-Once New Relic has been configured in the platform's settings, you can use the `New Relic State Check` in an experiment. Detailed explanation can be found in [Integrate / Monitoring / New Relic](../../integrate/monitoring/40-newrelic/).
+Once New Relic has been configured in the platform's settings, you can use the `New Relic State Check` in an experiment. Detailed explanation can be found in [Integrate / Monitoring / New Relic](../../integrate-with-steadybit/monitoring/newrelic.md).
 
 ### steadybit to New Relic
 
@@ -73,7 +73,8 @@ In addition, events covering the execution of an Attack (`executionTyp` = `attac
 | `targetName`          | Name of the target                                                                                                                                   | e.g. `k8s_fashion-bestseller_fashion-bestseller-bb896d756...`, `ip-10-2-3-122` |
 | `k8s.container.name`) | Name of the container                                                                                                                                | e.g. `fashion-bestseller`                                                      |
 | `container.host`      | Name of the target                                                                                                                                   | e.g. `ip-10-2-3-122`                                                           |
-| ...                   | All remaining attributes available also in the [discovery](../../use/30-discovery/) and [design of experiments](../../use/experiments/10-design/) | ...                                                                            |
+| ...                   | All remaining attributes available also in the [discovery](../../use-steadybit/discovery/README.md) and [design of experiments](../../use-steadybit/experiments/README.md) | ...                                                                            |
+
 
 #### Useful Resources
 

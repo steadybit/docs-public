@@ -20,4 +20,4 @@ Under `Settings/Monitoring Integrations` you have to enter the `Instana base URL
 
 #### Usage
 
-Once Instana has been configured in the platform's settings, you can use the `Instana State Check` in an experiment. Detailed explanation can be found in [Integrate / Monitoring / Instana](../../content/integrate/30-monitoring/30-instana/).
+Once Instana has been configured in the platform's settings, you can use the `Instana State Check` in an experiment. Detailed explanation can be found in [Integrate / Monitoring / Instana](../../integrate-with-steadybit/monitoring/instana.md).

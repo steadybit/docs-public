@@ -8,11 +8,11 @@ You usually have already a system configured to see your health indicators of yo
 
 To be precise, steadybit currently integrates with
 
-* [DataDog](../../install-configure/configure-monitoring/10-datadog/)
-* [Instana](../../install-configure/configure-monitoring/20-instana/)
-* [New Relic](../../install-configure/configure-monitoring/30-new-relic/) (bi-directional)
-* [Prometheus](../../install-configure/configure-monitoring/40-prometheus/)
+* [DataDog](prometheus.md)
+* [Instana](instana.md)
+* [New Relic](new-relic.md) (bi-directional)
+* [Prometheus](prometheus.md)
 
-In addition, you can use a simple [HTTP Status Check when executing an experiment](../../use/actions/20-http-call/).
+In addition, you can use a simple [HTTP Status Check when executing an experiment](../../use-steadybit/actions/http-call.md).
 
 Are you missing your favorite monitoring tool? Don't hesitate to [let us know](https://www.steadybit.com/contact).
