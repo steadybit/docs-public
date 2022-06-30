@@ -13,8 +13,8 @@ We base our integration of custom load test on the concept of Docker-images. The
 After that, just follow the steps below to integrate your custom load test:
 
 1. Place your Gatling load test file in a separate folder. We assume for this steps that it is named _custom.scala_. Alternatively, download an
-   example [custom.scala](gatling-custom.scala) load test and adjust it as needed.
-2. Put a [Dockerfile](gatling-Dockerfile) into the same directory which simply copies the custom load test into the Docker image. It looks like:
+   example [custom.scala](./gatling-custom.scala) load test and adjust it as needed.
+2. Put a [Dockerfile](./gatling-Dockerfile) into the same directory which simply copies the custom load test into the Docker image. It looks like:
 
 ```
 # Inherit existing image
@@ -39,7 +39,7 @@ In case the image is not public and requires authentication to be pulled you can
 #### Parameters
 
 Within the Gatling load test you have access to the following parameters as environment variables. You can use them in the script via e.g. `${__ENV.DURATION}`
-as shown in the attached [custom.scala](gatling-custom.scala).
+as shown in the attached [custom.scala](./gatling-custom.scala).
 
 | Parameter     | Environment Variable | Description                               | Default                            |
 |---------------|----------------------|-------------------------------------------|------------------------------------|

@@ -14,9 +14,9 @@ To use JMeter you need to upload your JMeter-Test-File. This can be done simply 
 
 #### Parameters
 
-Within the JMeter load test you have access to your provided parameters. You can use them in the script via e.g. `${__P(TARGET)}` as shown in the attached [example.jmx](jmeter-example.jmx). The parameter `DURATION` is always accessible in your script, it contains the estimated total duration of your experiment, based on the duration of the other steps in seconds.
+Within the JMeter load test you have access to your provided parameters. You can use them in the script via e.g. `${__P(TARGET)}` as shown in the attached [example.jmx](./jmeter-example.jmx). The parameter `DURATION` is always accessible in your script, it contains the estimated total duration of your experiment, based on the duration of the other steps in seconds.
 
-If you don't know where to start, feel free to use our [example.jmx](jmeter-example.jmx). It is a very basic script and will just perform some HTTP-Calls on a specified endpoint. You can find a table of parameters below:
+If you don't know where to start, feel free to use our [example.jmx](./jmeter-example.jmx). It is a very basic script and will just perform some HTTP-Calls on a specified endpoint. You can find a table of parameters below:
 
 | Parameter       | Environment Variable | Description                                                                 | Default                                                                           | 
 |-----------------|----------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
