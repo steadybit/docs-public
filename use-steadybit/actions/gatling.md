@@ -41,7 +41,7 @@ In case the image is not public and requires authentication to be pulled you can
 Within the Gatling load test you have access to the following parameters as environment variables. You can use them in the script via e.g. `${__ENV.DURATION}`
 as shown in the attached [custom.scala](gatling-custom.scala).
 
-| Parameter | Environment Variable | Description | Default |
-|----------|-------------|-------------|------------- |
-| Duration | DURATION | How long should the load test run? | inherited from experiment duration |
-| Virtual Users | VUS | How many virtual users should be started? | 1 |
+| Parameter     | Environment Variable | Description                               | Default                            |
+|---------------|----------------------|-------------------------------------------|------------------------------------|
+| Duration      | DURATION             | How long should the load test run?        | inherited from experiment duration |
+| Virtual Users | VUS                  | How many virtual users should be started? | 1                                  |

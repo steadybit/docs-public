@@ -18,14 +18,14 @@ Within the JMeter load test you have access to your provided parameters. You can
 
 If you don't know where to start, feel free to use our [example.jmx](jmeter-example.jmx). It is a very basic script and will just perform some HTTP-Calls on a specified endpoint. You can find a table of parameters below:
 
-| Parameter | Environment Variable | Description | Default | 
-|----------|-------------|-------------|-------------|
-| Duration | DURATION | How long should the load test run? | will be passed to the loadtest from steadybit, inherited from experiment duration |
-| Virtual Users | VUS | How many virtual users should be started? | 1 | 
-| Target Host | TARGET\_HOST | Which host should be targeted? (i.e. `www.steadybit.com`) | |
-| Target Protocol | TARGET\_PROTOCOL | Which protocol should be used? (`http` | `https`) | `http` | 
-| Target Port | TARGET\_PORT | Which port should be used? (Remember to use port 443 if you choose `https`) | 80 | 
-| Target Path | TARGET\_PATH | Which path should be targeted? | `/` |
+| Parameter       | Environment Variable | Description                                                                 | Default                                                                           | 
+|-----------------|----------------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| Duration        | DURATION             | How long should the load test run?                                          | will be passed to the loadtest from steadybit, inherited from experiment duration |
+| Virtual Users   | VUS                  | How many virtual users should be started?                                   | 1                                                                                 | 
+| Target Host     | TARGET\_HOST         | Which host should be targeted? (i.e. `www.steadybit.com`)                   |                                                                                   |
+| Target Protocol | TARGET\_PROTOCOL     | Which protocol should be used? (`http`                                      | `https`)                                                                          | `http` | 
+| Target Port     | TARGET\_PORT         | Which port should be used? (Remember to use port 443 if you choose `https`) | 80                                                                                | 
+| Target Path     | TARGET\_PATH         | Which path should be targeted?                                              | `/`                                                                               |
 
 #### Report
 
