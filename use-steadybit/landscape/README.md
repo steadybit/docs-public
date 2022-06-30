@@ -14,11 +14,11 @@ When viewing the landscape you see by default the `Global`-environment (if allow
 
 ![Landscape in Global-Envirnoment](landscape-global.png)
 
-However, it is usually very crowded in the `Global`-environment. So, we strongly recommend you to divide your system by creating [environments](../install-configure/50-set-up-environments/).
+However, it is usually very crowded in the `Global`-environment. So, we strongly recommend you to divide your system by creating [environments](../../install-and-configure/manage-environments/README.md).
 
 ### Drill Down
 
-After choosing your [environment](../install-configure/50-set-up-environments/) in the top left dropdown you have higher focus on the right system parts. You can further zoom into your system using e.g. your mouse scroll wheel and select a namespace (e.g. `steadybit-demo`). This way, you get a list of all Kubernetes deployments in that namespace as well as the discovered connections of your deployments. ![Landscape Namespace](landscape-shop.png)
+After choosing your [environment](../../install-and-configure/manage-environments/README.md) in the top left dropdown you have higher focus on the right system parts. You can further zoom into your system using e.g. your mouse scroll wheel and select a namespace (e.g. `steadybit-demo`). This way, you get a list of all Kubernetes deployments in that namespace as well as the discovered connections of your deployments. ![Landscape Namespace](landscape-shop.png)
 
 > #### Call for Feedback
 >
