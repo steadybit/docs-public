@@ -15,7 +15,7 @@ Each host on which an agent is running is reported as target. Following attribut
 * OS Version
 * Ipv4 Addresses
 
-In addition, you can [customize the context of the host](../../content/learn/30-discovery/50-custom/).
+In addition, you can [customize the context of the host](../../use-steadybit/discovery/custom.md).
 
 ### Process Targets
 

@@ -8,13 +8,13 @@ The steadybit agent discovers your system by providing meta data about potential
 
 Thereby, the steadybit agents collects information about the following target types:
 
-* [Host Targets](../../content/learn/30-discovery/10-host/)
-* [Container Targets](../../content/learn/30-discovery/20-container/)
-* [Application Targets](../../content/learn/30-discovery/30-application/)
+* [Host Targets](host.md)
+* [Container Targets](container.md)
+* [Application Targets](application.md)
 
 In addition, the agent gathers information about the context where the targets are running. We support
 
-* [Cloud Context](../../content/learn/30-discovery/40-cloud/) for major Cloud Providers
-* [Custom Context](../../content/learn/30-discovery/50-custom/) for customizable on-prem solutions
+* [Cloud Context](cloud.md) for major Cloud Providers
+* [Custom Context](custom.md) for customizable on-prem solutions
 
-Read about [adding custom attributes](../../content/learn/30-discovery/50-custom/)
+Read about [adding custom attributes](custom.md)
