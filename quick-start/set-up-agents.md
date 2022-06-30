@@ -28,7 +28,7 @@ Simply copy your agent key, replace it with the placeholder in the installation 
 
 ![on-boarding](set-up-agents-step1.png)
 
-> If you need a demo application to play around, you can [deploy our Shopping Demo into a Minikube or AWS EKS cluster](../content/getting-started/15-deploy-example-application/).
+> If you need a demo application to play around, you can [deploy our Shopping Demo into a Minikube or AWS EKS cluster](deploy-example-application.md).
 
 Once an agent is rolled out, it connects to the platform and appears at the bottom of the page. This may take a few minutes. Afterwards, you are able to continue with the on-boarding by clicking continue.
 
@@ -46,5 +46,5 @@ That's it! You are welcomed by our Dashboard giving you access to all relevant i
 
 Start using Steadybit by
 
-* [defining your resilience expectations](../content/getting-started/20-define-resilience-expectations/) for your services
-* or by [designing and running your first experiment](../content/getting-started/30-run-experiment/)
+* [defining your resilience expectations](define-resilience-expectations.md) for your services
+* or by [designing and running your first experiment](run-experiment.md)
