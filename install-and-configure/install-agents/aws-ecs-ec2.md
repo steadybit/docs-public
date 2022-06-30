@@ -21,7 +21,7 @@ For querying metadata the IAM role `arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAcc
 
 Alternatively you can create your own policy with the following IAM permissions and attach that to the Task Definition Role:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -42,7 +42,7 @@ Note: Due to security issues the Host Shutdown Attack will not work with this se
 
 First you need to [create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage\_create-basic-secret.html) for accessing our private Docker Registry (docker.steadybit.io) to download the agent image.
 
-```
+```shell
 {
   "username": "_",
   "password": "<replace-with-agent-key>"
@@ -53,7 +53,7 @@ First you need to [create a secret](https://docs.aws.amazon.com/secretsmanager/l
 
 For your convenience we have prepared an example task definition to use. Please fill in the missing "replace-with" prefixed fields:
 
-```
+```shell
 {
     "ipcMode": "host",
     "placementConstraints": [],

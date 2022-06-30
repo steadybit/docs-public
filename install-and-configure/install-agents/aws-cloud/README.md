@@ -142,33 +142,27 @@ You can find more information about best matching ways to provide credentials in
 <details>
 
 <summary>Install on EC2 Instance</summary>
+
 The following command will download and run the latest steadybit agent package on your EC2 instance:
 
 ```shell
 curl -sfL https://get.steadybit.io/agent-linux.sh | sh -s -- -a <agent-key> -e <platform-url> -o aws
 ```
 
-For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already
-prepared in the command. Make sure to add `-o aws` to the copied command.
+For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command. Make sure to add `-o aws` to the copied command.
 
-See also the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html)
-for using User Data mechanism on new EC2 instances to automate the agent installation.
+See also the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch\_container\_instance.html) for using User Data mechanism on new EC2 instances to automate the agent installation.
 
-#### Authentication
+**Authentication**
 
-If you installed the agent on an EC2 instance, the easiest way is to use the 6th option from
-the [default credentials provider chain](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html#credentials-chain), namely
-the [InstanceProfileCredentialsProvider](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/auth/credentials/InstanceProfileCredentialsProvider.html)
-.
+If you installed the agent on an EC2 instance, the easiest way is to use the 6th option from the [default credentials provider chain](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html#credentials-chain), namely the [InstanceProfileCredentialsProvider](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/auth/credentials/InstanceProfileCredentialsProvider.html) .
 
 Steps:
 
-- Assign your previous created IAM role to the ec2 instance. There is a slight difference between IAM Roles and Instance Profiles, if you see a message like
-  `No roles attached to instance profile`, make sure to
-  check [this page](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)
-- The IAM role needs a trust relationship so that EC2 is able to assume the role.
+* Assign your previous created IAM role to the ec2 instance. There is a slight difference between IAM Roles and Instance Profiles, if you see a message like `No roles attached to instance profile`, make sure to check [this page](https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_roles\_use\_switch-role-ec2\_instance-profiles.html)
+* The IAM role needs a trust relationship so that EC2 is able to assume the role.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -184,28 +178,29 @@ Steps:
     ]
 }
 ```
+
 </details>
 
 <details>
 
 <summary>Install as ECS Task</summary>
-#### Secret for accessing the agent image
 
-First you need to [create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html)
-for accessing our private Docker Registry (docker.steadybit.io) to download the agent image.
+**Secret for accessing the agent image**
 
-```
+First you need to [create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage\_create-basic-secret.html) for accessing our private Docker Registry (docker.steadybit.io) to download the agent image.
+
+```json
 {
   "username": "_",
   "password": "<replace-with-agent-key>"
 }
 ```
 
-#### Example
+**Example**
 
 For your convenience we have prepared an example task definition to use for ECS in EC2 (or FARGATE). Please fill in the missing "replace-with" prefixed fields:
 
-```
+```json
 {
     "family": "steadybit-agent",
     "requiresCompatibilities": [
@@ -239,12 +234,13 @@ For your convenience we have prepared an example task definition to use for ECS 
 }
 ```
 
-#### Authentication
+**Authentication**
 
 The `taskRoleArn` needs to have the required permissions mentioned before.
 
 Make sure, that the role can be assumed by ECS and provide a trust relationship to the role.
-```
+
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -261,28 +257,25 @@ Make sure, that the role can be assumed by ECS and provide a trust relationship 
   }
 ```
 
-
-
 </details>
 
 <details>
 
 <summary>Install on EKS</summary>
-You can use our [helm-chart](https://github.com/steadybit/helm-charts/blob/main/charts/steadybit-agent/README.md) with the parameter `agent.mode=aws`.
 
-#### Authorization in EKS with WebIdentityTokenFileCredentialsProvider
+You can use our [helm chart](https://github.com/steadybit/helm-charts/blob/main/charts/steadybit-agent/README.md) with the parameter \`agent.mode=aws\`.
 
-If you installed the agent into an EKS cluster, the recommend way to provide credentials is to use the 3th option from
-the [default credentials provider chain](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html#credentials-chain), namely
-the [WebIdentityTokenFileCredentialsProvider](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/auth/credentials/WebIdentityTokenFileCredentialsProvider.html)
-.
+**Authorization in EKS with WebIdentityTokenFileCredentialsProvider**
+
+If you installed the agent into an EKS cluster, the recommend way to provide credentials is to use the 3th option from the [default credentials provider chain](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html#credentials-chain), namely the [WebIdentityTokenFileCredentialsProvider](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/auth/credentials/WebIdentityTokenFileCredentialsProvider.html) .
 
 With this option you need to [associate an IAM role with a Kubernetes service account](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html).
 
 1. [Create an OIDC Provider for your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
 2. Create an IAM Role with the required permissions.
-3. Allow the Role to be assumed by the OIDC Provider. Add the following trust relationship to the IAM Role-
-```
+3. Allow the Role to be assumed by the OIDC Provider. Add the following trust relationship to the IAM Role
+
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -302,10 +295,8 @@ With this option you need to [associate an IAM role with a Kubernetes service ac
     ]
 }
 ```
-4. Associate the IAM Role to your Kubernetes Service Account. If you are using our helm charts to create the Service Account, you can use the
-   parameter `serviceAccount.eksRoleArn`.
 
-
+1. Associate the IAM Role to your Kubernetes Service Account. If you are using our helm charts to create the Service Account, you can use the parameter `serviceAccount.eksRoleArn`.
 
 </details>
 
@@ -313,8 +304,7 @@ With this option you need to [associate an IAM role with a Kubernetes service ac
 
 <summary>Outside of AWS</summary>
 
-You can dedicate any agent running outside of your AWS infrastructure to communicate with the AWS API. In this case you need to setup an IAM User with API
-credentials which is allowed to access the resources already described in the section above.
+You can dedicate any agent running outside of your AWS infrastructure to communicate with the AWS API. In this case you need to setup an IAM User with API credentials which is allowed to access the resources already described in the section above.
 
 The following variables needs to be added to the environment configuration:
 
@@ -323,6 +313,7 @@ AWS_REGION=<replace-with-region-to-attack>
 AWS_ACCESS_KEY_ID=<replace-with-aws-access-key>
 AWS_SECRET_ACCESS_KEY=<replace-with-aws-secret-access-key>
 ```
+
 </details>
 
 ### Assume-Role into multiple AWS accounts
@@ -376,8 +367,6 @@ In this case make sure:
 **Q:** The agent is running, but I can't see any AWS Attacks.
 
 **A:** Maybe you missed allowing your team to execute the attack? Check your team settings and add the required permissions.
-
-
 
 **Q:** Can I run multiple instances of the agent on the same host?
 

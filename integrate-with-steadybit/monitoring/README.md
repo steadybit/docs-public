@@ -10,7 +10,7 @@ In order to make use of a monitoring integration you have to[ configure them onc
 
 Find out, how to make use of
 
-* [Datadog](../../content/integrate/30-monitoring/10-datadog/)
-* [Instana](../../content/integrate/30-monitoring/30-instana/)
-* [New Relic](../../content/integrate/30-monitoring/40-newrelic/)
-* [Prometheus](../../content/integrate/30-monitoring/50-prometheus/)
+* [Datadog](datadog.md)
+* [Instana](instana.md)
+* [New Relic](newrelic.md)
+* [Prometheus](prometheus.md)

@@ -37,7 +37,7 @@ STEADYBIT_AGENT_PROXY_PASSWORD=<password of the proxy (if needed)>
 
 **Or:** when using Init V edit `/etc/default/steadybit-agent` and set the values for these variables:
 
-```
+```shell
 export STEADYBIT_AGENT_PROXY_HOST="<hostname or address of your proxy>"
 export STEADYBIT_AGENT_PROXY_PORT="<port of your proxy>"
 export STEADYBIT_AGENT_PROXY_PROTOCOL="<proxy protocol e.g. http>"
@@ -45,31 +45,7 @@ export STEADYBIT_AGENT_PROXY_USER="<username of the proxy (if needed)>"
 export STEADYBIT_AGENT_PROXY_PASSWORD="<password of the proxy (if needed)>"
 ```
 
-\
-
-
-**2) Configuring the Proxy for Accessing the Agent Module Repository:**
-
-Edit `/opt/steadybit/agent/etc/mvn-settings.xml` uncomment the `<proxies/>` section and provide the values:
-
-```xml
-<proxies>
-  <proxy>
-    <id>agent-proxy</id>
-    <active>true</active>
-    <host><!-- hostname or address of your proxy--></host>
-    <port><!-- port of your proxy --></port>
-    <protocol><!-- proxy protocol e.g. http --></protocol>
-    <username><!-- username of the proxy (if needed) --></username>
-    <password><!-- password of the proxy (if needed) --></password>
-  </proxy>
-</proxies>
-```
-
-\
-
-
-**3) Restart Steadybit Agent service**
+**2) Restart Steadybit Agent service**
 
 **Either:** when using systemd: `systemctl daemon-reload && systemctl restart steadybit` **Or:** when using Init V: `service steadybit-agent restart`
 
