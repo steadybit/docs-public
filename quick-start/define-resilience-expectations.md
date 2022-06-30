@@ -15,7 +15,7 @@ You can get started with resilience expectations via our CLI or the UI. This gui
 
 * You have already signed up for an account [on our website](https://www.steadybit.com/get-started/)
 * You are able to login into the [Steadybit SaaS platform](https://platform.steadybit.io/)
-* You have already [installed the agents](../content/getting-started/10-set-up-platform-agents/)
+* You have already [installed the agents](set-up-agents.md)
 
 ### Step 1 - CLI Installation
 
@@ -25,7 +25,7 @@ npm install -g steadybit
 
 ### Step 2 - Authentication
 
-Once the CLI is installed, you will find that a new global executable named `steadybit` is available. Before you can start defining expectations, you need to authenticate with your Steadybit account via an [API access token](../integrate/10-api/#tokens). Authentication profiles are the most comfortable way to do so:
+Once the CLI is installed, you will find that a new global executable named `steadybit` is available. Before you can start defining expectations, you need to authenticate with your Steadybit account via an [API access token](../integrate-with-steadybit/api.md#tokens). Authentication profiles are the most comfortable way to do so:
 
 steadybit config profile add
 
@@ -61,5 +61,5 @@ This guide has shown how to use the CLI to declare a service's desired resilienc
 
 ### Next Steps
 
-* [Learn about policies and tasks referenced through service definition files.](../learn/60-resilience-expectations/10-introduction/)
-* [Run your own experiments with the Steadybit UI](../getting-started/30-run-experiment/)
+* [Learn about policies and tasks referenced through service definition files.](../use-steadybit/resilience-expectations/README.md)
+* [Run your own experiments with the Steadybit UI](run-experiment.md)
