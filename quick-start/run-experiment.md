@@ -4,13 +4,13 @@ title: Run an Experiment
 
 # Run an Experiment
 
-We will now use steadybit to design and run our first experiment. We focus in this guide on our example application of shopping demo, which you have [optionally deployed following these steps here](../content/getting-started/15-deploy-example-application/). However, you can also apply the steps to your own application.
+We will now use steadybit to design and run our first experiment. We focus in this guide on our example application of shopping demo, which you have [optionally deployed following these steps here](deploy-example-application.md). However, you can also apply the steps to your own application.
 
 ### Prerequisite
 
 * You have already signed up for an account [on our website](https://www.steadybit.com/get-started/)
 * You are able to login into the [Steadybit SaaS platform](https://platform.steadybit.io/)
-* You have already [installed the agents](../content/getting-started/10-set-up-platform-agents/)
+* You have already [installed the agents](set-up-agents.md)
 
 ### Step 1 - Define your Hypothesis
 
@@ -60,7 +60,7 @@ Before running the experiment make sure to have the `/products`-endpoint open in
 
 When hitting the "run experiment"-button you see the steadybit execution window.
 
-![Run experiment - execution window](<run-experiment-run2 (1) (2) (2).png>)
+![Run experiment - execution window](<run-experiment-run2.png>)
 
 You should notice that the `/products`-endpoint will not work while `hot-deals` is unavailable. This is not desirable as there are other products which could have been browsed by the customers of the online shop. You can improve this behavior by adding appropriate fallbacks or scaling the services.
 
