@@ -75,7 +75,7 @@ To make it convenient for you, we have a default for everything. That's also why
 
 In case you prefer to deploy our steadybit platform using Kubernetes directly instead of the helm chart, you can find everything you need [here](./k8s.md#installation-using-kubectl).
 
-See also [Kubernetes](../../install-configure/40-install-platform/20-k8s/) for further informations about the setup with Kubernetes.
+See also [Kubernetes](../install-on-prem-platform/k8s.md) for further informations about the setup with Kubernetes.
 
 ### Step 2.2 - Docker
 
