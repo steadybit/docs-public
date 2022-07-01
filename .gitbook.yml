@@ -2,8 +2,62 @@ redirects:
   getting-started: getting-started.md
   getting-started/10-set-up-platform-agents: quick-start/set-up-agents.md
   getting-started/15-deploy-example-application: quick-start/deploy-example-application.md
+  getting-started/20-define-resilience-expectations: quick-start/define-resilience-expectations.md
   getting-started/30-run-experiment: quick-start/run-experiment.md
   install-configure: install-and-configure/install-agents/README.md
   install-configure/30-install-agents: install-and-configure/install-agents/README.md
+  install-configure/30-install-agents/10-docker: install-and-configure/install-agents/docker.md
+  install-configure/30-install-agents/20-kubernetes: install-and-configure/install-agents/kubernetes/README.md
+  install-configure/30-install-agents/30-host: install-and-configure/install-agents/host.md
+  install-configure/30-install-agents/35-aws-ecs-ec2: install-and-configure/install-agents/aws-ecs-ec2.md
+  install-configure/30-install-agents/40-aws-cloud: install-and-configure/install-agents/aws-cloud/README.md
+  install-configure/30-install-agents/50-advanced-configuration: install-and-configure/install-agents/advanced-configuration.md
+  install-configure/30-install-agents/50-faq: install-and-configure/install-agents/faq.md
+  install-configure/40-install-platform: install-and-configure/install-on-prem-platform/README.md
+  install-configure/40-install-platform/10-docker: install-and-configure/install-on-prem-platform/docker.md
+  install-configure/40-install-platform/20-k8s: install-and-configure/install-on-prem-platform/k8s.md
+  install-configure/40-install-platform/30-advanced-configuration: install-and-configure/install-on-prem-platform/advanced-configuration.md
+  install-configure/50-set-up-environments: install-and-configure/manage-environments/README.md
+  install-configure/60-teams-and-users: install-and-configure/manage-teams-and-users/README.md
+  install-configure/60-teams-and-users/10-teams: install-and-configure/manage-teams-and-users/teams.md
+  install-configure/60-teams-and-users/20-users: install-and-configure/manage-teams-and-users/users.md
+  install-configure/60-teams-and-users/30-permissions: install-and-configure/manage-teams-and-users/permissions.md
+  install-configure/70-configure-monitoring: install-and-configure/configure-monitoring/README.md
+  install-configure/70-configure-monitoring/10-datadog: install-and-configure/configure-monitoring/datadog.md
+  install-configure/70-configure-monitoring/20-instana: install-and-configure/configure-monitoring/instana.md
+  install-configure/70-configure-monitoring/30-new-relic: install-and-configure/configure-monitoring/new-relic.md
+  install-configure/70-configure-monitoring/40-prometheus: install-and-configure/configure-monitoring/prometheus.md
   use: use-steadybit/experiments/README.md
+  use/10-experiments: use-steadybit/experiments/README.md
+  use/10-experiments/10-design: use-steadybit/experiments/README.md#design
+  use/10-experiments/20-run: use-steadybit/experiments/README.md#run
+  use/10-experiments/30-prevent-execution: use-steadybit/experiments/README.md#prevent-execution
+  use/20-landscape: use-steadybit/landscape/README.md
+  use/30-weakspots: use-steadybit/weakspots/README.md
+  learn: install-and-configure/architecture/README.md
+  learn/10-architecture: install-and-configure/architecture/README.md
+  learn/15-actions: use-steadybit/actions/README.md
+  learn/15-actions/10-pod-count: use-steadybit/actions/pod-count.md
+  learn/15-actions/20-http-call: use-steadybit/actions/http-call.md
+  learn/15-actions/30-prometheus: use-steadybit/actions/prometheus.md
+  learn/15-actions/40-postman: use-steadybit/actions/postman.md
+  learn/20-attacks: use-steadybit/attacks/README.md
+  learn/20-attacks/application: use-steadybit/attacks/application.md
+  learn/20-attacks/kubernetes: use-steadybit/attacks/kubernetes.md
+  learn/20-attacks/network: use-steadybit/attacks/network.md
+  learn/20-attacks/resource: use-steadybit/attacks/resource.md
+  learn/20-attacks/state: use-steadybit/attacks/state.md
+  learn/30-discovery: use-steadybit/discovery/README.md
+  learn/30-discovery/10-host: use-steadybit/discovery/host.md
+  learn/30-discovery/20-container: use-steadybit/discovery/container.md
+  learn/30-discovery/30-application: use-steadybit/discovery/application.md
+  learn/30-discovery/40-cloud: use-steadybit/discovery/cloud.md
+  learn/30-discovery/50-custom: use-steadybit/discovery/custom.md
+  learn/40-loadtests: use-steadybit/actions/README.md
+  learn/50-monitoring: integrate-with-steadybit/monitoring/README.md
+  learn/60-resilience-expectations: use-steadybit/resilience-expectations/README.md
+  learn/60-resilience-expectations/10-introduction: use-steadybit/resilience-expectations/README.md
+  learn/60-resilience-expectations/20-definition: use-steadybit/resilience-expectations/README.md
+  learn/70-audit-log: integrate-with-steadybit/audit-log.md
+  integrate: integrate-with-steadybit/monitoring/README.md
   docs: getting-started.md
