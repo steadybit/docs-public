@@ -5,7 +5,7 @@
 const config = {
   gatsby: {
     pathPrefix: "/docs",
-    siteUrl: "https://docs.steadybit.io",
+    siteUrl: "https://www.steadybit.com/docs",
     gaTrackingId: "UA-145692204-1",
   },
   sidebar: {
