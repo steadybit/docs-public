@@ -55,6 +55,7 @@
   * [Network Attacks](use-steadybit/attacks/network.md)
   * [Kubernetes Attacks](use-steadybit/attacks/kubernetes.md)
   * [JVM Application Attacks](use-steadybit/attacks/application.md)
+  * [AWS Cloud Attacks](use-steadybit/attacks/aws-cloud-attacks.md)
 * [Discovery](use-steadybit/discovery/README.md)
   * [Host Targets](use-steadybit/discovery/host.md)
   * [Container Targets](use-steadybit/discovery/container.md)

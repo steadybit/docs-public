@@ -15,9 +15,9 @@ The cloud service agent uses cloud apis to interact with cloud resources.
 
 The current features are:
 
-* Discover and shutdown EC2 instances
-* Blackhole Availability Zones
-* Integrate AWS FIS Experiments
+* Discover and [shutdown EC2 instances](../../../use-steadybit/attacks/aws-cloud-attacks.md#shutdown-ec2-host)
+* [Blackhole Availability Zones](../../../use-steadybit/attacks/aws-cloud-attacks.md#blackhole-zone)
+* [Integrate AWS FIS Experiments](../../../use-steadybit/attacks/aws-cloud-attacks.md#fis-experiment)
 
 ### Required permissions for AWS API Access
 
