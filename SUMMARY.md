@@ -62,6 +62,7 @@
   * [Spring Java Applications](use-steadybit/discovery/application.md)
   * [Cloud](use-steadybit/discovery/cloud.md)
   * [Customizing](use-steadybit/discovery/custom.md)
+* [Weakspots](use-steadybit/weakspots/README.md)
 
 ## Integrate with Steadybit
 
