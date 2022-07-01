@@ -1,0 +1,3 @@
+redirects:
+  getting-started: getting-started.md
+  getting-started/10-set-up-platform-agents: quick-start/set-up-agents.md
