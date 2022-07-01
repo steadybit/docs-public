@@ -6,3 +6,4 @@ redirects:
   install-configure: install-and-configure/install-agents/README.md
   install-configure/30-install-agents: install-and-configure/install-agents/README.md
   use: use-steadybit/experiments/README.md
+  docs: getting-started.md
