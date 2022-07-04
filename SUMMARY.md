@@ -8,7 +8,7 @@
 * [Install Agents](quick-start/set-up-agents.md)
 * [Run an Experiment](quick-start/run-experiment.md)
 * [Deploy Example Application](quick-start/deploy-example-application.md)
-* [Define Resilience Policies](quick-start/define-resilience-expectations.md)
+* [Define Resilience Policies](quick-start/define-resilience-policies.md)
 
 ## Install and Configure
 
@@ -39,7 +39,7 @@
 ## Use Steadybit
 
 * [Experiments](use-steadybit/experiments/README.md)
-* [Resilience Expectations](use-steadybit/resilience-expectations/README.md)
+* [Resilience Policies](use-steadybit/resilience-policies/README.md)
 * [Landscape](use-steadybit/landscape/README.md)
 * [Actions](use-steadybit/actions/README.md)
   * [Pod Count](use-steadybit/actions/pod-count.md)

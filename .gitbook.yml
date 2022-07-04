@@ -2,7 +2,8 @@ redirects:
   getting-started: getting-started.md
   getting-started/10-set-up-platform-agents: quick-start/set-up-agents.md
   getting-started/15-deploy-example-application: quick-start/deploy-example-application.md
-  getting-started/20-define-resilience-expectations: quick-start/define-resilience-expectations.md
+  getting-started/20-define-resilience-expectations: quick-start/define-resilience-policies.md
+  quick-start/define-resilience-expectations: quick-start/define-resilience-policies.md
   getting-started/30-run-experiment: quick-start/run-experiment.md
   install-configure: install-and-configure/install-agents/README.md
   install-configure/30-install-agents: install-and-configure/install-agents/README.md
@@ -55,9 +56,10 @@ redirects:
   learn/30-discovery/50-custom: use-steadybit/discovery/custom.md
   learn/40-loadtests: use-steadybit/actions/README.md
   learn/50-monitoring: integrate-with-steadybit/monitoring/README.md
-  learn/60-resilience-expectations: use-steadybit/resilience-expectations/README.md
-  learn/60-resilience-expectations/10-introduction: use-steadybit/resilience-expectations/README.md
-  learn/60-resilience-expectations/20-definition: use-steadybit/resilience-expectations/README.md
+  use-steadybit/resilience-expectations: use-steadybit/resilience-policies/README.md
+  learn/60-resilience-expectations: use-steadybit/resilience-policies/README.md
+  learn/60-resilience-expectations/10-introduction: use-steadybit/resilience-policies/README.md
+  learn/60-resilience-expectations/20-definition: use-steadybit/resilience-policies/README.md
   learn/70-audit-log: integrate-with-steadybit/audit-log.md
   integrate: integrate-with-steadybit/monitoring/README.md
   integrate/10-api: integrate-with-steadybit/api.md

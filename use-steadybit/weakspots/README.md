@@ -3,7 +3,7 @@ title: "Weak spots"
 ---
 Steadybit helps you in your path to a resilient system by analysing the configuration of your deployed environment and suggesting improvements to make it even
 more resilient. This way, you can fast-forward and don't need to execute an [Experiment](../experiments/README.md) for learning your system. In addition, you can also use
-the weak spots as part of a [Policy](../resilience-expectations/README.md).
+the weak spots as part of a [Policy](../resilience-policies/README.md).
 
 We currently support some weak spots for Kubernetes, AWS, Azure and Java.
 

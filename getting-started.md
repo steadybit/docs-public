@@ -8,7 +8,7 @@ You are completely new to Steadybit? Excellent, this section is just right for y
 2. [Install agents](quick-start/set-up-agents.md) to discover your system
 3.  Start using Steadybit by either
 
-    * [defining your resilience expectations](quick-start/define-resilience-expectations.md) for your services
+    * [defining your resilience expectations via policies](quick-start/define-resilience-policies.md) for your services
 
     \-OR-
 

@@ -46,5 +46,5 @@ That's it! You are welcomed by our Dashboard giving you access to all relevant i
 
 Start using Steadybit by
 
-* [defining your resilience expectations](define-resilience-expectations.md) for your services
+* [defining your resilience expectations via policies](define-resilience-policies.md) for your services
 * or by [designing and running your first experiment](run-experiment.md)
