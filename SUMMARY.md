@@ -41,6 +41,7 @@
 * [Experiments](use-steadybit/experiments/README.md)
 * [Resilience Policies](use-steadybit/resilience-policies/README.md)
 * [Landscape](use-steadybit/landscape/README.md)
+* [Weakspots](use-steadybit/weakspots/README.md)
 * [Actions](use-steadybit/actions/README.md)
   * [Pod Count](use-steadybit/actions/pod-count.md)
   * [HTTP Call](use-steadybit/actions/http-call.md)
@@ -62,7 +63,6 @@
   * [Spring Java Applications](use-steadybit/discovery/application.md)
   * [Cloud](use-steadybit/discovery/cloud.md)
   * [Customizing](use-steadybit/discovery/custom.md)
-* [Weakspots](use-steadybit/weakspots/README.md)
 
 ## Integrate with Steadybit
 
