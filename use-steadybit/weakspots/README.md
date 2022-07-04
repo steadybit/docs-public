@@ -1,16 +1,17 @@
 ---
-title: "Weak spots"
+title: Weak spots
 ---
-Steadybit helps you in your path to a resilient system by analysing the configuration of your deployed environment and suggesting improvements to make it even
-more resilient. This way, you can fast-forward and don't need to execute an [Experiment](../experiments/README.md) for learning your system. In addition, you can also use
-the weak spots as part of a [Policy](../resilience-policies/README.md).
+
+# Weakspots
+
+Steadybit helps you in your path to a resilient system by analysing the configuration of your deployed environment and suggesting improvements to make it even more resilient. This way, you can fast-forward and don't need to execute an [Experiment](../experiments/) for learning your system. In addition, you can also use the weak spots as part of a [Policy](../resilience-policies/).
 
 We currently support some weak spots for Kubernetes, AWS, Azure and Java.
 
-## Kubernetes Weak Spots
+### Kubernetes Weak Spots
 
 | Weak Spot                 | Description                                                                                                                           | Why is it important for a resilient system?                                                                                                    | Policy task                                                                                                                     |
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | CPU Limit                 | Checks whether the consumption of the CPU is limited for a Kubernetes deployment.                                                     | When your deployment uses too much CPU other deployments on the same node could become unstable.                                               | -                                                                                                                               |
 | Memory Limit              | Ensures that your configuration prevents a Kubernetes deployment to consume more memory than configured.                              | When your deployment uses too much memory other deployments on the same node could become unstable.                                            | -                                                                                                                               |
 | Single Replica            | Verifies that at least two PODs of the same deployment exists.                                                                        | It is hard to make single source of failure (like a single POD) resilient.                                                                     | [single-replica](https://github.com/steadybit/definitions/tree/main/kubernetes/deployments/weak-spots/single-replica)           |
@@ -24,23 +25,25 @@ We currently support some weak spots for Kubernetes, AWS, Azure and Java.
 | POD Anti Affinity         | Checks that your deployment is distributed across your cluster's nodes.                                                               | Just having multiple PODs (see "single replica") isn't enough in case all the PODs are running on a single node.                               | -                                                                                                                               |
 | Single Node               | Tests that your Kubernetes cluster is running on multiple nodes.                                                                      | A Kubernetes cluster with a single node is hardly resilient against node outages.                                                              | [single-node](https://github.com/steadybit/definitions/tree/main/kubernetes/deployments/weak-spots/single-node)                 |
 
-## AWS Kubernetes Weak Spots
+### AWS Kubernetes Weak Spots
+
 | Weak Spot       | Description                                                                            | Why is it important for a resilient system?                                                         | Policy task |
-|-----------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-------------|
+| --------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------- |
 | Single AWS Zone | Verifies that your Kubernetes cluster isn't running within a single Availability Zone. | A single Availability Zone is likely to fail which would lead to an unavailable Kubernetes cluster. | -           |
 
-## Azure Kubernetes Weak Spots
-| Weak Spot         | Description                                                                            | Why is it important for a resilient system?                                                         | Policy task                                                                                                                     |
-|-------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| Single Azure Zone | Verifies that your Kubernetes cluster isn't running within a single Availability Zone. | A single Availability Zone is likely to fail which would lead to an unavailable Kubernetes cluster. | -                                                                                                                               |
+### Azure Kubernetes Weak Spots
 
-## JVM Weak Spots
-| Weak Spot                         | Description                                                            | Why is it important for a resilient system?                                                               | Policy task                                                                                                                     |
-|-----------------------------------|------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| HTTP Call without Timeout         | Ensures that your HTTP client is configured to have a timeout.         | In case the target endpoint is unresponsive, the caller would wait forever on a response.                 | -                                                                                                                               |
-| HTTP Call without Circuit Breaker | Verifies that your HTTP endpoint is configured with a circuit breaker. | Avoids cascading failures by short-circuiting to a configured fallback in case of problems.               | -                                                                                                                               |
+| Weak Spot         | Description                                                                            | Why is it important for a resilient system?                                                         | Policy task |
+| ----------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------- |
+| Single Azure Zone | Verifies that your Kubernetes cluster isn't running within a single Availability Zone. | A single Availability Zone is likely to fail which would lead to an unavailable Kubernetes cluster. | -           |
 
-> ## Call for Feedback
-> Weak spots is a beta feature which we would like to get your opinion on.
-> Feel free to [reach out to us](https://www.steadybit.com/contact) and share your experience.
+### JVM Weak Spots
 
+| Weak Spot                         | Description                                                            | Why is it important for a resilient system?                                                 | Policy task |
+| --------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ----------- |
+| HTTP Call without Timeout         | Ensures that your HTTP client is configured to have a timeout.         | In case the target endpoint is unresponsive, the caller would wait forever on a response.   | -           |
+| HTTP Call without Circuit Breaker | Verifies that your HTTP endpoint is configured with a circuit breaker. | Avoids cascading failures by short-circuiting to a configured fallback in case of problems. | -           |
+
+> ### Call for Feedback
+>
+> Weak spots is a beta feature which we would like to get your opinion on. Feel free to [reach out to us](https://www.steadybit.com/contact) and share your experience.

@@ -66,6 +66,7 @@
 
 ## Integrate with Steadybit
 
+* [Steadybit Extensions](https://github.com/steadybit/attack-kit)
 * [API](integrate-with-steadybit/api.md)
   * [Interactive API Documentation](https://platform.steadybit.io/api/swagger)
 * [CLI](integrate-with-steadybit/cli.md)

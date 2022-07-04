@@ -311,7 +311,6 @@ spec:
           hostPath:
             path: /var/run
 
-
 ```
 
 </details>
