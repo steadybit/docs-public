@@ -16,7 +16,7 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 * https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
 
 {% hint style="info" %}
-If you want to check if you environment is properly configured to run an agent you can use our `env-check`:
+If you want to check if you environment is properly configured to install and run an agent,  you run our `env-check`tool on the target machine:
 
 ```
 curl -sfL https://get.steadybit.io/env-check.sh | sh -s
