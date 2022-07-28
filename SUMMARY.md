@@ -39,9 +39,15 @@
 ## Use Steadybit
 
 * [Experiments](use-steadybit/experiments/README.md)
-* [Duplicate Experiments](use-steadybit/duplicate-experiment/README.md)
+  * [Design](use-steadybit/experiments/design.md)
+  * [Run](use-steadybit/experiments/run.md)
+  * [Emergency Stop](use-steadybit/experiments/emergencyStop.md)
+  * [Share](use-steadybit/experiments/share.md)
+    * [Duplicate](Workspaces/steadybit/repos/docs-public/use-steadybit/experiments/duplicate-experiment/README.md)
+    * [YML Import / Export](Workspaces/steadybit/repos/docs-public/use-steadybit/experiments/yml-import-export/README.md)
+    * [Policy via YML](Workspaces/steadybit/repos/docs-public/use-steadybit/resilience-policies/ymlDownloadImport.md)
 * [Resilience Policies](use-steadybit/resilience-policies/README.md)
-  * [yml download / import](use-steadybit/resilience-policies/yml-download-import.md)
+  * [yml download / import](use-steadybit/resilience-policies/ymlDownloadImport.md)
 * [Landscape](use-steadybit/landscape/README.md)
 * [Weakspots](use-steadybit/weakspots/README.md)
 * [Actions](use-steadybit/actions/README.md)
