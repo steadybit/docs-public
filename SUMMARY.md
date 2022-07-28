@@ -41,6 +41,7 @@
 * [Experiments](use-steadybit/experiments/README.md)
 * [Duplicate Experiments](use-steadybit/duplicate-experiment/README.md)
 * [Resilience Policies](use-steadybit/resilience-policies/README.md)
+  * [yml download / import](use-steadybit/resilience-policies/yml-download-import.md)
 * [Landscape](use-steadybit/landscape/README.md)
 * [Weakspots](use-steadybit/weakspots/README.md)
 * [Actions](use-steadybit/actions/README.md)
@@ -64,8 +65,6 @@
   * [Spring Java Applications](use-steadybit/discovery/application.md)
   * [Cloud](use-steadybit/discovery/cloud.md)
   * [Customizing](use-steadybit/discovery/custom.md)
-* [Policy](use-steadybit/policy/README.md)
-  * [yml download / import](use-steadybit/policy/yml-download-import.md)
 
 ## Integrate with Steadybit
 
