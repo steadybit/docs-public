@@ -25,4 +25,5 @@ If you have duplicated an experiment, you will be required to edit the experimen
 ![Duplicate Popup](duplicatePopup.png)
 
 Once you have confirmed that pop-up window, the experiment will be saved and opened in the Experience Designer.
+
 ![Duplicated Experiment](duplicatedExperiment.png)
