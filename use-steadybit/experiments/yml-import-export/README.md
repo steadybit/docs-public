@@ -1,20 +1,20 @@
 ## Experiment export/import via YML
 
-### Experiment export via YML
+### Experiment export via YAML
 
 When you edit your experiment in the designer, you can export it to a YML file.
 For that please click on the button ![Button](ymlBtn.png) `View Experiment as Yaml`.
 
-![Experiment export as yml](designerYml.png)
+![Experiment export as yaml](designerYml.png)
 
 Then you see a popup with a download button and you are able to copy it to your clipboard.
 
-![Download yml](ymlPopup.png)
+![Download yaml](ymlPopup.png)
 
 So you are able to edit your experiment in the YML editor of your choice.
 
 
-### Experiment import via YML
+### Experiment import via YAML
 
 When you want to import an experiment, you can do it via the `New Experiment` button in the experiment list.
 
