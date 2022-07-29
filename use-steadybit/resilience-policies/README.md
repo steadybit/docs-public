@@ -19,5 +19,5 @@ The following sections explain the fundamentals of tasks and policies.
 
 * [Task and Policy Definitions](taskAndPolicyDefinitions.md)
 * [References](references.md)
-* [Download and Import YML via UI](ymlDownloadImport.md)
+* [Download YML via UI](ymlDownloadViaUI.md)
 

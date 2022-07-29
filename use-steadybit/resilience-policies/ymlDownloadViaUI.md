@@ -1,6 +1,6 @@
 # YML download/import
 
-You are able to download and import policy YML files from the UI.
+You are able to download policy YML files from the UI.
 
 For that you have to navigate to the policy via the landscape -> Resilience Score.
 
@@ -18,3 +18,9 @@ You can download the YML file of the policy in the popup.
 ![Download Policy as YML](ymlPopup.png)
 
 ## Import
+
+When you have a service definition you can edit and import it via our CLI via `steadybit service apply`
+
+see also:
+* [Github](https://github.com/steadybit/cli)
+* [CLI](../../integrate-with-steadybit/cli.md)
