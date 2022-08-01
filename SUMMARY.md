@@ -39,7 +39,18 @@
 ## Use Steadybit
 
 * [Experiments](use-steadybit/experiments/README.md)
+  * [Design](use-steadybit/experiments/design.md)
+  * [Run](use-steadybit/experiments/run.md)
+  * [Emergency Stop](use-steadybit/experiments/emergencyStop.md)
+  * [Share](use-steadybit/experiments/share.md)
+    * [Duplicate](use-steadybit/experiments/duplicate-experiment/README.md)
+    * [YML Import / Export](use-steadybit/experiments/yml-import-export/README.md)
+    * [Policy via YML](use-steadybit/resilience-policies/ymlDownloadViaUI.md)
 * [Resilience Policies](use-steadybit/resilience-policies/README.md)
+  * [Task and Policy Definitions](use-steadybit/resilience-policies/taskAndPolicyDefinitions.md)
+  * [References](use-steadybit/resilience-policies/references.md)
+  * [Download YML via UI](use-steadybit/resilience-policies/ymlDownloadViaUI.md)
+  * [CLI](integrate-with-steadybit/cli.md)
 * [Landscape](use-steadybit/landscape/README.md)
 * [Weakspots](use-steadybit/weakspots/README.md)
 * [Actions](use-steadybit/actions/README.md)
@@ -66,7 +77,9 @@
 
 ## Integrate with Steadybit
 
-* [Steadybit Extensions](https://github.com/steadybit/attack-kit)
+* [Steadybit Extensions](integrate-with-steadybit/extensions/README.md)
+  * [Discovery-kit](https://github.com/steadybit/discovery-kit)
+  * [Attack-kit](https://github.com/steadybit/attack-kit)
 * [API](integrate-with-steadybit/api.md)
   * [Interactive API Documentation](https://platform.steadybit.io/api/swagger)
 * [CLI](integrate-with-steadybit/cli.md)
