@@ -18,3 +18,8 @@ In addition, the agent gathers information about the context where the targets a
 * [Custom Context](custom.md) for customizable on-prem solutions
 
 Read about [adding custom attributes](custom.md)
+
+# Build your own via DiscoveryKit
+You are missing support for a target type?
+No problem, we over development kits in order to provide your own discovery.
+More infos can be found in the GitHub project [DiscoveryKit](https://github.com/steadybit/discovery-kit)
