@@ -1,8 +1,10 @@
 ---
-title: "FAQ"
+title: FAQ
 ---
 
-### How do I exclude my JVM from the discovery mechanism?
+# FAQ
+
+#### How do I exclude my JVM from the discovery mechanism?
 
 You can add the label `com.steadybit.agent/jvm-attach=false` to your container and the agent will not perform an attachment.
 
@@ -12,27 +14,26 @@ If the application is not running as container, add the `steadybit.agent.disable
 java -Dsteadybit.agent.disable-jvm-attachment -jar spring-boot-sample.jar --server.port=0
 ```
 
-### How much system resources (CPU/Memory) does the agent consume?
+#### How much system resources (CPU/Memory) does the agent consume?
 
 The resource consumption of the agent depends significantly on the following influencing factors:
 
 * Discovered targets
-* Configured discovery interval (default ist 5000ms)
+* Configured discovery interval (default ist 30000ms)
 * Active experiments
 * Active actions
 
-You can expect an average overhead of 250m CPU and  512-768MB of memory.
+You can expect an average overhead of 250m CPU and \~512MB of memory.
 
-There is also a hibernation feature, which disables all attacks, the discovery mechanism and minimizes communication to the platform.
-However, it can generally be said that the resource consumption is very low and basically not noticeable in normal operation.
+There is also a hibernation feature, which disables all attacks, the discovery mechanism and minimizes communication to the platform. However, it can generally be said that the resource consumption is very low and basically not noticeable in normal operation.
 
-### We get certificate errors when the agent connects to our on-premise Steadybit installation. What do we need to do?
+#### We get certificate errors when the agent connects to our on-premise Steadybit installation. What do we need to do?
 
 The most common reasons for connectivity issues are related to:
 
- - Self-signed certificates that are not trusted.
- - Root certificate authorities that are not trusted.
- - Incomplete certificate chains.
+* Self-signed certificates that are not trusted.
+* Root certificate authorities that are not trusted.
+* Incomplete certificate chains.
 
 At runtime, this will typically manifest in the agent through log entries like this:
 
@@ -48,12 +49,12 @@ openssl s_client -showcerts -connect {{YOUR DOMAIN HERE}}:443 -servername {{YOUR
 
 This should print a whole lot of information. Most relevant are the `Verify return code:` sections. These sections should always report `Verify return code: 0 (ok)`. For other return codes, please check out the following sub-sections:
 
-#### Verify return code: 19 (self-signed certificate in certificate chain)
+**Verify return code: 19 (self-signed certificate in certificate chain)**
 
 This happens for self-signed certificates. You can typically resolve these problems through the `STEADYBIT_AGENT_EXTRA_CERTS_PATH` environment variable. This environment variable should point to a directory containing your root certificates. The agent will load all certificates in this directory into the Java key store upon agent startup. This, in turn, makes the agent trust your custom certificates.
 
 You can also check the environment variable's effect by adding the `-CAfile root-certificate.pem` command-line argument to the `openssl` command shown in the previous section.
 
-#### Verify return code: 21 (unable to verify the first certificate)
+**Verify return code: 21 (unable to verify the first certificate)**
 
 The agent requires a complete certificate chain configuration for security reasons and this return code indicates that your server responded with an incomplete certificate chain. You can fix this issue by modifying the server that terminates the TLS connection. Please refer to your server/proxy/CDN documentation to learn how to configure a complete certificate chain.

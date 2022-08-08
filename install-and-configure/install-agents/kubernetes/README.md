@@ -5,7 +5,7 @@ navTitle: Kubernetes
 
 # Install on Kubernetes
 
-#### Installation using the Helm Chartte
+#### Installation using the Helm Chart
 
 To install the chart, retrieve your steadybit agent key from the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform and run the following command. Please also fill in your cluster name:
 

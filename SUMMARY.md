@@ -49,7 +49,7 @@
 * [Resilience Policies](use-steadybit/resilience-policies/README.md)
   * [Task and Policy Definitions](use-steadybit/resilience-policies/taskAndPolicyDefinitions.md)
   * [References](use-steadybit/resilience-policies/references.md)
-  * [Download YML via UI](use-steadybit/resilience-policies/ymlDownloadViaUI.md)
+  *
   * [CLI](integrate-with-steadybit/cli.md)
 * [Landscape](use-steadybit/landscape/README.md)
 * [Weakspots](use-steadybit/weakspots/README.md)
@@ -82,7 +82,7 @@
   * [Attack-kit](https://github.com/steadybit/attack-kit)
 * [API](integrate-with-steadybit/api.md)
   * [Interactive API Documentation](https://platform.steadybit.io/api/swagger)
-* [CLI](integrate-with-steadybit/cli.md)
+*
 * [Webhooks](integrate-with-steadybit/webhooks.md)
 * [Slack Notifications](integrate-with-steadybit/slack-notifications.md)
 * [Monitoring](integrate-with-steadybit/monitoring/README.md)

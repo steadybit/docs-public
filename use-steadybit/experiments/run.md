@@ -1,4 +1,4 @@
-## Run
+# Run
 
 After having your [experiment fully designed](./) you can simply use the `Run`-button to execute it. This action can be performed if all the following conditions are met:
 
@@ -11,7 +11,7 @@ Otherwise, you'll get an error message and the experiment is not started.
 
 As soon as the experiment starts, the platform automatically switches over to the execution view. The first step of the platform is to establish the connection to the matching agents. In addition, the running experiment is indicated at the top right execution icon.
 
-![Experiment Execution View](<../../quick-start/run-experiment-run2 (4).png>)
+![Experiment Execution View](<../../quick-start/run-experiment-run2 (1).png>)
 
 The execution view consists of the following elements.
 
