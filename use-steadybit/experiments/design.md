@@ -1,5 +1,4 @@
-
-## Design
+# Design
 
 To get you started with an experiment you first need to design it. That means, defining e.g. where to execute it (environment, targets) and what should be done (attack, actions, checks).
 
@@ -13,7 +12,7 @@ In general, you have three possibilities to get started:
 
 Before going into each approach, let's cover the basic elements of an experiment.
 
-#### Basic Elements
+### Basic Elements
 
 An experiment generally consists of the following elements:
 
@@ -28,7 +27,7 @@ An experiment generally consists of the following elements:
 * **Hypothesis**: The hypothesis should answer the question of the expected outcome. In addition, you can describe the steady state, the turbulent condition and the expected behaviour. See this example of a hypothesis: _"When requests for the recommendation service exceeds 1000ms the catalog responds within 1000ms using an empty recommendation list."_
 * **Environment**: An experiment is always executed in one specific environment of your system landscape. This environment spans a set of targets which you want to address in an experiment. For instance a set of containers and JVM applications of a Development environment. How the [environments are configured and assigned to your team](../../install-and-configure/manage-environments/) is up to your admin.
 
-#### Design Experiment via Wizard
+### Design Experiment via Wizard
 
 The wizard guides you step by step through the creation of the experiment. It consists of the following four steps:
 
@@ -54,7 +53,7 @@ As an alternative and more static approach you can also choose from a list based
 
 After saving the experiment you are ready to [run it directly](./#run) or extend it using our editor (see blank experiment).
 
-#### Design Blank Experiment
+### Design Blank Experiment
 
 When choosing to start by a blank experiment, you land directly into our experiment editor. In case your team has only access to one environment, it is automatically chosen. Otherwise you have to define in which environment you want to experiment. In addition, you can define the remaining basic elements (name and hypothesis) at any point you like.
 
@@ -66,7 +65,7 @@ As soon as the element is placed you can configure it on the right hand side. Sp
 
 ![Create Experiment - Editor](create-experiment-blank2.png)
 
-#### Design Experiment using Templates
+### Design Experiment using Templates
 
 The last option to define an experiment is using an existing template. This way, you only need to specify the targets but don't need to specify the sequence of the attacks.
 
@@ -74,10 +73,10 @@ The last option to define an experiment is using an existing template. This way,
 
 Just click on each element to define e.g. for an attack the target and attack radius on the right hand side (see previous section).
 
-#### Additional Elements
+### Additional Elements
 
 If you want to learn more about elements which can be added to the experiment, check out sections for
 
-* adding [Load Tests](../actions/#loadtests)
+* adding [Load Tests](../checks/#loadtests)
 * integrating [Monitoring](../../integrate-with-steadybit/monitoring/)
-* checking [HTTP calls](../actions/http-call.md), [POD counts](../actions/pod-count.md), [Prometheus Metrics](../actions/prometheus.md) or our [Postman Integration](../actions/postman.md).
+* checking [HTTP calls](../checks/http-call.md), [POD counts](../checks/pod-count.md), [Prometheus Metrics](../checks/prometheus.md) or our [Postman Integration](../checks/postman.md).

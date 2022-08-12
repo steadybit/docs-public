@@ -13,6 +13,6 @@ To be precise, steadybit currently integrates with
 * [New Relic](new-relic.md) (bi-directional)
 * [Prometheus](prometheus.md)
 
-In addition, you can use a simple [HTTP Status Check when executing an experiment](../../use-steadybit/actions/http-call.md).
+In addition, you can use a simple [HTTP Status Check when executing an experiment](../../use-steadybit/checks/http-call.md).
 
 Are you missing your favorite monitoring tool? Don't hesitate to [let us know](https://www.steadybit.com/contact).

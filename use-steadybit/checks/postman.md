@@ -2,7 +2,7 @@
 title: Postman Integration
 ---
 
-# Postman Integration
+# Postman
 
 The Postman Integration can be used to run a Postman collection. You can find the Postman integration in the "Actions" folder in the experiment editor.
 
@@ -13,7 +13,7 @@ We are using [newman](https://github.com/postmanlabs/newman) to run your collect
 ### Parameters
 
 | Name                  | Required | Description                                                                                                                                                                                          |
-|-----------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Estimated duration    | Yes      | As long as you have no timeout in place, the step will run as long as needed. You can set this estimation to size the step in the experiment editor for a better understanding of the time schedule. |
 | API-Key               | Yes      | The API-Key to access your collection, can be created [here](https://learning.postman.com/docs/developer/intro-api/#generating-a-postman-api-key)                                                    |
 | Collection Id         | Yes      | The collectionId to run. Find out your collectionId by fetching all collection from the postman api with `https://api.getpostman.com/collections?apikey=$apiKey`                                     |
@@ -27,7 +27,7 @@ We are using [newman](https://github.com/postmanlabs/newman) to run your collect
 
 ### Example
 
-![Postman Integration Configuration](postman.png)
+![Postman Integration Configuration](../actions/postman.png)
 
 ### Outputs
 

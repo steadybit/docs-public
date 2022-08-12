@@ -27,4 +27,4 @@ You can use the resulting HTTP response status to determine the result of the ex
 
 As soon as you have a single or multiple HTTP checks in your experiment you get a widget in the Attack Monitor when running an experiment.
 
-![Attack Monitor Widget for HTTP calls](http-call.png)
+![Attack Monitor Widget for HTTP calls](../actions/http-call.png)
