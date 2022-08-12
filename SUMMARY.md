@@ -79,8 +79,8 @@
 ## Integrate with Steadybit
 
 * [Steadybit Extensions](integrate-with-steadybit/extensions/README.md)
-  * [Discovery-kit](https://github.com/steadybit/discovery-kit)
-  * [Attack-kit](https://github.com/steadybit/attack-kit)
+  * [AttackKit](https://github.com/steadybit/attack-kit)
+  * [DiscoveryKit](https://github.com/steadybit/discovery-kit)
 * [API](integrate-with-steadybit/api.md)
   * [Interactive API Documentation](https://platform.steadybit.io/api/swagger)
 *
