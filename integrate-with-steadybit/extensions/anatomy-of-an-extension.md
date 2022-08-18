@@ -13,7 +13,7 @@ From a high-level, extensions are:
 
 That is a mouthful – let's dissect this. The following UML sequence diagram shows how the Steadybit agent would call an extension.
 
-![UML sequence diagram showing how an extension implementing ActionKit APIs would be called by the Steadybit agent.](<../../.gitbook/assets/image (1).png>)
+![UML sequence diagram showing how an extension implementing ActionKit APIs would be called by the Steadybit agent.](<../../.gitbook/assets/image (1) (1).png>)
 
 Let us first note that the Steadybit agent and the extension are deployed within customers' infrastructure. Steadybit agents take on the role of outposts facilitating the communication between the Steadybit platform and extensions. This approach ensures that extensions do not need to be internet accessible. Instead, you can place them within networks that do not have a direct internet connection. From a security perspective, this is highly beneficial as it avoids several security challenges. Furthermore, it allows extensions to receive configuration, especially credentials, that Steadybit should not be aware of.
 

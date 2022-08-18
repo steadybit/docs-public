@@ -82,7 +82,7 @@
   * [Anatomy of an Extension](integrate-with-steadybit/extensions/anatomy-of-an-extension.md)
   * [Official Extensions](integrate-with-steadybit/extensions/official-extensions.md)
   * [Extension Installation](integrate-with-steadybit/extensions/extension-installation.md)
-  * [Steadybit Kits](integrate-with-steadybit/extensions/steadybit-kits.md)
+  * [Extension Kits](integrate-with-steadybit/extensions/extension-kits.md)
 * [API](integrate-with-steadybit/api.md)
   * [Interactive API Documentation](https://platform.steadybit.io/api/swagger)
 *

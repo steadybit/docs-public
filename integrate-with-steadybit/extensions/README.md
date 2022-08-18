@@ -21,7 +21,7 @@ Extensions are deployed manually within customers’ networks.
 
 Extension authors, maintainers and contributors will leverage extension APIs to enhance Steadybit’s capabilities. Typically, extensions are required to expose a remote HTTP interface complying with extension APIs.
 
-### Steadybit Kits
+### Extension Kits
 
 Kits are the combination of extension APIs, conventions, contracts, documentation, examples and more. They are leveraged mainly by the same audience that would author extension.
 
@@ -30,4 +30,4 @@ Kits are the combination of extension APIs, conventions, contracts, documentatio
 * [What exactly is an extension?](anatomy-of-an-extension.md)
 * [What officially maintained extensions are there?](official-extensions.md)
 * [How do I install an extension?](extension-installation.md)
-* [What Steadybit kits are available?](steadybit-kits.md)
+* [What extension kits are available?](extension-kits.md)

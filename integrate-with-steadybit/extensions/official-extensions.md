@@ -2,6 +2,8 @@
 
 ## AWS ([extension-aws](https://github.com/steadybit/extension-aws#readme))
 
+<img src="../../.gitbook/assets/aws-logo.jpeg" alt="" data-size="original">
+
 The AWS extension enhances Steadybit's native capabilities to discover and inject chaos within usages of Amazon Web Services (AWS).
 
 ### Capabilities
@@ -21,6 +23,8 @@ The AWS extension enhances Steadybit's native capabilities to discover and injec
 * [Installation Instructions](https://github.com/steadybit/extension-aws#readme)
 
 ## Kong ([extension-kong](https://github.com/steadybit/extension-kong))
+
+### ![](../../.gitbook/assets/kong-logo.png)
 
 ### Capabilities
 
