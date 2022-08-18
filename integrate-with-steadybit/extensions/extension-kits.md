@@ -2,9 +2,9 @@
 
 Three extension kits exist through which Steadybit's capabilities can be extended. Unless you are thinking about authoring a custom extension, you probably do not need to know about these kits.
 
-## ActionKit
+<img src="../../.gitbook/assets/image (4).png" height="130" align="right" alt="ActionKit logo depicting the text action kit and a crosshair icon">
 
-![ActionKit logo depicting the text "action kit" and a crosshair icon](<../../.gitbook/assets/image (4).png>)
+## ActionKit
 
 The Steadybit ActionKit enables the extension of Steadybit with new action capabilities that you can use within experiments. For example, ActionKit can be used to author open/closed source:
 
