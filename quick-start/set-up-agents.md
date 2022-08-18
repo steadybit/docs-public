@@ -3,7 +3,7 @@ title: Set Up Agents
 navTitle: Set Up Agents
 ---
 
-# Easy Start: Install Agents
+# Install Agents
 
 This guide helps you with the initial setup of Steadybit by installing the agents.
 
@@ -48,3 +48,7 @@ Start using Steadybit by
 
 * [defining your resilience expectations via policies](define-resilience-policies.md) for your services
 * or by [designing and running your first experiment](run-experiment.md)
+
+### Step 4 - Optionally Install Extensions
+
+Agents already come loaded with a significant number of capabilities. However, it is helpful to know that Steadybit supports extensions! Extensions enable you to make Steadybit your own – either by using an official or open source extension or by writing your own! Learn more about extensions in our [dedicated documentation](../integrate-with-steadybit/extensions/).
