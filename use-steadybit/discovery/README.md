@@ -4,6 +4,8 @@ title: Discovery
 
 # Discovery
 
+## Discovery
+
 The steadybit agent discovers your system by providing meta data about potential targets as well as the context your system is running in.
 
 Thereby, the steadybit agents collects information about the following target types:
@@ -19,7 +21,6 @@ In addition, the agent gathers information about the context where the targets a
 
 Read about [adding custom attributes](custom.md)
 
-# Build your own via DiscoveryKit
-You are missing support for a target type?
-No problem, we over development kits in order to provide your own discovery.
-More infos can be found in the GitHub project [DiscoveryKit](https://github.com/steadybit/discovery-kit)
+## Extend Steadybit
+
+Are you missing support for a particular technology? No problem, Steadybit is extensible, allowing you to use open- and closed-source extensions to enhance its capabilities. Learn more within our [extension documentation](../../integrate-with-steadybit/extensions/)!
