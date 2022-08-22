@@ -28,8 +28,7 @@ The AWS extension enhances Steadybit's native capabilities to discover and injec
 
 ### Capabilities
 
-The API gateway Kong can be interacted with through the Kong extension. It facilitates verifying how Kong services behave during intermittent outages or when
-services misbehave.
+The API gateway Kong can be interacted with through the Kong extension. It facilitates verifying how Kong services behave during intermittent outages or when services misbehave.
 
 #### Kong Services
 
@@ -45,14 +44,13 @@ services misbehave.
 
 ### ![](../../.gitbook/assets/postman.png)
 
-This extension allows to integrate Postman Cloud resources within steadybit.
+This extension allows to integrate Postman cloud resources within steadybit.
 
-:warning: The Postman extension is currently bundled in the out-of-the-box version of steadybit. This code should help you to understand the usage
-of [Action kit](https://github.com/steadybit/action-kit).
+:warning: The Postman extension is currently bundled in the out-of-the-box version of Steadybit. This code should help you to understand the usage of [ActionKit](https://github.com/steadybit/action-kit).
 
 ### Capabilities
 
-* Execute Collections
+* Execute collections
 
 ### References
 
