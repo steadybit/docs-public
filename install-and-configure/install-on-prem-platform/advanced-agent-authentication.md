@@ -4,6 +4,8 @@ By default, the agent uses the agent key to authenticate itself to the platform.
 \
 The agent will request a token from the issuer using the client credentials flow and pass it to the platform. Tokens are required as soon, as you set the properties in your platform. The platform will ignore the incoming tokens if you only set the agent properties.
 
+This settings are only available for On-Prem installations.
+
 #### Agent Settings
 
 | Environment Variable                        | Description                                                                                                                           |
