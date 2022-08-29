@@ -23,6 +23,7 @@
 * [Install On-Prem Platform](install-and-configure/install-on-prem-platform/README.md)
   * [Install as Docker Container](install-and-configure/install-on-prem-platform/docker.md)
   * [Install on Kubernetes](install-and-configure/install-on-prem-platform/k8s.md)
+  * [Advanced Agent Authentication](install-and-configure/install-on-prem-platform/advanced-agent-authentication.md)
   * [Configuration Options](install-and-configure/install-on-prem-platform/advanced-configuration.md)
 * [Manage Environments](install-and-configure/manage-environments/README.md)
 * [Manage Teams and Users](install-and-configure/manage-teams-and-users/README.md)
