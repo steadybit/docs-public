@@ -20,7 +20,7 @@ on [Datadog Sites](https://docs.datadoghq.com/getting_started/site/) in the Data
 | Datadog Site | Domain              | Base URL                    |
 |--------------|---------------------| --------------------------- |
 | US1          | `app.datadoghq.com` | `https://app.datadoghq.com` |
-| EU           | `app.datadoghq.eu`  | `https://app.datadoghq.eu` |
+| EU1          | `app.datadoghq.eu`  | `https://app.datadoghq.eu` |
 
 **API and Application Key**
 
@@ -29,7 +29,7 @@ See the following URLs for helpful information to set up and obtain the keys:
 * US1 Datadog Site
     * [API Keys](https://app.datadoghq.com/account/settings#api)
     * [Application Keys](https://app.datadoghq.com/access/application-keys)
-* EU Datadog Site
+* EU1 Datadog Site
   * [API Keys](https://app.datadoghq.eu/account/settings#api)
   * [Application Keys](https://app.datadoghq.eu/access/application-keys)
 
