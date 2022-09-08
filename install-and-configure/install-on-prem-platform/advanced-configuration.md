@@ -117,3 +117,24 @@ SSL can be configured by setting the various `SERVER_SSL_*` properties and requi
 | `SERVER_SSL_KEY_STORE_PASSWORD` |          | Password used to access the key store                                                                                                                                                          |
 | `SERVER_SSL_KEY_ALIAS`          |          | Alias that identifies the key in the keystore to be used                                                                                                                                       |
 | `SERVER_SSL_KEY_PASSWORD`       |          | Password used to access the key in the key store.                                                                                                                                              |
+
+### Advanced Agent Authentication
+
+OpenID Connect can be used to [authenticate the agents to the platform](advanced-agent-authentication.md).
+
+| Environment Variable                      | Required | Description                                                                                            |
+|-------------------------------------------|----------|--------------------------------------------------------------------------------------------------------|
+| `STEADYBIT_AUTH_AGENT_PROVIDER`           |          | <p>Set to <code>OAUTH2</code> to use the OIDC.<br><strong>Default:</strong> <code>AGENT_KEY</code></p> |
+| `STEADYBIT_AUTH_AGENT_OAUTH2_ISSUER_URI`  | yes      | <p>The issuer URI of your identity provider</p>                                                        |
+
+### Proxy Settings
+
+Steadybit will use these proxy settings if the platform needs to connect to other services (for example your OIDC identity provider).
+
+| Environment Variable       | Required | Description                                                                  |
+|----------------------------|----------|------------------------------------------------------------------------------|
+| `STEADYBIT_PROXY_HOST`     |          | <p>Hostname of your proxy</p>                                                |
+| `STEADYBIT_PROXY_PORT`     |          | <p>Port of your proxy</p>                                                    |
+| `STEADYBIT_PROXY_PROTOCOL` |          | <p>Protocol of your proxy<br><strong>Default:</strong> <code>http</code></p> |
+| `STEADYBIT_PROXY_USER`     |          | <p>Username of your proxy</p>                                                |
+| `STEADYBIT_PROXY_PASSWORD` |          | <p>Password of your proxy</p>                                                |
