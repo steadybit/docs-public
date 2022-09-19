@@ -92,7 +92,7 @@ Discovery Name: `AvailabilityZoneDiscovery`
 
 <details>
 
-<summary>AWS Fix Experiments Integration</summary>
+<summary>AWS Fis Experiments Integration</summary>
 
 Discovery Name: `FisExperimentTemplateDiscovery`
 
