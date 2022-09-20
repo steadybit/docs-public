@@ -27,9 +27,10 @@ Every execution has a unique identifier (e.g. **#33131**), which you can use to 
 Eventually, every execution ends in one of the following states:
 
 | End state | Description                                                                                                                                                                                                                                                |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | COMPLETED | Entire experiment (all attacks, actions and checks) were successfully executed - so no failure reported by any check.                                                                                                                                      |
 | CANCELED  | The experiment was canceled by user interaction and all attacks were rolled back.                                                                                                                                                                          |
-| FAILED    | The execution failed due to some technical reasons like _Failed attack execution_ or _Agent disconnected unexpectedly_. This shouldn't happen frequently, in case it does, let us know. We are constantly improving the platform to reduce failure states. |
+| FAILED    | The execution failed due to some failing checks, for example a _HTTP Check_ not reaching the required success rate.                                                                                                                                        |
+| ERRORED   | The execution failed due to some technical reasons like _Failed attack execution_ or _Agent disconnected unexpectedly_. This shouldn't happen frequently, in case it does, let us know. We are constantly improving the platform to reduce failure states. |
 
 In case an agent looses the connection to the platform during an experiment, it will immediately stop and rollback running attacks. There are some attacks (like `Stop Container`) which can't be rolled back due to it's nature.
