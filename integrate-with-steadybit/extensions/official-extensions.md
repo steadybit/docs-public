@@ -44,7 +44,7 @@ The API gateway Kong can be interacted with through the Kong extension. It facil
 
 ### ![](../../.gitbook/assets/postman.png)
 
-This extension allows to integrate Postman cloud resources within steadybit.
+This extension allows to integrate Postman cloud resources within Steadybit.
 
 :warning: The Postman extension is currently bundled in the out-of-the-box version of Steadybit. This code should help you to understand the usage of [ActionKit](https://github.com/steadybit/action-kit).
 
@@ -56,3 +56,21 @@ This extension allows to integrate Postman cloud resources within steadybit.
 
 * [GitHub](https://github.com/steadybit/extension-postman)
 * [Installation Instructions](https://github.com/steadybit/extension-postman#readme)
+
+
+
+## Prometheus (_beta_, [extension-prometheus](https://github.com/steadybit/extension-prometheus))
+
+![](../../.gitbook/assets/logo.png)
+
+A Steadybit check implementation to gather Prometheus metrics within chaos engineering experiment executions. These can be used as checks within experiments, e.g., to implement pre- and post-conditions.
+
+### Capabilities
+
+* Execute metric queries
+* Support for multiple Prometheus instances
+
+### References
+
+* [GitHub](https://github.com/steadybit/extension-prometheus)
+* [Installation Instructions](https://github.com/steadybit/extension-prometheus#readme)
