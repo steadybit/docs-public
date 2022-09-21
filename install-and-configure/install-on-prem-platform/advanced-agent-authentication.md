@@ -23,7 +23,8 @@ All options are described in [Platform Configuration Options](advanced-configura
 
 ### Agent Configuration
 
-To tell the agent to use OIDC, set `STEADYBIT_AGENT_AUTH_PROVIDER=OAUTH2`, `STEADYBIT_AGENT_AUTH_OAUTH2_ISSUER_URI` to the issuer URI of your identity provider and the `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_ID` to the client id to use.
+To tell the agent to use OIDC, set `STEADYBIT_AGENT_AUTH_PROVIDER=OAUTH2`, `STEADYBIT_AGENT_AUTH_OAUTH2_ISSUER_URI` to the issuer URI of your identity provider and the `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_ID` to the client id to use.\
+Alternatively instead of using the issuer URI you can directly configure the `STEADYBIT_AGENT_AUTH_OAUTH2_TOKEN_URI` to tell the agents where to get the access tokens from, this won't try to read the OIDC discovery endpoint.
 
 All options are described in [Agent Configuration Options](../install-agents/advanced-configuration.md).
 
