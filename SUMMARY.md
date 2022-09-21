@@ -75,6 +75,7 @@
   * [Spring Java Applications](use-steadybit/discovery/application.md)
   * [Cloud](use-steadybit/discovery/cloud.md)
   * [Customizing](use-steadybit/discovery/custom.md)
+* [Query Language](use-steadybit/query-language.md)
 
 ## Integrate with Steadybit
 

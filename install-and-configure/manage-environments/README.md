@@ -2,7 +2,7 @@
 title: Set Up Environments
 ---
 
-# Set Up Environments
+# Manage Environments
 
 No one knows your system better than you, so it is obvious that you should be the one who structures the discovered targets.
 
@@ -17,7 +17,7 @@ Per default, your system contains one environment called `Global`. This is the p
 To create or change an environment go to `/settings/environments` and choose to either add an environment or edit an existing one. An environment consists of a
 
 * **Name**: A meaningful name helps to find the environment afterwards (e.g. "Onlineshop DEV" or "Contract Management PROD").
-* **Included Targets**: The targets belonging to an environment are specified by using our [discovery data](../../use-steadybit/discovery/README.md). This is the upper limit of targets that can be attacked when running an experiment in a certain environment.
+* **Included Targets**: The targets belonging to an environment are specified by using our [discovery data](../../use-steadybit/discovery/). This is the upper limit of targets that can be attacked when running an experiment in a certain environment.
 * **Team**: For using that environment to run an experiment you need to assign the team to it. This can be done from environment-perspective (`/settings/environments` ) as well as from Team-perspective (`/settings/teams`). It limits access to the users of a team to certain environments (so systems and environments).
 
 Environments can be defined using two different modes
@@ -41,15 +41,17 @@ Don't forget to finally assign the environment to a team and give it a meaningfu
 
 An advanced environment is needed in case
 
-* you are not using Kubernetes
-* you need more fine-grained control (e.g. limit environment to a specific AWS Availability Zone).
+* you are not only using Kubernetes
+* you need more fine-grained control (e.g. limit the environment to a specific AWS Availability Zone).
 
-Therefore, you can switch to the advanced mode and use the Query Builder to define the environment. On the right hand side you can see all included targets for that environment.
+Therefore, you can switch to the advanced mode and use the Query UI or the Query Language to define the environment. On the right-hand side, you can see all included targets for the given environment query.
 
-![Advanced Environment: Query Builder for fine-grained environments](add-advanced.png)
+<figure><img src="../../.gitbook/assets/local.platform-k8s.dev.steadybit.io_3000_settings_areas_%3Cnew%3E_tenant=demo_&#x26;team=SHOP_.png" alt=""><figcaption><p>Advanced Environment: Query Builder for fine-grained environments</p></figcaption></figure>
 
-Don't forget to finally assign the environment to a team and give it a meaningful name. That's it, you are ready to use that environment in an experiment!
+With the query UI, you can build regular queries which are connected with an AND expression. For most use cases this can be sufficient. But sometimes, it's necessary to have even more control over the query. For instance, if you want to check for any key-value pair existence or you want to match all, but not a specific attribute, e.g. cluster.name="prod". Queries like that can easily be written with the Query language. For detailed information, please [visit the query language documentation](../../use-steadybit/query-language.md).
+
+Finally, don't forget to finally assign the environment to a team and give it a meaningful name. That's it, you are ready to use that environment in an experiment!
 
 ### Use Environments
 
-Once the environments are defined and assigned to teams, you can make use of them when e.g. [designing an experiment](../../use-steadybit/experiments/README.md).
+Once the environments are defined and assigned to teams, you can make use of them when e.g. [designing an experiment](../../use-steadybit/experiments/).
