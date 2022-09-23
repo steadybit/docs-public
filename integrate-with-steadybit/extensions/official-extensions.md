@@ -40,6 +40,23 @@ The API gateway Kong can be interacted with through the Kong extension. It facil
 * [GitHub](https://github.com/steadybit/extension-kong)
 * [Installation Instructions](https://github.com/steadybit/extension-kong#readme)
 
+## Kubernetes (beta, [extension-kubernetes](https://github.com/steadybit/extension-kubernetes))
+
+### ![](<../../.gitbook/assets/logo (1).png>)
+
+### Capabilities
+
+The Kubernetes extension complements Steadybit's natively supported Kubernetes actions and discoveries.
+
+#### Deployments
+
+* Rollout restart attack with an optional check to verify rollout completion
+
+### References
+
+* [GitHub](https://github.com/steadybit/extension-kubernetes)
+* [Installation Instructions](https://github.com/steadybit/extension-kubernetes#readme)
+
 ## Postman ([extension-postman](https://github.com/steadybit/extension-postman#readme))
 
 ### ![](../../.gitbook/assets/postman.png)
