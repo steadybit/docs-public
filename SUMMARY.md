@@ -21,7 +21,6 @@
   * [Configuration Options](install-and-configure/install-agents/advanced-configuration.md)
   * [FAQ](install-and-configure/install-agents/faq.md)
 * [Install On-Prem Platform](install-and-configure/install-on-prem-platform/README.md)
-  * [Install as Docker Container](install-and-configure/install-on-prem-platform/docker.md)
   * [Install on Kubernetes](install-and-configure/install-on-prem-platform/k8s.md)
   * [Advanced Agent Authentication](install-and-configure/install-on-prem-platform/advanced-agent-authentication.md)
   * [Configuration Options](install-and-configure/install-on-prem-platform/advanced-configuration.md)

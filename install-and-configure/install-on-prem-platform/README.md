@@ -4,7 +4,7 @@ title: Install On-Prem Platform
 
 # Install On-Prem Platform
 
-This guide helps you with the initial installation and deployment of our steadybit platform On-Premise. It is explicitly of use for spaces where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself. After completing this getting started, continue by [setting up steadybit](../install-agents/README.md)
+This guide helps you with the initial installation and deployment of our steadybit platform On-Premise. It is explicitly of use for spaces where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself. After completing this getting started, continue by [setting up steadybit](../install-agents/)
 
 > If you are interested in using our SaaS platform, [let us know](https://www.steadybit.com/request-demo) and continue directly with the getting started of how to [set up the platform](../../quick-start/set-up-agents.md).
 
@@ -71,11 +71,11 @@ To make it convenient for you, we have a default for everything. That's also why
 
 > **BE AWARE:** The database is not backed up and if the pod is deleted the data is lost!
 >
-> For productive usage, we strongly recommend to setup your own Postgres database and configure the steadybit platform as described [here](./advanced-configuration.md).
+> For productive usage, we strongly recommend to setup your own Postgres database and configure the steadybit platform as described [here](advanced-configuration.md).
 
-In case you prefer to deploy our steadybit platform using Kubernetes directly instead of the helm chart, you can find everything you need [here](./k8s.md#installation-using-kubectl).
+In case you prefer to deploy our steadybit platform using Kubernetes directly instead of the helm chart, you can find everything you need [here](k8s.md#installation-using-kubectl).
 
-See also [Kubernetes](../install-on-prem-platform/k8s.md) for further informations about the setup with Kubernetes.
+See also [Kubernetes](k8s.md) for further informations about the setup with Kubernetes.
 
 ### Step 2.2 - Docker
 
@@ -85,7 +85,7 @@ At least a Docker installation and a PostgresSQL database is required to run the
 curl -sfL https://get.steadybit.io/platform.sh | sh -s -- -a <agent-key> -d <jdbc-url> -e <jdbc-user> -f <jdbc-password>
 ```
 
-See also [Docker](docker.md) for further informations about the setup with Docker.
+See also [Docker](broken-reference) for further informations about the setup with Docker.
 
 ### What's next?
 
@@ -105,7 +105,7 @@ As mentioned above, this getting started helped to set up quickly a steadybit pl
 Before using steadybit
 
 * configure your own Postgres database as [described here](advanced-configuration.md).
-* we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](docker.md#external-ldap).
+* we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](broken-reference).
 
 #### Advanced Configuration
 

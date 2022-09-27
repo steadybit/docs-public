@@ -11,7 +11,7 @@ Otherwise, you'll get an error message and the experiment is not started.
 
 As soon as the experiment starts, the platform automatically switches over to the execution view. The first step of the platform is to establish the connection to the matching agents. In addition, the running experiment is indicated at the top right execution icon.
 
-![Experiment Execution View](<../../quick-start/run-experiment-run2 (1) (1) (1) (2).png>)
+![Experiment Execution View](<../../quick-start/run-experiment-run2 (1) (1) (1) (1) (1).png>)
 
 The execution view consists of the following elements.
 
@@ -27,7 +27,7 @@ Every execution has a unique identifier (e.g. **#33131**), which you can use to 
 Eventually, every execution ends in one of the following states:
 
 | End state | Description                                                                                                                                                                                                                                                |
-|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | COMPLETED | Entire experiment (all attacks, actions and checks) were successfully executed - so no failure reported by any check.                                                                                                                                      |
 | CANCELED  | The experiment was canceled by user interaction and all attacks were rolled back.                                                                                                                                                                          |
 | FAILED    | The execution failed due to some failing checks, for example a _HTTP Check_ not reaching the required success rate.                                                                                                                                        |
