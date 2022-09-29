@@ -183,6 +183,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: steadybit-agent
+  namespace: steadybit-agent
 subjects:
   - kind: ServiceAccount
     name: steadybit-agent
@@ -427,6 +428,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: steadybit-agent
+  namespace: steadybit-agent
 subjects:
   - kind: ServiceAccount
     name: steadybit-agent
