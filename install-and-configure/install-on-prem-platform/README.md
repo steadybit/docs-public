@@ -110,3 +110,8 @@ Before using steadybit
 #### Advanced Configuration
 
 More configuration options can be found in [Advanced Configuration](advanced-configuration.md)
+
+#### Troubleshooting
+
+If you have any problems, check our [Troubleshooting](troubleshooting.md) page. 
+please [reach out to us](https://www.steadybit.com/contact).
