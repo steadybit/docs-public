@@ -46,7 +46,7 @@ This needs to be done in three steps:
 2. Run `echo -n '{"auths":{"docker.steadybit.io":{"auth":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
 3. Fill in the result from Step 2 into the value for the `.dockerconfigjson` key
 
-### Example with external database:
+### Example with external database
 
 ```yaml
 apiVersion: v1
@@ -139,7 +139,7 @@ spec:
   type: LoadBalancer
 ```
 
-### Example with internal database and AWS ALB Ingress Controller:
+### Example with internal database and AWS ALB Ingress Controller
 
 ```yaml
 apiVersion: v1
