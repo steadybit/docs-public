@@ -1,16 +1,18 @@
 ---
-title: "Install on Kubernetes"
-navTitle: "Kubernetes"
+title: Install on Kubernetes
+navTitle: Kubernetes
 ---
 
-When using Kubernetes there are two approaches to setup the platform: Using helm or the manifest directly via `kubectl. We recommend to use the Helm chart.
+# Install on Kubernetes
 
-- [Installation using Helm chart](#installation-using-helm-chart)
-- [Installation using kubectl](#installation-using-kubectl)
-- [Access from outside via ingress](#access-from-outside-via-ingress)
-- [Local test setup via Minikube and NGINX ingress](#local-test-setup-via-minikube-and-nginx-ingress)
+When using Kubernetes there are two approaches to setup the platform: Using helm or the manifest directly via \`kubectl. We recommend to use the Helm chart.
 
-### Installation using Helm chart
+* [Installation using Helm chart](k8s.md#installation-using-helm-chart)
+* [Installation using kubectl](k8s.md#installation-using-kubectl)
+* [Access from outside via ingress](k8s.md#access-from-outside-via-ingress)
+* [Local test setup via Minikube and NGINX ingress](k8s.md#local-test-setup-via-minikube-and-nginx-ingress)
+
+#### Installation using Helm chart
 
 To install the platform via the chart, first retrieve your steadybit agent key from the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform and run the following commands.
 
@@ -35,10 +37,9 @@ To configure the installation, specify the values on the command line using the 
 
 For a detailed list of all the configuration parameters, please see our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-platform).
 
-### Installation using kubectl
+#### Installation using kubectl
 
-To install and configure the steadybit platform within Kubernetes you need to define the manifest.
-Below you will see an example of a YAML file to run the steadybit platform. Please replace the string 'replace-with-agent-key' with your specific Agent-Key and run the shown commands to encode the key correctly.
+To install and configure the steadybit platform within Kubernetes you need to define the manifest. Below you will see an example of a YAML file to run the steadybit platform. Please replace the string 'replace-with-agent-key' with your specific Agent-Key and run the shown commands to encode the key correctly.
 
 This needs to be done in three steps:
 
@@ -46,7 +47,7 @@ This needs to be done in three steps:
 2. Run `echo -n '{"auths":{"docker.steadybit.io":{"auth":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
 3. Fill in the result from Step 2 into the value for the `.dockerconfigjson` key
 
-### Example with external database
+#### Example with external database
 
 ```yaml
 apiVersion: v1
@@ -139,7 +140,7 @@ spec:
   type: LoadBalancer
 ```
 
-### Example with internal database and AWS ALB Ingress Controller
+#### Example with internal database and AWS ALB Ingress Controller
 
 ```yaml
 apiVersion: v1
@@ -172,9 +173,9 @@ metadata:
 type: Opaque
 data:
   #replace with your own password (base64 encoded)
-  postgres-password: "NEV3cUY1S2dUUA=="
+  postgres-password: "AAA3cUY1S2dUUA=="
   # replace with your own password (base64 encoded)
-  password: "aFpTM29FY2N0UQ=="
+  password: "aaaTM29FY2N0UQ=="
 ---
 # Source: steadybit-platform/templates/secrets.yaml
 apiVersion: v1
@@ -202,7 +203,7 @@ metadata:
     app.kubernetes.io/instance: steadybit-platform
 type: Opaque
 data:
-  key: "cTM1aTZvOGo0cG13OXE="
+  key: "cAAAaBBvDDo0c1234XE="
 ---
 # Source: steadybit-platform/charts/postgresql/templates/primary/svc-headless.yaml
 apiVersion: v1
@@ -600,9 +601,7 @@ spec:
                 name: steadybit-platform
                 port:
                   number: 80
-
 ```
-
 
 Once the YAML file is customized you can apply it with `kubectl`:
 
@@ -610,11 +609,11 @@ Once the YAML file is customized you can apply it with `kubectl`:
 kubectl apply -f steadybit-platform.yml
 ```
 
-### Access from outside via ingress
+#### Access from outside via ingress
 
 Please keep in mind that you need to define an ingress controller to accesss the platform from the outside. That depends on your chosen K8s distribution. Below you will find examples for an ALB (AWS) and NGINX.
 
-#### ALB
+**ALB**
 
 ```yaml
 ---
@@ -647,14 +646,14 @@ spec:
                 port:
                   number: 80
 ```
+
 You can find the public DNS name of the ALB via `kubectl`:
 
 ```bash
 kubectl get svc -n steadybit-platform
 ```
 
-
-#### NGINX
+**NGINX**
 
 ```yaml
 ---
@@ -683,7 +682,7 @@ spec:
                   number: 80
 ```
 
-### Local test setup via Minikube and NGINX ingress
+#### Local test setup via Minikube and NGINX ingress
 
 Below you find a complete example with Minikube and NGINX as Ingress to setup a local test environment for the platform with a Postgres database. Please replace the string 'replace-with-agent-key' with your specific Agent-Key and run the shown commands to encode the key correctly.
 
@@ -847,32 +846,32 @@ First install Minikube to run on your system: https://minikube.sigs.k8s.io/docs/
 
 Start the cluster and enable the ingress resource:
 
-```sh
+```
 minikube start --driver=hyperkit
 minikube addons enable ingress
 ```
 
 Check if ingress is running. This could take a few seconds:
 
-```sh
+```
 kubectl get -n steadybit-platform ingress
 ```
 
 Apply manifest:
 
-```sh
+```
 kubectl apply -f <steadybit-platform-deployment-minikube.yml>
 ```
 
 Get the external IP of your cluster:
 
-```sh
+```
 minikube ip
 ```
 
 Add the following line to the bottom of the `/etc/hosts` file:
 
-```sh
+```
 <replace with ip from above> platform.steadybit.local
 ```
 
