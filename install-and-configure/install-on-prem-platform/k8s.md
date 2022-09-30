@@ -203,7 +203,7 @@ metadata:
     app.kubernetes.io/instance: steadybit-platform
 type: Opaque
 data:
-  key: "cAAAaBBvDDo0c1234XE="
+  key: "<replace-with-agent-key-base-64>"
 ---
 # Source: steadybit-platform/charts/postgresql/templates/primary/svc-headless.yaml
 apiVersion: v1
