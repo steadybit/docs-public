@@ -30,6 +30,11 @@ The AWS extension enhances Steadybit's native capabilities to discover and injec
 
 The API gateway Kong can be interacted with through the Kong extension. It facilitates verifying how Kong services behave during intermittent outages or when services misbehave.
 
+#### Kong Routes
+
+* Kong route discovery
+* attack to configure the [request termination plugin](https://docs.konghq.com/hub/kong-inc/request-termination/) for a service/route/consumer/trigger combination
+
 #### Kong Services
 
 * Kong service discovery
