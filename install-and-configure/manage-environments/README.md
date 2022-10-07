@@ -46,7 +46,7 @@ An advanced environment is needed in case
 
 Therefore, you can switch to the advanced mode and use the Query UI or the Query Language to define the environment. On the right-hand side, you can see all included targets for the given environment query.
 
-<figure><img src="../../.gitbook/assets/local.platform-k8s.dev.steadybit.io_3000_settings_areas_%3Cnew%3E_tenant=demo_&#x26;team=SHOP_.png" alt=""><figcaption><p>Advanced Environment: Query Builder for fine-grained environments</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/environments.png" alt=""><figcaption><p>Advanced Environment: Query Builder for fine-grained environments</p></figcaption></figure>
 
 With the query UI, you can build regular queries which are connected with an AND expression. For most use cases this can be sufficient. But sometimes, it's necessary to have even more control over the query. For instance, if you want to check for any key-value pair existence or you want to match all, but not a specific attribute, e.g. cluster.name="prod". Queries like that can easily be written with the Query language. For detailed information, please [visit the query language documentation](../../use-steadybit/query-language.md).
 
