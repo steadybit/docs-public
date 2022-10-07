@@ -36,11 +36,11 @@ Experiment Badges always links to an existing experiment. But what if you like t
 you are writing a documentation about it and want to add one or more experiment badges to it. Maybe even before you've actually created. This is where the
 second kind of badges comes into play.
 
-![Example Badge before a experiment is created](https://platform-k8s.dev.steadybit.io/api/badges/linked-badge.svg?tenantKey=demo&externalReference=INCIDENT-100&createCaption=Create%20experiment%20for%20incident%20100)
+![Example Badge before a experiment is created](https://platform.dev.steadybit.io/api/badges/linked-badge.svg?tenantKey=demo&externalReference=INCIDENT-100&createCaption=Create%20experiment%20for%20incident%20100)
 
-![Example Badge after a experiment is created](https://platform-k8s.dev.steadybit.io/api/badges/linked-badge.svg?tenantKey=demo&externalReference=BADGE-TEST-2&createCaption=Create%20experiment%20for%20incident%20100)
+![Example Badge after a experiment is created](https://platform.dev.steadybit.io/api/badges/linked-badge.svg?tenantKey=demo&externalReference=BADGE-TEST-2&createCaption=Create%20experiment%20for%20incident%20100)
 
-![Example Badge after multiple experiments are linked to the external reference](https://platform-k8s.dev.steadybit.io/api/badges/linked-badge.svg?tenantKey=demo&externalReference=BADGE-TEST-3&createCaption=Create%20experiment%20for%20incident%20100)
+![Example Badge after multiple experiments are linked to the external reference](https://platform.dev.steadybit.io/api/badges/linked-badge.svg?tenantKey=demo&externalReference=BADGE-TEST-3&createCaption=Create%20experiment%20for%20incident%20100)
 
 {% code title="example.md" %}
 ```markdown
