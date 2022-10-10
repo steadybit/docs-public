@@ -90,11 +90,12 @@ kind: ServiceAccount
 metadata:
   name: steadybit-agent
   namespace: steadybit-agent
+automountServiceAccountToken: true
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: docker-steadybit-io
+  name: steadybit-agent-pull-secrets
   namespace: steadybit-agent
 type: kubernetes.io/dockerconfigjson
 data:
@@ -107,12 +108,12 @@ metadata:
   namespace: steadybit-agent
 type: Opaque
 data:
-  key: "<echo -n <replace-with-agent-key> | base64>+"
+  key: <echo -n <replace-with-agent-key> | base64>
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: steadybit-agent
+  name: steadybit-agent-in-steadybit-agent
 rules:
   - apiGroups: [ "batch" ]
     resources:
@@ -158,14 +159,14 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: steadybit-agent
+  name: steadybit-agent-in-steadybit-agent
 subjects:
   - kind: ServiceAccount
     name: steadybit-agent
     namespace: steadybit-agent
 roleRef:
   kind: ClusterRole
-  name: steadybit-agent
+  name: steadybit-agent-in-steadybit-agent
   apiGroup: rbac.authorization.k8s.io
 ---
 kind: Role
@@ -211,6 +212,10 @@ spec:
     metadata:
       labels:
         com.steadybit.agent: "true"
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/prometheus"
+        prometheus.io/port: "42899"
     spec:
       serviceAccountName: steadybit-agent
       hostIPC: true
@@ -223,12 +228,12 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
-              memory: 512Mi
+              memory: 450Mi
               cpu: 250m
             limits:
-              memory: 768Mi
+              memory: 650Mi
               cpu: 1500m
-
+          
           livenessProbe:
             httpGet:
               host: 127.0.0.1
@@ -269,7 +274,10 @@ spec:
               value: "42899"
             - name: STEADYBIT_AGENT_MODE
               value: "default"
+            - name: STEADYBIT_AGENT_SIDECAR_IMAGE
+              value: "docker.steadybit.io/steadybit/agent:latest"
           securityContext:
+            readOnlyRootFilesystem: false
             privileged: true
           volumeMounts:
             - name: steadybit-agent-state
@@ -286,9 +294,11 @@ spec:
               mountPath: /run/containerd
             - name: container-namespaces
               mountPath: /var/run
-              mountPropagation: Bidirectional
+              mountPropagation: HostToContainer
+            - name: container-sidecar-bundles-root
+              mountPath: /var/lib/containerd/steadybit-agent
       imagePullSecrets:
-        - name: docker-steadybit-io
+        - name: steadybit-agent-pull-secrets
       volumes:
         - name: steadybit-agent-state
           hostPath:
@@ -311,7 +321,9 @@ spec:
         - name: container-namespaces
           hostPath:
             path: /var/run
-
+        - name: container-sidecar-bundles-root
+          hostPath:
+            path: /var/lib/containerd/steadybit-agent
 ```
 
 </details>
@@ -321,26 +333,19 @@ spec:
 <summary>Kubernetes Manifest for Docker Runtime</summary>
 
 ```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: steadybit-agent
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: steadybit-agent
   namespace: steadybit-agent
-  labels:
-    com.steadybit.agent: "true"
+automountServiceAccountToken: true
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: docker-steadybit-io
+  name: steadybit-agent-pull-secrets
   namespace: steadybit-agent
-  labels:
-    com.steadybit.agent: "true"
 type: kubernetes.io/dockerconfigjson
 data:
   .dockerconfigjson: <echo -n '{"auths":{"docker.steadybit.io":{"auth":"<echo -n _:<replace-with-agent-key> | base64>"}}}' | base64>
@@ -357,7 +362,7 @@ data:
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: steadybit-agent
+  name: steadybit-agent-in-steadybit-agent
 rules:
   - apiGroups: [ "batch" ]
     resources:
@@ -403,14 +408,14 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: steadybit-agent
+  name: steadybit-agent-in-steadybit-agent
 subjects:
   - kind: ServiceAccount
     name: steadybit-agent
     namespace: steadybit-agent
 roleRef:
   kind: ClusterRole
-  name: steadybit-agent
+  name: steadybit-agent-in-steadybit-agent
   apiGroup: rbac.authorization.k8s.io
 ---
 kind: Role
@@ -456,6 +461,10 @@ spec:
     metadata:
       labels:
         com.steadybit.agent: "true"
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/prometheus"
+        prometheus.io/port: "42899"
     spec:
       serviceAccountName: steadybit-agent
       hostIPC: true
@@ -468,11 +477,12 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
-              memory: 512Mi
+              memory: 450Mi
               cpu: 250m
             limits:
-              memory: 768Mi
+              memory: 650Mi
               cpu: 1500m
+          
           livenessProbe:
             httpGet:
               host: 127.0.0.1
@@ -513,7 +523,10 @@ spec:
               value: "42899"
             - name: STEADYBIT_AGENT_MODE
               value: "default"
+            - name: STEADYBIT_AGENT_SIDECAR_IMAGE
+              value: "docker.steadybit.io/steadybit/agent:latest"
           securityContext:
+            readOnlyRootFilesystem: false
             privileged: true
           volumeMounts:
             - name: steadybit-agent-state
@@ -524,8 +537,9 @@ spec:
               mountPath: /sys/fs/cgroup
             - name: sys
               mountPath: /sys
+            
       imagePullSecrets:
-        - name: docker-steadybit-io
+        - name: steadybit-agent-pull-secrets
       volumes:
         - name: steadybit-agent-state
           hostPath:
@@ -538,7 +552,7 @@ spec:
             path: /sys/fs/cgroup
         - name: sys
           hostPath:
-            path: /sy
+            path: /sys
 ```
 
 </details>
