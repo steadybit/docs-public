@@ -83,8 +83,7 @@ This needs to be done in three steps:
 
 <summary>Kubernetes Manifest for ContainerD Runtime</summary>
 
-```yaml
----
+<pre class="language-yaml"><code class="lang-yaml">---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -99,7 +98,7 @@ metadata:
   namespace: steadybit-agent
 type: kubernetes.io/dockerconfigjson
 data:
-  .dockerconfigjson: <echo -n '{"auths":{"docker.steadybit.io":{"auth":"<echo -n _:<replace-with-agent-key> | base64>"}}}' | base64>
+  .dockerconfigjson: &#x3C;echo -n '{"auths":{"docker.steadybit.io":{"auth":"&#x3C;echo -n _:&#x3C;replace-with-agent-key> | base64>"}}}' | base64>
 ---
 apiVersion: v1
 kind: Secret
@@ -108,7 +107,7 @@ metadata:
   namespace: steadybit-agent
 type: Opaque
 data:
-  key: <echo -n <replace-with-agent-key> | base64>
+  key: &#x3C;echo -n &#x3C;replace-with-agent-key> | base64>
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
@@ -212,6 +211,8 @@ spec:
     metadata:
       labels:
         com.steadybit.agent: "true"
+<strong>        app.kubernetes.io/name: steadybit-agent
+</strong>        app.kubernetes.io/instance: steadybit-agent       
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/path: "/prometheus"
@@ -253,7 +254,7 @@ spec:
                   name: steadybit-agent
                   key: key
             - name: STEADYBIT_KUBERNETES_CLUSTER_NAME
-              value: "<replace-with-cluster-name>"
+              value: "&#x3C;replace-with-cluster-name>"
             - name: POD_IP
               valueFrom:
                 fieldRef:
@@ -323,8 +324,7 @@ spec:
             path: /var/run
         - name: container-sidecar-bundles-root
           hostPath:
-            path: /var/lib/containerd/steadybit-agent
-```
+            path: /var/lib/containerd/steadybit-agent</code></pre>
 
 </details>
 
@@ -461,6 +461,8 @@ spec:
     metadata:
       labels:
         com.steadybit.agent: "true"
+        app.kubernetes.io/name: steadybit-agent
+        app.kubernetes.io/instance: steadybit-agent
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/path: "/prometheus"
