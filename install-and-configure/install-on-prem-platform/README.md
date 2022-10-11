@@ -18,10 +18,6 @@ If you need help, please [reach out to us](https://www.steadybit.com/contact).
 
 ### Step 0 - Check Prerequisites
 
-You should have already received an invitation mail for the [steadybit platform](https://platform.steadybit.io/) where you can login with your e-mail address and a temporary password. This temporary password needs to be changed immediately at first login. After that, you see the following page which we need later on.
-
-![Get your keys](step0-onprem.png)
-
 Before continuing, make sure that access to the following URLs via HTTPS (443) is possible from your location of installation:
 
 * https://docker.steadybit.io and https://index.docker.io (Docker Image)
@@ -43,7 +39,7 @@ The agent key is needed to install the platform and connect the steadybit agents
 It is our goal to make the installation as easy as possible for you, that's why we recommend you to use our Helm chart that takes a lot of the work out of it and only requires a few parameters from you. If you are not familiar with Helm and would like to learn more about it, check out [helm's QuickStart](https://helm.sh/docs/intro/quickstart/)
 
 {% hint style="info" %}
-In case you can't use Helm, get in touch with us and we can provide you fitting Kubernetes Manifests.
+In case you can't use Helm or Kubernetes at all, get in touch with us and we'll find the best solution. The platform kan be deployed without Helm and also on plain Docker hosts.&#x20;
 {% endhint %}
 
 Please replace the placeholder `replace-with-agent-key` with your agent key copied in [Step 1 - Get your key](./#step-1---getyourkey) and start the helm chart installation with:
