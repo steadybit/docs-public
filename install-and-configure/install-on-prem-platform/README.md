@@ -36,24 +36,15 @@ The platform itself exposes the following ports:
 
 ### Step 1 - Get your keys
 
-After logging in into the [steadybit platform](https://platform.steadybit.io/) you get access to the **Agent Key**. The Agent Key is needed to install the platform and connect the steadybit agents against it.
+The agent key is needed to install the platform and connect the steadybit agents against it. Get in touch with us and we will provide you an on-prem license and an agent key.
 
-![Get your keys](step1-get-your-keys.png)
-
-So, simply copy the agent key from here and use it in the next step to deploy the platform.
-
-### Step 2 - Deploy Platform
-
-Our platform is installed as Docker container. The platform container image is available in the steadybit Docker Registry. The machine you are installing steadybit onto, must have 4 CPUs and 8 GB available memory.
-
-Please choose one of the following deployment options:
-
-* [Step 2.1 - Kubernetes](./#step2.1-kubernetes)
-* [Step 2.2 - Docker](./#step2.1-docker)
-
-### Step 2.1 - Kubernetes
+### Step 2 - Deploy Platform using Kubernetes Helm Charts
 
 It is our goal to make the installation as easy as possible for you, that's why we recommend you to use our Helm chart that takes a lot of the work out of it and only requires a few parameters from you. If you are not familiar with Helm and would like to learn more about it, check out [helm's QuickStart](https://helm.sh/docs/intro/quickstart/)
+
+{% hint style="info" %}
+In case you can't use Helm, get in touch with us and we can provide you fitting Kubernetes Manifests.
+{% endhint %}
 
 Please replace the placeholder `replace-with-agent-key` with your agent key copied in [Step 1 - Get your key](./#step-1---getyourkey) and start the helm chart installation with:
 
@@ -77,16 +68,6 @@ In case you prefer to deploy our steadybit platform using Kubernetes directly in
 
 See also [Kubernetes](k8s.md) for further informations about the setup with Kubernetes.
 
-### Step 2.2 - Docker
-
-At least a Docker installation and a PostgresSQL database is required to run the platform. Please replace the placeholder `agent-key` with your value copied in [Step 1 - Get your key](./#step-1---get-your-keys). Furthermore, replace the placeholders `jdbc-url`, `jdbc-user` and `jdbc-password` in our one liner script with the settings of your running PostgreSQL database.
-
-```bash
-curl -sfL https://get.steadybit.io/platform.sh | sh -s -- -a <agent-key> -d <jdbc-url> -e <jdbc-user> -f <jdbc-password>
-```
-
-See also [Docker](broken-reference) for further informations about the setup with Docker.
-
 ### What's next?
 
 Done, the platform is running. The default login for the on-prem platform is
@@ -105,7 +86,7 @@ As mentioned above, this getting started helped to set up quickly a steadybit pl
 Before using steadybit
 
 * configure your own Postgres database as [described here](advanced-configuration.md).
-* we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](broken-reference).
+* we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](broken-reference/).
 
 #### Advanced Configuration
 
@@ -113,5 +94,4 @@ More configuration options can be found in [Advanced Configuration](advanced-con
 
 #### Troubleshooting
 
-If you have any problems, check our [Troubleshooting](troubleshooting.md) page. 
-Or please [reach out to us](https://www.steadybit.com/contact).
+If you have any problems, check our [Troubleshooting](troubleshooting.md) page. Or please [reach out to us](https://www.steadybit.com/contact).
