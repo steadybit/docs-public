@@ -27,10 +27,10 @@ curl -X POST \
   -H "Content-Type: application/json" \
   http://localhost:9090/actuator/systemstatusmaintenance -d '
 {
-    "title": "Planned maintenance",
-    "statusPage": "https://status.example.com",
-    "start": "2022-05-31T00:00:00Z",
-    "end": "2022-06-01T00:00:00Z"
+  "title": "Planned maintenance",
+  "statusPage": "https://status.example.com",
+  "start": "2022-05-31T00:00:00Z",
+  "end": "2022-06-01T00:00:00Z"
 }
 '
 ```
