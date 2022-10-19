@@ -36,4 +36,5 @@ To use the client credentials flow you need to set the `STEADYBIT_AGENT_AUTH_OAU
 
 For using username and password set `STEADYBIT_AGENT_AUTH_OAUTH2_AUTHORIZATION_GRANT_TYPE=password` and provide a username and password with `STEADYBIT_AGENT_AUTH_OAUTH2_USERNAME` and `STEADYBIT_AGENT_AUTH_OAUTH2_PASSWORD`.
 
-For using mutual TLS specify PEM-files containing a X.509 certificate and a PKCS#8 private key by setting `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_KEY_FILE` and `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_CHAIN_FILE`. In case the key is encrypted you can specify the password using `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_PASSWORD`.
+For using mutual TLS specify PEM-files containing a X.509 certificate and a PKCS#8 private key by setting `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_KEY_FILE` and `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_CHAIN_FILE`. In case the key is encrypted you can specify the password using `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_PASSWORD`.\
+The agent will re-load the certificates when the file changes automatically, but it might take up to ten seconds.
