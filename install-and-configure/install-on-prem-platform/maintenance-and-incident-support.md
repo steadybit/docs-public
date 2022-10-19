@@ -8,6 +8,12 @@ During the operation of the on-premise Steadybit platform, you may run into situ
 
 This feature is available in versions > 1.0.2 of the Steadybit platform.
 
+## Learning about Platform Activity
+
+You can use the following metrics to learn whether maintenance on the Steadybit platform would be affecting any users:
+
+* `platform.experiments.executing` is exposed by the Steadybit platform as a Prometheus metric. It represents the number of currently executing experiments.&#x20;
+
 ## Admin API Endpoints
 
 The maintenance and incident API endpoints are only reachable through the admin port `9090` on the platform Kubernetes deployment workload. This port is not exposed to users by default, and you should only use it for administrative purposes. API endpoints on port `9090` do not require authentication.
@@ -55,3 +61,10 @@ curl -X POST \
 ```
 
 <figure><img src="../../.gitbook/assets/Screenshot 2022-10-13 at 13.11.37.png" alt="System banner appearing at the top of the Steadybit UI presenting the information provided through the incident API"><figcaption><p>A banner appears at the top of the Steadybit UI when an incident is defined.</p></figcaption></figure>
+
+The following severities are supported by the API. The user interface will adapt its banner style according to the chosen incident severity.
+
+* `UNDER_MAINTENANCE`
+* `DEGRADED_PERFORMANCE`
+* `PARTIAL_OUTAGE`
+* `MAJOR_OUTAGE`
