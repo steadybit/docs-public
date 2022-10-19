@@ -210,7 +210,6 @@ spec:
   template:
     metadata:
       labels:
-        com.steadybit.agent: "true"
 <strong>        app.kubernetes.io/name: steadybit-agent
 </strong>        app.kubernetes.io/instance: steadybit-agent       
       annotations:
@@ -460,7 +459,6 @@ spec:
   template:
     metadata:
       labels:
-        com.steadybit.agent: "true"
         app.kubernetes.io/name: steadybit-agent
         app.kubernetes.io/instance: steadybit-agent
       annotations:
