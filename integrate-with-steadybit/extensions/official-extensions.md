@@ -28,7 +28,7 @@ The AWS extension enhances Steadybit's native capabilities to discover and injec
 
 ### Capabilities
 
-The Datadog extension makes Datadog information usable within experiments, e.g., to restrict experiment execution to situations in which a monitor is in an expected state.
+The Datadog extension makes Datadog information usable within experiments, e.g., to restrict experiment execution to situations where a monitor is in an expected state.
 
 #### Monitors
 
