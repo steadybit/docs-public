@@ -22,6 +22,24 @@ The AWS extension enhances Steadybit's native capabilities to discover and injec
 * [GitHub](https://github.com/steadybit/extension-aws)
 * [Installation Instructions](https://github.com/steadybit/extension-aws#readme)
 
+## Datadog ([extension-datadog](https://github.com/steadybit/extension-datadog))
+
+### ![](../../.gitbook/assets/logo.png)
+
+### Capabilities
+
+The API gateway Kong can be interacted with through the Kong extension. It facilitates verifying how Kong services behave during intermittent outages or when services misbehave.
+
+#### Monitors
+
+* Gather monitor status information and visualize it
+* Use monitor status information as pre-/post-conditions or invariants.
+
+### References
+
+* [GitHub](https://github.com/steadybit/extension-datadog)
+* [Installation Instructions](https://github.com/steadybit/extension-datadog#readme)
+
 ## Kong ([extension-kong](https://github.com/steadybit/extension-kong))
 
 ### ![](../../.gitbook/assets/kong-logo.png)
@@ -47,7 +65,7 @@ The API gateway Kong can be interacted with through the Kong extension. It facil
 
 ## Kubernetes (beta, [extension-kubernetes](https://github.com/steadybit/extension-kubernetes))
 
-### ![](<../../.gitbook/assets/kubernetes.png>)
+### ![](../../.gitbook/assets/kubernetes.png)
 
 ### Capabilities
 
@@ -78,8 +96,6 @@ This extension allows to integrate Postman cloud resources within Steadybit.
 
 * [GitHub](https://github.com/steadybit/extension-postman)
 * [Installation Instructions](https://github.com/steadybit/extension-postman#readme)
-
-
 
 ## Prometheus (_beta_, [extension-prometheus](https://github.com/steadybit/extension-prometheus))
 
