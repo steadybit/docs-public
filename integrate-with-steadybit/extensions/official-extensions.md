@@ -28,7 +28,7 @@ The AWS extension enhances Steadybit's native capabilities to discover and injec
 
 ### Capabilities
 
-The API gateway Kong can be interacted with through the Kong extension. It facilitates verifying how Kong services behave during intermittent outages or when services misbehave.
+The Datadog extension makes Datadog information usable within experiments, e.g., to restrict experiment execution to situations in which a monitor is in an expected state.
 
 #### Monitors
 
