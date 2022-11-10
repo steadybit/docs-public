@@ -24,7 +24,7 @@ The AWS extension enhances Steadybit's native capabilities to discover and injec
 
 ## Datadog ([extension-datadog](https://github.com/steadybit/extension-datadog))
 
-### ![](../../.gitbook/assets/logo.png)
+### ![](<../../.gitbook/assets/logo (1).png>)
 
 ### Capabilities
 
