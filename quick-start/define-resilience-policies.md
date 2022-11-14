@@ -65,7 +65,7 @@ Depend on your selection in step 3, you may find that not all tasks are fulfille
 steadybit policy-binding open
 ```
 
-![Image showing Steadybit's landscape view with a selected Kubernetes deployment that has fulfilled 80% of its policiey](define-resilience-policies-landscape.png)
+![Image showing Steadybit's landscape view with a selected Kubernetes deployment that has fulfilled 40% of its policies](define-resilience-policies-landscape.png)
 
 ### Step 7 - Execute Experiments and check Weak Spots via CLI
 
