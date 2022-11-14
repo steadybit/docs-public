@@ -41,7 +41,7 @@ curl -X POST \
 '
 ```
 
-<figure><img src="../../.gitbook/assets/Screenshot 2022-10-13 at 11.50.12.png" alt="System banner appearing at the top of the Steadybit UI presenting the information provided through the maintenance API"><figcaption><p>A banner appears at the top of the Steadybit UI when a maintenance is defined.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/maintenance-planned.png" alt="System banner appearing at the top of the Steadybit UI presenting the information provided through the maintenance API"><figcaption><p>A banner appears at the top of the Steadybit UI when a maintenance is defined.</p></figcaption></figure>
 
 ### Incidents
 
@@ -60,7 +60,7 @@ curl -X POST \
 '
 ```
 
-<figure><img src="../../.gitbook/assets/Screenshot 2022-10-13 at 13.11.37.png" alt="System banner appearing at the top of the Steadybit UI presenting the information provided through the incident API"><figcaption><p>A banner appears at the top of the Steadybit UI when an incident is defined.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/incident.png" alt="System banner appearing at the top of the Steadybit UI presenting the information provided through the incident API"><figcaption><p>A banner appears at the top of the Steadybit UI when an incident is defined.</p></figcaption></figure>
 
 The following severities are supported by the API. The user interface will adapt its banner style according to the chosen incident severity.
 
