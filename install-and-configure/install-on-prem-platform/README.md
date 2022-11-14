@@ -4,10 +4,13 @@ title: Install On-Prem Platform
 
 # Install On-Prem Platform
 
->This documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team.
->Please, [book an appointment](https://www.steadybit.com/request-demo) to scope your PoC before continuing to evaluate the on-prem solution.
+{% hint style="info" %}
+This documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team.
+Please, [book an appointment](https://www.steadybit.com/request-demo) to scope your PoC before continuing to evaluate the on-prem solution.
 
->If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com) for our SaaS platform.
+If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com) for our SaaS platform.
+{% endhint %}
+
 
 This guide helps you with the initial installation and deployment of our steadybit platform On-Premise. It is explicitly of use for spaces where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself. After completing this getting started, continue by [setting up steadybit](../install-agents/)
 
