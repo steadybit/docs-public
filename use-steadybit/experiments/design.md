@@ -35,21 +35,20 @@ The wizard guides you step by step through the creation of the experiment. It co
 
 ![Create Experiment - Step 1: Define](create-experiment-step1.png)
 
-1. **Select Target** For selecting the target you want to attack you need to select the target kind first. We support various target kinds like e.g. hosts, containers, JVM applications.
+1. **Select Attack** Now you are ready to choose a suitable attack from one of the available catgories to match your hypothesis. Choose the attack with the desired effect. If needed, you are able to provide additional settings for the attack. However, the defaults are usual a good way to go. To learn more about attacks, check out our [learn-attacks-section in the docs](../attacks/).
 
-Our recommended way is to select them by attributes where you can use the [discovery data](../discovery/) to specify them with a dynamically evaluated query. Since these attributes are discovered by the agents and can change from one moment to the next, it is wise to choose stable attributes. Good examples are labels, namespaces or symbolic names - whereas a unique identifier of targets (like the container id) are usually a bad idea. When the experiment is due to be executed those attributes are resolved into a concrete set of targets to be attacked. You can use the "show targets" button next to the query to evaluate it's effect and preview matching targets.
+![Create Experiment - Step 2: Attack](create-experiment-step2.png)
 
-As an alternative and more static approach you can also choose from a list based on names. For some target types (e.g. application) the target definition is always specified via the list as it is inherent stable.
+1. **Select Target** 
 
-![Create Experiment - Step 2: Targets](create-experiment-step2.png)
+You can now select your desired targets by attributes where you can use the [discovery data](../discovery/) to specify them with a dynamically evaluated query. Since these attributes are discovered by the agents and can change from one moment to the next, it is wise to choose stable attributes. Good examples are labels, namespaces or symbolic names - whereas a unique identifier of targets (like the container id) are usually a bad idea. When the experiment is due to be executed those attributes are resolved into a concrete set of targets to be attacked. You can use the "show targets" button next to the query to evaluate it's effect and preview matching targets.
+
+![Create Experiment - Step 3: Targets](create-experiment-step3.png)
 
 1. **Impact and Attack Radius** You can limit your impact by defining an attack radius. It is a best practices to start easy and not by attacking your entire target selection. Therefore, specify the attack radius as a percentage or fixed number - limiting the amount of maximum affected e.g. hosts or containers. Even so, 100% is a valid value - but you need to be explicit about that.
 
-![Create Experiment - Step 3: Impact Radius](create-experiment-step3.png)
+![Create Experiment - Step 4: Impact Radius](create-experiment-step4.png)
 
-1. **Select Attack** Now you are ready to choose a suitable attack from one of the available catgories to match your hypothesis. Choose the attack with the desired effect and the matching target type. If needed, you are able to provide additional settings for the attack. However, the defaults are usual a good way to go. To learn more about attacks, check out our [learn-attacks-section in the docs](../attacks/).
-
-![Create Experiment - Step 4: Attack](create-experiment-step4.png)
 
 After saving the experiment you are ready to [run it directly](./#run) or extend it using our editor (see blank experiment).
 
