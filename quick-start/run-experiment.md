@@ -22,27 +22,25 @@ To do that, we start by creating a new experiment via our Wizard, which guides u
 
 ### Step 2 - Define Experiment
 
-First step is to give our experiment a meaningful name and define the environment where to be executed. To keep things simple, we choose the `Global` environment to get access to everything steadybit has discovered and not being limited in scope/permissions yet.
+First step is to give our experiment a meaningful name and define the environment where to be executed. We choose the `Online Shop DEV` environment to get access to everything steadybit has discovered for our demo online shop.
 
 ![Create experiment step 2](run-experiment-step2.png)
 
-### Step 3 - Select Targets
+### Step 3 - Select Attack
 
-In the next step we can define our target. Since our target of our experiment is a container running in Kubernetes, we select Container as target kind. Furthermore, we want our experiment to be reusable even after container restarts, so we describe our target container with attributes and not by a unique name.
+Going to the next step, we can choose the attack. We want to simulate unavailability of the `hot-deals` container by isolating it from others. Therefore, we choose the attack "blackhole" on network level.
 
 ![Create experiment step 3](run-experiment-step3.png)
 
-### Step 4 - Set Impact and Attack Radius
+### Step 4 - Select Targets
 
-Going to the next step, we can define how large our impact is. When having a scaled system you may want to start with a small attack radius first - affecting only one container and not all replicas.
-
-Since in the current deployment none of the services are scaled, we keep the default of only one affected container.
+In the next step we can define our target. Since our target of our experiment is a container running in Kubernetes, we select Container by the attribute `k8s.container.name`. Doing that, our experiment will be reusable even after container restarts.
 
 ![Create experiment step 4](run-experiment-step4.png)
 
-### Step 5 - Select Attack
+### Step 5 - Set Impact and Attack Radius
 
-Last but not least: We choose the attack. We want to simulate unavailability of the `hot-deals` container by isolating it from others. Therefore, we choose the attack "blackhole" on network level.
+Last but not least: We can define how large our impact is. When having a scaled system you may want to start with a small attack radius first - affecting only one container and not all replicas.
 
 ![Create experiment step 5](run-experiment-step5.png)
 
