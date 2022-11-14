@@ -5,6 +5,13 @@ navTitle: Troubleshooting
 
 # Troubleshooting
 
+{% hint style="info" %}
+This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team.
+Please, [book an appointment](https://www.steadybit.com/request-demo) to scope your PoC before continuing to evaluate the on-prem solution.
+
+If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
+{% endhint %}
+
 This page describes some common issues and how to solve them.
 
 ### Platform and Postgres are in CrashLoopBackOff

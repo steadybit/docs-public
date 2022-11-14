@@ -5,6 +5,13 @@ navTitle: Advanced Configuration
 
 # Configuration Options
 
+{% hint style="info" %}
+This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team.
+Please, [book an appointment](https://www.steadybit.com/request-demo) to scope your PoC before continuing to evaluate the on-prem solution.
+
+If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
+{% endhint %}
+
 ### Machine Requirements (minimum)
 
 The machine you are installing steadybit onto, must have 4 CPUs and 8 GB available memory.
