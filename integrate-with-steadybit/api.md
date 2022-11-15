@@ -24,28 +24,32 @@ curl \
   https://platform.steadybit.io/api/experiments \
   --data '
 ---
-name: "Experiment API Test"
-type: "infrastructure"
-team: "TEST"
-environment:
-  - "Global"
-attack:
-  type: "host-cpu-attack"
-  parameters:
-    duration: "30s"
-    cpuLoad: 80
-  radius:
-    targetType: "host"
-    list:
-      - "host-1.test"
-    maximum: 1
+name: Experiment API Test
+team: ADM
+environment: Global
+lanes:
+  - steps:
+      - !<action>
+        actionType: check:http
+        parameters:
+          method: "GET"
+          url: "https://example.com"
+          headers: []
+          successRate: 100
+          maxConcurrent: 5
+          requestsPerSecond: 1
+          duration: "10s"
+          followRedirects: false
+          readTimeout: "5s"
+          connectTimeout: "5s"
+          statusCode: "200-299"
 '
 ```
 
 The `Location` header of the response indicates the url of the newly created experiment:
 
 ```
-location: https://platform.steadybit.io/api/experiments/TEST-
+location: https://platform.steadybit.io/api/experiments/ADM-
 ```
 
 #### Example: Run Experiment
@@ -57,5 +61,5 @@ curl \
   -i \
   -X POST \
   -H 'Authorization: accessToken XXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' \
-  https://platform.steadybit.io/api/experiments/TEST-1/execute
+  https://platform.steadybit.io/api/experiments/ADM-1/execute
 ```
