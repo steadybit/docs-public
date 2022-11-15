@@ -24,7 +24,7 @@ The AWS extension enhances Steadybit's native capabilities to discover and injec
 
 ## Datadog ([extension-datadog](https://github.com/steadybit/extension-datadog))
 
-### ![](<../../.gitbook/assets/datadog.png>)
+### ![](../../.gitbook/assets/datadog.png)
 
 ### Capabilities
 
@@ -34,6 +34,10 @@ The Datadog extension makes Datadog information usable within experiments, e.g.,
 
 * Gather monitor status information and visualize it
 * Use monitor status information as pre-/post-conditions or invariants.
+
+#### Events
+
+* Report events to Datadog whenever an experiments starts or ends.
 
 ### References
 
