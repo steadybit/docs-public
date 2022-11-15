@@ -30,7 +30,7 @@ First step is to give our experiment a meaningful name and define the environmen
 
 Going to the next step, we can choose the attack. We want to simulate unavailability of the `hot-deals` container by isolating it from others. Therefore, we choose the attack "blackhole" on network level.
 
-![Create experiment step 3](run-experiment-step3.png)
+![Create experiment step 3](<run-experiment-step3 (1).png>)
 
 ### Step 4 - Select Targets
 
@@ -58,7 +58,7 @@ Before running the experiment make sure to have the `/products`-endpoint open in
 
 When hitting the "run experiment"-button you see the steadybit execution window.
 
-![Run experiment - execution window](<run-experiment-run2.png>)
+![Run experiment - execution window](run-experiment-run2.png)
 
 You should notice that the `/products`-endpoint will not work while `hot-deals` is unavailable. This is not desirable as there are other products which could have been browsed by the customers of the online shop. You can improve this behavior by adding appropriate fallbacks or scaling the services.
 
