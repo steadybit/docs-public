@@ -94,4 +94,3 @@ redirects:
   use-steadybit/load-tests/gatling: use-steadybit/actions.md
   use-steadybit/load-tests/jmeter: use-steadybit/actions.md
   use-steadybit/load-tests/k6: use-steadybit/actions.md
-  use-steadybit/load-tests/k6test: https://hub.steadybit.com/action/loadtest:k6
