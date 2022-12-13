@@ -75,3 +75,23 @@ redirects:
   integrate/40-slack-notifications: integrate-with-steadybit/slack-notifications.md
   integrate/50-webhooks: integrate-with-steadybit/webhooks.md
   docs: getting-started.md
+  use-steadybit/attacks/README: use-steadybit/actions.md
+  use-steadybit/attacks: use-steadybit/actions.md
+  use-steadybit/attacks/state: use-steadybit/actions.md
+  use-steadybit/attacks/resource: use-steadybit/actions.md
+  use-steadybit/attacks/network: use-steadybit/actions.md
+  use-steadybit/attacks/kubernetes: use-steadybit/actions.md
+  use-steadybit/attacks/application: use-steadybit/actions.md
+  use-steadybit/attacks/aws-cloud-attacks: use-steadybit/actions.md
+  use-steadybit/checks/README: use-steadybit/actions.md
+  use-steadybit/checks: use-steadybit/actions.md
+  use-steadybit/checks/pod-count: use-steadybit/actions.md
+  use-steadybit/checks/http-call: use-steadybit/actions.md
+  use-steadybit/checks/prometheus: use-steadybit/actions.md
+  use-steadybit/checks/postman: use-steadybit/actions.md
+  use-steadybit/load-tests/README: use-steadybit/actions.md
+  use-steadybit/load-tests: use-steadybit/actions.md
+  use-steadybit/load-tests/gatling: use-steadybit/actions.md
+  use-steadybit/load-tests/jmeter: use-steadybit/actions.md
+  use-steadybit/load-tests/k6: use-steadybit/actions.md
+  use-steadybit/load-tests/k6test: https://hub.steadybit.com/action/loadtest:k6
