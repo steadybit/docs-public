@@ -24,19 +24,19 @@ To do that, we start by creating a new experiment via our Wizard, which guides u
 
 First step is to give our experiment a meaningful name and define the environment where to be executed. We choose the `Online Shop DEV` environment to get access to everything steadybit has discovered for our demo online shop.
 
-![Create experiment step 2](run-experiment-step2.png)
+![Create experiment step 2](<run-experiment-step2 (1).png>)
 
 ### Step 3 - Select Attack
 
 Going to the next step, we can choose the attack. We want to simulate unavailability of the `hot-deals` container by isolating it from others. Therefore, we choose the attack "blackhole" on network level.
 
-![Create experiment step 3](<run-experiment-step3 (1).png>)
+![Create experiment step 3](<run-experiment-step3 (1) (1).png>)
 
 ### Step 4 - Select Targets
 
 In the next step we can define our target. Since our target of our experiment is a container running in Kubernetes, we select Container by the attribute `k8s.container.name`. Doing that, our experiment will be reusable even after container restarts.
 
-![Create experiment step 4](run-experiment-step4.png)
+![Create experiment step 4](<run-experiment-step4 (2).png>)
 
 ### Step 5 - Set Impact and Attack Radius
 
