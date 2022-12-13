@@ -42,12 +42,12 @@ redirects:
   learn/15-actions/20-http-call: use-steadybit/actions/http-call.md
   learn/15-actions/30-prometheus: use-steadybit/actions/prometheus.md
   learn/15-actions/40-postman: use-steadybit/actions/postman.md
-  learn/20-attacks: use-steadybit/attacks/README.md
-  learn/20-attacks/application: use-steadybit/attacks/application.md
-  learn/20-attacks/kubernetes: use-steadybit/attacks/kubernetes.md
-  learn/20-attacks/network: use-steadybit/attacks/network.md
-  learn/20-attacks/resource: use-steadybit/attacks/resource.md
-  learn/20-attacks/state: use-steadybit/attacks/state.md
+  learn/20-attacks: use-steadybit/actions.md
+  learn/20-attacks/application: use-steadybit/actions.md
+  learn/20-attacks/kubernetes: use-steadybit/actions.md
+  learn/20-attacks/network: use-steadybit/actions.md
+  learn/20-attacks/resource: use-steadybit/actions.md
+  learn/20-attacks/state: use-steadybit/actions.md
   learn/30-discovery: use-steadybit/discovery/README.md
   learn/30-discovery/10-host: use-steadybit/discovery/host.md
   learn/30-discovery/20-container: use-steadybit/discovery/container.md
