@@ -368,6 +368,8 @@ In this case make sure:
 
 **A:** Maybe you missed allowing your team to execute the attack? Check your team settings and add the required permissions.
 
+***
+
 **Q:** Can I run multiple instances of the agent on the same host?
 
 **A:** Yes, you can. If you want to run multiple instances of the AWS-Cloud-Agent you need to consider, that the agent needs a unique identifier. By default, the hostname is used for that. If you are running multiple instances on the same host, you need to provide an identifier via `STEADYBIT_AGENT_IDENTIFIER`.
