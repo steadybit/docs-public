@@ -8,6 +8,42 @@ In order to use the API you need to create an API access token via the user inte
 
 API token management can be found in Access Control → API Access Tokens.
 
+##### Team Tokens
+
+We differentiate between team tokens and admin tokens. Team tokens are bound to a team and can be used to access all experiments of a team.
+
+##### Admin Tokens
+
+Admin tokens have the ability to access all experiments of all teams and the ability to create/manage teams. Admin tokens are only available to the admin user.
+
+###### Create a Admin Token via the API / CLI for onprem
+
+Ssh to the steadybit platform server and run the following command:
+
+```bash
+/scripts/createAdminToken.sh
+
+Missing mandatory arguments
+Usage: /scripts/createAdminToken.sh -n <name> -t <tenantKey>
+  -n | --name <name>           Name of the token
+  -t | --tenantKey <tenantKey> Tenant key
+  -h | --help                  Show this help
+  
+  
+/scripts/createAdminToken.sh -t demo -n AdminToken
+Z8pChlF2*************
+```
+
+The token will be printed to the console.
+
+You can also run curl directly only via localhost:
+
+```bash
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"name":"'$NAME'","tenantKey":"'$TENANTKEY'"}' \
+  http://localhost:9090/actuator/adminaccesstoken
+```
 #### OpenApi Specification
 
 We provide a [OpenApi 3.0 Specification for the API](https://platform.steadybit.io/api/spec) as well as an [interactive documentation](https://platform.steadybit.io/api/swagger). In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
