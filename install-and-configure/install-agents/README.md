@@ -8,7 +8,7 @@ title: Install Agents
 
 To install the agent, you must be able to access the following URLs via HTTPS (443) on your target environment:
 
-* https://platform.steadybit.io (Platform)
+* https://platform.steadybit.com (Platform)
 * https://docker.steadybit.io (Docker Image)
 * https://artifacts.steadybit.io (Linux Package Installation)
 * https://licenses.steadybit.io (License Validation)

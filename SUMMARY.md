@@ -71,7 +71,7 @@
   * [Extension Installation](integrate-with-steadybit/extensions/extension-installation.md)
   * [Extension Kits](integrate-with-steadybit/extensions/extension-kits.md)
 * [API](integrate-with-steadybit/api.md)
-  * [Interactive API Documentation](https://platform.steadybit.io/api/swagger)
+  * [Interactive API Documentation](https://platform.steadybit.com/api/swagger)
 * [Badges](integrate-with-steadybit/badges.md)
 * [Webhooks](integrate-with-steadybit/webhooks.md)
 * [Slack Notifications](integrate-with-steadybit/slack-notifications.md)

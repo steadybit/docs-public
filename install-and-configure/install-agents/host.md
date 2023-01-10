@@ -11,7 +11,7 @@ The following command will download and run the latest steadybit agent package o
 curl -sfL https://get.steadybit.io/agent-linux.sh | sh -s -- -a <agent-key> -e <platform-url>
 ```
 
-For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command.
+For your convenience you can use the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command.
 
 After the setup check the logfiles with a suitable command for your linux system , e.g. `journalctl -u steadybit-agent.service`.
 

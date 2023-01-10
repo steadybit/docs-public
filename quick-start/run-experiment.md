@@ -9,7 +9,7 @@ We will now use steadybit to design and run our first experiment. We focus in th
 ### Prerequisite
 
 * You have already signed up for an account [on our website](https://www.steadybit.com/get-started/)
-* You are able to login into the [Steadybit SaaS platform](https://platform.steadybit.io/)
+* You are able to login into the [Steadybit SaaS platform](https://platform.steadybit.com/)
 * You have already [installed the agents](set-up-agents.md)
 
 ### Step 1 - Define your Hypothesis

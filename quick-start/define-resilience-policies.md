@@ -14,7 +14,7 @@ You can get started with resilience policies via our CLI or the UI. This guide w
 ### Prerequisite
 
 * You have already signed up for an account [on our website](https://www.steadybit.com/get-started/)
-* You are able to login into the [Steadybit SaaS platform](https://platform.steadybit.io/)
+* You are able to login into the [Steadybit SaaS platform](https://platform.steadybit.com/)
 * You have already [installed the agents](set-up-agents.md)
 
 ### Step 1 - CLI Installation

@@ -149,7 +149,7 @@ The following command will download and run the latest steadybit agent package o
 curl -sfL https://get.steadybit.io/agent-linux.sh | sh -s -- -a <agent-key> -e <platform-url> -o aws
 ```
 
-For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command. Make sure to add `-o aws` to the copied command.
+For your convenience you can use the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command. Make sure to add `-o aws` to the copied command.
 
 See also the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch\_container\_instance.html) for using User Data mechanism on new EC2 instances to automate the agent installation.
 

@@ -7,7 +7,7 @@ navTitle: Kubernetes
 
 #### Installation using the Helm Chart
 
-To install the chart, retrieve your steadybit agent key from the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform and run the following command. Please also fill in your cluster name:
+To install the chart, retrieve your steadybit agent key from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform and run the following command. Please also fill in your cluster name:
 
 ```shell
 helm repo add steadybit https://steadybit.github.io/helm-charts
@@ -28,7 +28,7 @@ For a detailed list of all the configuration parameters, please see our [GitHub 
 
 #### Installation using Terraform
 
-It is also possible to install the Helm chart with Terraform. For that the official `helm_release` resource will be used. Analogous to the above procedure, the [agent key](https://platform.steadybit.io/settings/agents/setup) needs to be specified. See the following provider and resource definition for Terraform:
+It is also possible to install the Helm chart with Terraform. For that the official `helm_release` resource will be used. Analogous to the above procedure, the [agent key](https://platform.steadybit.com/settings/agents/setup) needs to be specified. See the following provider and resource definition for Terraform:
 
 ```
 provider "helm" {
@@ -53,7 +53,7 @@ To configure additional parameters, specify the values directly in the terraform
 ```
 set {
     name  = "agent.registerUrl"
-    value = "https://platform.steadybit.io"
+    value = "https://platform.steadybit.com"
   }
 ```
 
@@ -246,7 +246,7 @@ spec:
             failureThreshold: 5
           env:
             - name: STEADYBIT_AGENT_REGISTER_URL
-              value: "https://platform.steadybit.io"
+              value: "https://platform.steadybit.com"
             - name: STEADYBIT_AGENT_KEY
               valueFrom:
                 secretKeyRef:
@@ -495,7 +495,7 @@ spec:
             failureThreshold: 5
           env:
             - name: STEADYBIT_AGENT_REGISTER_URL
-              value: "https://platform.steadybit.io"
+              value: "https://platform.steadybit.com"
             - name: STEADYBIT_AGENT_KEY
               valueFrom:
                 secretKeyRef:
@@ -557,7 +557,7 @@ spec:
 
 </details>
 
-For your convenience you can use the [setup page](https://platform.steadybit.io/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the yaml.
+For your convenience you can use the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the yaml.
 
 Once the YAML file is customized you can apply it with `kubectl`:
 

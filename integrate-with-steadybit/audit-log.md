@@ -7,7 +7,7 @@ The audit log retains historical information about actions triggered within the 
 
 At the moment, only a handful of activities are logged for auditing purposes. In the future, this will be extended.
 
-You can access the audit log through the `/api/audit-log` endpoint. For more information, please see our [API documentation](https://platform.steadybit.io/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Audit%20Log).
+You can access the audit log through the `/api/audit-log` endpoint. For more information, please see our [API documentation](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Audit%20Log).
 
 ### Retention
 

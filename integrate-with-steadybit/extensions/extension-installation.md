@@ -14,6 +14,6 @@ Most extensions will require extension-specific configuration. For example, the 
 
 ## Manage your Extensions
 
-In the platform, you can manage your extensions via the extensions tab. You can see the extensions that are currently installed. Go to [Settings -> Extensions](https://platform.steadybit.io/settings/extensions) to see the list of installed extensions.
+In the platform, you can manage your extensions via the extensions tab. You can see the extensions that are currently installed. Go to [Settings -> Extensions](https://platform.steadybit.com/settings/extensions) to see the list of installed extensions.
 
 ![Extensions Overview](extensions.png)
