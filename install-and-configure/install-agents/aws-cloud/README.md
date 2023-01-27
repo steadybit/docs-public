@@ -115,12 +115,14 @@ Discovery Name: `FisExperimentTemplateDiscovery`
     {
       "Effect": "Allow",
       "Action": "iam:CreateServiceLinkedRole",
-      "Resource": "arn:aws:iam::<YOUR-ACCOUNT>:role/<YOUR-ROLE-EXECUTING-FIS-EXPERIMENTS>"
+      "Resource": "arn:aws:iam::<YOUR-ACCOUNT>:role/aws-service-role/fis.amazonaws.com/AWSServiceRoleForFIS"
     }
   ]
 }
 ```
 {% endcode %}
+
+FIS will create a [ServiceLinkedRole](https://docs.aws.amazon.com/fis/latest/userguide/using-service-linked-roles.html) `AWSServiceRoleForFIS` when you start an experiment. If you started the experiment from the ui and the role is already existing, you can omit the `iam:CreateServiceLinkedRole` permission. If you want to start the very experiment via the steadybit agent, you will need to add the permission. 
 
 </details>
 
