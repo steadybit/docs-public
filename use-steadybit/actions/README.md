@@ -43,4 +43,4 @@ Check out our [Reliability Hub](https://hub.steadybit.com/actions) to learn abou
 
 ## Extend Steadybit
 
-Are you missing support for a particular action? No problem, Steadybit is extensible, allowing you to use open- and closed-source extensions to enhance its capabilities. Learn more within our [extension documentation](../integrate-with-steadybit/extensions/)!
+Are you missing support for a particular action? No problem, Steadybit is extensible, allowing you to use open- and closed-source extensions to enhance its capabilities. Learn more within our [extension documentation](../../integrate-with-steadybit/extensions/)!
