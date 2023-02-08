@@ -148,7 +148,7 @@ You can find more information about best matching ways to provide credentials in
 The following command will download and run the latest steadybit agent package on your EC2 instance:
 
 ```shell
-curl -sfL https://get.steadybit.io/agent-linux.sh | sh -s -- -a <agent-key> -e <platform-url> -o aws
+curl -sfL https://get.steadybit.com/agent-linux.sh | sh -s -- -a <agent-key> -e <platform-url> -o aws
 ```
 
 For your convenience you can use the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command. Make sure to add `-o aws` to the copied command.

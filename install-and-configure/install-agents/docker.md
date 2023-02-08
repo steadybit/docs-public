@@ -14,7 +14,7 @@ Please note that the container needs to run in a privileged mode, allowing it to
 And check before installation whether the platform is accessible via the corresponding ports (443 and 7878).
 
 ```bash
-curl -sfL https://get.steadybit.io/agent.sh | sh -s -- -a <agent-key> -e <platform-url>
+curl -sfL https://get.steadybit.com/agent.sh | sh -s -- -a <agent-key> -e <platform-url>
 ```
 
 For your convenience you can use the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command.
