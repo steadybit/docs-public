@@ -66,7 +66,7 @@ kubectl get po -A
 Now we use kubectl to deploy the demo by running the following command:
 
 ```bash
-kubectl apply -f k8s-manifests.yml
+kubectl apply -f k8s-manifest.yml
 ```
 
 Verify that all Shopping Demo pods are running:
@@ -209,7 +209,7 @@ ip-192-168-68-23.us-west-2.compute.internal    Ready    <none>   118s   v1.17.12
 Now we use kubectl to deploy the demo by running the following command:
 
 ```bash
-kubectl apply -f aws-eks-demo.yaml
+kubectl apply -f k8s-manifest.yml
 ```
 
 Verify that all Shopping Demo pods are running:
