@@ -21,7 +21,7 @@ Simply follow these two steps:
 
 ### Step 1 - Check out example application
 
-In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by 4 distributed backend services and a simple UI.
+In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by five distributed backend services and a simple UI.
 
 ![shopping-demo-app](deploy-example-application-architecture.jpg)
 
