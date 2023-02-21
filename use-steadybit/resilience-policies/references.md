@@ -7,12 +7,12 @@ policies:
   - name: steadybit/definitions/kubernetes/deployments/policies/redundancy-pod
     version: 0.2.2
     parameters:
-      httpEndpoint: http://k8s.demo.steadybit.io/products
+      httpEndpoint: http://demo.steadybit.io/products
 tasks:
   - name: steadybit/definitions/kubernetes/deployments/experiments/loose-coupling-to-dependency
     version: 0.2.2
     parameters:
-      httpEndpoint: http://k8s.demo.steadybit.io/products
+      httpEndpoint: http://demo.steadybit.io/products
     forEach:
       iterables:
         - dependency
