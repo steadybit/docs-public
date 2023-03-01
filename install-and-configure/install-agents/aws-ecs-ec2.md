@@ -38,17 +38,6 @@ Alternatively you can create your own policy with the following IAM permissions 
 
 Note: Due to security issues the Host Shutdown Attack will not work with this setup method.
 
-#### Secret for accessing the agent image
-
-First you need to [create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage\_create-basic-secret.html) for accessing our private Docker Registry (docker.steadybit.io) to download the agent image.
-
-```shell
-{
-  "username": "_",
-  "password": "<replace-with-agent-key>"
-}
-```
-
 #### Example
 
 For your convenience we have prepared an example task definition to use. Please fill in the missing "replace-with" prefixed fields:
@@ -79,9 +68,6 @@ For your convenience we have prepared an example task definition to use. Please 
                     "value": "<replace-with-agent-key>"
                 }
             ],
-            "repositoryCredentials": {
-              "credentialsParameter": "<replace-with-secret-arn-from-secretmanager>"
-            },
             "mountPoints": [
                 {
                     "readOnly": false,
@@ -109,7 +95,7 @@ For your convenience we have prepared an example task definition to use. Please 
                     "sourceVolume": "var_log"
                 }
             ],
-            "image": "docker.steadybit.io/steadybit/agent:latest",
+            "image": "steadybit/agent:latest",
             "name": "steadybit-agent"
         }
     ],

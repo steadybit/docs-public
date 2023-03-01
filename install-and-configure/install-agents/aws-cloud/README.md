@@ -187,17 +187,6 @@ Steps:
 
 <summary>Install as ECS Task</summary>
 
-**Secret for accessing the agent image**
-
-First you need to [create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage\_create-basic-secret.html) for accessing our private Docker Registry (docker.steadybit.io) to download the agent image.
-
-```json
-{
-  "username": "_",
-  "password": "<replace-with-agent-key>"
-}
-```
-
 **Example**
 
 For your convenience we have prepared an example task definition to use for ECS in EC2 (or FARGATE). Please fill in the missing "replace-with" prefixed fields:
@@ -226,10 +215,7 @@ For your convenience we have prepared an example task definition to use for ECS 
                     "value": "aws"
                 }
             ],
-            "repositoryCredentials": {
-              "credentialsParameter": "<replace-with-secret-arn-from-secretmanager>"
-            },
-            "image": "docker.steadybit.io/steadybit/agent:latest",
+            "image": "steadybit/agent:latest",
             "name": "steadybit-agent"
         }
     ]

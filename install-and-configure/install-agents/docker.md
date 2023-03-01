@@ -21,16 +21,10 @@ For your convenience you can use the [setup page](https://platform.steadybit.com
 
 ## Manual setup
 
-First login to the steadybit Docker Registry:
-
-```bash
-docker login -u=_ -p=<agent-key> docker.steadybit.io
-```
-
 Then run the steadybit Agent Container:
 
 ```bash
-sudo docker run \
+docker run \
   --detach \
   --name steadybit-agent \
   --volume /var/run:/var/run \
@@ -41,14 +35,14 @@ sudo docker run \
   --pid=host \
   --ipc=host \
   --env="STEADYBIT_AGENT_KEY=<agent.key>" \
-  docker.steadybit.io/steadybit/agent
+  steadybit/agent
 ```
 
 ## Non-privileged container
 
 In case you need to run the container non-privileged you can add the individual capabilities with `--cap-add`:
 ```bash
-sudo docker run \
+docker run \
   --detach \
   --name steadybit-agent \
   --volume /var/run:/var/run \
@@ -64,7 +58,7 @@ sudo docker run \
   --ipc=host \
   --env="STEADYBIT_AGENT_KEY=<agent-key>" \
   --env="STEADYBIT_AGENT_REGISTER_URL=<platform-url>" \
-  docker.steadybit.io/steadybit/agent
+  steadybit/agent
 ```
 
 ## Running behind a http proxy server

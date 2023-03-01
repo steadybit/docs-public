@@ -76,8 +76,6 @@ Please replace the string `replace-with-agent-key` with your specific Agent-Key 
 This needs to be done in three steps:
 
 1. Run `echo -n _:<replace-with-agent-key> | base64` and fill in the result into the value for the `auth` key
-2. Run `echo -n '{"auths":{"docker.steadybit.io":{"auths":"<replace-with-encoded-key-from-step-1>"}}}' | base64`
-3. Fill in the result from Step 2 into the value for the `.dockerconfigjson` key
 
 <details>
 
@@ -90,15 +88,6 @@ metadata:
   name: steadybit-agent
   namespace: steadybit-agent
 automountServiceAccountToken: true
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: steadybit-agent-pull-secrets
-  namespace: steadybit-agent
-type: kubernetes.io/dockerconfigjson
-data:
-  .dockerconfigjson: &#x3C;echo -n '{"auths":{"docker.steadybit.io":{"auth":"&#x3C;echo -n _:&#x3C;replace-with-agent-key> | base64>"}}}' | base64>
 ---
 apiVersion: v1
 kind: Secret
@@ -224,7 +213,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: steadybit-agent
-          image: "docker.steadybit.io/steadybit/agent:latest"
+          image: "steadybit/agent:latest"
           imagePullPolicy: Always
           resources:
             requests:
@@ -275,7 +264,7 @@ spec:
             - name: STEADYBIT_AGENT_MODE
               value: "default"
             - name: STEADYBIT_AGENT_SIDECAR_IMAGE
-              value: "docker.steadybit.io/steadybit/agent:latest"
+              value: "steadybit/agent:latest"
           securityContext:
             readOnlyRootFilesystem: false
             privileged: true
@@ -297,8 +286,6 @@ spec:
               mountPropagation: HostToContainer
             - name: container-sidecar-bundles-root
               mountPath: /var/lib/containerd/steadybit-agent
-      imagePullSecrets:
-        - name: steadybit-agent-pull-secrets
       volumes:
         - name: steadybit-agent-state
           hostPath:
@@ -339,15 +326,6 @@ metadata:
   name: steadybit-agent
   namespace: steadybit-agent
 automountServiceAccountToken: true
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: steadybit-agent-pull-secrets
-  namespace: steadybit-agent
-type: kubernetes.io/dockerconfigjson
-data:
-  .dockerconfigjson: <echo -n '{"auths":{"docker.steadybit.io":{"auth":"<echo -n _:<replace-with-agent-key> | base64>"}}}' | base64>
 ---
 apiVersion: v1
 kind: Secret
@@ -473,7 +451,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: steadybit-agent
-          image: "docker.steadybit.io/steadybit/agent:latest"
+          image: "steadybit/agent:latest"
           imagePullPolicy: Always
           resources:
             requests:
@@ -524,7 +502,7 @@ spec:
             - name: STEADYBIT_AGENT_MODE
               value: "default"
             - name: STEADYBIT_AGENT_SIDECAR_IMAGE
-              value: "docker.steadybit.io/steadybit/agent:latest"
+              value: "steadybit/agent:latest"
           securityContext:
             readOnlyRootFilesystem: false
             privileged: true
@@ -537,9 +515,6 @@ spec:
               mountPath: /sys/fs/cgroup
             - name: sys
               mountPath: /sys
-            
-      imagePullSecrets:
-        - name: steadybit-agent-pull-secrets
       volumes:
         - name: steadybit-agent-state
           hostPath:
