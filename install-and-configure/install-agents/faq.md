@@ -25,8 +25,6 @@ The resource consumption of the agent depends significantly on the following inf
 
 You can expect an average overhead of 250m CPU and \~512MB of memory.
 
-There is also a hibernation feature, which disables all attacks, the discovery mechanism and minimizes communication to the platform. However, it can generally be said that the resource consumption is very low and basically not noticeable in normal operation.
-
 #### We get certificate errors when the agent connects to our on-premise Steadybit installation. What do we need to do?
 
 The most common reasons for connectivity issues are related to:

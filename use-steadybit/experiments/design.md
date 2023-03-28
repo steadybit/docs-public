@@ -33,19 +33,19 @@ The wizard guides you step by step through the creation of the experiment. It co
 
 1. **Define Experiment** First things first: Define the basic elements of the experiments like name, hypothesis and environment (see above).
 
-![Create Experiment - Step 1: Define](<../../quick-start/run-experiment-step2 (1) (2).png>)
+![Create Experiment - Step 1: Define](<../../quick-start/run-experiment-step2 (1) (2) (1).png>)
 
 1. **Select Attack** Now you are ready to choose a suitable attack from one of the available catgories to match your hypothesis. Choose the attack with the desired effect. If needed, you are able to provide additional settings for the attack. However, the defaults are usual a good way to go. To learn more about attacks, check out our [learn-attacks-section in the docs](../actions/).
 
-![Create Experiment - Step 2: Attack](<../../quick-start/run-experiment-step3 (1).png>)
+![Create Experiment - Step 2: Attack](<../../quick-start/run-experiment-step3 (1) (1) (2).png>)
 
 1. **Select Target** You can now select your desired targets by attributes where you can use the [discovery data](../discovery/) to specify them with a dynamically evaluated query. Since these attributes are discovered by the agents and can change from one moment to the next, it is wise to choose stable attributes. Good examples are labels, namespaces or symbolic names - whereas a unique identifier of targets (like the container id) are usually a bad idea. When the experiment is due to be executed those attributes are resolved into a concrete set of targets to be attacked. You can use the "show targets" button next to the query to evaluate it's effect and preview matching targets.
 
-![Create Experiment - Step 3: Targets](<../../quick-start/run-experiment-step4 (2) (1).png>)
+![Create Experiment - Step 3: Targets](<../../quick-start/run-experiment-step4 (2) (1) (1).png>)
 
 1. **Impact and Attack Radius** You can limit your impact by defining an attack radius. It is a best practices to start easy and not by attacking your entire target selection. Therefore, specify the attack radius as a percentage or fixed number - limiting the amount of maximum affected e.g. hosts or containers. Even so, 100% is a valid value - but you need to be explicit about that.
 
-![Create Experiment - Step 4: Impact Radius](<../../quick-start/run-experiment-step5 (2) (1).png>)
+![Create Experiment - Step 4: Impact Radius](<../../quick-start/run-experiment-step5 (2) (1) (1).png>)
 
 After saving the experiment you are ready to [run it directly](./#run) or extend it using our editor (see blank experiment).
 
