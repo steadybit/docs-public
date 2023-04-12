@@ -48,6 +48,7 @@
     * [Duplicate](use-steadybit/experiments/duplicate-experiment/README.md)
     * [YML Import / Export](use-steadybit/experiments/yml-import-export/README.md)
     * [Policy via YML](use-steadybit/resilience-policies/ymlDownloadViaUI.md)
+  * [OpenTelemetry Integration](use-steadybit/experiments/opentelemetry-integration.md)
 * [Resilience Policies](use-steadybit/resilience-policies/README.md)
   * [Task and Policy Definitions](use-steadybit/resilience-policies/taskAndPolicyDefinitions.md)
   * [References](use-steadybit/resilience-policies/references.md)
