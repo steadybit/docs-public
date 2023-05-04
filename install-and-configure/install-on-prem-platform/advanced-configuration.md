@@ -20,6 +20,12 @@ The machine you are installing steadybit onto, must have 4 CPUs and 8 GB availab
 
 The platform docker image doesn't contain any shell by default. In case you need to exec into the container using a shell for debugging purposes, we provide an additional debug variant whith the `platform-debug` tag.
 
+### Resource Configuration
+
+| Environment Variable         | Required | Description                                                                                                      |
+|------------------------------|----------|------------------------------------------------------------------------------------------------------------------|
+| `JVM_MAX_RAM_PERCENTAGE`     |          | <p>Define the <code>MaxRAMPercentage</code of the platform JVM<br><strong>Default:</strong> <code>75%</code></p> |
+
 ### Database Configuration
 
 Steadybit requires a PostgresSQL 13 database.
