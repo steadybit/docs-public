@@ -12,19 +12,16 @@ Please, [book an appointment](https://www.steadybit.com/request-demo) to scope y
 If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
 
-### Machine Requirements (minimum)
+### Machine Requirements
+The machine you are installing steadybit onto, must have **at least** 4 CPUs and 8 GB available memory.
 
-The machine you are installing steadybit onto, must have 4 CPUs and 8 GB available memory.
+| Environment Variable         | Required | Description                                                                                                       |
+|------------------------------|----------|-------------------------------------------------------------------------------------------------------------------|
+| `JVM_MAX_RAM_PERCENTAGE`     |          | <p>Define the <code>MaxRAMPercentage</code> of the platform JVM<br><strong>Default:</strong> <code>75%</code></p> |
 
 ### Debug Docker Images
 
 The platform docker image doesn't contain any shell by default. In case you need to exec into the container using a shell for debugging purposes, we provide an additional debug variant whith the `platform-debug` tag.
-
-### Resource Configuration
-
-| Environment Variable         | Required | Description                                                                                                      |
-|------------------------------|----------|------------------------------------------------------------------------------------------------------------------|
-| `JVM_MAX_RAM_PERCENTAGE`     |          | <p>Define the <code>MaxRAMPercentage</code of the platform JVM<br><strong>Default:</strong> <code>75%</code></p> |
 
 ### Database Configuration
 
