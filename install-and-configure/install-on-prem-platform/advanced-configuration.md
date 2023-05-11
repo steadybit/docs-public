@@ -15,9 +15,9 @@ If you just want to try out Steadybit, we recommend you [sign up for our SaaS pl
 ### Machine Requirements
 The machine you are installing steadybit onto, must have **at least** 4 CPUs and 8 GB available memory.
 
-| Environment Variable         | Required | Description                                                                                                       |
-|------------------------------|----------|-------------------------------------------------------------------------------------------------------------------|
-| `JVM_MAX_RAM_PERCENTAGE`     |          | <p>Define the <code>MaxRAMPercentage</code> of the platform JVM<br><strong>Default:</strong> <code>75%</code></p> |
+| Environment Variable         | Required | Description                                                                                                        |
+|------------------------------|----------|--------------------------------------------------------------------------------------------------------------------|
+| `JVM_MAX_RAM_PERCENTAGE`     |          | <p>Define the <code>MaxRAMPercentage</code> of the platform JVM<br><strong>Default:</strong> <code>75.0</code></p> |
 
 ### Debug Docker Images
 
