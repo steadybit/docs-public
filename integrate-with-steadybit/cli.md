@@ -4,13 +4,12 @@ title: CLI
 
 # CLI
 
-The [steadybit CLI ](https://github.com/steadybit/cli)allows you to connect your repository to steadybit.
+The [steadybit CLI ](https://github.com/steadybit/cli) allows you to connect your repository to Steadybit and having a single source of truth for all your experiments.
+By enabling you to create / update and retrieve your experiment definitions you have the truth versionized at one place. Of course, you can also run your experiments from the command line interface.
 
-#### Intention
+This allows you to implement GitOps practices easily.
 
-The Steadybit CLI enables you to define your resilience expectations via policies that your infrastructure need to comply with through configuration files that live next to your code. This allows you to implement gitops practices easily.
-
-#### Installation
+## Installation
 
 Nothing more than a simple
 
@@ -18,6 +17,8 @@ Nothing more than a simple
 npm install -g steadybit
 ```
 
-#### Usage
+Afterwards you have to create a profile and authenticate via an [access token](api.md#tokens). Check out our public GitHub repository [steadybit CLI](https://github.com/steadybit/cli#authorization) to learn more.
+
+## Usage
 
 The CLI is mostly self explaining. For a detailed documentation have a look at our public GitHub repository [steadybit CLI](https://github.com/steadybit/cli)
