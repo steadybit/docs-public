@@ -12,7 +12,7 @@ Make sure to visit our [Reliability Hub](https://hub.steadybit.com/) to browse a
 
 ## Featured Extensions
 
-### AWS ([extension-aws](https://github.com/steadybit/extension-aws#readme))
+### AWS ([extension-aws](https://hub.steadybit.com/extension/com.github.steadybit.extension_aws))
 
 <div align="left">
 
@@ -22,7 +22,7 @@ Make sure to visit our [Reliability Hub](https://hub.steadybit.com/) to browse a
 
 The AWS extension enhances Steadybit's native capabilities to discover and inject chaos within usages of Amazon Web Services (AWS).
 
-## Datadog ([extension-datadog](https://github.com/steadybit/extension-datadog))
+## Datadog ([extension-datadog](https://hub.steadybit.com/extension/com.github.steadybit.extension_datadog))
 
 <div align="left">
 
@@ -32,7 +32,7 @@ The AWS extension enhances Steadybit's native capabilities to discover and injec
 
 The Datadog extension makes Datadog information usable within experiments, e.g., to restrict experiment execution to situations where a monitor is in an expected state.
 
-## Istio ([extension-istio](https://github.com/steadybit/extension-istio))
+## Istio ([extension-istio](https://hub.steadybit.com/extension/com.github.steadybit.extension_istio))
 
 <div align="left">
 
@@ -42,7 +42,7 @@ The Datadog extension makes Datadog information usable within experiments, e.g.,
 
 The Istio extension adds support for Istio's service mesh fault injection capabilities.
 
-## Kong ([extension-kong](https://github.com/steadybit/extension-kong))
+## Kong ([extension-kong](https://hub.steadybit.com/extension/com.github.steadybit.extension_kong))
 
 <div align="left">
 
@@ -52,7 +52,7 @@ The Istio extension adds support for Istio's service mesh fault injection capabi
 
 The API gateway Kong can be interacted with through the Kong extension. It facilitates verifying how Kong services behave during intermittent outages or when services misbehave.
 
-## Kubernetes ([extension-kubernetes](https://github.com/steadybit/extension-kubernetes))
+## Kubernetes ([extension-kubernetes](https://hub.steadybit.com/extension/com.github.steadybit.extension_kubernetes))
 
 <div align="left">
 
@@ -62,7 +62,7 @@ The API gateway Kong can be interacted with through the Kong extension. It facil
 
 The Kubernetes extension complements Steadybit's natively supported Kubernetes actions and discoveries.
 
-## Postman ([extension-postman](https://github.com/steadybit/extension-postman#readme))
+## Postman ([extension-postman](https://hub.steadybit.com/extension/com.github.steadybit.extension_postman))
 
 <div align="left">
 
@@ -72,7 +72,7 @@ The Kubernetes extension complements Steadybit's natively supported Kubernetes a
 
 This extension allows to integrate Postman cloud resources within Steadybit.
 
-## Prometheus ([extension-prometheus](https://github.com/steadybit/extension-prometheus))
+## Prometheus ([extension-prometheus](https://hub.steadybit.com/extension/com.github.steadybit.extension_prometheus))
 
 <div align="left">
 
