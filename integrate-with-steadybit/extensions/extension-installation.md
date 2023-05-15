@@ -10,7 +10,7 @@ Extensions follow common installation patterns that look something like this:
      * [DiscoveryKit](https://github.com/steadybit/discovery-kit/blob/main/docs/discovery-registration.md)
      * [EventKit](https://github.com/steadybit/event-kit/blob/main/docs/event-registration.md)
 
-Most extensions will require extension-specific configuration. For example, the Kong extension needs to know how to reach\&authenticate with Kong API gateways, while the AWS extensions require the configuration of IAM roles. As a result, no single set of instructions covers all extensions. However, extensions' documentation should describe the exact configuration and installation steps.
+Most extensions will require extension-specific configuration. For example, the Kong extension needs to know how to reach and authenticate with Kong API gateways, while the AWS extensions require the configuration of IAM roles. As a result, no single set of instructions covers all extensions. However, extensions' documentation should describe the exact configuration and installation steps.
 
 ## Manage your Extensions
 
