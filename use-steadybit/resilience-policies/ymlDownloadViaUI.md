@@ -1,4 +1,4 @@
-# YML download/import
+# Policy via YML
 
 You are able to download policy YML files from the UI.
 
@@ -23,5 +23,6 @@ You can download the YML file of the policy in the popup.
 When you have a service definition you can edit and import it via our CLI via `steadybit policy-binding apply`
 
 see also:
+
 * [Github](https://github.com/steadybit/cli)
-* [CLI](../../integrate-with-steadybit/cli.md)
+* [CLI](broken-reference)
