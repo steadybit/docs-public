@@ -1,118 +1,54 @@
-# Official Extensions
+# Extensions
 
-## AWS ([extension-aws](https://github.com/steadybit/extension-aws#readme))
+## Reliability Hub ([link](https://hub.steadybit.com/))
+
+Make sure to visit our [Reliability Hub](https://hub.steadybit.com/) to browse all existing extensions and their capabilities.
+
+<img src="../../.gitbook/assets/ufo-hub.webp" alt="Reliability Hub Logo" data-size="original">
+
+## Featured Extensions
+
+### AWS ([extension-aws](https://github.com/steadybit/extension-aws#readme))
 
 <img src="../../.gitbook/assets/aws-logo.jpeg" alt="" data-size="original">
 
 The AWS extension enhances Steadybit's native capabilities to discover and inject chaos within usages of Amazon Web Services (AWS).
 
-### Capabilities
-
-#### Amazon Elastic Cloud Compute (EC2)
-
-* State change attack for EC2 instances, e.g., stop, hibernate, terminate and reboot.
-
-#### Amazon Relational Database Service (RDS)
-
-* RDS instance discovery
-* attack to reboot RDS instances
-
-### References
-
-* [GitHub](https://github.com/steadybit/extension-aws)
-* [Installation Instructions](https://github.com/steadybit/extension-aws#readme)
-
 ## Datadog ([extension-datadog](https://github.com/steadybit/extension-datadog))
 
-### ![](../../.gitbook/assets/datadog.png)
+<img src="../../.gitbook/assets/datadog.png" alt="" data-size="original">
 
-### Capabilities
+The Datadog extension makes Datadog information usable within experiments, e.g., to restrict experiment execution to situations where a monitor is in an
+expected state.
 
-The Datadog extension makes Datadog information usable within experiments, e.g., to restrict experiment execution to situations where a monitor is in an expected state.
+## Istio ([extension-istio](https://github.com/steadybit/extension-istio))
 
-#### Monitors
+<img src="../../.gitbook/assets/istio.png" alt="" data-size="original">
 
-* Gather monitor status information and visualize it
-* Use monitor status information as pre-/post-conditions or invariants.
-
-#### Events
-
-* Report events to Datadog whenever an experiments starts or ends.
-
-### References
-
-* [GitHub](https://github.com/steadybit/extension-datadog)
-* [Installation Instructions](https://github.com/steadybit/extension-datadog#readme)
+The Istio extension adds support for Istio's service mesh fault injection capabilities.
 
 ## Kong ([extension-kong](https://github.com/steadybit/extension-kong))
 
-### ![](../../.gitbook/assets/kong-logo.png)
+![](../../.gitbook/assets/kong-logo.png)
 
-### Capabilities
+The API gateway Kong can be interacted with through the Kong extension. It facilitates verifying how Kong services behave during intermittent outages or when
+services misbehave.
 
-The API gateway Kong can be interacted with through the Kong extension. It facilitates verifying how Kong services behave during intermittent outages or when services misbehave.
+## Kubernetes ([extension-kubernetes](https://github.com/steadybit/extension-kubernetes))
 
-#### Kong Routes
-
-* Kong route discovery
-* attack to configure the [request termination plugin](https://docs.konghq.com/hub/kong-inc/request-termination/) for a service/route/consumer/trigger combination
-
-#### Kong Services
-
-* Kong service discovery
-* attack to configure the [request termination plugin](https://docs.konghq.com/hub/kong-inc/request-termination/) for a service/consumer/trigger combination
-
-### References
-
-* [GitHub](https://github.com/steadybit/extension-kong)
-* [Installation Instructions](https://github.com/steadybit/extension-kong#readme)
-
-## Kubernetes (beta, [extension-kubernetes](https://github.com/steadybit/extension-kubernetes))
-
-### ![](../../.gitbook/assets/kubernetes.png)
-
-### Capabilities
+![](../../.gitbook/assets/kubernetes.png)
 
 The Kubernetes extension complements Steadybit's natively supported Kubernetes actions and discoveries.
 
-#### Deployments
-
-* Rollout restart attack with an optional check to verify rollout completion
-
-### References
-
-* [GitHub](https://github.com/steadybit/extension-kubernetes)
-* [Installation Instructions](https://github.com/steadybit/extension-kubernetes#readme)
-
 ## Postman ([extension-postman](https://github.com/steadybit/extension-postman#readme))
 
-### ![](../../.gitbook/assets/postman.png)
+![](../../.gitbook/assets/postman.png)
 
 This extension allows to integrate Postman cloud resources within Steadybit.
 
-:warning: The Postman extension is currently bundled in the out-of-the-box version of Steadybit. This code should help you to understand the usage of [ActionKit](https://github.com/steadybit/action-kit).
-
-### Capabilities
-
-* Execute collections
-
-### References
-
-* [GitHub](https://github.com/steadybit/extension-postman)
-* [Installation Instructions](https://github.com/steadybit/extension-postman#readme)
-
-## Prometheus (_beta_, [extension-prometheus](https://github.com/steadybit/extension-prometheus))
+## Prometheus ([extension-prometheus](https://github.com/steadybit/extension-prometheus))
 
 ![](../../.gitbook/assets/prometheus.png)
 
-A Steadybit check implementation to gather Prometheus metrics within chaos engineering experiment executions. These can be used as checks within experiments, e.g., to implement pre- and post-conditions.
-
-### Capabilities
-
-* Execute metric queries
-* Support for multiple Prometheus instances
-
-### References
-
-* [GitHub](https://github.com/steadybit/extension-prometheus)
-* [Installation Instructions](https://github.com/steadybit/extension-prometheus#readme)
+A Steadybit check implementation to gather Prometheus metrics within chaos engineering experiment executions. These can be used as checks within experiments,
+e.g., to implement pre- and post-conditions.
