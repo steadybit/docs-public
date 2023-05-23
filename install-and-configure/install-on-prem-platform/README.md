@@ -56,7 +56,7 @@ helm repo update
 helm install steadybit-platform \
   --create-namespace \
   --namespace steadybit-platform \
-  --set agent.key=<replace-with-agent-key> \
+  --set platform.tenant.agentKey=<replace-with-agent-key> \
   steadybit/steadybit-platform
 ```
 
