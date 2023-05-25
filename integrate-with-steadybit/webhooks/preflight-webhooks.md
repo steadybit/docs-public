@@ -12,6 +12,8 @@ This is an enterprise feature. Please contact us at to get access.
 Preflight webhooks are triggered by steadybit whenever e.g. an experiment should start. You can configure them at `Settings / Application Settings / Integrations / Preflight webhook`. The content type is `application/json` and the message is described in our [OpenAPI specification](https://platform.steadybit.com/api/spec) as `WebhookPayload`.
 If the webhook returns a HTTP status code other than 2xx, the experiment will not be started.
 
+![addPreflightWebhook.png](addPreflightWebhook.png)
+
 |            |                                                                                                                                                                                               |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Name**   | The name for this preflight webhook will not show up in the JSON body.                                                                                                                        |
@@ -40,3 +42,11 @@ private static boolean validateSignature(byte[] body, String secret, String head
     return MessageDigest.isEqual(signature, receivedSignature);
 }
 ```
+
+### Run Status
+
+During the experiment run you can see that preflight webhooks are triggered
+
+![prefligtRunStatusSuccess.png](prefligtRunStatusSuccess.png)
+
+![prefligtRunStatusFail.png](prefligtRunStatusFail.png)
