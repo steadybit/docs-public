@@ -24,25 +24,25 @@ To do that, we start by creating a new experiment via our Wizard, which guides u
 
 First step is to give our experiment a meaningful name and define the environment where to be executed. We choose the `Online Shop DEV` environment to get access to everything steadybit has discovered for our demo online shop.
 
-![Create experiment step 2](<../use-steadybit/experiments/create-experiment-step1 (1) (2).png>)
+![Create experiment step 2](<run-experiment-step2 (2).png>)
 
 ### Step 3 - Select Attack
 
 Going to the next step, we can choose the attack. We want to simulate unavailability of the `hot-deals` container by isolating it from others. Therefore, we choose the attack "blackhole" on network level.
 
-![Create experiment step 3](<../use-steadybit/experiments/create-experiment-step2 (1) (2).png>)
+![Create experiment step 3](<run-experiment-step3 (2).png>)
 
 ### Step 4 - Select Targets
 
 In the next step we can define our target. Since our target of our experiment is a container running in Kubernetes, we select Container by the attribute `k8s.container.name`. Doing that, our experiment will be reusable even after container restarts.
 
-![Create experiment step 4](<../use-steadybit/experiments/create-experiment-step3 (1) (2).png>)
+![Create experiment step 4](run-experiment-step4.png)
 
 ### Step 5 - Set Impact and Attack Radius
 
 Last but not least: We can define how large our impact is. When having a scaled system you may want to start with a small attack radius first - affecting only one container and not all replicas.
 
-![Create experiment step 5](<../use-steadybit/experiments/create-experiment-step4 (1) (3).png>)
+![Create experiment step 5](<run-experiment-step5 (2).png>)
 
 ### Step 6 - Save Experiment
 
@@ -58,7 +58,7 @@ Before running the experiment make sure to have the `/products`-endpoint open in
 
 When hitting the "run experiment"-button you see the steadybit execution window.
 
-![Run experiment - execution window](<run-experiment-run2 (2) (7).png>)
+![Run experiment - execution window](<run-experiment-run2 (1) (7).png>)
 
 You should notice that the `/products`-endpoint will not work while `hot-deals` is unavailable. This is not desirable as there are other products which could have been browsed by the customers of the online shop. You can improve this behavior by adding appropriate fallbacks or scaling the services.
 

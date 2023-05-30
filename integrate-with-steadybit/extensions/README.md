@@ -28,6 +28,6 @@ Kits are the combination of extension APIs, conventions, contracts, documentatio
 ## Next Steps
 
 * [What exactly is an extension?](anatomy-of-an-extension.md)
-* [What officially maintained extensions are there?](official-extensions.md)
+* [What officially maintained extensions are there?](broken-reference)
 * [How do I install an extension?](extension-installation.md)
 * [What extension kits are available?](extension-kits.md)
