@@ -4,12 +4,15 @@ title: Preflight Webhooks
 
 # Preflight Webhooks
 
-`
-This is an enterprise feature. Please contact us at to get access.
-`
-[https://steadybit.com/contact](https://steadybit.com/contact)
+{% hint style="info" %} This is an enterprise feature. Please [reach out to us](https://steadybit.com/contact) if you want to get access.
+ {% endhint %}
 
-Preflight webhooks are triggered by steadybit whenever e.g. an experiment should start. You can configure them at `Settings / Application Settings / Integrations / Preflight webhook`. The content type is `application/json` and the message is described in our [OpenAPI specification](https://platform.steadybit.com/api/spec) as `WebhookPayload`.
+Preflight webhooks are triggered by Steadybit whenever an experiment is about to start and allow you to prevent an execution.
+For deciding whether that specific experiment run is allowed to start you get a list of all expected to be affected targets in the webhook call. 
+However, due to concurrency, these set of targets may change in case one of the targets is gone when the actual step starts.
+
+You can configure preflight webhooks at `Settings / Application Settings / Integrations / Preflight webhook`.
+The content type of the body is `application/json` and the message is described in our [OpenAPI specification](https://platform.steadybit.com/api/spec) as `WebhookPayload`.
 If the webhook returns a HTTP status code other than 2xx, the experiment will not be started.
 
 ![addPreflightWebhook.png](addPreflightWebhook.png)
