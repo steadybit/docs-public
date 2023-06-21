@@ -44,10 +44,7 @@ That's it! You are welcomed by our Dashboard giving you access to all relevant i
 
 ![steadybit Dashboard](set-up-agents-step3.png)
 
-Start using Steadybit by
-
-* [defining your resilience expectations via policies](define-resilience-policies.md) for your services
-* or by [designing and running your first experiment](run-experiment.md)
+Start using Steadybit by [designing and running your first experiment](run-experiment.md)
 
 ### Step 4 - Optionally Install Extensions
 

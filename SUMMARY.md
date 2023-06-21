@@ -8,7 +8,6 @@
 * [Install Agents](quick-start/set-up-agents.md)
 * [Run an Experiment](quick-start/run-experiment.md)
 * [Deploy Example Application](quick-start/deploy-example-application.md)
-* [Define Resilience Policies](quick-start/define-resilience-policies.md)
 
 ## Install and Configure
 
@@ -47,11 +46,7 @@
   * [Share](use-steadybit/experiments/share.md)
     * [Duplicate](use-steadybit/experiments/duplicate-experiment/README.md)
     * [YML Import / Export](use-steadybit/experiments/yml-import-export/README.md)
-    * [Policy via YML](use-steadybit/resilience-policies/ymlDownloadViaUI.md)
   * [OpenTelemetry Integration](use-steadybit/experiments/opentelemetry-integration.md)
-* [Resilience Policies](use-steadybit/resilience-policies/README.md)
-  * [Task and Policy Definitions](use-steadybit/resilience-policies/taskAndPolicyDefinitions.md)
-  * [References](use-steadybit/resilience-policies/references.md)
 * [Landscape](use-steadybit/landscape/README.md)
 * [Weakspots](use-steadybit/weakspots/README.md)
 * [Actions](use-steadybit/actions/README.md)
