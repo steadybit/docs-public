@@ -1,17 +1,17 @@
 ---
-title: "Install as Docker Container"
-navTitle: "Docker Container"
+title: Install as Docker Container
+navTitle: Docker Container
 ---
 
-## Prerequisites
+# Install as Docker Container
 
-To use steadybit with the SaaS platform you only need Docker on the host where the attacks will be executed.
+### Prerequisites
 
-## Oneliner
+To use steadybit with the SaaS platform you only need Docker on the host where the actions will be executed.
 
-The agent container image is available in the steadybit Docker Registry.
-Please note that the container needs to run in a privileged mode, allowing it to discover and attack your Infratructure.
-And check before installation whether the platform is accessible via the corresponding ports (443 and 7878).
+### Oneliner
+
+The agent container image is available in the steadybit Docker Registry. Please note that the container needs to run in a privileged mode, allowing it to discover and attack your Infratructure. And check before installation whether the platform is accessible via the corresponding ports (443 and 7878).
 
 ```bash
 curl -sfL https://get.steadybit.com/agent.sh | sh -s -- -a <agent-key> -e <platform-url>
@@ -19,7 +19,7 @@ curl -sfL https://get.steadybit.com/agent.sh | sh -s -- -a <agent-key> -e <platf
 
 For your convenience you can use the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform, where your agent key is already prepared in the command.
 
-## Manual setup
+### Manual setup
 
 Then run the steadybit Agent Container:
 
@@ -38,9 +38,10 @@ docker run \
   steadybit/agent
 ```
 
-## Non-privileged container
+### Non-privileged container
 
 In case you need to run the container non-privileged you can add the individual capabilities with `--cap-add`:
+
 ```bash
 docker run \
   --detach \
@@ -61,14 +62,11 @@ docker run \
   steadybit/agent
 ```
 
-## Running behind a http proxy server
+### Running behind a http proxy server
 
-The Steadybit Agent uses http and websockets to communicate with the platform and to download updates.
-To simplify the agent deployment you should consider to allow direct communication to our platform.
-In case using a single entry into and out of your network is required, you can configure the agent to use a proxy.
+The Steadybit Agent uses http and websockets to communicate with the platform. To simplify the agent deployment you should consider to allow direct communication to our platform. In case using a single entry into and out of your network is required, you can configure the agent to use a proxy.
 
-For the docker agent you need to run the container with additional environment variables.
-You can set these by adding the following arguments to the `docker run` command:
+For the docker agent you need to run the container with additional environment variables. You can set these by adding the following arguments to the `docker run` command:
 
 ```bash
   --env="STEADYBIT_AGENT_PROXY_HOST=<hostname or address of your proxy"> \

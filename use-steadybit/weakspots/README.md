@@ -44,6 +44,6 @@ We currently support some weak spots for Kubernetes, AWS, Azure and Java.
 | HTTP Call without Timeout         | Ensures that your HTTP client is configured to have a timeout.         | In case the target endpoint is unresponsive, the caller would wait forever on a response.   |
 | HTTP Call without Circuit Breaker | Verifies that your HTTP endpoint is configured with a circuit breaker. | Avoids cascading failures by short-circuiting to a configured fallback in case of problems. |
 
-> ### Call for Feedback
+> #### Call for Feedback
 >
 > Weak spots is a beta feature which we would like to get your opinion on. Feel free to [reach out to us](https://www.steadybit.com/contact) and share your experience.

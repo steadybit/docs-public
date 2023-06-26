@@ -2,7 +2,13 @@
 title: Install Agents
 ---
 
-# Install Agents
+# Install Legacy Agents
+
+### Overview
+
+Before installing the agent, we recommend to make yourself familiar with the general [Architecture](architecture.md).
+
+You can also have a look at our new agent architecture, we call it [Outpost Agent](../install-outpost-agent-preview/). The Outpost Agent comes with less resource consumption and more fine grained deployment and permission model. We will deprecate the legacy agent somewhere in the future.
 
 ### Prerequisites
 

@@ -11,7 +11,8 @@
 
 ## Install and Configure
 
-* [Install Agents](install-and-configure/install-agents/README.md)
+* [Install Legacy Agents](install-and-configure/install-agents/README.md)
+  * [Architecture](install-and-configure/install-agents/architecture.md)
   * [Install as Docker Container](install-and-configure/install-agents/docker.md)
   * [Install on Kubernetes](install-and-configure/install-agents/kubernetes/README.md)
   * [Install on Linux Hosts](install-and-configure/install-agents/host.md)
@@ -19,6 +20,14 @@
   * [Install AWS Cloud Service Agent](install-and-configure/install-agents/aws-cloud/README.md)
   * [Configuration Options](install-and-configure/install-agents/advanced-configuration.md)
   * [FAQ](install-and-configure/install-agents/faq.md)
+* [Install Outpost Agent (Preview)](install-and-configure/install-outpost-agent-preview/README.md)
+  * [Outpost Agent Architecture](install-and-configure/install-outpost-agent-preview/outpost-agent-architecture.md)
+  * [Install as Docker Container](install-and-configure/install-outpost-agent-preview/install-as-docker-container.md)
+  * [Install on Kubernetes](install-and-configure/install-outpost-agent-preview/install-on-kubernetes.md)
+  * [Install on Linux Hosts](install-and-configure/install-outpost-agent-preview/install-on-linux-hosts.md)
+  * [Configuration Options](install-and-configure/install-outpost-agent-preview/advanced-configuration.md)
+  * [Migrating From the Legacy Agent](install-and-configure/install-outpost-agent-preview/migrating-from-the-legacy-agent.md)
+  * [Migration Breaking Changes](install-and-configure/install-outpost-agent-preview/migration-breaking-changes.md)
 * [Install On-Prem Platform](install-and-configure/install-on-prem-platform/README.md)
   * [Install on Kubernetes](install-and-configure/install-on-prem-platform/k8s.md)
   * [Advanced Agent Authentication](install-and-configure/install-on-prem-platform/advanced-agent-authentication.md)
@@ -35,7 +44,6 @@
   * [Instana](install-and-configure/configure-monitoring/instana.md)
   * [New Relic](install-and-configure/configure-monitoring/new-relic.md)
   * [Prometheus](install-and-configure/configure-monitoring/prometheus.md)
-* [Architecture](install-and-configure/architecture/README.md)
 
 ## Use Steadybit
 
