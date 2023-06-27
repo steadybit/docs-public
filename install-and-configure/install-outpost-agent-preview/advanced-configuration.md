@@ -12,6 +12,7 @@
 | `STEADYBIT_AGENT_EXPERIMENT_TIMEOUT`                  | <p>Timeout for the request to connect to an experiment.<br><strong>Default:</strong> <code>5s</code></p>                                                   |
 | `STEADYBIT_AGENT_EXPERIMENT_KEEP_ALIVE_INTERVAL`      | <p>Interval how often a keep alive is sent during an experiment.<br><strong>Default:</strong> <code>2s</code></p>                                          |
 | `STEADYBIT_AGENT_EXPERIMENT_KEEP_ALIVE_TIMEOUT`       | <p>Timeout for a keep alive during an experiment<br><strong>Default:</strong> <code>10s</code></p>                                                         |
+| `STEADYBIT_AGENT_WEBSOCKET_PING_INTERVAL`             | <p>Interval in seconds of the heartbeat for the websocket connection <br><strong>Default</strong>: <code>4s</code></p>                                     |
 | `STEADYBIT_AGENT_ATTRIBUTE_FILTER_EXCLUDES`           | Attribute-Keys which should not be sent to the platform.                                                                                                   |
 | `STEADYBIT_AGENT_ATTRIBUTE_FILTER_INCLUDES`           | Attribute-Keys which should be sent to the platform, even if they are excluded by STEADYBIT\_AGENT\_ATTRIBUTE\_FILTER\_EXCLUDES or the default excludes.   |
 | `STEADYBIT_DOCKER_SOCKET`                             | <p>Docker Socket to connect to.<br><strong>Default:</strong> <code>/var/run/docker.sock</code></p>                                                         |
