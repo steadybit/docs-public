@@ -11,6 +11,7 @@ description: >-
 * "All or nothing" - We recommend replacing all legacy agents with the new outpost agents and their extensions. You cannot consistently attack targets using a mixed form of legacy and outpost agents.
 * Most of the functionality will work seamlessly, but there are a few [breaking changes](migration-breaking-changes.md). Please take a moment to review them.
 * You will be able to [go back](migrating-from-the-legacy-agent.md#migrate-back-to-legacy-agents) to Legacy Agents at any point in time.
+* Make sure you have the latest platform release installed.
 
 ### Migrate to Outpost Agents (Kubernetes)
 
