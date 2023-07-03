@@ -20,7 +20,7 @@ If you are on the experiment designer page, you will find a button ![Button](dup
 
 ## Duplicated Experiment
 
-If you have duplicated an experiment, you will be required to edit the experiment by name, description, team and area. 
+If you have duplicated an experiment, you will be required to edit the experiment by name, description, team and environment. 
 
 ![Duplicate Popup](duplicatePopup.png)
 
