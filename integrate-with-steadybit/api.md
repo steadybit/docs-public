@@ -28,10 +28,10 @@ Once you created a new API access token, you can't see it again. Make sure to sa
 {% endhint %}
 
 
-#### [On-Prem] Create an Admin Token via internal API
+#### Create an Admin Token via internal API
 On-Prem customers have also the possibility to create an Admin Token via internal APIs.
 
-##### [On-Prem] Create Admin Token via CLI
+##### Create Admin Token via CLI
 To generate a new admin token in your On-Prem Platform via CLI, first ssh into the platform server.
 Afterward, run the following command: 
 
