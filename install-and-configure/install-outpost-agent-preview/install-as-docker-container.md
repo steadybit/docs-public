@@ -1,54 +1,48 @@
-# Install as Docker Container
+# Install using Docker Compose
 
-You need to install the Steadybit outpost agent itself and all extensions you may want to use.
+This method will install the Steadybit outpost agent on your machine using docker compose. It will run the Outpost agent as well as the [extension-http](https://hub.steadybit.com/extension/com.github.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.github.steadybit.extension\_container) and [extension-host](https://hub.steadybit.com/extension/com.github.steadybit.extension\_host).
+
+#### Supported Platforms:
+
+* Linux (needs the docker and docker compose plugin installed)
+* Windows (using Docker Desktop using the WSL2 engine)
+* MacOS (using Docker Desktop)
+
+{% hint style="warning" %}
+**Docker Desktop:** you'll only be able to attack containers and processes running on Docker
+
+**Windows Subsystem for Linux:** With the default Kernel you won't be able to execute network attacks.
+{% endhint %}
 
 ### Outpost Installation
 
-#### Oneliner
+We do provide a simple wrapper script that you can use to deploy the outpost agent to docker:
 
 ```bash
-curl -sfL https://get.steadybit.com/outpost.sh | sh -s -- --key <agent-key>
+wget https://get.steadybit.com/outpost.sh
+chmod a+x outpost.sh
+./outpost.sh --key <agent-key> <command>
 ```
 
-<table><thead><tr><th width="194">Parameter</th><th width="276">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>--key</code></td><td>The agent key, can be found on the <a href="https://platform.steadybit.com/settings/agents/setup">setup page</a>.</td><td></td></tr><tr><td><code>--platform-url</code></td><td>If running on-prem, the url of your platform installation</td><td><code>https://platform.steadybit.com</code></td></tr><tr><td><code>--image</code></td><td>The Outpost Docker image to use.</td><td><code>steadybit/outpost:latest</code></td></tr><tr><td><code>--state-dir</code></td><td>Override the host directory to store the state</td><td><code>/var/lib/steadybit-outpost</code></td></tr></tbody></table>
+<table><thead><tr><th width="200.33333333333331">Parameter</th><th>Description</th><th>Default</th></tr></thead><tbody><tr><td>&#x3C;command></td><td>The action to take. Either one of  <code>up</code>, <code>down</code>, <code>restart</code>, <code>config</code></td><td><code>up</code></td></tr><tr><td><code>--key</code></td><td>The agent key, can be found on the <a href="https://platform.steadybit.com/settings/agents/setup">setup page</a>.</td><td></td></tr><tr><td><code>--platform-url</code></td><td>If running on-prem, the url of your platform installation to use</td><td><code>https://platform.steadybit.com</code></td></tr><tr><td><code>--image</code></td><td>The Outpost Docker image to use.</td><td><code>steadybit/outpost:latest</code></td></tr></tbody></table>
 
-#### Manual Installation
+In case you don't want to use the script to directly deploy to docker or want to do modifications to it you can use the `config` command to print the docker compose configuration and apply it yourself.
 
-```bash
-docker run \
-  --detach \
-  --name steadybit-outpost \
-  --env="STEADYBIT_AGENT_KEY=<agent.key>" \
-  steadybit/outpost
-```
+#### Additional Extensions
 
-#### Running behind an HTTP proxy server&#x20;
+If you want to use additional extensions (e.g [extension-jvm](https://hub.steadybit.com/extension/com.github.steadybit.extension\_jvm) for attacking Java applications), you need to edit the docker compose file generated using the `config` command and add the additional service and extend the list of extension for the outpost service. [More about extension registration](../../integrate-with-steadybit/extensions/extension-installation.md).
 
-The Steadybit Outpost uses HTTP and websockets to communicate with the platform. To simplify the outpost deployment, you should consider allowing direct communication to our platform. In case using a single entry into and out of your network is required, you can configure the outpost to use a proxy. For the docker agent, you need to run the container with additional environment variables. You can set these by adding the following arguments to the docker run command:&#x20;
+### Configure HTTP Proxy Server&#x20;
+
+The Steadybit Outpost uses HTTP and websockets to communicate with the platform. To simplify the outpost deployment, you should consider allowing direct communication to our platform.&#x20;
+
+In case using a single entry into and out of your network is required, you can configure the outpost to use a HTTP proxy. Export the following environment variables before running the script or edit the docker compose configuration printed by the con
 
 ```bash
-  --env="STEADYBIT_AGENT_PROXY_HOST=<hostname or address of your proxy>" \
-  --env="STEADYBIT_AGENT_PROXY_PORT=<port of your proxy>" \
-  --env="STEADYBIT_AGENT_PROXY_PROTOCOL=<proxy protocol e.g. http>" \
-  --env="STEADYBIT_AGENT_PROXY_USER=<username of the proxy (if needed)>" \
-  --env="STEADYBIT_AGENT_PROXY_PASSWORD=<password of the proxy (if needed)>"
-```
-
-### Extension Installation
-
-The outpost should now already be visible in the UI. But without any extension, the outpost will not provide any value. Check our [reliability hub](https://hub.steadybit.com/extensions) for an up-to-date list of extensions. \
-\
-A very good candidate for a first extension is the [extension-host](https://github.com/steadybit/extension-host). Please refer to the repository for documentation about installing the host extension with docker.
-
-#### Extension registration
-
-After you have installed an extension, you need to reconfigure the outpost agent. The outpost needs to know where it can find the extensions and which capabilities it has.
-
-There is an auto-discovery for extensions installed within the same Kubernetes cluster, but as we have used docker, we need to set some environment variables in the outpost installation. You can find more information about extension registration [here](../../integrate-with-steadybit/extensions/extension-installation.md).\
-\
-Example for the extension-host to be added to the outpost installation:
-
-```bash
---env="STEADYBIT_AGENT_ACTIONS_EXTENSIONS_0_URL=http://localhost:8085" \
---env="STEADYBIT_AGENT_DISCOVERIES_EXTENSIONS_0_URL=http://localhost:8085" \
+export STEADYBIT_AGENT_PROXY_HOST="<hostname or address of your proxy>" 
+export STEADYBIT_AGENT_PROXY_PORT="<port of your proxy>" 
+export STEADYBIT_AGENT_PROXY_PROTOCOL="<proxy protocol e.g. http>" 
+export STEADYBIT_AGENT_PROXY_USER="<username of the proxy (if needed)>" 
+export STEADYBIT_AGENT_PROXY_PASSWORD="<password of the proxy (if needed)>"
+./outpost.sh --key <agent-key> <command>
 ```

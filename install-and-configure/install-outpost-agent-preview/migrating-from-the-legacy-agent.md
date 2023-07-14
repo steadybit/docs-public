@@ -25,14 +25,13 @@ First, we must uninstall all Legacy and AWS Agents (if you have installed them b
   * Uninstall everything, examples:
     * `helm uninstall steadybit-agent --namespace steadybit-agent`
     * `helm uninstall steadybit-agent --namespace steadybit-agent-aws`
-    * `helm uninstall steadybit-extension-kong --namespace steadybit-extension`\
-
+    * `helm uninstall steadybit-extension-kong --namespace steadybit-extension`\\
 * Manual using kubectl (not recommended)
   * Get a list of all namespaces in your cluster\
     `kubectl get ns`
   * Delete the namespace if existing.
     * `kubectl delete namespace steadybit-agent`
-    * `kubectl delete namespace steadybit-agent-aws`&#x20;
+    * `kubectl delete namespace steadybit-agent-aws`
     * `kubectl delete namespace steadybit-extension`
   * You may need to check out non-namespaced resources that need to be cleaned up. (That's why we recommend uninstalling via helm)
     * List: `kubectl get persistentvolumes | grep steadybit`\
@@ -46,7 +45,7 @@ First, we must uninstall all Legacy and AWS Agents (if you have installed them b
 
 Next, we can install the outpost agent and all desired extensions. Please take a look at the [installation guide](install-on-kubernetes.md).
 
-#### Step 3: Switch to new  agent
+#### Step 3: Switch to new agent
 
 By default the new actions will not be active. You activate them on the Settings -> Extensions -> [Actions](https://platform.steadybit.com/settings/extensions;tab=actions) Page.
 
@@ -59,6 +58,6 @@ By default the new actions will not be active. You activate them on the Settings
 * Install the legacy agent as you did in the past. In case you need help, visit the[ Install Legacy Agent](../install-agents/kubernetes/) docs.
 * Visit Settings -> Extensions -> [Actions](https://platform.steadybit.com/settings/extensions;tab=actions) and switch back to the legacy agent. After switchung back the legacy agents' actions will be used again.
 
-![Toggle fo switching back to the legacy agent mode](migrate-back-legacy-agent.png)
+![Toggle fo switching back to the legacy agent mode](<../../.gitbook/assets/image (1).png>)
 
 * You should delete all actions and target types no longer reported by the outpost agents, those are marked with the label "Missing Agent"

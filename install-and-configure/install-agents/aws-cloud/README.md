@@ -15,9 +15,9 @@ The cloud service agent uses cloud apis to interact with cloud resources.
 
 The current features are:
 
-* Discover and [shutdown EC2 instances](broken-reference)
-* [Blackhole Availability Zones](broken-reference)
-* [Integrate AWS FIS Experiments](broken-reference)
+* Discover and [shutdown EC2 instances](broken-reference/)
+* [Blackhole Availability Zones](broken-reference/)
+* [Integrate AWS FIS Experiments](broken-reference/)
 
 ### Required permissions for AWS API Access
 
@@ -122,7 +122,7 @@ Discovery Name: `FisExperimentTemplateDiscovery`
 ```
 {% endcode %}
 
-FIS will create a [ServiceLinkedRole](https://docs.aws.amazon.com/fis/latest/userguide/using-service-linked-roles.html) `AWSServiceRoleForFIS` when you start an experiment. If you started the experiment from the ui and the role is already existing, you can omit the `iam:CreateServiceLinkedRole` permission. If you want to start the very first fis experiment via the steadybit agent, you will need to add the permission. 
+FIS will create a [ServiceLinkedRole](https://docs.aws.amazon.com/fis/latest/userguide/using-service-linked-roles.html) `AWSServiceRoleForFIS` when you start an experiment. If you started the experiment from the ui and the role is already existing, you can omit the `iam:CreateServiceLinkedRole` permission. If you want to start the very first fis experiment via the steadybit agent, you will need to add the permission.
 
 </details>
 
@@ -356,19 +356,19 @@ In this case make sure:
 
 **A:** Maybe you missed allowing your team to execute the attack? Check your team settings and add the required permissions.
 
-***
+
 
 **Q:** Can I run multiple instances of the agent on the same host?
 
 **A:** Yes, you can. If you want to run multiple instances of the AWS-Cloud-Agent you need to consider, that the agent needs a unique identifier. By default, the hostname is used for that. If you are running multiple instances on the same host, you need to provide an identifier via `STEADYBIT_AGENT_IDENTIFIER`.
 
-***
+
 
 **Q:** Can I run multiple instances of the agent using the helm chart?
 
 **A:** Yes, but you currently need to use an own namespace for each agent. The namespace is then used as identifier.
 
-***
+
 
 **Q:** How can I make sure, that I don't attack the agent itself?
 

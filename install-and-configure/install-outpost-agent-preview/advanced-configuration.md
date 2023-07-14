@@ -1,5 +1,7 @@
 # Configuration Options
 
+There are plenty of options for the outpost agent that can be controlled using Environment variables.
+
 | Environment Variable                                  | Description                                                                                                                                                |
 | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `STEADYBIT_AGENT_KEY`                                 | <p>The API key the agent uses<br><strong>Example:</strong> <code>foobar</code></p>                                                                         |
