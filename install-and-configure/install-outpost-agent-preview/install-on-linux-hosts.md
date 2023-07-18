@@ -1,6 +1,9 @@
 # Install on Linux Hosts
 
-This method will install the Steadybit outpost agent on your linux machine using the respective package managers. By default it will install the extension-It will run the Outpost agent as well as the [extension-http](https://hub.steadybit.com/extension/com.github.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.github.steadybit.extension\_container) and [extension-host](https://hub.steadybit.com/extension/com.github.steadybit.extension\_host).
+This method will install the Steadybit outpost agent on your linux machine using the respective package managers.
+By default it will install the Outpost agent as well as
+the extensions [extension-http](https://hub.steadybit.com/extension/com.github.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.github.steadybit.extension\_container)
+and [extension-host](https://hub.steadybit.com/extension/com.github.steadybit.extension\_host).
 
 #### Supported Package Managers
 
@@ -11,16 +14,26 @@ This method will install the Steadybit outpost agent on your linux machine using
 
 The following command will download and run the latest Steadybit outpost package on your system:
 
-<pre class="language-shell"><code class="lang-shell"><strong>wget https://get.steadybit.com/outpost-linux.sh
-</strong>chmod a+x outpost-linux.sh
-./outpost-linux.sh --key &#x3C;agent-key>
-</code></pre>
+```shell
+wget https://get.steadybit.com/outpost-linux.sh
+chmod a+x outpost-linux.sh
+./outpost-linux.sh --key <agent-key>
+```
 
-<table><thead><tr><th width="195">Parameter</th><th width="325">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>--key</code></td><td>The API key the agent uses</td><td></td></tr><tr><td><code>-extensions</code></td><td>The extensions to install</td><td><code>steadybit-extension-host,steadybit-extension-container,steadybit-extension-http</code></td></tr><tr><td><code>--platform-url</code></td><td>If running on-prem, the url of your platform installation</td><td><code>https://platform.steadybit.com</code></td></tr><tr><td><code>--version</code></td><td>Override the used package version</td><td></td></tr><tr><td><code>--repo-url</code></td><td>Override the default package repository URL</td><td><code>https://artifacts.steadybit.io/repository/{yum|deb}-public/</code></td></tr><tr><td><code>--repo-user</code></td><td>Override the username for accessing the package repository</td><td></td></tr><tr><td><code>--repo-password</code></td><td>Override the password for accessing the package repository</td><td></td></tr></tbody></table>
+| Parameter         | Description                                                | Default                                                                                                                 |
+|-------------------|------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `--key`           | The API key the agent uses                                 |                                                                                                                         |
+| `--extensions`    | The extensions to install                                  | `steadybit-extension-host,steadybit-extension-container,steadybit-extension-http`                                       |
+| `--platform-url`  | If running on-prem, the url of your platform installation  | `https://platform.steadybit.com`                                                                                        |
+| `--version`       | Override the used package version                          |                                                                                                                         |
+| `--repo-url`      | Override the default package repository URL                | `https://artifacts.steadybit.io/repository/{yum}-public/` or  `https://artifacts.steadybit.io/repository/{deb}-public/` |
+| `--repo-user`     | Override the username for accessing the package repository |                                                                                                                         |
+| `--repo-password` | Override the password for accessing the package repository |                                                                                                                         |
 
 #### Additional Extensions
 
-If you want to use additional extensions (e.g [extension-jvm](https://hub.steadybit.com/extension/com.github.steadybit.extension\_jvm) for attacking Java applications), you can do so by using the `--extensions` parameter.
+If you want to use additional extensions (e.g [extension-jvm](https://hub.steadybit.com/extension/com.github.steadybit.extension\_jvm) for attacking Java
+applications), you can do so by using the `--extensions` parameter.
 
 ```
 ./outpost-linux.sh --key <agent-key> --extensions steadybit-extension-host,steadybit-extension-container,steadybit-extension-http,steadybit-extension-jvm
@@ -78,9 +91,10 @@ yum remove steadybit-outpost \
 
 ### Configure HTTP Proxy Server
 
-The Steadybit Outpost Agent uses HTTP and websockets to communicate with the platform and to download updates. To simplify the agent deployment, you should consider allowing direct communication to our platform. In case using a single entry into and out of your network is required, you can configure the agent to use a proxy.
+The Steadybit Outpost Agent uses HTTP and websockets to communicate with the platform and to download updates. To simplify the agent deployment, you should
+consider allowing direct communication to our platform.
 
-For configuring the proxy, you need to edit two files after installation:
+If you require a single entry into and out of your network, you can configure the agent to use a proxy:
 
 1. Edit `/etc/steadybit/outpost` and set the values for these variables:
 
