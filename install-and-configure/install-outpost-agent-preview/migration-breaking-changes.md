@@ -21,7 +21,6 @@ description: >-
 
 ![New Pod Count Check with target selection](pod-and-node-count-new.png)
 
-* Weak spots, Landscape connections and Policies are limited in functionality.
 * The "Kubernetes Delete Pods" attack is not supported anymore and will eventually be replaced by a new attack.
 
 !["Delete Pods" - Attack](delete-pods.png)
