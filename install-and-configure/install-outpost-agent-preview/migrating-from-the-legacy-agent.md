@@ -56,7 +56,7 @@ By default the new actions will not be active. You activate them on the Settings
 * Uninstall all outpost agents and extensions
   * `helm uninstall steadybit-outpost --namespace steadybit-outpost`
 * Install the legacy agent as you did in the past. In case you need help, visit the[ Install Legacy Agent](../install-agents/kubernetes/) docs.
-* Visit Settings -> Extensions -> [Actions](https://platform.steadybit.com/settings/extensions;tab=actions) and switch back to the legacy agent. After switchung back the legacy agents' actions will be used again.
+* Visit Settings -> Extensions -> [Actions](https://platform.steadybit.com/settings/extensions;tab=actions) and switch back to the legacy agent. After switching back the legacy agents' actions will be used again.
 
 ![Toggle fo switching back to the legacy agent mode](<../../.gitbook/assets/image (1).png>)
 
