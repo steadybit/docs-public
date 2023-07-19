@@ -1,8 +1,8 @@
 # Install on Linux Hosts
 
-This method will install the Steadybit outpost agent on your linux machine using the respective package managers.
-By default it will install the Outpost agent as well as
-the extensions [extension-http](https://hub.steadybit.com/extension/com.github.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.github.steadybit.extension\_container)
+This method will install the Steadybit outpost agent on your Linux machine using the respective package managers.
+By default, it will install the Outpost agent as well as
+the extensions [extension-http](https://hub.steadybit.com/extension/com.github.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.github.steadybit.extension\_container),
 and [extension-host](https://hub.steadybit.com/extension/com.github.steadybit.extension\_host).
 
 #### Supported Package Managers
@@ -24,7 +24,7 @@ chmod a+x outpost-linux.sh
 |-------------------|------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | `--key`           | The API key the agent uses                                 |                                                                                                                         |
 | `--extensions`    | The extensions to install                                  | `steadybit-extension-host,steadybit-extension-container,steadybit-extension-http`                                       |
-| `--platform-url`  | If running on-prem, the url of your platform installation  | `https://platform.steadybit.com`                                                                                        |
+| `--platform-url`  | If running on-prem, the URL of your platform installation  | `https://platform.steadybit.com`                                                                                        |
 | `--version`       | Override the used package version                          |                                                                                                                         |
 | `--repo-url`      | Override the default package repository URL                | `https://artifacts.steadybit.io/repository/{yum}-public/` or  `https://artifacts.steadybit.io/repository/{deb}-public/` |
 | `--repo-user`     | Override the username for accessing the package repository |                                                                                                                         |
@@ -32,8 +32,8 @@ chmod a+x outpost-linux.sh
 
 #### Additional Extensions
 
-If you want to use additional extensions (e.g [extension-jvm](https://hub.steadybit.com/extension/com.github.steadybit.extension\_jvm) for attacking Java
-applications), you can do so by using the `--extensions` parameter.
+If you want to use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.github.steadybit.extension\_jvm) for attacking Java
+applications), you can apply the `--extensions` parameter.
 
 ```
 ./outpost-linux.sh --key <agent-key> --extensions steadybit-extension-host,steadybit-extension-container,steadybit-extension-http,steadybit-extension-jvm
@@ -67,7 +67,7 @@ service steadybit-outpost stop
 service steadybit-outpost restart
 ```
 
-The same applies for extensions. The services are named `steadybit-extension-*`.
+The same applies to extensions. The services are named `steadybit-extension-*`.
 
 #### Removing the Outpost Agent
 
@@ -91,8 +91,8 @@ yum remove steadybit-outpost \
 
 ### Configure HTTP Proxy Server
 
-The Steadybit Outpost Agent uses HTTP and websockets to communicate with the platform and to download updates. To simplify the agent deployment, you should
-consider allowing direct communication to our platform.
+The Steadybit Outpost Agent uses HTTP and websockets to communicate with the platform and to download updates.
+To simplify the agent deployment, consider allowing direct communication to our platform.
 
 If you require a single entry into and out of your network, you can configure the agent to use a proxy:
 

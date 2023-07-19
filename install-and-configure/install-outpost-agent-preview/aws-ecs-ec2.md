@@ -4,7 +4,7 @@ The Steadybit Outpost Agent can be installed on **Amazon Elastic Container Servi
 
 In general, you have two options to install the Outpost Agent:
 
-* Run and install the Outpost Agent and extensions to the underlying EC2 Instance
+* Run and install the Outpost Agent and extensions on the underlying EC2 Instance
 * Run the Outpost Agent and extensions as ECS service(s).
 
 ### EC2 Installation
@@ -19,8 +19,8 @@ See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.co
 Due to security constraints, the Host Shutdown Attack will not work. You can use the [Change EC2 Instance State](https://hub.steadybit.com/action/com.github.steadybit.extension\_aws.ec2-instance.state) attack from the extension-aws instead.
 {% endhint %}
 
-You can run the outpost agent and the extension as an ECS workload. You have to create daemonset task definitions for the extension-host and extension-container and for the outpost agent and other extensions a regular service.
+You can run the outpost agent and the extension as an ECS workload. You have to create daemonset task definitions for the extension-host and extension-container and a regular service for the outpost agent and other extensions.
 
-You can use the script from[ Install using Docker Compose](install-as-docker-container.md) to generate a docker compose file, to get an idea how the container definitions have to look like.
+You can use the script from[ Install using Docker Compose](install-as-docker-container.md) to generate a docker compose file to get an idea how the container definitions have to look.
 
-If you need any help with that[ let us know](mailto:support@steadybit.com)!
+If you need any help with that, [ let us know](mailto:support@steadybit.com)!
