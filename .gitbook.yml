@@ -83,6 +83,11 @@ redirects:
   use-steadybit/checks/http-call: use-steadybit/actions.md
   use-steadybit/checks/prometheus: use-steadybit/actions.md
   use-steadybit/checks/postman: use-steadybit/actions.md
+  use-steadybit/discovery/application: use-steadybit/discovery.md
+  use-steadybit/discovery/cloud: use-steadybit/discovery.md
+  use-steadybit/discovery/container: use-steadybit/discovery.md
+  use-steadybit/discovery/custom: use-steadybit/discovery.md
+  use-steadybit/discovery/host: use-steadybit/discovery.md
   use-steadybit/load-tests/README: use-steadybit/actions.md
   use-steadybit/load-tests: use-steadybit/actions.md
   use-steadybit/load-tests/gatling: use-steadybit/actions.md

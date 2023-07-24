@@ -61,11 +61,7 @@
 * [Actions](use-steadybit/actions/README.md)
   * [Reliability Hub](https://hub.steadybit.com)
 * [Discovery](use-steadybit/discovery/README.md)
-  * [Host Targets](use-steadybit/discovery/host.md)
-  * [Container Targets](use-steadybit/discovery/container.md)
-  * [Spring Java Applications](use-steadybit/discovery/application.md)
-  * [Cloud](use-steadybit/discovery/cloud.md)
-  * [Customizing](use-steadybit/discovery/custom.md)
+  * [Reliability Hub](https://hub.steadybit.com)
 * [Query Language](use-steadybit/query-language.md)
 
 ## Integrate with Steadybit
