@@ -1,26 +1,19 @@
----
-title: Discovery
----
-
 # Discovery
 
-## Discovery
+Steadybit automatically discovery your system and makes them available as potential Chaos Engineering targets.
+Each target is associated with attributes you can use to specify the exact set of targets when designing or running a Chaos Engineering experiment.
+What kind of targets are discovered (e.g., containers, hosts, Kubernetes deployments, or JVM applications), and what kind of attributes
+(e.g., `k8s.cluster-name`, `aws.zone` or `application.name`) depends on the installed extensions.
 
-The steadybit agent discovers your system by providing meta data about potential targets as well as the context your system is running in.
+{% hint style="info" %}
+Target discovery is always performed by a Steadybit extension. The discovered metadata is submitted via the Steadybit Agent to the platform.
+If you haven't installed any extensions, you aren't seeing any targets and can't make use of Steadybit's Chaos Engineering platform.
+{% endhint %}
 
-Thereby, the steadybit agents collects information about the following target types:
+## Supported Targets
 
-* [Host Targets](host.md)
-* [Container Targets](container.md)
-* [Application Targets](application.md)
+Check out our [Reliability Hub](https://hub.steadybit.com/targets) to learn about which targets are discovered by a Steadybit extension.
 
-In addition, the agent gathers information about the context where the targets are running. We support
-
-* [Cloud Context](cloud.md) for major Cloud Providers
-* [Custom Context](custom.md) for customizable on-prem solutions
-
-Read about [adding custom attributes](custom.md)
-
-## Extend Steadybit
+## Missing a target? Extend Steadybit!
 
 Are you missing support for a particular technology? No problem, Steadybit is extensible, allowing you to use open- and closed-source extensions to enhance its capabilities. Learn more within our [extension documentation](../../integrate-with-steadybit/extensions/)!

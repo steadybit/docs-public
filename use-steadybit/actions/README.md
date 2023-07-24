@@ -8,7 +8,7 @@ Check out [Steadybit's Recipes](https://hub.steadybit.com/recipes) to learn more
 
 {% hint style="info" %}
 An action is always coming from a Steadybit extension and is submitted via the Steadybit Agent to the platform.
-If you haven't installed any extensions, only one action will be available: a simple wait action.
+If you haven't installed any extensions, only one action is available: a simple wait action.
 {% endhint %}
 
 ## Kinds of Actions
