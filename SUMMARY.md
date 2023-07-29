@@ -26,6 +26,7 @@
   * [Install on Linux Hosts](install-and-configure/install-outpost-agent-preview/install-on-linux-hosts.md)
   * [Install using Docker Compose](install-and-configure/install-outpost-agent-preview/install-as-docker-container.md)
   * [Install on Amazon ECS](install-and-configure/install-outpost-agent-preview/aws-ecs-ec2.md)
+  * [Using M2023-07-29 06:26:51.600 INF Starting extension server on port 9093 (Tutual TLS for Extensions](install-and-configure/install-outpost-agent-preview/using-m2023-07-29-06-26-51.600-inf-starting-extension-server-on-port-9093-tutual-tls-for-extensions.md)
   * [Configuration Options](install-and-configure/install-outpost-agent-preview/advanced-configuration.md)
   * [Migrating From the Legacy Agent](install-and-configure/install-outpost-agent-preview/migrating-from-the-legacy-agent.md)
   * [Migration Breaking Changes](install-and-configure/install-outpost-agent-preview/migration-breaking-changes.md)
