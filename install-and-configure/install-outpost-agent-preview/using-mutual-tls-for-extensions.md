@@ -1,6 +1,8 @@
 # Using Mutual TLS for Extensions
 
-The communication between the Outpost Agent and the extension can be secured using mutual TLS.
+For stronger security, the communication between the outpost agent and extensions can be secured using mutual TLS.&#x20;
+
+You need to configure a client certificate at the agent that will be used to communicate with the extensions. And also a server certificate and client CAs at the extension to verify the client certificate.
 
 ## Configuring a Client Certificate for Outpost Agent
 
@@ -83,9 +85,7 @@ If you have successfully configured the client certificate for the outpost agent
 
 {% tabs %}
 {% tab title="Using Helm Chart" %}
-The steadybit-outpost helm charts include all extensions provided by Steadybit using a `extension-*` prefix.&#x20;
-
-This sample uses the `extension-container` , the options shown here apply to the other extensions as well.&#x20;
+The `steadybit-outpost` helm charts include all extensions provided by Steadybit using a `extension-*` prefix.  This sample is for `extension-container`, the options shown here apply to the other extensions as well. And in case you use the extensions helm chart directly, you need to strip the prefix from the examples.
 
 For the extension to require client certificates, you need to configure both the server certificate and allowed client certificates. If you only specify a server certificate, TLS is used, but client certificates are not mandatory.
 
