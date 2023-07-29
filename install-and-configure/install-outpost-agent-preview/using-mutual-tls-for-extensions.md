@@ -1,4 +1,4 @@
-# Using M2023-07-29 06:26:51.600 INF Starting extension server on port 9093 (Tutual TLS for Extensions
+# Using Mutual TLS for Extensions
 
 The communication between the Outpost Agent and the extension can be secured using mutual TLS.
 

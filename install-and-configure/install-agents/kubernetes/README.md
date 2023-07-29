@@ -310,7 +310,8 @@ spec:
             path: /var/run
         - name: container-sidecar-bundles-root
           hostPath:
-            path: /var/lib/containerd/steadybit-agent</code></pre>
+            path: /var/lib/containerd/steadybit-agent
+</code></pre>
 
 </details>
 
@@ -542,4 +543,4 @@ kubectl apply -f steadybit-agent.yml
 
 To get even more information and insights, the above manifest contains a `Service Account` and `RBAC Authorization` for the `steadybit-agent`. With the access to the K8s API, the agent can provide further information to the platform for identifying potential targets. More information about [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) or [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is available in the Kubernetes docs.
 
-You can learn more about our discovery of containers in the section [Use Steadybit / Discovery / Container.](../../../use-steadybit/discovery/container.md)
+You can learn more about our discovery of containers in the section [Use Steadybit / Discovery / Container.](broken-reference)
