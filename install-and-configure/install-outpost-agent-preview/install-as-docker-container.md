@@ -1,8 +1,8 @@
 # Install using Docker Compose
 
 This method will install the Steadybit outpost agent on your machine using Docker compose. It will run the Outpost agent as well as
-the [extension-http](https://hub.steadybit.com/extension/com.github.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.github.steadybit.extension\_container),
-and [extension-host](https://hub.steadybit.com/extension/com.github.steadybit.extension\_host).
+the [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension\_container),
+and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension\_host).
 
 #### Supported Platforms:
 
@@ -41,7 +41,7 @@ compose configuration and apply it yourself.
 
 #### Additional Extensions
 
-To use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.github.steadybit.extension\_jvm) for attacking Java
+To use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension\_jvm) for attacking Java
 applications), you need to edit the Docker compose file generated using the `config` command: Add the extension as an additional service in the
 Docker compose and register it via environment variables to the
 agent. See [extension installation](../../integrate-with-steadybit/extensions/extension-installation.md) to learn more about extension registration.

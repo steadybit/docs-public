@@ -16,7 +16,7 @@ See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.co
 ### ECS Task
 
 {% hint style="warning" %}
-Due to security constraints, the Host Shutdown Attack will not work. You can use the [Change EC2 Instance State](https://hub.steadybit.com/action/com.github.steadybit.extension\_aws.ec2-instance.state) attack from the extension-aws instead.
+Due to security constraints, the Host Shutdown Attack will not work. You can use the [Change EC2 Instance State](https://hub.steadybit.com/action/com.steadybit.extension\_aws.ec2-instance.state) attack from the extension-aws instead.
 {% endhint %}
 
 You can run the outpost agent and the extension as an ECS workload. You have to create daemonset task definitions for the extension-host and extension-container and a regular service for the outpost agent and other extensions.

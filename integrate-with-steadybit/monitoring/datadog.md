@@ -8,5 +8,5 @@ Datadog is a monitoring service for cloud-scale applications, providing monitori
 
 {% hint style="info" %}
 Integrating Datadog into Steadybit works via our new open-source Extension!<br/>
-You can find more documentation about the extension in the [Reliability Hub](https://hub.steadybit.com/extension/com.github.steadybit.extension_datadog).
+You can find more documentation about the extension in the [Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_datadog).
 {% endhint %}

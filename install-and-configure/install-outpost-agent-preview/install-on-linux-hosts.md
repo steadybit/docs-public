@@ -2,8 +2,8 @@
 
 This method will install the Steadybit outpost agent on your Linux machine using the respective package managers.
 By default, it will install the Outpost agent as well as
-the extensions [extension-http](https://hub.steadybit.com/extension/com.github.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.github.steadybit.extension\_container),
-and [extension-host](https://hub.steadybit.com/extension/com.github.steadybit.extension\_host).
+the extensions [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension\_container),
+and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension\_host).
 
 #### Supported Package Managers
 
@@ -32,7 +32,7 @@ chmod a+x outpost-linux.sh
 
 #### Additional Extensions
 
-If you want to use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.github.steadybit.extension\_jvm) for attacking Java
+If you want to use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension\_jvm) for attacking Java
 applications), you can apply the `--extensions` parameter.
 
 ```

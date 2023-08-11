@@ -9,5 +9,5 @@ Check out the [Prometheus documentation about alerts](https://prometheus.io/docs
 
 {% hint style="info" %}
 Integrating Prometheus into Steadybit works via our new open-source Extension!<br/>
-You can find more documentation about the extension in the [Reliability Hub](https://hub.steadybit.com/extension/com.github.steadybit.extension_prometheus).
+You can find more documentation about the extension in the [Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_prometheus).
 {% endhint %}
