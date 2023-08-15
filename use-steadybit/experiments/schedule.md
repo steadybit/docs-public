@@ -1,6 +1,6 @@
 # Schedule Experiments
 
-Experiments can be run on the fly using the “Run Experiment” button (or via API) but also can be scheduled to be automatically run in the future. Scheduling an experiment can be done in two fashions:
+- Experiments can be run on the fly using the “Run Experiment” button (or via API) but also can be scheduled to be automatically run in the future. Scheduling an experiment can be done in two fashions:
 
 ## Scheduling via UI
 
@@ -11,10 +11,6 @@ There are two buttons to open up the scheduling configuration dialog, which can 
 
 ![Scheduling Experiments](schedule/create-experiment-schedule-step2.png)
 (In the experiment editor, the scheduling can be configured through the configure button on the top right)
-
-### Note:
-
-Please note that one must have permissions to edit the experiment in order to also schedule it.
 
 ### Fixed scheduling date
 
@@ -47,3 +43,9 @@ Schedules can also be configured using the following API endpoints:
 - [Get the current schedule configuration](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiments/getSchedule)
 - [Remove and existing schedule](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiments/removeExperimentSchedule)
 - [List all schedules currently configured](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiments/getAllSchedules)
+
+## Notes:
+
+- Please note that one must have permissions to edit the experiment in order to also schedule it.
+
+- Please note that scheduled experiments are executed even when another experiment runs parallel.
