@@ -93,3 +93,13 @@ redirects:
   use-steadybit/load-tests/gatling: use-steadybit/actions.md
   use-steadybit/load-tests/jmeter: use-steadybit/actions.md
   use-steadybit/load-tests/k6: use-steadybit/actions.md
+  getting-started/20-define-resilience-expectations: getting-started.md
+  quick-start/define-resilience-expectations: getting-started.md
+  use-steadybit/resilience-policies: use-steadybit/experiments/README.md
+  use-steadybit/resilience-policies/references: use-steadybit/experiments/README.md
+  use-steadybit/resilience-policies/taskandpolicydefinitions: use-steadybit/experiments/README.md
+  use-steadybit/resilience-policies/ymlDownloadViaUI: use-steadybit/experiments/README.md
+  use-steadybit/resilience-expectations: use-steadybit/experiments/README.md
+  learn/60-resilience-expectations: use-steadybit/experiments/README.md
+  learn/60-resilience-expectations/10-introduction: use-steadybit/experiments/README.md
+  learn/60-resilience-expectations/20-definition: use-steadybit/experiments/README.md
