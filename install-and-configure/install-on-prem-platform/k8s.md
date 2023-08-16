@@ -114,6 +114,8 @@ spec:
               value: "<replace-with-jdbc-password>"
             - name: STEADYBIT_TENANT_AGENTKEY
               value: "<replace-with-agent-key>"
+            - name: STEADYBIT_TENANT_KEY
+              value: "demo"
             - name: STEADYBIT_AUTH_PROVIDER
               value: "static"
             - name: STEADYBIT_AUTH_STATIC_0_USERNAME
@@ -792,6 +794,8 @@ spec:
               value: "postgres"
             - name: SPRING_DATASOURCE_PASSWORD
               value: "postgres"
+            - name: STEADYBIT_TENANT_KEY
+              value: "demo"
             - name: STEADYBIT_TENANT_AGENTKEY
               value: "foobar"
             - name: STEADYBIT_AUTH_PROVIDER
