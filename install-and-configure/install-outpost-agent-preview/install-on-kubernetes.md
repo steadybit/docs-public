@@ -18,16 +18,28 @@ To configure the installation, specify the values on the command line using the 
 
 For moew configuration opens have a look at our [steadybit/helm-charts repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-outpost).
 
-#### Configure Container Runtime for Docker or CRI-O
+## Configure Container Runtime for Docker or CRI-O
 
 By default, the agent assumes that your cluster uses the `containerd` runtime. If this is not the case, you need to add`--set extension-container.container.runtime=docker` or `cri-o`.
 
-#### Additional Extensions
+### Determine Container Runtime on a Node
+In case of a managed Kubernetes service, there might be a vendor-specific method to check the container runtime.
+In case you have access on the `kubectl`, you can get the container runtime via
+
+```shell
+kubectl get nodes -o wide
+```
+
+The column `CONTAINER-RUNTIME` shows you the runtime you are using. You can find further in the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/administer-cluster/migrating-from-dockershim/find-out-runtime-you-use/).
+
+
+
+## Additional Extensions
 
 By default, the helm chart installs the extensions [`extension-container`](https://hub.steadybit.com/extension/com.steadybit.extension\_container), [`extension-host`](https://hub.steadybit.com/extension/com.steadybit.extension\_host), [`extension-http`](https://hub.steadybit.com/extension/com.steadybit.extension\_http) and [`extension-kubernetes`](https://hub.steadybit.com/extension/com.steadybit.extension\_kubernetes). Further extensions can be enabled via helm values of steadybit-outpost. For example, [`extension-postman`](https://github.com/steadybit/extension-postman) can be enabled by setting`extension-postman.enabled=true`. See our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-outpost) for a detailed list of all the configuration parameters.
 
 Alternatively, you can also install extensions independently with their own helm charts. The installation instructions are listed in the Github repositories of the extension and can be browsed via the [Reliability Hub](https://hub.steadybit.com/).
 
-#### Configure custom Platform for On-Prem
+## Configure custom Platform for On-Prem
 
 If you are running on-prem, make sure to set the URL of the platform: `--set outpost.registerUrl=<your-platform-url>`
