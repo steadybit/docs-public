@@ -1,4 +1,4 @@
-# Install on Kubernetes (using Helm)
+# Install on Kubernetes
 
 This method will install the Steadybit outpost agent on your Kubernetes Cluster using [Helm](https://helm.sh). So you need to have helm installed.
 
