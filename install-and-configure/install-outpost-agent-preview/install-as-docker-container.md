@@ -4,7 +4,16 @@ This method will install the Steadybit outpost agent on your machine using Docke
 the [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension\_container),
 and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension\_host).
 
-#### Supported Platforms:
+
+## Prerequisites
+
+To install the agent, you must be able to access the following URLs via HTTPS (443) on your target environment:
+
+* https://platform.steadybit.com (Platform)
+* https://get.steadybit.com (Setup Scripts)
+* https://ghcr.io and https://github.com (Container Images)
+
+## Supported Platforms:
 
 * Linux (needs the Docker and Docker compose plugin installed)
 * Windows (using Docker Desktop using the WSL2 engine)
@@ -16,7 +25,7 @@ and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension
 **Windows Subsystem for Linux:** With the default Kernel you won't be able to execute network attacks.
 {% endhint %}
 
-### Outpost Installation
+## Outpost Installation
 
 We do provide a simple wrapper script that you can use to deploy the outpost agent to Docker:
 
@@ -39,14 +48,7 @@ In case you don't want to deploy to Docker directly using the script or you need
 compose configuration and apply it yourself.
 {% endhint %}
 
-#### Additional Extensions
-
-To use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension\_jvm) for attacking Java
-applications), you need to edit the Docker compose file generated using the `config` command: Add the extension as an additional service in the
-Docker compose and register it via environment variables to the
-agent. See [extension installation](../../integrate-with-steadybit/extensions/extension-installation.md) to learn more about extension registration.
-
-### Configure HTTP Proxy Server&#x20;
+### Configure HTTP Proxy Server
 
 The Steadybit Outpost uses HTTP and websockets to communicate with the platform.
 To simplify the outpost deployment, consider to allow direct communication to our platform.
@@ -62,3 +64,10 @@ export STEADYBIT_AGENT_PROXY_USER="<username of the proxy (if needed)>"
 export STEADYBIT_AGENT_PROXY_PASSWORD="<password of the proxy (if needed)>"
 ./outpost.sh --key <agent-key> <command>
 ```
+
+## Additional Extensions
+
+To use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension\_jvm) for attacking Java
+applications), you need to edit the Docker compose file generated using the `config` command: Add the extension as an additional service in the
+Docker compose and register it via environment variables to the
+agent. See [extension installation](../../integrate-with-steadybit/extensions/extension-installation.md) to learn more about extension registration.

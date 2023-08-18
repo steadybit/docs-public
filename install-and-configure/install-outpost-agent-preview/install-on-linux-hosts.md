@@ -5,12 +5,20 @@ By default, it will install the Outpost agent as well as
 the extensions [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension\_container),
 and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension\_host).
 
-#### Supported Package Managers
+## Supported Package Managers
 
 * apt
 * yum / dnf
 
-### Outpost Installation
+## Prerequisites
+
+To install the agent, you must be able to access the following URLs via HTTPS (443) on your target environment:
+
+* https://platform.steadybit.com (Platform)
+* https://artifacts.steadybit.io (.deb and .rpm packages)
+* https://get.steadybit.com (Setup Scripts)
+
+## Outpost Installation
 
 The following command will download and run the latest Steadybit outpost package on your system:
 
@@ -29,65 +37,6 @@ chmod a+x outpost-linux.sh
 | `--repo-url`      | Override the default package repository URL                | `https://artifacts.steadybit.io/repository/{yum}-public/` or  `https://artifacts.steadybit.io/repository/{deb}-public/` |
 | `--repo-user`     | Override the username for accessing the package repository |                                                                                                                         |
 | `--repo-password` | Override the password for accessing the package repository |                                                                                                                         |
-
-#### Additional Extensions
-
-If you want to use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension\_jvm) for attacking Java
-applications), you can apply the `--extensions` parameter.
-
-```
-./outpost-linux.sh --key <agent-key> --extensions steadybit-extension-host,steadybit-extension-container,steadybit-extension-http,steadybit-extension-jvm
-```
-
-### Managing the Outpost Agent and Extension
-
-#### Logs
-
-The logs for outpost agent and extensions are located in `/var/log/steadybit-*.log`
-
-#### Configuration
-
-The configurations for outpost agent and extensions are located in `/etc/steadybit`
-
-#### Start/Stop
-
-When using **systemd**
-
-```
-systemctl start steadybit-outpost
-systemctl stop steadybit-outpost
-systemctl restart steadybit-outpost
-```
-
-When using **InitV**
-
-```
-service steadybit-outpost start
-service steadybit-outpost stop
-service steadybit-outpost restart
-```
-
-The same applies to extensions. The services are named `steadybit-extension-*`.
-
-#### Removing the Outpost Agent
-
-Remove the packages using the package manager:
-
-```
-apt-get remove --purge steadybit-outpost \
-  steadybit-extension-http \
-  steadybit-extension-container \
-  steadybit-extension-host
-```
-
-Or when using yum:
-
-```
-yum remove steadybit-outpost \
-  steadybit-extension-http \
-  steadybit-extension-container \
-  steadybit-extension-host
-```
 
 ### Configure HTTP Proxy Server
 
@@ -118,4 +67,63 @@ When using **InitV**
 
 ```
 service steadybit-outpost restart
+```
+
+## Managing the Outpost Agent and Extension
+
+### Logs
+
+The logs for outpost agent and extensions are located in `/var/log/steadybit-*.log`
+
+### Configuration
+
+The configurations for outpost agent and extensions are located in `/etc/steadybit`
+
+### Start/Stop
+
+When using **systemd**
+
+```
+systemctl start steadybit-outpost
+systemctl stop steadybit-outpost
+systemctl restart steadybit-outpost
+```
+
+When using **InitV**
+
+```
+service steadybit-outpost start
+service steadybit-outpost stop
+service steadybit-outpost restart
+```
+
+The same applies to extensions. The services are named `steadybit-extension-*`.
+
+## Removing the Outpost Agent
+
+Remove the packages using the package manager:
+
+```
+apt-get remove --purge steadybit-outpost \
+  steadybit-extension-http \
+  steadybit-extension-container \
+  steadybit-extension-host
+```
+
+Or when using yum:
+
+```
+yum remove steadybit-outpost \
+  steadybit-extension-http \
+  steadybit-extension-container \
+  steadybit-extension-host
+```
+
+## Additional Extensions
+
+If you want to use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension\_jvm) for attacking Java
+applications), you can apply the `--extensions` parameter.
+
+```
+./outpost-linux.sh --key <agent-key> --extensions steadybit-extension-host,steadybit-extension-container,steadybit-extension-http,steadybit-extension-jvm
 ```
