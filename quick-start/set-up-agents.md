@@ -11,8 +11,8 @@ In case something is not working out for you, [let us help you](https://www.stea
 
 ### Prerequisite
 
-* You have already signed up for an account [on our website](https://www.steadybit.com/get-started/)
-* You are able to log in to the [Steadybit SaaS platform](https://platform.steadybit.com/)
+- You have already signed up for an account [on our website](https://www.steadybit.com/get-started/)
+- You are able to log in to the [Steadybit SaaS platform](https://platform.steadybit.com/)
 
 ### Step 1 - Install Agents
 
@@ -38,14 +38,15 @@ Now, the Steadybit Agent is busy discovering your system and gives you an overvi
 
 ![agents finished](set-up-agents-step2.png)
 
-### Step 3 - Start using Steadybit!
+### Step 3 - Optionally Install Extensions
+
+Agents already come loaded with a significant number of capabilities. However, it is helpful to know that Steadybit supports extensions! Extensions enable you to make Steadybit your own – either by using an official or open source extension or by writing your own! Learn more about extensions in our [dedicated documentation](../integrate-with-steadybit/extensions/).
+![steadybit Dashboard](set-up-agents-step3.png)
+
+### Step 4 - Start using Steadybit!
 
 That's it! You are welcomed by our Dashboard giving you access to all relevant information, and you are ready to take off.
 
-![steadybit Dashboard](set-up-agents-step3.png)
+![steadybit Dashboard](set-up-agents-step4.png)
 
 Start using Steadybit by [designing and running your first experiment](run-experiment.md)
-
-### Step 4 - Optionally Install Extensions
-
-Agents already come loaded with a significant number of capabilities. However, it is helpful to know that Steadybit supports extensions! Extensions enable you to make Steadybit your own – either by using an official or open source extension or by writing your own! Learn more about extensions in our [dedicated documentation](../integrate-with-steadybit/extensions/).
