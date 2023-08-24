@@ -26,6 +26,7 @@
   * [Install on Linux Hosts](install-and-configure/install-outpost-agent-preview/install-on-linux-hosts.md)
   * [Install using Docker Compose](install-and-configure/install-outpost-agent-preview/install-as-docker-container.md)
   * [Install on Amazon ECS](install-and-configure/install-outpost-agent-preview/aws-ecs-ec2.md)
+  * [Extension Discovery](install-and-configure/install-outpost-agent-preview/extension-discovery.md)
   * [Using Mutual TLS for Extensions](install-and-configure/install-outpost-agent-preview/using-mutual-tls-for-extensions.md)
   * [Configuration Options](install-and-configure/install-outpost-agent-preview/advanced-configuration.md)
   * [Migrating From the Legacy Agent](install-and-configure/install-outpost-agent-preview/migrating-from-the-legacy-agent.md)
