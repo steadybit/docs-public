@@ -24,11 +24,9 @@ outpost:
   extensions:
     autodiscovery:
       matchLabelsInclude:
-        - key: custom/extension-i-want-to-discover
-          value: true
+        custom/extension-i-want-to-discover: true
       matchLabelsExclude:
-        - key: app.kubernetes.io/name
-          value: extension-host
+        app.kubernetes.io/name: extension-host
 ```
 
 {% endtab %}
