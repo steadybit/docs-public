@@ -21,9 +21,9 @@ An environment consists of a
 
 - **Name**: A meaningful name helps to find the environment afterwards (e.g. "Onlineshop DEV" or "Contract Management PROD").
 - **Team**: For using that environment to run an experiment you need to assign the team to it. This can be done from environment-perspective (`/settings/environments` ) as well as from Team-perspective (`/settings/teams`). It limits access to the users of a team to certain environments (so targets).
-- **Included Targets**: The targets belonging to an environment are specified by using our [discovery data](../../use-steadybit/discovery/). This is the upper limit of targets that can be attacked when running an experiment in a certain environment.
+- **Environment Scope**: The environment scope defines targets belonging to an environment by using our [discovery data](../../use-steadybit/discovery/). This is the upper limit of targets that can be attacked when running an experiment in a certain environment.
 
-#### Configuring an Environment
+### Define Environment Scope
 
 With the query UI, you can build regular queries which are connected with an AND expression.
 For most use cases this can be sufficient.
@@ -37,6 +37,6 @@ That's it, you are ready to use that environment in an experiment!
 
 ![Create a new environment](new_environment.png)
 
-## Use Environments
+### Use Environments
 
 Once the environments are defined and assigned to teams, you can make use of them when e.g. [designing an experiment](../../use-steadybit/experiments/).
