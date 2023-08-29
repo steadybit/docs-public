@@ -12,6 +12,17 @@ redirects:
   install-configure/30-install-agents/40-aws-cloud: install-and-configure/install-outpost-agent/README.md
   install-configure/30-install-agents/50-advanced-configuration: install-and-configure/install-outpost-agent/advanced-configuration.md
   install-configure/30-install-agents/50-faq: install-and-configure/install-outpost-agent/advanced-configuration.md
+  install-and-configure/install-outpost-agent-preview: install-and-configure/install-outpost-agent/README.md
+  install-and-configure/install-outpost-agent-preview/outpost-agent-architecture: install-and-configure/install-outpost-agent/outpost-agent-architecture.md
+  install-and-configure/install-outpost-agent-preview/install-on-kubernetes: install-and-configure/install-outpost-agent/install-on-kubernetes.md
+  install-and-configure/install-outpost-agent-preview/install-on-linux-hosts: install-and-configure/install-outpost-agent/install-on-linux-hosts.md
+  install-and-configure/install-outpost-agent-preview/install-as-docker-container: install-and-configure/install-outpost-agent/install-as-docker-container.md
+  install-and-configure/install-outpost-agent-preview/aws-ecs-ec2: install-and-configure/install-outpost-agent/aws-ecs-ec2.md
+  install-and-configure/install-outpost-agent-preview/extension-discovery: install-and-configure/install-outpost-agent/extension-discovery.md
+  install-and-configure/install-outpost-agent-preview/using-mutual-tls-for-extensions: install-and-configure/install-outpost-agent/using-mutual-tls-for-extensions.md
+  install-and-configure/install-outpost-agent-preview/advanced-configuration: install-and-configure/install-outpost-agent/advanced-configuration.md
+  install-and-configure/install-outpost-agent-preview/migrating-from-the-legacy-agent: install-and-configure/install-outpost-agent/migrating-from-the-legacy-agent.md
+  install-and-configure/install-outpost-agent-preview/migration-breaking-changes: install-and-configure/install-outpost-agent/migration-breaking-changes.md
   install-configure/40-install-platform: install-and-configure/install-on-prem-platform/README.md
   install-configure/40-install-platform/10-docker: install-and-configure/install-on-prem-platform/docker.md
   install-configure/40-install-platform/20-k8s: install-and-configure/install-on-prem-platform/k8s.md
