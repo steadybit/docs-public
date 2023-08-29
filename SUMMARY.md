@@ -11,7 +11,7 @@
 
 ## Install and Configure
 
-* [Install Agents](docs-public/install-and-configure/install-agents/README.md)
+* [Install Agent](docs-public/install-and-configure/install-agents/README.md)
   * [Architecture](docs-public/install-and-configure/install-agents/outpost-agent-architecture.md)
   * [Install on Kubernetes (using Helm)](docs-public/install-and-configure/install-agents/install-on-kubernetes.md)
   * [Install on Linux Hosts](docs-public/install-and-configure/install-agents/install-on-linux-hosts.md)
