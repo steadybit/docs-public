@@ -13,7 +13,7 @@
 
 * [Install Outpost Agent](docs-public/install-and-configure/install-outpost-agent/README.md)
   * [Outpost Agent Architecture](docs-public/install-and-configure/install-outpost-agent/outpost-agent-architecture.md)
-  * [Install on Kubernetes (using Helm)](docs-public/install-and-configure/install-outpost-agent/install-on-kubernetes.md)
+  * [Install on Kubernetes](docs-public/install-and-configure/install-outpost-agent/install-on-kubernetes.md)
   * [Install on Linux Hosts](docs-public/install-and-configure/install-outpost-agent/install-on-linux-hosts.md)
   * [Install using Docker Compose](docs-public/install-and-configure/install-outpost-agent/install-as-docker-container.md)
   * [Install on Amazon ECS](docs-public/install-and-configure/install-outpost-agent/aws-ecs-ec2.md)
