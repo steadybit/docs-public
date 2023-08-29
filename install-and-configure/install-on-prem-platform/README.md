@@ -12,7 +12,7 @@ If you just want to try out Steadybit, we recommend you [sign up for our SaaS pl
 {% endhint %}
 
 
-This guide helps you with the initial installation and deployment of our steadybit platform On-Premise. It is explicitly of use for spaces where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself. After completing this getting started, continue by [setting up steadybit](../install-agents/)
+This guide helps you with the initial installation and deployment of our steadybit platform On-Premise. It is explicitly of use for spaces where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself. After completing this getting started, continue by [setting up steadybit](docs-public/install-and-configure/install-agents-legacy/)
 
 Installing and deploying the steadybit platform on your servers is simple:
 

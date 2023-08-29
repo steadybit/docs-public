@@ -1,4 +1,4 @@
-# Install Outpost Agent (Preview)
+# Install Outpost Agent
 
 ### Overview
 
