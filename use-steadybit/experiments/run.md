@@ -20,7 +20,7 @@ The execution view consists of the following elements.
 * **Deployment Replica Count**: When using an experiment in a Kubernetes context we will automatically monitor how many PODs are ready in your cluster and indicate whenever there is a discrepancy.
 * **Kubernetes Event Log**: When using an experiment in a Kubernetes context we provide you access to the Kubernetes Events so that you can identify what exactly happens in the Kubernetes cluster.
 * **HTTP Call**: If your experiment contains a `HTTP Call`-action you can see the response time as well as HTTP response status as a separate widget in the execution window.
-* **Monitoring Events**: In case your admin has connected a monitoring solution to steadybit (like [Datadog](../../integrate-with-steadybit/monitoring/datadog.md), [Instana](../../integrate-with-steadybit/monitoring/instana.md), [New Relic](../../integrate-with-steadybit/monitoring/newrelic.md) or [Prometheus](../../integrate-with-steadybit/monitoring/prometheus.md)) you can see occuring events and alerts of your setup directly in the execution view.
+* **Monitoring Events**: In case your admin has connected a monitoring solution to steadybit (like [Datadog](../../install-and-configure/configure-monitoring/datadog.md), [Instana](../../integrate-with-steadybit/monitoring/instana.md), [New Relic](../../integrate-with-steadybit/monitoring/newrelic.md) or [Prometheus](../../integrate-with-steadybit/monitoring/prometheus.md)) you can see occuring events and alerts of your setup directly in the execution view.
 
 Every execution has a unique identifier (e.g. **#33131**), which you can use to identify older executions (visible on the left side).
 
