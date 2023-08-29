@@ -1,140 +1,26 @@
----
-title: Install on Amazon Elastic Container Service (ECS) running on EC2
-navTitle: AWS ECS (EC2)
----
+# Install on Amazon ECS
 
-# Install on Amazon Elastic Container Service (ECS) running on EC2
+The Steadybit Outpost Agent can be installed on **Amazon Elastic Container Service** backed by AWS EC2 instances. It is **not compatible** with AWS Fargate.
 
-This page describes how to install the host-based agent into an Elastic Container Service (ECS) cluster running on EC2 using [ECS Daemon Scheduling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs\_services.html#service\_scheduler).
+In general, you have two options to install the Outpost Agent:
 
-There are two ways to setup the agent:
+* Run and install the Outpost Agent and extensions on the underlying EC2 Instance
+* Run the Outpost Agent and extensions as ECS service(s).
 
-### EC2 User Data
+### EC2 Installation
 
-Note: This is the preferred mechanism to deploy the agent across your ECS on EC2 clusters!
+Include the outpost agent and the extensions in your AMI, or install them when the EC2 instance is launching using the user data. Please refer to [install-on-linux-hosts.md](install-on-linux-hosts.md "mention") for setting up the outpost on Linux.
 
-See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch\_container\_instance.html) for using User Data mechanism on new EC2 instances. See also our [Install on Linux Hosts](host.md) section for setting up the agent.
-
-## AWS Metadata
-
-For querying metadata the IAM role `arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess` must be assigned to the EC2 Task Definition running the steadybit agent.
-
-Alternatively you can create your own policy with the following IAM permissions and attach that to the Task Definition Role:
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "ec2:Describe*",
-            "Resource": "*"
-        }
-    ]
-}
-```
+See the [Amazon ECS Container Instance documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch\_container\_instance.html) for using the user data mechanism on new EC2 instances.
 
 ### ECS Task
 
-Note: Due to security issues the Host Shutdown Attack will not work with this setup method.
+{% hint style="warning" %}
+Due to security constraints, the Host Shutdown Attack will not work. You can use the [Change EC2 Instance State](https://hub.steadybit.com/action/com.steadybit.extension\_aws.ec2-instance.state) attack from the extension-aws instead.
+{% endhint %}
 
-#### Example
+You can run the outpost agent and the extension as an ECS workload. You have to create daemonset task definitions for the extension-host and extension-container and a regular service for the outpost agent and other extensions.
 
-For your convenience we have prepared an example task definition to use. Please fill in the missing "replace-with" prefixed fields:
+You can use the script from[ Install using Docker Compose](install-as-docker-container.md) to generate a docker compose file to get an idea how the container definitions have to look.
 
-```shell
-{
-    "ipcMode": "host",
-    "placementConstraints": [],
-    "taskRoleArn": "",
-    "family": "steadybit-agent",
-    "pidMode": "host",
-    "requiresCompatibilities": [
-        "EC2"
-    ],
-    "networkMode": "host",
-    "cpu": "512",
-    "memory": "1024",
-    "executionRoleArn": "<replace-with-execution-role-arn>",
-    "containerDefinitions": [
-        {
-            "logConfiguration": {
-                "logDriver": "json-file"
-            },
-            "portMappings": [],
-            "environment": [
-                {
-                    "name": "STEADYBIT_AGENT_KEY",
-                    "value": "<replace-with-agent-key>"
-                }
-            ],
-            "mountPoints": [
-                {
-                    "readOnly": false,
-                    "containerPath": "/var/run",
-                    "sourceVolume": "var_run"
-                },
-                {
-                    "readOnly": false,
-                    "containerPath": "/run",
-                    "sourceVolume": "run"
-                },
-                {
-                    "readOnly": false,
-                    "containerPath": "/sys",
-                    "sourceVolume": "sys"
-                },
-                {
-                    "readOnly": false,
-                    "containerPath": "/dev",
-                    "sourceVolume": "dev"
-                },
-                {
-                    "readOnly": false,
-                    "containerPath": "/var/log",
-                    "sourceVolume": "var_log"
-                }
-            ],
-            "image": "steadybit/agent:latest",
-            "name": "steadybit-agent"
-        }
-    ],
-    "volumes": [
-        {
-            "name": "dev",
-            "host": {
-                "sourcePath": "/dev"
-            },
-            "dockerVolumeConfiguration": null
-        },
-        {
-            "name": "sys",
-            "host": {
-                "sourcePath": "/sys"
-            },
-            "dockerVolumeConfiguration": null
-        },
-        {
-            "name": "var_run",
-            "host": {
-                "sourcePath": "/var/run"
-            },
-            "dockerVolumeConfiguration": null
-        },
-        {
-            "name": "run",
-            "host": {
-                "sourcePath": "/run"
-            },
-            "dockerVolumeConfiguration": null
-        },
-        {
-            "name": "var_log",
-            "host": {
-                "sourcePath": "/var/log"
-            },
-            "dockerVolumeConfiguration": null
-        }
-    ]
-}
-```
+If you need any help with that, [ let us know](mailto:support@steadybit.com)!
