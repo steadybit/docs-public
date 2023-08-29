@@ -4,14 +4,6 @@ redirects:
   getting-started/15-deploy-example-application: quick-start/deploy-example-application.md
   getting-started/30-run-experiment: quick-start/run-experiment.md
   install-configure: install-and-configure/install-outpost-agent/README.md
-  install-configure/install-agents: install-and-configure/install-outpost-agent/README.md
-  install-configure/install-agents/docker: install-and-configure/install-outpost-agent/install-as-docker-container.md.md
-  install-configure/install-agents/kubernetes: install-and-configure/install-outpost-agent/install-on-kubernetes.md
-  install-configure/install-agents/host: install-and-configure/install-outpost-agent/install-on-linux-hosts.md
-  install-configure/install-agents/aws-ecs-ec2: install-and-configure/install-outpost-agent/aws-ecs-ec2.md
-  install-configure/install-agents/aws-cloud: install-and-configure/install-outpost-agent/README.md
-  install-configure/install-agents/advanced-configuration: install-and-configure/install-outpost-agent/advanced-configuration.md
-  install-configure/install-agents/faq: install-and-configure/install-outpost-agent/advanced-configuration.md
   install-configure/30-install-agents: install-and-configure/install-outpost-agent/README.md
   install-configure/30-install-agents/10-docker: install-and-configure/install-outpost-agent/install-as-docker-container.md.md
   install-configure/30-install-agents/20-kubernetes: install-and-configure/install-outpost-agent/install-on-kubernetes.md
@@ -20,6 +12,15 @@ redirects:
   install-configure/30-install-agents/40-aws-cloud: install-and-configure/install-outpost-agent/README.md
   install-configure/30-install-agents/50-advanced-configuration: install-and-configure/install-outpost-agent/advanced-configuration.md
   install-configure/30-install-agents/50-faq: install-and-configure/install-outpost-agent/advanced-configuration.md
+  install-and-configure: install-and-configure/install-outpost-agent/README.md
+  install-and-configure/install-agents: install-and-configure/install-outpost-agent/README.md
+  install-and-configure/install-agents/docker: install-and-configure/install-outpost-agent/install-as-docker-container.md.md
+  install-and-configure/install-agents/kubernetes: install-and-configure/install-outpost-agent/install-on-kubernetes.md
+  install-and-configure/install-agents/host: install-and-configure/install-outpost-agent/install-on-linux-hosts.md
+  install-and-configure/install-agents/aws-ecs-ec2: install-and-configure/install-outpost-agent/aws-ecs-ec2.md
+  install-and-configure/install-agents/aws-cloud: install-and-configure/install-outpost-agent/README.md
+  install-and-configure/install-agents/advanced-configuration: install-and-configure/install-outpost-agent/advanced-configuration.md
+  install-and-configure/install-agents/faq: install-and-configure/install-outpost-agent/advanced-configuration.md
   install-and-configure/install-outpost-agent-preview: install-and-configure/install-outpost-agent/README.md
   install-and-configure/install-outpost-agent-preview/outpost-agent-architecture: install-and-configure/install-outpost-agent/outpost-agent-architecture.md
   install-and-configure/install-outpost-agent-preview/install-on-kubernetes: install-and-configure/install-outpost-agent/install-on-kubernetes.md

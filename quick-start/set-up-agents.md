@@ -43,7 +43,7 @@ Now, the agent and extensions are busy discovering your system to give you an ov
 
 ![agents finished](set-up-agents-step2.png)
 
-### Step 3 - Optionally Install Extensions
+### Step 3 - Install More Extensions (Optional)
 
 You miss support for further technologies?
 That's why Steadybit supports extensions!
