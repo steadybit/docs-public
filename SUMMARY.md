@@ -11,8 +11,8 @@
 
 ## Install and Configure
 
-* [Install Outpost Agent](install-and-configure/install-outpost-agent/README.md)
-  * [Outpost Agent Architecture](install-and-configure/install-outpost-agent/outpost-agent-architecture.md)
+* [Install Agent](install-and-configure/install-outpost-agent/README.md)
+  * [Architecture](install-and-configure/install-outpost-agent/outpost-agent-architecture.md)
   * [Install on Kubernetes](install-and-configure/install-outpost-agent/install-on-kubernetes.md)
   * [Install on Linux Hosts](install-and-configure/install-outpost-agent/install-on-linux-hosts.md)
   * [Install using Docker Compose](install-and-configure/install-outpost-agent/install-as-docker-container.md)
