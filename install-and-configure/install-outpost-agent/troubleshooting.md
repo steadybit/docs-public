@@ -7,6 +7,7 @@ title: FAQ
 #### Why can't I install the extensions container, host or jvm on my Kubernetes cluster?
 
 If you are using for example GKE Autopilot, you might not be able to install the extension container, host or jvm on your Kubernetes cluster. This is because the extension needs to run with special privileges and this is not possible on GKE Autopilot.
+
 Please use a GKE Standard cluster instead.
 
 The error could look like this:
