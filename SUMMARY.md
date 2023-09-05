@@ -22,6 +22,7 @@
   * [Configuration Options](install-and-configure/install-outpost-agent/advanced-configuration.md)
   * [Migrating From the Legacy Agent](install-and-configure/install-outpost-agent/migrating-from-the-legacy-agent.md)
   * [Migration Breaking Changes](install-and-configure/install-outpost-agent/migration-breaking-changes.md)
+  * [Troubleshooting](install-and-configure/install-outpost-agent/troubleshooting.md)
 * [Install Legacy Agents](install-and-configure/install-agents-legacy/README.md)
   * [Architecture](install-and-configure/install-agents-legacy/architecture.md)
   * [Install as Docker Container](install-and-configure/install-agents-legacy/docker.md)
