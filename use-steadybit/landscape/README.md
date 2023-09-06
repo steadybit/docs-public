@@ -4,20 +4,42 @@ title: Landscape
 
 # Landscape
 
-One key aspect when doing Chaos Engineering is to have visibility into the system. Knowing the system's architecture, understand dependencies and identify effects of your experiments is crucial.
+Steadybit's landscape shows you an overview of all targets discovered by extensions.
+You can choose between viewing the discovered targets on a table or doing an extensive exploration using the Explorer.
 
-> Landscape is currently limited to Kubernetes Cluster and Kubernetes Deployments. Dependencies are discovered when you use your system and only support TCP-based connections to other Kubernetes Deployments. Future Extension is part of our roadmap.
+## Table
+The landscape table gives you an overview of all targets to check, e.g., for completeness of targets or whether a newly installed extension discovers the appropriate target type. You can always see the full details of a target by clicking on it.
+Depending on your team's permission, you can see the environment Global to see all discovered targets or choose a specific environment to list targets according to your permissions.
 
-### Explore the Landscape
+![Landscape table listing all target types and discovered targets](landscape-table.png)
+![Target details showing all discovered attributes](landscape-table-detail.png)
 
-When viewing the landscape you see by default the `Global`-environment (if allowed by your team). This way, you see your entire Kubernetes cluster. In case you have multiple clusters, you can choose the right one by the additional dropdown below.
+## Explorer
+The Explorer informs your Chaos Engineering journey by being able to analyze the discovered infrastructure component in more detail.
+You can easily navigate in potential targets and, e.g., search for new experiments that can be used to approach a team or verify whether other components may be affected by a revealed reliability issue.
+When using the Explorer, you have the following capabilities at your hand
 
-![Landscape in Global-Envirnoment](landscape-global.png)
+- **Environment** to define the upper amount of targets that you would like to explore
+- **Filter targets via Query** to include targets you are interested in and exclude all targets that do not match
+- **Group by** to group targets by an attribute value and bring them next to each other. You can even do endless subgroupings.
+- **Size by** to analyze the target's attributes that have multiple different values assigned
+- **Color by** to highlight and differentiate attribute's values
 
-However, it is usually very crowded in the `Global`-environment. So, we strongly recommend you to divide your system by creating [environments](../../install-and-configure/manage-environments/README.md).
+![Landscape explorer to analyze your system](landscape-explorer-view.png)
 
-### Drill Down
+For every target or group of targets, you can view the discovered attributes and the shared attributes that are in common with the related parent.
 
-After choosing your [environment](../../install-and-configure/manage-environments/README.md) in the top left dropdown you have higher focus on the right system parts. You can further zoom into your system using e.g. your mouse scroll wheel and select a namespace (e.g. `steadybit-demo`). This way, you get a list of all Kubernetes deployments in that namespace as well as the discovered connections of your deployments. 
+![Landscape explorer to show shared and target-specific attributes](landscape-explorer-attributes.png)
 
-![Landscape Namespace](landscape-shop.png)
+### Create Experiments
+Once you have identified a relevant group of targets for an experiment, you can click on that group and choose to use the target selection for an experiment. The Explorer provides the exact Query so that you can copy it into an experiment design.
+
+![img.png](landscape-explorer-create-experiment.png)
+
+### Share views
+You can save all views you have created with the Explorer to share them automatically with your team members. In addition, you can always share a view with someone else using a deep link to that particular view.
+Whenever you have made changes to a saved view, the Explorer will ask you whether you want to keep them or you can save them as a new view.
+
+In addition, Steadybit shares some predefined views that will help you to get started with the Explorer.
+
+![Landscape Explorer views](landscape-explorer-views.png)
