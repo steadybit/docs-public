@@ -88,7 +88,7 @@
 * [Audit Log](integrate-with-steadybit/audit-log.md)
 
 ## Troubleshooting
-* [Extension](troubleshooting/extension.md)
-* [Outpost Agent](troubleshooting/outpost-agent.md)
-* [On-Prem Platform](troubleshooting/on-prem-platform.md)
-* [Legacy Agent](troubleshooting/legacy-agent.md)
+* [Troubleshooting Extension](troubleshooting/extension.md)
+* [Troubleshooting Outpost Agent](troubleshooting/outpost-agent.md)
+* [Troubleshooting On-Prem Platform](troubleshooting/on-prem-platform.md)
+* [Troubleshooting Legacy Agent](troubleshooting/legacy-agent.md)
