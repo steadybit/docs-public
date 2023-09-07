@@ -36,10 +36,12 @@ Once you have identified a relevant group of targets for an experiment, you can 
 
 ![img.png](landscape-explorer-create-experiment.png)
 
-### Share views
-You can save all views you have created with the Explorer to share them automatically with your team members. In addition, you can always share a view with someone else using a deep link to that particular view.
+## Saved Views
+You can save all views you have created with the Explorer to share them automatically with your team members.
+In addition, you can always share a view with someone else using a deep link to that particular view.
 Whenever you have made changes to a saved view, the Explorer will ask you whether you want to keep them or you can save them as a new view.
 
 In addition, Steadybit shares some predefined views that will help you to get started with the Explorer.
+They are dependent on the actual discovered targets, showing e.g. a Kubernetes map only when at least one Kubernetes cluster is discovered.
 
 ![Landscape Explorer views](landscape-explorer-views.png)

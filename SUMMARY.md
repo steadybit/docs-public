@@ -59,10 +59,11 @@
     * [Duplicate](use-steadybit/experiments/duplicate-experiment/README.md)
     * [YML Import / Export](use-steadybit/experiments/yml-import-export/README.md)
   * [Schedule](use-steadybit/experiments/schedule.md)
-    *
-    *
   * [OpenTelemetry Integration](use-steadybit/experiments/opentelemetry-integration.md)
 * [Landscape](use-steadybit/landscape/README.md)
+  * [Table](use-steadybit/landscape/README.md#table)
+  * [Explorer](use-steadybit/landscape/README.md#explorer)
+  * [Saved Views](use-steadybit/landscape/README.md#saved-views)
 * [Weakspots](use-steadybit/weakspots/README.md)
 * [Actions](use-steadybit/actions/README.md)
   * [Reliability Hub](https://hub.steadybit.com)
