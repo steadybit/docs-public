@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title: Troubleshooting Legacy Agent
 ---
 
 # FAQ
