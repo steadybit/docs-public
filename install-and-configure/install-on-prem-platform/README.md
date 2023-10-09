@@ -5,12 +5,10 @@ title: Install On-Prem Platform
 # Install On-Prem Platform
 
 {% hint style="info" %}
-This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team.
-Please, [book an appointment](https://www.steadybit.com/request-demo) to scope your PoC before continuing to evaluate the on-prem solution.
+This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team. Please, [book an appointment](https://www.steadybit.com/request-demo) to scope your PoC before continuing to evaluate the on-prem solution.
 
 If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
-
 
 This guide helps you with the initial installation and deployment of our steadybit platform On-Premise. It is explicitly of use for spaces where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself. After completing this getting started, continue by [setting up steadybit](docs-public/install-and-configure/install-agents-legacy/)
 
@@ -45,7 +43,7 @@ The agent key is needed to install the platform and connect the steadybit agents
 It is our goal to make the installation as easy as possible for you, that's why we recommend you to use our Helm chart that takes a lot of the work out of it and only requires a few parameters from you. If you are not familiar with Helm and would like to learn more about it, check out [helm's QuickStart](https://helm.sh/docs/intro/quickstart/)
 
 {% hint style="info" %}
-In case you can't use Helm or Kubernetes at all, get in touch with us and we'll find the best solution. The platform kan be deployed without Helm and also on plain Docker hosts.&#x20;
+In case you can't use Helm or Kubernetes at all, get in touch with us and we'll find the best solution. The platform kan be deployed without Helm and also on plain Docker hosts.
 {% endhint %}
 
 Please replace the placeholder `replace-with-agent-key` with your agent key copied in [Step 1 - Get your key](./#step-1---getyourkey) and start the helm chart installation with:
@@ -88,7 +86,7 @@ As mentioned above, this getting started helped to set up quickly a steadybit pl
 Before using steadybit
 
 * configure your own Postgres database as [described here](advanced-configuration.md#database-configuration).
-* we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](advanced-configuration#ldap-authentication).
+* we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](advanced-configuration/#ldap-authentication).
 
 #### Advanced Configuration
 
@@ -96,4 +94,4 @@ More configuration options can be found in [Advanced Configuration](advanced-con
 
 #### Troubleshooting
 
-If you have any problems, check our [Troubleshooting](troubleshooting.md) page. Or please [reach out to us](https://www.steadybit.com/contact).
+If you have any problems, check our [Troubleshooting](../../troubleshooting/on-prem-platform.md) page. Or please [reach out to us](https://www.steadybit.com/contact).

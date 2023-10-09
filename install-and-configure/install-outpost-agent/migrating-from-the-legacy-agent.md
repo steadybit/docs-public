@@ -58,6 +58,6 @@ By default the new actions will not be active. You activate them on the Settings
 * Install the legacy agent as you did in the past. In case you need help, visit the[ Install Legacy Agent](docs-public/install-and-configure/install-agents-legacy/kubernetes/) docs.
 * Visit Settings -> Extensions -> [Actions](https://platform.steadybit.com/settings/extensions;tab=actions) and switch back to the legacy agent. After switching back the legacy agents' actions will be used again.
 
-![Toggle fo switching back to the legacy agent mode](migrate-back-legacy-agent.png)
+![Toggle fo switching back to the legacy agent mode](<migrate-back-legacy-agent (1).png>)
 
 * You should delete all actions and target types no longer reported by the outpost agents, those are marked with the label "Missing Agent"
