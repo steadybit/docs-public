@@ -27,7 +27,7 @@ Without agents, there is no connection to your environment. And without extensio
 We offer our agents and extensions for different platforms and have made the installation as easy as possible for you.
 You can find the different installation scripts directly in our platform after logging in.
 
-Simply copy your agent key, replace it with the placeholder in the installation script and execute it next to your system.
+Simply copy the script matching your technology and execute it next to your system.
 
 ![on-boarding](set-up-agents-step1.png)
 
