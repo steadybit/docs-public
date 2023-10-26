@@ -35,3 +35,8 @@ You can also check the environment variable's effect by adding the `-CAfile root
 **Verify return code: 21 (unable to verify the first certificate)**
 
 The agent requires a complete certificate chain configuration for security reasons and this return code indicates that your server responded with an incomplete certificate chain. You can fix this issue by modifying the server that terminates the TLS connection. Please refer to your server/proxy/CDN documentation to learn how to configure a complete certificate chain.
+
+
+#### Installation outpost agent on AWS EKS cluster
+
+- make sure to enable and configure the [Amazon-EBS-CSI-Driver](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html#adding-ebs-csi-eks-add-on) addon on your EKS cluster
