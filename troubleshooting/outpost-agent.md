@@ -39,5 +39,6 @@ The agent requires a complete certificate chain configuration for security reaso
 
 #### Installation outpost agent on AWS EKS cluster
 
-- First: make sure to configure the [Amazon-EBS-CSI-Driver](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html#adding-ebs-csi-eks-add-on)
-- Afterwards add the Amazon-EBS-CSI-Driver addon on your EKS cluster, with newly created IAM role
+1. First: make sure to configure the [Amazon-EBS-CSI-Driver](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html#adding-ebs-csi-eks-add-on)
+2. Afterwards add the Amazon-EBS-CSI-Driver addon on your EKS cluster, with newly created IAM role
+3. Then add your first node group to the cluster.
