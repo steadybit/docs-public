@@ -38,14 +38,14 @@ Steadybit requires a PostgresSQL 13 database.
 
 For running the platform with multiple instances, a Redis message broker is required.
 
-| Environment Variable       | Required | Description                                                                          |
-| -------------------------- | -------- | ------------------------------------------------------------------------------------ |
-| `SPRING_REDIS_HOST`        | yes      | <p>Redis server host<br><strong>Example:</strong> <code>redis</code></p>             |
-| `SPRING_REDIS_PORT`        |          | <p>Redis server port<br><strong>Default:</strong> <code>6379</code></p>              |
-| `SPRING_REDIS_USERNAME`    |          | Redis Username                                                                       |
-| `SPRING_REDIS_PASSWORD`    |          | Redis Password                                                                       |
-| `SPRING_REDIS_SSL`         |          | <p>Wether to enable ssl support.<br><strong>Default:</strong> <code>false</code></p> |
-| `SPRING_REDIS_CLIENT_NAME` |          | Client name to be set on connections with CLIENT SETNAME.                            |
+| Environment Variable                                                                | Required | Description                                                                          |
+|-------------------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------|
+| `SPRING_REDIS_HOST`                                                                 | yes      | <p>Redis server host<br><strong>Example:</strong> <code>redis</code></p>             |
+| `SPRING_REDIS_PORT`                                                                 |          | <p>Redis server port<br><strong>Default:</strong> <code>6379</code></p>              |
+| `SPRING_REDIS_USERNAME`                                                             |          | Redis Username                                                                       |
+| `SPRING_REDIS_PASSWORD`                                                             |          | Redis Password                                                                       |
+| platform <= 1.0.96 `SPRING_REDIS_SSL`, platform > 1.0.96 `SPRING_REDIS_SSL_ENABLED` |          | <p>Wether to enable ssl support.<br><strong>Default:</strong> <code>false</code></p> |
+| `SPRING_REDIS_CLIENT_NAME`                                                          |          | Client name to be set on connections with CLIENT SETNAME.                            |
 
 ### Tenant Configuration
 
