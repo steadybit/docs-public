@@ -28,6 +28,16 @@ To configure the installation, specify the values on the command line using the 
 
 For more configuration options have a look at our [steadybit/helm-charts repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-outpost).
 
+## Resource limits
+
+Keep an eye on OOMing / crash looping agents and extensions after installation. The memory usage highly depends on the number of discovered targets. We try to 
+provide reasonable defaults, but you might need to adapt the resource limits to your use case.
+
+For example, to increase the memory limits for the outpost:
+```shell
+  --set outpost.resources.limits.memory=1Gi
+```
+
 ## Configure Container Runtime for Docker or CRI-O
 
 By default, the agent assumes that your cluster uses the `containerd` runtime. If this is not the case, you need to add`--set extension-container.container.runtime=docker` or `cri-o`.
