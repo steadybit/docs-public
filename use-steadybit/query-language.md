@@ -20,7 +20,7 @@ Please note that the Query UI is limited in regard to the queries you write. For
 
 #### Key-value comparison
 
-Keys and values can be compared using `=`, `!=`, `\~`, and `!\~`.
+Keys and values can be compared using `=`, `!=`, `~`, and `!~`.
 
 ```
 // Simple equals check to get all targets of Kubernetes Cluster 'prod'
