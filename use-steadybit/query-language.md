@@ -25,13 +25,16 @@ Keys and values can be compared using `=`, `!=`, `~`, and `!~`.
 ```
 // Simple equals check to get all targets of Kubernetes Cluster 'prod'
 k8s.cluster-name="prod"
-
+```
+```
 // Not equals check to get all targets not running in the Kuberneters Cluster 'prod'
 k8s.cluster-name!="prod"
-
+```
+```
 // Get all targets with a container name that contains "hot-deals"
 k8s.container.name~"hot-deals"
-
+```
+```
 // Query for all container targets whose maintainer does not contain Jane
 container.label.maintainer!~"Jane"
 ```
@@ -41,7 +44,8 @@ You can also check for the presence or absence of a certain key using `IS PRESEN
 ```
 // Cluster-name is set, so getting all targets running in a Kubernetes cluster
 k8s.cluster-name IS PRESENT
-
+```
+```
 // Kubernetes label service-tier isn't set on a target
 k8s.label.service-tier IS NOT PRESENT
 ```
@@ -53,7 +57,8 @@ To aggregate a key's value, you can use the `COUNT` function to check for the nu
 ```
 // Only find targets running in at least two AWS availability zones   
 COUNT(aws.zone) >= 2
-
+```
+```
 // Only find targets running just a single pod replica   
 COUNT(k8s.pod.name) = 1
 ```
@@ -65,7 +70,8 @@ Simple expressions can be chained with AND & OR.
 ```
 // Get all targets of Kubernetes cluster "prod" or "staging"
 k8s.cluster-name="prod" OR k8s.cluster-name="staging"
-
+```
+```
 // Get all targets of Kubernetes cluster "prod" running on the host "ip-1-2-3-4"
 k8s.cluster-name="prod" AND host.hostname="ip-1-2-3-4"
 ```
