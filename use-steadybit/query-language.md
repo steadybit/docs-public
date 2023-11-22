@@ -12,7 +12,7 @@ Boiling down to a set of targets can result in complex statements. For instance,
 
 When introducing the Query Language, we added a new tab to the already known query UI. Clicking it will switch the edit mode to the Query Language. The already configured query will be translated into the textual form and rendered within the text editor. You can just go ahead writing your own query expressions in there. Like the Query UI, the editor will provide you with auto-completion on available keys and values.&#x20;
 
-Please note that the Query UI is limited in regard to the queries you write. For instance, one cannot express a query like (a="b" AND d="e") OR f="g" with the Query UI. The interface will tell you when the query can only be edited with the language editor.&#x20;
+Please note that the Query UI is limited in regard to the queries you write. For instance, one cannot express a query like `(a="b" AND d="e") OR f="g"` with the Query UI. The interface will tell you when the query can only be edited with the language editor.&#x20;
 
 <figure><img src="../.gitbook/assets/query-too-complex.png" alt=""><figcaption><p>Complex queries can only be edited in the Query language editor.</p></figcaption></figure>
 
@@ -20,35 +20,59 @@ Please note that the Query UI is limited in regard to the queries you write. For
 
 #### Key-value comparison
 
-Keys and values can be compared using =, !=, \~, and !\~.
+Keys and values can be compared using `=`, `!=`, `\~`, and `!\~`.
 
 ```
-// Simple equals check
+// Simple equals check to get all targets of Kubernetes Cluster 'prod'
 k8s.cluster-name="prod"
 
-// Not equals check
+// Not equals check to get all targets not running in the Kuberneters Cluster 'prod'
 k8s.cluster-name!="prod"
 
-// Contains check
-k8s.cluster-name~"prod"
+// Get all targets with a container name that contains "hot-deals"
+k8s.container.name~"hot-deals"
 
-// Not contains check
-k8s.cluster-name!~"prod"
+// Query for all container targets whose maintainer does not contain Jane
+container.label.maintainer!~"Jane"
 ```
 
-#### Expression concatenation
+You can also check for the presence or absence of a certain key using `IS PRESENT` and `IS NOT PRESENT`.
+
+```
+// Cluster-name is set, so getting all targets running in a Kubernetes cluster
+k8s.cluster-name IS PRESENT
+
+// Kubernetes label service-tier isn't set on a target
+k8s.label.service-tier IS NOT PRESENT
+```
+
+#### Aggregations
+
+To aggregate a key's value, you can use the `COUNT` function to check for the number of distinct values with numeric operators like `<`,`<=`,`=`,`>=` and `>`.
+
+```
+// Only find targets running in at least two AWS availability zones   
+COUNT(aws.zone) >= 2
+
+// Only find targets running just a single pod replica   
+COUNT(k8s.pod.name) = 1
+```
+
+#### Expression Concatenation
 
 Simple expressions can be chained with AND & OR.
 
 ```
+// Get all targets of Kubernetes cluster "prod" or "staging"
 k8s.cluster-name="prod" OR k8s.cluster-name="staging"
 
-k8s.cluster-name="prod" AND container.host="ip-1-2-3-4"
+// Get all targets of Kubernetes cluster "prod" running on the host "ip-1-2-3-4"
+k8s.cluster-name="prod" AND host.hostname="ip-1-2-3-4"
 ```
 
-Expression negation
+#### Expression Negation
 
-You can exclude a specific key-value expression using NOT.
+You can negate a specific key-value expression using NOT.
 
 ```
 // Matches all, but not prod
@@ -63,11 +87,11 @@ Expression blocks can be encapsulated using parenthesis.
 (k8s.cluster-name="prod" OR k8s.cluster-name="staging") AND aws.zone="eu-central-1b"
 ```
 
-Quoting
+#### Quoting Special Characters
 
-Keys containing special characters can also be quoted to work
+Keys containing special characters like `:` and `/` needs to be quoted to work properly.
 
 ```
-// Quoting keys is sometimes necessary
+// Quoting keys with special characters is necessary
 "label.aws:ec2launchtemplate/version"="some value"
 ```
