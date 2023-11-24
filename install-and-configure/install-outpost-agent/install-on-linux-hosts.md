@@ -19,8 +19,9 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 * https://get.steadybit.com (Setup Scripts)
 
 ## Outpost Installation
+To install the outpost agent on your Linux system, you can copy the installation script from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform.
 
-The following command will download and run the latest Steadybit outpost package on your system:
+Alternatively, you can update and run the script below with your agent key, which you find in the platform's [setup page](https://platform.steadybit.com/settings/agents/setup):
 
 ```shell
 wget https://get.steadybit.com/outpost-linux.sh

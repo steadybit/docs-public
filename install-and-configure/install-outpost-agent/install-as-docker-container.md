@@ -26,8 +26,9 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 {% endhint %}
 
 ## Outpost Installation
+To deploy the outpost agent to Docker, you can copy the installation script from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform.
 
-We do provide a simple wrapper script that you can use to deploy the outpost agent to Docker:
+Alternatively, you can update and run the script below with your agent key, which you find in the platform's [setup page](https://platform.steadybit.com/settings/agents/setup):
 
 ```bash
 wget https://get.steadybit.com/outpost.sh

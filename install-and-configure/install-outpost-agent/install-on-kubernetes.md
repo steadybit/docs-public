@@ -10,9 +10,13 @@ You must be able to access the following URLs via HTTPS (443) on your target env
 * https://steadybit.github.io (Kubernetes helm repository)
 * https://ghcr.io and https://github.com (Container Images)
 
-## Outpost Installation
+## Installation
 
-To install the outpost agent, grab your Steadybit agent key from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform and run the following commands. Please also fill in your cluster name:
+To deploy the outpost agent to Kubernetes, you can copy the installation script from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform.
+
+Alternatively, you can update the script below with the name of your Kubernetes cluster and your agent key, which you find in the platform's [setup page](https://platform.steadybit.com/settings/agents/setup).
+
+Just run the script while connected to your Kubernetes cluster.
 
 ```shell
 helm repo add steadybit https://steadybit.github.io/helm-charts
