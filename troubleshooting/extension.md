@@ -4,6 +4,21 @@ title: Troubleshooting Extension
 
 # Troubleshooting Extension
 
+#### Why is the extension-container failing due to failed volume mounting?
+
+When deploying the extension-container, the extension startup may fail with an error message as shown below.
+```
+MountVolume.SetUp failed for volume "..." : hostPath type check failed: /run/.../runc/k8s.io is not a directory
+```
+This error indicates that the extension runs on the wrong container runtime (Docker, cri-o, or containerd). To fix this issue, you must configure another one in the installation.
+You can change the extension's runtime easily via helm parameter.
+If you've used the Agent helm-chart to deploy Agent and extensions, you can configure the `extension-container.container.runtime` parameter.
+```
+  --set extension-container.container.runtime=... //containerd, docker or cri-io
+```
+If you deployed the extension-container standalone, the parameter's name is `container.runtime`.
+
+
 #### Why can't I install the extensions container, host or jvm on my Kubernetes cluster?
 
 If you are using for example GKE Autopilot, you might not be able to install the extension container, host or jvm on your Kubernetes cluster. This is because the extension needs to run with special privileges and this is not possible on GKE Autopilot.
