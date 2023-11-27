@@ -5,8 +5,12 @@ navTitle: AWS Cloud Service Agent
 
 # Install AWS Cloud Service Agent
 
-{% hint style="info" %}
-Continue, if you want to install the cloud service agent to attack AWS cloud resources. In case you are interested in host based attacks, attacking e.g. the host and software running on it, refer to [Docker](../docker.md) , [Kubernetes](../kubernetes/) or [Linux Hosts](../host.md) installation documentation.
+{% hint style="warning" %}
+This documentation covers the installation of the **legacy** AWS agent.
+Only use it in case you still run the legacy AWS Agent.
+
+Otherwise, please refer to [this section](/install-and-configure/install-outpost-agent) instead to install the Agent matching your infrastructure.
+Also ensure to install the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) as well to get additional AWS support.
 {% endhint %}
 
 ### Capabilities

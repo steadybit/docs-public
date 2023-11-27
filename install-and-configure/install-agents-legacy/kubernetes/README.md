@@ -4,6 +4,13 @@ navTitle: Kubernetes
 ---
 
 # Install on Kubernetes
+{% hint style="warning" %}
+This documentation covers the installation of the **legacy** agent on Kubernetes.
+Only use it in case you still run the legacy Agent.
+
+Otherwise, please refer to [this section](/install-and-configure/install-outpost-agent/install-on-kubernetes.md) instead to install the Agent on Kubernetes.
+{% endhint %}
+
 
 #### Installation using the Helm Chart
 
