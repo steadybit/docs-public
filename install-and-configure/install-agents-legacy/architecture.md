@@ -3,6 +3,12 @@ title: Architecture
 ---
 
 # Architecture
+{% hint style="warning" %}
+This documentation covers the architecture of the **legacy** agent.
+Only use it in case you still run the legacy Agent.
+
+Otherwise, please refer to [this section](/install-and-configure/install-outpost-agent) instead to see the Agent architecture.
+{% endhint %}
 
 The core of the steadybit architecture is the agent-based approach consisting of
 

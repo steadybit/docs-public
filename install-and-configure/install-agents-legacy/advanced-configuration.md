@@ -5,6 +5,14 @@ navTitle: Advanced Configuration
 
 # Configuration Options
 
+{% hint style="warning" %}
+This documentation covers the configuration options of the **legacy** agent.
+Only use it in case you still run the legacy Agent.
+
+Otherwise, please refer to [this section](/install-and-configure/install-outpost-agent/advanced-configuration) instead for configuration options of the Agent.
+{% endhint %}
+
+
 | agent.sh Argument | Environment Variable                                  | Description                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | -a                | `STEADYBIT_AGENT_KEY`                                 | <p>The API key the agent uses<br><strong>Example:</strong> <code>foobar</code></p>                                                                                                                                                                                                                                                                                     |

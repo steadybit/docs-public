@@ -5,6 +5,13 @@ navTitle: Linux Hosts
 
 # Install on Linux Hosts
 
+{% hint style="warning" %}
+This documentation covers the installation of the **legacy** agent on Linux hosts.
+Only use it in case you still run the legacy Agent.
+
+Otherwise, please refer to [this section](/install-and-configure/install-outpost-agent/install-on-linux-hosts.md) instead to install the Agent on Linux hosts.
+{% endhint %}
+
 The following command will download and run the latest steadybit agent package on your system:
 
 ```shell

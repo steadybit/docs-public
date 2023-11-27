@@ -5,6 +5,13 @@ navTitle: Docker Container
 
 # Install as Docker Container
 
+{% hint style="warning" %}
+This documentation covers the installation of the **legacy** agent as Docker Container.
+Only use it in case you still run the legacy Agent.
+
+Otherwise, please refer to [this section](/install-and-configure/install-outpost-agent/install-as-docker-container.md) instead to install the Agent as Docker Container.
+{% endhint %}
+
 ### Prerequisites
 
 To use steadybit with the SaaS platform you only need Docker on the host where the actions will be executed.

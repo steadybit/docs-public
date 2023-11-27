@@ -5,6 +5,13 @@ navTitle: AWS ECS (EC2)
 
 # Install on Amazon Elastic Container Service (ECS) running on EC2
 
+{% hint style="warning" %}
+This documentation covers the installation of the **legacy** agent on ECS EC2.
+Only use it in case you still run the legacy Agent.
+
+Otherwise, please refer to [this section](/install-and-configure/install-outpost-agent/aws-ecs-ec2.md) instead to install the Agent on ECS EC2.
+{% endhint %}
+
 This page describes how to install the host-based agent into an Elastic Container Service (ECS) cluster running on EC2 using [ECS Daemon Scheduling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs\_services.html#service\_scheduler).
 
 There are two ways to setup the agent:
