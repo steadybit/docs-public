@@ -4,13 +4,13 @@ navTitle: Kubernetes
 ---
 
 # Install on Kubernetes
+
 {% hint style="warning" %}
 This documentation covers the installation of the **legacy** agent on Kubernetes.
 Only use it in case you still run the legacy Agent.
 
 Otherwise, please refer to [this section](/install-and-configure/install-outpost-agent/install-on-kubernetes.md) instead to install the Agent on Kubernetes.
 {% endhint %}
-
 
 #### Installation using the Helm Chart
 
@@ -349,32 +349,32 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: steadybit-agent-in-steadybit-agent
 rules:
-  - apiGroups: [ "batch" ]
+  - apiGroups: ["batch"]
     resources:
       - "jobs"
-    verbs: [ "get", "list", "watch" ]
-  - apiGroups: [ "extensions" ]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["extensions"]
     resources:
       - "deployments"
       - "replicasets"
       - "ingresses"
-    verbs: [ "get", "list", "watch" ]
-  - apiGroups: [ "apps" ]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
     resources:
       - "deployments"
       - "replicasets"
       - "daemonsets"
       - "statefulsets"
-    verbs: [ "get", "list", "watch", "patch" ]
-  - apiGroups: [ "autoscaling" ]
+    verbs: ["get", "list", "watch", "patch"]
+  - apiGroups: ["autoscaling"]
     resources:
       - "horizontalpodautoscalers"
-    verbs: [ "get", "list", "watch" ]
-  - apiGroups: [ "networking.k8s.io" ]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["networking.k8s.io"]
     resources:
       - "ingresses"
-    verbs: [ "get", "list", "watch" ]
-  - apiGroups: [ "" ]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
     resources:
       - "events"
       - "namespaces"
@@ -384,11 +384,11 @@ rules:
       - "pods"
       - "pods/log"
       - "replicationcontrollers"
-    verbs: [ "get", "list", "watch" ]
-  - apiGroups: [ "" ]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
     resources:
       - "pods"
-    verbs: [ "delete", "patch" ]
+    verbs: ["delete", "patch"]
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -409,10 +409,10 @@ metadata:
   name: steadybit-agent
   namespace: steadybit-agent
 rules:
-  - apiGroups: [ "coordination.k8s.io" ]
+  - apiGroups: ["coordination.k8s.io"]
     resources:
       - "leases"
-    verbs: [ "get", "list", "watch", "create", "update" ]
+    verbs: ["get", "list", "watch", "create", "update"]
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -468,7 +468,7 @@ spec:
             limits:
               memory: 650Mi
               cpu: 1500m
-          
+
           livenessProbe:
             httpGet:
               host: 127.0.0.1
@@ -549,5 +549,3 @@ kubectl apply -f steadybit-agent.yml
 ```
 
 To get even more information and insights, the above manifest contains a `Service Account` and `RBAC Authorization` for the `steadybit-agent`. With the access to the K8s API, the agent can provide further information to the platform for identifying potential targets. More information about [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) or [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is available in the Kubernetes docs.
-
-You can learn more about our discovery of containers in the section [Use Steadybit / Discovery / Container.](broken-reference)

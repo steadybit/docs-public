@@ -16,7 +16,7 @@ If you don't want to get started on your own system, but play around with Steady
 
 If you feel comfortable and want to take the next steps, how about the following:
 
-* [How to install more agents](docs-public/install-and-configure/install-agents-legacy/README.md)
-* [Learn how to configure your monitoring](install-and-configure/configure-monitoring/README.md)
-* [Invite more users and group them to teams](install-and-configure/manage-teams-and-users/README.md)
-* [Structure your system by setting up Environments](install-and-configure/manage-environments/README.md)
+- [How to install more agents](install-and-configure/install-outpost-agent/README.md)
+- [Learn how to configure your monitoring](install-and-configure/configure-monitoring/README.md)
+- [Invite more users and group them to teams](install-and-configure/manage-teams-and-users/README.md)
+- [Structure your system by setting up Environments](install-and-configure/manage-environments/README.md)
