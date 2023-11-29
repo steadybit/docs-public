@@ -21,6 +21,6 @@ Due to security constraints, the Host Shutdown Attack will not work. You can use
 
 You can run the outpost agent and the extension as an ECS workload. You have to create daemonset task definitions for the extension-host and extension-container and a regular service for the outpost agent and other extensions.
 
-You can use the script from [Install using Docker Compose](/install-as-docker-container.md) to generate a docker compose file to get an idea how the container definitions have to look.
+You can use the script from [Install using Docker Compose](/install-and-configure/install-outpost-agent/install-as-docker-container.md) to generate a docker compose file to get an idea how the container definitions have to look.
 
 If you need any help with that, [let us know](mailto:support@steadybit.com)!
