@@ -5,7 +5,7 @@ title: Install Agents
 # Install Legacy Agents
 
 {% hint style="warning" %}
-This documentation covers the installation of the **legacy** agent.
+This documentation covers the installation of the **legacy** Agent.
 Only use it in case you still run the legacy Agent.
 
 Otherwise, please refer to [this section](install-and-configure/install-outpost-agent) instead to install the Agent.

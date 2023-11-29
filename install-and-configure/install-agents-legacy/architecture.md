@@ -3,8 +3,9 @@ title: Architecture
 ---
 
 # Architecture
+
 {% hint style="warning" %}
-This documentation covers the architecture of the **legacy** agent.
+This documentation covers the architecture of the **legacy** Agent.
 Only use it in case you still run the legacy Agent.
 
 Otherwise, please refer to [this section](/install-and-configure/install-outpost-agent/outpost-agent-architecture.md) instead to see the Agent architecture.
@@ -12,10 +13,10 @@ Otherwise, please refer to [this section](/install-and-configure/install-outpost
 
 The core of the steadybit architecture is the agent-based approach consisting of
 
-* a central platform, being the center of control for you
-* multiple agents, deployed in your system to discover running hosts, containers and applications.
+- a central platform, being the center of control for you
+- multiple agents, deployed in your system to discover running hosts, containers and applications.
 
-The following diagram shows this in an example of two hosts having each a running steadybit agent.
+The following diagram shows this in an example of two hosts having each a running steadybit Agent.
 
 ![steadybit architecture](../../.gitbook/assets/architecture.png)
 
