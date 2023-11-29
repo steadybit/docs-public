@@ -6,15 +6,15 @@ navTitle: Kubernetes
 # Install on Kubernetes
 
 {% hint style="info" %}
-This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team. Please, [book an appointment](https://www.steadybit.com/request-demo) to scope your PoC before continuing to evaluate the on-prem solution.
+This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team. Please, [book an appointment](https://www.steadybit.com/book-demo) to scope your PoC before continuing to evaluate the on-prem solution.
 
 If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
 
 When using Kubernetes there are two approaches to setup the platform: Using helm or the manifest directly via \`kubectl. We recommend to use the Helm chart.
 
-* [Installation using Helm chart](k8s.md#installation-using-helm-chart)
-* [Local test setup via Minikube and NGINX ingress](k8s.md#local-test-setup-via-minikube-and-nginx-ingress)
+- [Installation using Helm chart](k8s.md#installation-using-helm-chart)
+- [Local test setup via Minikube and NGINX ingress](k8s.md#local-test-setup-via-minikube-and-nginx-ingress)
 
 #### Installation using Helm chart
 

@@ -7,17 +7,18 @@ navTitle: Advanced Configuration
 
 {% hint style="info" %}
 This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team.
-Please, [book an appointment](https://www.steadybit.com/request-demo) to scope your PoC before continuing to evaluate the on-prem solution.
+Please, [book an appointment](https://www.steadybit.com/book-demo) to scope your PoC before continuing to evaluate the on-prem solution.
 
 If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
 
 ### Machine Requirements
+
 The machine you are installing steadybit onto, must have **at least** 4 CPUs and 8 GB available memory.
 
-| Environment Variable         | Required | Description                                                                                                        |
-|------------------------------|----------|--------------------------------------------------------------------------------------------------------------------|
-| `JVM_MAX_RAM_PERCENTAGE`     |          | <p>Define the <code>MaxRAMPercentage</code> of the platform JVM<br><strong>Default:</strong> <code>75.0</code></p> |
+| Environment Variable     | Required | Description                                                                                                        |
+| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| `JVM_MAX_RAM_PERCENTAGE` |          | <p>Define the <code>MaxRAMPercentage</code> of the platform JVM<br><strong>Default:</strong> <code>75.0</code></p> |
 
 ### Debug Docker Images
 
@@ -39,7 +40,7 @@ Steadybit requires a PostgresSQL 13 database.
 For running the platform with multiple instances, a Redis message broker is required.
 
 | Environment Variable                                                                | Required | Description                                                                          |
-|-------------------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------|
+| ----------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------ |
 | `SPRING_REDIS_HOST`                                                                 | yes      | <p>Redis server host<br><strong>Example:</strong> <code>redis</code></p>             |
 | `SPRING_REDIS_PORT`                                                                 |          | <p>Redis server port<br><strong>Default:</strong> <code>6379</code></p>              |
 | `SPRING_REDIS_USERNAME`                                                             |          | Redis Username                                                                       |
@@ -56,7 +57,7 @@ For running the platform with multiple instances, a Redis message broker is requ
 ### Web Configuration
 
 | Environment Variable                   | Required | Description                                                                                                                                                                                     |
-| -------------------------------------- | -------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `STEADYBIT_WEB_PUBLIC_URL`             |          | URL to point to your steadybit installation. Use this if your platform is running behind a reverse proxy doing path rewriting. Also it is used for the links in notifications.                  |
 | `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` |          | By default the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.           |
 | `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL`  |          | By default the Websocket connections are advertised on the same url name as the agents registers to. If you run a separate loadbalancer for the websockets you can override the advertised url. |
@@ -97,7 +98,7 @@ By default the ldap is accessed anonymously, unless `STEADYBIT_AUTH_LDAP_MANAGER
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER`  |          | <p>The filter for the groupOfNames/groupOfUniqueNames for the teams<br><strong>Example:</strong> <code>ou=teams,ou=groups,dc=steadybit,dc=com</code></p>                          |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_KEY_ATTRIBUTE`  |          | <p>The attribute to use as Team key<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                                |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE` |          | <p>The attribute to use as Team name<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                               |
-| `STEADYBIT_AUTH_SYNC_CRON`                     |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 */2 ? * * *</code></p>                                           |
+| `STEADYBIT_AUTH_SYNC_CRON`                     |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 _/2 ? _ \* \*</code></p>                                         |
 
 ### OpenID-Connect Authentication
 
@@ -106,7 +107,7 @@ You can use an OpenID Connect compatible authentication provider for user authen
 > The first user to login will be assigned the `ADMIN` role, all other will be assigned the `USER` role. The roles can be changed by an admin user via the UI.
 
 | Environment Variable                                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|---------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `STEADYBIT_AUTH_PROVIDER`                               | yes      | <p>Use <code>OAUTH2</code> for OIDC-Authentication<br><strong>Example:</strong> <code>OAUTH2</code></p>                                                                                                                                                                                                                                                                                                                                                    |
 | `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`                      | yes      | <p>URI for the OpenID Connect discovery endpoint.<br><strong>Example:</strong> <code>https://keycloak/auth/realms/demo</code></p>                                                                                                                                                                                                                                                                                                                          |
 | `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`                       | yes      | <p>The client ID to use for the OIDC registration<br><strong>Example:</strong> <code>steadybit</code></p>                                                                                                                                                                                                                                                                                                                                                  |
@@ -133,17 +134,17 @@ SSL can be configured by setting the various `SERVER_SSL_*` properties and requi
 
 OpenID Connect can be used to [authenticate the agents to the platform](advanced-agent-authentication.md).
 
-| Environment Variable                      | Required | Description                                                                                            |
-|-------------------------------------------|----------|--------------------------------------------------------------------------------------------------------|
-| `STEADYBIT_AUTH_AGENT_PROVIDER`           |          | <p>Set to <code>OAUTH2</code> to use the OIDC.<br><strong>Default:</strong> <code>AGENT_KEY</code></p> |
-| `STEADYBIT_AUTH_AGENT_OAUTH2_ISSUER_URI`  | yes      | <p>The issuer URI of your identity provider</p>                                                        |
+| Environment Variable                     | Required | Description                                                                                            |
+| ---------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `STEADYBIT_AUTH_AGENT_PROVIDER`          |          | <p>Set to <code>OAUTH2</code> to use the OIDC.<br><strong>Default:</strong> <code>AGENT_KEY</code></p> |
+| `STEADYBIT_AUTH_AGENT_OAUTH2_ISSUER_URI` | yes      | <p>The issuer URI of your identity provider</p>                                                        |
 
 ### Proxy Settings
 
 Steadybit will use these proxy settings if the platform needs to connect to other services (for example your OIDC identity provider).
 
 | Environment Variable       | Required | Description                                                                  |
-|----------------------------|----------|------------------------------------------------------------------------------|
+| -------------------------- | -------- | ---------------------------------------------------------------------------- |
 | `STEADYBIT_PROXY_HOST`     |          | <p>Hostname of your proxy</p>                                                |
 | `STEADYBIT_PROXY_PORT`     |          | <p>Port of your proxy</p>                                                    |
 | `STEADYBIT_PROXY_PROTOCOL` |          | <p>Protocol of your proxy<br><strong>Default:</strong> <code>http</code></p> |

@@ -1,16 +1,17 @@
 # Maintenance & Incident Support
+
 {% hint style="info" %}
 This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team.
-Please, [book an appointment](https://www.steadybit.com/request-demo) to scope your PoC before continuing to evaluate the on-prem solution.
+Please, [book an appointment](https://www.steadybit.com/book-demo) to scope your PoC before continuing to evaluate the on-prem solution.
 
 If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
 
 During the operation of the on-premise Steadybit platform, you may run into situations that require users to be informed about incidents and planned maintenance that will affect on-premise Steadybit users. To inform these users, you can tell the Steadybit platform about incidents and maintenance windows. Once done, the platform can
 
-* show banners in the user interface indicating the specific situation,
-* require explicit confirmation when executing experiments via the user interface and
-* optionally disable experiment execution entirely during an ongoing incident.
+- show banners in the user interface indicating the specific situation,
+- require explicit confirmation when executing experiments via the user interface and
+- optionally disable experiment execution entirely during an ongoing incident.
 
 This feature is available in versions > 1.0.2 of the Steadybit platform.
 
@@ -18,7 +19,7 @@ This feature is available in versions > 1.0.2 of the Steadybit platform.
 
 You can use the following metrics to learn whether maintenance on the Steadybit platform would be affecting any users:
 
-* `platform.experiments.executing` is exposed by the Steadybit platform as a Prometheus metric. It represents the number of currently executing experiments.&#x20;
+- `platform.experiments.executing` is exposed by the Steadybit platform as a Prometheus metric. It represents the number of currently executing experiments.&#x20;
 
 ## Admin API Endpoints
 
@@ -70,7 +71,7 @@ curl -X POST \
 
 The following severities are supported by the API. The user interface will adapt its banner style according to the chosen incident severity.
 
-* `UNDER_MAINTENANCE`
-* `DEGRADED_PERFORMANCE`
-* `PARTIAL_OUTAGE`
-* `MAJOR_OUTAGE`
+- `UNDER_MAINTENANCE`
+- `DEGRADED_PERFORMANCE`
+- `PARTIAL_OUTAGE`
+- `MAJOR_OUTAGE`
