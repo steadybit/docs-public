@@ -23,4 +23,4 @@ You can run the outpost agent and the extension as an ECS workload. You have to 
 
 You can use the script from [Install using Docker Compose](/install-and-configure/install-outpost-agent/install-as-docker-container.md) to generate a docker compose file to get an idea how the container definitions have to look.
 
-If you need any help with that, [let us know](mailto:support@steadybit.com)!
+If you need any help with that, [let us know](https://steadybit.com/contact)!

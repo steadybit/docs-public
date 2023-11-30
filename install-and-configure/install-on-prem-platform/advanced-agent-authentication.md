@@ -13,7 +13,7 @@ By default, the agents are authenticating using the configured agent-key.\
 This key is global and all the same for all agents of your organization.
 
 {% hint style="warning" %}
-In case your agent key got compromised and you need to rotate the agent key, contact our [support](mailto:support@steadybit.com).
+In case your agent key got compromised and you need to rotate the agent key, contact our [support](https://steadybit.com/contact).
 {% endhint %}
 
 ## Agent Authentication using [OpenID Connect](https://openid.net/connect/)
