@@ -10,7 +10,7 @@ description: >-
 
 - "All or nothing" - We recommend replacing all legacy agents with the new outpost agents and their extensions. You cannot consistently attack targets using a mixed form of legacy and outpost agents.
 - Most of the functionality will work seamlessly, but there are a few [breaking changes](migration-breaking-changes.md). Please take a moment to review them.
-- You will be able to [go back](migrating-from-the-legacy-agent.md#migrate-back-to-legacy-agents) to Legacy Agents at any point in time. Only if you added new actions to address [breaking changes](migration-breaking-changes.md), you need to revert these changes manually.
+- You will be able to go back to Legacy Agents at any point in time. Only if you added new actions to address [breaking changes](migration-breaking-changes.md), you need to revert these changes manually.
 - Make sure you have the latest platform release installed.
 
 ### Migrate to Outpost Agents (Kubernetes)
@@ -55,7 +55,7 @@ By default the new actions will not be active. You activate them on the Settings
 
 - Uninstall all outpost agents and extensions
   - `helm uninstall steadybit-outpost --namespace steadybit-outpost`
-- Install the legacy agent as you did in the past. In case you need help, visit the [Install Legacy Agent](install-and-configure/install-agents-legacy#setup-of-host-agents) docs.
+- Install the legacy agent as you did in the past. In case you need help, visit the [Install Legacy Agent](/install-and-configure/install-agents-legacy#setup-of-host-agents) docs.
 - Visit Settings -> Extensions -> [Actions](https://platform.steadybit.com/settings/extensions;tab=actions) and switch back to the legacy agent. After switching back the legacy agents' actions will be used again.
 
 ![Toggle fo switching back to the legacy agent mode](<migrate-back-legacy-agent (1).png>)
