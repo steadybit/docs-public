@@ -86,7 +86,7 @@ As mentioned above, this getting started helped to set up quickly a steadybit pl
 Before using steadybit
 
 - configure your own Postgres database as [described here](advanced-configuration.md#database-configuration).
-- we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](advanced-configuration/#ldap-authentication).
+- we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](/install-and-configure/install-on-prem-platform/advanced-configuration.md#ldap-authentication).
 
 #### Advanced Configuration
 
