@@ -8,14 +8,14 @@ title: Install Agents
 This documentation covers the installation of the **legacy** Agent.
 Only use it in case you still run the legacy Agent.
 
-Otherwise, please refer to [this section](install-and-configure/install-outpost-agent) instead to install the Agent.
+Otherwise, please refer to [this section](/install-and-configure/install-outpost-agent) instead to install the Agent.
 {% endhint %}
 
 ### Overview
 
 Before installing the agent, we recommend to make yourself familiar with the general [Architecture](architecture.md).
 
-You can also have a look at our new agent architecture, we call it [Outpost Agent](install-and-configure/install-outpost-agent/). The Outpost Agent comes with less resource consumption and more fine grained deployment and permission model. We will deprecate the legacy agent somewhere in the future.
+You can also have a look at our new agent architecture, we call it [Outpost Agent](/install-and-configure/install-outpost-agent). The Outpost Agent comes with less resource consumption and more fine grained deployment and permission model. We will deprecate the legacy agent somewhere in the future.
 
 ### Prerequisites
 
