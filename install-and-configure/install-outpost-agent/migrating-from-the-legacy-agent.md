@@ -50,14 +50,3 @@ Next, we can install the outpost agent and all desired extensions. Please take a
 By default the new actions will not be active. You activate them on the Settings -> Extensions -> [Actions](https://platform.steadybit.com/settings/extensions;tab=actions) Page.
 
 ![Toggle for activating the new outpost agent](migrate-outpost-agent.png)
-
-### Migrate back to Legacy Agents (Kubernetes)
-
-- Uninstall all outpost agents and extensions
-  - `helm uninstall steadybit-outpost --namespace steadybit-outpost`
-- Install the legacy agent as you did in the past. In case you need help, visit the [Install Legacy Agent](/install-and-configure/install-agents-legacy#setup-of-host-agents) docs.
-- Visit Settings -> Extensions -> [Actions](https://platform.steadybit.com/settings/extensions;tab=actions) and switch back to the legacy agent. After switching back the legacy agents' actions will be used again.
-
-![Toggle fo switching back to the legacy agent mode](<migrate-back-legacy-agent (1).png>)
-
-- You should delete all actions and target types no longer reported by the outpost agents, those are marked with the label "Missing Agent"
