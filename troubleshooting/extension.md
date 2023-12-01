@@ -2,22 +2,23 @@
 title: Troubleshooting Extension
 ---
 
-# Troubleshooting Extension
+# Extension
 
 #### Why is the extension-container failing due to failed volume mounting?
 
 When deploying the extension-container, the extension startup may fail with an error message as shown below.
+
 ```
 MountVolume.SetUp failed for volume "..." : hostPath type check failed: /run/.../runc/k8s.io is not a directory
 ```
-This error indicates that the extension runs on the wrong container runtime (Docker, cri-o, or containerd). To fix this issue, you must configure another one in the installation.
-You can change the extension's runtime easily via helm parameter.
-If you've used the Agent helm-chart to deploy Agent and extensions, you can configure the `extension-container.container.runtime` parameter.
+
+This error indicates that the extension runs on the wrong container runtime (Docker, cri-o, or containerd). To fix this issue, you must configure another one in the installation. You can change the extension's runtime easily via helm parameter. If you've used the Agent helm-chart to deploy Agent and extensions, you can configure the `extension-container.container.runtime` parameter.
+
 ```
   --set extension-container.container.runtime=... //containerd, docker or cri-io
 ```
-If you deployed the extension-container standalone, the parameter's name is `container.runtime`.
 
+If you deployed the extension-container standalone, the parameter's name is `container.runtime`.
 
 #### Why can't I install the extensions container, host or jvm on my Kubernetes cluster?
 
@@ -43,3 +44,9 @@ The error could look like this:
 ```
 Warning  FailedMount  11s (x6 over 26s)  kubelet            MountVolume.SetUp failed for volume "runtime-runc-root" : hostPath type check failed: /run/docker/runtime-runc/moby is not a directory 
 ```
+
+#### We see intermittent OOMs on extensions or timeouts due to high CPU usage. This makes the extensions unreliable.
+
+We aim for sane defaults in our Helm Charts regarding CPU and Memory requests/limits and design the extensions to have a low resource consumption. However, resource usage depends on the size of your environment. You need to increase the settings if you have massive Kubernetes clusters or big container hosts.\
+\
+Running observability tools that instrument your applications by injecting processes (e.g., Dynatrace) or manipulating bytecode (e.g., Instana) can lead to increased resource consumption. You might want to exclude the Steadybit Outpost and Extensions from this, or need to adapt your resource requests.
