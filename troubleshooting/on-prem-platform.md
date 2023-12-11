@@ -75,3 +75,13 @@ This page describes some common issues and how to solve them.
                 port:
                   number: 80
   ```
+
+### Platform is behind Nginx and the agents are not able to connect to the platform
+Error message in the platform logs:
+```
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030.....[us ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407)
+```
+
+Solution:
+- set the nginx backend protocol is HTTPS instead of HTTP
