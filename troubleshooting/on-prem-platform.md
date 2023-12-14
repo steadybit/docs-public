@@ -52,7 +52,8 @@ This page describes some common issues and how to solve them.
 
 - Check if the agent can reach the Websocket port of the platform.
 
-  - This is usally port 7878 and can be configured in the platform manifest via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT`
+  - This is usally port 7878 and can be configured in the platform manifest via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` (helm chart: `platform.publicWebsocketPort`)
+  - If setting the port is not enough, you can set the url via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL` (helm chart: `platform.ingressOrigin`)
   - Please also check your ingress configuration.
 
   ```yaml
@@ -74,6 +75,31 @@ This page describes some common issues and how to solve them.
                 name: steadybit-platform
                 port:
                   number: 80
+  ```
+  - You can try to connect to the websocket port via curl:
+  ```bash
+  curl 'https://platform.steadybit.com:443/ws' \
+    -H 'Upgrade: websocket' \
+    -H 'Connection: Upgrade' \
+    -H 'Sec-WebSocket-Key: dummy' \
+    -H 'Sec-WebSocket-Version: 13' \
+    -v --http1.1
+  ```
+  
+  ```
+  > GET /ws HTTP/1.1
+  > Host: platform.steadybit.com
+  > User-Agent: curl/8.1.2
+  > Accept: */*
+  > Upgrade: websocket
+  > Connection: Upgrade
+  > Sec-WebSocket-Key: dummy
+  > Sec-WebSocket-Version: 13
+  >
+  < HTTP/1.1 101 Switching Protocols
+  < Date: Thu, 14 Dec 2023 14:37:03 GMT
+  < Connection: upgrade
+  < upgrade: websocket
   ```
 
 ### Platform is behind Nginx and the agents are not able to connect to the platform
