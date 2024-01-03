@@ -7,7 +7,7 @@ title: Explorer
 Steadybit's explorer shows you an overview of all targets discovered by extensions.
 You can choose between viewing the discovered targets on a table or doing an extensive exploration using the Landscape.
 
-## Target
+## Targets
 The explorer target table gives you an overview of all targets to check, e.g., for completeness of targets or whether a newly installed extension discovers the appropriate target type.
 You can always see the full details of a target by clicking on it.
 Depending on your team's permission, you can see the environment Global to see all discovered targets or choose a specific environment to list targets according to your permissions.
@@ -38,7 +38,7 @@ The Landscape provides the exact Query so that you can copy it into an experimen
 
 ![Creating an experiment from the Landscape.png](explorer-landscape-create-experiment.png)
 
-## Saved Views
+### Saved Views
 You can save all views you have created with the Landscape to share them automatically with your team members.
 In addition, you can always share a view with someone else using a deep link to that particular view.
 Whenever you have made changes to a saved view, the Landscape will ask you whether you want to keep them or you can save them as a new view.
