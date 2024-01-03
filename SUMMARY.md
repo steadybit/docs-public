@@ -49,7 +49,7 @@
     - [YML Import / Export](use-steadybit/experiments/yml-import-export/README.md)
   - [Schedule](use-steadybit/experiments/schedule.md)
   - [OpenTelemetry Integration](use-steadybit/experiments/opentelemetry-integration.md)
-- [Landscape](use-steadybit/landscape/README.md)
+- [Explorer](use-steadybit/explorer/README.md)
 - [Weakspots](use-steadybit/weakspots/README.md)
 - [Actions](use-steadybit/actions/README.md)
   - [Reliability Hub](https://hub.steadybit.com)
