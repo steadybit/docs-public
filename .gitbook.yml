@@ -5,7 +5,7 @@ redirects:
   getting-started/30-run-experiment: quick-start/run-experiment.md
   install-configure: install-and-configure/install-outpost-agent/README.md
   install-configure/30-install-agents: install-and-configure/install-outpost-agent/README.md
-  install-configure/30-install-agents/10-docker: install-and-configure/install-outpost-agent/install-as-docker-container.md.md
+  install-configure/30-install-agents/10-docker: install-and-configure/install-outpost-agent/install-as-docker-container.md
   install-configure/30-install-agents/20-kubernetes: install-and-configure/install-outpost-agent/install-on-kubernetes.md
   install-configure/30-install-agents/30-host: install-and-configure/install-outpost-agent/install-on-linux-hosts.md
   install-configure/30-install-agents/35-aws-ecs-ec2: install-and-configure/install-outpost-agent/aws-ecs-ec2.md
