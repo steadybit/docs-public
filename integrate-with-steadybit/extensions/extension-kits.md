@@ -17,7 +17,7 @@ You can learn more about ActionKit through its [GitHub repository](https://githu
 
 ## DiscoveryKit
 
-<figure><img src="../../.gitbook/assets/discovery-kit (1).png" alt="DiscoveryKit logo depicting the text discovery kit and a radar dish icon"><figcaption><p>DiscoveryKit logo depicting the text discovery kit and a radar dish icon</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/discovery-kit.png" alt="DiscoveryKit logo depicting the text discovery kit and a radar dish icon"><figcaption><p>DiscoveryKit logo depicting the text discovery kit and a radar dish icon</p></figcaption></figure>
 
 The Steadybit DiscoveryKit enables the extension of Steadybit with new discovery capabilities. For example, DiscoveryKit can be used to author open/closed source discoveries for:
 
