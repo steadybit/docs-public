@@ -2,7 +2,7 @@
 
 ## Experiment Badges
 
-You can reference an experiment on any external web page using badges. It’s an excellent way to get a link to your experiment and view the status without navigating and logging into the steadybit platform.\\
+You can reference an experiment on any external web page using badges. It’s an excellent way to get a link to your experiment and view the status without navigating and logging into the Steadybit platform.\\
 
 ![Example Badge](https://platform.steadybit.com/api/experiments/SHOP-61/badge.svg?tenantKey=demo)
 

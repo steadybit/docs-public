@@ -6,7 +6,7 @@ title: Slack Notifications
 
 You want to receive a Slack message whenever an experiment has started or failed? This can be achieve via `Settings / Application Settings / Integrations / Slack`.
 
-> If you use an on-prem installation make sure to set the `STEADYBIT_WEB_PUBLIC_URL`, so we can add links to open steadybit via links in the message.
+> If you use an on-prem installation make sure to set the `STEADYBIT_WEB_PUBLIC_URL`, so we can add links to open Steadybit via links in the message.
 
 |              |                                                                                                                                                             |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |

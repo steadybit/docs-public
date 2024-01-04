@@ -1,6 +1,6 @@
 # API
 
-The steadybit Web API allows interfacing with the platform. We follow the principle that every feature available at UI also is available via API.
+The Steadybit Web API allows interfacing with the platform. We follow the principle that every feature available at UI also is available via API.
 
 In order to access the API, you need to have Access Token.
 

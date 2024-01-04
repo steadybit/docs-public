@@ -4,7 +4,7 @@ title: Run an Experiment
 
 # Run an Experiment
 
-We will now use steadybit to design and run our first experiment. We focus in this guide on our example application of shopping demo, which you have [optionally deployed following these steps here](deploy-example-application.md). However, you can also apply the steps to your own application.
+We will now use Steadybit to design and run our first experiment. We focus in this guide on our example application of shopping demo, which you have [optionally deployed following these steps here](deploy-example-application.md). However, you can also apply the steps to your own application.
 
 ### Prerequisite
 
@@ -22,7 +22,7 @@ To do that, we start by creating a new experiment via our Wizard, which guides u
 
 ### Step 2 - Define Experiment
 
-First step is to give our experiment a meaningful name and define the environment where to be executed. We choose the `Online Shop DEV` environment to get access to everything steadybit has discovered for our demo online shop.
+First step is to give our experiment a meaningful name and define the environment where to be executed. We choose the `Online Shop DEV` environment to get access to everything Steadybit has discovered for our demo online shop.
 
 ![Create experiment step 2](<run-experiment-step2.png>)
 
@@ -56,7 +56,7 @@ Before running the experiment make sure to have the `/products`-endpoint open in
 
 ![Run experiment - system under test](run-experiment-run1.png)
 
-When hitting the "run experiment"-button you see the steadybit execution window.
+When hitting the "run experiment"-button you see the Steadybit run window.
 
 ![Run experiment - execution window](<run-experiment-run2.png>)
 
@@ -64,11 +64,11 @@ You should notice that the `/products`-endpoint will not work while `hot-deals` 
 
 ### Conclusion
 
-You have now successfully run an experiment with steadybit in a Kubernetes environment. You have discovered the impact of an unavailable service in a non-scaled system.
+You have now successfully run an experiment with Steadybit in a Kubernetes environment. You have discovered the impact of an unavailable service in a non-scaled system.
 
 What are the next steps?
 
-You can extend the experiment by adding the HTTP action. This way, you see the availability of the `/product`-endpoint directly in steadybit and don't need to check it manually.
+You can extend the experiment by adding the HTTP action. This way, you see the availability of the `/product`-endpoint directly in Steadybit and don't need to check it manually.
 
 After that, how about scaling the `hot-deals` service and then running your new experiment again to check increased resilience?
 

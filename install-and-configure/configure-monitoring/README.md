@@ -6,7 +6,7 @@ title: Configure Monitoring
 
 You usually have already a system configured to see your health indicators of your system: Your monitoring solution. Steadybit can connect and integrate with it while executing experiments, checking for triggered alerts and health indicators.
 
-To be precise, steadybit currently integrates with
+To be precise, Steadybit currently integrates with
 
 * [DataDog](prometheus.md)
 * [Instana](instana.md)

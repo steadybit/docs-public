@@ -18,7 +18,7 @@ When using Kubernetes there are two approaches to setup the platform: Using helm
 
 #### Installation using Helm chart
 
-To install the platform via the chart, first retrieve your steadybit agent key from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform and run the following commands.
+To install the platform via the chart, first retrieve your Steadybit agent key from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform and run the following commands.
 
 Add repo and update contents:
 
