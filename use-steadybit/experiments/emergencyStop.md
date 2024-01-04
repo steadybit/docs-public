@@ -5,5 +5,5 @@ In case a running experiment causes unforeseen severe failures every authenticat
 
 ![Emergency Stop](emergency-stop.png)
 
-After that, all running experiments will be stopped and in addition the execution of new experiments will be prevented (via UI as well as API).
+After that, all running experiments will be stopped and in addition starting new experiments will be prevented (via UI as well as API).
 

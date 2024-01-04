@@ -35,9 +35,9 @@ You can learn more about DiscoveryKit through its [GitHub repository](https://gi
 EventKit allows extensions to consume events from the Steadybit platform to integrate with third-party systems. Extensions leveraging EventKit are similar to webhooks but do not face the typical web routing issues as Steadybit agents handle this aspect. You can use EventKit to:
 
 * Forward audit logs to an external system.
-* Add markers to monitoring systems' charts during experiment executions.
-* Capture experiment execution statistics.
-* Report information about experiment executions to Slack, Discord etc.
+* Add markers to monitoring systems' charts during experiment runs.
+* Capture experiment run statistics.
+* Report information about experiment runs to Slack, Discord etc.
 
 You can learn more about EventKit through its [GitHub repository](https://github.com/steadybit/event-kit).
 

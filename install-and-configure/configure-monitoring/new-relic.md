@@ -8,12 +8,12 @@ New Relic One is an observability platform, offering support from monoliths to s
 
 To integrate Steadybit with New Relic, there are two general possibilities:
 
-* New Relic to Steadybit: checking for specific events from New Relic in Steadybit during experiment execution
-* Steadybit to New Relic: pushing Steadybit events during experiment execution to New Relic
+* New Relic to Steadybit: checking for specific events from New Relic in Steadybit during experiment runs
+* Steadybit to New Relic: pushing Steadybit events during experiment run to New Relic
 
 ### New Relic to Steadybit
 
-We are able to react to the different events of New Relic and process them within the execution of an experiment. You can filter the events and determine at which event type the experiment should fail.
+We are able to react to the different events of New Relic and process them within an experiment run. You can filter the events and determine at which event type the experiment should fail.
 
 **Configuration**
 
@@ -37,7 +37,7 @@ As soon as the configuration of New Relic Insights is provided, Steadybit sends 
 
 **Example Widget**
 
-Below you see an example widget that can be configured on your New Relic dashboard. This helps you to correlate the execution of an experiment with other dashboard widgets.
+Below you see an example widget that can be configured on your New Relic dashboard. This helps you to correlate an experiment run with other dashboard widgets.
 
 ![New Relic Insights Example](new-relic-insights.png)
 
@@ -55,7 +55,7 @@ TIMESERIES FACET
 
 **Data Structure**
 
-Experiment Events coming from Steadybit have generally the structure below. Thereby, `executionType` covers what was exectued (e.g. `attack` or `action` for a load test) and `status` whether it was `started` or `stopped`.
+Experiment Events coming from Steadybit have generally the structure below. Thereby, `executionType` covers what was executed (e.g. `attack` or `action` for a load test) and `status` whether it was `started` or `stopped`.
 
 | Attribute         | Description                                                                                         | Values                        |
 | ----------------- | --------------------------------------------------------------------------------------------------- | ----------------------------- |
@@ -64,7 +64,7 @@ Experiment Events coming from Steadybit have generally the structure below. Ther
 | `executionStep`   | Indicates the executed step of the experiment or empty, if it is the start or end of the experiment | _EMPTY_, `action` or `attack` |
 | `executionStatus` | Indicates the executed step of the experiment or empty, if it is the start or end of the experiment | _EMPTY_, `action` or `attack` |
 
-In addition, events covering the execution of an Attack (`executionTyp` = `attack`) have additional attributes:
+In addition, events covering the run of an Attack (`executionTyp` = `attack`) have additional attributes:
 
 | Attribute             | Description                                                                                                                                                                | Values                                                                                                                        |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|

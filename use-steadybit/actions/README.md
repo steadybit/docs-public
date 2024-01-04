@@ -1,6 +1,6 @@
 # Actions
 
-Actions are the building blocks of Chaos Engineering experiments and allow you to attack, check, or load test your systems during an experiment execution.
+Actions are the building blocks of Chaos Engineering experiments and allow you to attack, check, or load test your systems during an experiment run.
 
 For instance, a simple experiment may consist of a single attack, e.g., to increase CPU usage within a container.
 In more advanced cases, you may compose various actions to, e.g., inject traffic, increase memory usage, and check whether your Observability monitor notices anything.
@@ -38,7 +38,7 @@ You can incorporate various checks into your experiments. Some examples:
 * Run Prometheus PromQL queries to check internal system metrics.
 * Leverage your Postman API tests to check that your API is still working as intended while a part of your system is under attack.
 
-Most checks will immediately abort the experiment execution and mark it as _failed_. You can learn about all supported checks within our [Reliability Hub](https://hub.steadybit.com/actions?targetType=\&kind=check).
+Most checks will immediately abort the experiment run and mark it as _failed_. You can learn about all supported checks within our [Reliability Hub](https://hub.steadybit.com/actions?targetType=\&kind=check).
 
 ### Load Tests
 

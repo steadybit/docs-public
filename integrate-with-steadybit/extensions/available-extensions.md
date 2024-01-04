@@ -30,7 +30,7 @@ The AWS extension enhances Steadybit's native capabilities to discover and injec
 
 </div>
 
-The Datadog extension makes Datadog information usable within experiments, e.g., to restrict experiment execution to situations where a monitor is in an expected state.
+The Datadog extension makes Datadog information usable within experiments, e.g., to restrict experiment runs to situations where a monitor is in an expected state.
 
 ### Istio ([extension-istio](https://hub.steadybit.com/extension/com.steadybit.extension_istio))
 
@@ -80,4 +80,4 @@ This extension allows to integrate Postman cloud resources within Steadybit.
 
 </div>
 
-A Steadybit check implementation to gather Prometheus metrics within chaos engineering experiment executions. These can be used as checks within experiments, e.g., to implement pre- and post-conditions.
+A Steadybit check implementation to gather Prometheus metrics within chaos engineering experiment runs. These can be used as checks within experiments, e.g., to implement pre- and post-conditions.

@@ -1,25 +1,25 @@
 # OpenTelemetry Integration
 
-For every experiment execution, Steadybit collects distributed tracing spans using [OpenTelemetry](https://opentelemetry.io/) across the Steadybit platform and agents. Access to this data benefits users, extension authors and Steadybit maintainers alike. Here are some scenarios as part of which you might access this data:
+For every experiment run, Steadybit collects distributed tracing spans using [OpenTelemetry](https://opentelemetry.io/) across the Steadybit platform and agents. Access to this data benefits users, extension authors and Steadybit maintainers alike. Here are some scenarios as part of which you might access this data:
 
 * Steadybit interests your organization, and you are in the process of building trust in the solution. As part of this, you want to understand what is happening as part of experiments – including the nitty-gritty details.
 * You are developing an extension, and something went wrong. You want to know precisely how your extension was called, the parameters, and how it responded.
-* To correlate experiment executions with other monitoring and observability data, e.g., in your Jaeger or Zipkin installations.
+* To correlate experiment runs with other monitoring and observability data, e.g., in your Jaeger or Zipkin installations.
 * Something went wrong, and you need help from Steadybit's support staff to resolve the situation. Attach the distributed tracing data to give them context.
 
 As the following sections show, Steadybit enables the collection of this data automatically for simple use cases. However, you can instruct the Steadybit agents to report this data to your observability pipeline. This document explains both approaches.
 
 <figure><img src="../../.gitbook/assets/traces-jaeger.png" alt=""><figcaption><p>This screenshot shows a trace encompassing the Steadybit platform and three Steadybit agents in <a href="https://www.jaegertracing.io/">Jaeger</a>.</p></figcaption></figure>
 
-## Download through the Experiment Execution View
+## Download through the Experiment Run View
 
-Steadybit collects and persists distributed tracing data across its platform and agents without further configuration for every experiment execution. This is the simplest way to get started – and the option relevant to most customers.
+Steadybit collects and persists distributed tracing data across its platform and agents without further configuration for every experiment run. This is the simplest way to get started – and the option relevant to most customers.
 
 You can download the distributed tracing data as multiple [OTLP JSON files](https://opentelemetry.io/docs/reference/specification/protocol/). The UI explains importing and inspecting this data within the open-source tool [Jaeger](https://www.jaegertracing.io/).
 
 Distributed tracing data for experiments is retained for 28 days within the Steadybit platform.
 
-<figure><img src="../../.gitbook/assets/traces-download.png" alt=""><figcaption><p>You can download a zip file containing distributed tracing data through the experiment execution view.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/traces-download.png" alt=""><figcaption><p>You can download a zip file containing distributed tracing data through the experiment run view.</p></figcaption></figure>
 
 ## Exporting OpenTelemetry Data
 

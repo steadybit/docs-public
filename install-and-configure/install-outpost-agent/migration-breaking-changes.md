@@ -6,13 +6,13 @@ description: >-
 
 # Migration Breaking Changes
 
-* The "Deployment Readiness"-Widget will no longer be added automatically. You must add a "Pod Count Metrics" step, set a duration, and select deployment targets you want to observe during experiment execution.
+* The "Deployment Readiness"-Widget will no longer be added automatically. You must add a "Pod Count Metrics" step, set a duration, and select deployment targets you want to observe during an experiment run.
 
 ![Deployment Readiness Widget](deployment-readiness.png)
 
 ![Pod count metrics step](pod-count-metrics.png)
 
-* The "Kubernetes Event Log"-Widget will no longer be added automatically. You must add a "Kubernetes Event Log" step, set a duration, and select a cluster you want to observe during experiment execution.
+* The "Kubernetes Event Log"-Widget will no longer be added automatically. You must add a "Kubernetes Event Log" step, set a duration, and select a cluster you want to observe during an experiment run.
 
 ![Kubernetes Event Log](kubernetes-event-log.png)
 ![Kubernetes Event Log Step](kubernetes-event-log-step.png)

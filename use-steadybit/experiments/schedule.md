@@ -35,7 +35,7 @@ Experiments can be scheduled to run repeatedly (like every hour or every Friday 
 ![Scheduling Experiments repeatedly](../../.gitbook/assets/create-experiment-schedule-step4-fixed.png)
 
 {% hint style="info" %}
-**Just so you know**, we are using the [Quartz cron trigger syntax](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html). The Quartz cron expression is evaluated in the user’s configured timezone. The currently configured timezone will also be shown for the next execution.
+**Just so you know**, we are using the [Quartz cron trigger syntax](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html). The Quartz cron expression is evaluated in the user’s configured timezone. The currently configured timezone will also be shown for the next experiment run.
 {% endhint %}
 
 ### Schedules Overview

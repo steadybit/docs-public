@@ -11,7 +11,7 @@ During the operation of the on-premise Steadybit platform, you may run into situ
 
 - show banners in the user interface indicating the specific situation,
 - require explicit confirmation when executing experiments via the user interface and
-- optionally disable experiment execution entirely during an ongoing incident.
+- optionally disable experiment runs entirely during an ongoing incident.
 
 This feature is available in versions > 1.0.2 of the Steadybit platform.
 

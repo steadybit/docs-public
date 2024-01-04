@@ -58,7 +58,7 @@ Before running the experiment make sure to have the `/products`-endpoint open in
 
 When hitting the "run experiment"-button you see the Steadybit run window.
 
-![Run experiment - execution window](<run-experiment-run2.png>)
+![Run experiment - run window](<run-experiment-run2.png>)
 
 You should notice that the `/products`-endpoint will not work while `hot-deals` is unavailable. This is not desirable as there are other products which could have been browsed by the customers of the online shop. You can improve this behavior by adding appropriate fallbacks or scaling the services.
 

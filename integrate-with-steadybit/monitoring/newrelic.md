@@ -6,12 +6,12 @@ title: New Relic
 
 There are two general possibilities to integrate with New Relic:
 
-* New Relic to Steadybit: checking for specific events from New Relic in Steadybit during experiment execution
-* Steadybit to New Relic: pushing Steadybit events during experiment execution to New Relic
+* New Relic to Steadybit: checking for specific events from New Relic in Steadybit during an experiment run
+* Steadybit to New Relic: pushing Steadybit events during an experiment run to New Relic
 
 ### New Relic to Steadybit
 
-We are able to react to the different events of New Relic and process them within the execution of an experiment. Once New Relic has been [configured](../../install-and-configure/configure-monitoring/new-relic.md) by your admin, you will automatically find all events of `New Relic` in the [execution view ](../../use-steadybit/experiments/#run)of an experiment.
+We are able to react to the different events of New Relic and process them within an experiment run. Once New Relic has been [configured](../../install-and-configure/configure-monitoring/new-relic.md) by your admin, you will automatically find all events of `New Relic` in the [run view ](../../use-steadybit/experiments/#run)of an experiment.
 
 ### Steadybit to New Relic
 
