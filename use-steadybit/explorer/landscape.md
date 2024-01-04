@@ -1,11 +1,14 @@
 ---
 title: Explorer Landscape
+navTitle: Landscape
 ---
 
-## Explorer Landscape
+# Explorer Landscape
 The Landscape informs your Chaos Engineering journey by being able to analyze the discovered infrastructure component in more detail.
 You can easily navigate in potential targets and, e.g., search for new experiments that can be used to approach a team or verify whether other components may be affected by a revealed reliability issue.
-When using the Landscape, you have the following capabilities at your hand
+
+## Drill-Down Targets
+When using the Landscape, you have the following capabilities at your hand to better understand discovered targets
 
 - **Environment** to define the upper amount of targets that you would like to explore
 - **Filter targets via Query** to include targets you are interested in and exclude all targets that do not match
@@ -19,13 +22,13 @@ For every target or group of targets, you can view the discovered target types a
 
 ![Landscape to show targets grouped by type and target's attributes](explorer-landscape-details.png)
 
-### Create Experiments
+## Create Experiments
 Once you have identified a relevant group of targets for an experiment, you can click on that group and choose to use the target selection for an experiment.
 The Landscape provides the exact Query so that you can copy it into an experiment design.
 
 ![Creating an experiment from the Landscape.png](explorer-landscape-create-experiment.png)
 
-### Saved Views
+## Saved Views
 You can save all views you have created with the Landscape to share them automatically with your team members.
 In addition, you can always share a view with someone else using a deep link to that particular view.
 Whenever you have made changes to a saved view, the Landscape will ask you whether you want to keep them or you can save them as a new view.
