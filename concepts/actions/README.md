@@ -25,7 +25,7 @@ Attacks, as the name implies, have a deliberate negative impact on your system. 
 
 In the end, an attack execution always has the same intended effect: Let me understand how a system behaves under adverse/turbulent conditions. Attacks introduce adverse/turbulent conditions for as long as necessary, e.g., as long as necessary to observe the effect. Once done, the attack is rolled back (whenever possible) to move the system back into an operational state.
 
-You can learn about all supported attacks within our [Reliability Hub](https://hub.steadybit.com/actions?targetType=\&kind=attack).
+You can learn about all supported attacks within our [Reliability Hub](https://hub.steadybit.com/actions?kind=attack).
 
 ### Checks
 
@@ -38,13 +38,13 @@ You can incorporate various checks into your experiments. Some examples:
 * Run Prometheus PromQL queries to check internal system metrics.
 * Leverage your Postman API tests to check that your API is still working as intended while a part of your system is under attack.
 
-Most checks will immediately abort the experiment run and mark it as _failed_. You can learn about all supported checks within our [Reliability Hub](https://hub.steadybit.com/actions?targetType=\&kind=check).
+Most checks will immediately abort the experiment run and mark it as _failed_. You can learn about all supported checks within our [Reliability Hub](https://hub.steadybit.com/actions?kind=check).
 
 ### Load Tests
 
 Load tests, within the chaos engineering experiment context, are helpful to introduce a baseline of expected traffic on your system – primarily when operating in non-production environments. Without any load on the system, some effects of attacks may not be observable, e.g., your observability solution might not identify problems for end-users because there were no end-users.
 
-You can learn about all supported load tests within our [Reliability Hub](https://hub.steadybit.com/actions?targetType=\&kind=load\_test).
+You can learn about all supported load tests within our [Reliability Hub](https://hub.steadybit.com/actions?kind=load_test).
 
 ## Supported Actions
 
