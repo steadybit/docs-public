@@ -73,7 +73,7 @@ In addition, events covering the run of an Attack (`executionTyp` = `attack`) ha
 | `targetName`          | Name of the target                                                                                                                                                         | e.g. `k8s_fashion-bestseller_fashion-bestseller-bb896d756...`, `ip-10-2-3-122`                                                |
 | `k8s.container.name`) | Name of the container                                                                                                                                                      | e.g. `fashion-bestseller`                                                                                                     |
 | `container.host`      | Name of the target                                                                                                                                                         | e.g. `ip-10-2-3-122`                                                                                                          |
-| ...                   | All remaining attributes available also in the [discovery](../../use-steadybit/discovery/README.md) and [design of experiments](../../use-steadybit/experiments/README.md) | ...                                                                                                                           |
+| ...                   | All remaining attributes available also in the [discovery](../../concepts/discovery/README.md) and [design of experiments](../../use-steadybit/experiments/README.md) | ...                                                                                                                           |
 
 
 #### Useful Resources

@@ -35,11 +35,11 @@ The wizard guides you step by step through the creation of the experiment. It co
 
 ![Create Experiment - Step 1: Define](<../../quick-start/run-experiment-step2.png>)
 
-1. **Select Attack** Now you are ready to choose a suitable attack from one of the available catgories to match your hypothesis. Choose the attack with the desired effect. If needed, you are able to provide additional settings for the attack. However, the defaults are usual a good way to go. To learn more about attacks, check out our [learn-attacks-section in the docs](../actions/).
+1. **Select Attack** Now you are ready to choose a suitable attack from one of the available catgories to match your hypothesis. Choose the attack with the desired effect. If needed, you are able to provide additional settings for the attack. However, the defaults are usual a good way to go. To learn more about attacks, check out our [learn-attacks-section in the docs](../../concepts/actions/).
 
 ![Create Experiment - Step 2: Attack](<../../quick-start/run-experiment-step3.png>)
 
-1. **Select Target** You can now select your desired targets by attributes where you can use the [discovery data](../discovery/) to specify them with a dynamically evaluated query. Since these attributes are discovered by the agents and can change from one moment to the next, it is wise to choose stable attributes. Good examples are labels, namespaces or symbolic names - whereas a unique identifier of targets (like the container id) are usually a bad idea. When the experiment is due to be executed those attributes are resolved into a concrete set of targets to be attacked. You can use the "show targets" button next to the query to evaluate it's effect and preview matching targets.
+1. **Select Target** You can now select your desired targets by attributes where you can use the [discovery data](../../concepts/discovery/) to specify them with a dynamically evaluated query. Since these attributes are discovered by the agents and can change from one moment to the next, it is wise to choose stable attributes. Good examples are labels, namespaces or symbolic names - whereas a unique identifier of targets (like the container id) are usually a bad idea. When the experiment is due to be executed those attributes are resolved into a concrete set of targets to be attacked. You can use the "show targets" button next to the query to evaluate it's effect and preview matching targets.
 
 ![Create Experiment - Step 3: Targets](<../../quick-start/run-experiment-step4.png>)
 
@@ -71,4 +71,4 @@ Just click on each element to define e.g. for an attack the target and attack ra
 
 ### Additional Elements
 
-If you want to learn more about elements which can be added to the experiment, check out [action documentation](../actions/).
+If you want to learn more about elements which can be added to the experiment, check out [action documentation](../../concepts/actions/).

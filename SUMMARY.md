@@ -9,6 +9,13 @@
 - [Run an Experiment](quick-start/run-experiment.md)
 - [Deploy Example Application](quick-start/deploy-example-application.md)
 
+## Concepts
+- [Actions](concepts/actions/README.md)
+  - [Reliability Hub](https://hub.steadybit.com)
+- [Discovery](concepts/discovery/README.md)
+  - [Reliability Hub](https://hub.steadybit.com)
+- [Query Language](concepts/query-language/README.md)
+
 ## Install and Configure
 
 - [Install Agent](install-and-configure/install-outpost-agent/README.md)
@@ -53,11 +60,6 @@
   - [Targets](use-steadybit/explorer/targets.md)
   - [Landscape](use-steadybit/explorer/landscape.md)
 - [Weakspots](use-steadybit/weakspots/README.md)
-- [Actions](use-steadybit/actions/README.md)
-  - [Reliability Hub](https://hub.steadybit.com)
-- [Discovery](use-steadybit/discovery/README.md)
-  - [Reliability Hub](https://hub.steadybit.com)
-- [Query Language](use-steadybit/query-language.md)
 
 ## Integrate with Steadybit
 
