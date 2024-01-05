@@ -41,11 +41,11 @@ redirects:
   install-configure/60-teams-and-users/10-teams: install-and-configure/manage-teams-and-users/teams.md
   install-configure/60-teams-and-users/20-users: install-and-configure/manage-teams-and-users/users.md
   install-configure/60-teams-and-users/30-permissions: install-and-configure/manage-teams-and-users/permissions.md
-  install-configure/70-configure-monitoring: install-and-configure/configure-monitoring/README.md
-  install-configure/70-configure-monitoring/10-datadog: install-and-configure/configure-monitoring/datadog.md
-  install-configure/70-configure-monitoring/20-instana: install-and-configure/configure-monitoring/instana.md
-  install-configure/70-configure-monitoring/30-new-relic: install-and-configure/configure-monitoring/new-relic.md
-  install-configure/70-configure-monitoring/40-prometheus: install-and-configure/configure-monitoring/prometheus.md
+  install-configure/70-configure-monitoring: concepts/actions/README.md
+  install-configure/70-configure-monitoring/10-datadog: concepts/actions/README.md
+  install-configure/70-configure-monitoring/20-instana: concepts/actions/README.md
+  install-configure/70-configure-monitoring/30-new-relic: concepts/actions/README.md
+  install-configure/70-configure-monitoring/40-prometheus: concepts/actions/README.md
   use: use-steadybit/experiments/README.md
   use/10-experiments: use-steadybit/experiments/README.md
   use/10-experiments/10-design: use-steadybit/experiments/design.md
@@ -127,3 +127,13 @@ redirects:
   use-steadybit/query-language: concepts/query-language/README.md
   use-steadybit/actions: concepts/actions/README.md
   use-steadybit/discovery: concepts/discovery/README.md
+  install-and-configure/configure-monitoring: concepts/actions/README.md
+  install-and-configure/configure-monitoring/datadog: concepts/actions/README.md
+  install-and-configure/configure-monitoring/instana: concepts/actions/README.md
+  install-and-configure/configure-monitoring/new-relic: concepts/actions/README.md
+  install-and-configure/configure-monitoring/prometheus: concepts/actions/README.md
+  integrate-with-steadybit/monitoring: concepts/actions/README.md
+  integrate-with-steadybit/monitoring/datadog: concepts/actions/README.md
+  integrate-with-steadybit/monitoring/instana: concepts/actions/README.md
+  integrate-with-steadybit/monitoring/new-relic: concepts/actions/README.md
+  integrate-with-steadybit/monitoring/prometheus: concepts/actions/README.md
