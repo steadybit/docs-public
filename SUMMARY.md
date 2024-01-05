@@ -4,7 +4,7 @@
 
 ## Quick Start
 
-- [First Steps](getting-started.md)
+- [First Steps](quick-start/getting-started.md)
 - [Install Agents](quick-start/set-up-agents.md)
 - [Run an Experiment](quick-start/run-experiment.md)
 - [Deploy Example Application](quick-start/deploy-example-application.md)
