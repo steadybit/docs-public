@@ -56,10 +56,10 @@ redirects:
   learn: install-and-configure/install-outpost-agent/outpost-agent-architecture
   learn/10-architecture: install-and-configure/install-outpost-agent/outpost-agent-architecture
   learn/15-actions: use-steadybit/actions/README.md
-  learn/15-actions/10-pod-count: https://hub.steadybit.com/action/com.steadybit.extension_kubernetes.pod_count_check
-  learn/15-actions/20-http-call: https://hub.steadybit.com/extension/com.steadybit.extension_http
-  learn/15-actions/30-prometheus: https://hub.steadybit.com/extension/com.steadybit.extension_prometheus
-  learn/15-actions/40-postman: https://hub.steadybit.com/extension/com.steadybit.extension_postman
+  learn/15-actions/10-pod-count: concepts/actions/README.md
+  learn/15-actions/20-http-call: concepts/actions/README.md
+  learn/15-actions/30-prometheus: concepts/actions/README.md
+  learn/15-actions/40-postman: concepts/actions/README.md
   learn/20-attacks: use-steadybit/actions.md
   learn/20-attacks/application: use-steadybit/actions.md
   learn/20-attacks/kubernetes: use-steadybit/actions.md
@@ -67,13 +67,13 @@ redirects:
   learn/20-attacks/resource: use-steadybit/actions.md
   learn/20-attacks/state: use-steadybit/actions.md
   learn/30-discovery: use-steadybit/discovery/README.md
-  learn/30-discovery/10-host: https://hub.steadybit.com/extension/com.steadybit.extension_host
-  learn/30-discovery/20-container: https://hub.steadybit.com/extension/com.steadybit.extension_container
-  learn/30-discovery/30-application: https://hub.steadybit.com/extension/com.steadybit.extension_jvm
-  learn/30-discovery/40-cloud: https://hub.steadybit.com/extensions?tags=Cloud
+  learn/30-discovery/10-host: concepts/discovery/README.md
+  learn/30-discovery/20-container: concepts/discovery/README.md
+  learn/30-discovery/30-application: concepts/discovery/README.md
+  learn/30-discovery/40-cloud: concepts/discovery/README.md
   learn/30-discovery/50-custom: integrate-with-steadybit/extensions/README.md
-  learn/40-loadtests: https://hub.steadybit.com/extensions?tags=Load+test
-  learn/50-monitoring: https://hub.steadybit.com/extensions?tags=Monitoring
+  learn/40-loadtests: concepts/action/README.md
+  learn/50-monitoring: concepts/action/README.md
   learn/70-audit-log: integrate-with-steadybit/audit-log.md
   integrate: integrate-with-steadybit/monitoring/README.md
   integrate/10-api: integrate-with-steadybit/api.md
