@@ -52,6 +52,7 @@
 - [Explorer](use-steadybit/explorer/README.md)
   - [Targets](use-steadybit/explorer/targets.md)
   - [Landscape](use-steadybit/explorer/landscape.md)
+  - [Advice](use-steadybit/explorer/advice.md)
 - [Weakspots](use-steadybit/weakspots/README.md)
 - [Actions](use-steadybit/actions/README.md)
   - [Reliability Hub](https://hub.steadybit.com)

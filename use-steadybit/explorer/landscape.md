@@ -22,6 +22,14 @@ For every target or group of targets, you can view the discovered target types a
 
 ![Landscape to show targets grouped by type and target's attributes](explorer-landscape-details.png)
 
+## Advice
+Once you activate the 'Show Advice' in the sidebar, the targets are colored depending on the worst advice state (see [Advice Lifecycle](/use-steadybit/explorer/advice#advice-lifecycle)).
+You can see more details for each target by opening up the target sidebar or target details.
+
+![Explorer Landscape showing you targets and advice](advice-explorer-landscape.png)
+
+Learn more about [advice](/use-steadybit/explorer/advice) in the corresponding section.
+
 ## Create Experiments
 Once you have identified a relevant group of targets for an experiment, you can click on that group and choose to use the target selection for an experiment.
 The Landscape provides the exact Query so that you can copy it into an experiment design.
