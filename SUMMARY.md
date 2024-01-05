@@ -37,11 +37,6 @@
   - [Users](install-and-configure/manage-teams-and-users/users.md)
   - [Teams](install-and-configure/manage-teams-and-users/teams.md)
   - [Permissions](install-and-configure/manage-teams-and-users/permissions.md)
-- [Configure Monitoring](install-and-configure/configure-monitoring/README.md)
-  - [Datadog](install-and-configure/configure-monitoring/datadog.md)
-  - [Instana](install-and-configure/configure-monitoring/instana.md)
-  - [New Relic](install-and-configure/configure-monitoring/new-relic.md)
-  - [Prometheus](install-and-configure/configure-monitoring/prometheus.md)
 
 ## Use Steadybit
 
@@ -74,11 +69,6 @@
   - [Custom Webhooks](integrate-with-steadybit/webhooks/custom-webhooks.md)
   - [Preflight Webhooks](integrate-with-steadybit/webhooks/preflight-webhooks.md)
 - [Slack Notifications](integrate-with-steadybit/slack-notifications.md)
-- [Monitoring](integrate-with-steadybit/monitoring/README.md)
-  - [Instana](integrate-with-steadybit/monitoring/instana.md)
-  - [New Relic](integrate-with-steadybit/monitoring/newrelic.md)
-  - [Prometheus](integrate-with-steadybit/monitoring/prometheus.md)
-  - [Datadog](integrate-with-steadybit/monitoring/datadog.md)
 - [Audit Log](integrate-with-steadybit/audit-log.md)
 
 ## Troubleshooting
