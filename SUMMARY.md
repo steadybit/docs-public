@@ -11,9 +11,7 @@
 
 ## Concepts
 - [Actions](concepts/actions/README.md)
-  - [Reliability Hub](https://hub.steadybit.com)
 - [Discovery](concepts/discovery/README.md)
-  - [Reliability Hub](https://hub.steadybit.com)
 - [Query Language](concepts/query-language/README.md)
 
 ## Install and Configure
