@@ -124,6 +124,6 @@ redirects:
   learn/60-resilience-expectations/10-introduction: use-steadybit/experiments/README.md
   learn/60-resilience-expectations/20-definition: use-steadybit/experiments/README.md
   use-steadybit/landscape: use-steadybit/explorer/README.md
+  use-steadybit/query-language: concepts/query-language/README.md
   use-steadybit/actions: concepts/actions/README.md
   use-steadybit/discovery: concepts/discovery/README.md
-  use-steadybit/query-language: concepts/query-language/README.md
