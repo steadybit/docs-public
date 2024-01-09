@@ -2,7 +2,7 @@
 
 ### What is the Query Language?
 
-There are some use cases, where you want to restrict the targets discovered by Steadybit. One use case can be that you want to [design an experiment](../../use-steadybit/experiments/design.md#basic-elements) and make sure, that there are only targets of a specific Kubernetes cluster affected by the experiment. Another use case is that you want to restrict the available targets when [configuring an environment](../install-and-configure/manage-environments/#advanced-environments).
+There are some use cases, where you want to restrict the targets discovered by Steadybit. One use case can be that you want to [design an experiment](/use-steadybit/experiments/design.md#basic-elements) and make sure, that there are only targets of a specific Kubernetes cluster affected by the experiment. Another use case is that you want to restrict the available targets when [configuring an environment](/install-and-configure/manage-environments/#define-your-own-environment).
 
 Boiling down to a set of targets can result in complex statements. For instance, you want to make sure that the targets are matching some sets of key-value pairs but also not in your production cluster. Expressions like these can now easily be written in Steadybits Query Language. The Query Language is a textual representation of the Query UI but with a more advanced feature set. It allows you to build semantic expression blocks, combining them with other expressions or negating them. The Query UI and the Query Language always come together, so it is up to you to choose the style.
 
