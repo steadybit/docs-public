@@ -18,7 +18,7 @@ jobs:
       - name: Notify Slack channel
         uses: 8398a7/action-slack@v3
         with:
-          channel: '#test-experiments-dev'
+          channel: '#test-docs'
           status: ${{ job.status }}
           text: Found broken redirects in docs
           fields: workflow,action
