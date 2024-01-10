@@ -131,9 +131,10 @@ redirects:
   install-and-configure/configure-monitoring/datadog: concepts/actions/README.md
   install-and-configure/configure-monitoring/instana: concepts/actions/README.md
   install-and-configure/configure-monitoring/new-relic: concepts/actions/README.md
+  install-and-configure/configure-monitoring/newrelic: concepts/actions/README.md
   install-and-configure/configure-monitoring/prometheus: concepts/actions/README.md
   integrate-with-steadybit/monitoring: concepts/actions/README.md
   integrate-with-steadybit/monitoring/datadog: concepts/actions/README.md
   integrate-with-steadybit/monitoring/instana: concepts/actions/README.md
-  integrate-with-steadybit/monitoring/new-relic: concepts/actions/README.md
+  integrate-with-steadybit/monitoring/newrelic: concepts/actions/README.md
   integrate-with-steadybit/monitoring/prometheus: concepts/actions/README.md
