@@ -53,8 +53,8 @@ redirects:
   use/10-experiments/30-prevent-execution: use-steadybit/experiments/emergencystop.md
   use/20-landscape: use-steadybit/explorer/README.md
   use/30-weakspots: use-steadybit/weakspots/README.md
-  learn: install-and-configure/install-outpost-agent/outpost-agent-architecture
-  learn/10-architecture: install-and-configure/install-outpost-agent/outpost-agent-architecture
+  learn: install-and-configure/install-outpost-agent/outpost-agent-architecture.md
+  learn/10-architecture: install-and-configure/install-outpost-agent/outpost-agent-architecture.md
   learn/15-actions: use-steadybit/actions/README.md
   learn/15-actions/10-pod-count: concepts/actions/README.md
   learn/15-actions/20-http-call: concepts/actions/README.md
