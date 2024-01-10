@@ -78,9 +78,9 @@ redirects:
   integrate: concepts/actions/README.md
   integrate/10-api: integrate-with-steadybit/api.md
   integrate/20-loadtests: use-steadybit/actions/README.md
-  integrate/20-loadtests/10-gatling: use-steadybit/actions/gatling.md
-  integrate/20-loadtests/20-jmeter: use-steadybit/actions/jmeter.md
-  integrate/20-loadtests/30-k6: use-steadybit/actions/k6.md
+  integrate/20-loadtests/10-gatling: use-steadybit/actions/README.md
+  integrate/20-loadtests/20-jmeter: use-steadybit/actions/README.md
+  integrate/20-loadtests/30-k6: use-steadybit/actions/README.md
   integrate/30-monitoring: concepts/actions/README.md
   integrate/30-monitoring/10-datadog: concepts/actions/README.md
   integrate/30-monitoring/30-instana: concepts/actions/README.md
