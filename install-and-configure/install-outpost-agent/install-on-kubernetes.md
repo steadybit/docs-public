@@ -65,3 +65,17 @@ If you are running on-prem, make sure to set the URL of the platform: `--set out
 By default, the helm chart installs the extensions [`extension-container`](https://hub.steadybit.com/extension/com.steadybit.extension\_container), [`extension-host`](https://hub.steadybit.com/extension/com.steadybit.extension\_host), [`extension-http`](https://hub.steadybit.com/extension/com.steadybit.extension\_http) and [`extension-kubernetes`](https://hub.steadybit.com/extension/com.steadybit.extension\_kubernetes). Further extensions can be enabled via helm values of steadybit-outpost. For example, [`extension-postman`](https://github.com/steadybit/extension-postman) can be enabled by setting`extension-postman.enabled=true`. See our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-outpost) for a detailed list of all the configuration parameters.
 
 Alternatively, you can also install extensions independently with their own helm charts. The installation instructions are listed in the Github repositories of the extension and can be browsed via the [Reliability Hub](https://hub.steadybit.com/).
+
+## Alternative: Generate Kubernetes Manifests
+
+We currently don't provide a static Kubernetes manifest, but you can generate it from the helm chart. We recommend to use the helm chart, as it is easier to update the outpost agent and extensions.
+
+```shell
+helm repo add steadybit https://steadybit.github.io/helm-charts
+helm repo update
+helm template steadybit-outpost --namespace steadybit-outpost \
+  --create-namespace \
+  --set outpost.key=<replace-with-agent-key> \
+  --set global.clusterName=<replace-with-cluster-name> \
+  steadybit/steadybit-outpost
+```
