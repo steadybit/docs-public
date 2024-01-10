@@ -75,17 +75,17 @@ redirects:
   learn/40-loadtests: concepts/action/README.md
   learn/50-monitoring: concepts/action/README.md
   learn/70-audit-log: integrate-with-steadybit/audit-log.md
-  integrate: integrate-with-steadybit/monitoring/README.md
+  integrate: concepts/actions/README.md
   integrate/10-api: integrate-with-steadybit/api.md
   integrate/20-loadtests: use-steadybit/actions/README.md
   integrate/20-loadtests/10-gatling: use-steadybit/actions/gatling.md
   integrate/20-loadtests/20-jmeter: use-steadybit/actions/jmeter.md
   integrate/20-loadtests/30-k6: use-steadybit/actions/k6.md
-  integrate/30-monitoring: integrate-with-steadybit/monitoring/README.md
-  integrate/30-monitoring/10-datadog: integrate-with-steadybit/monitoring/datadog.md
-  integrate/30-monitoring/30-instana: integrate-with-steadybit/monitoring/instana.md
-  integrate/30-monitoring/40-newrelic: integrate-with-steadybit/monitoring/newrelic.md
-  integrate/30-monitoring/50-prometheus: integrate-with-steadybit/monitoring/prometheus.md
+  integrate/30-monitoring: concepts/actions/README.md
+  integrate/30-monitoring/10-datadog: concepts/actions/README.md
+  integrate/30-monitoring/30-instana: concepts/actions/README.md
+  integrate/30-monitoring/40-newrelic: concepts/actions/README.md
+  integrate/30-monitoring/50-prometheus: concepts/actions/README.md
   integrate/40-slack-notifications: integrate-with-steadybit/slack-notifications.md
   integrate/50-webhooks: integrate-with-steadybit/webhooks.md
   docs: getting-started.md
