@@ -14,7 +14,7 @@ Per default one team is created called Admin (key: ADM). It contains only the fi
 
 In the create dialog you should first enter a **name** for the Team. The name can be edited after creation by admins or team owners.
 
-You must enter a **key** for the tea consisting on one to eight characters. The key cannot be changed after the creation. Each experiment belonging to this team, will be assigned an identifier with the team key as prefix.
+You must enter a **key** for the team consisting of one to eight characters. The key cannot be changed after the creation. Each experiment belonging to this team, will be assigned an identifier with the team key as prefix.
 
 ### Permissions
 
