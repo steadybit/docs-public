@@ -55,7 +55,7 @@ redirects:
   use/30-weakspots: use-steadybit/weakspots/README.md
   learn: install-and-configure/install-outpost-agent/outpost-agent-architecture.md
   learn/10-architecture: install-and-configure/install-outpost-agent/outpost-agent-architecture.md
-  learn/15-actions: use-steadybit/actions/README.md
+  learn/15-actions: concepts/actions/README.md
   learn/15-actions/10-pod-count: concepts/actions/README.md
   learn/15-actions/20-http-call: concepts/actions/README.md
   learn/15-actions/30-prometheus: concepts/actions/README.md
@@ -77,10 +77,10 @@ redirects:
   learn/70-audit-log: integrate-with-steadybit/audit-log.md
   integrate: concepts/actions/README.md
   integrate/10-api: integrate-with-steadybit/api.md
-  integrate/20-loadtests: use-steadybit/actions/README.md
-  integrate/20-loadtests/10-gatling: use-steadybit/actions/README.md
-  integrate/20-loadtests/20-jmeter: use-steadybit/actions/README.md
-  integrate/20-loadtests/30-k6: use-steadybit/actions/README.md
+  integrate/20-loadtests: concepts/actions/README.md
+  integrate/20-loadtests/10-gatling: concepts/actions/README.md
+  integrate/20-loadtests/20-jmeter: concepts/actions/README.md
+  integrate/20-loadtests/30-k6: concepts/actions/README.md
   integrate/30-monitoring: concepts/actions/README.md
   integrate/30-monitoring/10-datadog: concepts/actions/README.md
   integrate/30-monitoring/30-instana: concepts/actions/README.md
