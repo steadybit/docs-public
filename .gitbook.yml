@@ -50,7 +50,7 @@ redirects:
   use/10-experiments: use-steadybit/experiments/README.md
   use/10-experiments/10-design: use-steadybit/experiments/design.md
   use/10-experiments/20-run: use-steadybit/experiments/run.md
-  use/10-experiments/30-prevent-execution: use-steadybit/experiments/emergencystop.md
+  use/10-experiments/30-prevent-execution: use-steadybit/experiments/emergencyStop.md
   use/20-landscape: use-steadybit/explorer/README.md
   use/30-weakspots: use-steadybit/weakspots/README.md
   learn: install-and-configure/install-outpost-agent/outpost-agent-architecture.md
