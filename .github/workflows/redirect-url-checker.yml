@@ -11,6 +11,11 @@ jobs:
     name: Check Redirects Job
     timeout-minutes: 60
     steps:
+      - name: Give GitBook a few seconds till it has processed everything
+        run: sleep 60s
+        shell: bash
+        if: "!cancelled()"
+
       - name: Check Redirects
         uses: steadybit/gitbook-redirect-checker@v0.1
         if: "!cancelled()"
