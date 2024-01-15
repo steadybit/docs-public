@@ -74,7 +74,6 @@ redirects:
   learn/30-discovery/50-custom: integrate-with-steadybit/extensions/README.md
   learn/40-loadtests: concepts/action/README.md
   learn/70-audit-log: integrate-with-steadybit/audit-log.md
-  learn/50-monitoring: concepts/action/README.md
   integrate: concepts/actions/README.md
   integrate/10-api: integrate-with-steadybit/api.md
   integrate/20-loadtests: concepts/actions/README.md
