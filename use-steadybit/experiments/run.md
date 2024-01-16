@@ -28,9 +28,7 @@ The run view consists of the following elements.
   exactly happens in the Kubernetes cluster.
 * **HTTP Call**: If your experiment contains a `HTTP Call`-action you can see the response time as well as HTTP response status as a separate widget in the run
   window.
-* **Monitoring Events**: In case your admin has connected a monitoring solution to Steadybit (
-  like [Datadog](../../install-and-configure/configure-monitoring/datadog.md), [Instana](../../integrate-with-steadybit/monitoring/instana.md), [New Relic](../../integrate-with-steadybit/monitoring/newrelic.md)
-  or [Prometheus](../../integrate-with-steadybit/monitoring/prometheus.md)) you can see occuring events and alerts of your setup directly in the run view.
+* **Monitoring Events**: In case your admin has installed a monitoring extension to Steadybit (see [monitoring extensions in Reliability Hub](https://hub.steadybit.com/extensions?tags=Monitoring)) you can see occuring events and alerts of your setup directly in the run view.
 
 Every experiment run has a unique identifier (e.g. **#33131**), which you can use to identify older experiment runs (visible on the left side).
 
