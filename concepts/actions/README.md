@@ -33,10 +33,10 @@ Checks (sometimes called probes) act as verifications or assertions within exper
 
 You can incorporate various checks into your experiments. Some examples:
 
-* Ensure that no Kubernetes rollout is in progress before starting an attack.
-* Verify that our Datadog monitors are reporting issues when there are issues (caused by attacks)
-* Run Prometheus PromQL queries to check internal system metrics.
-* Leverage your Postman API tests to check that your API is still working as intended while a part of your system is under attack.
+* Ensure that no Kubernetes rollout is in progress before starting an attack (see  [Kubernetes Deployment Rollout Status check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_kubernetes.rollout-status)
+* Verify that your Datadog monitors are reporting issues when there are issues (injected by attacks, see  [Datadog Monitor Status check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_datadog.monitor.status_check))
+* Run Prometheus PromQL queries to check internal system metrics (see  [Prometheus Metrics check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_prometheus.instance.metrics))
+* Leverage your Postman API tests to check that your API is still working as intended while a part of your system is under attack (see  [Postman Collection check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_postman.collection.run))
 
 Most checks will immediately abort the experiment run and mark it as _failed_. You can learn about all supported checks within our [Reliability Hub](https://hub.steadybit.com/actions?kind=check).
 
