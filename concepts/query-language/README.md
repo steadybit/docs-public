@@ -20,7 +20,7 @@ Please note that the Query UI is limited in regard to the queries you write. For
 
 #### Key-value comparison
 
-Keys and values can be compared using `=`, `!=`, `~`, and `!~`.
+Keys and values can be compared using `=`, `!=`, `~`, `!~`, `=*`, `!=*`, `~*`, and `!~*`.
 
 ```
 // Simple equals check to get all targets of Kubernetes Cluster 'prod'
@@ -37,6 +37,23 @@ k8s.container.name~"hot-deals"
 ```
 // Query for all container targets whose maintainer does not contain Jane
 container.label.maintainer!~"Jane"
+```
+
+```
+// Simple equals ignore case check to get all targets of Kubernetes Cluster 'PrOd' ignore casing
+k8s.cluster-name=*"PrOd"
+```
+```
+// Not equals ignore case check to get all targets not running in the Kuberneters Cluster 'PrOd' ignore casing
+k8s.cluster-name!=*"PrOd"
+```
+```
+// Get all targets with a container name that contains "Hot-DeAls" ignore casing
+k8s.container.name~*"Hot-DeAls"
+```
+```
+// Query for all container targets whose maintainer does not contain "jAne" ignore casing
+container.label.maintainer!~*"jAne"
 ```
 
 You can also check for the presence or absence of a certain key using `IS PRESENT` and `IS NOT PRESENT`.
