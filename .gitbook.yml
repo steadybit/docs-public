@@ -30,7 +30,6 @@ redirects:
   install-and-configure/install-outpost-agent-preview/extension-discovery: install-and-configure/install-outpost-agent/extension-discovery.md
   install-and-configure/install-outpost-agent-preview/using-mutual-tls-for-extensions: install-and-configure/install-outpost-agent/using-mutual-tls-for-extensions.md
   install-and-configure/install-outpost-agent-preview/advanced-configuration: install-and-configure/install-outpost-agent/advanced-configuration.md
-  install-and-configure/install-outpost-agent-preview/migrating-from-the-legacy-agent: install-and-configure/install-outpost-agent/migrating-from-the-legacy-agent.md
   install-and-configure/install-outpost-agent-preview/migration-breaking-changes: install-and-configure/install-outpost-agent/migration-breaking-changes.md
   install-configure/40-install-platform: install-and-configure/install-on-prem-platform/README.md
   install-configure/40-install-platform/10-docker: install-and-configure/install-on-prem-platform/k8s.md

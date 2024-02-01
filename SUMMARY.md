@@ -25,7 +25,6 @@
   - [Extension Discovery](install-and-configure/install-outpost-agent/extension-discovery.md)
   - [Using Mutual TLS for Extensions](install-and-configure/install-outpost-agent/using-mutual-tls-for-extensions.md)
   - [Configuration Options](install-and-configure/install-outpost-agent/advanced-configuration.md)
-  - [Migrating From the Legacy Agent](install-and-configure/install-outpost-agent/migrating-from-the-legacy-agent.md)
   - [Migration Breaking Changes](install-and-configure/install-outpost-agent/migration-breaking-changes.md)
 - [Install On-Prem Platform](install-and-configure/install-on-prem-platform/README.md)
   - [Install on Kubernetes](install-and-configure/install-on-prem-platform/k8s.md)
@@ -77,4 +76,3 @@
 - [Extension](troubleshooting/extension.md)
 - [Outpost Agent](troubleshooting/outpost-agent.md)
 - [On-Prem Platform](troubleshooting/on-prem-platform.md)
-- [Legacy Agent](troubleshooting/legacy-agent.md)
