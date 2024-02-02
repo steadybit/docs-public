@@ -17,7 +17,7 @@ jobs:
         if: "!cancelled()"
 
       - name: Check Redirects
-        uses: steadybit/gitbook-redirect-checker@v0.1
+        uses: steadybit/gitbook-redirect-checker@v0.2
         if: "!cancelled()"
 
       - name: Notify Slack channel
