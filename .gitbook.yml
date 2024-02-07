@@ -11,7 +11,7 @@ redirects:
   install-configure/30-install-agents/35-aws-ecs-ec2: install-and-configure/install-agent/aws-ecs-ec2.md
   install-configure/30-install-agents/40-aws-cloud: install-and-configure/install-agent/README.md
   install-configure/30-install-agents/50-advanced-configuration: install-and-configure/install-agent/advanced-configuration.md
-  install-configure/30-install-agents/50-faq: troubleshooting/outpost-agent.md
+  install-configure/30-install-agents/50-faq: troubleshooting/agent.md
   install-and-configure: install-and-configure/install-agent/README.md
   install-and-configure/install-agents: install-and-configure/install-agent/README.md
   install-and-configure/install-agents/docker: install-and-configure/install-agent/install-as-docker-container.md
@@ -20,9 +20,9 @@ redirects:
   install-and-configure/install-agents/aws-ecs-ec2: install-and-configure/install-agent/aws-ecs-ec2.md
   install-and-configure/install-agents/aws-cloud: install-and-configure/install-agent/README.md
   install-and-configure/install-agents/advanced-configuration: install-and-configure/install-agent/advanced-configuration.md
-  install-and-configure/install-agents/faq: troubleshooting/outpost-agent.md
+  install-and-configure/install-agents/faq: troubleshooting/agent.md
   install-and-configure/install-outpost-agent-preview: install-and-configure/install-agent/README.md
-  install-and-configure/install-outpost-agent-preview/outpost-agent-architecture: install-and-configure/install-agent/outpost-agent-architecture.md
+  install-and-configure/install-outpost-agent-preview/outpost-agent-architecture: install-and-configure/install-agent/agent-architecture.md
   install-and-configure/install-outpost-agent-preview/install-on-kubernetes: install-and-configure/install-agent/install-on-kubernetes.md
   install-and-configure/install-outpost-agent-preview/install-on-linux-hosts: install-and-configure/install-agent/install-on-linux-hosts.md
   install-and-configure/install-outpost-agent-preview/install-as-docker-container: install-and-configure/install-agent/install-as-docker-container.md
@@ -30,7 +30,6 @@ redirects:
   install-and-configure/install-outpost-agent-preview/extension-discovery: install-and-configure/install-agent/extension-discovery.md
   install-and-configure/install-outpost-agent-preview/using-mutual-tls-for-extensions: install-and-configure/install-agent/using-mutual-tls-for-extensions.md
   install-and-configure/install-outpost-agent-preview/advanced-configuration: install-and-configure/install-agent/advanced-configuration.md
-  install-and-configure/install-outpost-agent-preview/migration-breaking-changes: install-and-configure/install-agent/migration-breaking-changes.md
   install-configure/40-install-platform: install-and-configure/install-on-prem-platform/README.md
   install-configure/40-install-platform/10-docker: install-and-configure/install-on-prem-platform/k8s.md
   install-configure/40-install-platform/20-k8s: install-and-configure/install-on-prem-platform/k8s.md
@@ -52,8 +51,8 @@ redirects:
   use/10-experiments/30-prevent-execution: use-steadybit/experiments/emergencyStop.md
   use/20-landscape: use-steadybit/explorer/README.md
   use/30-weakspots: use-steadybit/weakspots/README.md
-  learn: install-and-configure/install-agent/outpost-agent-architecture.md
-  learn/10-architecture: install-and-configure/install-agent/outpost-agent-architecture.md
+  learn: install-and-configure/install-agent/agent-architecture.md
+  learn/10-architecture: install-and-configure/install-agent/agent-architecture.md
   learn/15-actions: concepts/actions/README.md
   learn/15-actions/10-pod-count: concepts/actions/README.md
   learn/15-actions/20-http-call: concepts/actions/README.md

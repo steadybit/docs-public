@@ -1,10 +1,10 @@
 # Using Mutual TLS for Extensions
 
-For stronger security, the communication between the outpost agent and extensions can be secured using mutual TLS.&#x20;
+For stronger security, the communication between the agent and extensions can be secured using mutual TLS.&#x20;
 
 You need to configure a client certificate at the agent that will be used to communicate with the extensions. And also a server certificate and client CAs at the extension to verify the client certificate.
 
-## Configuring a Client Certificate for Outpost Agent
+## Configuring a Client Certificate for Agent
 
 {% tabs %}
 {% tab title="using Helm Chart" %}
@@ -12,14 +12,14 @@ You need to configure a client certificate at the agent that will be used to com
 
 In case the client certificate is stored in a secret, you can directly reference it:
 
-`outpost.extensions.tls.clientCertificate.fromSecret=some-client-secret`
+`agent.extensions.tls.clientCertificate.fromSecret=some-client-secret`
 
 #### Using a Container path
 
-If you put the client certificate into the container some other way, use this option to tell the outpost agent where to find it:
+If you put the client certificate into the container some other way, use this option to tell the agent where to find it:
 
-`outpost.extensions.clientCertificate.path=/some/client.crt`\
-`outpost.extensions.clientCertificate.key.path=/some/client.key`
+`agent.extensions.clientCertificate.path=/some/client.crt`\
+`agent.extensions.clientCertificate.key.path=/some/client.key`
 
 #### Password Protected Private Keys
 
@@ -27,30 +27,30 @@ In case the private key is password protected, you can specify it as well:
 
 **Using a Value**
 
-`outpost.extensions.tls.clientCertificate.key.password.value=password123`
+`agent.extensions.tls.clientCertificate.key.password.value=password123`
 
 **Using a Secret**
 
-`outpost.extensions.tls.clientCertificate.key.password.valueFrom.secretKeyRef.name=some-secret`\
-`outpost.extensions.tls.clientCertificate.key.password.valueFrom.secretKeyRef.key=some-key`
+`agent.extensions.tls.clientCertificate.key.password.valueFrom.secretKeyRef.name=some-secret`\
+`agent.extensions.tls.clientCertificate.key.password.valueFrom.secretKeyRef.key=some-key`
 
 #### Additional Certificate Authorities
 
-In case the extension uses custom CAs that are not known to the outpost agent, you can add them as well:
+In case the extension uses custom CAs that are not known to the agent, you can add them as well:
 
 **Using a Volume Mount**
 
 The volume in this sample refers to a config map, but any other volume config would work as well.
 
-`outpost.extraCertificates.fromVolume=extra-certs`\
-`outpost.extraVolumes[0].name=extra-certs`\
-`outpost.extraVolumes[0].configMap.name=self-signed-ca`
+`agent.extraCertificates.fromVolume=extra-certs`\
+`agent.extraVolumes[0].name=extra-certs`\
+`agent.extraVolumes[0].configMap.name=self-signed-ca`
 
 **Using Container Path**
 
 If you put the extra CAs into the container another way, you can specify the path to it:
 
-`outpost.extraCertificates.fromVolume=extra-certs`
+`agent.extraCertificates.fromVolume=extra-certs`
 {% endtab %}
 
 {% tab title="using Environment Variables" %}
@@ -67,13 +67,13 @@ In case the private key is password protected, you can specify it as well:
 
 #### Additional Certificate Authorities
 
-In case the extension uses a custom CA that is not known to the outpost agent you can add them as well.
+In case the extension uses a custom CA that is not known to the agent you can add them as well.
 
 `STEADYBIT_AGENT_EXTRA_CERTS_PATH=/some/ca-certs/`
 {% endtab %}
 {% endtabs %}
 
-If you have successfully configured the client certificate for the outpost agent, the log should contain similar output to this:
+If you have successfully configured the client certificate for the agent, the log should contain similar output to this:
 
 {% code overflow="wrap" %}
 ```
@@ -85,7 +85,7 @@ If you have successfully configured the client certificate for the outpost agent
 
 {% tabs %}
 {% tab title="Using Helm Chart" %}
-The `steadybit-outpost` helm charts include all extensions provided by Steadybit using a `extension-*` prefix.  This sample is for `extension-container`, the options shown here apply to the other extensions as well. And in case you use the extensions helm chart directly, you need to strip the prefix from the examples.
+The `steadybit-agent` helm charts include all extensions provided by Steadybit using a `extension-*` prefix.  This sample is for `extension-container`, the options shown here apply to the other extensions as well. And in case you use the extensions helm chart directly, you need to strip the prefix from the examples.
 
 For the extension to require client certificates, you need to configure both the server certificate and allowed client certificates. If you only specify a server certificate, TLS is used, but client certificates are not mandatory.
 
@@ -99,7 +99,7 @@ In case the server certificate is stored in a secret, you can directly reference
 
 **Using a Container Path**
 
-If you put the server certificate into the container some other way, use this option to tell the outpost agent where to find it:
+If you put the server certificate into the container some other way, use this option to tell the agent where to find it:
 
 `extension-container.tls.server.certificate.path=/some/server.crt`\
 `extension-container.tls.server.certificate.key.path=/some/server.key`
@@ -115,7 +115,7 @@ In case the client certificates are stored in secrets, you can directly referenc
 
 **using Container Path**
 
-If you put the client certificates into the container some other way, use this option to tell the outpost agent where to find them:
+If you put the client certificates into the container some other way, use this option to tell the agent where to find them:
 
 `extension-container.tls.client.certificates.paths[0]=/some/client.crt`\
 `extension-container.tls.client.certificates.paths[1]=/some/clients/`

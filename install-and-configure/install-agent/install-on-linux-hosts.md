@@ -1,7 +1,7 @@
 # Install on Linux Hosts
 
-This method will install the Steadybit outpost agent on your Linux machine using the respective package managers.
-By default, it will install the Outpost agent as well as
+This method will install the Steadybit agent on your Linux machine using the respective package managers.
+By default, it will install the agent as well as
 the extensions [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension\_container),
 and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension\_host).
 
@@ -18,15 +18,15 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 * https://artifacts.steadybit.io (.deb and .rpm packages)
 * https://get.steadybit.com (Setup Scripts)
 
-## Outpost Installation
-To install the outpost agent on your Linux system, you can copy the installation script from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform.
+## Agent Installation
+To install the agent on your Linux system, you can copy the installation script from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform.
 
 Alternatively, you can update and run the script below with your agent key, which you find in the platform's [setup page](https://platform.steadybit.com/settings/agents/setup):
 
 ```shell
-wget https://get.steadybit.com/outpost-linux.sh
-chmod a+x outpost-linux.sh
-./outpost-linux.sh --key <agent-key>
+wget https://get.steadybit.com/agent-linux.sh
+chmod a+x agent-linux.sh
+./agent-linux.sh --key <agent-key>
 ```
 
 | Parameter         | Description                                                | Default                                                                                                                 |
@@ -41,12 +41,12 @@ chmod a+x outpost-linux.sh
 
 ### Configure HTTP Proxy Server
 
-The Steadybit Outpost Agent uses HTTP and websockets to communicate with the platform and to download updates.
+The Steadybit Agent uses HTTP and websockets to communicate with the platform and to download updates.
 To simplify the agent deployment, consider allowing direct communication to our platform.
 
 If you require a single entry into and out of your network, you can configure the agent to use a proxy:
 
-1. Edit `/etc/steadybit/outpost` and set the values for these variables:
+1. Edit `/etc/steadybit/agent` and set the values for these variables:
 
 ```shell
 STEADYBIT_AGENT_PROXY_HOST="<hostname or address of your proxy>"
@@ -61,51 +61,51 @@ STEADYBIT_AGENT_PROXY_PASSWORD="<password of the proxy (if needed)>"
 When using **systemd**
 
 ```
-systemctl daemon-reload && systemctl restart steadybit-outpost
+systemctl daemon-reload && systemctl restart steadybit-agent
 ```
 
 When using **InitV**
 
 ```
-service steadybit-outpost restart
+service steadybit-agent restart
 ```
 
-## Managing the Outpost Agent and Extension
+## Managing the Agent and Extension
 
 ### Logs
 
-The logs for outpost agent and extensions are located in `/var/log/steadybit-*.log`
+The logs for agent and extensions are located in `/var/log/steadybit-*.log`
 
 ### Configuration
 
-The configurations for outpost agent and extensions are located in `/etc/steadybit`
+The configurations for agent and extensions are located in `/etc/steadybit`
 
 ### Start/Stop
 
 When using **systemd**
 
 ```
-systemctl start steadybit-outpost
-systemctl stop steadybit-outpost
-systemctl restart steadybit-outpost
+systemctl start steadybit-agent
+systemctl stop steadybit-agent
+systemctl restart steadybit-agent
 ```
 
 When using **InitV**
 
 ```
-service steadybit-outpost start
-service steadybit-outpost stop
-service steadybit-outpost restart
+service steadybit-agent start
+service steadybit-agent stop
+service steadybit-agent restart
 ```
 
 The same applies to extensions. The services are named `steadybit-extension-*`.
 
-## Removing the Outpost Agent
+## Removing the Agent
 
 Remove the packages using the package manager:
 
 ```
-apt-get remove --purge steadybit-outpost \
+apt-get remove --purge steadybit-agent \
   steadybit-extension-http \
   steadybit-extension-container \
   steadybit-extension-host
@@ -114,7 +114,7 @@ apt-get remove --purge steadybit-outpost \
 Or when using yum:
 
 ```
-yum remove steadybit-outpost \
+yum remove steadybit-agent \
   steadybit-extension-http \
   steadybit-extension-container \
   steadybit-extension-host
@@ -126,5 +126,5 @@ If you want to use additional extensions (e.g. [extension-jvm](https://hub.stead
 applications), you can apply the `--extensions` parameter.
 
 ```
-./outpost-linux.sh --key <agent-key> --extensions steadybit-extension-host,steadybit-extension-container,steadybit-extension-http,steadybit-extension-jvm
+./agent-linux.sh --key <agent-key> --extensions steadybit-extension-host,steadybit-extension-container,steadybit-extension-http,steadybit-extension-jvm
 ```

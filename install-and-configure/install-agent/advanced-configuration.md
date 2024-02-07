@@ -1,6 +1,6 @@
 # Configuration Options
 
-There are plenty of options for the outpost agent that can be controlled using Environment variables.
+There are plenty of options for the agent that can be controlled using Environment variables.
 
 | Environment Variable                                  | Description                                                                                                                                                |
 |-------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -15,7 +15,6 @@ There are plenty of options for the outpost agent that can be controlled using E
 | `STEADYBIT_AGENT_EXPERIMENT_KEEP_ALIVE_INTERVAL`      | <p>Interval how often a keep alive is sent during an experiment.<br><strong>Default:</strong> <code>2s</code></p>                                          |
 | `STEADYBIT_AGENT_EXPERIMENT_KEEP_ALIVE_TIMEOUT`       | <p>Timeout for a keep alive during an experiment<br><strong>Default:</strong> <code>10s</code></p>                                                         |
 | `STEADYBIT_AGENT_WEBSOCKET_PING_INTERVAL`             | <p>Interval in seconds of the heartbeat for the websocket connection <br><strong>Default</strong>: <code>4s</code></p>                                     |
-| `STEADYBIT_DOCKER_SOCKET`                             | <p>Docker Socket to connect to.<br><strong>Default:</strong> <code>/var/run/docker.sock</code></p>                                                         |
 | `STEADYBIT_HTTP_ENDPOINT_PORT`                        | <p>HTTP endpoint port for the health check url<br><strong>Default:</strong> <code>42999</code></p>                                                         |
 | `STEADYBIT_AGENT_PROXY_HOST`                          | <p>Hostname of a proxy to access Steadybit platform<br></p>                                                                                                |
 | `STEADYBIT_AGENT_PROXY_PORT`                          | <p>Port of a proxy to access Steadybit platform<br></p>                                                                                                    |

@@ -1,8 +1,8 @@
-# Install Outpost Agent
+# Install Agent
 
 ### Overview
 
-Before installing the agent, we recommend to make yourself familiar with the general [Outpost Agent Architecture](outpost-agent-architecture.md).
+Before installing the agent, we recommend to make yourself familiar with the general [Agent Architecture](agent-architecture.md).
 
 ### Prerequisites
 
@@ -18,7 +18,7 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 If you want to check if your environment is properly configured to install and run an agent, you run our `env-check`tool on the target machine:
 
 ```
-curl -sfL https://get.steadybit.com/env-check-outpost.sh | sh -s
+curl -sfL https://get.steadybit.com/env-check.sh | sh -s
 ```
 {% endhint %}
 

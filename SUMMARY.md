@@ -17,7 +17,7 @@
 ## Install and Configure
 
 - [Install Agent](install-and-configure/install-agent/README.md)
-  - [Architecture](install-and-configure/install-agent/outpost-agent-architecture.md)
+  - [Architecture](install-and-configure/install-agent/agent-architecture.md)
   - [Install on Kubernetes](install-and-configure/install-agent/install-on-kubernetes.md)
   - [Install on Linux Hosts](install-and-configure/install-agent/install-on-linux-hosts.md)
   - [Install using Docker Compose](install-and-configure/install-agent/install-as-docker-container.md)
@@ -25,7 +25,6 @@
   - [Extension Discovery](install-and-configure/install-agent/extension-discovery.md)
   - [Using Mutual TLS for Extensions](install-and-configure/install-agent/using-mutual-tls-for-extensions.md)
   - [Configuration Options](install-and-configure/install-agent/advanced-configuration.md)
-  - [Migration Breaking Changes](install-and-configure/install-agent/migration-breaking-changes.md)
 - [Install On-Prem Platform](install-and-configure/install-on-prem-platform/README.md)
   - [Install on Kubernetes](install-and-configure/install-on-prem-platform/k8s.md)
   - [Advanced Agent Authentication](install-and-configure/install-on-prem-platform/advanced-agent-authentication.md)
@@ -74,5 +73,5 @@
 
 - [Overview](troubleshooting/README.md)
 - [Extension](troubleshooting/extension.md)
-- [Outpost Agent](troubleshooting/outpost-agent.md)
+- [Agent](troubleshooting/agent.md)
 - [On-Prem Platform](troubleshooting/on-prem-platform.md)

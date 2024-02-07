@@ -5,7 +5,7 @@ navTitle: Set Up Agents
 
 # Install Agents
 
-This guide helps you with the initial setup of Steadybit by installing an outpost agent and useful extensions.
+This guide helps you with the initial setup of Steadybit by installing an agent and useful extensions.
 
 In case something is not working out for you, [let us help you](https://www.steadybit.com/contact)!
 
@@ -14,9 +14,9 @@ In case something is not working out for you, [let us help you](https://www.stea
 - You have already signed up for an account [on our website](https://www.steadybit.com/get-started/)
 - You are able to log in to the [Steadybit SaaS platform](https://platform.steadybit.com/)
 
-### Step 1 - Install Outpost Agent
+### Step 1 - Install Agent
 
-Our outpost agent is the communication channel into your environment.
+Our agent is the communication channel into your environment.
 The agent is connected to various extensions that continuously discover and deliver target data to the platform and help you create targeted experiments based on data that is always up-to-date.
 Therefore, it is necessary that you deploy the agents and extensions to the locations in which you want to perform Chaos Engineering experiments.
 

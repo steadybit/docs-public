@@ -20,7 +20,7 @@ If you want to fine tune the auto discovery, you can fine tune the mechanism to:
 {% tab title="using Helm Chart" %}
 
 ```yaml
-outpost:
+agent:
   extensions:
     autodiscovery:
       matchLabelsInclude:

@@ -1,8 +1,8 @@
 ---
-title: Troubleshooting Outpost Agent
+title: Troubleshooting Agent
 ---
 
-# Troubleshooting Outpost Agent
+# Troubleshooting Agent
 
 #### We get certificate errors when the agent connects to our on-premise Steadybit installation. What do we need to do?
 
@@ -37,7 +37,7 @@ You can also check the environment variable's effect by adding the `-CAfile root
 The agent requires a complete certificate chain configuration for security reasons and this return code indicates that your server responded with an incomplete certificate chain. You can fix this issue by modifying the server that terminates the TLS connection. Please refer to your server/proxy/CDN documentation to learn how to configure a complete certificate chain.
 
 
-#### Installation outpost agent on AWS EKS cluster
+#### Installation agent on AWS EKS cluster
 
 1. First: make sure to configure the [Amazon-EBS-CSI-Driver](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html#adding-ebs-csi-eks-add-on)
 2. Afterwards add the Amazon-EBS-CSI-Driver addon on your EKS cluster, with newly created IAM role

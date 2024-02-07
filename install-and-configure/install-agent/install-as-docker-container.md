@@ -1,6 +1,6 @@
 # Install using Docker Compose
 
-This method will install the Steadybit outpost agent on your machine using Docker compose. It will run the Outpost agent as well as
+This method will install the Steadybit Agent on your machine using Docker compose. It will run the agent as well as
 the [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension\_container),
 and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension\_host).
 
@@ -25,15 +25,15 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 **Windows Subsystem for Linux:** With the default Kernel you won't be able to execute network attacks.
 {% endhint %}
 
-## Outpost Installation
-To deploy the outpost agent to Docker, you can copy the installation script from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform.
+## Agent Installation
+To deploy the agent to Docker, you can copy the installation script from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform.
 
 Alternatively, you can update and run the script below with your agent key, which you find in the platform's [setup page](https://platform.steadybit.com/settings/agents/setup):
 
 ```bash
-wget https://get.steadybit.com/outpost.sh
-chmod a+x outpost.sh
-./outpost.sh --key <agent-key> <command>
+wget https://get.steadybit.com/agent.sh
+chmod a+x agent.sh
+./agent.sh --key <agent-key> <command>
 ```
 
 | Parameter        | Description                                                                                                        | Default                          |
@@ -41,7 +41,7 @@ chmod a+x outpost.sh
 | `<command>`      | The action to take. Either one of `up`, `down`, `restart`, `config`                                                | `up`                             |
 | `--key`          | The agent key. Can be found on your platform's [https://platform.steadybit.com/settings/agents/setup](setup page). |                                  |
 | `--platform-url` | If running on-prem, the url of your platform installation to use                                                   | `https://platform.steadybit.com` |
-| `--image`        | The Outpost Docker image to use.                                                                                   | `steadybit/outpost:latest`       |
+| `--image`        | The Agent Docker image to use.                                                                                     | `steadybit/agent:latest`         |
 
 
 {% hint style="info" %}
@@ -51,10 +51,10 @@ compose configuration and apply it yourself.
 
 ### Configure HTTP Proxy Server
 
-The Steadybit Outpost uses HTTP and websockets to communicate with the platform.
-To simplify the outpost deployment, consider to allow direct communication to our platform.
+The Steadybit Agent uses HTTP and websockets to communicate with the platform.
+To simplify the agent deployment, consider to allow direct communication to our platform.
 
-If a single entry into and out of your network is required, you can configure the outpost to use an HTTP proxy. Export the following environment
+If a single entry into and out of your network is required, you can configure the agent to use an HTTP proxy. Export the following environment
 variables before running the script or edit the Docker compose configuration printed by the `config` command.
 
 ```bash
@@ -63,7 +63,7 @@ export STEADYBIT_AGENT_PROXY_PORT="<port of your proxy>"
 export STEADYBIT_AGENT_PROXY_PROTOCOL="<proxy protocol e.g. http>" 
 export STEADYBIT_AGENT_PROXY_USER="<username of the proxy (if needed)>" 
 export STEADYBIT_AGENT_PROXY_PASSWORD="<password of the proxy (if needed)>"
-./outpost.sh --key <agent-key> <command>
+./agent.sh --key <agent-key> <command>
 ```
 
 ## Additional Extensions
