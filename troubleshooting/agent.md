@@ -44,7 +44,7 @@ The agent requires a complete certificate chain configuration for security reaso
 3. Then add your first node group to the cluster.
 
 
-#### Occasional connection timeouts on the agent -> extension discovery calls, which causes remove targets from discovery
+#### Occasional connection timeouts on the agent -> extension discovery calls, which cause remove targets from discovery
 
 We are using resilience4j for the retry mechanism. The default configuration is to retry 3 times with a wait duration of 30s with an exponential backoff multiplier of 2. This means that the first retry will be after 30s, the second after 60s, and the third after 120s. If all retries fail, the agent will remove the target from the discovery.
 You can configure the retry mechanism by setting the following environment variables:
