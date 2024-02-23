@@ -75,5 +75,5 @@
 * [Overview](troubleshooting/README.md)
 * [Extension](troubleshooting/extension.md)
 * [Agent](troubleshooting/agent.md)
-* [Migrating From the Outpost Agent](troubleshooting/migrating-from-the-outpost-agent.md)
 * [On-Prem Platform](troubleshooting/on-prem-platform.md)
+* [Migrating From the Outpost Agent](troubleshooting/migrating-from-the-outpost-agent.md)
