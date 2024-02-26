@@ -1,4 +1,6 @@
-# Migrating From the Outpost Agent
+# Migrating From the Outpost Agent to Agent
+After completing the new agent architecture, we renamed the 'outpost agent' to just 'agent' for a more straightforward and consistent naming in the Steadybit universe.
+The guidelines on this page help you to migrate to the newly renamed artifacts, depending on the type of installation.
 
 ## Helm Chart
 
