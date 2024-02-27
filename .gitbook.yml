@@ -30,6 +30,15 @@ redirects:
   install-and-configure/install-outpost-agent-preview/extension-discovery: install-and-configure/install-agent/extension-discovery.md
   install-and-configure/install-outpost-agent-preview/using-mutual-tls-for-extensions: install-and-configure/install-agent/using-mutual-tls-for-extensions.md
   install-and-configure/install-outpost-agent-preview/advanced-configuration: install-and-configure/install-agent/advanced-configuration.md
+  install-and-configure/install-outpost-agent: install-and-configure/install-agent/README.md
+  install-and-configure/install-outpost-agent/outpost-agent-architecture: install-and-configure/install-agent/agent-architecture.md
+  install-and-configure/install-outpost-agent/install-on-kubernetes: install-and-configure/install-agent/install-on-kubernetes.md
+  install-and-configure/install-outpost-agent/install-on-linux-hosts: install-and-configure/install-agent/install-on-linux-hosts.md
+  install-and-configure/install-outpost-agent/install-as-docker-container: install-and-configure/install-agent/install-as-docker-container.md
+  install-and-configure/install-outpost-agent/aws-ecs-ec2: install-and-configure/install-agent/aws-ecs-ec2.md
+  install-and-configure/install-outpost-agent/extension-discovery: install-and-configure/install-agent/extension-discovery.md
+  install-and-configure/install-outpost-agent/using-mutual-tls-for-extensions: install-and-configure/install-agent/using-mutual-tls-for-extensions.md
+  install-and-configure/install-outpost-agent/advanced-configuration: install-and-configure/install-agent/advanced-configuration.md
   install-configure/40-install-platform: install-and-configure/install-on-prem-platform/README.md
   install-configure/40-install-platform/10-docker: install-and-configure/install-on-prem-platform/k8s.md
   install-configure/40-install-platform/20-k8s: install-and-configure/install-on-prem-platform/k8s.md
