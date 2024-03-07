@@ -21,7 +21,7 @@ An environment consists of a
 
 - **Name**: A meaningful name helps to find the environment afterwards (e.g. "Onlineshop DEV" or "Contract Management PROD").
 - **Team**: For using that environment to run an experiment you need to assign the team to it. This can be done from environment-perspective (`/settings/environments` ) as well as from Team-perspective (`/settings/teams`). It limits access to the users of a team to certain environments (so targets).
-- **Environment Scope**: The environment scope defines targets belonging to an environment by using our [discovery data](../../use-steadybit/discovery/). This is the upper limit of targets that can be attacked when running an experiment in a certain environment.
+- **Environment Scope**: The environment scope defines targets belonging to an environment by using our [discovery data](/concepts/discovery). This is the upper limit of targets that can be attacked when running an experiment in a certain environment.
 
 ### Define Environment Scope
 
@@ -30,7 +30,7 @@ For most use cases this can be sufficient.
 But sometimes, it's necessary to have even more control over the query.
 For instance, if you want to check for any key-value pair existence or you want to match all, but not a specific attribute, e.g. cluster.name="prod".
 Queries like that can easily be written with the Query language.
-For detailed information, please [visit the query language documentation](../../use-steadybit/query-language.md).
+For detailed information, please [visit the query language documentation](/concepts/query-language).
 
 Finally, don't forget to finally assign the environment to a team and give it a meaningful name.
 That's it, you are ready to use that environment in an experiment!
@@ -39,4 +39,4 @@ That's it, you are ready to use that environment in an experiment!
 
 ### Use Environments
 
-Once the environments are defined and assigned to teams, you can make use of them when e.g. [designing an experiment](../../use-steadybit/experiments/).
+Once the environments are defined and assigned to teams, you can make use of them when e.g. [designing an experiment](/use-steadybit/experiments/).

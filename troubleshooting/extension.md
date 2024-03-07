@@ -29,7 +29,7 @@ Please use a GKE Standard cluster instead.
 The error could look like this:
 
 ```
-autopilot-default-resources-mutator:Autopilot updated DaemonSet steadybit-outpost/steadybit-outpost-extension-host: adjusted resources to meet requirements for containers [extension-host] (see http://g.co/gke/autopilot-resources)
+autopilot-default-resources-mutator:Autopilot updated DaemonSet steadybit-agent/steadybit-agent-extension-host: adjusted resources to meet requirements for containers [extension-host] (see http://g.co/gke/autopilot-resources)
 Violations details: {"[denied by autogke-default-linux-capabilities]":["linux capability 'SYS_ADMIN,SYS_RESOURCE,SYS_BOOT,SYS_TIME,NET_ADMIN' on container 'extension-host' not allowed; Autopilot only allows the capabilities: 'AUDIT_WRITE,CHOWN,DAC_OVERRIDE,FOWNER,FSETID,KILL,MKNOD,NET_BIND_SERVICE,NET_RAW,SETFCAP,SETGID,SETPCAP,SETUID,SYS_CHROOT,SYS_PTRACE'."],"[denied by autogke-disallow-hostnamespaces]":["enabling hostNetwork is not allowed in Autopilot.","enabling hostPID is not allowed in Autopilot."],"[denied by autogke-no-host-port]"
 ```
 
@@ -49,4 +49,18 @@ Warning  FailedMount  11s (x6 over 26s)  kubelet            MountVolume.SetUp fa
 
 We aim for sane defaults in our Helm Charts regarding CPU and Memory requests/limits and design the extensions to have a low resource consumption. However, resource usage depends on the size of your environment. You need to increase the settings if you have massive Kubernetes clusters or big container hosts.\
 \
-Running observability tools that instrument your applications by injecting processes (e.g., Dynatrace) or manipulating bytecode (e.g., Instana) can lead to increased resource consumption. You might want to exclude the Steadybit Outpost and Extensions from this, or need to adapt your resource requests.
+Running observability tools that instrument your applications by injecting processes (e.g., Dynatrace) or manipulating bytecode (e.g., Instana) can lead to increased resource consumption. You might want to exclude the Steadybit Agent and Extensions from this, or need to adapt your resource requests.
+
+
+#### Extension-jvm warning about `Dynamic loading of agents`
+
+To be able to discover we need access to the java process. This is done by using the `attach` mechanism of the JVM. This is a standard mechanism and is used by many other tools.
+You may see a warning in the logs of the JVM that the extension is attaching to the JVM. This is normal and expected.
+It will look like this:
+
+```
+WARNING: A Java agent has been loaded dynamically (...javaagent-init.jar)
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+```
+
+To avoid this warning or be able to use this extension in future java releases you can use the `-XX:+EnableDynamicAgentLoading` flag in your JVM commandline to be able to load the javaagent dynamically.

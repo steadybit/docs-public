@@ -1,0 +1,34 @@
+name: Check Redirects
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  check_redirects:
+    runs-on: ubuntu-latest
+    name: Check Redirects Job
+    timeout-minutes: 60
+    steps:
+      - name: Give GitBook a few seconds till it has processed everything
+        run: sleep 60s
+        shell: bash
+        if: "!cancelled()"
+
+      - name: Check Redirects
+        uses: steadybit/gitbook-redirect-checker@v0.3
+        if: "!cancelled()"
+
+      - name: Notify Slack channel
+        uses: 8398a7/action-slack@v3
+        with:
+          channel: '#test-docs'
+          status: ${{ job.status }}
+          text: Found broken redirects in docs
+          fields: workflow,action
+          author_name: github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # required
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+        if: failure()

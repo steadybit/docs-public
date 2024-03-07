@@ -10,7 +10,7 @@ This part of the documentation is only intended in the context of a supported Po
 If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
 
-This guide helps you with the initial installation and deployment of our Steadybit platform On-Premise. It is explicitly of use for spaces where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself. After completing this getting started, continue by [setting up Steadybit](/install-and-configure/install-outpost-agent).
+This guide helps you with the initial installation and deployment of our Steadybit platform On-Premise. It is explicitly of use for spaces where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself. After completing this getting started, continue by [setting up Steadybit](/install-and-configure/install-agent).
 
 Installing and deploying the Steadybit platform on your servers is simple:
 

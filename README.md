@@ -15,3 +15,4 @@ We use an agent-based approach consisting of a central SaaS platform - being the
 If you are new to resilience engineering, use our "Quick Start" to begin and run your first assisted experiments. If you are a pro already, look at the detailed docs and dive into the depth of our software.
 
 [Contact us](https://www.steadybit.com/contact) if you need help.
+
