@@ -49,9 +49,9 @@
   * [Schedule](use-steadybit/experiments/schedule.md)
   * [OpenTelemetry Integration](use-steadybit/experiments/opentelemetry-integration.md)
 * [Explorer](use-steadybit/explorer/README.md)
+  * [Landscape](use-steadybit/explorer/landscape.md)
   * [Targets](use-steadybit/explorer/targets.md)
-  * [Landscape](use-steadybit/explorer/landscape.md)
-  * [Landscape](use-steadybit/explorer/landscape.md)
+  * [Advice](use-steadybit/explorer/advice.md)
 
 ## Integrate with Steadybit
 
