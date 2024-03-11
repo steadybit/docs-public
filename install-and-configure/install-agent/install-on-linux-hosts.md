@@ -130,13 +130,14 @@ By default the `agent-linux.sh` installs the agent and extension on a single hos
 
 #### Non-Agent Hosts
 
-* Install only extension by using `--no-agent` flag
+* Install only container and host extensions by using `--no-agent` flag
 
 ```bash
 ./agent-linux.sh --key <agent-key> --no-agent --extensions steadybit-extension-host,steadybit-extension-container
 ```
 
-* Reconfigure the extension to listen on http by editing `/etc/steadybit/extension-container` and `/etc/steadybit/extension-host` and removing the `STEADYBIT_EXTENSION_UNIX_SOCKET=...` line
+* Reconfigure the extension to listen on http by editing `/etc/steadybit/extension-container` and `/etc/steadybit/extension-host` and removing the `STEADYBIT_EXTENSION_UNIX_SOCKET=...` line.\
+  If you want to override the default port set `STEADYBIT_EXTENSION_PORT`.
 * Restart the extensions
 
 ```bash
