@@ -6,8 +6,7 @@ navTitle: Advanced Configuration
 # Configuration Options
 
 {% hint style="info" %}
-This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team.
-Please, [book an appointment](https://www.steadybit.com/book-demo) to scope your PoC before continuing to evaluate the on-prem solution.
+This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team. Please, [book an appointment](https://www.steadybit.com/book-demo) to scope your PoC before continuing to evaluate the on-prem solution.
 
 If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
@@ -57,7 +56,7 @@ For running the platform with multiple instances, a Redis message broker is requ
 ### Web Configuration
 
 | Environment Variable                   | Required | Description                                                                                                                                                                                     |
-| -------------------------------------- | -------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `STEADYBIT_WEB_PUBLIC_URL`             |          | URL to point to your Steadybit installation. Use this if your platform is running behind a reverse proxy doing path rewriting. Also it is used for the links in notifications.                  |
 | `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` |          | By default the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.           |
 | `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL`  |          | By default the Websocket connections are advertised on the same url name as the agents registers to. If you run a separate loadbalancer for the websockets you can override the advertised url. |
@@ -65,7 +64,7 @@ For running the platform with multiple instances, a Redis message broker is requ
 ### Log Configuration
 
 | Environment Variable | Required | Description                                                                                        |
-| -------------------- | -------- |----------------------------------------------------------------------------------------------------|
+| -------------------- | -------- | -------------------------------------------------------------------------------------------------- |
 | `LOGGING_FORMAT`     |          | By default Steadybit uses `text` format. Set this this to `json` to switch the log format to JSON. |
 
 ### Static-Authentication
@@ -98,16 +97,16 @@ By default the ldap is accessed anonymously, unless `STEADYBIT_AUTH_LDAP_MANAGER
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER`  |          | <p>The filter for the groupOfNames/groupOfUniqueNames for the teams<br><strong>Example:</strong> <code>ou=teams,ou=groups,dc=steadybit,dc=com</code></p>                          |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_KEY_ATTRIBUTE`  |          | <p>The attribute to use as Team key<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                                |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE` |          | <p>The attribute to use as Team name<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                               |
-| `STEADYBIT_AUTH_SYNC_CRON`                     |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 _/2 ? _ \* \*</code></p>                                         |
+| `STEADYBIT_AUTH_SYNC_CRON`                     |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 _/2 ? _ * *</code></p>                                           |
 
 ### OpenID-Connect Authentication
 
-You can use an OpenID Connect compatible authentication provider for user authentication. Steadybit uses the `authorization_code` grant type.
+You can use an OpenID Connect compatible authentication provider for user authentication. Steadybit uses the `authorization_code` grant type. The callback URL is `https://<host>/oauth2/login/code/default`
 
 > The first user to login will be assigned the `ADMIN` role, all other will be assigned the `USER` role. The roles can be changed by an admin user via the UI.
 
 | Environment Variable                                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------------------- | -------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `STEADYBIT_AUTH_PROVIDER`                               | yes      | <p>Use <code>OAUTH2</code> for OIDC-Authentication<br><strong>Example:</strong> <code>OAUTH2</code></p>                                                                                                                                                                                                                                                                                                                                                    |
 | `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`                      | yes      | <p>URI for the OpenID Connect discovery endpoint.<br><strong>Example:</strong> <code>https://keycloak/auth/realms/demo</code></p>                                                                                                                                                                                                                                                                                                                          |
 | `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`                       | yes      | <p>The client ID to use for the OIDC registration<br><strong>Example:</strong> <code>steadybit</code></p>                                                                                                                                                                                                                                                                                                                                                  |
@@ -137,7 +136,7 @@ OpenID Connect can be used to [authenticate the agents to the platform](advanced
 | Environment Variable                     | Required | Description                                                                                            |
 | ---------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
 | `STEADYBIT_AUTH_AGENT_PROVIDER`          |          | <p>Set to <code>OAUTH2</code> to use the OIDC.<br><strong>Default:</strong> <code>AGENT_KEY</code></p> |
-| `STEADYBIT_AUTH_AGENT_OAUTH2_ISSUER_URI` | yes      | <p>The issuer URI of your identity provider</p>                                                        |
+| `STEADYBIT_AUTH_AGENT_OAUTH2_ISSUER_URI` | yes      | The issuer URI of your identity provider                                                               |
 
 ### Proxy Settings
 
@@ -145,8 +144,8 @@ Steadybit will use these proxy settings if the platform needs to connect to othe
 
 | Environment Variable       | Required | Description                                                                  |
 | -------------------------- | -------- | ---------------------------------------------------------------------------- |
-| `STEADYBIT_PROXY_HOST`     |          | <p>Hostname of your proxy</p>                                                |
-| `STEADYBIT_PROXY_PORT`     |          | <p>Port of your proxy</p>                                                    |
+| `STEADYBIT_PROXY_HOST`     |          | Hostname of your proxy                                                       |
+| `STEADYBIT_PROXY_PORT`     |          | Port of your proxy                                                           |
 | `STEADYBIT_PROXY_PROTOCOL` |          | <p>Protocol of your proxy<br><strong>Default:</strong> <code>http</code></p> |
-| `STEADYBIT_PROXY_USER`     |          | <p>Username of your proxy</p>                                                |
-| `STEADYBIT_PROXY_PASSWORD` |          | <p>Password of your proxy</p>                                                |
+| `STEADYBIT_PROXY_USER`     |          | Username of your proxy                                                       |
+| `STEADYBIT_PROXY_PASSWORD` |          | Password of your proxy                                                       |
