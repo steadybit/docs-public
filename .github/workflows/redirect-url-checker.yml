@@ -1,9 +1,6 @@
 name: Check Redirects
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - 'main'
 
 jobs:
   check_redirects:
