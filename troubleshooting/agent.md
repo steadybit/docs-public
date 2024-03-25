@@ -57,3 +57,7 @@ You can configure the retry mechanism by setting the following environment varia
 | `RESILIENCE4J.RETRY_INSTANCES_HTTPDISCOVERY_ENABLEEXPONENTIALBACKOFF`     | Optional - Resilience4j: Enable or disable exponential backoff for DiscoveryKit resources                                                                  |
 | `RESILIENCE4J.RETRY_INSTANCES_HTTPDISCOVERY_EXPONENTIALBACKOFFMULTIPLIER` | Optional - Resilience4j: The multiplier for exponential backoff for DiscoveryKit resources                                                                 |
 | `STEADYBIT_AGENT_HTTP_DISCOVERY_USE_RETRY`                                | Optional - Resilience4j: Enable/Disable the retry mechanism. Default is true / enabled                                                                     |
+
+#### Agent takes a long time register the extensions via auto-discovery and to submit the first targets
+
+In a very large cluster it might take a while to read all pods in your cluster and scan them for extensions. You can limit the extension autodiscovery to a single namespace using the environment variable `STEADYBIT_AGENT_EXTENSIONS_AUTODISCOVERY_NAMESPACE` (helm-value `agent.extensions.autodiscovery.namespace`).
