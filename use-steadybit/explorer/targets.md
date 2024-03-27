@@ -20,5 +20,5 @@ You can see the advice per target in the table and details about each advice in 
 
 ![Explorer Targets Table showing you targets and advice](advice-explorer-targets.png)
 
-Learn more about [advice](/use-steadybit/explorer/advice) in the corresponding section.
+Learn more about [advice](advice.md) in the corresponding section.
 
