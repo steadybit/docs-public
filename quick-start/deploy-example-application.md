@@ -18,20 +18,15 @@ Simply follow these two steps:
 * You have already signed up for an account [on our website](https://www.steadybit.com/get-started/)
 * You are able to login into the [Steadybit SaaS platform](https://platform.steadybit.com/)
 * You have [Kubernetes kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed
+* You have [Helm - The package manager for Kubernetes](https://helm.sh/) installed
 
-### Step 1 - Check out example application
+### Step 1 - Have a look a the example application
 
-In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by five distributed backend services and a simple UI.
+In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by seven distributed backend services and a simple UI.
 
 ![shopping-demo-app](deploy-example-application-architecture.jpg)
 
 If you want to learn more about our demo, please take a look at our GitHub repository: [https://github.com/steadybit/shopping-demo](https://github.com/steadybit/shopping-demo)
-
-First you need to download our shopping demo app, run following `git clone` command:
-
-```bash
-git clone https://github.com/steadybit/shopping-demo.git
-```
 
 ### Step 2 - Deploy the example application
 
@@ -63,10 +58,16 @@ kubectl get po -A
 
 **Deploy the example application**
 
-Now we use kubectl to deploy the demo by running the following command:
+Now we use helm to deploy the demo by running the following command:
 
 ```bash
-kubectl apply -f k8s-manifest.yml
+helm repo add steadybit-shopping-demo https://steadybit.github.io/shopping-demo
+helm repo update
+helm upgrade steadybit-shopping-demo \
+    --install \
+    --wait \
+    --timeout 5m0s \
+    steadybit-shopping-demo/steadybit-shopping-demo
 ```
 
 Verify that all Shopping Demo pods are running:
@@ -84,6 +85,9 @@ gateway-7fc74f7f9b-tshzg              1/1     Running   0          11s
 hot-deals-75cb898ff7-wrnxc            1/1     Running   0          10s
 postgres-68f9db56cc-wxxth             1/1     Running   0          10s
 toys-bestseller-6df5bd864f-kzrt9      1/1     Running   0          11s
+orders-dcf644b8-g277b                 1/1     Pending   0          10s
+inventory-7895d47cb7-sfdqb            1/1     Pending   0          10s
+activemq-6dd55b4b7-wqmk6              1/1     Running   0          11s
 ```
 
 The command `minikube tunnel` creates a route to services deployed with type LoadBalancer and sets their Ingress to their ClusterIP.
@@ -107,6 +111,9 @@ gateway              LoadBalancer   10.98.173.27     127.0.0.1     80:30131/TCP 
 hot-deals            NodePort       -------------    <none>        ----:-----/---   ---
 product-db           NodePort       -------------    <none>        ----:-----/---   ---
 toys-bestseller      NodePort       -------------    <none>        ----:-----/---   ---
+orders               NodePort       -------------    <none>        ----:-----/---   ---
+inventory            NodePort       -------------    <none>        ----:-----/---   ---
+activemq             NodePort       -------------    <none>        ----:-----/---   ---
 ```
 
 Visit `http://{EXTERNAL-IP}:{PORT}/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
@@ -209,8 +216,17 @@ ip-192-168-68-23.us-west-2.compute.internal    Ready    <none>   118s   v1.17.12
 Now we use kubectl to deploy the demo by running the following command:
 
 ```bash
-kubectl apply -f k8s-manifest.yml
+helm repo add steadybit-shopping-demo https://steadybit.github.io/shopping-demo
+helm repo update
+helm upgrade steadybit-shopping-demo \
+    --install \
+    --wait \
+    --timeout 5m0s \
+    -f <path-to-your-optional-values.yaml> \
+    steadybit-shopping-demo/steadybit-shopping-demo
 ```
+
+Maybe you need to edit some ingress hosts names in your own `values.yaml` file.
 
 Verify that all Shopping Demo pods are running:
 
@@ -227,6 +243,9 @@ gateway-7fc74f7f9b-tshzg              1/1     Running   0          11s
 hot-deals-75cb898ff7-wrnxc            1/1     Running   0          10s
 postgres-68f9db56cc-wxxth             1/1     Running   0          10s
 toys-bestseller-6df5bd864f-kzrt9      1/1     Running   0          11s
+orders-dcf644b8-g277b                 1/1     Pending   0          10s
+inventory-7895d47cb7-sfdqb            1/1     Pending   0          10s
+activemq-6dd55b4b7-wqmk6              1/1     Running   0          11s
 ```
 
 With the following command you can now determine the external IP and port to access the `gateway` service:
@@ -244,6 +263,9 @@ gateway              LoadBalancer   10.98.173.27     127.0.0.1     80:30131/TCP 
 hot-deals            NodePort       -------------    <none>        ----:-----/---   ---
 product-db           NodePort       -------------    <none>        ----:-----/---   ---
 toys-bestseller      NodePort       -------------    <none>        ----:-----/---   ---
+orders               NodePort       -------------    <none>        ----:-----/---   ---
+inventory            NodePort       -------------    <none>        ----:-----/---   ---
+activemq             NodePort       -------------    <none>        ----:-----/---   ---
 ```
 
 Visit `http://{EXTERNAL-IP}:{PORT}/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
