@@ -32,6 +32,16 @@ To configure the installation, specify the values on the command line using the 
 
 For more configuration options have a look at our [steadybit/helm-charts repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-agent).
 
+## Update the agent and extensions
+
+To update the agent and extensions, you can use the following command:
+
+```shell
+helm repo update
+helm upgrade --reuse-values steadybit-agent --namespace steadybit-agent \
+  steadybit/steadybit-agent      
+```
+
 ## Resource limits
 
 Keep an eye on OOMing / crash looping agents and extensions after installation. The memory usage highly depends on the number of discovered targets. We try to 
