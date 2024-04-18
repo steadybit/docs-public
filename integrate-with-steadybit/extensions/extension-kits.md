@@ -1,6 +1,15 @@
 # Extension Kits
 
-Four extension kits exist through which Steadybit's capabilities can be extended. Unless you are thinking about authoring a custom extension, you probably do not need to know about these kits.
+Steadybit's Extension Kits allow you to extend the Chaos Engineering capabilities by adding support for additional technologies or proprietary applications.
+So, you only need to know about these kits if you are considering authoring a custom extension.
+
+Steadybit provides development kits for the following purposes:
+- [ActionKit](#ActionKit) to create your own custom Chaos Engineering attacks, checks for integrating, e.g., into observability or load test integration
+- [AdviceKit](#AdviceKit) to implement your own [advice](use-steadybit/explorer/advice) and ease identifying experiments and tracking progress
+- [DiscoveryKit](#DiscoveryKit) to support discovery of new infrastructure components
+- [EventKit](#EventKit) to send events about running experiments from Steadybit to other third-party applications (e.g., observability)
+
+All these development kits are agnostic to the programming language and rely on HTTP interfaces. However, if you want to develop your extension using Go, we recommend our [ExtensionKit](#ExtensionKit) to benefit from helpful utility classes and best practices.
 
 ## ActionKit
 
@@ -15,16 +24,24 @@ The Steadybit ActionKit enables the extension of Steadybit with new action capab
 
 You can learn more about ActionKit through its [GitHub repository](https://github.com/steadybit/action-kit).
 
+## AdviceKit
+
+<figure><img src="../../.gitbook/assets/advice-kit.png" alt="AdviceKit logo depicting the text advice kit and a shield icon"><figcaption><p>AdviceKit logo depicting the text advice kit and a shield icon</p></figcaption></figure>
+
+The Steadybit AdviceKit enables the extension of Steadybit's advice for providing guidance on reliability configuration issues and suggesting appropriate experiments.
+
+You can learn more about AdviceKit through its [GitHub repository](https://github.com/steadybit/advice-kit).
+
 ## DiscoveryKit
 
-<figure><img src="../../.gitbook/assets/discovery-kit (1).png" alt="DiscoveryKit logo depicting the text discovery kit and a radar dish icon"><figcaption><p>DiscoveryKit logo depicting the text discovery kit and a radar dish icon</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/discovery-kit.png" alt="DiscoveryKit logo depicting the text discovery kit and a radar dish icon"><figcaption><p>DiscoveryKit logo depicting the text discovery kit and a radar dish icon</p></figcaption></figure>
 
 The Steadybit DiscoveryKit enables the extension of Steadybit with new discovery capabilities. For example, DiscoveryKit can be used to author open/closed source discoveries for:
 
 * proprietary technology,
 * non-natively supported open-source tech,
 * hardware components and
-* every other _"thing"_ you would want to see and attack with Steadybit.
+* every other _'thing'_ you would want to see and attack with Steadybit.
 
 You can learn more about DiscoveryKit through its [GitHub repository](https://github.com/steadybit/discovery-kit).
 
