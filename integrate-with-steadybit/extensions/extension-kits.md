@@ -4,10 +4,10 @@ Steadybit's Extension Kits allow you to extend the Chaos Engineering capabilitie
 So, you only need to know about these kits if you are considering authoring a custom extension.
 
 Steadybit provides development kits for the following purposes:
-- [ActionKit](#ActionKit) to create your own custom Chaos Engineering attacks, checks for integrating, e.g., into observability or load test integration
-- [AdviceKit](#AdviceKit) to implement your own [advice](use-steadybit/explorer/advice) and ease identifying experiments and tracking progress
-- [DiscoveryKit](#DiscoveryKit) to support discovery of new infrastructure components
-- [EventKit](#EventKit) to send events about running experiments from Steadybit to other third-party applications (e.g., observability)
+- [ActionKit](#actionkit) to create your own custom Chaos Engineering attacks, checks for integrating, e.g., into observability or load test integration
+- [AdviceKit](#advicekit) to implement your own [advice](use-steadybit/explorer/advice.md) and ease identifying experiments and tracking progress
+- [DiscoveryKit](#discoverykit) to support discovery of new infrastructure components
+- [EventKit](#eventkit) to send events about running experiments from Steadybit to other third-party applications (e.g., observability)
 
 All these development kits are agnostic to the programming language and rely on HTTP interfaces. However, if you want to develop your extension using Go, we recommend our [ExtensionKit](#ExtensionKit) to benefit from helpful utility classes and best practices.
 
