@@ -66,7 +66,7 @@ You can also filter based on advice's status to concentrate, e.g., first on targ
 
 
 ## Query Language
-Steadybit's [Query Language](use-steadybit/query-language) fully supports advice to guide you on the Chaos Engineering journey.
+Steadybit's [Query Language](/concepts/query-language) fully supports advice to guide you on the Chaos Engineering journey.
 You can, e.g., filter targets in the Landscape and Experiments, or size targets in the Landscape by using the following attributes:
 
 - `advice.applicable` provides a set of advice definition ids that apply to the target, no matter in which lifecycle state.
