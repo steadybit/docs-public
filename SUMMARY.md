@@ -72,8 +72,9 @@
 
 ## Troubleshooting
 
-* [Overview](troubleshooting/README.md)
-* [Extension](troubleshooting/extension.md)
-* [Agent](troubleshooting/agent.md)
-* [On-Prem Platform](troubleshooting/on-prem-platform.md)
-* [Migrating From the Outpost Agent](troubleshooting/migrating-from-the-outpost-agent.md)
+* [How to troubleshoot](troubleshooting/README.md)
+* [Common fixes](troubleshooting/common-fixes/README.md)
+  * [Extensions](troubleshooting/common-fixes/extensions.md)
+  * [Agents](troubleshooting/common-fixes/agents.md)
+  * [On-prem platform](troubleshooting/common-fixes/on-prem-platform.md)
+  * [Migrating from the outpost agent](troubleshooting/common-fixes/migrating-from-the-outpost-agent.md)
