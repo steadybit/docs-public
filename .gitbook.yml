@@ -146,3 +146,7 @@ redirects:
   integrate-with-steadybit/monitoring/instana: concepts/actions/README.md
   integrate-with-steadybit/monitoring/newrelic: concepts/actions/README.md
   integrate-with-steadybit/monitoring/prometheus: concepts/actions/README.md
+  troubleshooting/extension: troubleshooting/common-fixes/extensions.md
+  troubleshooting/outpost-agent: troubleshooting/common-fixes/migrating-from-the-outpost-agent.md
+  troubleshooting/agent: troubleshooting/common-fixes/agents.md
+  troubleshooting/on-prem-platform: troubleshooting/common-fixes/on-prem-platform.md
