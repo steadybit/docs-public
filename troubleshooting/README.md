@@ -37,7 +37,7 @@ You'll find a ZIP file in your local downloads folder with a copy of your system
 Steadybit's technical support team can log in to your tenant account to investigate and fix problems you might experience within the platform. But they can only do that if you allow it.
 
 {% hint style="info" %}
-We can only view your data and never change it or run an experiment through your tenant. Also, the audit log records any login and logout activity of our team in your account. Besides, you can withdraw the authorization at any time. 
+We can only view your data and never change it or run an experiment through your tenant. And the audit log records any login and logout activity of our team in your account. Besides, you can withdraw the authorization at any time. 
 {% endhint %}
 
 1. On Steadybit.com, go to "Settings."
