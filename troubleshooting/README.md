@@ -48,7 +48,7 @@ We can only view your data and never change it or run an experiment through your
 
 ## Further help
 
-If you still need help resolving a problem within Steadybit, take a look at the common fixes linked below:
+If you still need help resolving a problem within Steadybit, take a look at the common fixes linked below.
 
 * [Extensions](common-fixes/extensions.md)
 * [Agents](common-fixes/agents.md)
