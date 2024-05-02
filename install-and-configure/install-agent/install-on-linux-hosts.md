@@ -67,6 +67,12 @@ When using **InitV**
 service steadybit-agent restart
 ```
 
+### Configure container runtime
+
+For linux installations the docker runtime is auto-configured by the extension by looking at the system paths. If you freshly installed docker etc., please restart your host or the needed services.
+
+If this is incorrect auto-configured it can be set in `/etc/steadybit/extension-container` using `STEADYBIT_EXTENSION_CONTAINER_SOCKET` and `STEADYBIT_EXTENSION_CONTAINER_RUNTIME`
+
 ## Managing the Agent and Extension
 
 ### Logs
