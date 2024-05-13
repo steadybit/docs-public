@@ -140,12 +140,12 @@ SSL can be configured by setting the various `SERVER_SSL_*` properties and requi
 
 Audit logs can be exported to a AWS S3 Bucket
 
-| Environment Variable                        | Required | Description                                                               |
-|---------------------------------------------|----------|---------------------------------------------------------------------------|
-| `STEADYBIT_AUDITLOG_EXPORT_CRON`            |          | <p>Cron Expression which defines the periods for the audit log export</p> |
-| `STEADYBIT_AUDITLOG_EXPORT_S3_BUCKET_NAME`  |          | <p>AWS S3 Bucket Name</p>                                                 |
-| `STEADYBIT_AUDITLOG_EXPORT_SUBFOLDER`       |          | <p>Subfolder in the S3 Bucket</p>                                         |
-| `STEADYBIT_AUDITLOG_EXPORT_REGION`          |          | <p>AWS Region</p>                                                         |
+| Environment Variable                       | Required | Description                                                               |
+|--------------------------------------------|----------|---------------------------------------------------------------------------|
+| `STEADYBIT_AUDITLOG_EXPORT_CRON`           |          | <p>Cron Expression which defines the periods for the audit log export</p> |
+| `STEADYBIT_AUDITLOG_EXPORT_S3_BUCKET_NAME` |          | <p>AWS S3 Bucket Name</p>                                                 |
+| `STEADYBIT_AUDITLOG_EXPORT_SUBFOLDER`      |          | <p>Subfolder in the S3 Bucket</p>                                         |
+| `STEADYBIT_AUDITLOG_EXPORT_REGION`         |          | <p>AWS Region</p>                                                         |
 
 ### Advanced Agent Authentication
 
@@ -168,3 +168,13 @@ identity provider).
 | `STEADYBIT_PROXY_PROTOCOL` |          | <p>Protocol of your proxy<br><strong>Default:</strong> <code>http</code></p> |
 | `STEADYBIT_PROXY_USER`     |          | Username of your proxy                                                       |
 | `STEADYBIT_PROXY_PASSWORD` |          | Password of your proxy                                                       |
+
+### Experiment Execution
+
+| Environment Variable                                            | Description                                                                                                              |
+|-----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `STEADYBIT_EXPERIMENT_EXECUTION_PARALLEL_EXECUTION_CHECK_SCOPE` | Steadybit will show a warning, if there are experiments running for the same `TENANT` (default), `TEAM` or `ENVIRONMENT` |
+| `STEADYBIT_EXPERIMENT_EXECUTION_MAXIMUM_DURATION`               | The maximum total duration of an experiment. Default is `12h`                                                            |
+| `STEADYBIT_EXPERIMENT_EXECUTION_EXPERIMENT_TIMEOUT`             | The time after which the experiment execution should time out after the estimated duration is reached. Default is `15m`  |
+| `STEADYBIT_EXPERIMENT_EXECUTION_PREPARATION_TIMEOUT`            | The time after which the experiment execution should time out if not all agents are prepared. Default is `60s`           |
+| `STEADYBIT_EXPERIMENT_EXECUTION_STEP_START_TIMEOUT`             | The time after which an experiment step should time out if not started after triggering. Default is `180s`               |
