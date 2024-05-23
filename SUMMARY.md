@@ -45,6 +45,7 @@
   * [Run](use-steadybit/experiments/run.md)
   * [Emergency Stop](use-steadybit/experiments/emergencyStop.md)
   * [Share](use-steadybit/experiments/share.md)
+    * [Templates](use-steadybit/experiments/templates/README.md)
     * [Duplicate](use-steadybit/experiments/duplicate-experiment/README.md)
     * [YML Import / Export](use-steadybit/experiments/yml-import-export/README.md)
   * [Schedule](use-steadybit/experiments/schedule.md)
