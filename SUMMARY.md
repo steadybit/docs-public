@@ -47,7 +47,7 @@
   * [Share](use-steadybit/experiments/share.md)
     * [Templates](use-steadybit/experiments/templates/README.md)
     * [Duplicate](use-steadybit/experiments/duplicate-experiment/README.md)
-    * [YML Import / Export](use-steadybit/experiments/file-import-export/README.md)
+    * [File Import / Export](use-steadybit/experiments/file-import-export/README.md)
   * [Schedule](use-steadybit/experiments/schedule.md)
   * [OpenTelemetry Integration](use-steadybit/experiments/opentelemetry-integration.md)
 * [Explorer](use-steadybit/explorer/README.md)
