@@ -56,6 +56,7 @@ Once you've dropped the action or selected it later, you can define its configur
 For example, you can specify an attack's target selection and blast radius:
 
 ![Create Experiment - Target Selection in the Editor](create-experiment-blank-target-selection.png)
+
 **Target Selection** You can now select your desired targets of your environment via a target query referencing [discovered attributes](../../concepts/discovery/).
 Since these attribute values are always discovered live, some can change from one moment to the next.
 So, it is wise to choose stable attributes.
@@ -64,6 +65,7 @@ When you run the experiment, these attributes are resolved into a concrete set o
 You can preview matching targets using the 'show targets' button next to the query.
 
 ![Create Experiment - Limiting Targets in the Editor](create-experiment-blank-limit-targets.png)
+
 **Limiting Targets** Furthermore, you can limit your targets randomly to only attack a subset of your target selection and avoid attacking all at once.
 You can specify the target limitation as a percentage or a fixed number.
 
