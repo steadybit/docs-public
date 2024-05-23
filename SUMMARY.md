@@ -59,7 +59,6 @@
 
 * [Extensions](integrate-with-steadybit/extensions/README.md)
   * [Anatomy of an Extension](integrate-with-steadybit/extensions/anatomy-of-an-extension.md)
-  * [Available Extensions](integrate-with-steadybit/extensions/available-extensions.md)
   * [Extension Installation](integrate-with-steadybit/extensions/extension-installation.md)
   * [Extension Kits](integrate-with-steadybit/extensions/extension-kits.md)
 * [API](integrate-with-steadybit/api.md)
