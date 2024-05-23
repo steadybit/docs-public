@@ -135,7 +135,7 @@ redirects:
   use-steadybit/query-language: concepts/query-language/README.md
   use-steadybit/actions: concepts/actions/README.md
   use-steadybit/discovery: concepts/discovery/README.md
-  use-steadybit/experiments/share/yml-import-export: /use-steadybit/experiments/share/file-import-export/README.md
+  use-steadybit/experiments/share/yml-import-export: use-steadybit/experiments/file-import-export/README.md
   install-and-configure/configure-monitoring: concepts/actions/README.md
   install-and-configure/configure-monitoring/datadog: concepts/actions/README.md
   install-and-configure/configure-monitoring/instana: concepts/actions/README.md
