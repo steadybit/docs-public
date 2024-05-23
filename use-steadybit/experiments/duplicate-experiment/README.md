@@ -1,3 +1,8 @@
+---
+title: Share Experiment as Duplicate
+navTitle: Duplicate
+---
+
 # Duplicate Experiments
 
 To duplicate an experiment, you can do it in two ways:
