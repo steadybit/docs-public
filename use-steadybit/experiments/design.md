@@ -110,7 +110,7 @@ Eventually, you end up in the experiment editor, where you can adjust the experi
 The third option for creating a new experiment is to upload a YAML- or JSON-based experiment file.
 Once you've uploaded the file, the experiment is created in the defined team.
 Please note that when the experiment file references an explicit team and environment (e.g., `team: "ADM"` or `environment: "Online shop"`), they have to exist.
-If you want to be flexible, you can use the variable `{{teamName}}` to apply it to the current team and `{{environmentName}}` to apply it to the team's first environment.
+If you want to be flexible, you can use the variable `{{teamKey}}` to apply it to the current team and `{{environmentName}}` to apply it to the team's first environment.
 
 ## Supported Actions
 Check out our [Reliability Hub](https://hub.steadybit.com/actions) to learn about actions you can leverage with Steadybit or learn more about the [concept of an action](../../concepts/actions/).
