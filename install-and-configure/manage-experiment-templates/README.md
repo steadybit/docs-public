@@ -24,7 +24,9 @@ An experiment template consists of three parts: the *experiment* created when us
 To save a template, you must specify all required values of all three parts.
 
 ### Experiment
+
 ![Template's experiment editor](template-editor-experiment.png)
+
 To define the experiment of the template, you benefit from a similar experiment editor as when creating an experiment.
 When designing the experiment of the template, all targets are resolved to the `Global` environment.
 However, when using a template to create an experiment, the user can select the desired environment, and all target and environment variables are evaluated against the selected environment.
@@ -32,7 +34,9 @@ This way, it is still easy to define a template and safe for teams to use one.
 To make the experiment adaptable to different contexts, you can reference template placeholders (see below) and [environment variables](/use-steadybit/experiments/design.md#basic-elements) in the experiment's steps (e.g., target query, parameters, and step labels), hypothesis, and experiment name.
 
 ### Template Placeholder
+
 ![Template's placeholder](template-editor-placeholder.png)
+
 A template placeholder defines occurrences where the exact value needs to be specified whenever one uses a template.
 A template placeholder consists of a
 - **Displayed Name** that is a human-readable name shown to the user of a template (e.g., `AWS Zone`, or `Kubernetes Deployment`
@@ -41,7 +45,9 @@ A template placeholder consists of a
 The description supports Markdown and can include, e.g., the intention of the placeholder and a question to ask for the value.
 
 ### Template Description
+
 ![Template's description](template-editor-description.png)
+
 Describe your template to make it approachable for users.
 The template description consists of the template's
 - **Title** which is shown in search results, detail view before creating an experiment from a template
@@ -59,7 +65,9 @@ However, previously created experiments from that template are not deleted.
 Instead, you can also [hide a template](#hide-a-template) to temporarily prevent the use of a template.
 
 ## Hide a Template
+
 ![Template list provide capability to hide templates](template-hide.png)
+
 By default, all saved templates are discoverable when creating a new experiment from a template.
 However, you can decide to hide a template to prevent users from using it.
 To hide a template, simply change the toggle in `Settings`> `Template` of a specific template.
