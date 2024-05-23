@@ -4,4 +4,4 @@ You can share your experiments with your friend / colleagues.
 
 * [Experiment Templates](templates/README.md)
 * [Duplicate](duplicate-experiment/README.md)
-* [YML import / export](yml-import-export/README.md)
+* [File import / export](file-import-export/README.md)
