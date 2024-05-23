@@ -17,7 +17,7 @@ discovered.
 
 You can add preflight webhooks at `Settings / Application Settings / Integrations / Preflight webhook`.
 
-![addPreflightWebhook.png](addPreflightWebhook.png)
+![Add Preflight Webhook](addPreflightWebhook.png)
 
 A webhook has the following parameters to be specified:
 
@@ -34,9 +34,9 @@ A webhook has the following parameters to be specified:
 During the experiment run, you can see the triggered preflight webhooks.
 If a webhook fails, the experiment run fails, and no targets are attacked.
 
-![prefligtRunStatusSuccess.png](prefligtRunStatusSuccess.png)
+![Preflight Webhook Success](prefligtRunStatusSuccess.png)
 
-![prefligtRunStatusFail.png](prefligtRunStatusFail.png)
+![Preflight Webhook Failure - Stopped Experiment Run](prefligtRunStatusFail.png)
 
 ## Developing Webhooks
 

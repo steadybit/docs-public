@@ -4,4 +4,4 @@
 - [Run](run.md)
 - [Emergency Stop](emergencyStop.md)
 - [Share](share.md)
-- [Schedule](schedule.md)
+- [Schedule](schedule/README.md)

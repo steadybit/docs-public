@@ -1,6 +1,6 @@
 # Schedule
 
-Experiments can be run on the fly using the “Run Experiment” button (or via API) but also can be scheduled to be automatically run in the future. Scheduling an experiment can be done via [UI](schedule.md#scheduling-via-ui) or [API](schedule.md#scheduling-via-api).
+Experiments can be run on the fly using the “Run Experiment” button (or via API) but also can be scheduled to be automatically run in the future. Scheduling an experiment can be done via [UI](README.md#scheduling-via-ui) or [API](README.md#scheduling-via-api).
 
 {% hint style="info" %}
 To schedule an experiment one must have permissions to edit the experiment. This means, one has to be a member of the team.
@@ -12,9 +12,9 @@ Please note that a scheduled experiments is always executed even when another ex
 
 There are two ways to open up the scheduling configuration dialog in the platform: One is in the experiment list, and the other is in the experiment editor.
 
-![Schedule experiment via context menu in the experiment list](schedule/create-experiment-schedule-step1.png)
+![Schedule experiment via context menu in the experiment list](create-experiment-schedule-step1.png)
 
-![Schedule experiment within the experiment editor](schedule/create-experiment-schedule-step2.png)
+![Schedule experiment within the experiment editor](create-experiment-schedule-step2.png)
 
 When the configuration dialog opens up, one can decide either to run the experiment just once in the future or repeatedly.
 
@@ -22,7 +22,7 @@ When the configuration dialog opens up, one can decide either to run the experim
 
 The configuration is straightforward if you decide to run it once. Just select a date and time in the future and save the schedule. Please keep the "Activate Schedule" toggle enabled. Otherwise, the schedule will be ignored and not executed.
 
-![Scheduling Experiments just once](schedule/create-experiment-schedule-step3.png)
+![Scheduling Experiments just once](create-experiment-schedule-step3.png)
 
 {% hint style="info" %}
 The date and time selections are done in the user’s configured timezone. The currently configured timezone will also be printed above the time selection for awareness.
@@ -32,7 +32,7 @@ The date and time selections are done in the user’s configured timezone. The c
 
 Experiments can be scheduled to run repeatedly (like every hour or every Friday morning). To do so, you have to configure a cron-like expression.
 
-![Scheduling Experiments repeatedly](../../.gitbook/assets/create-experiment-schedule-step4-fixed.png)
+![Scheduling Experiments repeatedly](create-experiment-schedule-step4-fixed.png)
 
 {% hint style="info" %}
 **Just so you know**, we are using the [Quartz cron trigger syntax](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html). The Quartz cron expression is evaluated in the user’s configured timezone. The currently configured timezone will also be shown for the next experiment run.
@@ -42,7 +42,7 @@ Experiments can be scheduled to run repeatedly (like every hour or every Friday 
 
 In the experiment list section on the left-hand side, you can find a quick overview of all configured schedules. Here, you can easily see when the schedules will be triggered next, enable/disable or even delete the schedule.
 
-![Scheduled Experiment overview](schedule/create-experiment-schedule-step5.png)
+![Scheduled Experiment overview](create-experiment-schedule-step5.png)
 
 ## Scheduling via API
 

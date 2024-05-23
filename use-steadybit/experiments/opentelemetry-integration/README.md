@@ -9,7 +9,8 @@ For every experiment run, Steadybit collects distributed tracing spans using [Op
 
 As the following sections show, Steadybit enables the collection of this data automatically for simple use cases. However, you can instruct the Steadybit agents to report this data to your observability pipeline. This document explains both approaches.
 
-<figure><img src="../../.gitbook/assets/traces-jaeger.png" alt=""><figcaption><p>This screenshot shows a trace encompassing the Steadybit platform and three Steadybit agents in <a href="https://www.jaegertracing.io/">Jaeger</a>.</p></figcaption></figure>
+![Trace encompassing the Steadybit platform and three Steadybit agents in Jaeger](traces-jaeger.png)
+
 
 ## Download through the Experiment Run View
 
@@ -19,7 +20,7 @@ You can download the distributed tracing data as multiple [OTLP JSON files](http
 
 Distributed tracing data for experiments is retained for 28 days within the Steadybit platform.
 
-<figure><img src="../../.gitbook/assets/traces-download.png" alt=""><figcaption><p>You can download a zip file containing distributed tracing data through the experiment run view.</p></figcaption></figure>
+![Downloading a zip file containing distributed tracing data through the experiment run view](traces-download.png)
 
 ## Exporting OpenTelemetry Data
 

@@ -11,7 +11,7 @@ Otherwise, you'll get an error message and the experiment is not started.
 
 As soon as the experiment starts, the platform automatically switches over to the run view. The first step of the platform is to establish the connection to the matching agents. In addition, the running experiment is indicated at the top right run icon.
 
-![Experiment Run View](<../../quick-start/run-experiment-run2 (8).png>)
+![Experiment Run View](run-experiment.png)
 
 The run view consists of the following elements.
 
