@@ -12,7 +12,7 @@ All experiment templates are scoped tenant-wide and automatically shared with al
 Users can even create an experiment from experiment templates where they are missing permissions for actions (e.g., the template contains a `Shutdown host` attack for which the team lacks permission).
 However, before being able to run the experiment, they need to remove the action.
 
-## Create a Template
+## Create Templates
 Create and edit a template via the `Platform's settings` -> `Templates` section.
 Choose the Blank approach to start from scratch.
 Alternatively, you can upload a template from a file or create one from an existing experiment via `Save as Template`.
@@ -55,16 +55,16 @@ The template description consists of the template's
 The field supports Markdown.
 - **Tags** to structure your template by assigning it to new or existing tags.
 
-## Edit a Template
+## Edit Templates
 You can edit a template and change all its content whenever needed.
 Please note that changes don't affect experiments created from a template.
 
-## Delete a Template
+## Delete Templates
 After you delete a template, users can't create an experiment from it anymore.
 However, previously created experiments from that template are not deleted.
 Instead, you can also [hide a template](#hide-a-template) to temporarily prevent the use of a template.
 
-## Hide a Template
+## Hide Templates
 
 ![Template list provide capability to hide templates](template-hide.png)
 
@@ -73,11 +73,11 @@ However, you can decide to hide a template to prevent users from using it.
 To hide a template, simply change the toggle in `Settings`> `Template` of a specific template.
 Experiments that have already been created from that template are not affected.
 
-## Import a Template
+## Import Templates
 This feature is currently under development and will be available soon.
 
-## Export a Template
+## Export Templates
 This feature is currently under development and will be available soon.
 
-## Share a Template
+## Share Templates
 This feature is currently under development and will be available soon.

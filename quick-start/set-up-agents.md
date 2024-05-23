@@ -29,7 +29,7 @@ You can find the different installation scripts directly in our platform after l
 
 Simply copy the script matching your technology and execute it next to your system.
 
-![on-boarding](set-up-agents-step1.png)
+![Steadybit Onboarding - Setup Scripts](set-up-agents-step1.png)
 
 > If you need a demo application to play around, you can [deploy our Shopping Demo into a Minikube or AWS EKS cluster](deploy-example-application.md).
 
@@ -41,7 +41,7 @@ Afterwards, you are able to continue to the next step.
 
 Now, the agent and extensions are busy discovering your system to give you an overview what has been found.
 
-![agents finished](set-up-agents-step2.png)
+![Steadybit Onboarding - System Discovery](set-up-agents-step2.png)
 
 ### Step 3 - Install More Extensions (Optional)
 
@@ -49,11 +49,11 @@ You miss support for further technologies?
 That's why Steadybit supports extensions!
 Extensions enable you to make Steadybit your own – either by using an official or open source extension or by writing your own!
 Learn more about extensions in our [dedicated documentation](../integrate-with-steadybit/extensions/).
-![steadybit Dashboard](set-up-agents-step3.png)
+![Steadybit Onboarding - Add Extensions](set-up-agents-step3.png)
 
 ### Step 4 - Start using Steadybit!
 
 That's it!
 You are welcomed by our Dashboard, and you are ready to take off by [designing and running your first Chaos Engineering experiment](run-experiment.md).
 
-![steadybit Dashboard](set-up-agents-step4.png)
+![Steadybit Dashboard](set-up-agents-step4.png)
