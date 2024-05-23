@@ -1,7 +1,7 @@
 ## Share
 
-You can share your experiments with your friend / colleagues.
+To share your experiments, use one of the following options:
 
-* [Experiment Templates](templates/README.md)
+* [Templates](templates/README.md)
 * [Duplicate](duplicate-experiment/README.md)
-* [File import / export](file-import-export/README.md)
+* [File](file-import-export/README.md)
