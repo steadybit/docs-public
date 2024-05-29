@@ -43,16 +43,13 @@ If you haven't set up environments yet, you can continue with the `Global` envir
 
 ![Run Experiment - Template Wizard Step 1: Environment](run-experiment-step-2.png)
 
-### (2) Kubernetes Cluster Name
-### (3) Kubernetes Namespace
-### (4) Kubernetes Deployment
+### (2) Cluster Name, (3) Namespace, and (4) Deployment
 Based on the selected template, the experiment needs to know the name of your Kubernetes cluster (`minikube`), the Kubernetes namespace (`steadybit-demo`), and the deployment (`hot-deals`).
 Just choose the values from the drop-down.
 
 ![Run Experiment - Template Wizard Step 2: Kubernetes Cluster Name](run-experiment-step-3.png)
 
-### (5) HTTP Upstream Endpoint
-### (6) HTTP Success Rate
+### (5) HTTP Upstream Endpoint, and (6) Success Rate
 The next step is to define the upstream HTTP endpoint dependent on our downstream deployment `hot deals`.
 This is the `/products` endpoint of `gateway`, which crawls all products from `hot-deals`, `toys-bestseller`, and `fashion-bestseller`.
 The resulting products are shown on our shop's landing page.
@@ -98,5 +95,7 @@ You have now successfully run an experiment with Steadybit in a Kubernetes envir
 You have discovered the impact of an unavailable downstream service on the upstream service.
 
 ### What are the next steps?
-Continue to explore more experiments using the [explorer landscape](use-steadybit/explorer/landscape) and get [advice](use-steadybit/explorer/advice) to learn how to improve your system's reliability.
-Before rolling it out to more users, make sure to [set up proper environments](install-and-configure/manage-environments) and [create teams](install-and-configure/manage-teams-and-users) to benefit from Steadybit's safety in Chaos Engineering rollouts.
+Check how the shop's behavior differs when using [different implementation of the products endpoint](https://github.com/steadybit/shopping-demo?tab=readme-ov-file#products-rest-endpoint).
+Alternatively, explore your next experiment using the [explorer landscape](use-steadybit/explorer/landscape) and get [advice](use-steadybit/explorer/advice) to learn how to improve your system's reliability.
+
+Eventually, before rolling it out to more users, make sure to [set up proper environments](install-and-configure/manage-environments) and [create teams](install-and-configure/manage-teams-and-users) to benefit from Steadybit's safety in Chaos Engineering rollouts.
