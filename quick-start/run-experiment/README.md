@@ -30,7 +30,7 @@ In the Steadybit platform, choose experiments -> `New Experiment` -> `From Templ
 
 You can see the overall experiment structure in the template details or continue this tutorial by choosing `use template`.
 
-> If you miss this experiment template in your Steadybit platform, you can [download the template here](TODO) and import it via `Settings` -> `Templates` -> `Create Template`.
+> If you miss this experiment template in your Steadybit platform, you can [download the template here](template.json) and import it via `Settings` -> `Templates` -> `Create Template`.
 > In the future, it will be available out-of-the-box.
 
 ## Step 2 - Define experiment
