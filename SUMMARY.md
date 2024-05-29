@@ -5,8 +5,8 @@
 ## Quick Start
 
 * [First Steps](quick-start/getting-started.md)
-* [Install Agents](quick-start/set-up-agents.md)
-* [Run an Experiment](quick-start/run-experiment.md)
+* [Install Agent and Extensions](quick-start/set-up-agents.md)
+* [Run an Experiment](quick-start/run-experiment/README.md)
 * [Deploy Example Application](quick-start/deploy-example-application.md)
 
 ## Concepts

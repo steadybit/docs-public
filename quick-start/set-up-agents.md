@@ -3,18 +3,18 @@ title: Set Up Agents
 navTitle: Set Up Agents
 ---
 
-# Install Agents
+# Install Agent and Extensions
 
 This guide helps you with the initial setup of Steadybit by installing an agent and useful extensions.
 
 In case something is not working out for you, [let us help you](https://www.steadybit.com/contact)!
 
-### Prerequisite
+## Prerequisite
 
 - You have already signed up for an account [on our website](https://signup.steadybit.com/)
 - You are able to log in to the [Steadybit SaaS platform](https://platform.steadybit.com/)
 
-### Step 1 - Install Agent
+## Step 1 - Install Agent and Extensions
 
 Our agent is the communication channel into your environment.
 The agent is connected to various extensions that continuously discover and deliver target data to the platform and help you create targeted experiments based on data that is always up-to-date.
@@ -37,13 +37,13 @@ Once an agent is rolled out, it connects to the platform and appears at the bott
 This may take a few minutes.
 Afterwards, you are able to continue to the next step.
 
-### Step 2 - Let Steadybit discover your system
+## Step 2 - Let Steadybit discover your system
 
 Now, the agent and extensions are busy discovering your system to give you an overview what has been found.
 
 ![Steadybit Onboarding - System Discovery](set-up-agents-step2.png)
 
-### Step 3 - Install More Extensions (Optional)
+## Step 3 - Install More Extensions (Optional)
 
 You miss support for further technologies?
 That's why Steadybit supports extensions!
@@ -51,9 +51,9 @@ Extensions enable you to make Steadybit your own – either by using an official
 Learn more about extensions in our [dedicated documentation](../integrate-with-steadybit/extensions/).
 ![Steadybit Onboarding - Add Extensions](set-up-agents-step3.png)
 
-### Step 4 - Start using Steadybit!
+## Step 4 - Start using Steadybit!
 
 That's it!
-You are welcomed by our Dashboard, and you are ready to take off by [designing and running your first Chaos Engineering experiment](run-experiment.md).
+You are welcomed by our Dashboard, and you are ready to take off by [designing and running your first Chaos Engineering experiment](run-experiment/README.md).
 
 ![Steadybit Dashboard](set-up-agents-step4.png)

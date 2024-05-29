@@ -13,14 +13,14 @@ Simply follow these two steps:
   * [a) on Minikube](deploy-example-application.md#step-2a-deploy-on-minikube)
   * [b) on AWS EKS](deploy-example-application.md#step-2b-deploy-on-aws-eks)
 
-### Prerequisites
+## Prerequisites
 
 * You have already signed up for an account [on our website](https://signup.steadybit.com/)
-* You are able to login into the [Steadybit SaaS platform](https://platform.steadybit.com/)
+* You are able to log in to the [Steadybit SaaS platform](https://platform.steadybit.com/)
 * You have [Kubernetes kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed
 * You have [Helm - The package manager for Kubernetes](https://helm.sh/) installed
 
-### Step 1 - Have a look a the example application
+## Step 1 - Have a look a the example application
 
 In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by seven distributed backend services and a simple UI.
 
@@ -28,7 +28,7 @@ In order to give you a quick and easy start, we have developed a small demo appl
 
 If you want to learn more about our demo, please take a look at our GitHub repository: [https://github.com/steadybit/shopping-demo](https://github.com/steadybit/shopping-demo)
 
-### Step 2 - Deploy the example application
+## Step 2 - Deploy the example application
 
 The example application is already pre-configured to be deployed into a Kubernetes cluster. You can choose whether to deploy it into [a) local minikube installation](deploy-example-application.md#step-2a-deploy-on-minikube) or [b) AWS EKS](deploy-example-application.md#step-2b-deploy-on-aws-eks).
 
@@ -36,7 +36,7 @@ The example application is already pre-configured to be deployed into a Kubernet
 
 Make sure to [install the agents](../quick-start/set-up-agents.md) afterwards into the same environment.
 
-#### Step 2a) Deploy on Minikube
+### Step 2a) Deploy on Minikube
 
 **Prerequisite**
 
@@ -165,7 +165,7 @@ The result is an aggregated list of all products of the services `toys`, `hot-de
 }
 ```
 
-#### Step 2b) Deploy on AWS EKS
+### Step 2b) Deploy on AWS EKS
 
 **Prerequisites**
 
@@ -317,6 +317,6 @@ The result is an aggregated list of all products of the services `toys`, `hot-de
 }
 ```
 
-### Next Steps
+## Next Steps
 
 Now, make sure to [install the agents](../quick-start/set-up-agents.md) into the same environment (minikube or AWS EKS).
