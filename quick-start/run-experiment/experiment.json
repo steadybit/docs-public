@@ -1,45 +1,9 @@
 {
-  "templateTitle": "Unavailable downstream service doesn't result in user-visible errors",
-  "templateDescription": "## Intent\nVerify that an unavailable downstream service doesn't result in user-visible errors.\n\n## Motivation\n\nWhen offering a service that is dependent on downstream services, you should ensure that the offered service also works fine whenever one of the downstream services can't be reached. This is especially true when multiple downstream services are involved and the responses of each downstream service are considered optional.\n\n## Structure\n\nFor the duration of the experiment and the deployment's upscaling, verify that a user-visible endpoint offered is responding within expected success rates and that no monitors are alerting.\nAs soon as the deployment is scaled up, the newly scheduled pod should be ready to receive traffic within a reasonable time, e.g., 60 seconds.\n\n## Read more\nThis experiment template is used in our quick start on running an experiment and is especially useful for the shopping demo example. To learn more, check out the [quick start in the Steadybit docs](https://docs.steadybit.com/quick-start/run-experiment).",
-  "placeholders": [
-    {
-      "key": "k8sClusterName",
-      "name": "Kubernetes Cluster Name",
-      "description": "What is the Kubernetes cluster in which the deployment is running?"
-    },
-    {
-      "key": "k8sNamespace",
-      "name": "Kubernetes Namespace",
-      "description": "What is the Kubernetes namespace in which the deployment is running?"
-    },
-    {
-      "key": "k8sDeployment",
-      "name": "Kubernetes Deployment",
-      "description": "What is the Kubernetes deployment under test?"
-    },
-    {
-      "key": "httpUpstreamEndpoint",
-      "name": "HTTP Upstream Endpoint",
-      "description": "What is the URL of an **upstream HTTP endpoint** served by **another** Kubernetes deployment that results in requests to the blocked downstream Kubernetes deployment specified before?\n\n**Note**: We will block one pod of the Kubernetes deployment specified before and want to verify whether an HTTP endpoint, which requires the blocked Kubernetes deployment as a downstream service, is failing gracefully."
-    },
-    {
-      "key": "httpSuccessRate",
-      "name": "HTTP Success Rate",
-      "description": "What is the expected success rate of HTTP requests while all pods of the downstream deployment are unavailable? E.g., `95%`\n\n**Note:** Finding an appropriate success rate usually depends on the offered service's business criticality and retry mechanisms in place. If the service is, e.g., called by another application with an appropriate retry mechanism, the success rate may be lower compared to a user-visible endpoint."
-    },
-    {
-      "key": "recoveryTime",
-      "name": "Recovery Time",
-      "description": "How long do you expect it to take before the blocked Kubernetes deployment can recover and is ready again?"
-    }
-  ],
-  "tags": [
-    "Shopping Demo Quick Start",
-    "Block Traffic",
-    "Kubernetes"
-  ],
-  "experimentName": "Unavailable downstream deployment of [[k8sDeployment]] doesn't result in user-visible errors",
-  "hypothesis": "When the downstream service of Kubernetes deployment [[k8sDeployment]] is not available, an HTTP endpoint offered upstream should still work within the success rate [[httpSuccessRate]].",
+  "name": "Unavailable downstream deployment of hot-deals doesn't result in user-visible errors",
+  "team": "{{teamKey}}",
+  "hypothesis": "When the downstream service of Kubernetes deployment hot-deals is not available, an HTTP endpoint offered upstream should still work within the success rate 100.",
+  "environment": "{{environmentName}}",
+  "tags": [],
   "lanes": [
     {
       "steps": [
@@ -47,19 +11,19 @@
           "type": "action",
           "ignoreFailure": false,
           "parameters": {
-            "duration": "180s",
-            "headers": [],
+            "url": "http://gateway.steadybit-demo.svc.cluster.local/products",
             "method": "GET",
-            "successRate": "[[httpSuccessRate]]",
-            "maxConcurrent": 5,
-            "followRedirects": false,
+            "headers": [],
+            "duration": "180s",
+            "statusCode": "200-299",
             "readTimeout": "5s",
+            "successRate": "100",
+            "maxConcurrent": 5,
             "connectTimeout": "5s",
-            "requestsPerSecond": 10,
-            "url": "[[httpUpstreamEndpoint]]",
-            "statusCode": "200-299"
+            "followRedirects": false,
+            "requestsPerSecond": 10
           },
-          "customLabel": "Upstream HTTP API is working within [[httpSuccessRate]]% success rate",
+          "customLabel": "Upstream HTTP API is working within 100% success rate",
           "actionType": "com.steadybit.extension_http.check.periodically",
           "radius": {}
         }
@@ -74,7 +38,7 @@
             "duration": "20s",
             "podCountCheckMode": "podCountEqualsDesiredCount"
           },
-          "customLabel": "GIVEN: All pods of [[k8sDeployment]] are ready",
+          "customLabel": "GIVEN: All pods of hot-deals are ready",
           "actionType": "com.steadybit.extension_kubernetes.pod_count_check",
           "radius": {
             "targetType": "com.steadybit.extension_kubernetes.kubernetes-deployment",
@@ -85,21 +49,21 @@
                   "key": "k8s.cluster-name",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sClusterName]]"
+                    "minikube"
                   ]
                 },
                 {
                   "key": "k8s.namespace",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sNamespace]]"
+                    "steadybit-demo"
                   ]
                 },
                 {
                   "key": "k8s.deployment",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sDeployment]]"
+                    "hot-deals"
                   ]
                 }
               ]
@@ -122,13 +86,13 @@
           "type": "action",
           "ignoreFailure": false,
           "parameters": {
-            "duration": "60s",
-            "failOnHostNetwork": true,
-            "hostname": [],
+            "ip": [],
             "port": [],
-            "ip": []
+            "duration": "60s",
+            "hostname": [],
+            "failOnHostNetwork": true
           },
-          "customLabel": "WHEN: One pod of [[k8sDeployment]] can't be reached",
+          "customLabel": "WHEN: One pod of hot-deals can't be reached",
           "actionType": "com.steadybit.extension_container.network_blackhole",
           "radius": {
             "targetType": "com.steadybit.extension_container.container",
@@ -139,21 +103,21 @@
                   "key": "k8s.cluster-name",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sClusterName]]"
+                    "minikube"
                   ]
                 },
                 {
                   "key": "k8s.namespace",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sNamespace]]"
+                    "steadybit-demo"
                   ]
                 },
                 {
                   "key": "k8s.deployment",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sDeployment]]"
+                    "hot-deals"
                   ]
                 }
               ]
@@ -166,10 +130,10 @@
           "type": "action",
           "ignoreFailure": false,
           "parameters": {
-            "duration": "[[recoveryTime]]",
+            "duration": "60s",
             "podCountCheckMode": "podCountEqualsDesiredCount"
           },
-          "customLabel": "THEN: All pods of [[k8sDeployment]] become ready again within [[recoveryTime]]",
+          "customLabel": "THEN: All pods of hot-deals become ready again within 60s",
           "actionType": "com.steadybit.extension_kubernetes.pod_count_check",
           "radius": {
             "targetType": "com.steadybit.extension_kubernetes.kubernetes-deployment",
@@ -180,21 +144,21 @@
                   "key": "k8s.cluster-name",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sClusterName]]"
+                    "minikube"
                   ]
                 },
                 {
                   "key": "k8s.namespace",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sNamespace]]"
+                    "steadybit-demo"
                   ]
                 },
                 {
                   "key": "k8s.deployment",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sDeployment]]"
+                    "hot-deals"
                   ]
                 }
               ]
@@ -220,7 +184,7 @@
             "duration": "30s",
             "podCountCheckMode": "podCountLessThanDesiredCount"
           },
-          "customLabel": "THEN: One Pod of [[k8sDeployment]] is detected as down",
+          "customLabel": "THEN: One Pod of hot-deals is detected as down",
           "actionType": "com.steadybit.extension_kubernetes.pod_count_check",
           "radius": {
             "targetType": "com.steadybit.extension_kubernetes.kubernetes-deployment",
@@ -231,21 +195,21 @@
                   "key": "k8s.cluster-name",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sClusterName]]"
+                    "minikube"
                   ]
                 },
                 {
                   "key": "k8s.namespace",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sNamespace]]"
+                    "steadybit-demo"
                   ]
                 },
                 {
                   "key": "k8s.deployment",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sDeployment]]"
+                    "hot-deals"
                   ]
                 }
               ]
@@ -274,7 +238,7 @@
                   "key": "k8s.cluster-name",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sClusterName]]"
+                    "minikube"
                   ]
                 }
               ]
@@ -303,7 +267,7 @@
                   "key": "k8s.cluster-name",
                   "operator": "EQUALS",
                   "values": [
-                    "[[k8sClusterName]]"
+                    "minikube"
                   ]
                 }
               ]
