@@ -38,7 +38,7 @@ Now, you need to define step-by-step template-specific experiment details to val
 ### (1) Environment
 The first option is always to select the environment where you want to run the experiment.
 The environment limits the set of attackable targets and thus prevents you from affecting the wrong stage or interfering with other teams.
-Check out [Manage Environments](install-and-configure/manage-environments) later.
+Check out [Manage Environments](../../install-and-configure/manage-environments/README.md) later.
 If you haven't set up environments yet, you can continue with the `Global` environment, which contains everything Steadybit discovered.
 
 ![Run Experiment - Template Wizard Step 1: Environment](run-experiment-step-2.png)
@@ -96,6 +96,6 @@ You have discovered the impact of an unavailable downstream service on the upstr
 
 ### What are the next steps?
 Check how the shop's behavior differs when using [different implementation of the products endpoint](https://github.com/steadybit/shopping-demo?tab=readme-ov-file#products-rest-endpoint).
-Alternatively, explore your next experiment using the [explorer landscape](use-steadybit/explorer/landscape) and get [advice](use-steadybit/explorer/advice) to learn how to improve your system's reliability.
+Alternatively, explore your next experiment using the [explorer landscape](../../use-steadybit/explorer/landscape.md) and get [advice](../../use-steadybit/explorer/advice.md) to learn how to improve your system's reliability.
 
-Eventually, before rolling it out to more users, make sure to [set up proper environments](install-and-configure/manage-environments) and [create teams](install-and-configure/manage-teams-and-users) to benefit from Steadybit's safety in Chaos Engineering rollouts.
+Eventually, before rolling it out to more users, make sure to [set up proper environments](../../install-and-configure/manage-environments/README.md) and [create teams](../../install-and-configure/manage-teams-and-users/README.md) to benefit from Steadybit's safety in Chaos Engineering rollouts.

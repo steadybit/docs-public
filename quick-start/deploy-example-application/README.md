@@ -8,8 +8,8 @@ When trying out Steadybit you may want to start easy instead of directly using y
 
 Simply follow these two steps:
 
-* [Step 1 - Check out example application](#step-1---have-a-look-a-the-example-application)
-* [Step 2 - Deploy the example application](#step-2---deploy-the-example-application)
+* [Step 1 - Check out example application](#step-1-have-a-look-a-the-example-application)
+* [Step 2 - Deploy the example application](#step-2-deploy-the-example-application)
   * [a) on Minikube](#step-2a-deploy-on-minikube)
   * [b) on AWS EKS](#step-2b-deploy-on-aws-eks)
 
