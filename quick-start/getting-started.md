@@ -4,7 +4,7 @@ You are completely new to Steadybit? Excellent, this section is just right for y
 
 #### Start using Steadybit
 
-1. [Sign up for a new account](https://www.steadybit.com/get-started/) for your own Steadybit tenant
+1. [Sign up for a new account](https://signup.steadybit.com/) for your own Steadybit tenant
 2. [Install agents and extensions](set-up-agents.md) to discover your system
 3. Start using Steadybit by [designing and running your first experiment](run-experiment.md)
 

@@ -15,7 +15,7 @@ Simply follow these two steps:
 
 ### Prerequisites
 
-* You have already signed up for an account [on our website](https://www.steadybit.com/get-started/)
+* You have already signed up for an account [on our website](https://signup.steadybit.com/)
 * You are able to login into the [Steadybit SaaS platform](https://platform.steadybit.com/)
 * You have [Kubernetes kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed
 * You have [Helm - The package manager for Kubernetes](https://helm.sh/) installed
