@@ -43,13 +43,16 @@ If you haven't set up environments yet, you can continue with the `Global` envir
 
 ![Run Experiment - Template Wizard Step 1: Environment](run-experiment-step-2.png)
 
-### (2) Kubernetes Cluster Name, (3) Namespace, and (4) Deployment
+### (2) Kubernetes Cluster Name
+### (3) Kubernetes Namespace
+### (4) Kubernetes Deployment
 Based on the selected template, the experiment needs to know the name of your Kubernetes cluster (`minikube`), the Kubernetes namespace (`steadybit-demo`), and the deployment (`hot-deals`).
 Just choose the values from the drop-down.
 
 ![Run Experiment - Template Wizard Step 2: Kubernetes Cluster Name](run-experiment-step-3.png)
 
-### (5) HTTP Upstream Endpoint, and (6) HTTP Success Rate
+### (5) HTTP Upstream Endpoint
+### (6) HTTP Success Rate
 The next step is to define the upstream HTTP endpoint dependent on our downstream deployment `hot deals`.
 This is the `/products` endpoint of `gateway`, which crawls all products from `hot-deals`, `toys-bestseller`, and `fashion-bestseller`.
 The resulting products are shown on our shop's landing page.
