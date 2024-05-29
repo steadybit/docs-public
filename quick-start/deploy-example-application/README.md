@@ -8,10 +8,10 @@ When trying out Steadybit you may want to start easy instead of directly using y
 
 Simply follow these two steps:
 
-* [Step 1 - Check out example application](deploy-example-application.md#step-1-check-out-example-application)
-* [Step 2 - Deploy the example application](deploy-example-application.md#step-2-deploy-the-example-application)
-  * [a) on Minikube](deploy-example-application.md#step-2a-deploy-on-minikube)
-  * [b) on AWS EKS](deploy-example-application.md#step-2b-deploy-on-aws-eks)
+* [Step 1 - Check out example application](#step-1---have-a-look-a-the-example-application)
+* [Step 2 - Deploy the example application](#step-2---deploy-the-example-application)
+  * [a) on Minikube](#step-2a-deploy-on-minikube)
+  * [b) on AWS EKS](#step-2b-deploy-on-aws-eks)
 
 ## Prerequisites
 
@@ -30,11 +30,11 @@ If you want to learn more about our demo, please take a look at our GitHub repos
 
 ## Step 2 - Deploy the example application
 
-The example application is already pre-configured to be deployed into a Kubernetes cluster. You can choose whether to deploy it into [a) local minikube installation](deploy-example-application.md#step-2a-deploy-on-minikube) or [b) AWS EKS](deploy-example-application.md#step-2b-deploy-on-aws-eks).
+The example application is already pre-configured to be deployed into a Kubernetes cluster. You can choose whether to deploy it into [a) local minikube installation](#step-2a-deploy-on-minikube) or [b) AWS EKS](#step-2b-deploy-on-aws-eks).
 
 > [Kubernetes](https://kubernetes.io/), also known as k8s, is an open source system for automating the deployment, scaling, and management of containerized applications. You can use [minikube](https://minikube.sigs.k8s.io/docs/) to set up a local Kubernetes cluster on macOS, Linux or Windows. As an alternative choose [AWS EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) to set up a Kubernetes cluster in the cloud.
 
-Make sure to [install the agents](../quick-start/set-up-agents.md) afterwards into the same environment.
+Make sure to [install the agents](../set-up-agents/README.md) afterwards into the same environment.
 
 ### Step 2a) Deploy on Minikube
 
@@ -319,4 +319,4 @@ The result is an aggregated list of all products of the services `toys`, `hot-de
 
 ## Next Steps
 
-Now, make sure to [install the agents](../quick-start/set-up-agents.md) into the same environment (minikube or AWS EKS).
+Now, make sure to [install the agents](../set-up-agents/README.md) into the same environment (minikube or AWS EKS).

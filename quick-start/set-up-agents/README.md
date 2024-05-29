@@ -31,7 +31,7 @@ Simply copy the script matching your technology and execute it next to your syst
 
 ![Steadybit Onboarding - Setup Scripts](set-up-agents-step1.png)
 
-> If you need a demo application to play around, you can [deploy our Shopping Demo into a Minikube or AWS EKS cluster](deploy-example-application.md).
+> If you need a demo application to play around, you can [deploy our Shopping Demo into a Minikube or AWS EKS cluster](deploy-example-application/README.md).
 
 Once an agent is rolled out, it connects to the platform and appears at the bottom of the page.
 This may take a few minutes.

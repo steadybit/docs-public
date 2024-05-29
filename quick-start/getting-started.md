@@ -5,11 +5,11 @@ You are completely new to Steadybit? Excellent, this section is just right for y
 ## Start using Steadybit
 
 1. [Sign up for a new account](https://signup.steadybit.com/) for your own Steadybit tenant
-2. [Install agents and extensions](set-up-agents.md) to discover your system
+2. [Install agents and extensions](set-up-agents/README.md) to discover your system
 3. Start using Steadybit by [designing and running your first experiment](run-experiment/README.md)
 
 {% hint style="info" %}
-If you don't want to get started on your own system, but play around with Steadybit in an example environment, you can use the [sample application on Minikube or AWS EKS](deploy-example-application.md).
+If you don't want to get started on your own system, but play around with Steadybit in an example environment, you can use the [sample application on Minikube or AWS EKS](deploy-example-application/README.md).
 {% endhint %}
 
 ## Looking for more advanced steps?

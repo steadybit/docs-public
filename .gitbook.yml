@@ -1,7 +1,7 @@
 redirects:
   getting-started: quick-start/getting-started.md
-  getting-started/10-set-up-platform-agents: quick-start/set-up-agents.md
-  getting-started/15-deploy-example-application: quick-start/deploy-example-application.md
+  getting-started/10-set-up-platform-agents: quick-start/set-up-agents/README.md
+  getting-started/15-deploy-example-application: quick-start/deploy-example-application/README.md
   getting-started/30-run-experiment: quick-start/run-experiment/README.md
   install-configure: install-and-configure/install-agent/README.md
   install-configure/30-install-agents: install-and-configure/install-agent/README.md

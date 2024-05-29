@@ -5,14 +5,14 @@ title: Run an Experiment
 # Run an Experiment
 
 We will now use Steadybit to design and run our first experiment in just 4 simple steps.
-This guide focuses on our example shopping demo application, which you can [deploy by follow this guide](deploy-example-application.md).
+This guide focuses on our example shopping demo application, which you can [deploy by follow this guide](../deploy-example-application/README.md).
 However, you can also adapt the steps to your application.
 
 ## Prerequisite
 
 * You have already signed up for an account [on our website](https://signup.steadybit.com)
 * You can log in to the [Steadybit SaaS platform](https://platform.steadybit.com)
-* You have already [installed an agent and extensions](set-up-agents.md)
+* You have already [installed an agent and extensions](../set-up-agents/README.md)
 
 ## Step 1 - Define your Scenario
 
