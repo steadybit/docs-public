@@ -1,7 +1,8 @@
 
 ## Emergency Stop
 
-In case a running experiment causes unforeseen severe failures every authenticated user can stop any running experiment by clicking the emergency stop button. You can find it in the activity bar at the top right.
+In case a running experiment causes unforeseen severe failures every authenticated user can stop any running experiment by clicking the emergency stop button.
+You can find it in the 'Current Activities' at the left.
 
 ![Emergency Stop](emergency-stop.png)
 

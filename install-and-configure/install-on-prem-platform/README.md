@@ -77,7 +77,7 @@ Done, the platform is running. The default login for the on-prem platform is
 
 Now you can set it up by connecting the first agents to it.
 
-We'll show you how to do that in our getting started [Set up Platform & Agents](../../quick-start/set-up-agents.md), at step 1.
+We'll show you how to do that in our getting started [Set up Platform & Agents](../../quick-start/set-up-agents/README.md), at step 1.
 
 #### Productive Usage
 

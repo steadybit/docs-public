@@ -5,9 +5,9 @@
 ## Quick Start
 
 * [First Steps](quick-start/getting-started.md)
-* [Install Agents](quick-start/set-up-agents.md)
-* [Run an Experiment](quick-start/run-experiment.md)
-* [Deploy Example Application](quick-start/deploy-example-application.md)
+* [Install Agent and Extensions](quick-start/set-up-agents/README.md)
+* [Run an Experiment](quick-start/run-experiment/README.md)
+* [Deploy Example Application](quick-start/deploy-example-application/README.md)
 
 ## Concepts
 
@@ -37,6 +37,7 @@
   * [Users](install-and-configure/manage-teams-and-users/users.md)
   * [Teams](install-and-configure/manage-teams-and-users/teams.md)
   * [Permissions](install-and-configure/manage-teams-and-users/permissions.md)
+* [Manage Experiment Templates](install-and-configure/manage-experiment-templates/README.md)
 
 ## Use Steadybit
 
@@ -45,10 +46,11 @@
   * [Run](use-steadybit/experiments/run.md)
   * [Emergency Stop](use-steadybit/experiments/emergencyStop.md)
   * [Share](use-steadybit/experiments/share.md)
+    * [Templates](use-steadybit/experiments/templates/README.md)
     * [Duplicate](use-steadybit/experiments/duplicate-experiment/README.md)
-    * [YML Import / Export](use-steadybit/experiments/yml-import-export/README.md)
-  * [Schedule](use-steadybit/experiments/schedule.md)
-  * [OpenTelemetry Integration](use-steadybit/experiments/opentelemetry-integration.md)
+    * [File](use-steadybit/experiments/file-import-export/README.md)
+  * [Schedule](use-steadybit/experiments/schedule/README.md)
+  * [OpenTelemetry Integration](use-steadybit/experiments/opentelemetry-integration/README.md)
 * [Explorer](use-steadybit/explorer/README.md)
   * [Landscape](use-steadybit/explorer/landscape.md)
   * [Targets](use-steadybit/explorer/targets.md)
@@ -58,9 +60,9 @@
 
 * [Extensions](integrate-with-steadybit/extensions/README.md)
   * [Anatomy of an Extension](integrate-with-steadybit/extensions/anatomy-of-an-extension.md)
-  * [Available Extensions](integrate-with-steadybit/extensions/available-extensions.md)
   * [Extension Installation](integrate-with-steadybit/extensions/extension-installation.md)
   * [Extension Kits](integrate-with-steadybit/extensions/extension-kits.md)
+  * [Available Extensions](https://hub.steadybit.com)
 * [API](integrate-with-steadybit/api.md)
   * [Interactive API Documentation](https://platform.steadybit.com/api/swagger)
 * [CLI](integrate-with-steadybit/cli.md)

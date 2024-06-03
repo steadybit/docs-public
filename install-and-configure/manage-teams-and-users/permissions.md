@@ -14,14 +14,14 @@ See the table for the permissions:
 | Manage* Team Members                                                        | <1>   | <1>        |             |                        |
 | Manage* Access Tokens                                                       | x     | x          |             |                        |
 | Edit Team Permissions                                                       | x     |            |             |                        |
+| Manage* Experiment Templates                                                | x     |            |             |                        |
 | Manage* Experiments                                                         |       | x          | x           |                        |
+| Use Experiment Templates                                                    |       | x          | x           |                        |
 | Run Experiment                                                              |       | x          | x           |                        |
 | Stop Experiment                                                             |       |            |             | x                      |
 | View Experiment                                                             |       |            |             | x                      |
 | [Emergency Stops](../../use-steadybit/experiments/README.md#Emergency-Stop) |       |            |             | x                      |
 | Database Export                                                             | <2>   |            |             |                        |
-
-
 
 - \* Manage means create, update and delete
 - <1> unless synced via LDAP

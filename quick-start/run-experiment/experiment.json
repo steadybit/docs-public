@@ -1,0 +1,281 @@
+{
+  "name": "Unavailable downstream deployment of hot-deals doesn't result in user-visible errors",
+  "team": "{{teamKey}}",
+  "hypothesis": "When the downstream service of Kubernetes deployment hot-deals is not available, an HTTP endpoint offered upstream should still work within the success rate 100.",
+  "environment": "{{environmentName}}",
+  "tags": [],
+  "lanes": [
+    {
+      "steps": [
+        {
+          "type": "action",
+          "ignoreFailure": false,
+          "parameters": {
+            "url": "http://gateway.steadybit-demo.svc.cluster.local/products",
+            "method": "GET",
+            "headers": [],
+            "duration": "180s",
+            "statusCode": "200-299",
+            "readTimeout": "5s",
+            "successRate": "100",
+            "maxConcurrent": 5,
+            "connectTimeout": "5s",
+            "followRedirects": false,
+            "requestsPerSecond": 10
+          },
+          "customLabel": "Upstream HTTP API is working within 100% success rate",
+          "actionType": "com.steadybit.extension_http.check.periodically",
+          "radius": {}
+        }
+      ]
+    },
+    {
+      "steps": [
+        {
+          "type": "action",
+          "ignoreFailure": false,
+          "parameters": {
+            "duration": "20s",
+            "podCountCheckMode": "podCountEqualsDesiredCount"
+          },
+          "customLabel": "GIVEN: All pods of hot-deals are ready",
+          "actionType": "com.steadybit.extension_kubernetes.pod_count_check",
+          "radius": {
+            "targetType": "com.steadybit.extension_kubernetes.kubernetes-deployment",
+            "predicate": {
+              "operator": "AND",
+              "predicates": [
+                {
+                  "key": "k8s.cluster-name",
+                  "operator": "EQUALS",
+                  "values": [
+                    "minikube"
+                  ]
+                },
+                {
+                  "key": "k8s.namespace",
+                  "operator": "EQUALS",
+                  "values": [
+                    "steadybit-demo"
+                  ]
+                },
+                {
+                  "key": "k8s.deployment",
+                  "operator": "EQUALS",
+                  "values": [
+                    "hot-deals"
+                  ]
+                }
+              ]
+            },
+            "query": null
+          }
+        }
+      ]
+    },
+    {
+      "steps": [
+        {
+          "type": "wait",
+          "ignoreFailure": false,
+          "parameters": {
+            "duration": "20s"
+          }
+        },
+        {
+          "type": "action",
+          "ignoreFailure": false,
+          "parameters": {
+            "ip": [],
+            "port": [],
+            "duration": "60s",
+            "hostname": [],
+            "failOnHostNetwork": true
+          },
+          "customLabel": "WHEN: One pod of hot-deals can't be reached",
+          "actionType": "com.steadybit.extension_container.network_blackhole",
+          "radius": {
+            "targetType": "com.steadybit.extension_container.container",
+            "predicate": {
+              "operator": "AND",
+              "predicates": [
+                {
+                  "key": "k8s.cluster-name",
+                  "operator": "EQUALS",
+                  "values": [
+                    "minikube"
+                  ]
+                },
+                {
+                  "key": "k8s.namespace",
+                  "operator": "EQUALS",
+                  "values": [
+                    "steadybit-demo"
+                  ]
+                },
+                {
+                  "key": "k8s.deployment",
+                  "operator": "EQUALS",
+                  "values": [
+                    "hot-deals"
+                  ]
+                }
+              ]
+            },
+            "query": null,
+            "percentage": 100
+          }
+        },
+        {
+          "type": "action",
+          "ignoreFailure": false,
+          "parameters": {
+            "duration": "60s",
+            "podCountCheckMode": "podCountEqualsDesiredCount"
+          },
+          "customLabel": "THEN: All pods of hot-deals become ready again within 60s",
+          "actionType": "com.steadybit.extension_kubernetes.pod_count_check",
+          "radius": {
+            "targetType": "com.steadybit.extension_kubernetes.kubernetes-deployment",
+            "predicate": {
+              "operator": "AND",
+              "predicates": [
+                {
+                  "key": "k8s.cluster-name",
+                  "operator": "EQUALS",
+                  "values": [
+                    "minikube"
+                  ]
+                },
+                {
+                  "key": "k8s.namespace",
+                  "operator": "EQUALS",
+                  "values": [
+                    "steadybit-demo"
+                  ]
+                },
+                {
+                  "key": "k8s.deployment",
+                  "operator": "EQUALS",
+                  "values": [
+                    "hot-deals"
+                  ]
+                }
+              ]
+            },
+            "query": null
+          }
+        }
+      ]
+    },
+    {
+      "steps": [
+        {
+          "type": "wait",
+          "ignoreFailure": false,
+          "parameters": {
+            "duration": "20s"
+          }
+        },
+        {
+          "type": "action",
+          "ignoreFailure": false,
+          "parameters": {
+            "duration": "30s",
+            "podCountCheckMode": "podCountLessThanDesiredCount"
+          },
+          "customLabel": "THEN: One Pod of hot-deals is detected as down",
+          "actionType": "com.steadybit.extension_kubernetes.pod_count_check",
+          "radius": {
+            "targetType": "com.steadybit.extension_kubernetes.kubernetes-deployment",
+            "predicate": {
+              "operator": "AND",
+              "predicates": [
+                {
+                  "key": "k8s.cluster-name",
+                  "operator": "EQUALS",
+                  "values": [
+                    "minikube"
+                  ]
+                },
+                {
+                  "key": "k8s.namespace",
+                  "operator": "EQUALS",
+                  "values": [
+                    "steadybit-demo"
+                  ]
+                },
+                {
+                  "key": "k8s.deployment",
+                  "operator": "EQUALS",
+                  "values": [
+                    "hot-deals"
+                  ]
+                }
+              ]
+            },
+            "query": null
+          }
+        }
+      ]
+    },
+    {
+      "steps": [
+        {
+          "type": "action",
+          "ignoreFailure": false,
+          "parameters": {
+            "duration": "140s"
+          },
+          "customLabel": "Show Kubernetes events from the cluster",
+          "actionType": "com.steadybit.extension_kubernetes.kubernetes_logs",
+          "radius": {
+            "targetType": "com.steadybit.extension_kubernetes.kubernetes-cluster",
+            "predicate": {
+              "operator": "AND",
+              "predicates": [
+                {
+                  "key": "k8s.cluster-name",
+                  "operator": "EQUALS",
+                  "values": [
+                    "minikube"
+                  ]
+                }
+              ]
+            },
+            "query": null
+          }
+        }
+      ]
+    },
+    {
+      "steps": [
+        {
+          "type": "action",
+          "ignoreFailure": false,
+          "parameters": {
+            "duration": "140s"
+          },
+          "customLabel": "Show Pod Count Metrics for the cluster",
+          "actionType": "com.steadybit.extension_kubernetes.pod_count_metric",
+          "radius": {
+            "targetType": "com.steadybit.extension_kubernetes.kubernetes-cluster",
+            "predicate": {
+              "operator": "AND",
+              "predicates": [
+                {
+                  "key": "k8s.cluster-name",
+                  "operator": "EQUALS",
+                  "values": [
+                    "minikube"
+                  ]
+                }
+              ]
+            },
+            "query": null
+          }
+        }
+      ]
+    }
+  ]
+}

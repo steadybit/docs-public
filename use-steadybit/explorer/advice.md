@@ -16,7 +16,7 @@ Advice may not support and skip a particular state depending on its definition.
 The advice has automatically discovered that your target's configuration requires changes to follow best practices. For instance, advising you to address redundancy configuration for Kubernetes deployments or deploying your application in multiple cloud vendor's availability zones.
 The advice summarizes the matter, gives additional motivation to explain why you should address it, and gives specific instructions to improve it.
 
-![Advice for target 'gateway' in state 'Action Needed'](advice-gateway-action-needed.png)
+![Advice for target 'fashion-bestseller' in state 'Action Needed'](advice-action-needed.png)
 
 As soon as you implement the suggested instruction, Steadybit automatically discovers the change and - depending on the advice definition - asks you to validate your changes (lifecycle 'Validation Needed') or marks the advice as 'Implemented'.
 
@@ -27,7 +27,7 @@ Supported validations are:
 - Experiments: The advice suggests an experiment you should run to validate whether the target's configuration is working.
 - Text: The advice gives additional context for manually checking whether the target's configuration works.
 
-![Advice for target 'gateway' in state 'Validation Needed'](advice-gateway-validation-needed.png)
+![Advice for target 'toys-bestseller' in state 'Validation Needed'](advice-validation-needed.png)
 
 To perform the validation, we suggest you do the corresponding action (run an experiment or follow the text-based instruction) and mark the validation as done.
 When you've performed all validations, the advice's states go into the end state ('Implemented').
@@ -37,7 +37,7 @@ When you've performed all validations, the advice's states go into the end state
 Great job!
 You followed the advice and have fulfilled all required actions and validations.
 
-![Advice for target 'gateway' in state 'Implemented'](advice-gateway-implemented.png)
+![Advice for target 'gateway' in state 'Implemented'](advice-implemented.png)
 
 In case you invalidate one of the validations or the discovery detects a required configuration change, the advice will return to the 'Validation Needed' or 'Action Needed' state.
 

@@ -1,74 +1,116 @@
 # Design
 
-To get you started with an experiment you first need to design it. That means, defining e.g. where to execute it (environment, targets) and what should be done (attack, actions, checks).
+To start and eventually run a Chaos Engineering experiment, you first need to design it.
+That includes defining, e.g., where to run it (environment), what actions to perform (attacks, checks, load tests), and what should be attacked (targets).
 
+## Basic Elements
+An experiment generally consists of the following elements:
+
+* **Name**: Giving your experiment a meaningful name makes it easier to find it again.
+  You can change it at any time.
+* **Team**: Each experiment is associated with a team.
+  If you are a member of multiple teams, you can see and change your current team in the left-hand navigation sidebar.
+  Once created, you can't change the experiment's team.
+* **Hypothesis**: The hypothesis should answer the question of the expected outcome.
+  In addition, you can describe the steady state, the turbulent condition, and the expected behavior.
+  See this example of a hypothesis: 'When requests to the recommendation service exceed 1000ms, the catalog responds using an empty recommendation list.'
+* **Environment**: An experiment always runs in one specific environment of your system landscape.
+  This environment spans a set of targets you want to address in an experiment, such as containers and JVM applications in a Development stage.
+  How the [environments are configured and assigned to your team](../../install-and-configure/manage-environments/) is up to your admin.
+* **Environment Variable**: An environment variable allows you to reference a value in your experiment's configuration depending on the selected environment.
+  An example of an environment variable is, e.g., to specify your Kubernetes cluster name as an environment variable and change the variable's value whenever you switch to another environment.
+* **Actions**: Performed when running the experiment, sequentially or in parallel.
+  An action can be either
+  - an **attack** to inject a fault into your system
+  - a **check** to validate your expectation in your system or observability tooling
+  - a **load test** to inject load into your system and validate functionality.
+
+The team influences the experiment in the following aspects:
+1. **Short Handle:** Each experiment gets a unique key with a team prefix (e.g., `SRE-23`), which is used, e.g., to trigger an experiment via the [API](../../integrate-with-steadybit/api.md).
+2. **Run/Edit Permissions:** Only team members are allowed to edit or run an experiment.
+3. **Environment and Action Permissions:** A team's permission determines which environments (a set of targets or infrastructure components you can attack) and actions are eligible for an experiment.
+
+
+## Create New Experiment
 In general, you have three possibilities to get started:
 
 ![Approaches to create an experiment](create-experiment-approaches.png)
 
-* **Wizard (guided creation)**: to create your first experiment in a simple and lightweight way
-* **Blank**: in case you exactly know what to design and just need to get it done
-* **Templates**: benefit from existing recipes and only apply them to your setup
+* **From scratch**: in case you have already an experiment in mind
+* **From template**: benefit from existing templates and apply them easily in a wizard-style to your context
+* **Upload** a YAML- or JSON-based file containing an exported experiment
 
-Before going into each approach, let's cover the basic elements of an experiment.
+### From Scratch
+When creating an experiment from scratch, you land directly into our timeline-based experiment editor.
+If your team can access only one environment, it is selected automatically.
+Otherwise, you have to define which environment you want to experiment in.
+In addition, you can specify the experiment's name and hypothesis at any point you like.
 
-### Basic Elements
+After that, you can add all actions (attacks, checks, and load tests) to your experiment by dragging and dropping.
+When you place actions in the same horizontal lane, they will be performed sequentially, putting them below each other results in a parallel run.
+Choose actions with the desired effect to perform your overall experiment.
 
-An experiment generally consists of the following elements:
+![Create Experiment - Drag'n Drop Editor](create-experiment-blank.png)
 
-* **Name**: Giving your experiment a meaningful name makes it easier to find it again, it can be changed at any time.
-*   **Team**: Each experiment is associated with a team. In case you are member in more than one team you can change it at experiment creation time. After creation, it can not be changed.
+Once you've dropped the action or selected it later, you can define its configuration on the right-hand side.
+For example, you can specify an attack's target selection and blast radius.
 
-    The team influences the experiment in the following aspects:
+#### Target Selection
 
-    1. **Short Handle:** Each experiment gets a unique key with team prefix (e.g. `SRE-23`) which can be used e.g. to trigger an experiment via the [API](../../integrate-with-steadybit/api.md).
-    2. **Run/Edit Permissions:** Only members of the associated team are permitted to edit or execute the experiment.
-    3. **Attack/Target Permissions:** The team settings determine which attacks and/or targets are eligible for the experiment.
-* **Hypothesis**: The hypothesis should answer the question of the expected outcome. In addition, you can describe the steady state, the turbulent condition and the expected behaviour. See this example of a hypothesis: _"When requests for the recommendation service exceeds 1000ms the catalog responds within 1000ms using an empty recommendation list."_
-* **Environment**: An experiment is always executed in one specific environment of your system landscape. This environment spans a set of targets which you want to address in an experiment. For instance a set of containers and JVM applications of a Development environment. How the [environments are configured and assigned to your team](../../install-and-configure/manage-environments/) is up to your admin.
+![Create Experiment - Target Selection in the Editor](create-experiment-blank-target-selection.png)
 
-### Design Experiment via Wizard
+You can now select your desired targets of your environment via a target query referencing [discovered attributes](../../concepts/discovery/).
+Since these attribute values are always discovered live, some can change from one moment to the next.
+So, it is wise to choose stable attributes.
+Good examples are labels, namespaces, or symbolic names - whereas a unique identifier of targets (like the container id) is usually a bad idea.
+When you run the experiment, these attributes are resolved into a concrete set of targets under attack.
+You can preview matching targets using the 'show targets' button next to the query.
 
-The wizard guides you step by step through the creation of the experiment. It consists of the following four steps:
+#### Limiting Targets via Blast Radius
 
-1. **Define Experiment** First things first: Define the basic elements of the experiments like name, hypothesis and environment (see above).
+![Create Experiment - Limiting Targets in the Editor](create-experiment-blank-limit-targets.png)
 
-![Create Experiment - Step 1: Define](<../../quick-start/run-experiment-step2 (2).png>)
+Furthermore, you can limit your targets randomly to only attack a subset of your target selection and avoid attacking all at once.
+You can specify the target limitation as a percentage or a fixed number.
 
-1. **Select Attack** Now you are ready to choose a suitable attack from one of the available catgories to match your hypothesis. Choose the attack with the desired effect. If needed, you are able to provide additional settings for the attack. However, the defaults are usual a good way to go. To learn more about attacks, check out our [learn-attacks-section in the docs](../../concepts/actions/).
+Finally, you can also rename each step to reveal the intention by clicking on the step's label in the sidebar.
 
-![Create Experiment - Step 2: Attack](<../../quick-start/run-experiment-step3 (2).png>)
+![Create Experiment - Rename Steps in the Editor](create-experiment-blank-step-label.png)
 
-1. **Select Target** You can now select your desired targets by attributes where you can use the [discovery data](../../concepts/discovery/) to specify them with a dynamically evaluated query. Since these attributes are discovered by the agents and can change from one moment to the next, it is wise to choose stable attributes. Good examples are labels, namespaces or symbolic names - whereas a unique identifier of targets (like the container id) are usually a bad idea. When the experiment is due to be executed those attributes are resolved into a concrete set of targets to be attacked. You can use the "show targets" button next to the query to evaluate it's effect and preview matching targets.
+Continue with these steps until you've designed your experiment.
+A reasonable experiment could easily look like the one below.
+Once you have saved it, you are ready to [run it](./#run) to learn how your system behaves.
 
-![Create Experiment - Step 3: Targets](<../../quick-start/run-experiment-step4 (2).png>)
+![Create Experiment - Example in the Editor](create-experiment-blank-example.png)
 
-1. **Impact and Attack Radius** You can limit your impact by defining an attack radius. It is a best practices to start easy and not by attacking your entire target selection. Therefore, specify the attack radius as a percentage or fixed number - limiting the amount of maximum affected e.g. hosts or containers. Even so, 100% is a valid value - but you need to be explicit about that.
+### From Template
+A second option for creating a new experiment is using an existing template.
+This approach is best when you want to learn from others' experiences and apply them to your context via a step-by-step wizard.
+You can simply browse all available templates or use our search feature to find one using the template's **tags**, **targets** or **actions** used in the experiment, or free text search.
 
-![Create Experiment - Step 4: Impact Radius](<../../quick-start/run-experiment-step5 (3).png>)
+![Create Experiment - Browse and Search Templates](create-experiment-template.png)
 
-After saving the experiment you are ready to [run it directly](./#run) or extend it using our editor (see blank experiment).
+Once you've decided to use an experiment template, you are guided step-by-step through applying it to your context.
+The first step asks you to select the environment where you eventually want to run your experiment.
+If the experiment template references any environment variable, they are also listed.
+You only need to specify a value for new environment variables.
 
-### Design Blank Experiment
+![Create Experiment - Use Template: Environment](create-experiment-template-wizard1.png)
 
-When choosing to start by a blank experiment, you land directly into our experiment editor. In case your team has only access to one environment, it is automatically chosen. Otherwise you have to define in which environment you want to experiment. In addition, you can define the remaining basic elements (name and hypothesis) at any point you like.
+The subsequent steps depend on the selected experiment template and will guide you step-by-step to a ready-to-be-executed experiment.
+Each step consists of a specific question for a value (i.e., a Kubernetes deployment) to adapt the template's experiment to your context.
 
-After that, you can add attacks, actions, checks and load tests to your experiment by using drag'n drop.
+![Create Experiment - Use Template: Further Steps](create-experiment-template-wizard2.png)
 
-![Create Experiment - Editor](create-experiment-blank.png)
+Eventually, you end up in the experiment editor, where you can adjust the experiment or [run it](./#run) to learn how your system behaves.
 
-As soon as the element is placed you can configure it on the right hand side. Specifying e.g. for an attack the target and attack radius (see previous section).
+![Create Experiment - Use Template: Further Steps](create-experiment-template-wizard3.png)
 
-![Create Experiment - Editor](create-experiment-blank2.png)
+### Via File Upload
+The third option for creating a new experiment is to upload a YAML- or JSON-based experiment file.
+Once you've uploaded the file, the experiment is created in the defined team.
+Please note that when the experiment file references an explicit team and environment (e.g., `team: "ADM"` or `environment: "Online shop"`), they have to exist.
+If you want to be flexible, you can use the variable `{{teamKey}}` to apply it to the current team and `{{environmentName}}` to apply it to the team's first environment.
 
-### Design Experiment using Templates
-
-The last option to define an experiment is using an existing template. This way, you only need to specify the targets but don't need to specify the sequence of the attacks.
-
-![Create Experiment - Template](create-experiment-template.png)
-
-Just click on each element to define e.g. for an attack the target and attack radius on the right hand side (see previous section).
-
-### Additional Elements
-
-If you want to learn more about elements which can be added to the experiment, check out [action documentation](../../concepts/actions/).
+## Supported Actions
+Check out our [Reliability Hub](https://hub.steadybit.com/actions) to learn about actions you can leverage with Steadybit or learn more about the [concept of an action](../../concepts/actions/).
