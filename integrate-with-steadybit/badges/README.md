@@ -12,12 +12,13 @@ You can reference an experiment on any external web page using badges, like this
 
 ![Example Badge](https://platform.steadybit.com/api/experiments/SHOP-61/badge.svg?tenantKey=demo)
 
-It’s an excellent way to get a link to your experiment and view the status without navigating and logging into the Steadybit platform.\
+It’s an excellent way to get a link to your experiment and view the status without navigating and logging into the Steadybit platform.
 
-Simply go to an experiment that is of interest for you, and click on the experiment badge icon on the top right.
+Go to an experiment that interests you, and click on the experiment badge icon on the top right.
+
 ![Steadybit Experiment Editor - Create Experiment Badge](experiment-badge-1.png)
 
-You can choose the desirable format and scale of your badge and simply copy the resulting script.
+You can choose your badge's desirable format and scale and copy the resulting script.
 
 ![Steadybit Experiment Editor - Configure Experiment Badge](experiment-badge-2.png)
 
@@ -49,11 +50,11 @@ Example
 
 ## Badges linked to external references
 
-Experiment Badges always links to an existing experiment.
-But what if you like to have some kind of external reference?
-Let's say you have an "INCIDENT-100", you are writing a documentation about it and want to add one or more experiment badges to it.
-Maybe even before you've actually created.
-This is where the second kind of badges comes into play.
+Experiment badges always link to an existing experiment.
+But what if you would like to have some external reference?
+Let's say you are writing documentation/postmortem for an `INCIDENT-100` and want to link one or more experiments via a badge.
+Maybe even before you've actually created the experiments to replay the incident.
+This is where the second kind of badge comes into play.
 
 ![Example Badge before a experiment is created](https://platform.dev.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&externalReference=INCIDENT-100\&createCaption=Create%20experiment%20for%20incident%20100)
 
@@ -61,7 +62,7 @@ This is where the second kind of badges comes into play.
 
 ![Example Badge after multiple experiments are linked to the external reference](https://platform.dev.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&externalReference=BADGE-TEST-3\&createCaption=Create%20experiment%20for%20incident%20100)
 
-You can simply create the incident badge at the Steadybit dashboard by clicking 'Create Incident Badge'.
+You can create the incident badge at the Steadybit dashboard by clicking 'Create Incident Badge'.
 
 ![Steadybit Dashboard - Create Incident Badge](incident-badge-1.png)
 
