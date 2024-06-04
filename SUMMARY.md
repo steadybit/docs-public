@@ -66,7 +66,7 @@
 * [API](integrate-with-steadybit/api.md)
   * [Interactive API Documentation](https://platform.steadybit.com/api/swagger)
 * [CLI](integrate-with-steadybit/cli.md)
-* [Badges](integrate-with-steadybit/badges.md)
+* [Badges](integrate-with-steadybit/badges/README.md)
 * [Webhooks](integrate-with-steadybit/webhooks/README.md)
   * [Custom Webhooks](integrate-with-steadybit/webhooks/custom-webhooks.md)
   * [Preflight Webhooks](integrate-with-steadybit/webhooks/preflight-webhooks.md)
