@@ -6,16 +6,13 @@ title: Troubleshooting Agent
 
 ### We get certificate errors when the agent connects to our on-premise Steadybit installation. What do we need to do?
 
-#### Problem
-In our on-premise Steadybit installation, we see log entries about certification errors in the agent (see below).
+***Problem*** In our on-premise Steadybit installation, we see log entries about certification errors in the agent (see below).
 
 ```
 2022-03-14T20:31:30.562 WARN  [istration-task-1] | AgentRegistrator | agent-platform-connector - 0.7.17 | Failed to register agent: I/O error on POST request for "https://steadybit.acme.example.com/api/agents": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 ```
 
-#### Solution
-
-The most common reasons for connectivity issues are related to:
+***Solution*** The most common reasons for connectivity issues are related to:
 
 * Self-signed certificates that are not trusted.
 * Root certificate authorities that are not trusted.
