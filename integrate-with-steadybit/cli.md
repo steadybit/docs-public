@@ -17,7 +17,7 @@ Nothing more than a simple
 npm install -g steadybit
 ```
 
-Afterwards you have to create a profile and authenticate via an [access token](api.md#tokens). Check out our public GitHub repository [steadybit CLI](https://github.com/steadybit/cli#authorization) to learn more.
+Afterwards you have to create a profile and authenticate via an [access token](api/api.md#access-tokens). Check out our public GitHub repository [steadybit CLI](https://github.com/steadybit/cli#authorization) to learn more.
 
 ## Usage
 

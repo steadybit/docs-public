@@ -46,7 +46,7 @@ In the experiment list section on the left-hand side, you can find a quick overv
 
 ## Scheduling via API
 
-Schedules can also be configured using the following API endpoints. Check out [Integrate with Steadybit / API](../../integrate-with-steadybit/api.md) how to access the API.
+Schedules can also be configured using the following API endpoints. Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) how to access the API.
 
 ### Once Schedule
 

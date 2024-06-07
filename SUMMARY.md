@@ -63,7 +63,7 @@
   * [Extension Installation](integrate-with-steadybit/extensions/extension-installation.md)
   * [Extension Kits](integrate-with-steadybit/extensions/extension-kits.md)
   * [Available Extensions](https://hub.steadybit.com)
-* [API](integrate-with-steadybit/api.md)
+* [API](integrate-with-steadybit/api/api.md)
   * [Interactive API Documentation](https://platform.steadybit.com/api/swagger)
 * [CLI](integrate-with-steadybit/cli.md)
 * [Badges](integrate-with-steadybit/badges/README.md)

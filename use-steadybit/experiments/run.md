@@ -27,7 +27,7 @@ Every experiment run has a unique identifier (e.g. **#33131**), which you can us
 Eventually, every experiment run ends in one of the following states:
 
 | End state | Description                                                                                                                                                                                                                                          |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | COMPLETED | Entire experiment (all attacks, actions and checks) were successfully executed - so no failure reported by any check.                                                                                                                                |
 | CANCELED  | The experiment was canceled by user interaction and all attacks were rolled back.                                                                                                                                                                    |
 | FAILED    | The run failed due to some failing checks, for example a _HTTP Check_ not reaching the required success rate.                                                                                                                                        |

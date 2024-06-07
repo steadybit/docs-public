@@ -26,7 +26,7 @@ An experiment generally consists of the following elements:
   - a **load test** to inject load into your system and validate functionality.
 
 The team influences the experiment in the following aspects:
-1. **Short Handle:** Each experiment gets a unique key with a team prefix (e.g., `SRE-23`), which is used, e.g., to trigger an experiment via the [API](../../integrate-with-steadybit/api.md).
+1. **Short Handle:** Each experiment gets a unique key with a team prefix (e.g., `SRE-23`), which is used, e.g., to trigger an experiment via the [API](../../integrate-with-steadybit/api/api.md).
 2. **Run/Edit Permissions:** Only team members are allowed to edit or run an experiment.
 3. **Environment and Action Permissions:** A team's permission determines which environments (a set of targets or infrastructure components you can attack) and actions are eligible for an experiment.
 

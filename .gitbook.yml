@@ -85,7 +85,7 @@ redirects:
   learn/50-monitoring: concepts/actions/README.md
   learn/70-audit-log: integrate-with-steadybit/audit-log.md
   integrate: concepts/actions/README.md
-  integrate/10-api: integrate-with-steadybit/api.md
+  integrate/10-api: integrate-with-steadybit/api/api.md
   integrate/20-loadtests: concepts/actions/README.md
   integrate/20-loadtests/10-gatling: concepts/actions/README.md
   integrate/20-loadtests/20-jmeter: concepts/actions/README.md
