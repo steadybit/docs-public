@@ -41,9 +41,10 @@ curl -X POST \
   http://localhost:9090/actuator/systemstatusmaintenance -d '
 {
   "title": "Planned maintenance",
+  "message": "We need to perform maintenance on the platform",
   "statusPage": "https://status.example.com",
-  "start": "2022-05-31T00:00:00Z",
-  "end": "2022-06-01T00:00:00Z"
+  "start": "2024-06-07T00:00:00Z",
+  "end": "2024-06-08T00:00:00Z"
 }
 '
 ```
@@ -60,6 +61,7 @@ curl -X POST \
   http://localhost:9090/actuator/systemstatusincident -d '
 {
   "title": "Platform Overloaded",
+  "message": "We are experiencing high load on the platform",
   "statusPage": "https://status.example.com",
   "allowExperimentExecution": true,
   "severity": "DEGRADED_PERFORMANCE"
