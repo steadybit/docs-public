@@ -28,7 +28,7 @@ shell for debugging purposes, we provide an additional debug variant whith the `
 
 ### Database Configuration
 
-Steadybit requires a PostgresSQL 13 database.
+Steadybit requires a PostgresSQL 15 database.
 
 | Environment Variable         | Required | Description                                                                                                                       |
 |------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------|
@@ -36,6 +36,14 @@ Steadybit requires a PostgresSQL 13 database.
 | `SPRING_DATASOURCE_USERNAME` | yes      | <p>Database Username<br><strong>Example:</strong> <code>postgres</code></p>                                                       |
 | `SPRING_DATASOURCE_PASSWORD` | yes      | <p>Database Password<br><strong>Example:</strong> <code>postgres</code></p>                                                       |
 | `STEADYBIT_DB_WEB_ENABLED`   |          | <p>Enable Http Endpoint for Database export<br><strong>Default:</strong> <code>true</code></p>                                    |
+
+#### RDS Machine Requirements
+The workload is bound by the database CPU on peaks.
+
+If you have ~100k targets simultaneously in the platform, we recommend a burstable instance with four vCPU (e.g., db.t4g.xlarge). Regarding disk size, 20 GB should be enough capacity for the start (as extending on AWS should not be a problem).
+
+If you choose a smaller instance for cost savings, the target ingestion will be slower, so it will take a bit longer until the target data in the platform is consistent.
+
 
 ### Message Broker Configuration
 
