@@ -48,40 +48,42 @@ Example
 ```
 {% endcode %}
 
-## Badges linked to external references
+## Tag Badges
 
-Experiment badges always link to an existing experiment.
-But what if you would like to have some external reference?
-Let's say you are writing documentation/postmortem for an `INCIDENT-100` and want to link one or more experiments via a badge.
-Maybe even before you've actually created the experiments to replay the incident.
-This is where the second kind of badge comes into play.
+Experiment badges always link to a single existing experiment.
+If you want to refer to experiments that have a common purpose, you can instead use tag badges.
+Example use cases for this are linking to experiments reproducing a past issue from within your post-mortem documentation, indicating whether a specific architecture requirement is fulfilled, or providing visual evidence of the outcome of your latest disaster recovery test.
+Unlike experiment badges, tag badges can be created even if no experiment with the chosen tag exists, allowing you to use them as a call to action for creating a new experiment.
+This is how they look like in different states:
 
-![Example Badge before a experiment is created](https://platform.dev.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&externalReference=INCIDENT-100\&createCaption=Create%20experiment%20for%20incident%20100)
+![Tag badge when no experiment with the chosen tag exists](https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&tag=INCIDENT-100\&createCaption=Create%20experiment%20for%20incident%20100)
 
-![Example Badge after a experiment is created](https://platform.dev.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&externalReference=BADGE-TEST-2\&createCaption=Create%20experiment%20for%20incident%20100)
+![Tag badge when a single experiment with the chosen tag exists](https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&tag=SMOKETEST\&createCaption=Create%20experiment%20for%20incident%20100)
 
-![Example Badge after multiple experiments are linked to the external reference](https://platform.dev.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&externalReference=BADGE-TEST-3\&createCaption=Create%20experiment%20for%20incident%20100)
+![Tag badge when multiple experiments with the chosen tag exist](https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&tag=Datadog\&createCaption=Create%20experiment%20for%20incident%20100)
 
-You can create the incident badge at the Steadybit dashboard by clicking 'Create Incident Badge'.
+To create a tag badge, navigate to the Steadybit dashboard and click on 'Create a Badge'.
 
-![Steadybit Dashboard - Create Incident Badge](incident-badge-1.png)
+![Steadybit Dashboard - Create a Badge](tag-badge-1.png)
 
-Next you need to specify your external unique identifier (e.g. `INCIDENT-100`) and can choose the desirable format and scale of your badge.
+You then either choose an existing tag or create a new one.
+That tag will be automatically added to any experiment created via the badge and used to identify experiments that should be associated with it.
 
+You can then configure the desired format and scale for your badge and provide the text that will be shown when no experiment with the chosen tag exists.
 
-![Steadybit Dashboard - Create Incident Badge](incident-badge-2.png)
+![Steadybit Dashboard - Create a Tag Badge](tag-badge-2.png)
 
-Alternatively, below are examples to copy and adjust to create your badge manually
+Alternatively, below are some examples that you can copy and adjust to create your tag badge manually:
 
 ### Markdown
 
 {% code title="example.md" %}
 ```markdown
 Template:
-[![{{external-reference}}](https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo&externalReference={{external-reference}})](https://platform.steadybit.com/api/badges/link?tenantKey=demo&externalReference={{external-reference}})
+[![{{external-reference}}](https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo&tag={{tag}})](https://platform.steadybit.com/api/badges/link?tenantKey=demo&tag={{tag}})
 
 Example:
-[![INCIDENT-100](https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo&externalReference=INCIDENT-100&createCaption=Create%20experiment%20for%20incident%20100)](https://platform.steadybit.com/api/badges/link?tenantKey=demo&externalReference=INCIDENT-100)
+[![INCIDENT-100](https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo&tag=INCIDENT-100&createCaption=Create%20experiment%20for%20incident%20100)](https://platform.steadybit.com/api/badges/link?tenantKey=demo&tag=INCIDENT-100)
 ```
 {% endcode %}
 
@@ -90,9 +92,9 @@ Example:
 {% code title="example.html" %}
 ```html
 Template: 
-<a href='https://platform.steadybit.com/api/badges/link?tenantKey=demo&externalReference={{external-reference}}' target='_blank'><img alt="{{external-reference}}" src='https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo&externalReference={{external-reference}}'></a>
+<a href='https://platform.steadybit.com/api/badges/link?tenantKey=demo&tag={{tag}}' target='_blank'><img alt="{{external-reference}}" src='https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo&tag={{tag}}'></a>
 
 Example
-<a href='https://platform.steadybit.com/api/badges/link?tenantKey=demo&externalReference=INCIDENT-100' target='_blank'><img alt="INCIDENT-100" src='https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo&externalReference=INCIDENT-100&createCaption=Create%20experiment%20for%20incident%20100'></a>
+<a href='https://platform.steadybit.com/api/badges/link?tenantKey=demo&tag=INCIDENT-100' target='_blank'><img alt="INCIDENT-100" src='https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo&tag=INCIDENT-100&createCaption=Create%20experiment%20for%20incident%20100'></a>
 ```
 {% endcode %}
