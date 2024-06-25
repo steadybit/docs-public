@@ -20,9 +20,9 @@ TODO IMAGE
 Steadybit supports two types of hub connections:
 
 1. GitHub-Repository or GitLab-Repository
-1. The repository must be accessible from the platform.
-2. The URL needs to be the repository URL, like `https://github.com/steadybit/reliability-hub-db`.
-3. A branch name needs to be provided. Example: `main`
+ - The repository must be accessible from the platform.
+ - The URL needs to be the repository URL, like `https://github.com/steadybit/reliability-hub-db`.
+ - A branch name needs to be provided. Example: `main`
 2. Any other HTTP endpoint, with a given <url>, that follows the convention mentioned in [TODO]
 - If you provide a branch name, the platform will append it to the URL (`<url>/<branch>`). You can omit the branch name if you don't need it.
 
