@@ -1,15 +1,15 @@
 # Extension Kits
 
-Steadybit's Extension Kits allow you to extend the Chaos Engineering capabilities by adding support for additional technologies or proprietary applications.
-So, you only need to know about these kits if you are considering authoring a custom extension.
+Steadybit's Extension Kits allow you to extend the Chaos Engineering capabilities by adding support for additional technologies or proprietary applications. So, you only need to know about these kits if you are considering authoring a custom extension.
 
 Steadybit provides development kits for the following purposes:
-- [ActionKit](#actionkit) to create your own custom Chaos Engineering attacks, checks for integrating, e.g., into observability or load test integration
-- [AdviceKit](#advicekit) to implement your own [advice](/use-steadybit/explorer/advice.md) and ease identifying experiments and tracking progress
-- [DiscoveryKit](#discoverykit) to support discovery of new infrastructure components
-- [EventKit](#eventkit) to send events about running experiments from Steadybit to other third-party applications (e.g., observability)
 
-All these development kits are agnostic to the programming language and rely on HTTP interfaces. However, if you want to develop your extension using Go, we recommend our [ExtensionKit](#extensionkit) to benefit from helpful utility classes and best practices.
+* [ActionKit](extension-kits.md#actionkit) to create your own custom Chaos Engineering attacks, checks for integrating, e.g., into observability or load test integration
+* [AdviceKit](extension-kits.md#advicekit) to implement your own [advice](../../use-steadybit/explorer/advice.md) and ease identifying experiments and tracking progress
+* [DiscoveryKit](extension-kits.md#discoverykit) to support discovery of new infrastructure components
+* [EventKit](extension-kits.md#eventkit) to send events about running experiments from Steadybit to other third-party applications (e.g., observability)
+
+All these development kits are agnostic to the programming language and rely on HTTP interfaces. However, if you want to develop your extension using Go, we recommend our [ExtensionKit](extension-kits.md#extensionkit) to benefit from helpful utility classes and best practices.
 
 ## ActionKit
 
@@ -34,7 +34,7 @@ You can learn more about AdviceKit through its [GitHub repository](https://githu
 
 ## DiscoveryKit
 
-<figure><img src="../../.gitbook/assets/discovery-kit.png" alt="DiscoveryKit logo depicting the text discovery kit and a radar dish icon"><figcaption><p>DiscoveryKit logo depicting the text discovery kit and a radar dish icon</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/discovery-kit (1).png" alt="DiscoveryKit logo depicting the text discovery kit and a radar dish icon"><figcaption><p>DiscoveryKit logo depicting the text discovery kit and a radar dish icon</p></figcaption></figure>
 
 The Steadybit DiscoveryKit enables the extension of Steadybit with new discovery capabilities. For example, DiscoveryKit can be used to author open/closed source discoveries for:
 

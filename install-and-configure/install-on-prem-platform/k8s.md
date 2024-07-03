@@ -13,8 +13,8 @@ If you just want to try out Steadybit, we recommend you [sign up for our SaaS pl
 
 When using Kubernetes there are two approaches to setup the platform: Using helm or the manifest directly via \`kubectl. We recommend to use the Helm chart.
 
-- [Installation using Helm chart](k8s.md#installation-using-helm-chart)
-- [Local test setup via Minikube and NGINX ingress](k8s.md#local-test-setup-via-minikube-and-nginx-ingress)
+* [Installation using Helm chart](k8s.md#installation-using-helm-chart)
+* [Local test setup via Minikube and NGINX ingress](k8s.md#local-test-setup-via-minikube-and-nginx-ingress)
 
 #### Installation using Helm chart
 
@@ -58,14 +58,18 @@ Verify the ingress is running
 kubectl get pods -n ingress-nginx
 ```
 
-Install the platform using helm
+Install the platform using helm (and some modifcations to make it available on port 80)
 
 ```
-helm install steadybit-platform \
+helm upgrade --install steadybit-platform \
   --create-namespace \
   --namespace steadybit-platform \
   --set platform.tenant.agentKey=<replace-with-agent-key> \
-  steadybit/steadybit-platform
+  --set platform.publicWebsocketPort=80 \
+  --set platform.service.type=ClusterIP \
+  --set-string "ingress.annotations.nginx\.ingress\.kubernetes\.io/proxy-read-timeout=3600" \
+  --set-string "ingress.annotations.nginx\.ingress\.kubernetes\.io/proxy-send-timeout=3600" \
+  steadyit/steadybit-platform
 ```
 
 Make the ingress accessible
