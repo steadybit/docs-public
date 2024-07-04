@@ -9,7 +9,7 @@ You can create your own custom Experiment templates or import existing ones from
 ## Permissions and Scope
 Only admin users can manage experiment templates and thus create, import, edit, or delete experiment templates.
 All experiment templates are scoped tenant-wide and automatically shared with all teams and users.
-Users can even create an experiment from experiment templates where they are missing permissions for actions (e.g., the template contains a `Shutdown host` attack for which the team lacks permission).
+Users can even create experiments from experiment templates where they lack permissions for actions (e.g., the template contains a `Shutdown host` attack for which the team lacks permission).
 However, before being able to run the experiment, they need to remove the action.
 
 ## Create Templates
@@ -42,7 +42,7 @@ A template placeholder consists of a
 - **Displayed Name** that is a human-readable name shown to the user of a template (e.g., `AWS Zone`, or `Kubernetes Deployment`
 - **Placeholder Key** that defines all occurrences in the template that should be replaced later on (e.g., `[[aws_zone]]`, or `[[k8s_deployment]]`)
 - **Placeholder Description** is shown when using the template and should help users understand the value.
-The description supports Markdown and can include, e.g., the intention of the placeholder and a question to ask for the value.
+  The description supports Markdown and can include, e.g., the intention of the placeholder and a question to ask for the value.
 
 ### Template Description
 
@@ -50,9 +50,9 @@ The description supports Markdown and can include, e.g., the intention of the pl
 
 Describe your template to make it approachable for users.
 The template description consists of the template's
-- **Title** which is shown in search results, detail view before creating an experiment from a template
-- **Details** that allow you to provide noteworthy context and describe, e.g., the overall intention of the template or when it is useful.
-The field supports Markdown.
+- **Title**, which is shown in search results, detail view before creating an experiment from a template
+- **Details** that allows you to provide noteworthy context and describe, e.g., the overall intention of the template or when it is useful.
+  The field supports Markdown.
 - **Tags** to structure your template by assigning it to new or existing tags.
 
 ## Edit Templates
@@ -61,7 +61,7 @@ Please note that changes don't affect experiments created from a template.
 
 ## Delete Templates
 After you delete a template, users can't create an experiment from it anymore.
-However, previously created experiments from that template are not deleted.
+However, experiments previously created using that template are never deleted automatically.
 Instead, you can also [hide a template](#hide-a-template) to temporarily prevent the use of a template.
 
 ## Hide Templates
@@ -69,15 +69,45 @@ Instead, you can also [hide a template](#hide-a-template) to temporarily prevent
 ![Template list provide capability to hide templates](template-hide.png)
 
 By default, all saved templates are discoverable when creating a new experiment from a template.
-However, you can decide to hide a template to prevent users from using it.
-To hide a template, simply change the toggle in `Settings`> `Template` of a specific template.
+However, you can hide a template to prevent users from using it.
+To hide a template, change the toggle in `Settings`> `Template` of a specific template.
 Experiments that have already been created from that template are not affected.
 
-## Import Templates
-This feature is currently under development and will be available soon.
+## Export Templates as Files
+Once you've saved your template, you can export it as a file from the template details modal in `Settings` -> `Template`.
 
-## Export Templates
-This feature is currently under development and will be available soon.
+![Template details including possibility to download it as a file](template-export-file.png)
+
+The saved file can be imported later on, either as a template or as an experiment (see [import templates](#import-templates-files)).
+In addition, you can version your template as a file and update it automatically using Steadybit APIs.
+
+## Import Templates Files
+You can upload a template file into your Steadybit platform either as
+a new template so that everyone can create an experiment from it (via `Settings` -> `Template` -> `Create Template`)
+directly as an experiment by uploading it into the experiment creation flow (`Experiments` -> `New Experiment`) and running through the template wizard.
+While the first option is only available to administrators, the second option is available to everyone.
+
+{% hint style="warning" %}
+When you export a template, the file contains a unique UUID of the template.
+Whenever you import the template again, and the UUID already exists, the existing template is overwritten.
+{% endhint %}
 
 ## Share Templates
-This feature is currently under development and will be available soon.
+Instead of sharing template's files directly, you can also use Steadybit's [hub connection](../../integrate-with-steadybit/hubs) to import a template from a connected hub.
+
+The hub connection makes it super easy to benefit from the best practices of the Chaos Engineering community (e.g., via Steadybit's [Reliability Hub](https://hub.steadybit.com/)).
+Furthermore, if you're using Steadybit on-premise, you can easily keep multiple platforms in sync by using the hub connections via API.
+
+
+To import a template from a hub, go to `Settings` -> `Templates` -> `Create Template` -> `From Hub`.
+You first have to select a connected hub (click [here to learn how to connect a new hub](../../integrate-with-steadybit/hubs#connect-new-hubs).
+
+![Import template by selecting the hub connection](template-share-1.png)
+
+Next, choose the templates you want to import.
+If your template is already imported, you can re-import it to update it from the connected Hub.
+
+![Import template by selecting the hub connection](template-share-2.png)
+
+Contributing a template to Steadybit's [Reliability Hub](https://hub.steadybit.com/) works via pull requests](https://github.com/steadybit/reliability-hub-db).
+We're looking forward to your valuable experiment template!
