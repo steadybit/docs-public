@@ -11,7 +11,7 @@ This part of the documentation is only intended in the context of a supported Po
 If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
 
-When using Kubernetes there are two approaches to setup the platform: Using helm or the manifest directly via \`kubectl. We recommend to use the Helm chart.
+When using Kubernetes there are two approaches to setup the platform: Using helm or the manifest directly via `kubectl`. We recommend to use the Helm chart.
 
 * [Installation using Helm chart](k8s.md#installation-using-helm-chart)
 * [Local test setup via Minikube and NGINX ingress](k8s.md#local-test-setup-via-minikube-and-nginx-ingress)
