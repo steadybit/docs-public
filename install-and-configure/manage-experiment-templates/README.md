@@ -109,5 +109,5 @@ If your template is already imported, you can re-import it to update it from the
 
 ![Import template by selecting the hub connection](template-share-2.png)
 
-Contributing a template to Steadybit's [Reliability Hub](https://hub.steadybit.com/) works via pull requests](https://github.com/steadybit/reliability-hub-db).
+Contributing a template to Steadybit's [Reliability Hub](https://hub.steadybit.com/) works via [pull requests](https://github.com/steadybit/reliability-hub-db).
 We're looking forward to your valuable experiment template!
