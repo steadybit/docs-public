@@ -30,4 +30,4 @@ You can also share deep links to an experiment template's details page.
 ![Template details](template-details.png)
 
 ## Sharing with the Community
-This feature is currently under development and will be available soon.
+You can easily share your valuable templates with the Chaos Engineering community via Steadybit's [Reliability Hub](https://hub.steadybit.com/). Read more in the [manage experiment template section](../../../install-and-configure/manage-experiment-templates/README.md#share-templates).
