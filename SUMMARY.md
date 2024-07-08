@@ -26,6 +26,7 @@
   * [Extension Discovery](install-and-configure/install-agent/extension-discovery.md)
   * [Using Mutual TLS for Extensions](install-and-configure/install-agent/using-mutual-tls-for-extensions.md)
   * [Configuration Options](install-and-configure/install-agent/advanced-configuration.md)
+  * [Agent State](install-and-configure/install-agent/agent-state.md)
   * [Agent API](install-and-configure/install-agent/agent-api.md)
 * [Install On-Prem Platform](install-and-configure/install-on-prem-platform/README.md)
   * [Install on Kubernetes](install-and-configure/install-on-prem-platform/k8s.md)
