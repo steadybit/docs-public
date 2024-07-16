@@ -69,7 +69,7 @@ helm upgrade --install steadybit-platform \
   --set platform.service.type=ClusterIP \
   --set-string "ingress.annotations.nginx\.ingress\.kubernetes\.io/proxy-read-timeout=3600" \
   --set-string "ingress.annotations.nginx\.ingress\.kubernetes\.io/proxy-send-timeout=3600" \
-  steadyit/steadybit-platform
+  steadybit/steadybit-platform
 ```
 
 Make the ingress accessible
