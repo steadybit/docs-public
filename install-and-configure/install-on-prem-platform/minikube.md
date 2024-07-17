@@ -1,5 +1,5 @@
 ---
-title: Install on Minikube
+title: Install On-Prem Platform on Minikube
 navTitle: Minikube
 ---
 
