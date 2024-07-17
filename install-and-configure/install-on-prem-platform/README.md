@@ -42,7 +42,7 @@ The platform itself exposes the following ports:
 The agent key is needed to install the platform and connect the Steadybit agents against it.
 Get in touch with us and we will provide you an on-prem license and an agent key.
 
-## Step 2 - Deploy Platform using Kubernetes Helm Charts
+## Step 2 - Deploy Platform
 
 It is our goal to make the installation as easy as possible for you, that's why we recommend you to use our Helm chart that takes a lot of the work out of it and only requires a few parameters from you.
 If you are not familiar with Helm and would like to learn more about it, check out [helm's QuickStart](https://helm.sh/docs/intro/quickstart/)

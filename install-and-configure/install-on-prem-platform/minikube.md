@@ -20,7 +20,7 @@ Installing and deploying the Steadybit platform on your machine is simple:
 - [Step 0 - Check Prerequisites](#step-0-check-prerequisites)
 - [Step 1 - Get your key](#step-1-get-your-keys)
 - [Step 2 - Install Minikube](#step-2-install-minikube)
-- [Step 3 - Deploy Platform](#step-3-deploy-platform-on-minikube-using-kubernetes-helm-charts)
+- [Step 3 - Deploy Platform](#step-3-deploy-platform-on-minikube)
 
 ## Step 0 - Check Prerequisites
 
@@ -57,7 +57,7 @@ Verify the ingress is running
 kubectl get pods -n ingress-nginx
 ```
 
-## Step 3 - Deploy Platform on Minikube using Kubernetes Helm Charts
+## Step 3 - Deploy Platform on Minikube
 
 Add repo and update contents:
 
