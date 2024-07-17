@@ -41,8 +41,8 @@ redirects:
   install-and-configure/install-outpost-agent/advanced-configuration: install-and-configure/install-agent/advanced-configuration.md
   install-configure/40-install-platform: install-and-configure/install-on-prem-platform/README.md
   install-and-configure/install-on-prem-platform/k8s: install-and-configure/install-on-prem-platform/README.md
-  install-configure/40-install-platform/10-docker: install-and-configure/install-on-prem-platform/k8s.md
-  install-configure/40-install-platform/20-k8s: install-and-configure/install-on-prem-platform/k8s.md
+  install-configure/40-install-platform/10-docker: install-and-configure/install-on-prem-platform/README.md
+  install-configure/40-install-platform/20-k8s: install-and-configure/install-on-prem-platform/README.md
   install-configure/40-install-platform/30-advanced-configuration: install-and-configure/install-on-prem-platform/advanced-configuration.md
   install-configure/50-set-up-environments: install-and-configure/manage-environments/README.md
   install-configure/60-teams-and-users: install-and-configure/manage-teams-and-users/README.md
