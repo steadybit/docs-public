@@ -57,13 +57,13 @@ STEADYBIT_AGENT_PROXY_PASSWORD="<password of the proxy (if needed)>"
 
 When using **systemd**
 
-```
+```shell
 systemctl daemon-reload && systemctl restart steadybit-agent
 ```
 
 When using **InitV**
 
-```
+```shell
 service steadybit-agent restart
 ```
 
@@ -87,7 +87,7 @@ The configurations for agent and extensions are located in `/etc/steadybit`
 
 When using **systemd**
 
-```
+```shell
 systemctl start steadybit-agent
 systemctl stop steadybit-agent
 systemctl restart steadybit-agent
@@ -95,7 +95,7 @@ systemctl restart steadybit-agent
 
 When using **InitV**
 
-```
+```shell
 service steadybit-agent start
 service steadybit-agent stop
 service steadybit-agent restart
@@ -107,7 +107,7 @@ The same applies to extensions. The services are named `steadybit-extension-*`.
 
 Remove the packages using the package manager:
 
-```
+```shell
 apt-get remove --purge steadybit-agent \
   steadybit-extension-http \
   steadybit-extension-container \
@@ -116,7 +116,7 @@ apt-get remove --purge steadybit-agent \
 
 Or when using yum:
 
-```
+```shell
 yum remove steadybit-agent \
   steadybit-extension-http \
   steadybit-extension-container \

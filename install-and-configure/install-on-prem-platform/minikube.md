@@ -46,14 +46,14 @@ First install Minikube to run on your system: https://minikube.sigs.k8s.io/docs/
 
 Start the cluster and enable the ingress resource:
 
-```
+```bash
 minikube start
 minikube addons enable ingress
 ```
 
 Verify the ingress is running
 
-```
+```bash
 kubectl get pods -n ingress-nginx
 ```
 
@@ -68,7 +68,7 @@ helm repo update
 
 Install the platform using a parameterized helm script to make the platform available on port 80:
 
-```
+```bash
 helm upgrade --install steadybit-platform \
   --create-namespace \
   --namespace steadybit-platform \
@@ -82,7 +82,7 @@ helm upgrade --install steadybit-platform \
 
 Make the ingress accessible
 
-```
+```bash
 minikube tunnel
 ```
 
