@@ -3,7 +3,7 @@ title: Install On-Prem Platform on Minikube
 navTitle: Minikube
 ---
 
-# Install on Minikube
+# Install On-Prem Platform on Minikube
 
 {% hint style="info" %}
 This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team. Please, [book an appointment](https://www.steadybit.com/book-demo) to scope your PoC before continuing to evaluate the on-prem solution.
