@@ -17,7 +17,7 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 {% hint style="info" %}
 If you want to check if your environment is properly configured to install and run an agent, you run our `env-check`tool on the target machine:
 
-```
+```bash
 curl -sfL https://get.steadybit.com/env-check.sh | sh -s
 ```
 {% endhint %}
