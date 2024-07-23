@@ -4,7 +4,7 @@ title: Troubleshooting Agent
 
 # Troubleshooting Agent
 
-#### We get certificate errors when the agent connects to our on-premise Steadybit installation. What do we need to do?
+### We get certificate errors when the agent connects to our on-premise Steadybit installation. What do we need to do?
 
 The most common reasons for connectivity issues are related to:
 
@@ -37,14 +37,14 @@ You can also check the environment variable's effect by adding the `-CAfile root
 The agent requires a complete certificate chain configuration for security reasons and this return code indicates that your server responded with an incomplete certificate chain. You can fix this issue by modifying the server that terminates the TLS connection. Please refer to your server/proxy/CDN documentation to learn how to configure a complete certificate chain.
 
 
-#### Installation agent on AWS EKS cluster
+### Installation agent on AWS EKS cluster
 
 1. First: make sure to configure the [Amazon-EBS-CSI-Driver](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html#adding-ebs-csi-eks-add-on)
 2. Afterwards add the Amazon-EBS-CSI-Driver addon on your EKS cluster, with newly created IAM role
 3. Then add your first node group to the cluster.
 
 
-#### Occasional connection timeouts on the agent -> extension discovery calls, which cause remove targets from discovery
+### Occasional connection timeouts on the agent -> extension discovery calls, which cause remove targets from discovery
 
 We are using resilience4j for the retry mechanism. The default configuration is to retry 3 times with a wait duration of 30s with an exponential backoff multiplier of 2. This means that the first retry will be after 30s, the second after 60s, and the third after 120s. If all retries fail, the agent will remove the target from the discovery.
 You can configure the retry mechanism by setting the following environment variables:
@@ -58,6 +58,37 @@ You can configure the retry mechanism by setting the following environment varia
 | `RESILIENCE4J.RETRY_INSTANCES_HTTPDISCOVERY_EXPONENTIALBACKOFFMULTIPLIER` | Optional - Resilience4j: The multiplier for exponential backoff for DiscoveryKit resources                                                                 |
 | `STEADYBIT_AGENT_HTTP_DISCOVERY_USE_RETRY`                                | Optional - Resilience4j: Enable/Disable the retry mechanism. Default is true / enabled                                                                     |
 
-#### Agent takes a long time register the extensions via auto-discovery and to submit the first targets
+### Agent takes a long time register the extensions via auto-discovery and to submit the first targets
 
 In a very large cluster it might take a while to read all pods in your cluster and scan them for extensions. You can limit the extension autodiscovery to a single namespace using the environment variable `STEADYBIT_AGENT_EXTENSIONS_AUTODISCOVERY_NAMESPACE` (helm-value `agent.extensions.autodiscovery.namespace`).
+
+### Install Agent and extension-kubernetes in a managed Kubernetes cluster where you are only allowed to deploy to one namespace
+
+Install the agent/extension with the following helm settings to use roles instead of clusterroles:
+
+```shell
+  --set rbac.roleKind="role" \
+  --set agent.extensions.autodiscovery.namespace=<replaceme-with-your-namespace> \
+  --set extension-kubernetes.role.create=true \
+  --set extension-kubernetes.roleBinding.create=true \
+  --set extension-kubernetes.clusterRole.create=false \
+  --set extension-kubernetes.clusterRoleBinding.create=false \
+```
+
+Full example:
+
+```shell
+helm upgrade steadybit-agent --install --namespace <replace-me-with-namespace> \
+  --create-namespace \
+  --set agent.key="<replace-me>" \
+  --set global.clusterName="<replace-me>" \
+  --set extension-container.container.runtime="<replace-me>" \
+  --set agent.registerUrl="<replace-me>"\
+  --set rbac.roleKind="role" \
+  --set agent.extensions.autodiscovery.namespace="<replace-me-with-namespace>" \
+  --set extension-kubernetes.role.create=true \
+  --set extension-kubernetes.roleBinding.create=true \
+  --set extension-kubernetes.clusterRole.create=false \
+  --set extension-kubernetes.clusterRoleBinding.create=false \
+  steadybit/steadybit-agent
+```
