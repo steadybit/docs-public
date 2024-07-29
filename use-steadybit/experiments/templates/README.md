@@ -3,8 +3,6 @@ title: Share Experiment as Template
 navTitle: Templates
 ---
 
-# Templates
-
 The easiest way to share a valuable experiment within or outside your Steadybit tenant is to save it as a template.
 Please note that you need administrator permission to be able to do this.
 
