@@ -16,7 +16,7 @@ Open the experiment you want to share and select 'Save as Template' in the save-
 The experiment is opened in the experiment template's editor.
 Here, you must describe at least the template description (title and details).
 But it's also advisable to replace the experiment's parameters with relevant template placeholders or environment variables.
-Check out [manage experiment templates](TODO) to learn more.
+Check out [manage experiment templates](../../../install-and-configure/manage-experiment-templates/README.md) to learn more.
 
 ![Experiment Template Editor](experiment-template-editor.png)
 
