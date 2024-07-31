@@ -100,7 +100,7 @@ Furthermore, if you're using Steadybit on-premise, you can easily keep multiple 
 
 
 To import a template from a hub, go to `Settings` -> `Templates` -> `Create Template` -> `From Hub`.
-You first have to select a connected hub (click [here to learn how to connect a new hub](../../integrate-with-steadybit/hubs#connect-new-hubs).
+You first have to select a connected hub ([learn how to connect a new hub](../../integrate-with-steadybit/hubs#connect-new-hubs)).
 
 ![Import template by selecting the hub connection](template-share-1.png)
 
