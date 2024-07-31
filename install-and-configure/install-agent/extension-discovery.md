@@ -89,7 +89,7 @@ types:
 
 You can also register extensions via the [Agent API](agent-api.md).
 
-Extension registrations are persisted to the configured state path of the agent. The state path is configured by `STEADYBIT_AGENT_STATE_PATH` and is by default `/var/lib/steadybit-agent`. With each agent restart, the agent will re-register these manual extensions registrations.
+Extension registrations are persisted using the configured persistence provider. With each agent restart, the agent will re-register these manual extensions registrations.
 
 You can find detailed information about the agent API in the [Agent API](agent-api.md) documentation.
 

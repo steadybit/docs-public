@@ -89,3 +89,49 @@ helm template steadybit-agent --namespace steadybit-agent \
   --set global.clusterName=<replace-with-cluster-name> \
   steadybit/steadybit-agent
 ```
+
+## Alternative: OpenShift installation
+
+To be able to install the agent and extension in openshift we need create custom service accounts. The following example shows how to install the agent and extension in openshift.
+
+#### Create a service account with anyuid SCC:
+
+```shell    
+oc create sa sa-with-anyuid
+oc adm policy add-scc-to-user anyuid -z sa-with-anyuid
+```
+
+#### Create a service account for extension-host and extension-container with needed capabilities:
+
+```shell    
+oc create sa sa-extension-host-container
+oc adm policy add-scc-to-user anyuid -z sa-extension-host-container
+oc adm policy add-scc-to-user hostnetwork -z sa-extension-host-container
+oc adm policy add-scc-to-user hostnetwork-v2 -z sa-extension-host-container
+oc adm policy add-scc-to-user hostmount-anyuid -z sa-extension-host-container
+oc adm policy add-scc-to-user hostaccess-anyuid -z sa-extension-host-container
+oc adm policy add-scc-to-user privileged -z sa-extension-host-container
+oc adm policy add-scc-to-user restricted-v2 -z sa-extension-host-container
+```
+
+
+#### Example of how to install the agent and extensions with the created service accounts:
+
+```shell
+helm upgrade --install steadybit-agent --namespace steadybit-agent \
+  --create-namespace \
+  --set agent.key=<replace-me> \
+  --set global.clusterName="openshift" \
+  --set extension-container.container.runtime=cri-o \
+  --set serviceAccount.create=false \
+  --set serviceAccount.name=sa-with-anyuid \
+  --set extension-container.serviceAccount.create=false \
+  --set extension-container.serviceAccount.name=sa-extension-host-container \
+  --set extension-host.serviceAccount.create=false \
+  --set extension-host.serviceAccount.name=sa-extension-host-container \
+  --set extension-http.serviceAccount.create=false \
+  --set extension-http.serviceAccount.name=sa-with-anyuid  \
+  --set extension-kubernetes.serviceAccount.create=false \
+  --set extension-kubernetes.serviceAccount.name=sa-with-anyuid  \
+steadybit/steadybit-agent
+```

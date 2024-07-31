@@ -27,7 +27,7 @@ The maintenance and incident API endpoints are only reachable through the admin 
 
 One option to reach this port from your local machine is a port forward, as the following snippet shows:
 
-```
+```bash
 kubectl port-forward -n steadybit-platform deployment/steadybit-platform 9090
 ```
 
@@ -35,7 +35,7 @@ kubectl port-forward -n steadybit-platform deployment/steadybit-platform 9090
 
 To configure a maintenance window, you can use the API endpoints under path `/actuator/systemstatusmaintenance`. You can retrieve the maintenance configuration via HTTP `GET` or clear it via HTTP `DELETE`. The following example shows how you could leverage HTTP `POST` to configure a maintenance window.
 
-```
+```bash
 curl -X POST \
   -H "Content-Type: application/json" \
   http://localhost:9090/actuator/systemstatusmaintenance -d '
@@ -55,7 +55,7 @@ curl -X POST \
 
 You can use incidents to inform users of service disruption. In contrast to scheduled maintenance, an incident is never scheduled and has varying severity. To configure an incident, you can use the API endpoints under path `/actuator/systemstatusincident`. You can retrieve the incident configuration via HTTP `GET` or clear it via HTTP `DELETE`. The following example shows how you could leverage HTTP `POST` to configure an incident.
 
-```
+```bash
 curl -X POST \
   -H "Content-Type: application/json" \
   http://localhost:9090/actuator/systemstatusincident -d '
