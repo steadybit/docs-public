@@ -93,8 +93,9 @@ Whenever you import the template again, and the UUID already exists, the existin
 {% endhint %}
 
 ## Share Templates
-Instead of sharing template's files directly, you can also use Steadybit's [hub connection](../../integrate-with-steadybit/hubs) to import a template from a connected hub.
+Instead of sharing template's files directly, you can also use Steadybit's [hub connection](../../integrate-with-steadybit/hubs) to share a template via connected hubs.
 
+### Import Templates from Hub
 The hub connection makes it super easy to benefit from the best practices of the Chaos Engineering community (e.g., via Steadybit's [Reliability Hub](https://hub.steadybit.com/)).
 Furthermore, if you're using Steadybit on-premise, you can easily keep multiple platforms in sync by using the hub connections via API.
 
@@ -105,9 +106,26 @@ You first have to select a connected hub ([learn how to connect a new hub](../..
 ![Import template by selecting the hub connection](template-share-1.png)
 
 Next, choose the templates you want to import.
-If your template is already imported, you can re-import it to update it from the connected Hub.
+If your template is already imported, you can re-import it to update it from the connected hub.
 
 ![Import template by selecting the hub connection](template-share-2.png)
 
-Contributing a template to Steadybit's [Reliability Hub](https://hub.steadybit.com/) works via [pull requests](https://github.com/steadybit/reliability-hub-db).
-We're looking forward to your valuable experiment template!
+In addition, we provide an API to automate template syncing with connected hubs, and you can also [host your own private hub](../../integrate-with-steadybit/hubs#host-your-own-hub) to share templates within your organization.
+
+## Export Templates to Reliability Hub
+Contributing a template to Steadybit's [Reliability Hub](https://hub.steadybit.com/) works by [forking the GitHub repository reliability-hub-db](https://github.com/steadybit/reliability-hub-db/fork).
+To detail the exact steps:
+1. Create a [fork of the repository reliability-hub-db](https://github.com/steadybit/reliability-hub-db/fork) into your GitHub account
+2. Check out the forked repository to your local machine
+3. If you haven't already, add yourself as a maintainer to `maintainers/<unique-identifier-of-your-org>/description.yml` (see, e.g., [Steadybit maintainer](https://github.com/steadybit/reliability-hub-db/blob/main/maintainers/com.steadybit/description.yml)).
+4. Download your created template from the platform and save it to a new folder in `templates/<short-name-of-the-template>/template.json`.
+Please ensure the template's description includes a short explanation, motivation, and structure overview.
+Also, you have to parameterize all environment-specifics via template placeholders.
+
+![Download template from template details](template-details.png)
+
+5. Add a `description.yml` to the folder `templates/<short-name-of-the-template>` which references your maintainer, the repository location and license information (see, e.g., [description.yml for template EC2 restart](https://github.com/steadybit/reliability-hub-db/blob/main/templates/aws-ec2.ec2-restart/description.yml)).
+6. Add your template to the [index.json's](https://github.com/steadybit/reliability-hub-db/blob/main/index.json) `templates' array and update the Unix timestamp `lastChange` so that users can import it to their Steadybit platform.
+7. Create a pull request from your forked repository to [reliability-hub-db](https://github.com/steadybit/reliability-hub-db/fork) and wait for feedback from Steadybit!
+
+We're looking forward to your valuable experiment template! 🎉
