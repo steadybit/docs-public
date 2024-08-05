@@ -113,7 +113,7 @@ If your template is already imported, you can re-import it to update it from the
 In addition, we provide an API to automate template syncing with connected hubs, and you can also [host your own private hub](../../integrate-with-steadybit/hubs#host-your-own-hub) to share templates within your organization.
 
 ### Export Templates to Reliability Hub
-We're always looking forward to your contribution to Steadybit's public [Reliability Hub](https://hub.steadybit.com/)
+We're always looking forward to your contribution to Steadybit's public [Reliability Hub](https://hub.steadybit.com/).
 Contributing is easy, just follow these steps:
 1. Create a [fork of the repository reliability-hub-db](https://github.com/steadybit/reliability-hub-db/fork) into your GitHub account
 2. Check out the forked repository to your local machine
@@ -125,7 +125,7 @@ Also, you have to parameterize all environment-specifics via template placeholde
 ![Download template from template details](template-details.png)
 
 5. Add a `description.yml` to the folder `templates/<short-name-of-the-template>` which references your maintainer, the repository location and license information (see, e.g., [description.yml for template EC2 restart](https://github.com/steadybit/reliability-hub-db/blob/main/templates/aws-ec2.ec2-restart/description.yml)).
-6. Add your template to the [index.json's](https://github.com/steadybit/reliability-hub-db/blob/main/index.json) `templates' array and update the Unix timestamp `lastChange` so that users can import it to their Steadybit platform.
-7. Create a pull request from your forked repository to [reliability-hub-db](https://github.com/steadybit/reliability-hub-db) and wait for feedback from Steadybit!
+6. Add your template to the [index.json's](https://github.com/steadybit/reliability-hub-db/blob/main/index.json) `templates` array and update the Unix timestamp `lastChange` so that users can import it to their Steadybit platform via hub connection.
+7. Create a pull request from your forked repository to [reliability-hub-db](https://github.com/steadybit/reliability-hub-db) and wait for feedback from us or the community!
 
 We're looking forward to your valuable experiment template! 🎉
