@@ -29,7 +29,8 @@ You can host your own hub to share content within your organization instead of w
 So far, we only support hosting a private hub's database and connecting it to the platform. We do not yet support hosting a white-labeled hub UI.
 
 ### Hub Convention
-To host your own hub, you have to serve a JSON-based endpoint via HTTP that has a last modified unix timestamp (`lastChange`) and path references to templates and action documentations:
+To host your own hub, you have to serve a JSON-based endpoint via HTTP with a last modified unix timestamp (`lastChange`) and path references to templates (see below).
+The `template.json` files are the exported templates from your platform.
 
 ```
 {
@@ -37,11 +38,6 @@ To host your own hub, you have to serve a JSON-based endpoint via HTTP that has 
   "templates": [
     "/templates/aws-zone.zone-outage/template.json",
     "/templates/kubernetes-deployment.time-to-readiness/template.json"
-    //...
-  ],
-  "actions": [
-    "/actions/com.steadybit.extension_aws.lambda.latency/summary.mdx",
-    "/actions/com.steadybit.extension_container.stop/summary.mdx"
     //...
   ]
 }
