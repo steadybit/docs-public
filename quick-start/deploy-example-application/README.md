@@ -67,6 +67,8 @@ helm upgrade steadybit-shopping-demo \
     --install \
     --wait \
     --timeout 5m0s \
+    --create-namespace \
+    --namespace steadybit-shopping-demo \
     --set gateway.service.type=ClusterIP \
     steadybit-shopping-demo/steadybit-shopping-demo
 ```
@@ -74,7 +76,7 @@ helm upgrade steadybit-shopping-demo \
 Verify that all Shopping Demo pods are running:
 
 ```bash
-kubectl get pods --namespace steadybit-demo
+kubectl get pods --namespace steadybit-shopping-demo
 ```
 
 You will see the following result, all pods are ready if you can see the status `Running`:
@@ -203,6 +205,8 @@ helm upgrade steadybit-shopping-demo \
     --install \
     --wait \
     --timeout 5m0s \
+    --create-namespace \
+    --namespace steadybit-shopping-demo \
     -f <path-to-your-optional-values.yaml> \
     steadybit-shopping-demo/steadybit-shopping-demo
 ```
@@ -212,7 +216,7 @@ Maybe you need to edit some ingress hosts names in your own `values.yaml` file.
 Verify that all Shopping Demo pods are running:
 
 ```bash
-kubectl get pods --namespace steadybit-demo
+kubectl get pods --namespace steadybit-shopping-demo
 ```
 
 You will see the following result, all pods are ready if you can see the status `Running`:
@@ -232,7 +236,7 @@ activemq-6dd55b4b7-wqmk6              1/1     Running   0          11s
 With the following command you can now determine the external IP and port to access the `gateway` service:
 
 ```bash
-kubectl get svc -n steadybit-demo
+kubectl get svc -n steadybit-shopping-demo
 ```
 
 Example response:
