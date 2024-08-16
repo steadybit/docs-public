@@ -67,6 +67,7 @@ helm upgrade steadybit-shopping-demo \
     --install \
     --wait \
     --timeout 5m0s \
+    --set gateway.service.type=ClusterIP \
     steadybit-shopping-demo/steadybit-shopping-demo
 ```
 
@@ -90,36 +91,16 @@ inventory-7895d47cb7-sfdqb            1/1     Pending   0          10s
 activemq-6dd55b4b7-wqmk6              1/1     Running   0          11s
 ```
 
-The command `minikube tunnel` creates a route to services deployed with type LoadBalancer and sets their Ingress to their ClusterIP.
+You can do a local port forward to your minikube to open the `gateway` service via your browser:
 
 ```bash
-minikube tunnel
+kubectl port-forward deployment/gateway 8080:8080
 ```
 
-With the following command you can now determine the external IP and port to access the `gateway` service:
+Visit `http://127.0.01:8080/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
 
 ```bash
-kubectl get svc -n steadybit-demo
-```
-
-Example response:
-
-```bash
-NAME                 TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
-fashion-bestseller   NodePort       -------------    <none>        ----:-----/---   ---
-gateway              LoadBalancer   10.98.173.27     127.0.0.1     80:30131/TCP     3h15m
-hot-deals            NodePort       -------------    <none>        ----:-----/---   ---
-product-db           NodePort       -------------    <none>        ----:-----/---   ---
-toys-bestseller      NodePort       -------------    <none>        ----:-----/---   ---
-orders               NodePort       -------------    <none>        ----:-----/---   ---
-inventory            NodePort       -------------    <none>        ----:-----/---   ---
-activemq             NodePort       -------------    <none>        ----:-----/---   ---
-```
-
-Visit `http://{EXTERNAL-IP}:{PORT}/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
-
-```bash
-curl http://{EXTERNAL-IP}:{PORT}/products
+curl http://127.0.01:8080/products
 ```
 
 The result is an aggregated list of all products of the services `toys`, `hot-deals` and `fashion`:
