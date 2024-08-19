@@ -96,7 +96,7 @@ activemq-6dd55b4b7-wqmk6              1/1     Running   0          11s
 You can do a local port forward to your minikube to open the `gateway` service via your browser:
 
 ```bash
-kubectl port-forward deployment/gateway 8080:8080
+kubectl port-forward deployment/gateway 8080:8080 --namespace steadybit-shopping-demo
 ```
 
 Visit `http://127.0.01:8080/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
