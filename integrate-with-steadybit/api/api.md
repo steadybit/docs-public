@@ -120,3 +120,22 @@ curl \
   -H 'Authorization: accessToken XXXXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' \
   https://platform.steadybit.com/api/experiments/ADM-1/execute
 ```
+
+### Create a golang client with oapi-codegen
+
+In case you want to [generate the structs](https://github.com/oapi-codegen/oapi-codegen), you should add this parameter to your configuration file:
+```yaml
+compatibility:
+  circular-reference-limit: 11
+```
+
+Here an example configuration to generate a go client with net/http :
+```yaml
+package: api
+generate:
+  std-http-server: true
+  models: true
+output: gen.go
+compatibility:
+  circular-reference-limit: 11
+```
