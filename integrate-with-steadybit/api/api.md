@@ -129,7 +129,7 @@ compatibility:
   circular-reference-limit: 11
 ```
 
-Here an example configuration to generate a go client with net/http :
+Here an example configuration to generate a go client with net/http:
 ```yaml
 package: api
 generate:
@@ -138,4 +138,9 @@ generate:
 output: gen.go
 compatibility:
   circular-reference-limit: 11
+```
+
+And then in your golang file:
+```go
+//go:generate go run github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen --config=config.yaml https://platform.steadybit.com/api/spec
 ```
