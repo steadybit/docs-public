@@ -12,7 +12,7 @@ This method will install the Steadybit agent on your Linux machine using the res
 To install the agent, you must be able to access the following URLs via HTTPS (443) on your target environment:
 
 * https://platform.steadybit.com (Platform)
-* https://artifacts.steadybit.io (.deb and .rpm packages)
+* https://packages.steadybit.com (.deb and .rpm packages)
 * https://get.steadybit.com (Setup Scripts)
 
 ## Agent Installation
@@ -27,15 +27,13 @@ chmod a+x agent-linux.sh
 ./agent-linux.sh --key <agent-key>
 ```
 
-| Parameter         | Description                                                | Default                                                                                                                |
-| ----------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `--key`           | The API key the agent uses                                 |                                                                                                                        |
-| `--extensions`    | The extensions to install                                  | `steadybit-extension-host,steadybit-extension-container,steadybit-extension-http`                                      |
-| `--platform-url`  | If running on-prem, the URL of your platform installation  | `https://platform.steadybit.com`                                                                                       |
-| `--version`       | Override the used package version                          |                                                                                                                        |
-| `--repo-url`      | Override the default package repository URL                | `https://artifacts.steadybit.io/repository/{yum}-public/` or `https://artifacts.steadybit.io/repository/{deb}-public/` |
-| `--repo-user`     | Override the username for accessing the package repository |                                                                                                                        |
-| `--repo-password` | Override the password for accessing the package repository |                                                                                                                        |
+| Parameter         | Description                                                | Default                                                                           |
+| ----------------- | ---------------------------------------------------------- |-----------------------------------------------------------------------------------|
+| `--key`           | The API key the agent uses                                 |                                                                                   |
+| `--extensions`    | The extensions to install                                  | `steadybit-extension-host,steadybit-extension-container,steadybit-extension-http` |
+| `--platform-url`  | If running on-prem, the URL of your platform installation  | `https://platform.steadybit.com`                                                  |
+| `--version`       | Override the used package version                          |                                                                                   |
+| `--repo-url`      | Override the default package repository URL                | `https://packages.steadybit.com/`                                                 | 
 
 ### Configure HTTP Proxy Server
 
