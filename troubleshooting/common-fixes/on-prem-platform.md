@@ -111,3 +111,20 @@ java.lang.IllegalArgumentException: Invalid character found in method name [0x16
 
 Solution:
 - set the nginx backend protocol is HTTPS instead of HTTP
+
+### Configured the Platform with a oidc provider and the redirect to the platform is been send as http instead of https
+Example error message in the browser:
+```
+The redirect URI 'http://steadybit-platform.example.com/oauth2/login/code/default' specified in the request does not match the redirect URIs configured for the application 'xyz'. Make sure the redirect URI sent in the request matches one added to your application.
+```
+
+Solution:
+
+Set the environment variable: server.tomcat.remoteip.trusted-proxies to a regex that matches the CIDRs of the loadbalancer or reverse proxy.
+Add the following environment variable to the platform manifest:
+(Example for Google Cloud Load Balancer CIRDs regex)
+```yaml
+env:
+  - name: server.tomcat.remoteip.trusted-proxies
+    value: "(35\\.191\\.(?:[0-9]|[1-9][0-9]|1(?:[0-9][0-9])|2(?:[0-4][0-9]|5[0-5]))\\.(?:[0-9]|[1-9][0-9]|1(?:[0-9][0-9])|2(?:[0-4][0-9]|5[0-5])))|(130\\.211\\.(?:[0-3])\\.(?:[0-9]|[1-9][0-9]|1(?:[0-9][0-9])|2(?:[0-4][0-9]|5[0-5])))"
+```
