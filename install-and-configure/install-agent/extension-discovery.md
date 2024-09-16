@@ -102,3 +102,18 @@ Example:
   "types": ["ACTION", "DISCOVERY"]
 }
 ```
+
+### Verify registered extensions
+
+To check which extensions are registered in the agent, you need to take a look at the agent's logs.
+
+Example output:
+```
+2024-09-16T14:02:35.687+02:00  INFO 22305 --- [steadybit-agent] [           main] c.s.e.d.s.ExtensionDiscoveryService      : Extension-discovery change: ADD DiscoveredExtension[source=PropertyBasedExtensionDiscovery, type=ACTION, httpEndpointRef=GET http://xxx.yy:8082]
+2024-09-16T14:02:35.688+02:00  INFO 22305 --- [steadybit-agent] [           main] c.s.e.d.s.ExtensionDiscoveryService      : Extension-discovery change: ADD DiscoveredExtension[source=PropertyBasedExtensionDiscovery, type=ACTION, httpEndpointRef=GET http://xxx.yy:8084]
+2024-09-16T14:02:35.688+02:00  INFO 22305 --- [steadybit-agent] [           main] c.s.e.d.s.ExtensionDiscoveryService      : Extension-discovery change: ADD DiscoveredExtension[source=PropertyBasedExtensionDiscovery, type=DISCOVERY, httpEndpointRef=GET http://xxx.yy:8091]
+2024-09-16T14:02:35.688+02:00  INFO 22305 --- [steadybit-agent] [           main] c.s.e.d.s.ExtensionDiscoveryService      : Extension-discovery change: ADD DiscoveredExtension[source=PropertyBasedExtensionDiscovery, type=EVENT, httpEndpointRef=GET http://xxx.yy:8088]
+2024-09-16T14:02:35.688+02:00  INFO 22305 --- [steadybit-agent] [           main] c.s.e.d.s.ExtensionDiscoveryService      : Extension-discovery change: ADD DiscoveredExtension[source=PropertyBasedExtensionDiscovery, type=EVENT, httpEndpointRef=GET http://xxx.yy:8087]
+2024-09-16T14:02:35.688+02:00  INFO 22305 --- [steadybit-agent] [           main] c.s.e.d.s.ExtensionDiscoveryService      : Extension-discovery change: ADD DiscoveredExtension[source=PropertyBasedExtensionDiscovery, type=ADVICE, httpEndpointRef=GET http://xxx.yy:8089]
+2024-09-16T14:02:35.688+02:00  INFO 22305 --- [steadybit-agent] [           main] c.s.e.d.s.ExtensionDiscoveryService      : Extension-discovery change: ADD DiscoveredExtension[source=PropertyBasedExtensionDiscovery, type=DISCOVERY, httpEndpointRef=GET http://xxx.yy:8090]
+```
