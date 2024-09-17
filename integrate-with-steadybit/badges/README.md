@@ -56,11 +56,11 @@ Example use cases for this are linking to experiments reproducing a past issue f
 Unlike experiment badges, tag badges can be created even if no experiment with the chosen tag exists, allowing you to use them as a call to action for creating a new experiment.
 This is how they look like in different states:
 
-![Tag badge when no experiment with the chosen tag exists](https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&tag=INCIDENT-100\&createCaption=Create%20experiment%20for%20incident%20100)
+![Tag badge when no experiment with the chosen tag exists](bade-example-create.png)
 
-![Tag badge when a single experiment with the chosen tag exists](https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&tag=SMOKETEST\&createCaption=Create%20experiment%20for%20incident%20100)
+![Tag badge when a single experiment with the chosen tag exists](badge-example-1.png)
 
-![Tag badge when multiple experiments with the chosen tag exist](https://platform.steadybit.com/api/badges/linked-badge.svg?tenantKey=demo\&tag=Datadog\&createCaption=Create%20experiment%20for%20incident%20100)
+![Tag badge when multiple experiments with the chosen tag exist](badge-example-2.png)
 
 To create a tag badge, navigate to the Steadybit dashboard and click on 'Create a Badge'.
 
