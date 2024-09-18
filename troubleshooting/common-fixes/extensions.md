@@ -20,6 +20,18 @@ This error indicates that the extension runs on the wrong container runtime (Doc
 
 If you deployed the extension-container standalone, the parameter's name is `container.runtime`.
 
+#### My nodes report that they run on containerd but the extension-container fails with the error message `SetUp failed for volume "runtime-socket" : hostPath type check failed: /run/containerd/containerd.sock is not a socket file`
+
+You might run on k3s, which uses containerd as the container runtime, but has a different path for the containerd socket. You can fix this issue by setting the correct path to the containerd socket via the `extension-container.containerRuntimes.containerd.socket` parameter.
+
+```
+   --set extension-container.containerRuntimes.containerd.socket=/run/k3s/containerd/containerd.sock \
+   --set extension-container.extraEnv[0].name="STEADYBIT_EXTENSION_CONTAINER_RUNTIME" \
+   --set extension-container.extraEnv[0].value=containerd \
+   --set extension-container.extraEnv[1].name="STEADYBIT_EXTENSION_CONTAINER_SOCKET" \
+   --set extension-container.extraEnv[1].value="/run/k3s/containerd/containerd.sock"
+```
+
 #### Why can't I install the extensions container, host or jvm on my Kubernetes cluster?
 
 If you are using for example GKE Autopilot, you might not be able to install the extension container, host or jvm on your Kubernetes cluster. This is because the extension needs to run with special privileges and this is not possible on GKE Autopilot.
