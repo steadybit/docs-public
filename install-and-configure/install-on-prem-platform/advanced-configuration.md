@@ -120,6 +120,9 @@ the `authorization_code` grant type. The callback URL is `https://<host>/oauth2/
 > The first user to login will be assigned the `ADMIN` role, all other will be assigned the `USER` role. The roles can
 > be changed by an admin user via the UI.
 
+Be aware to configure your ingress / loadbalancer to set the `X-Forwarded-Proto` and `x-forwarded-for` header. Otherwise the correct redirect URL will not be generated.
+
+
 | Environment Variable                                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |---------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `STEADYBIT_AUTH_PROVIDER`                               | yes      | <p>Use <code>OAUTH2</code> for OIDC-Authentication<br><strong>Example:</strong> <code>OAUTH2</code></p>                                                                                                                                                                                                                                                                                                                                                    |
