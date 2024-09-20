@@ -33,7 +33,6 @@ chmod a+x agent-linux.sh
 | `--extensions`    | The extensions to install                                  | `steadybit-extension-host,steadybit-extension-container,steadybit-extension-http` |
 | `--platform-url`  | If running on-prem, the URL of your platform installation  | `https://platform.steadybit.com`                                                  |
 | `--version`       | Override the used package version                          |                                                                                   |
-| `--repo-url`      | Override the default package repository URL                | `https://packages.steadybit.com/`                                                 | 
 
 ### Configure HTTP Proxy Server
 
