@@ -17,9 +17,9 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 
 ## Agent Installation
 
-To install the agent on your Linux system, you can copy the installation script from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform.
+To install the agent on your Linux system, copy the installation script from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform.
 
-Alternatively, you can update and run the script below with your agent key, which you find in the platform's [setup page](https://platform.steadybit.com/settings/agents/setup):
+Alternatively, you can update and run the script below with your agent key, which you find on the platform's [setup page](https://platform.steadybit.com/settings/agents/setup):
 
 ```shell
 wget https://get.steadybit.com/agent-linux.sh
@@ -33,6 +33,9 @@ chmod a+x agent-linux.sh
 | `--extensions`    | The extensions to install                                  | `steadybit-extension-host,steadybit-extension-container,steadybit-extension-http` |
 | `--platform-url`  | If running on-prem, the URL of your platform installation  | `https://platform.steadybit.com`                                                  |
 | `--version`       | Override the used package version                          |                                                                                   |
+
+{% hint style="info" %}
+There is a pull limit on the package repository. If you're rolling installing the packages on a huge number of servers please consider using a mirror repository.
 
 ### Configure HTTP Proxy Server
 
