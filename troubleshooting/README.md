@@ -53,6 +53,5 @@ If you still need help resolving a problem within Steadybit, take a look at the 
 * [Extensions](common-fixes/extensions.md)
 * [Agents](common-fixes/agents.md)
 * [On-prem platform](common-fixes/on-prem-platform.md)
-* [Migrating from the outpost agent](common-fixes/migrating-from-the-outpost-agent.md)
 
 For more help, [contact us](https://www.steadybit.com/contact).
