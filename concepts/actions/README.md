@@ -4,7 +4,7 @@ Actions are the building blocks of Chaos Engineering experiments and allow you t
 
 For instance, a simple experiment may consist of a single attack, e.g., to increase CPU usage within a container.
 In more advanced cases, you may compose various actions to, e.g., inject traffic, increase memory usage, and check whether your Observability monitor notices anything.
-Check out [Steadybit's Recipes](https://hub.steadybit.com/recipes) to learn more about how to combine actions into valuable experiments.
+Check out [Steadybit's Templates](https://hub.steadybit.com/templates) to learn more about how to combine actions into valuable experiments.
 
 {% hint style="info" %}
 An action is always coming from a Steadybit extension and is submitted via the Steadybit Agent to the platform.
