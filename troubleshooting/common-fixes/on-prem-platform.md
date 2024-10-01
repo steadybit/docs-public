@@ -32,8 +32,10 @@ Prerequisites:
 - A network access to the host machine to retrieve the file.
 
 The platform can suffer from out of memory issues at JVM level. If that's happen, a heap dump might be needed to diagnose further, for providing it, add this environment variable :
+```yaml
 - name: JAVA_TOOL_OPTIONS
   value: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/PATH_TO_BE_MOUNTED/heapdump-%p.hprof
+```
 
 Then you need to retrieve the heat dump. Usually by copying the file from the destination to your machine :
 ```bash
