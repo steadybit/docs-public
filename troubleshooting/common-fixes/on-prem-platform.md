@@ -25,6 +25,22 @@ This page describes some common issues and how to solve them.
 
 - Verify that the Postgres password is correct and base64 encoded in the manifest file
 
+### Create Heap dump
+
+Prerequisites:
+- If the platform is launched under docker, you need to have a dedicated volume or use an existing one for this mount path.
+- A network access to the host machine to retrieve the file.
+
+The platform can suffer from out of memory issues at JVM level. If that's happen, a heap dump might be needed to diagnose further, for providing it, add this environment variable :
+- name: JAVA_TOOL_OPTIONS
+  value: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/PATH_TO_BE_MOUNTED/heapdump-%p.hprof
+
+Then you need to retrieve the heat dump. Usually by copying the file from the destination to your machine :
+```bash
+scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
+```
+
+
 ### Kubernetes namespaces and deployments show up multiple times in the landscape table
 
 - Check the logs of the agents
