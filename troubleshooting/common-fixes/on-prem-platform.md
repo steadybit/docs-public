@@ -31,7 +31,7 @@ Prerequisites:
 - If the platform is launched under docker, you need to have a dedicated volume or use an existing one for this mount path.
 - A network access to the host machine to retrieve the file.
 
-If that happens, a heap dump might be needed to diagnose further, for providing it, add this environment variable :
+The platform can suffer from out of memory issues at JVM level. If that's happen, a heap dump might be needed to diagnose further, for providing it, add this environment variable :
 - name: JAVA_TOOL_OPTIONS
   value: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/PATH_TO_BE_MOUNTED/heapdump-%p.hprof
 
