@@ -67,7 +67,7 @@ If you want to disable some, or all, of the default extensions, please set the f
 
 - [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension\_container): `--set extension-container.enabled=false`
 - [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension\_host): `--set extension-host.enabled=false`
-- [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http): `--set extension-http.enabled=false
+- [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http): `--set extension-http.enabled=false`
 - [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension\_kubernetes): `--set extension-kubernetes.enabled=false`
 
 ### Alternative: Generate Kubernetes Manifests
