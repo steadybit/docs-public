@@ -99,5 +99,5 @@ More configuration options can be found in [Advanced Configuration](advanced-con
 
 ### Troubleshooting
 
-If you have any problems, check our [Troubleshooting](../../troubleshooting/on-prem-platform.md) page.
+If you have any problems, check our [Troubleshooting](/troubleshooting/common-fixes/on-prem-platform.md) page.
 Or please [reach out to us](https://www.steadybit.com/contact).
