@@ -28,7 +28,7 @@ If you need help, please [reach out to us](https://www.steadybit.com/contact).
 Before continuing, make sure that access to the following URLs via HTTPS (443) is possible from your location of installation:
 
 - https://docker.steadybit.io and https://index.docker.io (Docker Image)
-- https://artifacts.steadybit.io (Agent Linux Installation)
+- https://packages.steadybit.com (Agent Linux Installation)
 - https://get.steadybit.com (Setup Scripts)
 - https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
 
