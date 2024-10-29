@@ -38,12 +38,14 @@ Steadybit requires a PostgresSQL 15 database.
 | `STEADYBIT_DB_WEB_ENABLED`   |          | <p>Enable Http Endpoint for Database export<br><strong>Default:</strong> <code>true</code></p>                                    |
 
 #### RDS Machine Requirements
+
 The workload is bound by the database CPU on peaks.
 
-If you have ~100k targets simultaneously in the platform, we recommend a burstable instance with four vCPU (e.g., db.t4g.xlarge). Regarding disk size, 20 GB should be enough capacity for the start (as extending on AWS should not be a problem).
+If you have ~100k targets simultaneously in the platform, we recommend a burstable instance with four vCPU (e.g., db.t4g.xlarge). Regarding disk size, 20 GB
+should be enough capacity for the start (as extending on AWS should not be a problem).
 
-If you choose a smaller instance for cost savings, the target ingestion will be slower, so it will take a bit longer until the target data in the platform is consistent.
-
+If you choose a smaller instance for cost savings, the target ingestion will be slower, so it will take a bit longer until the target data in the platform is
+consistent.
 
 ### Message Broker Configuration
 
@@ -120,8 +122,8 @@ the `authorization_code` grant type. The callback URL is `https://<host>/oauth2/
 > The first user to login will be assigned the `ADMIN` role, all other will be assigned the `USER` role. The roles can
 > be changed by an admin user via the UI.
 
-Be aware to configure your ingress / loadbalancer to set the `X-Forwarded-Proto` and `x-forwarded-for` header. Otherwise the correct redirect URL will not be generated.
-
+Be aware to configure your ingress / loadbalancer to set the `X-Forwarded-Proto` and `x-forwarded-for` header. Otherwise the correct redirect URL will not be
+generated.
 
 | Environment Variable                                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |---------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -190,3 +192,29 @@ identity provider).
 | `STEADYBIT_EXPERIMENT_EXECUTION_EXPERIMENT_TIMEOUT`             | The time after which the experiment execution should time out after the estimated duration is reached. Default is `15m`  |
 | `STEADYBIT_EXPERIMENT_EXECUTION_PREPARATION_TIMEOUT`            | The time after which the experiment execution should time out if not all agents are prepared. Default is `60s`           |
 | `STEADYBIT_EXPERIMENT_EXECUTION_STEP_START_TIMEOUT`             | The time after which an experiment step should time out if not started after triggering. Default is `180s`               |
+
+### Data Retention Settings
+
+All retention settings are defined in a duration string. The duration string is a sequence of decimal numbers, each with a unit suffix, you can find
+details [here](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.typesafe-configuration-properties.conversion.durations).
+
+| Environment Variable                                                 | Description                                                                                               | Database Table                  | Default Value                           |
+|----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|---------------------------------|-----------------------------------------|
+| `STEADYBIT_EXTERNAL_VENDOR_AMPLITUDE_LOCAL_STORAGE_RETENTION_PERIOD` | Max Age of Amplitude Tracking Events. (If Amplitude is enabled and the `mode` has set to `LOCAL_STORAGE`) | `amplitude_local_event`         | `365d`                                  |
+| `STEADYBIT_EXTERNAL_VENDOR_AMPLITUDE_LOCAL_STORAGE_RETENTION_CRON`   | -- Cron String for the cleanup job                                                                        | `amplitude_local_event`         | `0 15 5 1/1 * ? *` (every day at 5:15)  |
+| `STEADYBIT_AUDITLOG_RETENTION_PERIOD`                                | Max Age of Audit Logs.                                                                                    | `audit_log`                     | `90d`                                   |
+| `STEADYBIT_AUDITLOG_RETENTION_CRON`                                  | -- Cron String for the cleanup job                                                                        | `audit_log`                     | `0 20 5 1/1 * ? *` (every day at 5:20)  |
+| `STEADYBIT_EXPERIMENT_EXECUTION_ARTIFACT_RETENTION_PERIOD`           | Max Age of Experiment Execution Artifacts.                                                                | `execution_artifact`            | Keep until the execution is deleted     |
+| `STEADYBIT_EXPERIMENT_EXECUTION_ARTIFACT_RETENTION_CRON`             | -- Cron String for the cleanup job                                                                        | `execution_artifact`            |                                         |
+| `STEADYBIT_EXPERIMENT_EXECUTION_LOG_RETENTION_PERIOD`                | Max Age of Experiment Execution Logs.                                                                     | `execution_log_event`           | Keep until the execution is deleted     |
+| `STEADYBIT_EXPERIMENT_EXECUTION_LOG_RETENTION_CRON`                  | -- Cron String for the cleanup job                                                                        | `execution_log_event`           |                                         |
+| `STEADYBIT_EXPERIMENT_EXECUTION_METRIC_RETENTION_PERIOD`             | Max Age of Experiment Execution Metrics.                                                                  | `execution_metric_event`        | Keep until the execution is deleted     |
+| `STEADYBIT_EXPERIMENT_EXECUTION_METRIC_RETENTION_CRON`               | -- Cron String for the cleanup job                                                                        | `execution_metric_event`        |                                         |
+| `STEADYBIT_EXPERIMENT_EXECUTION_SPAN_RETENTION_PERIOD`               | Max Age of Experiment Execution Spans.                                                                    | `execution_spans`               | `28d`                                   |
+| `STEADYBIT_EXPERIMENT_EXECUTION_SPAN_RETENTION_CRON`                 | -- Cron String for the cleanup job                                                                        | `execution_spans`               | `0 25 5 1/1 * ? *`  (every day at 5:25) |
+| `STEADYBIT_EXPERIMENT_EXECUTION_RETENTION_PERIOD`                    | Max Age of Experiment Executions.                                                                         | `experiment_execution` and more | No cleanup by default                   |
+| `STEADYBIT_EXPERIMENT_EXECUTION_RETENTION_CRON`                      | -- Cron String for the cleanup job                                                                        | `experiment_execution` and more |                                         |
+| `STEADYBIT_METRIC_RETENTION_PERIOD`                                  | Max Age of Metrics.                                                                                       | `metric`                        | `365d`                                  |
+| `STEADYBIT_METRIC_RETENTION_CRON`                                    | -- Cron String for the cleanup job                                                                        | `metric`                        | `0 35 5 1/1 * ? *`  (every day at 5:35) |
+| `STEADYBIT_TARGETS_STATS_RETENTION_PERIOD`                           | Max Age of Target Stats.                                                                                  | `target_stats`                  | `7d`                                    |
+| `STEADYBIT_TARGETS_STATS_RETENTION_CRON`                             | -- Cron String for the cleanup job                                                                        | `target_stats`                  | `0 30 5 1/1 * ? *`  (every day at 5:30) |
