@@ -19,11 +19,11 @@ The content type is `application/json`, and the message is described in our [Ope
 | **Team**   | If no team is specified, you'll receieve all events. If you do specify a team, you'll only receive events relevant to this team                                                                                          |
 | **Events** | Choose the events you want to receive.                                                                                                                                                                           |
 
-### Supported Events
+## Supported Events
 
 You can decide to react to the following events individually or get informed about all events.
 
-#### Experiment Executions
+### Experiment Executions
 
 The body contains the event identifier (`event`), the `time`, and the experiment `execution` (see below).
 
@@ -32,7 +32,7 @@ The body contains the event identifier (`event`), the `time`, and the experiment
 | **Created**          | `experiment.execution.created`        | A new experiment execution was just started. As soon as all required agents have connected, the first step will be executed |
 | **Step Started**     | `experiment.execution.step-started`   | One step of a running experiment started.                                                                                   |
 | **Step Completed**   | `experiment.execution.step-completed` | One step of a running experiment completed successfully (e.g. a check succeeded or the attack was performed).               |
-| **Step Failed**      | `experiment.execution.step-failed'    | One step of a running experiment failed (e.g. a check didn't match the defined expectation).                                |
+| **Step Failed**      | `experiment.execution.step-failed`    | One step of a running experiment failed (e.g. a check didn't match the defined expectation).                                |
 | **Step Errored**     | `experiment.execution.step-errored`   | One step of a running experiment errored (e.g. a check or attack couldn't be executed due to a technical error).            |
 | **Canceled**         | `experiment.execution.step-canceled`  | The experiment execution was canceled, e.g., by a user.                                                                     |
 | **Completed**        | `experiment.execution.completed`      | The experiment completed succesfully, e.g., all steps have been completed successfully.                                     |
@@ -40,7 +40,7 @@ The body contains the event identifier (`event`), the `time`, and the experiment
 | **Errored**          | `experiment.execution.errored`        | The experiment execution errored because at least one step errored.                                                         |
 | **Preflight Checks** | `experiment.execution.preflight`      | A [preflight webhook check](./preflight-webhooks) is performed before the experiment is allowed to start.                   |
 
-#### Killswitch
+### Killswitch
 
 The body contains the event identifier (`event`), the `time` and the `killswitch`'s state (see below).
 
@@ -49,6 +49,13 @@ The body contains the event identifier (`event`), the `time` and the `killswitch
 | **Engaged Emergency Stop**    | `killswitch.disengaged` | The [emergency stop](/use-steadybit/experiments/emergencyStop) was triggered to stop all experiment runs and prevent future runs. |
 | **Disengaged Emergency Stop** | `killswitch.engaged`    | The [emergency stop](/use-steadybit/experiments/emergencyStop) was disengaged to allow future experiment runs.                    |
 
+
+## Developing Webhooks
+
+A webhook uses an HTTP POST request at an endpoint reachable from the Steadybit platform.
+The HTTP request sends a body with the content-type `application/json`.
+Our [OpenAPI specification](https://platform.steadybit.com/api/spec) describes the exact body in `WebhookPayload`.
+
 ### Examples
 
 This section covers some example requests to ease developing the webhook endpoint.
@@ -56,8 +63,6 @@ This section covers some example requests to ease developing the webhook endpoin
 #### Experiment Execution Created
 
 The request body that is sent to your endpoint depends on the specific experiment that is executed.
-
-##### Created
 
 ```bash
 curl --request POST \
