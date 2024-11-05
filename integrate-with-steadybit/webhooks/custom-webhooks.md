@@ -8,7 +8,7 @@ Custom webhooks are triggered by Steadybit whenever an experiment has progressed
 
 ## Configure
 
-You can configure custom webhooks at `Settings / Application Settings / Integrations / Custom webhook`.
+You can configure custom webhooks at `Settings` -> `Integrations` -> `Custom webhook`.
 The content type is `application/json`, and the message is described in our [OpenAPI specification](https://platform.steadybit.com/api/spec) as `WebhookPayload`.
 
 |            |                                                                                                                                                                                                                          |

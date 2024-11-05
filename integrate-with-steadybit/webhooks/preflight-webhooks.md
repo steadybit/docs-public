@@ -15,7 +15,7 @@ discovered.
 
 ## Configure
 
-You can add preflight webhooks at `Settings / Application Settings / Integrations / Preflight webhook`.
+You can add preflight webhooks at `Settings` -> `Integrations` -> `Preflight webhook`.
 
 ![Add Preflight Webhook](addPreflightWebhook.png)
 
