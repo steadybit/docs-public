@@ -40,3 +40,8 @@ That's it, you are ready to use that environment in an experiment!
 ### Use Environments
 
 Once the environments are defined and assigned to teams, you can make use of them when e.g. [designing an experiment](/use-steadybit/experiments/).
+
+## Environment Variables
+With an environment often comes variables that are useful in an experiment associated with the provided environment (e.g., the name of the Kubernetes cluster, the HTTP base path of a load-balanced ingress, or the AWS account).
+You can manage environment variables to define those and use them consistently across all your experiments referencing the environment.
+You can [learn more in the experiment's variable section](/use-steadybit/experiments/variables).
