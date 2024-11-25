@@ -19,7 +19,7 @@ An experiment generally consists of the following elements:
   How the [environments are configured and assigned to your team](../../install-and-configure/manage-environments/) is up to your admin.
 * **Variables**: A variable allows you to reference a value in your experiment's configuration to have a single source of truth.
   Steadybit supports different scopes (e.g., experiment variables or environment variables). 
- Learn more in the [variables section](/use-steadybit/experiments/variables).
+ Learn more in the [variables section](/use-steadybit/experiments/variables.md).
 * **Actions**: Performed when running the experiment, sequentially or in parallel.
   An action can be either
   - an **attack** to inject a fault into your system
