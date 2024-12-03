@@ -3,6 +3,9 @@ Steadybit helps you on your Chaos Engineering journey to a reliable system by pr
 Advice checks whether your infrastructure configuration is appropriate and, if so, suggests, e.g., Chaos Engineering experiments to validate that your reliability mechanisms actually work.
 In addition, advice is fully extensible to allow you to add more best practices or customize existing ones.
 
+## Install Advice
+Advice are discovered and provided by extensions. Therefore, in order to use Advice inside Steadybit, you need to install an extension that supports Advice. A [list of extensions supporting Advice](https://hub.steadybit.com/extensions?tags=Advice) can be found in the Reliability Hub.
+
 ## Advice Lifecycle
 Advice apply to a single target of a particular target type and is in one of the following states:
 
