@@ -3,9 +3,6 @@ Steadybit helps you on your Chaos Engineering journey to a reliable system by pr
 Advice checks whether your infrastructure configuration is appropriate and, if so, suggests, e.g., Chaos Engineering experiments to validate that your reliability mechanisms actually work.
 In addition, advice is fully extensible to allow you to add more best practices or customize existing ones.
 
-## Install Advice
-Advice are discovered and provided by extensions. Therefore, in order to use Advice inside Steadybit, you need to install an extension that supports Advice. A [list of extensions supporting Advice](https://hub.steadybit.com/extensions?tags=Advice) can be found in the Reliability Hub.
-
 ## Advice Lifecycle
 Advice apply to a single target of a particular target type and is in one of the following states:
 
@@ -98,5 +95,11 @@ advice.applicable="com.steadybit.extension_kubernetes.advice.k8s-host-podantiaff
 We support various advice for, e.g., Kubernetes or public clouds and are constantly adding more.
 Check out the [Reliability Hub / Advice](https://hub.steadybit.com/advice) for our current support.
 
+## Install Advice
+Advice is discovered and provided by extensions.
+Therefore, to use Advice inside Steadybit, you have to install an extension that supports Advice.
+You can find a list of extensions supporting Advice [in the Reliability Hub](https://hub.steadybit.com/extensions?tags=Advice).
+
 ## Extending Advice
-Advice capability is developed using the open-source [AdviceKit](https://github.com/steadybit/advice-kit), allowing you to contribute your advice or fork existing ones. You can also always check out the code of existing advice in the [Reliability Hub](https://hub.steadybit.com/advice) and its corresponding GitHub repositories.
+Advice capability is developed using the open-source [AdviceKit](https://github.com/steadybit/advice-kit), allowing you to contribute your advice or fork existing ones.
+You can also always check out the code of existing advice in the [Reliability Hub](https://hub.steadybit.com/advice) and its corresponding GitHub repositories.
