@@ -39,8 +39,9 @@ The platform itself exposes the following ports:
 
 ## Step 1 - Get your keys
 
-The agent key is needed to install the platform and connect the Steadybit agents against it.
-Get in touch with us and we will provide you an on-prem license and an agent key.
+The agent key is needed to install the platform and connect the Steadybit agents against it.  
+Further, a license key is needed to activate the platform.  
+Get in touch with us and we will provide you an on-prem license key and an agent key.
 
 ## Step 2 - Deploy Platform
 
@@ -52,7 +53,7 @@ In case you can't use Helm or Kubernetes at all, get in touch with us and we'll 
 The platform kan be deployed without Helm and also on plain Docker hosts.
 {% endhint %}
 
-Please replace the placeholder `replace-with-agent-key` with your agent key copied in [Step 1 - Get your key](#step-1-getyourkey) and start the helm chart installation with:
+Please replace the placeholders `replace-with-agent-key` and `replace-with-license-key` with your agent key and license key copied in [Step 1 - Get your key](#step-1-getyourkey) and start the helm chart installation with:
 
 ```bash
 helm repo add steadybit https://steadybit.github.io/helm-charts
@@ -61,6 +62,7 @@ helm install steadybit-platform \
   --create-namespace \
   --namespace steadybit-platform \
   --set platform.tenant.agentKey=<replace-with-agent-key> \
+  --set platform.tenant.license=<replace-with-license-key> \
   steadybit/steadybit-platform
 ```
 
