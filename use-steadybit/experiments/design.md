@@ -17,8 +17,9 @@ An experiment generally consists of the following elements:
 * **Environment**: An experiment always runs in one specific environment of your system landscape.
   This environment spans a set of targets you want to address in an experiment, such as containers and JVM applications in a Development stage.
   How the [environments are configured and assigned to your team](../../install-and-configure/manage-environments/) is up to your admin.
-* **Environment Variable**: An environment variable allows you to reference a value in your experiment's configuration depending on the selected environment.
-  An example of an environment variable is, e.g., to specify your Kubernetes cluster name as an environment variable and change the variable's value whenever you switch to another environment.
+* **Variables**: A variable allows you to reference a value in your experiment's configuration to have a single source of truth.
+  Steadybit supports different scopes (e.g., experiment variables or environment variables). 
+ Learn more in the [variables section](/use-steadybit/experiments/variables.md).
 * **Actions**: Performed when running the experiment, sequentially or in parallel.
   An action can be either
   - an **attack** to inject a fault into your system
