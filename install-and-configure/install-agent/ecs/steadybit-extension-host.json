@@ -14,12 +14,25 @@
           "value": "INFO"
         }
       ],
-      "mountPoints": [],
+      "mountPoints": [
+        {
+          "sourceVolume": "cgroup-root",
+          "containerPath": "/sys/fs/cgroup",
+          "readOnly": false
+        }
+      ],
       "volumesFrom": [],
       "linuxParameters": {
         "tmpfs": [
           {
             "containerPath": "/tmp",
+            "size": 10,
+            "mountOptions": [
+              "exec"
+            ]
+          },
+          {
+            "containerPath": "/run/steadybit/runc",
             "size": 10,
             "mountOptions": [
               "exec"
@@ -62,7 +75,14 @@
     }
   ],
   "networkMode": "host",
-  "volumes": [],
+  "volumes": [
+    {
+      "name": "cgroup-root",
+      "host": {
+        "sourcePath": "/sys/fs/cgroup"
+      }
+    }
+  ],
   "placementConstraints": [],
   "requiresCompatibilities": [
     "EC2"
