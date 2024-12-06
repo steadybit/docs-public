@@ -85,6 +85,10 @@
     {
       "key": "steadybit_extension_port",
       "value": "8086"
+    },
+    {
+      "key": "steadybit.com/discovery-disabled",
+      "value": "true"
     }
   ],
   "networkMode": "host",

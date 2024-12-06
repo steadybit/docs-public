@@ -51,6 +51,10 @@
     {
       "key": "steadybit_extension_port",
       "value": "8085"
+    },
+    {
+      "key": "steadybit.com/discovery-disabled",
+      "value": "true"
     }
   ],
   "networkMode": "awsvpc",

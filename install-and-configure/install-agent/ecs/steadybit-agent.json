@@ -114,6 +114,12 @@
     }
   ],
   "taskRoleArn": "arn:aws:iam::MY-ACCOUNT:role/steadybit-agent-task-role",
+  "tags": [
+    {
+      "key": "steadybit.com/discovery-disabled",
+      "value": "true"
+    }
+  ],
   "networkMode": "awsvpc",
   "volumes": [],
   "placementConstraints": [],

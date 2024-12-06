@@ -55,6 +55,10 @@
     {
       "key": "steadybit_extension_port",
       "value": "8085"
+    },
+    {
+      "key": "steadybit.com/discovery-disabled",
+      "value": "true"
     }
   ],
   "taskRoleArn": "arn:aws:iam::MY-ACCOUNT:role/steadybit-extension-aws-task-role",
