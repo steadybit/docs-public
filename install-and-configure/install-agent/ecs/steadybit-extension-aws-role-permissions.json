@@ -1,0 +1,87 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeTags",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeNetworkAcls",
+        "ec2:CreateNetworkAcl",
+        "ec2:CreateNetworkAclEntry",
+        "ec2:ReplaceNetworkAclAssociation",
+        "ec2:DeleteNetworkAcl",
+        "ec2:CreateTags",
+        "ec2:DescribeInstances",
+        "ec2:DescribeTags",
+        "ec2:StopInstances",
+        "ec2:RebootInstances",
+        "ec2:TerminateInstances",
+        "ec2:StartInstances",
+        "ecs:ListTasks",
+        "ecs:DescribeTasks",
+        "ecs:ListClusters",
+        "ecs:StopTask",
+        "ecs:UpdateService",
+        "ecs:ListServices",
+        "ecs:DescribeServices",
+        "elasticache:DescribeReplicationGroups",
+        "elasticache:TestFailover",
+        "elasticache:ListTagsForResource",
+        "elasticloadbalancing:DescribeLoadBalancers",
+        "elasticloadbalancing:DescribeListeners",
+        "elasticloadbalancing:DescribeTags",
+        "elasticloadbalancing:DescribeRules",
+        "elasticloadbalancing:SetRulePriorities",
+        "elasticloadbalancing:CreateRule",
+        "elasticloadbalancing:DeleteRule",
+        "elasticloadbalancing:AddTags",
+        "elasticloadbalancing:RemoveTags",
+        "fis:ListExperimentTemplates",
+        "fis:GetExperiment",
+        "fis:GetExperimentTemplate",
+        "fis:StartExperiment",
+        "fis:StopExperiment",
+        "fis:TagResource",
+        "kafka:ListClustersV2",
+        "kafka:TagResource",
+        "kafka:ListNodes",
+        "kafka:UntagResource",
+        "kafka:RebootBroker",
+        "ssm:DescribeInstanceInformation",
+        "ssm:GetCommandInvocation",
+        "ssm:CancelCommand",
+        "ssm:AddTagsToResource",
+        "ssm:PutParameter",
+        "ssm:DeleteParameter",
+        "lambda:ListFunctions",
+        "rds:RebootDBCluster",
+        "rds:ListTagsForResource",
+        "rds:StopDBInstance",
+        "rds:RebootDBInstance",
+        "rds:DescribeDBInstances",
+        "rds:FailoverDBClusters",
+        "rds:DescribeDBClusters"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ssm:SendCommand",
+      "Resource": "arn:aws:ssm:*:*:document/AWSFIS-*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ssm:SendCommand",
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "ssm:resourceTag/FAULT_INJECTION_SIDECAR": [
+            "true"
+          ]
+        }
+      }
+    }
+  ]
+}
