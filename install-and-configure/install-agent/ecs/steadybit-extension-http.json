@@ -1,0 +1,66 @@
+{
+  "family": "steadybit-extension-http",
+  "containerDefinitions": [
+    {
+      "name": "steadybit-extension-http",
+      "image": "ghcr.io/steadybit/extension-http:latest",
+      "cpu": 205,
+      "memory": 51,
+      "portMappings": [],
+      "essential": true,
+      "environment": [
+        {
+          "name": "STEADYBIT_LOG_LEVEL",
+          "value": "INFO"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "linuxParameters": {
+        "tmpfs": [
+          {
+            "containerPath": "/tmp",
+            "size": 10,
+            "mountOptions": [
+              "exec"
+            ]
+          }
+        ]
+      },
+      "readonlyRootFilesystem": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/steadybit-extension-http",
+          "mode": "non-blocking",
+          "awslogs-create-group": "true",
+          "max-buffer-size": "25m",
+          "awslogs-region": "MY-REGION",
+          "awslogs-stream-prefix": "ecs"
+        },
+        "secretOptions": []
+      },
+      "systemControls": []
+    }
+  ],
+  "tags": [
+    {
+      "key": "steadybit_extension_type",
+      "value": "ACTION:DISCOVERY"
+    },
+    {
+      "key": "steadybit_extension_port",
+      "value": "8085"
+    }
+  ],
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  }
+}
