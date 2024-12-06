@@ -107,7 +107,8 @@ the [Change EC2 Instance State](https://hub.steadybit.com/action/com.steadybit.e
     --deployment-configuration maximumPercent=101,minimumHealthyPercent=0 \
     --network-configuration '{"awsvpcConfiguration": {"subnets": ["MY-SUBNET-1", "MY-SUBNET-2", "MY-SUBNET-3"], "securityGroups": ["MY-SECURITY-GROUP-ID"], "assignPublicIp": "DISABLED"}}'    
    ```
-    - **Extension AWS**
+    - **Extension AWS** - please replace the cluster-name, subnet-ids, and security-group-id with your values. The security group needs to allow inbound traffic
+      to the extension (port 8085)
    ```bash
    aws ecs create-service \
     --cluster MY-CLUSTER \
