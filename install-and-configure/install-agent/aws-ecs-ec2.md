@@ -71,6 +71,7 @@ the [Change EC2 Instance State](https://hub.steadybit.com/action/com.steadybit.e
     --propagate-tags TASK_DEFINITION \
     --desired-count 1 \
     --deployment-configuration maximumPercent=101,minimumHealthyPercent=0 \
+    --tags key=steadybit.com/discovery-disabled,value=true \
     --network-configuration '{"awsvpcConfiguration": {"subnets": ["MY-SUBNET-1", "MY-SUBNET-2", "MY-SUBNET-3"], "securityGroups": ["MY-SECURITY-GROUP-ID"], "assignPublicIp": "DISABLED"}}'
    ```
     - **Extension Host** - please replace the cluster-name. The extension will use the host network strategy and use the security groupd and subnets of your ec2
@@ -82,6 +83,7 @@ the [Change EC2 Instance State](https://hub.steadybit.com/action/com.steadybit.e
     --task-definition steadybit-extension-host \
     --propagate-tags TASK_DEFINITION \
     --launch-type EC2 \
+    --tags key=steadybit.com/discovery-disabled,value=true \
     --scheduling-strategy DAEMON
    ```
     - **Extension Container** - please replace the cluster-name. The extension will use the host network strategy and use the security groupd and subnets of your ec2
@@ -93,6 +95,7 @@ the [Change EC2 Instance State](https://hub.steadybit.com/action/com.steadybit.e
     --task-definition steadybit-extension-container \
     --propagate-tags TASK_DEFINITION \
     --launch-type EC2 \
+    --tags key=steadybit.com/discovery-disabled,value=true \
     --scheduling-strategy DAEMON
    ```
     - **Extension HTTP** - please replace the cluster-name, subnet-ids, and security-group-id with your values. The security group needs to allow inbound traffic
@@ -105,6 +108,7 @@ the [Change EC2 Instance State](https://hub.steadybit.com/action/com.steadybit.e
     --propagate-tags TASK_DEFINITION \
     --desired-count 1 \
     --deployment-configuration maximumPercent=101,minimumHealthyPercent=0 \
+    --tags key=steadybit.com/discovery-disabled,value=true \
     --network-configuration '{"awsvpcConfiguration": {"subnets": ["MY-SUBNET-1", "MY-SUBNET-2", "MY-SUBNET-3"], "securityGroups": ["MY-SECURITY-GROUP-ID"], "assignPublicIp": "DISABLED"}}'    
    ```
     - **Extension AWS** - please replace the cluster-name, subnet-ids, and security-group-id with your values. The security group needs to allow inbound traffic
@@ -117,6 +121,7 @@ the [Change EC2 Instance State](https://hub.steadybit.com/action/com.steadybit.e
     --propagate-tags TASK_DEFINITION \
     --desired-count 1 \
     --deployment-configuration maximumPercent=101,minimumHealthyPercent=0 \
+    --tags key=steadybit.com/discovery-disabled,value=true \
     --network-configuration '{"awsvpcConfiguration": {"subnets": ["MY-SUBNET-1", "MY-SUBNET-2", "MY-SUBNET-3"], "securityGroups": ["MY-SECURITY-GROUP-ID"], "assignPublicIp": "DISABLED"}}'    
    ```
 
