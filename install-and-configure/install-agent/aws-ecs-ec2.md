@@ -6,10 +6,7 @@ The Steadybit Agent can be installed on **Amazon Elastic Container Service**.
 
 ### Compatibility
 
-{% hint style="warning" %}
-Due to security constraints, the Host Shutdown Attack will not work. You can use
-the [Change EC2 Instance State](https://hub.steadybit.com/action/com.steadybit.extension_aws.ec2_instance.state) attack from the extension-aws instead.
-{% endhint %}
+[extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host) and [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container) needs to run in privileged mode and network mode `host` is required for the extensions.
 
 ### Installation
 
