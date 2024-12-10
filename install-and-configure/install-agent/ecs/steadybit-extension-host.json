@@ -1,0 +1,96 @@
+{
+  "family": "steadybit-extension-host",
+  "containerDefinitions": [
+    {
+      "name": "steadybit-extension-host",
+      "image": "ghcr.io/steadybit/extension-host:latest",
+      "cpu": 205,
+      "memory": 51,
+      "portMappings": [],
+      "essential": true,
+      "environment": [
+        {
+          "name": "STEADYBIT_LOG_LEVEL",
+          "value": "INFO"
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "cgroup-root",
+          "containerPath": "/sys/fs/cgroup",
+          "readOnly": false
+        }
+      ],
+      "volumesFrom": [],
+      "linuxParameters": {
+        "tmpfs": [
+          {
+            "containerPath": "/tmp",
+            "size": 10,
+            "mountOptions": [
+              "exec"
+            ]
+          },
+          {
+            "containerPath": "/run/steadybit/runc",
+            "size": 10,
+            "mountOptions": [
+              "exec"
+            ]
+          }
+        ]
+      },
+      "privileged": true,
+      "readonlyRootFilesystem": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/steadybit-extension-host",
+          "mode": "non-blocking",
+          "awslogs-create-group": "true",
+          "max-buffer-size": "25m",
+          "awslogs-region": "MY-REGION",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "systemControls": []
+    }
+  ],
+  "tags": [
+    {
+      "key": "steadybit_extension_type",
+      "value": "ACTION:DISCOVERY"
+    },
+    {
+      "key": "steadybit_extension_daemon",
+      "value": "true"
+    },
+    {
+      "key": "steadybit_extension_port",
+      "value": "8085"
+    },
+    {
+      "key": "steadybit.com/discovery-disabled",
+      "value": "true"
+    }
+  ],
+  "networkMode": "host",
+  "volumes": [
+    {
+      "name": "cgroup-root",
+      "host": {
+        "sourcePath": "/sys/fs/cgroup"
+      }
+    }
+  ],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "pidMode": "host",
+  "ipcMode": "host",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  }
+}

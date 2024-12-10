@@ -1,0 +1,65 @@
+{
+  "family": "steadybit-extension-aws",
+  "cpu": "256",
+  "memory": "512",
+  "containerDefinitions": [
+    {
+      "name": "steadybit-extension-aws",
+      "image": "ghcr.io/steadybit/extension-aws:latest",
+      "portMappings": [],
+      "essential": true,
+      "environment": [
+        {
+          "name": "STEADYBIT_LOG_LEVEL",
+          "value": "INFO"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "MY-REGION"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "readonlyRootFilesystem": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/steadybit-extension-aws",
+          "mode": "non-blocking",
+          "awslogs-create-group": "true",
+          "max-buffer-size": "25m",
+          "awslogs-region": "MY-REGION",
+          "awslogs-stream-prefix": "ecs"
+        },
+        "secretOptions": []
+      },
+      "systemControls": []
+    }
+  ],
+  "tags": [
+    {
+      "key": "steadybit_extension_type",
+      "value": "ACTION:DISCOVERY"
+    },
+    {
+      "key": "steadybit_extension_port",
+      "value": "8085"
+    },
+    {
+      "key": "steadybit.com/discovery-disabled",
+      "value": "true"
+    }
+  ],
+  "taskRoleArn": "arn:aws:iam::MY-ACCOUNT:role/steadybit-extension-aws-task-role",
+  "executionRoleArn": "arn:aws:iam::MY-ACCOUNT:role/steadybit-agent-task-execution-role",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  }
+}

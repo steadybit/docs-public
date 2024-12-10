@@ -1,2 +1,3 @@
 *.iml
 .idea
+/install-and-configure/install-agent/ecs/INTERNAL*

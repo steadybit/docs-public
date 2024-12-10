@@ -1,0 +1,111 @@
+{
+  "family": "steadybit-extension-container",
+  "containerDefinitions": [
+    {
+      "name": "steadybit-extension-container",
+      "image": "ghcr.io/steadybit/extension-container:latest",
+      "cpu": 205,
+      "memory": 51,
+      "portMappings": [],
+      "essential": true,
+      "environment": [
+        {
+          "name": "STEADYBIT_LOG_LEVEL",
+          "value": "INFO"
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "runtime-runc",
+          "containerPath": "/run/docker/runtime-runc/moby",
+          "readOnly": false
+        },
+        {
+          "sourceVolume": "runtime-socket",
+          "containerPath": "/var/run/docker.sock",
+          "readOnly": false
+        },
+        {
+          "sourceVolume": "cgroup-root",
+          "containerPath": "/sys/fs/cgroup",
+          "readOnly": false
+        }
+      ],
+      "volumesFrom": [],
+      "linuxParameters": {
+        "tmpfs": [
+          {
+            "containerPath": "/tmp",
+            "size": 10,
+            "mountOptions": [
+              "exec"
+            ]
+          }
+        ]
+      },
+      "privileged": true,
+      "readonlyRootFilesystem": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/steadybit-extension-container",
+          "mode": "non-blocking",
+          "awslogs-create-group": "true",
+          "max-buffer-size": "25m",
+          "awslogs-region": "MY-REGION",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "systemControls": []
+    }
+  ],
+  "tags": [
+    {
+      "key": "steadybit_extension_type",
+      "value": "ACTION:DISCOVERY"
+    },
+    {
+      "key": "steadybit_extension_daemon",
+      "value": "true"
+    },
+    {
+      "key": "steadybit_extension_port",
+      "value": "8086"
+    },
+    {
+      "key": "steadybit.com/discovery-disabled",
+      "value": "true"
+    }
+  ],
+  "networkMode": "host",
+  "volumes": [
+    {
+      "name": "runtime-runc",
+      "host": {
+        "sourcePath": "/run/docker/runtime-runc/moby"
+      }
+    },
+    {
+      "name": "runtime-socket",
+      "host": {
+        "sourcePath": "/var/run/docker.sock"
+      }
+    },
+    {
+      "name": "cgroup-root",
+      "host": {
+        "sourcePath": "/sys/fs/cgroup"
+      }
+    }
+  ],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "pidMode": "host",
+  "ipcMode": "host",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  }
+}
