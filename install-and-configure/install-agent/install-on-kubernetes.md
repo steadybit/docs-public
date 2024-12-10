@@ -37,8 +37,8 @@ For more configuration options have a look at our [steadybit/helm-charts reposit
 By default, the agent assumes that your cluster uses the `containerd` runtime. If this is not the case, you need to add`--set extension-container.container.runtime=docker` or `cri-o`.
 
 #### Determine Container Runtime on a Node
-In case of a managed Kubernetes service, there might be a vendor-specific method to check the container runtime.
-In case you have access on the `kubectl`, you can get the container runtime via
+
+In case of a managed Kubernetes service, there might be a vendor-specific method to check the container runtime. In case you have access on the `kubectl`, you can get the container runtime via
 
 ```shell
 kubectl get nodes -o wide
@@ -51,24 +51,23 @@ The column `CONTAINER-RUNTIME` shows you the runtime you are using. You can find
 If you are running on-prem, make sure to set the URL of the platform: `--set agent.registerUrl=<your-platform-url>`
 
 ### Extensions
-The agent's purpose is to establish a communication from the platform to your systems.
-However, the discovery of your systems and providing Chaos Engineering to a technology works via extensions.
-By default, the helm chart already installs the extensions [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension\_container), [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension\_host), [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http) and [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension\_kubernetes).
+
+The agent's purpose is to establish a communication from the platform to your systems. However, the discovery of your systems and providing Chaos Engineering to a technology works via extensions. By default, the helm chart already installs the extensions [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container), [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host), [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http) and [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension_kubernetes).
 
 #### Add more Extensions
-Further extensions can be enabled via helm values of steadybit-agent.
-For example, [`extension-postman`](https://github.com/steadybit/extension-postman) can be enabled by setting`extension-postman.enabled=true`.
-See our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-agent) for a detailed list of all the configuration parameters.
+
+Further extensions can be enabled via helm values of steadybit-agent. For example, [`extension-postman`](https://github.com/steadybit/extension-postman) can be enabled by setting`extension-postman.enabled=true`. See our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-agent) for a detailed list of all the configuration parameters.
 
 Alternatively, you can also install extensions independently with their own helm charts. The installation instructions are listed in the Github repositories of the extension and can be browsed via the [Reliability Hub](https://hub.steadybit.com/).
 
 #### Disable Default Extensions
+
 If you want to disable some, or all, of the default extensions, please set the following values in helm:
 
-- [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension\_container): `--set extension-container.enabled=false`
-- [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension\_host): `--set extension-host.enabled=false`
-- [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http): `--set extension-http.enabled=false`
-- [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension\_kubernetes): `--set extension-kubernetes.enabled=false`
+* [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container): `--set extension-container.enabled=false`
+* [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host): `--set extension-host.enabled=false`
+* [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http): `--set extension-http.enabled=false`
+* [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension_kubernetes): `--set extension-kubernetes.enabled=false`
 
 ### Alternative: Generate Kubernetes Manifests
 
@@ -86,56 +85,25 @@ helm template steadybit-agent --namespace steadybit-agent \
 
 ### Alternative: OpenShift installation
 
-To be able to install the agent and extension in openshift we need create custom service accounts. The following example shows how to install the agent and extension in openshift.
+The SecurityContextConstraints for OpenShift are included in our helm chart. You need to configure the CRI-O container runtime and we're good to go.
 
-#### Create a service account with anyuid SCC:
-
-```shell    
-oc create sa sa-with-anyuid
-oc adm policy add-scc-to-user anyuid -z sa-with-anyuid
-```
-
-#### Create a service account for extension-host and extension-container with needed capabilities:
-
-```shell    
-oc create sa sa-extension-host-container
-oc adm policy add-scc-to-user anyuid -z sa-extension-host-container
-oc adm policy add-scc-to-user hostnetwork -z sa-extension-host-container
-oc adm policy add-scc-to-user hostnetwork-v2 -z sa-extension-host-container
-oc adm policy add-scc-to-user hostmount-anyuid -z sa-extension-host-container
-oc adm policy add-scc-to-user hostaccess-anyuid -z sa-extension-host-container
-oc adm policy add-scc-to-user privileged -z sa-extension-host-container
-oc adm policy add-scc-to-user restricted-v2 -z sa-extension-host-container
-```
-
-
-#### Example of how to install the agent and extensions with the created service accounts:
-
-```shell
-helm upgrade --install steadybit-agent --namespace steadybit-agent \
+```bash
+helm repo add steadybit https://steadybit.github.io/helm-charts
+helm repo update
+helm template steadybit-agent --namespace steadybit-agent \
   --create-namespace \
-  --set agent.key=<replace-me> \
-  --set global.clusterName="openshift" \
+  --set agent.key=<replace-with-agent-key> \
+  --set global.clusterName=<replace-with-cluster-name> \
   --set extension-container.container.runtime=cri-o \
-  --set serviceAccount.create=false \
-  --set serviceAccount.name=sa-with-anyuid \
-  --set extension-container.serviceAccount.create=false \
-  --set extension-container.serviceAccount.name=sa-extension-host-container \
-  --set extension-host.serviceAccount.create=false \
-  --set extension-host.serviceAccount.name=sa-extension-host-container \
-  --set extension-http.serviceAccount.create=false \
-  --set extension-http.serviceAccount.name=sa-with-anyuid  \
-  --set extension-kubernetes.serviceAccount.create=false \
-  --set extension-kubernetes.serviceAccount.name=sa-with-anyuid  \
-steadybit/steadybit-agent
+  steadybit/steadybit-agent
 ```
 
 ## Resource limits
 
-Keep an eye on OOMing / crash looping agents and extensions after installation. The memory usage highly depends on the number of discovered targets. We try to 
-provide reasonable defaults, but you might need to adapt the resource limits to your use case.
+Keep an eye on OOMing / crash looping agents and extensions after installation. The memory usage highly depends on the number of discovered targets. We try to provide reasonable defaults, but you might need to adapt the resource limits to your use case.
 
 For example, to increase the memory limits for the agent:
+
 ```shell
   --set agent.resources.limits.memory=1Gi
 ```
@@ -149,4 +117,3 @@ helm repo update
 helm upgrade --reuse-values steadybit-agent --namespace steadybit-agent \
   steadybit/steadybit-agent
 ```
-
