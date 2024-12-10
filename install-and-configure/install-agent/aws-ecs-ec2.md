@@ -226,9 +226,6 @@ and attack ECS resources.
 
 ## FAQ
 
-- **Q:** Can I use `readonlyRootFilesystem` for the agent in Fargate?
-    - **A:** Yes, you can use `readonlyRootFilesystem` for the agent, but `tmpfs` mounts are currently not possible with that. You would need to mount an
-      external volume for the agent to `/tmp` to.
 - **Q:** How can I update the agent/extensions and force pulling a new image version when using `latest`?
     - **A:** `aws ecs update-service --cluster <your-cluster> --service <your-service> --force-new-deployment`
 - **Q:** Can I shell into the agent/extension tasks?
