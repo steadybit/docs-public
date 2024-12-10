@@ -1,11 +1,11 @@
 {
   "family": "steadybit-extension-aws",
+  "cpu": "256",
+  "memory": "512",
   "containerDefinitions": [
     {
       "name": "steadybit-extension-aws",
       "image": "ghcr.io/steadybit/extension-aws:latest",
-      "cpu": 205,
-      "memory": 51,
       "portMappings": [],
       "essential": true,
       "environment": [
@@ -51,11 +51,12 @@
     }
   ],
   "taskRoleArn": "arn:aws:iam::MY-ACCOUNT:role/steadybit-extension-aws-task-role",
+  "executionRoleArn": "arn:aws:iam::MY-ACCOUNT:role/steadybit-agent-task-execution-role",
   "networkMode": "awsvpc",
   "volumes": [],
   "placementConstraints": [],
   "requiresCompatibilities": [
-    "EC2"
+    "FARGATE"
   ],
   "runtimePlatform": {
     "cpuArchitecture": "X86_64",

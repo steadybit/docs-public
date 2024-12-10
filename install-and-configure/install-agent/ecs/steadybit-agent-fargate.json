@@ -1,11 +1,11 @@
 {
-  "family": "steadybit-agent",
+  "family": "steadybit-agent-fargate",
+  "cpu": "1024",
+  "memory": "2048",
   "containerDefinitions": [
     {
       "name": "steadybit-agent",
       "image": "steadybit/agent:latest",
-      "cpu": 1024,
-      "memory": 512,
       "portMappings": [],
       "essential": true,
       "environment": [
@@ -62,8 +62,6 @@
     {
       "name": "steadybit-extension-discovery-ecs",
       "image": "ghcr.io/steadybit/extension-discovery-ecs:latest",
-      "cpu": 51,
-      "memory": 51,
       "portMappings": [],
       "essential": true,
       "environment": [
@@ -109,11 +107,12 @@
     }
   ],
   "taskRoleArn": "arn:aws:iam::MY-ACCOUNT:role/steadybit-agent-task-role",
+  "executionRoleArn": "arn:aws:iam::MY-ACCOUNT:role/steadybit-agent-task-execution-role",
   "networkMode": "awsvpc",
   "volumes": [],
   "placementConstraints": [],
   "requiresCompatibilities": [
-    "EC2"
+    "FARGATE"
   ],
   "runtimePlatform": {
     "cpuArchitecture": "X86_64",

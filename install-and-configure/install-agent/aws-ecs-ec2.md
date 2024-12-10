@@ -30,8 +30,9 @@ the [Change EC2 Instance State](https://hub.steadybit.com/action/com.steadybit.e
 - [steadybit-extension-container.json](ecs/steadybit-extension-container.json)
 - [steadybit-extension-http.json](ecs/steadybit-extension-http.json)
 - [steadybit-extension-aws.json](ecs/steadybit-extension-aws.json)
+- [steadybit-extension-aws-role-permissions.json](ecs/steadybit-extension-aws-role-permissions.json)
 
-2. Create a IAM role for the agent task with the following permissions:
+2. The agent needs some permissions to be able to look up extensions running in the cluster. Create a IAM role for the agent task with the following permissions:
    ```bash
    aws iam create-role --role-name steadybit-agent-task-role --assume-role-policy-document file://steadybit-agent-role-trust-policy.json
    aws iam put-role-policy --role-name steadybit-agent-task-role --policy-name steadybit-agent-extension-discovery --policy-document file://steadybit-agent-role-permissions.json
@@ -140,7 +141,91 @@ and attack ECS resources.
 
 ### Installation
 
-To be done...
+1. Copy the required Files
+
+- [steadybit-agent-fargate.json](ecs/steadybit-agent-fargate.json)
+- [steadybit-agent-role-trust-policy.json](ecs/steadybit-agent-role-trust-policy.json)
+- [steadybit-agent-role-permissions.json](ecs/steadybit-agent-role-permissions.json)
+- [steadybit-extension-http-fargate.json](ecs/steadybit-extension-http-fargate.json)
+- [steadybit-extension-aws-fargate.json](ecs/steadybit-extension-aws-fargate.json)
+- [steadybit-extension-aws-role-permissions.json](ecs/steadybit-extension-aws-role-permissions.json)
+
+2. The agent needs some permissions to be able to look up extensions running in the cluster. Create a IAM role for the agent task with the following permissions:
+   ```bash
+   aws iam create-role --role-name steadybit-agent-task-role --assume-role-policy-document file://steadybit-agent-role-trust-policy.json
+   aws iam put-role-policy --role-name steadybit-agent-task-role --policy-name steadybit-agent-extension-discovery --policy-document file://steadybit-agent-role-permissions.json
+   ``` 
+   
+3. Fargate tasks needs a task execution role to be able to write logs. If you don't already have an existing role, you can create one via:
+    ```bash
+    aws iam create-role --role-name steadybit-agent-task-execution-role --assume-role-policy-document file://steadybit-agent-role-trust-policy.json
+    aws iam attach-role-policy --role-name steadybit-agent-task-execution-role --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+    ```
+
+4. If you like to install the `extension-aws` you need to create a new IAM role with the following permissions. Please have a look at the [extension documentation](https://github.com/steadybit/extension-aws?tab=readme-ov-file#required-permissions-policies) for the latest list of required permissions.
+   ```bash
+   aws iam create-role --role-name steadybit-extension-aws-task-role --assume-role-policy-document file://steadybit-agent-role-trust-policy.json
+   aws iam put-role-policy --role-name steadybit-extension-aws-task-role --policy-name steadybit-extension-aws --policy-document file://steadybit-extension-aws-role-permissions.json
+   ```
+
+5. Replace all placeholders in the JSON files with your values. All placeholders are prefixed with `MY-`. Take care, the placeholders are used multiple times in
+   the JSON files.
+    - `MY-AGENT-KEY`: Your agent key
+    - `MY-CLUSTER-NAME`: The name of your ECS cluster
+    - `MY-PLATFORM-URL`: The URL of your Steadybit platform, for SaaS use `https://platform.steadybit.com`
+    - `MY-REGION`: The AWS region where your ECS cluster is running
+    - `MY-ACCOUNT`: The AWS account ID
+
+6. Register the Task Definitions
+   ```bash
+   aws ecs register-task-definition --cli-input-json file://steadybit-agent-fargate.json 
+   aws ecs register-task-definition --cli-input-json file://steadybit-extension-http-fargate.json
+   aws ecs register-task-definition --cli-input-json file://steadybit-extension-aws-fargate.json
+   ```
+
+7. Create the Services
+    - **Agent** - please replace the cluster-name, subnet-ids, and security-group-id with your values. The security group needs to allow outbound traffic to the
+      Steadybit platform and to the extensions (ports 8080-8099).
+   ```bash
+   aws ecs create-service \
+    --cluster MY-CLUSTER \
+    --service-name steadybit-agent \
+    --task-definition steadybit-agent \
+    --propagate-tags TASK_DEFINITION \
+    --launch-type FARGATE \
+    --desired-count 1 \
+    --deployment-configuration maximumPercent=101,minimumHealthyPercent=0 \
+    --tags key=steadybit.com/discovery-disabled,value=true \
+    --network-configuration '{"awsvpcConfiguration": {"subnets": ["MY-SUBNET-1", "MY-SUBNET-2", "MY-SUBNET-3"], "securityGroups": ["MY-SECURITY-GROUP-ID"], "assignPublicIp": "DISABLED"}}'
+   ```
+    - **Extension HTTP** - please replace the cluster-name, subnet-ids, and security-group-id with your values. The security group needs to allow inbound traffic
+      to the extension (port 8085) and outbound traffic to all ports/destination you want to reach out with the http checks implemented in the extension.
+   ```bash
+   aws ecs create-service \
+    --cluster MY-CLUSTER \
+    --service-name steadybit-extension-http \
+    --task-definition steadybit-extension-http \
+    --propagate-tags TASK_DEFINITION \
+    --launch-type FARGATE \
+    --desired-count 1 \
+    --deployment-configuration maximumPercent=101,minimumHealthyPercent=0 \
+    --tags key=steadybit.com/discovery-disabled,value=true \
+    --network-configuration '{"awsvpcConfiguration": {"subnets": ["MY-SUBNET-1", "MY-SUBNET-2", "MY-SUBNET-3"], "securityGroups": ["MY-SECURITY-GROUP-ID"], "assignPublicIp": "DISABLED"}}'    
+   ```
+    - **Extension AWS** - please replace the cluster-name, subnet-ids, and security-group-id with your values. The security group needs to allow inbound traffic
+      to the extension (port 8085)
+   ```bash
+   aws ecs create-service \
+    --cluster MY-CLUSTER \
+    --service-name steadybit-extension-aws \
+    --task-definition steadybit-extension-aws \
+    --propagate-tags TASK_DEFINITION \
+    --launch-type FARGATE \
+    --desired-count 1 \
+    --deployment-configuration maximumPercent=101,minimumHealthyPercent=0 \
+    --tags key=steadybit.com/discovery-disabled,value=true \
+    --network-configuration '{"awsvpcConfiguration": {"subnets": ["MY-SUBNET-1", "MY-SUBNET-2", "MY-SUBNET-3"], "securityGroups": ["MY-SECURITY-GROUP-ID"], "assignPublicIp": "DISABLED"}}'    
+   ```
 
 ## FAQ
 
