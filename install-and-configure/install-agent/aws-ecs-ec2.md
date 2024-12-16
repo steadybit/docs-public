@@ -32,7 +32,7 @@ The Steadybit Agent can be installed on **Amazon Elastic Container Service**.
 2. The agent needs some permissions to be able to look up extensions running in the cluster. Create a IAM role for the agent task with the following permissions:
    ```bash
    aws iam create-role --role-name steadybit-agent-task-role --assume-role-policy-document file://steadybit-agent-role-trust-policy.json
-   aws iam put-role-policy --role-name steadybit-agent-task-role --policy-name steadybit-agent-extension-discovery --policy-document file://steadybit-agent-role-permissions.json
+   aws iam put-role-policy --role-name steadybit-agent-task-role --policy-name steadybit-agent-extension-lookup --policy-document file://steadybit-agent-role-permissions.json
    ``` 
 
 3. If you like to install the `extension-aws` you need to create a new IAM role with the following permissions. Please have a look at the [extension documentation](https://github.com/steadybit/extension-aws?tab=readme-ov-file#required-permissions-policies) for the latest list of required permissions.
@@ -150,7 +150,7 @@ and attack ECS resources.
 2. The agent needs some permissions to be able to look up extensions running in the cluster. Create a IAM role for the agent task with the following permissions:
    ```bash
    aws iam create-role --role-name steadybit-agent-task-role --assume-role-policy-document file://steadybit-agent-role-trust-policy.json
-   aws iam put-role-policy --role-name steadybit-agent-task-role --policy-name steadybit-agent-extension-discovery --policy-document file://steadybit-agent-role-permissions.json
+   aws iam put-role-policy --role-name steadybit-agent-task-role --policy-name steadybit-agent-extension-lookup --policy-document file://steadybit-agent-role-permissions.json
    ``` 
    
 3. Fargate tasks needs a task execution role to be able to write logs. If you don't already have an existing role, you can create one via:

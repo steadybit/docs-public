@@ -60,8 +60,8 @@
       "systemControls": []
     },
     {
-      "name": "steadybit-extension-discovery-ecs",
-      "image": "ghcr.io/steadybit/extension-discovery-ecs:latest",
+      "name": "steadybit-extension-auto-registration-ecs",
+      "image": "ghcr.io/steadybit/extension-auto-registration-ecs:latest",
       "cpu": 51,
       "memory": 51,
       "portMappings": [],
@@ -72,11 +72,11 @@
           "value": "INFO"
         },
         {
-          "name": "STEADYBIT_EXTENSION_DISCOVERY_AGENT_KEY",
+          "name": "STEADYBIT_EXTENSION_AGENT_KEY",
           "value": "MY-AGENT-KEY"
         },
         {
-          "name": "STEADYBIT_EXTENSION_DISCOVERY_ECS_CLUSTER_NAME",
+          "name": "STEADYBIT_EXTENSION_ECS_CLUSTER_NAME",
           "value": "MY-CLUSTER-NAME"
         },
         {
