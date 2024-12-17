@@ -56,7 +56,7 @@ Valid replacement for `type` are:
 - `DISCOVERIES` referring to a [index response of a discovery](https://github.com/steadybit/discovery-kit/blob/main/docs/discovery-api.md#index-response).
 - `ACTIONS` referring to a [list of actions](https://github.com/steadybit/action-kit/blob/main/docs/action-api.md#action-list).
 - `EVENTS` referring to a [list of event listeners](https://github.com/steadybit/event-kit/blob/main/docs/event-api.md#event-listeners-list).
-- `ADVICES` referring to a [list of advices](https://github.com/steadybit/advice-kit/blob/main/docs/advice-api.md#index-response).
+- `ADVICE` referring to a [list of advices](https://github.com/steadybit/advice-kit/blob/main/docs/advice-api.md#index-response).
 
 | Environment Variable<br/>(`n` refers to the index of the extension's instance)<br/>(`type` refers to the type of the extension's endpoint) | Required | Description                                                                                                         |
 |--------------------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------------------------------------------------------------------------------------------------|
