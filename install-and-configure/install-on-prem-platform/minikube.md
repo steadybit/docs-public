@@ -18,7 +18,7 @@ After completing this getting started, continue by [setting up Steadybit](/insta
 Installing and deploying the Steadybit platform on your machine is simple:
 
 - [Step 0 - Check Prerequisites](#step-0-check-prerequisites)
-- [Step 1 - Get your key](#step-1-get-your-keys)
+- [Step 1 - Get your keys](#step-1-get-your-keys)
 - [Step 2 - Install Minikube](#step-2-install-minikube)
 - [Step 3 - Deploy Platform](#step-3-deploy-platform-on-minikube)
 
@@ -38,8 +38,8 @@ The platform itself exposes the following ports:
 
 ## Step 1 - Get your keys
 
-The agent key is needed to install the platform and connect the Steadybit agents against it.
-Get in touch with us and we will provide you an on-prem license and an agent key.
+To install the platform on-premise and connect the agents against it you need an agent key and a valid license.   
+Get in touch with us and we will provide you an on-prem license key and an agent key.
 
 ## Step 2 - Install Minikube
 First install Minikube to run on your system: https://minikube.sigs.k8s.io/docs/start
@@ -66,13 +66,15 @@ helm repo add steadybit https://steadybit.github.io/helm-charts
 helm repo update
 ```
 
-Install the platform using a parameterized helm script to make the platform available on port 80:
+Install the platform using a parameterized helm script to make the platform available on port 80.
+You also need to replace the placeholders `replace-with-agent-key` and `replace-with-license-key` with your agent key and license key of [Step 1 - Get your keys](#step-1-get-your-keys):
 
 ```bash
 helm upgrade --install steadybit-platform \
   --create-namespace \
   --namespace steadybit-platform \
   --set platform.tenant.agentKey=<replace-with-agent-key> \
+  --set platform.tenant.license=<replace-with-license-key> \
   --set platform.publicWebsocketPort=80 \
   --set platform.service.type=ClusterIP \
   --set-string "ingress.annotations.nginx\.ingress\.kubernetes\.io/proxy-read-timeout=3600" \
