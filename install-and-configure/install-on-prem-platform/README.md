@@ -18,7 +18,7 @@ After completing this getting started, continue by [setting up Steadybit](/insta
 Installing and deploying the Steadybit platform on your servers is simple:
 
 - [Step 0 - Check Prerequisites](#step-0-check-prerequisites)
-- [Step 1 - Get your key](#step-1-get-your-keys)
+- [Step 1 - Get your keys](#step-1-get-your-keys)
 - [Step 2 - Deploy Platform](#step-2-deploy-platform)
 
 If you need help, please [reach out to us](https://www.steadybit.com/contact).
@@ -39,8 +39,7 @@ The platform itself exposes the following ports:
 
 ## Step 1 - Get your keys
 
-The agent key is needed to install the platform and connect the Steadybit agents against it.  
-Further, a license key is needed to activate the platform.  
+To install the platform on-premise and connect the agents against it you need an agent key and a valid license.   
 Get in touch with us and we will provide you an on-prem license key and an agent key.
 
 ## Step 2 - Deploy Platform
@@ -53,7 +52,7 @@ In case you can't use Helm or Kubernetes at all, get in touch with us and we'll 
 The platform kan be deployed without Helm and also on plain Docker hosts.
 {% endhint %}
 
-Please replace the placeholders `replace-with-agent-key` and `replace-with-license-key` with your agent key and license key copied in [Step 1 - Get your key](#step-1-getyourkey) and start the helm chart installation with:
+Please replace the placeholders `replace-with-agent-key` and `replace-with-license-key` with your agent key and license key of [Step 1 - Get your keys](#step-1-get-your-keys):
 
 ```bash
 helm repo add steadybit https://steadybit.github.io/helm-charts
