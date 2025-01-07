@@ -20,18 +20,6 @@ By downloading a copy of your Steadybit tenant database, you'll be able to analy
 
 You'll find a ZIP file in your local downloads folder with a copy of your tenant database.
 
-## Metrics export
-
-Another option to troubleshoot your tenant is to download a copy of the system discovery and usage metrics and analyze those statistics with an external tool.
-
-1. In the Steadybit platform, go to "Settings."
-2. Navigate to the "Troubleshooting" menu.
-3. On the "Metrics export" section, choose "Metrics export (.zip)."
-
-<figure><img src="imgs/metricsExport.png" alt="Screenshot of the Metrics export section in the Steadybit platform"><figcaption></figcaption></figure>
-
-You'll find a ZIP file in your local downloads folder with a copy of your system discovery and usage metrics.
-
 ## Technical support by Steadybit
 
 Steadybit's technical support team can log in to your tenant account to investigate and fix problems you might experience within the platform. But they can only do that if you allow it.
