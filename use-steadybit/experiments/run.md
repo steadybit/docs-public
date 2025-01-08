@@ -24,9 +24,9 @@ The run view consists of the following elements.
 
 Every experiment run has a unique identifier (e.g. **#33131**), which you can use to identify older experiment runs (visible on the left side).
 
-Eventually, every experiment run ends in one of the following states:
+Experiment runs can have the following states:
 
-| End state | Description                                                                                                                                                                                                                                          |
+| State     | Description                                                                                                                                                                                                                                          |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | REQUESTED | The experiment was requested by a user, api call or a schedule.                                                                                                                                                                                      |
 | CREATED   | The experiment was created and all targets were resolved.                                                                                                                                                                                            |
