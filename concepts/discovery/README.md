@@ -1,6 +1,6 @@
 # Discovery
 
-Steadybit automatically discovers your system and makes them available as potential Chaos Engineering targets.
+Steadybit automatically discovers your system and makes it available as potential Chaos Engineering targets.
 Each target is associated with attributes you can use to specify the exact set of targets when designing or running a Chaos Engineering experiment.
 
 What kind of targets are discovered (e.g., containers, hosts, Kubernetes deployments, or JVM applications), and what kind of attributes are associated
