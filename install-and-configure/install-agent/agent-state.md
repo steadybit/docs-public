@@ -25,7 +25,7 @@ Another option is to use [Redis](https://redis.io/) as a state provider. The fol
 
 ## Extension Registrations
 
-The agent persists extension registrations to ensure they are not lost after a restart. Extension registrations can be maintained via the agent API, see [Extension Discovery](extension-discovery.md). 
+The agent persists extension registrations to ensure they are not lost after a restart. Extension registrations can be maintained via the agent API, see [Extension Registration](extension-registration.md). 
 
 If redis is used as the state provider, existing file-based extension registrations are ignored.
 
