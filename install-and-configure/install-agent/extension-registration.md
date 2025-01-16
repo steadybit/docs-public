@@ -39,13 +39,13 @@ agent:
 {% endtab %}
 
 {% tab title="using Environment Variables" %}
-
-`STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_MATCHLABELS_0_KEY=custom/extension-i-want-to-discover`
-`STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_MATCHLABELS_0_VALUE=true`
-`STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_MATCHLABELSEXCLUDE_0_KEY=app.kubernetes.io/name`
-`STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_MATCHLABELSEXCLUDE_0_VALUE=extension-host`
-`STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_NAMESPACE=my-namespace`
-
+```
+STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_MATCHLABELS_0_KEY=custom/extension-i-want-to-discover
+STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_MATCHLABELS_0_VALUE=true
+STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_MATCHLABELSEXCLUDE_0_KEY=app.kubernetes.io/name
+STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_MATCHLABELSEXCLUDE_0_VALUE=extension-host
+STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_NAMESPACE=my-namespace
+```
 {% endtab %}
 {% endtabs %}
 
@@ -93,6 +93,8 @@ You can also register extension without specifying the type, e.g., `STEADYBIT_AG
 | `STEADYBIT_AGENT_EXTENSIONS_REGISTRATIONS_n_METHOD`                            |          | Optional HTTP method to use. Default: `GET`                                                                         |
 | `STEADYBIT_AGENT_EXTENSIONS_REGISTRATIONS_n_BASIC_USERNAME`                    |          | Optional basic authentication username to use within HTTP requests.                                                 |
 | `STEADYBIT_AGENT_EXTENSIONS_REGISTRATIONS_n_BASIC_PASSWORD`                    |          | Optional basic authentication password to use within HTTP requests.                                                 |
+
+{% endtab %}
 
 {% endtabs %}
 
