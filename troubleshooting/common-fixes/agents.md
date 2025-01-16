@@ -60,7 +60,7 @@ You can configure the retry mechanism by setting the following environment varia
 
 ### Agent takes a long time registering the extensions and to submit the first targets
 
-In a very large cluster it might take a while to read all pods in your cluster and scan them for extensions. You can limit the extension auto-registration to a single namespace using the environment variable `STEADYBIT_AGENT_EXTENSIONS_AUTODISCOVERY_NAMESPACE` (helm-value `agent.extensions.autodiscovery.namespace`).
+In a very large cluster it might take a while to read all pods in your cluster and scan them for extensions. You can limit the extension auto-registration to a single namespace using the environment variable `STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_NAMESPACE` (helm-value `agent.extensions.autoregistration.namespace`).
 
 ### Install Agent and extension-kubernetes in a managed Kubernetes cluster where you are only allowed to deploy to one namespace
 
@@ -68,7 +68,7 @@ Install the agent/extension with the following helm settings to use roles instea
 
 ```shell
   --set rbac.roleKind="role" \
-  --set agent.extensions.autodiscovery.namespace=<replaceme-with-your-namespace> \
+  --set agent.extensions.autoregistration.namespace=<replaceme-with-your-namespace> \
   --set extension-kubernetes.role.create=true \
   --set extension-kubernetes.roleBinding.create=true \
   --set extension-kubernetes.clusterRole.create=false \
@@ -85,7 +85,7 @@ helm upgrade steadybit-agent --install --namespace <replace-me-with-namespace> \
   --set extension-container.container.runtime="<replace-me>" \
   --set agent.registerUrl="<replace-me>"\
   --set rbac.roleKind="role" \
-  --set agent.extensions.autodiscovery.namespace="<replace-me-with-namespace>" \
+  --set agent.extensions.autoregistration.namespace="<replace-me-with-namespace>" \
   --set extension-kubernetes.role.create=true \
   --set extension-kubernetes.roleBinding.create=true \
   --set extension-kubernetes.clusterRole.create=false \
