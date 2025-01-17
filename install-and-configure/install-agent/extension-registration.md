@@ -5,7 +5,7 @@
 Extensions needs to be registered with the agent. There are multiple ways to do that:
 
 - [Kubernetes Auto Registration](#kubernetes-auto-registration) (default behavior when using Kubernetes with our helm charts)
-- [ENV Variables](#using-env-variables)
+- [Environment Variables](#using-environment-variables)
 - [Configuration Files](#using-configuration-files) (default behavior when using Linux packages)
 - [Agent API](#using-the-agent-api)
 
@@ -50,9 +50,9 @@ STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_NAMESPACE=my-namespace
 {% endtabs %}
 
 
-### Using ENV Variables
+### Using Environment Variables
 
-You can specify ENV Variables via agent.env files or directly via the command line.
+You can specify environment Variables via `agent.env` files or directly via the command line.
 
 Please note that these environment variables are index-based (referred to as `n`) to register multiple extension instances.
 
