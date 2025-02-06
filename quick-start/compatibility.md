@@ -1,6 +1,6 @@
 ---
-title: Set Up Agents
-navTitle: Set Up Agents
+title: Compatibility
+navTitle: Compatibility
 ---
 
 # Compatibility
