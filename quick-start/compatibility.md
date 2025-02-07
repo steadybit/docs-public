@@ -62,11 +62,11 @@ The following capabilities are available when targeting containers.
 | Red Hat OpenShift | ✅ | ✅ | 
 | AWS Elastic Kubernetes Service | ✅ | ✅ | 
 | Google Kubernetes Engine | ✅ | ✅ | 
-| Google Kubernetes Engine (Autopilot)[^3] | ✅ | ✅ | 
+| Google Kubernetes Engine (Autopilot)[^1] | ✅ | ✅ | 
 | Azure Kubernetes Service | ✅ | ✅ | 
 | minikube | ✅ | ✅ |
 
-[^3]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. Container
+[^1]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. Container
 attacks in the following namespaces are disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
 
 ### Kubernetes environments
