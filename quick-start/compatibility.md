@@ -19,7 +19,7 @@ of your systems-under-test.
 infrastructure. They communicate with the Steadybit platform via an agent. As a rule of thumb, each **extension** exposes
 **targets** and **actions** related to a specific technology (e.g. containers, hosts, observability solution, etc).
 
-## Compatibility
+## Capabilities
 
 You can pick extensions to match the scenarios that you want to address with chaos experiments, keeping resource
 consumption and required permissions minimal. The following tables provide an overview of the capabilities across all
