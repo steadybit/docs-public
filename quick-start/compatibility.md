@@ -25,6 +25,7 @@ extensions.
 The following capabilities are available when targeting containers.
 
 **Network-related Attacks**
+
 |   | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
 | - | - | - | - | - | - | - |
 | Docker | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -39,6 +40,7 @@ The following capabilities are available when targeting containers.
 | minikube | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 **Resource-related Attacks**
+
 |   | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
 | - | - | - | - | - | - |
 | Docker | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -53,6 +55,7 @@ The following capabilities are available when targeting containers.
 | minikube | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 **State-related Attacks**
+
 |   | Pause Container | Stop Container |
 | - | - | - |
 | Docker | ✅ | ✅ |
@@ -73,6 +76,7 @@ attacks in the following namespaces are disabled: `kube-system`, `gke-gmp-system
 In addition to the above, the following Kubernetes specific actions are available.
 
 **Attacks**
+
 |   | Cause Crash Loop | Delete Pod | Rollout Restart Deployment | Scale Deployment | Scale StatefulSet | Taint Node |
 | - | - | - | - | - | - | - |
 | Kubernetes | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -84,6 +88,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 | minikube | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 **Checks**
+
 |   | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | StatefulSet Pod Count |
 | - | - | - | - | - | - |
 | Kubernetes | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -95,6 +100,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 | minikube | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 **Other Actions**
+
 |   | Display Pod Count Metrics | Display Kubernetes Event Logs |
 | - | - | - |
 | Kubernetes | ✅ | ✅ |
@@ -106,10 +112,12 @@ In addition to the above, the following Kubernetes specific actions are availabl
 | minikube | ✅ | ✅ |
 
 ## Physical and virtual hosts ##
+
 The following attacks are available when working with physical hosts and virtual machines 
 (both 64-bit PC and 64-bit ARM architectures).
 
 **Network-related Attacks**
+
 |   | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
 | - | - | - | - | - | - | - |
 | Ubuntu 20.04  | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -126,6 +134,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 {% endhint %}
 
 **Resource-related Attacks**
+
 |   | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
 | - | - | - | - | - | - |
 | Ubuntu 20.04  | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -142,6 +151,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 {% endhint %}
 
 **State-related Attacks**
+
 |   | Shutdown Host | Stop Process | Time Travel |
 | - | - | - | - |
 | Ubuntu 20.04 | ✅ | ✅ | ✅ |
