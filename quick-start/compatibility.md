@@ -1,7 +1,3 @@
----
-title: Compatibility
-navTitle: Compatibility
----
 # Compatibility
 
 Steadybit offers a wide variety of fault injections and other building blocks for Chaos experiments. On this page, you 
