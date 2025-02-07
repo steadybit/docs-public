@@ -62,10 +62,10 @@ For running the platform with multiple instances, a Redis message broker is requ
 
 ### Tenant Configuration
 
-| Environment Variable        | Required | Description                                                                                                                            |
-|-----------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `STEADYBIT_TENANT_AGENTKEY` | yes      | <p>Agent key for the tenant assigned to you. Treat it as sensitive information.<br><strong>Example:</strong> <code>foobar</code></p>   |
-| `STEADYBIT_TENANT_LICENSE`  | yes      | <p>License key for the tenant assigned to you. Treat it as sensitive information.<br><strong>Example:</strong> <code>foobar</code></p> |
+| Environment Variable        | Required | Description                                                                                                                                    |
+|-----------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `STEADYBIT_TENANT_AGENTKEY` | yes      | <p>Agent key for the tenant assigned to you. Treat it as sensitive information.<br><strong>Example:</strong> <code>foobar</code></p>           |
+| `STEADYBIT_TENANT_LICENSE`  | yes      | <p>License key for the tenant assigned to you. Treat it as sensitive information.<br><strong>Example:</strong> <code>secret-license</code></p> |
 
 ### Web Configuration
 
