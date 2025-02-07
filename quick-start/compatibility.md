@@ -74,6 +74,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 
 **Attacks**
 |   | Cause Crash Loop | Delete Pod | Rollout Restart Deployment | Scale Deployment | Scale StatefulSet | Taint Node |
+| - | - | - | - | - | - | - |
 | Kubernetes | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Red Hat OpenShift | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | AWS Elastic Kubernetes Service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -84,6 +85,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 
 **Checks**
 |   | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | StatefulSet Pod Count |
+| - | - | - | - | - | - |
 | Kubernetes | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Red Hat OpenShift | ✅ | ✅ | ✅ | ✅ | ✅ |
 | AWS Elastic Kubernetes Service | ✅ | ✅ | ✅ | ✅ | ✅ |
