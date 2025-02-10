@@ -13,7 +13,7 @@ of your systems-under-test.
 
 **Targets** and **actions** are exposed by **extensions**. **Extensions** are small processes running inside your
 infrastructure. They communicate with the Steadybit platform via an agent. As a rule of thumb, each **extension** exposes
-**targets** and **actions** related to a specific technology (e.g. containers, hosts, observability solution, etc).
+**targets** and **actions** related to a specific technology (e.g. containers, hosts, observability solution, etc.).
 
 ## Capabilities
 
@@ -181,8 +181,8 @@ Steadybit supports the following observability-related experiment actions:
 | StackState | ✅                    | ❌               | ❌               |
 
 [^2]: Different observability integrations us different names for these action. Please check the
-[Steadybit Reliability Hub](https://hub.steadybit.com) Hub for more details.
-[^3]: Synthetic events will be sent to the observability solution to mark the begin and end of every experiment action
+[Steadybit Reliability Hub](https://hub.steadybit.com) for more details.
+[^3]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action
 to facilitate root cause analysis.
 
 ## Load Testing ##
