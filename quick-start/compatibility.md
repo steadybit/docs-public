@@ -129,9 +129,9 @@ The following attacks are available when working with physical hosts and virtual
 | Amazon Linux 2    | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Amazon Linux 2023 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 
-{% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
-{% endhint %}
+```
+ℹ️ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+```
 
 **Resource-related Attacks**
 
@@ -146,9 +146,9 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 | Amazon Linux 2    | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Amazon Linux 2023 | ✅         | ✅           | ✅          | ✅         | ✅             |
 
-{% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
-{% endhint %}
+```
+ℹ️ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+```
 
 **State-related Attacks**
 
@@ -163,9 +163,9 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 | Amazon Linux 2    | ✅             | ✅            | ✅           |
 | Amazon Linux 2023 | ✅             | ✅            | ✅           |
 
-{% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
-{% endhint %}
+```
+ℹ️ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+```
 
 ## Observability ##
 Steadybit supports the following observability-related experiment actions:
