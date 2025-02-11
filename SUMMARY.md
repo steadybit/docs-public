@@ -8,6 +8,7 @@
 * [Install Agent and Extensions](quick-start/set-up-agents/README.md)
 * [Run an Experiment](quick-start/run-experiment/README.md)
 * [Deploy Example Application](quick-start/deploy-example-application/README.md)
+* [Compatibility](quick-start/compatibility.md)
 
 ## Concepts
 
