@@ -69,6 +69,9 @@ The following capabilities are available when targeting containers.
 | Azure Kubernetes Service                 | ✅               | ✅              | 
 | minikube                                 | ✅               | ✅              |
 
+[^1]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. Container
+attacks in the following namespaces are disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
+
 ### Kubernetes environments
 In addition to the above, the following Kubernetes specific actions are available.
 
@@ -177,6 +180,10 @@ Steadybit supports the following observability-related experiment actions:
 | Prometheus | ✅                    | ❌               | ❌               |
 | StackState | ✅                    | ❌               | ❌               |
 
+[^2]: Different observability integrations us different names for these action. Please check the
+[Steadybit Reliability Hub](https://hub.steadybit.com) for more details.
+[^3]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action
+to facilitate root cause analysis.
 
 ## Load Testing ##
 Steadybit integrates with the following load-testing solutions:
@@ -208,12 +215,3 @@ Steadybit supports fault injection on all major cloud providers. Please visit th
 ## Kafka ##
 Steadybit offers comprehensive support for chaos experiments on Kafka infrastructure. Please visit the [Kafka extension
 page on the Steadybit Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_kafka) for details.
-
-[^1]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. Container
-attacks in the following namespaces are disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
-
-[^2]: Different observability integrations us different names for these action. Please check the
-[Steadybit Reliability Hub](https://hub.steadybit.com) for more details.
-
-[^3]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action
-to facilitate root cause analysis.
