@@ -167,15 +167,15 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 ## Observability ##
 Steadybit supports the following observability-related experiment actions:
 
-|            | [Check for Alerts](#user-content-fn-2)[^2] | [Mute Alerts](#user-content-fn-2again)[^2copy] | [Send Events](#user-content-fn-3copy2)[^3copy2] |
-|------------|--------------------------------------------|-------------------------------------------------|-------------------------------------------------|
-| Datadog    | ✅                                          | ✅                                               | ✅                                               |
-| Dynatrace  | ✅                                          | ✅                                               | ✅                                               |
-| Grafana    | ✅                                          | ❌                                               | ✅                                               |
-| Instana    | ✅                                          | ✅                                               | ❌                                               |
-| New Relic  | ✅                                          | ✅                                               | ✅                                               |
-| Prometheus | ✅                                          | ❌                                               | ❌                                               |
-| StackState | ✅                                          | ❌                                               | ❌                                               |
+|            | [Check for Alerts](#user-content-fn-2)[^2] | [Mute Alerts](#user-content-fn-2copy)[^2copy] | [Send Events](#user-content-fn-3copy2)[^3copy2] |
+|------------|--------------------------------------------|-----------------------------------------------|-------------------------------------------------|
+| Datadog    | ✅                                          | ✅                                             | ✅                                               |
+| Dynatrace  | ✅                                          | ✅                                             | ✅                                               |
+| Grafana    | ✅                                          | ❌                                             | ✅                                               |
+| Instana    | ✅                                          | ✅                                             | ❌                                               |
+| New Relic  | ✅                                          | ✅                                             | ✅                                               |
+| Prometheus | ✅                                          | ❌                                             | ❌                                               |
+| StackState | ✅                                          | ❌                                             | ❌                                               |
 
 ## Load Testing ##
 Steadybit integrates with the following load-testing solutions:
