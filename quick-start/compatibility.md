@@ -217,3 +217,15 @@ Steadybit supports fault injection on all major cloud providers. Please visit th
 
 Steadybit offers comprehensive support for chaos experiments on Kafka infrastructure. Please visit the [Kafka extension
 page on the Steadybit Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_kafka) for details.
+
+Here's a simple footnote,[^1] and here's a longer one.[^bignote]
+
+[^1]: This is the first footnote.
+
+[^bignote]: Here's one with multiple paragraphs and code.
+
+    Indent paragraphs to include them in the footnote.
+
+    `{ my code }`
+
+    Add as many paragraphs as you like.
