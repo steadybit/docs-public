@@ -26,51 +26,48 @@ The following capabilities are available when targeting containers.
 
 **Network-related Attacks**
 
-|                                          | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
-|------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
-| Docker                                   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| CRI-O                                    | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| containerd                               | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Kubernetes                               | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Red Hat OpenShift                        | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| AWS Elastic Kubernetes Service           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Google Kubernetes Engine                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Google Kubernetes Engine (Autopilot)[^3] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Azure Kubernetes Service                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| minikube                                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+|                                                                | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
+|----------------------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
+| Docker                                                         | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| CRI-O                                                          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| containerd                                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Kubernetes                                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Red Hat OpenShift                                              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| AWS Elastic Kubernetes Service                                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Google Kubernetes Engine                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| [Google Kubernetes Engine (Autopilot)](#user-content-fn-3)[^3] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Azure Kubernetes Service                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| minikube                                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 
 **Resource-related Attacks**
 
-|                                          | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
-|------------------------------------------|-----------|-------------|------------|-----------|---------------|
-| Docker                                   | ✅         | ✅           | ✅          | ✅         | ✅             |
-| CRI-O                                    | ✅         | ✅           | ✅          | ✅         | ✅             |
-| containerd                               | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Kubernetes                               | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Red Hat OpenShift                        | ✅         | ✅           | ✅          | ✅         | ✅             |
-| AWS Elastic Kubernetes Service           | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Google Kubernetes Engine                 | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Google Kubernetes Engine (Autopilot)[^3] | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Azure Kubernetes Service                 | ✅         | ✅           | ✅          | ✅         | ✅             |
-| minikube                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
+|                                                                | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
+|----------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
+| Docker                                                         | ✅         | ✅           | ✅          | ✅         | ✅             |
+| CRI-O                                                          | ✅         | ✅           | ✅          | ✅         | ✅             |
+| containerd                                                     | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Kubernetes                                                     | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Red Hat OpenShift                                              | ✅         | ✅           | ✅          | ✅         | ✅             |
+| AWS Elastic Kubernetes Service                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Google Kubernetes Engine                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
+| [Google Kubernetes Engine (Autopilot)](#user-content-fn-3)[^3] | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Azure Kubernetes Service                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
+| minikube                                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
 
 **State-related Attacks**
 
-|                                          | Pause Container | Stop Container |
-|------------------------------------------|-----------------|----------------|
-| Docker                                   | ✅               | ✅              |
-| CRI-O                                    | ✅               | ✅              |
-| containerd                               | ✅               | ✅              | 
-| Kubernetes                               | ✅               | ✅              | 
-| Red Hat OpenShift                        | ✅               | ✅              | 
-| AWS Elastic Kubernetes Service           | ✅               | ✅              | 
-| Google Kubernetes Engine                 | ✅               | ✅              | 
-| Google Kubernetes Engine (Autopilot)[^1] | ✅               | ✅              | 
-| Azure Kubernetes Service                 | ✅               | ✅              | 
-| minikube                                 | ✅               | ✅              |
-
-[^1]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. Container
-attacks in the following namespaces are disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
+|                                                                | Pause Container | Stop Container |
+|----------------------------------------------------------------|-----------------|----------------|
+| Docker                                                         | ✅               | ✅              |
+| CRI-O                                                          | ✅               | ✅              |
+| containerd                                                     | ✅               | ✅              | 
+| Kubernetes                                                     | ✅               | ✅              | 
+| Red Hat OpenShift                                              | ✅               | ✅              | 
+| AWS Elastic Kubernetes Service                                 | ✅               | ✅              | 
+| Google Kubernetes Engine                                       | ✅               | ✅              | 
+| [Google Kubernetes Engine (Autopilot)](#user-content-fn-1)[^1] | ✅               | ✅              | 
+| Azure Kubernetes Service                                       | ✅               | ✅              | 
+| minikube                                                       | ✅               | ✅              |
 
 ### Kubernetes environments
 In addition to the above, the following Kubernetes specific actions are available.
@@ -170,20 +167,15 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 ## Observability ##
 Steadybit supports the following observability-related experiment actions:
 
-|            | Check for Alerts[^2] | Mute Alerts[^2] | Send Events[^3] |
-|------------|----------------------|-----------------|-----------------|
-| Datadog    | ✅                    | ✅               | ✅               |
-| Dynatrace  | ✅                    | ✅               | ✅               |
-| Grafana    | ✅                    | ❌               | ✅               |
-| Instana    | ✅                    | ✅               | ❌               |
-| New Relic  | ✅                    | ✅               | ✅               |
-| Prometheus | ✅                    | ❌               | ❌               |
-| StackState | ✅                    | ❌               | ❌               |
-
-[^2]: Different observability integrations us different names for these action. Please check the
-[Steadybit Reliability Hub](https://hub.steadybit.com) for more details.
-[^3]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action
-to facilitate root cause analysis.
+|            | [Check for Alerts](#user-content-fn-2)[^2] | [Mute Alerts](#user-content-fn-2)[^2] | [Send Events](#user-content-fn-3)[^3] |
+|------------|--------------------------------------------|---------------------------------------|---------------------------------------|
+| Datadog    | ✅                                          | ✅                                     | ✅                                     |
+| Dynatrace  | ✅                                          | ✅                                     | ✅                                     |
+| Grafana    | ✅                                          | ❌                                     | ✅                                     |
+| Instana    | ✅                                          | ✅                                     | ❌                                     |
+| New Relic  | ✅                                          | ✅                                     | ✅                                     |
+| Prometheus | ✅                                          | ❌                                     | ❌                                     |
+| StackState | ✅                                          | ❌                                     | ❌                                     |
 
 ## Load Testing ##
 Steadybit integrates with the following load-testing solutions:
@@ -215,3 +207,12 @@ Steadybit supports fault injection on all major cloud providers. Please visit th
 ## Kafka ##
 Steadybit offers comprehensive support for chaos experiments on Kafka infrastructure. Please visit the [Kafka extension
 page on the Steadybit Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_kafka) for details.
+
+
+[^1]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. 
+Container attacks in the following namespaces are disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
+
+[^2]: Different observability integrations us different names for these action. 
+Please check the [Steadybit Reliability Hub](https://hub.steadybit.com) for more details.
+
+[^3]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
