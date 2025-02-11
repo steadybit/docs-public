@@ -41,18 +41,18 @@ The following capabilities are available when targeting containers.
 
 **Resource-related Attacks**
 
-|                                                                | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
-|----------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
-| Docker                                                         | ✅         | ✅           | ✅          | ✅         | ✅             |
-| CRI-O                                                          | ✅         | ✅           | ✅          | ✅         | ✅             |
-| containerd                                                     | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Kubernetes                                                     | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Red Hat OpenShift                                              | ✅         | ✅           | ✅          | ✅         | ✅             |
-| AWS Elastic Kubernetes Service                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Google Kubernetes Engine                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
-| [Google Kubernetes Engine (Autopilot)](#user-content-fn-3)[^3] | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Azure Kubernetes Service                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
-| minikube                                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
+|                                                                          | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
+|--------------------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
+| Docker                                                                   | ✅         | ✅           | ✅          | ✅         | ✅             |
+| CRI-O                                                                    | ✅         | ✅           | ✅          | ✅         | ✅             |
+| containerd                                                               | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Kubernetes                                                               | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Red Hat OpenShift                                                        | ✅         | ✅           | ✅          | ✅         | ✅             |
+| AWS Elastic Kubernetes Service                                           | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Google Kubernetes Engine                                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
+| [Google Kubernetes Engine (Autopilot)](#user-content-fn-3copy1)[^3copy1] | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Azure Kubernetes Service                                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
+| minikube                                                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
 
 **State-related Attacks**
 
@@ -167,15 +167,15 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 ## Observability ##
 Steadybit supports the following observability-related experiment actions:
 
-|            | [Check for Alerts](#user-content-fn-2)[^2] | [Mute Alerts](#user-content-fn-2)[^2] | [Send Events](#user-content-fn-3)[^3] |
-|------------|--------------------------------------------|---------------------------------------|---------------------------------------|
-| Datadog    | ✅                                          | ✅                                     | ✅                                     |
-| Dynatrace  | ✅                                          | ✅                                     | ✅                                     |
-| Grafana    | ✅                                          | ❌                                     | ✅                                     |
-| Instana    | ✅                                          | ✅                                     | ❌                                     |
-| New Relic  | ✅                                          | ✅                                     | ✅                                     |
-| Prometheus | ✅                                          | ❌                                     | ❌                                     |
-| StackState | ✅                                          | ❌                                     | ❌                                     |
+|            | [Check for Alerts](#user-content-fn-2)[^2] | [Mute Alerts](#user-content-fn-2again)[^2copy] | [Send Events](#user-content-fn-3copy2)[^3copy2] |
+|------------|--------------------------------------------|-------------------------------------------------|-------------------------------------------------|
+| Datadog    | ✅                                          | ✅                                               | ✅                                               |
+| Dynatrace  | ✅                                          | ✅                                               | ✅                                               |
+| Grafana    | ✅                                          | ❌                                               | ✅                                               |
+| Instana    | ✅                                          | ✅                                               | ❌                                               |
+| New Relic  | ✅                                          | ✅                                               | ✅                                               |
+| Prometheus | ✅                                          | ❌                                               | ❌                                               |
+| StackState | ✅                                          | ❌                                               | ❌                                               |
 
 ## Load Testing ##
 Steadybit integrates with the following load-testing solutions:
@@ -215,4 +215,9 @@ Container attacks in the following namespaces are disabled: `kube-system`, `gke-
 [^2]: Different observability integrations us different names for these action. 
 Please check the [Steadybit Reliability Hub](https://hub.steadybit.com) for more details.
 
+[^2copy]: Different observability integrations us different names for these action. 
+Please check the [Steadybit Reliability Hub](https://hub.steadybit.com) for more details.
+
 [^3]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
+[^3copy1]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
+[^3copy2]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
