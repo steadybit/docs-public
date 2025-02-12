@@ -27,7 +27,7 @@ The following capabilities are available when targeting containers.
 **Network-related Attacks**
 
 |                                                                                                          | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
-|----------------------------------------------------------------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
+|:---------------------------------------------------------------------------------------------------------|:----------|:--------------|:--------------------------|:-----------------------|:----------------------|:-------------------------|
 | Docker                                                                                                   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | CRI-O                                                                                                    | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | containerd                                                                                               | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
@@ -42,7 +42,7 @@ The following capabilities are available when targeting containers.
 **Resource-related Attacks**
 
 |                                                                                                                    | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
-|--------------------------------------------------------------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
+|:-------------------------------------------------------------------------------------------------------------------|:----------|:------------|:-----------|:----------|:--------------|
 | Docker                                                                                                             | ✅         | ✅           | ✅          | ✅         | ✅             |
 | CRI-O                                                                                                              | ✅         | ✅           | ✅          | ✅         | ✅             |
 | containerd                                                                                                         | ✅         | ✅           | ✅          | ✅         | ✅             |
@@ -57,7 +57,7 @@ The following capabilities are available when targeting containers.
 **State-related Attacks**
 
 |                                                                                                          | Pause Container | Stop Container |
-|----------------------------------------------------------------------------------------------------------|-----------------|----------------|
+|:---------------------------------------------------------------------------------------------------------|:----------------|:---------------|
 | Docker                                                                                                   | ✅               | ✅              |
 | CRI-O                                                                                                    | ✅               | ✅              |
 | containerd                                                                                               | ✅               | ✅              | 
@@ -74,32 +74,32 @@ In addition to the above, the following Kubernetes specific actions are availabl
 
 **Attacks**
 
-|                                                                                | Cause Crash Loop | Delete Pod | Rollout Restart Deployment | Scale Deployment | Scale StatefulSet | Taint Node |
-|--------------------------------------------------------------------------------|------------------|------------|----------------------------|------------------|-------------------|------------|
-| Kubernetes                                                                     | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
-| Red Hat OpenShift                                                              | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
-| AWS Elastic Kubernetes Service                                                 | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
-| Google Kubernetes Engine                                                       | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
-| <span style="white-space: nowrap;">Google Kubernetes Engine (Autopilot)</span> | ✅                | ✅          | ✅                          | ✅                | ✅                 | ❌          |
-| Azure Kubernetes Service                                                       | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
-| minikube                                                                       | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
+|                                                                                | Cause Crash Loop | Delete Pod | <span style="white-space: nowrap;">Rollout Restart</span> Deployment | <span style="white-space: nowrap;">Scale</span> Deployment | Scale StatefulSet | Taint Node |
+|:-------------------------------------------------------------------------------|:-----------------|:-----------|:---------------------------------------------------------------------|:-----------------------------------------------------------|:------------------|:-----------|
+| Kubernetes                                                                     | ✅                | ✅          | ✅                                                                    | ✅                                                          | ✅                 | ✅          |
+| Red Hat OpenShift                                                              | ✅                | ✅          | ✅                                                                    | ✅                                                          | ✅                 | ✅          |
+| AWS Elastic Kubernetes Service                                                 | ✅                | ✅          | ✅                                                                    | ✅                                                          | ✅                 | ✅          |
+| Google Kubernetes Engine                                                       | ✅                | ✅          | ✅                                                                    | ✅                                                          | ✅                 | ✅          |
+| <span style="white-space: nowrap;">Google Kubernetes Engine (Autopilot)</span> | ✅                | ✅          | ✅                                                                    | ✅                                                          | ✅                 | ❌          |
+| Azure Kubernetes Service                                                       | ✅                | ✅          | ✅                                                                    | ✅                                                          | ✅                 | ✅          |
+| minikube                                                                       | ✅                | ✅          | ✅                                                                    | ✅                                                          | ✅                 | ✅          |
 
 **Checks**
 
-|                                                                                | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | StatefulSet Pod Count |
-|--------------------------------------------------------------------------------|---------------------|----------------------|---------------------------|------------|-----------------------|
-| Kubernetes                                                                     | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Red Hat OpenShift                                                              | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| AWS Elastic Kubernetes Service                                                 | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Google Kubernetes Engine                                                       | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| <span style="white-space: nowrap;">Google Kubernetes Engine (Autopilot)</span> | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Azure Kubernetes Service                                                       | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| minikube                                                                       | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
+|                                                                                | <span style="white-space: nowrap;">DaemonSet</span> Pod Count | <span style="white-space: nowrap;">Deployment</span> Pod Count | <span style="white-space: nowrap;">Deployment</span> Rollout Status | Node Count | <span style="white-space: nowrap;">StatefulSet</span> Pod Count |
+|:-------------------------------------------------------------------------------|:--------------------------------------------------------------|:---------------------------------------------------------------|:--------------------------------------------------------------------|:-----------|:----------------------------------------------------------------|
+| Kubernetes                                                                     | ✅                                                             | ✅                                                              | ✅                                                                   | ✅          | ✅                                                               |
+| Red Hat OpenShift                                                              | ✅                                                             | ✅                                                              | ✅                                                                   | ✅          | ✅                                                               |
+| AWS Elastic Kubernetes Service                                                 | ✅                                                             | ✅                                                              | ✅                                                                   | ✅          | ✅                                                               |
+| Google Kubernetes Engine                                                       | ✅                                                             | ✅                                                              | ✅                                                                   | ✅          | ✅                                                               |
+| <span style="white-space: nowrap;">Google Kubernetes Engine (Autopilot)</span> | ✅                                                             | ✅                                                              | ✅                                                                   | ✅          | ✅                                                               |
+| Azure Kubernetes Service                                                       | ✅                                                             | ✅                                                              | ✅                                                                   | ✅          | ✅                                                               |
+| minikube                                                                       | ✅                                                             | ✅                                                              | ✅                                                                   | ✅          | ✅                                                               |
 
 **Other Actions**
 
 |                                                                                | Display Pod Count Metrics | Display Kubernetes Event Logs |
-|--------------------------------------------------------------------------------|---------------------------|-------------------------------|
+|:-------------------------------------------------------------------------------|:--------------------------|:------------------------------|
 | Kubernetes                                                                     | ✅                         | ✅                             |
 | Red Hat OpenShift                                                              | ✅                         | ✅                             |
 | AWS Elastic Kubernetes Service                                                 | ✅                         | ✅                             |
@@ -115,16 +115,16 @@ The following attacks are available when working with physical hosts and virtual
 
 **Network-related Attacks**
 
-|                                                             | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
-|-------------------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
-| Ubuntu 20.04                                                | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Ubuntu 22.04                                                | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Ubuntu 24.04                                                | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Fedora Latest                                               | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Debian Bookworm                                             | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Debian Bullseye                                             | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Amazon Linux 2                                              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| <span style="white-space: nowrap;">Amazon Linux 2023</span> | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+|                                                             | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | <span style="white-space: nowrap;">Limit Outgoing</span> Bandwidth |
+|:------------------------------------------------------------|:----------|:--------------|:--------------------------|:-----------------------|:----------------------|:-------------------------------------------------------------------|
+| Ubuntu 20.04                                                | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                                                                  |
+| Ubuntu 22.04                                                | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                                                                  |
+| Ubuntu 24.04                                                | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                                                                  |
+| Fedora Latest                                               | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                                                                  |
+| Debian Bookworm                                             | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                                                                  |
+| Debian Bullseye                                             | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                                                                  |
+| Amazon Linux 2                                              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                                                                  |
+| <span style="white-space: nowrap;">Amazon Linux 2023</span> | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                                                                  |
 
 {% hint style="info" %}
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
@@ -133,7 +133,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 **Resource-related Attacks**
 
 |                                                             | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
-|-------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
+|:------------------------------------------------------------|:----------|:------------|:-----------|:----------|:--------------|
 | Ubuntu 20.04                                                | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Ubuntu 22.04                                                | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Ubuntu 24.04                                                | ✅         | ✅           | ✅          | ✅         | ✅             |
@@ -150,7 +150,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 **State-related Attacks**
 
 |                                                             | Shutdown Host | Stop Process | Time Travel |
-|-------------------------------------------------------------|---------------|--------------|-------------|
+|:------------------------------------------------------------|:--------------|:-------------|:------------|
 | Ubuntu 20.04                                                | ✅             | ✅            | ✅           |
 | Ubuntu 22.04                                                | ✅             | ✅            | ✅           |
 | Ubuntu 24.04                                                | ✅             | ✅            | ✅           |
@@ -168,7 +168,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 Steadybit supports the following observability-related experiment actions:
 
 |                                                      | [Check for Alerts](#user-content-fn-2)[^2] | [Mute Alerts](#user-content-fn-2copy)[^2copy] | [Send Events](#user-content-fn-3copy2)[^3copy2] |
-|------------------------------------------------------|--------------------------------------------|-----------------------------------------------|-------------------------------------------------|
+|:-----------------------------------------------------|:-------------------------------------------|:----------------------------------------------|:------------------------------------------------|
 | Datadog                                              | ✅                                          | ✅                                             | ✅                                               |
 | Dynatrace                                            | ✅                                          | ✅                                             | ✅                                               |
 | Grafana                                              | ✅                                          | ❌                                             | ✅                                               |
@@ -180,20 +180,20 @@ Steadybit supports the following observability-related experiment actions:
 ## Load Testing ##
 Steadybit integrates with the following load-testing solutions:
 
-|                                                                               | Run Load Test from Experiment | Run Experiment from Load Test |
-|-------------------------------------------------------------------------------|-------------------------------|-------------------------------|
-| <span style="white-space: nowrap;">Micro Focus LoadRunner Professional</span> | ❌                             | ✅                             |
-| Micro Focus LoadRunner Enterprise                                             | ❌                             | ✅                             |
-| Gatling                                                                       | ✅                             | ❌                             |
-| JMeter                                                                        | ✅                             | ❌                             |
-| K6                                                                            | ✅                             | ✅                             |
-| K6 Cloud                                                                      | ✅                             | ✅                             |
+|                                                                                | Run Load Test from Experiment  | Run Experiment from Load Test  |
+|:-------------------------------------------------------------------------------|:-------------------------------|:-------------------------------|
+| <span style="white-space: nowrap;">Micro Focus LoadRunner Professional</span>  | ❌                              | ✅                              |
+| Micro Focus LoadRunner Enterprise                                              | ❌                              | ✅                              |
+| Gatling                                                                        | ✅                              | ❌                              |
+| JMeter                                                                         | ✅                              | ❌                              |
+| K6                                                                             | ✅                              | ✅                              |
+| K6 Cloud                                                                       | ✅                              | ✅                              |
 
 ## Service Meshes ##
 Steadybit provides the following fault injections for service meshes.
 
 |                                                 | GRPC Abort | HTTP Abort | HTTP Delay |
-|-------------------------------------------------|------------|------------|------------|
+|:------------------------------------------------|:-----------|:-----------|:-----------|
 | <span style="white-space: nowrap;">Istio</span> | ✅          | ✅          | ✅          |
 | Kong                                            | ❌          | ✅          | ❌          |
 
