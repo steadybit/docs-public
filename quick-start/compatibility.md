@@ -106,7 +106,7 @@ The following capabilities are available when targeting containers.
 		<td>✅</td>
 	</tr>
 	<tr>
-		<td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(Autopilot)</a></td>
+		<td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-2">(Autopilot)</a></td>
 		<td>✅</td>
 		<td>✅</td>
 		<td>✅</td>
@@ -206,7 +206,7 @@ The following capabilities are available when targeting containers.
 		<td>✅</td>
 	</tr>
 	<tr>
-		<td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(Autopilot)</a></td>
+		<td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-2">(Autopilot)</a></td>
 		<td>✅</td>
 		<td>✅</td>
 		<td>✅</td>
@@ -234,18 +234,18 @@ The following capabilities are available when targeting containers.
 
 **State-related Attacks**
 
-|                                          | Pause Container | Stop Container |
-|------------------------------------------|-----------------|----------------|
-| Docker                                   | ✅               | ✅              |
-| CRI-O                                    | ✅               | ✅              |
-| containerd                               | ✅               | ✅              |
-| Kubernetes                               | ✅               | ✅              |
-| Red Hat OpenShift                        | ✅               | ✅              |
-| AWS Elastic Kubernetes Service           | ✅               | ✅              |
-| Google Kubernetes Engine                 | ✅               | ✅              |
-| Google Kubernetes Engine (Autopilot)[^2] | ✅               | ✅              |
-| Azure Kubernetes Service                 | ✅               | ✅              |
-| minikube                                 | ✅               | ✅              |
+|                                                                | Pause Container | Stop Container |
+|----------------------------------------------------------------|-----------------|----------------|
+| Docker                                                         | ✅               | ✅              |
+| CRI-O                                                          | ✅               | ✅              |
+| containerd                                                     | ✅               | ✅              |
+| Kubernetes                                                     | ✅               | ✅              |
+| Red Hat OpenShift                                              | ✅               | ✅              |
+| AWS Elastic Kubernetes Service                                 | ✅               | ✅              |
+| Google Kubernetes Engine                                       | ✅               | ✅              |
+| Google Kubernetes Engine [(Autopilot)](#user-content-fn-2)[^2] | ✅               | ✅              |
+| Azure Kubernetes Service                                       | ✅               | ✅              |
+| minikube                                                       | ✅               | ✅              |
 
 ### Kubernetes environments
 
