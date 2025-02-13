@@ -38,7 +38,7 @@ The following capabilities are available when targeting containers.
 		<th>Corrupt Outgoing Packages</th>
 		<th>Delay Outgoing Traffic</th>
 		<th>Drop Outgoing Traffic</th>
-		<th width="100">Limit Outgoing Bandwidth</th>
+		<th width="110">Limit Outgoing Bandwidth</th>
 	</tr>
 	</thead>
 	<tbody>
