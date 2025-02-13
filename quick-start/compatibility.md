@@ -65,7 +65,7 @@ The following capabilities are available when targeting containers.
 | Red Hat OpenShift                                                        | ✅               | ✅              | 
 | <span style="white-space: nowrap;">AWS Elastic Kubernetes Service</span> | ✅               | ✅              | 
 | Google Kubernetes Engine                                                 | ✅               | ✅              | 
-| [Google Kubernetes Engine (Autopilot)](#user-content-fn-1)[^1]           | ✅               | ✅              | 
+| Google Kubernetes Engine [(Autopilot)](#user-content-fn-1)[^1]           | ✅               | ✅              | 
 | Azure Kubernetes Service                                                 | ✅               | ✅              | 
 | minikube                                                                 | ✅               | ✅              |
 
