@@ -35,7 +35,7 @@ The following capabilities are available when targeting containers.
 | Red Hat OpenShift                                                  | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | AWS Elastic Kubernetes Service                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | <span style="white-space: nowrap;">Google Kubernetes Engine</span> | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| [Google Kubernetes Engine (Autopilot)](#user-content-fn-3)[^3]     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Google Kubernetes Engine [(Autopilot)](#user-content-fn-3)[^3]     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Azure Kubernetes Service                                           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | minikube                                                           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 
@@ -50,7 +50,7 @@ The following capabilities are available when targeting containers.
 | Red Hat OpenShift                                                        | ✅         | ✅           | ✅          | ✅         | ✅             |
 | <span style="white-space: nowrap;">AWS Elastic Kubernetes Service</span> | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Google Kubernetes Engine                                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
-| [Google Kubernetes Engine (Autopilot)](#user-content-fn-3copy1)[^3copy1] | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Google Kubernetes Engine [(Autopilot)](#user-content-fn-3copy1)[^3copy1] | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Azure Kubernetes Service                                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
 | minikube                                                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
 
