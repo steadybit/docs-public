@@ -430,9 +430,9 @@ Steadybit integrates with the following load-testing solutions:
 | K6                                  | ✅                             | ✅                             |
 | K6 Cloud                            | ✅                             | ✅                             |
 
-## Service Meshes
+## Service Mesh & Api Gateway
 
-Steadybit provides the following fault injections for service meshes.
+Steadybit provides the following fault injections for service meshes and api gateways.
 
 |       | GRPC Abort | HTTP Abort | HTTP Delay |
 |-------|------------|------------|------------|
