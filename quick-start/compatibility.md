@@ -106,7 +106,7 @@ The following capabilities are available when targeting containers.
 		<td>✅</td>
 	</tr>
 	<tr>
-		<td><a data-footnote-ref href="#user-content-fn-1">Google Kubernetes Engine (Autopilot)</a></td>
+		<td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(Autopilot)</a></td>
 		<td>✅</td>
 		<td>✅</td>
 		<td>✅</td>
@@ -206,7 +206,7 @@ The following capabilities are available when targeting containers.
 		<td>✅</td>
 	</tr>
 	<tr>
-		<td><a data-footnote-ref href="#user-content-fn-1">Google Kubernetes Engine (Autopilot)</a></td>
+		<td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(Autopilot)</a></td>
 		<td>✅</td>
 		<td>✅</td>
 		<td>✅</td>
