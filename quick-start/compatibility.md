@@ -253,28 +253,19 @@ In addition to the above, the following Kubernetes specific actions are availabl
 
 **Attacks**
 
-<table data-header-hidden>
+<table>
 	<thead>
 	<tr>
 		<th width="132"></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
+		<th>Cause Crash Loop</th>
+		<th>Delete Pod</th>
+		<th width="120">Rollout Restart Deployment</th>
+		<th width="120">Scale Deployment</th>
+		<th width="110">Scale StatefulSet</th>
+		<th>Taint Node</th>
 	</tr>
 	</thead>
 	<tbody>
-	<tr>
-		<td></td>
-		<td>Cause Crash Loop</td>
-		<td>Delete Pod</td>
-		<td>Rollout Restart Deployment</td>
-		<td>Scale Deployment</td>
-		<td>Scale StatefulSet</td>
-		<td>Taint Node</td>
-	</tr>
 	<tr>
 		<td>Kubernetes</td>
 		<td>✅</td>
