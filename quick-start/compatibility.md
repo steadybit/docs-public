@@ -259,8 +259,8 @@ In addition to the above, the following Kubernetes specific actions are availabl
 		<th width="132"></th>
 		<th>Cause Crash Loop</th>
 		<th>Delete Pod</th>
-		<th width="110">Rollout Restart Deployment</th>
-		<th width="110">Scale Deployment</th>
+		<th width="120">Rollout Restart Deployment</th>
+		<th width="120">Scale Deployment</th>
 		<th width="110">Scale StatefulSet</th>
 		<th>Taint Node</th>
 	</tr>
