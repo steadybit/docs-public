@@ -224,3 +224,62 @@ Note that `X` links to a specific domain, see below (e.g. targets stats via `TAR
 | `STEADYBIT_METRIC_RETENTION_CRON`                                    | Cron String for the cleanup job of metrics.                                                                                       | `metric`                        | `0 35 5 1/1 * ? *`<br/>(every day at 5:35) |
 | `STEADYBIT_TARGETS_STATS_RETENTION_PERIOD`                           | Maximum age of target stats.                                                                                                      | `target_stats`                  | `7d`                                       |
 | `STEADYBIT_TARGETS_STATS_RETENTION_CRON`                             | Cron String for the cleanup job of target stats.                                                                                  | `target_stats`                  | `0 30 5 1/1 * ? *`<br/>(every day at 5:30) |
+
+### Endpoint Rate Limits
+
+Rate limits protect the UI, API, and Agent endpoints of the Steadybit platform. They can be enabled or disabled by setting the environment variable 
+`steadybit.ratelimit.enabled` to `true` or `false`, respectively.
+
+Rate limits restrict the number of processable requests in a given timeframe. Every request reduces this capacity and will fail if none is left. After a given
+time, the capacity is refilled, and requests can be processed again.
+
+All rate limits apply to the associated tenant, whereas some endpoints are additionally restricted by a qualifier, specifying the user or agent issuing the
+request.
+
+| Name               | Description                                                                      | Tenant <br/>(capacity,refill token, refill rate) | Qualifier <br/>(capacity,refill token, refill rate) |
+|--------------------|----------------------------------------------------------------------------------|--------------------------------------------------|-----------------------------------------------------|
+| API General        | All API requests not mentioned below                                             | 100/100/60s                                      | -                                                   |
+| API Experiment     | Experiment execution endpoints                                                   | 10/10/60s                                        | -                                                   |
+| API Security       | Killswitch, cancel experiment, remove schedule, remove team member, delete token | unlimited                                        | -                                                   |
+| UI General         | All UI requests not mentioned below                                              | 1000/1000/1s tenant, <br/> 500 user              | 500/100/10s                                         |
+| UI Security        | Killswitch, cancel experiment, remove schedule, remove team member, delete token | unlimited                                        | -                                                   |
+| Agent Registration | Agent registration requests                                                      | 200/200/10s                                      | -                                                   |
+| Agent Definition   | Extension metadata like target types, attributes, enrichment rules or advices    | 200/200/10s                                      | 10/10/10s                                           |                                                               | 
+| Agent Experiment   | Experiment execution and metadata like metrics, logs, spans                      | 1000/1000/1s                                     | 100/100/10s                                         | 
+| Agent Target       | Submitted targets <br/> (based on target count, and not request count)           | 100000/30000/5s                                  | 75000/7500/5s                                       |                  
+
+To define stricter or more relaxed restrictions environment variables can override the predefined defaults.
+
+`name` has to be replaced by the rate limit name in environment variable format (all uppercase, separated by underscore). `capacity` states the initial
+capacity, `refill-tokens` the amount that should be refilled every `refill-period` in unit `refill-unit`. Furthermore, tenant and qualifier (user or agent)
+restrictions can be overridden separately.
+
+```bash
+steadybit.ratelimit.configurations.<name>.perTenant.capacity=<number>
+steadybit.ratelimit.configurations.<name>.perTenant.refill-tokens=<number>
+steadybit.ratelimit.configurations.<name>.perTenant.refill-period=<number>
+steadybit.ratelimit.configurations.<name>.perTenant.refill-unit=<time-unit, ms,s,m,h,d>
+steadybit.ratelimit.configurations.<name>.perQualifier.capacity=<number>
+steadybit.ratelimit.configurations.<name>.perQualifier.refill-tokens=<number>
+steadybit.ratelimit.configurations.<name>.perQualifier.refill-period=<number>
+steadybit.ratelimit.configurations.<name>.perQualifier.refill-unit=<time-unit, ms,s,m,h,d>
+```
+
+For example, changing the general UI rate limit would look like this:
+
+```bash
+steadybit.ratelimit.configurations.UI_GENERAL.perTenant.capacity=10000
+steadybit.ratelimit.configurations.UI_GENERAL.perTenant.refill-tokens=1000
+steadybit.ratelimit.configurations.UI_GENERAL.perTenant.refill-period=5
+steadybit.ratelimit.configurations.UI_GENERAL.perTenant.refill-unit=s
+```
+
+#### Rate Limit Metrics
+
+The Steadybit Platform provides the following rate limit metrics:
+
+| Metric                       | Labels                                                                                                                            | Value                     |
+|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| `ratelimit_tokens_available` | `tenantKey`, `bucketName` (as described above), `qualifier` (username or agent id)                                                | Number of available token |
+| `ratelimit_tokens_total`     | `tenantKey`, `bucketName` (as described above), `qualifier` (username or agent id), `status` (`consumed`, `rejected` or `failed`) | Number of requested token |
+
