@@ -20,7 +20,7 @@ If you have two different experiments, they can each use the same variable name 
 
 An experiment-scoped variable can shadow variables in an outer-scope (i.e., environment variable).
 If that is the case, the experiment uses the value of the experiment variable instead of the environment variable.
-Steadybit indicates shadowing as shown below, where the value for the `k8sClusterName` variable is defined as `docs-demo` for this specific experiment and `demo` for all other experiments using the environment `Global`. 
+Steadybit indicates shadowing as shown below, where the value for the `k8sClusterName` variable is defined as `docs-demo` for this specific experiment and `demo` for all other experiments using the environment `Global`.
 The variable doesn't exist for experiments that aren't using the environment `Global`.
 
 ![Variable shadowing in an experiment an environment-scoped variable](variable-experiment-shadow.png)
@@ -33,3 +33,6 @@ You can edit environment-scoped variables in settings -> environments.
 Admins can edit all environment variables, users only variables of environments their team can access.
 
 ![Variables scoped to an environment](variable-environment.png)
+
+## Escaping
+If you want to use a literal string `{{..}}` in your experiment design, you can escape it by using a single backslash like `\{{..}}`.
