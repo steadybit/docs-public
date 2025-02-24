@@ -55,6 +55,7 @@ redirects:
   install-configure/70-configure-monitoring/20-instana: concepts/actions/README.md
   install-configure/70-configure-monitoring/30-new-relic: concepts/actions/README.md
   install-configure/70-configure-monitoring/40-prometheus: concepts/actions/README.md
+  installation-platform/3-advanced-configuration: install-and-configure/install-on-prem-platform/advanced-configuration.md
   use: use-steadybit/experiments/README.md
   use/10-experiments: use-steadybit/experiments/README.md
   use/10-experiments/10-design: use-steadybit/experiments/design.md
