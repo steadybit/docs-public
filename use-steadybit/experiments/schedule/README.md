@@ -41,14 +41,20 @@ In the experiment list section on the left-hand side, you can find a quick overv
 
 ![Scheduled Experiment overview](experiment-schedule-overview.png)
 
+### Experiment variable overrides
+
+If the experiment is making use of an [environment or experiment variable](../variables.md), you can override them is the schedule. As in the experiment editor, the exeriment is validated when you enter non supported values (e.g. entering "name" into a duration variable). Schedule variables will override environment or experiment variable values for each run, triggered by this schedule.
+
+![Experiment Schedule override](experiment-schedule-overrides.png)
+
 ## Scheduling via API
 
 Schedules can also be configured using the following API endpoints.
 Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) how to access the API.
 
-* [Create or update an experiment schedule](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiment%20Schedule/upsertSchedule)
-* [Get an experiment schedule](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiment%20Schedule/getSchedules)
-* [Remove an experiment schedule](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiment%20Schedule/removeExperimentScheduleById)
-* [List all schedules currently configured](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiment%20Schedule/getAllSchedulesV2)
+- [Create or update an experiment schedule](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiment%20Schedule/upsertSchedule)
+- [Get an experiment schedule](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiment%20Schedule/getSchedules)
+- [Remove an experiment schedule](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiment%20Schedule/removeExperimentScheduleById)
+- [List all schedules currently configured](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiment%20Schedule/getAllSchedulesV2)
 
 Each experiment schedule can be identified via a UUID (`id`) which can be used to update or delete a specific schedule.
