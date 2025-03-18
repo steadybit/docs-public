@@ -8,6 +8,8 @@ Steadybit's integrated reporting feature provides you with a comprehensive overv
 
 ![Example of a report showing experiment run results](example-report.png)
 
+You can click on the labels below any report to filter the data shown in the graphs.
+
 All charts can be downloaded as png or pdf files.
 
 ## Experiment Runs
