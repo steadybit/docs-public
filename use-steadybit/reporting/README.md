@@ -4,7 +4,7 @@ title: Reporting
 
 # Reporting
 
-Steadybit's integrated reporting feature provides you with a comprehensive overview of your experiments, experiment runs and your adoption of Steadybit in terms of Users, Teams and Environments.
+Steadybit's integrated reporting feature provides you with a comprehensive overview of your experiments, experiment runs and your adoption of Steadybit in terms of users, teams and environments.
 
 ![Example of a report showing experiment run results](example-report.png)
 
@@ -68,7 +68,7 @@ Identify which channel is used the most across your teams to create an experimen
 
 ### Creation Method
 
-Identify which method is used the most across your teams to create an experiment: From Scratch, Template, or Advice
+Identify which method is used the most across your teams to create an experiment: From scratch, template, or advice
 
 ## Others
 
@@ -86,4 +86,4 @@ Easily report on the numbers of teams having access to a safe Chaos Engineering 
 
 ### Environments
 
-Find out how many environments you have created to roll-out a safe Chaos Engineering across your organization.
+Find out how many environments you have created to roll out a safe Chaos Engineering across your organization.
