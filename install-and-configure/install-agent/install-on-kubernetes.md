@@ -98,6 +98,41 @@ helm template steadybit-agent --namespace steadybit-agent \
   steadybit/steadybit-agent
 ```
 
+### Alternative: GKE Autopilot installation
+
+You can install the agent and extensions on Google Kubernetes Engine using the Autopilot mode. Due to restrictions by GKE host attacks won't be available.
+
+For the container extension to work, you first need to apply a workload allow list:
+
+```bash
+kubectl apply -f - <<'EOF'
+apiVersion: auto.gke.io/v1
+kind: AllowlistSynchronizer
+metadata:
+  name: steadybit-synchronizer
+spec:
+  allowlistPaths:
+    - Steadybit/extension-container/*
+EOF
+kubectl wait --for=condition=Ready allowlistsynchronizer/steadybit-synchronizer --timeout=60s
+```
+
+After this, you're ready to deploy the agent while specifying the cluster name and agent key.
+
+```
+helm repo add steadybit https://steadybit.github.io/helm-charts
+helm repo update
+helm upgrade --install steadybit-agent --namespace steadybit-agent \
+  --create-namespace \
+  --set agent.key=<replace-with-agent-key> \
+  --set global.clusterName=<replace-with-cluster-name> \
+  --set extension-container.container.runtime=containerd \
+  --set extension-container.platform=gke-autopilot \
+  --set extension-host.enabled=false \
+  --set agent.registerUrl=https://platform.steadybit.com \
+  steadybit/steadybit-agent
+```
+
 ## Resource limits
 
 Keep an eye on OOMing / crash looping agents and extensions after installation. The memory usage highly depends on the number of discovered targets. We try to provide reasonable defaults, but you might need to adapt the resource limits to your use case.
