@@ -100,7 +100,7 @@ helm template steadybit-agent --namespace steadybit-agent \
 
 ### Alternative: GKE Autopilot installation
 
-You can install the agent and extensions on Google Kubernetes Engine using the Autopilot mode. Due to restrictions by GKE host attacks won't be available.
+You can install the agent and extensions on Google Kubernetes Engine Autopilot clusters  (1.32.1-gke.1729000 or later). Due to restrictions by GKE host attacks won't be available.
 
 For the container extension to work, you first need to apply a workload allow list:
 
