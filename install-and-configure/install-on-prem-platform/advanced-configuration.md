@@ -117,8 +117,16 @@ unless `STEADYBIT_AUTH_LDAP_METHOD` is set to `password-compare`.
 
 ### OpenID-Connect Authentication
 
-You can use an OpenID Connect compatible authentication provider for user authentication. Steadybit uses
-the `authorization_code` grant type. The callback URL is `https://<host>/oauth2/login/code/default`
+You can use an OpenID Connect compatible authentication provider for user authentication.
+
+
+| Config        | Value                                      |
+|---------------|--------------------------------------------|
+| Grant type    | `authorization_code`                       |
+| Redirect uri  | `https://<host>/oauth2/login/code/default` |
+| Login url     | `https://<host>/login`                     |
+| Response type | `code`                                     |
+
 
 > The first user to login will be assigned the `ADMIN` role, all other will be assigned the `USER` role. The roles can
 > be changed by an admin user via the UI.
