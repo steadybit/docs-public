@@ -21,7 +21,7 @@ An experiment generally consists of the following elements:
 - **Hypothesis**: The hypothesis should answer the question of the expected outcome.
   In addition, you can describe the steady state, the turbulent condition, and the expected behavior.
   See this example of a hypothesis: 'When requests to the recommendation service exceed 1000ms, the catalog responds using an empty recommendation list.'
-- **Tags**: In addtion to the hypothesis, tags can be applied to an experiment as useful metadata. Tags are not only listet in the experiments overview, but also you can use them to search for specific experiments. In the experiment list, the top 10 used tags are listed right below the searchbar (where you find the full list of used tags), so you have a quick access.
+- **Tags**: Besides the hypothesis, tags can be applied to an experiment as useful metadata. Tags are not only listed in the experiments overview, but also you can use them to search for specific experiments. In the experiment list, the top 10 used tags are listed right below the searchbar (where you find the full list of used tags), so you have a quick access.
 - **Actions**: Performed when running the experiment, sequentially or in parallel.
   An action can be either
   - an **attack** to inject a fault into your system
