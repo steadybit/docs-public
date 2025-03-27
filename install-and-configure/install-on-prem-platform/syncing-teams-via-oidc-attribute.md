@@ -8,7 +8,7 @@ This feature allows dynamic synchronization of teams between your identity provi
 When a user authenticates via OIDC, the token can include a claim (attribute) containing an array of team identifiers. The platform reads this claim and performs the following actions:
 - Team Mapping: If a team referenced in the token already exists in the platform, the user is added as a member.
 - Team Creation: If a team does not exist, it is created automatically and the user is assigned to it.
-- Default Role: Each authenticated user is granted the default platform role of `user`. Note that dynamic mapping only applies to teams—not to platform roles such as `admin` or team owner. Platform roles must be assigned separately (for example via manual configuration).
+- Default Role: Each authenticated user is granted the default platform role of `user`. Note that dynamic mapping only applies to teams, not to platform roles such as `admin` or team owner. Platform roles must be assigned separately (for example via manual configuration).
 
 ## Configuration Parameter
 
