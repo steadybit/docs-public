@@ -34,6 +34,7 @@
   * [Advanced Agent Authentication](install-and-configure/install-on-prem-platform/advanced-agent-authentication.md)
   * [Configuration Options](install-and-configure/install-on-prem-platform/advanced-configuration.md)
   * [Maintenance & Incident Support](install-and-configure/install-on-prem-platform/maintenance-and-incident-support.md)
+  * [Syncing Teams via OIDC Attribute](install-and-configure/install-on-prem-platform/syncing-teams-via-oidc-attribute.md)
 * [Manage Environments](install-and-configure/manage-environments/README.md)
 * [Manage Teams and Users](install-and-configure/manage-teams-and-users/README.md)
   * [Users](install-and-configure/manage-teams-and-users/users.md)
