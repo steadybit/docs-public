@@ -18,15 +18,15 @@ You can pick extensions to match the scenarios that you want to address with cha
 
 The following capabilities are available when targeting containers.
 
-**Network-related Attacks**
+#### Network-related Attacks
 
 <table><thead><tr><th width="160"></th><th>Block DNS</th><th>Block Traffic</th><th>Corrupt Outgoing Packages</th><th>Delay Outgoing Traffic</th><th>Drop Outgoing Traffic</th><th width="110">Limit Outgoing Bandwidth</th></tr></thead><tbody><tr><td>Docker</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CRI-O</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>containerd</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service (EKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(GKE, Autopilot)</a></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Azure Kubernetes Service (AKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
-**Resource-related Attacks**
+#### Resource-related Attacks
 
 <table><thead><tr><th width="140"></th><th>Fill Disk</th><th>Fill Memory</th><th>Stress CPU</th><th>Stress IO</th><th>Stress Memory</th></tr></thead><tbody><tr><td>Docker</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CRI-O</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>containerd</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service (EKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(GKE, Autopilot)</a></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Azure Kubernetes Service (AKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
-**State-related Attacks**
+#### State-related Attacks
 
 |                                               | Pause Container | Stop Container |
 |-----------------------------------------------| --------------- | -------------- |
@@ -45,11 +45,11 @@ The following capabilities are available when targeting containers.
 
 In addition to the above, the following Kubernetes specific actions are available.
 
-**Attacks**
+#### Attacks
 
 <table><thead><tr><th width="132"></th><th>Cause Crash Loop</th><th>Delete Pod</th><th width="120">Rollout Restart Deployment</th><th width="120">Scale Deployment</th><th width="110">Scale StatefulSet</th><th>Taint Node</th></tr></thead><tbody><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service (EKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE, Autopilot)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>Azure Kubernetes Service (AKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
-**Checks**
+#### Checks
 
 |                                           | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | StatefulSet Pod Count |
 |-------------------------------------------| ------------------- | -------------------- | ------------------------- | ---------- | --------------------- |
@@ -61,7 +61,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 | Azure Kubernetes Service (AKS)            | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
 | minikube                                  | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
 
-**Other Actions**
+#### Other Actions
 
 |                                           | Display Pod Count Metrics | Display Kubernetes Event Logs |
 |-------------------------------------------| ------------------------- | ----------------------------- |
@@ -73,11 +73,11 @@ In addition to the above, the following Kubernetes specific actions are availabl
 | Azure Kubernetes Service (AKS)            | ✅                         | ✅                             |
 | minikube                                  | ✅                         | ✅                             |
 
-## Physical and virtual hosts
+### Physical and virtual hosts
 
 The following attacks are available when working with physical hosts and virtual machines (both 64-bit PC and 64-bit ARM architectures).
 
-**Network-related Attacks**
+#### Network-related Attacks
 
 |                   | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
 | ----------------- | --------- | ------------- | ------------------------- | ---------------------- | --------------------- | ------------------------ |
@@ -94,7 +94,7 @@ The following attacks are available when working with physical hosts and virtual
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
-**Resource-related Attacks**
+#### Resource-related Attacks
 
 <table><thead><tr><th width="169"></th><th>Fill Disk</th><th>Fill Memory</th><th>Stress CPU</th><th>Stress IO</th><th>Stress Memory</th></tr></thead><tbody><tr><td>Ubuntu 20.04</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Ubuntu 22.04</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Ubuntu 24.04</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Fedora Latest</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Debian Bookworm</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Debian Bullseye</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Amazon Linux 2</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Amazon Linux 2023</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
@@ -102,7 +102,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
-**State-related Attacks**
+#### State-related Attacks
 
 |                   | Shutdown Host | Stop Process | Time Travel |
 | ----------------- | ------------- | ------------ | ----------- |
@@ -119,7 +119,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
-## Observability
+### Observability
 
 Steadybit supports the following observability-related experiment actions:
 
@@ -133,7 +133,7 @@ Steadybit supports the following observability-related experiment actions:
 | Prometheus | ✅                                          | ❌                                     | ❌                                     |
 | StackState | ✅                                          | ❌                                     | ❌                                     |
 
-## Load Testing
+### Load Testing
 
 Steadybit integrates with the following load-testing solutions:
 
@@ -146,7 +146,7 @@ Steadybit integrates with the following load-testing solutions:
 | K6                                  | ✅                             | ✅                             |
 | K6 Cloud                            | ✅                             | ✅                             |
 
-## Service Mesh & Api Gateway
+### Service Mesh & Api Gateway
 
 Steadybit provides the following fault injections for service meshes and api gateways.
 
@@ -155,7 +155,7 @@ Steadybit provides the following fault injections for service meshes and api gat
 | Istio | ✅          | ✅          | ✅          |
 | Kong  | ❌          | ✅          | ❌          |
 
-## Cloud Providers
+### Cloud Providers
 
 Steadybit supports fault injection on all major cloud providers. Please visit the [Steadybit Reliability Hub](https://hub.steadybit.com) for the complete list of the specific services supported on:
 
@@ -163,7 +163,7 @@ Steadybit supports fault injection on all major cloud providers. Please visit th
 * [GCP](https://hub.steadybit.com/extension/com.steadybit.extension_gcp)
 * [Azure](https://hub.steadybit.com/extension/com.steadybit.extension_azure)
 
-## Kafka
+### Kafka
 
 Steadybit offers comprehensive support for chaos experiments on Kafka infrastructure. Please visit the [Kafka extension page on the Steadybit Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_kafka) for details.
 
