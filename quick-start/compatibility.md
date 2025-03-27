@@ -1,18 +1,26 @@
 # Compatibility
 
-Steadybit offers a wide variety of fault injections and other building blocks for Chaos experiments. On this page, you can learn about the core concepts and find an overview of the platform's capabilities. A detailed list is available on the [Steadybit Reliability Hub](https://hub.steadybit.com).
+Steadybit offers a wide variety of fault injections and other building blocks for Chaos experiments.
+On this page, you can learn about the core concepts and find an overview of the platform's capabilities.
+A detailed list is available on the [Steadybit Reliability Hub](https://hub.steadybit.com).
 
 ## Core Concepts
 
-In Steadybit, you will create experiments by combining various building blocks in a timeline-based editor. We call those building blocks **actions**.
+In Steadybit, you will create experiments by combining various building blocks in a timeline-based editor.
+We call those building blocks **actions**.
 
-**Actions** operate on **targets**. Steadybit comes with targets that represent various logical and physical components of your systems-under-test.
+**Actions** operate on **targets**.
+Steadybit comes with targets that represent various logical and physical components of your systems-under-test.
 
-**Targets** and **actions** are exposed by **extensions**. **Extensions** are small processes running inside your infrastructure. They communicate with the Steadybit platform via an agent. As a rule of thumb, each **extension** exposes **targets** and **actions** related to a specific technology (e.g. containers, hosts, observability solution, etc.).
+**Targets** and **actions** are exposed by **extensions**.
+**Extensions** are small processes running inside your infrastructure.
+They communicate with the Steadybit platform via an agent.
+As a rule of thumb, each **extension** exposes **targets** and **actions** related to a specific technology (e.g. containers, hosts, observability solution, etc.).
 
 ## Capabilities
 
-You can pick extensions to match the scenarios that you want to address with chaos experiments, keeping resource consumption and required permissions minimal. The following tables provide an overview of the capabilities across all extensions.
+You can pick extensions to match the scenarios that you want to address with chaos experiments, keeping resource consumption and required permissions minimal.
+The following tables provide an overview of the capabilities across all extensions.
 
 ### Containers
 
@@ -20,26 +28,49 @@ The following capabilities are available when targeting containers.
 
 #### Network-related Attacks
 
-<table><thead><tr><th width="160"></th><th>Block DNS</th><th>Block Traffic</th><th>Corrupt Outgoing Packages</th><th>Delay Outgoing Traffic</th><th>Drop Outgoing Traffic</th><th width="110">Limit Outgoing Bandwidth</th></tr></thead><tbody><tr><td>Docker</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CRI-O</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>containerd</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service (EKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(GKE, Autopilot)</a></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Azure Kubernetes Service (AKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
+|                                                                                              | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
+|----------------------------------------------------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
+| Docker                                                                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| CRI-O                                                                                        | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| containerd                                                                                   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Kubernetes                                                                                   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Red Hat OpenShift                                                                            | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| AWS Elastic Kubernetes Service (EKS)                                                         | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Google Kubernetes Engine (GKE)                                                               | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(GKE, Autopilot)</a> | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Azure Kubernetes Service (AKS)                                                               | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| minikube                                                                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+
 
 #### Resource-related Attacks
 
-<table><thead><tr><th width="140"></th><th>Fill Disk</th><th>Fill Memory</th><th>Stress CPU</th><th>Stress IO</th><th>Stress Memory</th></tr></thead><tbody><tr><td>Docker</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CRI-O</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>containerd</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service (EKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(GKE, Autopilot)</a></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Azure Kubernetes Service (AKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
+|                                                                                              | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
+|----------------------------------------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
+| Docker                                                                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
+| CRI-O                                                                                        | ✅         | ✅           | ✅          | ✅         | ✅             |
+| containerd                                                                                   | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Kubernetes                                                                                   | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Red Hat OpenShift                                                                            | ✅         | ✅           | ✅          | ✅         | ✅             |
+| AWS Elastic Kubernetes Service (EKS)                                                         | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Google Kubernetes Engine (GKE)                                                               | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(GKE, Autopilot)</a> | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Azure Kubernetes Service (AKS)                                                               | ✅         | ✅           | ✅          | ✅         | ✅             |
+| minikube                                                                                     | ✅         | ✅           | ✅          | ✅         | ✅             |
 
 #### State-related Attacks
 
-|                                               | Pause Container | Stop Container |
-|-----------------------------------------------|-----------------|----------------|
-| Docker                                        | ✅               | ✅              |
-| CRI-O                                         | ✅               | ✅              |
-| containerd                                    | ✅               | ✅              |
-| Kubernetes                                    | ✅               | ✅              |
-| Red Hat OpenShift                             | ✅               | ✅              |
-| AWS Elastic Kubernetes Service (EKS)          | ✅               | ✅              |
-| Google Kubernetes Engine (GKE)                | ✅               | ✅              |
-| Google Kubernetes Engine (GKE, Autopilot)[^1] | ✅               | ✅              |
-| Azure Kubernetes Service (AKS)                | ✅               | ✅              |
-| minikube                                      | ✅               | ✅              |
+|                                                | Pause Container | Stop Container |
+|------------------------------------------------|-----------------|----------------|
+| Docker                                         | ✅               | ✅              |
+| CRI-O                                          | ✅               | ✅              |
+| containerd                                     | ✅               | ✅              |
+| Kubernetes                                     | ✅               | ✅              |
+| Red Hat OpenShift                              | ✅               | ✅              |
+| AWS Elastic Kubernetes Service (EKS)           | ✅               | ✅              |
+| Google Kubernetes Engine (GKE)                 | ✅               | ✅              |
+| Google Kubernetes Engine (GKE, Autopilot)[^1]  | ✅               | ✅              |
+| Azure Kubernetes Service (AKS)                 | ✅               | ✅              |
+| minikube                                       | ✅               | ✅              |
 
 ### Kubernetes environments
 
@@ -157,7 +188,8 @@ Steadybit provides the following fault injections for service meshes and api gat
 
 ### Cloud Providers
 
-Steadybit supports fault injection on all major cloud providers. Please visit the [Steadybit Reliability Hub](https://hub.steadybit.com) for the complete list of the specific services supported on:
+Steadybit supports fault injection on all major cloud providers.
+Please visit the [Steadybit Reliability Hub](https://hub.steadybit.com) for the complete list of the specific services supported on:
 
 * [AWS](https://hub.steadybit.com/extension/com.steadybit.extension_aws)
 * [GCP](https://hub.steadybit.com/extension/com.steadybit.extension_gcp)
@@ -165,10 +197,13 @@ Steadybit supports fault injection on all major cloud providers. Please visit th
 
 ### Kafka
 
-Steadybit offers comprehensive support for chaos experiments on Kafka infrastructure. Please visit the [Kafka extension page on the Steadybit Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_kafka) for details.
+Steadybit offers comprehensive support for chaos experiments on Kafka infrastructure.
+Please visit the [Kafka extension page on the Steadybit Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_kafka) for details.
 
-[^1]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. Container attacks in the following namespaces are disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
+[^1]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. Container attacks in the following namespaces are
+disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
 
-[^2]: Different observability integrations us different names for these action. Please check the [Steadybit Reliability Hub](https://hub.steadybit.com) for more details.
+[^2]: Different observability integrations us different names for these action. Please check the [Steadybit Reliability Hub](https://hub.steadybit.com) for more
+details.
 
 [^3]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
