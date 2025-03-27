@@ -25,33 +25,37 @@ The following capabilities are available when targeting containers.
 
 #### Network-related Attacks
 
-|                                               | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
-|-----------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
-| Docker                                        | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| CRI-O                                         | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| containerd                                    | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Kubernetes                                    | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Red Hat OpenShift                             | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| AWS Elastic Kubernetes Service (EKS)          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Google Kubernetes Engine (GKE)                | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Google Kubernetes Engine (GKE, Autopilot)[^1] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Azure Kubernetes Service (AKS)                | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| minikube                                      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+|                                                | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
+|------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
+| Docker                                         | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| CRI-O                                          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| containerd                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Kubernetes                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Red Hat OpenShift                              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| AWS Elastic Kubernetes Service (EKS)           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| AWS Elastic Container Service (ECS) on EC2[^4] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| AWS Elastic Container Service (ECS) on Fargate | ❌         | ❌             | ❌                         | ❌                      | ❌                     | ❌                        |
+| Google Kubernetes Engine (GKE)                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Google Kubernetes Engine (GKE, Autopilot)[^1]  | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Azure Kubernetes Service (AKS)                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| minikube                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 
 #### Resource-related Attacks
 
-|                                               | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
-|-----------------------------------------------|-----------|-------------|------------|-----------|---------------|
-| Docker                                        | ✅         | ✅           | ✅          | ✅         | ✅             |
-| CRI-O                                         | ✅         | ✅           | ✅          | ✅         | ✅             |
-| containerd                                    | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Kubernetes                                    | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Red Hat OpenShift                             | ✅         | ✅           | ✅          | ✅         | ✅             |
-| AWS Elastic Kubernetes Service (EKS)          | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Google Kubernetes Engine (GKE)                | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Google Kubernetes Engine (GKE, Autopilot)[^1] | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Azure Kubernetes Service (AKS)                | ✅         | ✅           | ✅          | ✅         | ✅             |
-| minikube                                      | ✅         | ✅           | ✅          | ✅         | ✅             |
+|                                                | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
+|------------------------------------------------|-----------|-------------|------------|-----------|---------------|
+| Docker                                         | ✅         | ✅           | ✅          | ✅         | ✅             |
+| CRI-O                                          | ✅         | ✅           | ✅          | ✅         | ✅             |
+| containerd                                     | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Kubernetes                                     | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Red Hat OpenShift                              | ✅         | ✅           | ✅          | ✅         | ✅             |
+| AWS Elastic Kubernetes Service (EKS)           | ✅         | ✅           | ✅          | ✅         | ✅             |
+| AWS Elastic Container Service (ECS) on EC2[^4] | ✅         | ✅           | ✅          | ✅         | ✅             |
+| AWS Elastic Container Service (ECS) on Fargate | ✅         | ❌           | ✅          | ✅         | ✅             |
+| Google Kubernetes Engine (GKE)                 | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Google Kubernetes Engine (GKE, Autopilot)[^1]  | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Azure Kubernetes Service (AKS)                 | ✅         | ✅           | ✅          | ✅         | ✅             |
+| minikube                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
 
 #### State-related Attacks
 
@@ -63,8 +67,8 @@ The following capabilities are available when targeting containers.
 | Kubernetes                                     | ✅               | ✅              |
 | Red Hat OpenShift                              | ✅               | ✅              |
 | AWS Elastic Kubernetes Service (EKS)           | ✅               | ✅              |
-| AWS Elastic Container Service (ECS) on EC2     | ❌               | ✅              |
-| AWS Elastic Container Service (ECS) on Fargate | ❌               | ✅[^4]          |
+| AWS Elastic Container Service (ECS) on EC2[^4] | ✅               | ✅              |
+| AWS Elastic Container Service (ECS) on Fargate | ❌               | ✅[^5]          |
 | Google Kubernetes Engine (GKE)                 | ✅               | ✅              |
 | Google Kubernetes Engine (GKE, Autopilot)[^1]  | ✅               | ✅              |
 | Azure Kubernetes Service (AKS)                 | ✅               | ✅              |
@@ -76,7 +80,16 @@ In addition to the above, the following Kubernetes specific actions are availabl
 
 #### Attacks
 
-<table><thead><tr><th width="132"></th><th>Cause Crash Loop</th><th>Delete Pod</th><th width="120">Rollout Restart Deployment</th><th width="120">Scale Deployment</th><th width="110">Scale StatefulSet</th><th>Taint Node</th></tr></thead><tbody><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service (EKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE, Autopilot)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>Azure Kubernetes Service (AKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
+|                                           | Cause Crash Loop | Delete Pod | Rollout Restart Deployment | Scale Deployment | Scale StatefulSet | Taint Node |
+|-------------------------------------------|------------------|------------|----------------------------|------------------|-------------------|------------|
+| Kubernetes                                | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
+| Red Hat OpenShift                         | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
+| AWS Elastic Kubernetes Service (EKS)      | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
+| Google Kubernetes Engine (GKE)            | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
+| Google Kubernetes Engine (GKE, Autopilot) | ✅                | ✅          | ✅                          | ✅                | ✅                 | ❌          |
+| Azure Kubernetes Service (AKS)            | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
+| minikube                                  | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
+
 
 #### Checks
 
@@ -125,7 +138,17 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 
 #### Resource-related Attacks
 
-<table><thead><tr><th width="169"></th><th>Fill Disk</th><th>Fill Memory</th><th>Stress CPU</th><th>Stress IO</th><th>Stress Memory</th></tr></thead><tbody><tr><td>Ubuntu 20.04</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Ubuntu 22.04</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Ubuntu 24.04</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Fedora Latest</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Debian Bookworm</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Debian Bullseye</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Amazon Linux 2</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Amazon Linux 2023</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
+|                   | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
+|-------------------|-----------|-------------|------------|-----------|---------------|
+| Ubuntu 20.04      | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Ubuntu 22.04      | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Ubuntu 24.04      | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Fedora Latest     | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Debian Bookworm   | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Debian Bullseye   | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Amazon Linux 2    | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Amazon Linux 2023 | ✅         | ✅           | ✅          | ✅         | ✅             |
+
 
 {% hint style="info" %}
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
@@ -206,4 +229,6 @@ details.
 
 [^3]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
 
-[^4]: Stop container is equivalent to stop task in AWS ECS on Fargate
+[^4]: extension-host and extension-container needs to run in privileged mode and network mode host is required for the extensions.
+
+[^5]: Stop container is equivalent to stop task in AWS ECS on Fargate
