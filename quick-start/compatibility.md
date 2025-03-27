@@ -6,16 +6,13 @@ A detailed list is available on the [Steadybit Reliability Hub](https://hub.stea
 
 ## Core Concepts
 
-In Steadybit, you will create experiments by combining various building blocks in a timeline-based editor.
-We call those building blocks **actions**.
+In Steadybit, you will create experiments by combining various building blocks in a timeline-based editor. We call those building blocks **actions**.
 
-**Actions** operate on **targets**.
-Steadybit comes with targets that represent various logical and physical components of your systems-under-test.
+**Actions** operate on **targets**. Steadybit comes with targets that represent various logical and physical components of your systems-under-test.
 
-**Targets** and **actions** are exposed by **extensions**.
-**Extensions** are small processes running inside your infrastructure.
-They communicate with the Steadybit platform via an agent.
-As a rule of thumb, each **extension** exposes **targets** and **actions** related to a specific technology (e.g. containers, hosts, observability solution, etc.).
+**Targets** and **actions** are exposed by **extensions**. **Extensions** are small processes running inside your infrastructure. They communicate with the
+Steadybit platform via an agent. As a rule of thumb, each **extension** exposes **targets** and **actions** related to a specific technology (e.g. containers,
+hosts, observability solution, etc.).
 
 ## Capabilities
 
@@ -40,7 +37,6 @@ The following capabilities are available when targeting containers.
 | Google Kubernetes Engine (GKE, Autopilot)[^1] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Azure Kubernetes Service (AKS)                | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | minikube                                      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-
 
 #### Resource-related Attacks
 
@@ -67,6 +63,8 @@ The following capabilities are available when targeting containers.
 | Kubernetes                                     | ✅               | ✅              |
 | Red Hat OpenShift                              | ✅               | ✅              |
 | AWS Elastic Kubernetes Service (EKS)           | ✅               | ✅              |
+| AWS Elastic Container Service (ECS) on EC2     | ❌               | ✅              |
+| AWS Elastic Container Service (ECS) on Fargate | ❌               | ✅[^4]          |
 | Google Kubernetes Engine (GKE)                 | ✅               | ✅              |
 | Google Kubernetes Engine (GKE, Autopilot)[^1]  | ✅               | ✅              |
 | Azure Kubernetes Service (AKS)                 | ✅               | ✅              |
@@ -207,3 +205,5 @@ disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
 details.
 
 [^3]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
+
+[^4]: Stop container is equivalent to stop task in AWS ECS on Fargate
