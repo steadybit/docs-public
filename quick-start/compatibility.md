@@ -20,26 +20,26 @@ The following capabilities are available when targeting containers.
 
 **Network-related Attacks**
 
-<table><thead><tr><th width="160"></th><th>Block DNS</th><th>Block Traffic</th><th>Corrupt Outgoing Packages</th><th>Delay Outgoing Traffic</th><th>Drop Outgoing Traffic</th><th width="110">Limit Outgoing Bandwidth</th></tr></thead><tbody><tr><td>Docker</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CRI-O</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>containerd</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(Autopilot)</a></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Azure Kubernetes Service</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
+<table><thead><tr><th width="160"></th><th>Block DNS</th><th>Block Traffic</th><th>Corrupt Outgoing Packages</th><th>Delay Outgoing Traffic</th><th>Drop Outgoing Traffic</th><th width="110">Limit Outgoing Bandwidth</th></tr></thead><tbody><tr><td>Docker</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CRI-O</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>containerd</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service (EKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(GKE, Autopilot)</a></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Azure Kubernetes Service (AKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
 **Resource-related Attacks**
 
-<table><thead><tr><th width="140"></th><th>Fill Disk</th><th>Fill Memory</th><th>Stress CPU</th><th>Stress IO</th><th>Stress Memory</th></tr></thead><tbody><tr><td>Docker</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CRI-O</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>containerd</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(Autopilot)</a></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Azure Kubernetes Service</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
+<table><thead><tr><th width="140"></th><th>Fill Disk</th><th>Fill Memory</th><th>Stress CPU</th><th>Stress IO</th><th>Stress Memory</th></tr></thead><tbody><tr><td>Docker</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CRI-O</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>containerd</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service (EKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine <a data-footnote-ref href="#user-content-fn-1">(GKE, Autopilot)</a></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Azure Kubernetes Service (AKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
 **State-related Attacks**
 
-|                                          | Pause Container | Stop Container |
-| ---------------------------------------- | --------------- | -------------- |
-| Docker                                   | ✅               | ✅              |
-| CRI-O                                    | ✅               | ✅              |
-| containerd                               | ✅               | ✅              |
-| Kubernetes                               | ✅               | ✅              |
-| Red Hat OpenShift                        | ✅               | ✅              |
-| AWS Elastic Kubernetes Service           | ✅               | ✅              |
-| Google Kubernetes Engine                 | ✅               | ✅              |
-| Google Kubernetes Engine (Autopilot)[^1] | ✅               | ✅              |
-| Azure Kubernetes Service                 | ✅               | ✅              |
-| minikube                                 | ✅               | ✅              |
+|                                               | Pause Container | Stop Container |
+|-----------------------------------------------| --------------- | -------------- |
+| Docker                                        | ✅               | ✅              |
+| CRI-O                                         | ✅               | ✅              |
+| containerd                                    | ✅               | ✅              |
+| Kubernetes                                    | ✅               | ✅              |
+| Red Hat OpenShift                             | ✅               | ✅              |
+| AWS Elastic Kubernetes Service (EKS)          | ✅               | ✅              |
+| Google Kubernetes Engine (GKE)                | ✅               | ✅              |
+| Google Kubernetes Engine (GKE, Autopilot)[^1] | ✅               | ✅              |
+| Azure Kubernetes Service (AKS)                | ✅               | ✅              |
+| minikube                                      | ✅               | ✅              |
 
 ### Kubernetes environments
 
@@ -47,31 +47,31 @@ In addition to the above, the following Kubernetes specific actions are availabl
 
 **Attacks**
 
-<table><thead><tr><th width="132"></th><th>Cause Crash Loop</th><th>Delete Pod</th><th width="120">Rollout Restart Deployment</th><th width="120">Scale Deployment</th><th width="110">Scale StatefulSet</th><th>Taint Node</th></tr></thead><tbody><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (Autopilot)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>Azure Kubernetes Service</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
+<table><thead><tr><th width="132"></th><th>Cause Crash Loop</th><th>Delete Pod</th><th width="120">Rollout Restart Deployment</th><th width="120">Scale Deployment</th><th width="110">Scale StatefulSet</th><th>Taint Node</th></tr></thead><tbody><tr><td>Kubernetes</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Red Hat OpenShift</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>AWS Elastic Kubernetes Service (EKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Google Kubernetes Engine (GKE, Autopilot)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>Azure Kubernetes Service (AKS)</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>minikube</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
 **Checks**
 
-|                                      | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | StatefulSet Pod Count |
-| ------------------------------------ | ------------------- | -------------------- | ------------------------- | ---------- | --------------------- |
-| Kubernetes                           | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Red Hat OpenShift                    | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| AWS Elastic Kubernetes Service       | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Google Kubernetes Engine             | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Google Kubernetes Engine (Autopilot) | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Azure Kubernetes Service             | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| minikube                             | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
+|                                           | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | StatefulSet Pod Count |
+|-------------------------------------------| ------------------- | -------------------- | ------------------------- | ---------- | --------------------- |
+| Kubernetes                                | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
+| Red Hat OpenShift                         | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
+| AWS Elastic Kubernetes Service (EKS)      | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
+| Google Kubernetes Engine (GKE)            | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
+| Google Kubernetes Engine (GKE, Autopilot) | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
+| Azure Kubernetes Service (AKS)            | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
+| minikube                                  | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
 
 **Other Actions**
 
-|                                      | Display Pod Count Metrics | Display Kubernetes Event Logs |
-| ------------------------------------ | ------------------------- | ----------------------------- |
-| Kubernetes                           | ✅                         | ✅                             |
-| Red Hat OpenShift                    | ✅                         | ✅                             |
-| AWS Elastic Kubernetes Service       | ✅                         | ✅                             |
-| Google Kubernetes Engine             | ✅                         | ✅                             |
-| Google Kubernetes Engine (Autopilot) | ✅                         | ✅                             |
-| Azure Kubernetes Service             | ✅                         | ✅                             |
-| minikube                             | ✅                         | ✅                             |
+|                                           | Display Pod Count Metrics | Display Kubernetes Event Logs |
+|-------------------------------------------| ------------------------- | ----------------------------- |
+| Kubernetes                                | ✅                         | ✅                             |
+| Red Hat OpenShift                         | ✅                         | ✅                             |
+| AWS Elastic Kubernetes Service (EKS)      | ✅                         | ✅                             |
+| Google Kubernetes Engine (GKE)            | ✅                         | ✅                             |
+| Google Kubernetes Engine (GKE, Autopilot) | ✅                         | ✅                             |
+| Azure Kubernetes Service (AKS)            | ✅                         | ✅                             |
+| minikube                                  | ✅                         | ✅                             |
 
 ## Physical and virtual hosts
 
