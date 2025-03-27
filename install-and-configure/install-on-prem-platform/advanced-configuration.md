@@ -117,7 +117,7 @@ unless `STEADYBIT_AUTH_LDAP_METHOD` is set to `password-compare`.
 
 ### OpenID-Connect Authentication
 
-You can use an OpenID Connect compatible authentication provider for user authentication.
+You can use an OpenID Connect (OIDC) compatible authentication provider for user authentication.
 
 
 | Config        | Value                                      |
@@ -145,6 +145,10 @@ generated.
 | `STEADYBIT_AUTH_OAUTH2_FULL_NAME_ATTRIBUTE`             |          | <p>Name of the OidcIdToken attribute that will be used to pick the full name of the user<br><strong>Default:</strong> <code>name</code></p>                                                                                                                                                                                                                                                                                                                |
 | `STEADYBIT_AUTH_OAUTH2_CLAIMS_TEAM_NAME_ATTRIBUTE_NAME` |          | <p>Name of the OidcIdToken claims attribute that will be used to pick up the assigned team names from. Steadybit automatically creates the specified teams in the platform and assigns the user to them.<br><strong>Default:</strong> <code>groups</code><br><strong>Example value in OIDC provider for single team:</strong> <code>team1</code><br><strong>Example value in OIDC provider for multiple teams:</strong> <code>["team1","team2"]</code></p> |
 | `STEADYBIT_AUTH_OAUTH2_HOSTED_DOMAIN`                   |          | <p>Restrict the login to users with a specific email domain. If set, only users with an email address from this domain will be allowed to login. Can be used with Google Workspace OIDC. <br><strong>Example:</strong> <code>example.com</code></p>                                                                                                                                                                                                        |
+
+### Syncing Teams via OIDC Attribute
+
+see [Syncing Teams via OIDC Attribute](syncing-teams-via-oidc-attribute.md)
 
 ### Using SSL/TLS Encryption
 
