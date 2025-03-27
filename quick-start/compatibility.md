@@ -29,7 +29,7 @@ The following capabilities are available when targeting containers.
 #### State-related Attacks
 
 |                                               | Pause Container | Stop Container |
-|-----------------------------------------------| --------------- | -------------- |
+|-----------------------------------------------|-----------------|----------------|
 | Docker                                        | ✅               | ✅              |
 | CRI-O                                         | ✅               | ✅              |
 | containerd                                    | ✅               | ✅              |
@@ -52,7 +52,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 #### Checks
 
 |                                           | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | StatefulSet Pod Count |
-|-------------------------------------------| ------------------- | -------------------- | ------------------------- | ---------- | --------------------- |
+|-------------------------------------------|---------------------|----------------------|---------------------------|------------|-----------------------|
 | Kubernetes                                | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
 | Red Hat OpenShift                         | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
 | AWS Elastic Kubernetes Service (EKS)      | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
@@ -64,7 +64,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 #### Other Actions
 
 |                                           | Display Pod Count Metrics | Display Kubernetes Event Logs |
-|-------------------------------------------| ------------------------- | ----------------------------- |
+|-------------------------------------------|---------------------------|-------------------------------|
 | Kubernetes                                | ✅                         | ✅                             |
 | Red Hat OpenShift                         | ✅                         | ✅                             |
 | AWS Elastic Kubernetes Service (EKS)      | ✅                         | ✅                             |
@@ -80,7 +80,7 @@ The following attacks are available when working with physical hosts and virtual
 #### Network-related Attacks
 
 |                   | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
-| ----------------- | --------- | ------------- | ------------------------- | ---------------------- | --------------------- | ------------------------ |
+|-------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
 | Ubuntu 20.04      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Ubuntu 22.04      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Ubuntu 24.04      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
@@ -105,7 +105,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 #### State-related Attacks
 
 |                   | Shutdown Host | Stop Process | Time Travel |
-| ----------------- | ------------- | ------------ | ----------- |
+|-------------------|---------------|--------------|-------------|
 | Ubuntu 20.04      | ✅             | ✅            | ✅           |
 | Ubuntu 22.04      | ✅             | ✅            | ✅           |
 | Ubuntu 24.04      | ✅             | ✅            | ✅           |
@@ -124,7 +124,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 Steadybit supports the following observability-related experiment actions:
 
 |            | [Check for Alerts](#user-content-fn-2)[^2] | [Mute Alerts](#user-content-fn-2)[^2] | [Send Events](#user-content-fn-3)[^3] |
-| ---------- | ------------------------------------------ | ------------------------------------- | ------------------------------------- |
+|------------|--------------------------------------------|---------------------------------------|---------------------------------------|
 | Datadog    | ✅                                          | ✅                                     | ✅                                     |
 | Dynatrace  | ✅                                          | ✅                                     | ✅                                     |
 | Grafana    | ✅                                          | ❌                                     | ✅                                     |
@@ -138,7 +138,7 @@ Steadybit supports the following observability-related experiment actions:
 Steadybit integrates with the following load-testing solutions:
 
 |                                     | Run Load Test from Experiment | Run Experiment from Load Test |
-| ----------------------------------- | ----------------------------- | ----------------------------- |
+|-------------------------------------|-------------------------------|-------------------------------|
 | Micro Focus LoadRunner Professional | ❌                             | ✅                             |
 | Micro Focus LoadRunner Enterprise   | ❌                             | ✅                             |
 | Gatling                             | ✅                             | ❌                             |
@@ -151,7 +151,7 @@ Steadybit integrates with the following load-testing solutions:
 Steadybit provides the following fault injections for service meshes and api gateways.
 
 |       | GRPC Abort | HTTP Abort | HTTP Delay |
-| ----- | ---------- | ---------- | ---------- |
+|-------|------------|------------|------------|
 | Istio | ✅          | ✅          | ✅          |
 | Kong  | ❌          | ✅          | ❌          |
 
