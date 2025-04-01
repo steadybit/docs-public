@@ -5,25 +5,22 @@ title: Preflight actions
 # Preflight Actions
 
 {% hint style="info" %}
-Preflight actions are an enterprise feature. Please [reach out to us](https://steadybit.com/contact) if you want to get
-access.
+Preflight actions are an enterprise feature. Please [reach out to us](https://steadybit.com/contact) if you want to get access.
 {% endhint %}
 
-Preflight actions are triggered by Steadybit whenever an experiment is about to start and allow you to prevent an
-experiment from running.
-To decide whether that specific experiment run is allowed to start, you get a list of all expected affected targets in
-the extension action call.
-Please note that, due to concurrency, these affected targets may change in case one of the targets is gone when the
-actual step starts or new ones are
+Preflight actions are triggered by Steadybit whenever an experiment is about to start and allow you to prevent an experiment from running.
+To decide whether that specific experiment run is allowed to start, you get a list of all expected affected targets in the extension action call.
+Please note that, due to concurrency, these affected targets may change in case one of the targets is gone when the actual step starts or new ones are
 discovered.
+
 
 ## Precondition
 
 You need to write your own extension with [preflight kit](https://github.com/steadybit/preflight-kit) added to it.
-Implement the preflight action at your needs.
-See [docs](https://github.com/steadybit/preflight-kit/blob/main/docs/preflight-api.md).
+Implement the preflight action at your needs. See [docs](https://github.com/steadybit/preflight-kit/blob/main/docs/preflight-api.md).
 
 ## Configure
+
 
 You can add preflight actions at `Settings` -> `Integrations` -> `Preflight Actions`.
 
@@ -48,7 +45,7 @@ If an preflight action fails, the experiment run fails, and no targets are attac
 
 ## Developing actions
 
-A preflight action uses [preflight kit](https://github.com/steadybit/preflight-kit).
+A preflight action uses [preflight kit](https://github.com/steadybit/preflight-kit). 
 See our [docs](https://github.com/steadybit/preflight-kit/blob/main/README.md#getting-started) to get started.
 
 ### Lifecycle of Preflight actions
@@ -63,8 +60,7 @@ A preflight action can be in one of the following lifecycle statuses, indicated 
 | **ERRORED**    | Technical error happened while requesting the preflight action, e.g., the extension URL couldn't be resolved, or the HTTP request timed out.               |
 
 {% hint style="warn" %}
-A action will timeout after 55 seconds. In that case, the preflight check is marked as `ERRORED`, and the experiment
-will not start.
+A action will timeout after 55 seconds. In that case, the preflight check is marked as `ERRORED`, and the experiment will not start.
 If the action resolves later, the actual result will be submitted to the preflight check step in the experiment.
 {% endhint %}
 
