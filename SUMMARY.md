@@ -74,6 +74,7 @@
 * [Webhooks](integrate-with-steadybit/webhooks/README.md)
   * [Custom Webhooks](integrate-with-steadybit/webhooks/custom-webhooks.md)
   * [Preflight Webhooks](integrate-with-steadybit/webhooks/preflight-webhooks.md)
+* [Preflight Checks](integrate-with-steadybit/preflightactions/preflight-actions.md)
 * [Slack Notifications](integrate-with-steadybit/slack-notifications.md)
 * [Audit Log](integrate-with-steadybit/audit-log.md)
 * [Hubs](integrate-with-steadybit/hubs/README.md)
