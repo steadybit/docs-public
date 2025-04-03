@@ -111,5 +111,4 @@ Confirm that the claim contains a valid array of team keys (e.g., ["ADM", "TEAM1
 
 
 - Missing groups claim in Okta:
-Make sure the group claims is requested as described above and the Okta application is configured correctly:
-https://developer.okta.com/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server
+Make sure the group claims is requested as described above and the [Okta application is configured correctly](https://developer.okta.com/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server)
