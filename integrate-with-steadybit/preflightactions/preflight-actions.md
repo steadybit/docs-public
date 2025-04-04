@@ -60,7 +60,7 @@ A preflight action can be in one of the following lifecycle statuses, indicated 
 | **ERRORED**    | Technical error happened while requesting the preflight action, e.g., the extension URL couldn't be resolved, or the HTTP request timed out.               |
 
 {% hint style="warn" %}
-A action will timeout after 55 seconds. In that case, the preflight check is marked as `ERRORED`, and the experiment will not start.
-If the action resolves later, the actual result will be submitted to the preflight check step in the experiment.
+A action will timeout after 55 seconds. In that case, the preflight action is marked as `ERRORED`, and the experiment will not start.
+If the action resolves later, the actual result will be submitted to the preflight action step in the experiment.
 {% endhint %}
 
