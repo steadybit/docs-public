@@ -8,6 +8,8 @@ Steadybit provides development kits for the following purposes:
 * [AdviceKit](extension-kits.md#advicekit) to implement your own [advice](../../use-steadybit/explorer/advice.md) and ease identifying experiments and tracking progress
 * [DiscoveryKit](extension-kits.md#discoverykit) to support discovery of new infrastructure components
 * [EventKit](extension-kits.md#eventkit) to send events about running experiments from Steadybit to other third-party applications (e.g., observability)
+* [ExtensionKit](extension-kits.md#extensionkit) utility classes and best practices for extension authors using the Go programming language
+* [PreflightKit](extension-kits.md#preflightkit) to implement preflight actions that can be used to prevent experiment executions
 
 All these development kits are agnostic to the programming language and rely on HTTP interfaces. However, if you want to develop your extension using Go, we recommend our [ExtensionKit](extension-kits.md#extensionkit) to benefit from helpful utility classes and best practices.
 
@@ -65,3 +67,18 @@ You can learn more about EventKit through its [GitHub repository](https://github
 Through kits like ActionKit and DiscoveryKit, Steadybit can be extended with new capabilities. ExtensionKit on the other hand contains helpful utilities and best practices for extension authors leveraging the Go programming language.
 
 You can learn more about ExtensionKit through its [GitHub repository](https://github.com/steadybit/extension-kit).
+
+
+## PreflightKit
+
+<figure><img src="../../.gitbook/assets/preflight-kit.png" alt="PreflightKit logo depicting the text preflight kit and a preflight icon"><figcaption><p>PreflightKit logo depicting the text preflight kit and a preflight icon</p></figcaption></figure>
+
+PreflightKit enables the extension of Steadybit with new preflight capabilities that you can use to prevent experiment executions. 
+For example, PreflightKit can be used to author open/closed source:
+
+* preflight actions to allow or disallow experiment executions based on the experiment and its targets,
+* preflight actions to prevent experiment executions based on the time of day / maintenance windows,
+* or anything else you can think of!
+
+You can learn more about PreflightKit through its [GitHub repository](https://github.com/steadybit/preflight-kit).
+
