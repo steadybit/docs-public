@@ -59,6 +59,7 @@
   * [Landscape](use-steadybit/explorer/landscape.md)
   * [Targets](use-steadybit/explorer/targets.md)
   * [Advice](use-steadybit/explorer/advice.md)
+* [Reporting](use-steadybit/reporting/README.md)
 
 ## Integrate with Steadybit
 
