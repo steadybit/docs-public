@@ -221,33 +221,33 @@ Additional managed services are covered via [AWS FIS](#fault-injection-service-f
 
 #### Azure
 
-### Azure Kubernetes Service (AKS)
+##### Azure Kubernetes Service (AKS)
 
 Capabilities for managed Kubernetes clusters in Azure are identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes-environments) capabilities above.
 
-### Azure Event Hub
+##### Azure Event Hub
 
 Azure Event Hub leveraging Kafka-compatibility are supported by Steadybit's capabilities for [Kafka](#kafka).
 
-### Azure Virtual Machines (VMs)
+##### Azure Virtual Machines (VMs)
 
 You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your Azure VMs. Additionally, the [Azure extension](https://hub.steadybit.com/extension/com.steadybit.extension_azure) supports API-based capabilities for [Virtual Machines](https://hub.steadybit.com/target/com.steadybit.extension_azure.vm) and [Virtual Machine Scale Set Instances](https://hub.steadybit.com/target/com.steadybit.extension_azure.scale_set.instance).
 
-### Other Azure Services
+##### Other Azure Services
 
 More Azure services will be added to the [Azure](https://hub.steadybit.com/extension/com.steadybit.extension_azure) extension in the future.
 
 #### GCP
 
-### Google Kubernetes Engine (GKE)
+##### Google Kubernetes Engine (GKE)
 
 Capabilities for managed Kubernetes clusters in GCP are identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes-environments) capabilities above.
 
-### GCP Virtual machines (VMs)
+##### GCP Virtual machines (VMs)
 
 You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your GCP VMs. Additionally, the [GCP extension](https://hub.steadybit.com/extension/com.steadybit.extension_gcp) supports API-based capabilities for [Virtual Machines](https://hub.steadybit.com/target/com.steadybit.extension_gcp.vm).
 
-### Other GCP Services
+##### Other GCP Services
 
 More GCP services will be added to the [GCP](https://hub.steadybit.com/extension/com.steadybit.extension_gcp) extension in the future.
 
