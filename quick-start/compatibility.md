@@ -169,6 +169,83 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
+### Cloud Providers
+
+Steadybit supports fault injection on all major cloud providers and an ever-growing list of managed services.
+
+#### AWS
+
+##### EC2
+
+You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your AWS EC2 machines. Additionally, the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) supports API-based capabilities for EC2s.
+
+##### ECS on Fargate
+
+Steadybit's capabilities for AWS ECS on Fargate are described above at [container level capabilities](#containers).
+
+##### ECS on EC2
+
+Steadybit's capabilities for AWS ECS on EC2 are described above at the level of [container](#containers) and [pysical and virtual hosts](#physical-and-virtual-hosts).
+
+##### EKS (Elastic Kubernetes Service)
+
+Capabilities for managed Kubernetes clusters in AWS EKS is identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes-environments) capabilities above.
+
+##### Elastic Load Balancing
+
+Application load balancers are supported on API-level by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.alb).
+
+##### Lambda
+
+Lambdas are supported by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.lambda).
+
+##### Elasticache
+
+Elasticache in AWS are supported by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.elasticache.node-group).
+
+##### Fault Injection Service (FIS)
+
+Steadybit integrates with AWS FIS experiment templates, which makes it easy to inject faults into additional managed services. See the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.fis-experiment-template) for more details.
+
+##### Managed Streaming for Apache Kafka (MSK)
+
+Managed Kafka instances are supported by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.msk.cluster.broker). In addition, you can leverage Steadybit's capabilities for [Kafka](#kafka).
+
+##### Relational Database Service (RDS)
+
+Capabilities for AWS RDS are covered by the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) on [RDS cluster](https://hub.steadybit.com/target/com.steadybit.extension_aws.rds.cluster) and [RDS instance](https://hub.steadybit.com/target/com.steadybit.extension_aws.rds.instance) level. 
+
+
+##### Other Services
+
+Steadybit has cross-services capabilities like simulating a full [availability zone outage](https://hub.steadybit.com/target/com.steadybit.extension_aws.zone) or [partial zone outage via subnets](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-subnet).
+
+Additional managed services are covered via [AWS FIS](#fault-injection-service-fis), or will be added to Steadybit natively in the future.
+
+#### Azure
+
+TODO + EventHub
+* [Azure](https://hub.steadybit.com/extension/com.steadybit.extension_azure)
+
+#### GCP
+
+TODO
+* [GCP](https://hub.steadybit.com/extension/com.steadybit.extension_gcp)
+
+### Service Mesh & API Gateway
+
+Steadybit provides the following fault injections for service meshes and api gateways.
+
+|       | GRPC Abort | HTTP Abort | HTTP Delay |
+|-------|------------|------------|------------|
+| Istio | ✅          | ✅          | ✅          |
+| Kong  | ❌          | ✅          | ❌          |
+
+### Kafka
+
+Steadybit offers comprehensive support for chaos experiments on Kafka infrastructure.
+Please visit the [Kafka extension page on the Steadybit Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_kafka) for details.
+
 ### Observability
 
 Steadybit supports the following observability-related experiment actions:
@@ -196,28 +273,6 @@ Steadybit integrates with the following load-testing solutions:
 | K6                                  | ✅                             | ✅                             |
 | K6 Cloud                            | ✅                             | ✅                             |
 
-### Service Mesh & Api Gateway
-
-Steadybit provides the following fault injections for service meshes and api gateways.
-
-|       | GRPC Abort | HTTP Abort | HTTP Delay |
-|-------|------------|------------|------------|
-| Istio | ✅          | ✅          | ✅          |
-| Kong  | ❌          | ✅          | ❌          |
-
-### Cloud Providers
-
-Steadybit supports fault injection on all major cloud providers.
-Please visit the [Steadybit Reliability Hub](https://hub.steadybit.com) for the complete list of the specific services supported on:
-
-* [AWS](https://hub.steadybit.com/extension/com.steadybit.extension_aws)
-* [GCP](https://hub.steadybit.com/extension/com.steadybit.extension_gcp)
-* [Azure](https://hub.steadybit.com/extension/com.steadybit.extension_azure)
-
-### Kafka
-
-Steadybit offers comprehensive support for chaos experiments on Kafka infrastructure.
-Please visit the [Kafka extension page on the Steadybit Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_kafka) for details.
 
 [^1]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. Container attacks in the following namespaces are
 disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
