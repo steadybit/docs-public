@@ -125,23 +125,21 @@ Steadybit supports fault injection on all major cloud providers and an ever-grow
 
 #### AWS EC2
 
-### Network-related Attacks
+##### Network-related Attacks
 
 {% include "./hosts-network.md" %}
 
-### Resource-related Attacks
+##### Resource-related Attacks
 
 {% include "./hosts-resource.md" %}
 
-### State-related Attacks
+##### State-related Attacks
 
 {% include "./hosts-state.md" %}
 
 |              | Hibernate | Reboot | Start | Stop | Terminate | 
 |--------------|-----------|:-------|:------|:-----|:----------|
 | EC2 Instance | ✅         | ✅      | ✅     | ✅    | ✅   |
-
-
 
 
 #### AWS ECS on EC2
