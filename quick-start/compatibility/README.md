@@ -125,8 +125,24 @@ Steadybit supports fault injection on all major cloud providers and an ever-grow
 
 #### AWS EC2
 
-You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your AWS EC2 machines. Additionally, the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) supports API-based capabilities for [EC2s](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-instance).
-{% include "./hosts.md" %}
+### Network-related Attacks
+
+{% include "./hosts-network.md" %}
+
+### Resource-related Attacks
+
+{% include "./hosts-resource.md" %}
+
+### State-related Attacks
+
+{% include "./hosts-state.md" %}
+
+|              | Hibernate | Reboot | Start | Stop | Terminate | 
+|--------------|-----------|:-------|:------|:-----|:----------|
+| EC2 Instance | ✅         | ✅      | ✅     | ✅    | ✅   |
+
+
+
 
 #### AWS ECS on EC2
 
