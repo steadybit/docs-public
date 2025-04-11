@@ -105,7 +105,17 @@ In addition to the above, the following Kubernetes specific actions are availabl
 
 The following attacks are available when working with physical hosts and virtual machines (both 64-bit PC and 64-bit ARM architectures).
 
-{% include "./hosts.md" %}
+### Network-related Attacks
+
+{% include "./hosts-network.md" %}
+
+### Resource-related Attacks
+
+{% include "./hosts-resource.md" %}
+
+### State-related Attacks
+
+{% include "./hosts-state.md" %}
 
 ## Cloud Providers
 
