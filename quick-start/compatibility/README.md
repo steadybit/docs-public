@@ -1,27 +1,16 @@
 # Compatibility
 
-Steadybit offers a wide variety of fault injections and other building blocks for Chaos experiments.
-On this page, you can learn about the core concepts and find an overview of the platform's capabilities.
+Steadybit offers a wide variety of fault injections, checks and integrations (called [actions](/concepts/actions/README.md) for Chaos experiments which are provided by Steadybit's open-source [extensions](/integrate-with-steadybit/extensions/README.md).
+These actions can be combined in a timeline-based editor to build your chaos engineering experiment. 
+
+This page serves you as an overview of the supported technologies.
 A detailed list is available on the [Steadybit Reliability Hub](https://hub.steadybit.com).
 
-## Core Concepts
-
-In Steadybit, you will create experiments by combining various building blocks in a timeline-based editor. We call those building blocks **actions**.
-
-**Actions** operate on **targets**. Steadybit comes with targets that represent various logical and physical components of your systems-under-test.
-
-**Targets** and **actions** are exposed by **extensions**. **Extensions** are small processes running inside your infrastructure. They communicate with the Steadybit platform via an agent. As a rule of thumb, each **extension** exposes **targets** and **actions** related to a specific technology (e.g. containers, hosts, observability solution, etc.).
-
-## Capabilities
-
-You can pick extensions to match the scenarios that you want to address with chaos experiments, keeping resource consumption and required permissions minimal.
-The following tables provide an overview of the capabilities across all extensions.
-
-### Containers
+## Containers
 
 The following capabilities are available when targeting containers.
 
-#### Network-related Attacks
+### Network-related Attacks
 
 |                                                                      | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
 |----------------------------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
@@ -38,7 +27,7 @@ The following capabilities are available when targeting containers.
 | Azure Kubernetes Service (AKS)                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | minikube                                                             | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 
-#### Resource-related Attacks
+### Resource-related Attacks
 
 |                                                                      | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
 |----------------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
@@ -55,7 +44,7 @@ The following capabilities are available when targeting containers.
 | Azure Kubernetes Service (AKS)                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
 | minikube                                                             | ✅         | ✅           | ✅          | ✅         | ✅             |
 
-#### State-related Attacks
+### State-related Attacks
 
 |                                                                      | Pause Container | Stop Container              |
 |----------------------------------------------------------------------|-----------------|-----------------------------|
@@ -72,11 +61,11 @@ The following capabilities are available when targeting containers.
 | Azure Kubernetes Service (AKS)                                       | ✅               | ✅                           |
 | minikube                                                             | ✅               | ✅                           |
 
-### Kubernetes environments
+## Kubernetes environments
 
 In addition to the above, the following Kubernetes specific actions are available.
 
-#### Attacks
+### Attacks
 
 |                                           | Cause Crash Loop | Delete Pod | Rollout Restart Deployment | Scale Deployment | Scale StatefulSet | Taint Node |
 |-------------------------------------------|------------------|------------|----------------------------|------------------|-------------------|------------|
@@ -88,7 +77,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 | Azure Kubernetes Service (AKS)            | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
 | minikube                                  | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
 
-#### Checks
+### Checks
 
 |                                           | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | StatefulSet Pod Count |
 |-------------------------------------------|---------------------|----------------------|---------------------------|------------|-----------------------|
@@ -100,7 +89,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 | Azure Kubernetes Service (AKS)            | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
 | minikube                                  | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
 
-#### Other Actions
+### Other Actions
 
 |                                           | Display Pod Count Metrics | Display Kubernetes Event Logs |
 |-------------------------------------------|---------------------------|-------------------------------|
@@ -112,100 +101,100 @@ In addition to the above, the following Kubernetes specific actions are availabl
 | Azure Kubernetes Service (AKS)            | ✅                         | ✅                             |
 | minikube                                  | ✅                         | ✅                             |
 
-### Physical and virtual hosts
+## Physical and virtual hosts
 
 The following attacks are available when working with physical hosts and virtual machines (both 64-bit PC and 64-bit ARM architectures).
 
 {% include "./hosts.md" %}
 
-### Cloud Providers
+## Cloud Providers
 
 Steadybit supports fault injection on all major cloud providers and an ever-growing list of managed services.
 
-#### AWS
+### AWS
 
-##### AWS EC2
+#### AWS EC2
 
 You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your AWS EC2 machines. Additionally, the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) supports API-based capabilities for [EC2s](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-instance).
 {% include "./hosts.md" %}
 
-##### AWS ECS on EC2
+#### AWS ECS on EC2
 
 Steadybit's capabilities for AWS ECS on EC2 are described above at the level of [container](#containers) and [pysical and virtual hosts](#physical-and-virtual-hosts).  Additionally, the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) supports API-based capabilities for [EC2s](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-instance).
 Also, Steadybit supports [AWS ECS Service](https://hub.steadybit.com/target/com.steadybit.extension_aws.ecs-service)-level attacks like [Scale Service](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.scale) attack, [Service Task Count](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.task_count_check) check, and [Service Event Log](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.event_log) action.
 
-##### AWS ECS on Fargate
+#### AWS ECS on Fargate
 
 Steadybit's capabilities for AWS ECS on Fargate are described above at [container level capabilities](#containers).
 Also, Steadybit supports [AWS ECS Service](https://hub.steadybit.com/target/com.steadybit.extension_aws.ecs-service)-level attacks like [Scale Service](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.scale) attack, [Service Task Count](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.task_count_check) check, and [Service Event Log](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.event_log) action.
 
-##### AWS EKS (Elastic Kubernetes Service)
+#### AWS EKS (Elastic Kubernetes Service)
 
 Capabilities for managed Kubernetes clusters in AWS EKS are identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes-environments) capabilities above.
 
-##### AWS Elastic Load Balancing
+#### AWS Elastic Load Balancing
 
 Application load balancers are supported on API-level by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.alb).
 
-##### AWS Elasticache
+#### AWS Elasticache
 
 Elasticache in AWS are supported by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.elasticache.node-group).
 
-##### AWS Fault Injection Service (FIS)
+#### AWS Fault Injection Service (FIS)
 
 Steadybit integrates with AWS FIS experiment templates, which makes it easy to inject faults into additional managed services. See the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.fis-experiment-template) for more details.
 
-##### AWS Lambda
+#### AWS Lambda
 
 Lambdas are supported by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.lambda).
 
-##### AWS Managed Streaming for Apache Kafka (MSK)
+#### AWS Managed Streaming for Apache Kafka (MSK)
 
 Managed Kafka instances are supported by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.msk.cluster.broker). In addition, you can leverage Steadybit's capabilities for [Kafka](#kafka).
 
-##### AWS Relational Database Service (RDS)
+#### AWS Relational Database Service (RDS)
 
 Capabilities for AWS RDS are covered by the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) on [RDS cluster](https://hub.steadybit.com/target/com.steadybit.extension_aws.rds.cluster) and [RDS instance](https://hub.steadybit.com/target/com.steadybit.extension_aws.rds.instance) level. 
 
-##### Other AWS Services
+#### Other AWS Services
 
 Steadybit has cross-services capabilities like simulating a full [availability zone outage](https://hub.steadybit.com/target/com.steadybit.extension_aws.zone) or [partial zone outage via subnets](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-subnet).
 
 Additional managed services are covered via [AWS FIS](#fault-injection-service-fis), or will be added to Steadybit natively in the future.
 
-#### Azure
+### Azure
 
-##### Azure Kubernetes Service (AKS)
+#### Azure Kubernetes Service (AKS)
 
 Capabilities for managed Kubernetes clusters in Azure are identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes-environments) capabilities above.
 
-##### Azure Event Hub
+#### Azure Event Hub
 
 Azure Event Hub leveraging Kafka-compatibility are supported by Steadybit's capabilities for [Kafka](#kafka).
 
-##### Azure Virtual Machines (VMs)
+#### Azure Virtual Machines (VMs)
 
 You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your Azure VMs. Additionally, the [Azure extension](https://hub.steadybit.com/extension/com.steadybit.extension_azure) supports API-based capabilities for [Virtual Machines](https://hub.steadybit.com/target/com.steadybit.extension_azure.vm) and [Virtual Machine Scale Set Instances](https://hub.steadybit.com/target/com.steadybit.extension_azure.scale_set.instance).
 
-##### Other Azure Services
+#### Other Azure Services
 
 More Azure services will be added to the [Azure](https://hub.steadybit.com/extension/com.steadybit.extension_azure) extension in the future.
 
-#### GCP
+### GCP
 
-##### Google Kubernetes Engine (GKE)
+#### Google Kubernetes Engine (GKE)
 
 Capabilities for managed Kubernetes clusters in GCP are identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes-environments) capabilities above.
 
-##### GCP Virtual machines (VMs)
+#### GCP Virtual machines (VMs)
 
 You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your GCP VMs. Additionally, the [GCP extension](https://hub.steadybit.com/extension/com.steadybit.extension_gcp) supports API-based capabilities for [Virtual Machines](https://hub.steadybit.com/target/com.steadybit.extension_gcp.vm).
 
-##### Other GCP Services
+#### Other GCP Services
 
 More GCP services will be added to the [GCP](https://hub.steadybit.com/extension/com.steadybit.extension_gcp) extension in the future.
 
-### Service Mesh & API Gateway
+## Service Mesh & API Gateway
 
 Steadybit provides the following fault injections for service meshes and api gateways.
 
@@ -214,12 +203,12 @@ Steadybit provides the following fault injections for service meshes and api gat
 | Istio | ✅          | ✅          | ✅          |
 | Kong  | ❌          | ✅          | ❌          |
 
-### Kafka
+## Kafka
 
 Steadybit offers comprehensive support for chaos experiments on Kafka infrastructure.
 Please visit the [Kafka extension page on the Steadybit Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_kafka) for details.
 
-### Observability
+## Observability
 
 Steadybit supports the following observability-related experiment actions:
 
@@ -233,7 +222,7 @@ Steadybit supports the following observability-related experiment actions:
 | Prometheus | ✅                                          | ❌                                     | ❌                                     |
 | StackState | ✅                                          | ❌                                     | ❌                                     |
 
-### Load Testing
+## Load Testing
 
 Steadybit integrates with the following load-testing solutions:
 
