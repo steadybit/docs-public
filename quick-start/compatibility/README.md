@@ -20,7 +20,8 @@ The following capabilities are available when targeting containers.
 | Kubernetes                                                           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Red Hat OpenShift                                                    | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | AWS Elastic Kubernetes Service (EKS)                                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-{% include "./containers-ecs-network.md" %}
+| AWS Elastic Container Service (ECS) on [EC2](#user-content-fn-4)[^4] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| AWS Elastic Container Service (ECS) on Fargate                       | ❌         | ❌             | ❌                         | ❌                      | ❌                     | ❌                        |
 | Google Kubernetes Engine (GKE)                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Google Kubernetes Engine (GKE, [Autopilot](#user-content-fn-1)[^1])  | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Azure Kubernetes Service (AKS)                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
@@ -36,7 +37,8 @@ The following capabilities are available when targeting containers.
 | Kubernetes                                                           | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Red Hat OpenShift                                                    | ✅         | ✅           | ✅          | ✅         | ✅             |
 | AWS Elastic Kubernetes Service (EKS)                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
-{% include "./containers-ecs-resource.md" %}
+| AWS Elastic Container Service (ECS) on [EC2](#user-content-fn-4)[^4] | ✅         | ✅           | ✅          | ✅         | ✅             |
+| AWS Elastic Container Service (ECS) on Fargate                       | ✅         | ❌           | ✅          | ✅         | ✅             |
 | Google Kubernetes Engine (GKE)                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Google Kubernetes Engine (GKE, [Autopilot](#user-content-fn-1)[^1])  | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Azure Kubernetes Service (AKS)                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
@@ -52,7 +54,8 @@ The following capabilities are available when targeting containers.
 | Kubernetes                                                           | ✅               | ✅                           |
 | Red Hat OpenShift                                                    | ✅               | ✅                           |
 | AWS Elastic Kubernetes Service (EKS)                                 | ✅               | ✅                           |
-{% include "./containers-ecs-state.md" %}
+| AWS Elastic Container Service (ECS) on [EC2](#user-content-fn-4)[^4] | ✅               | ✅                           |
+| AWS Elastic Container Service (ECS) on Fargate                       | ❌               | [✅](#user-content-fn-5)[^5] |
 | Google Kubernetes Engine (GKE)                                       | ✅               | ✅                           |
 | Google Kubernetes Engine (GKE, [Autopilot](#user-content-fn-1)[^1])  | ✅               | ✅                           |
 | Azure Kubernetes Service (AKS)                                       | ✅               | ✅                           |
