@@ -175,15 +175,17 @@ Steadybit supports fault injection on all major cloud providers and an ever-grow
 
 ##### AWS EC2
 
-You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your AWS EC2 machines. Additionally, the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) supports API-based capabilities for EC2s.
+You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your AWS EC2 machines. Additionally, the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) supports API-based capabilities for [EC2s](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-instance).
 
 ##### AWS ECS on EC2
 
-Steadybit's capabilities for AWS ECS on EC2 are described above at the level of [container](#containers) and [pysical and virtual hosts](#physical-and-virtual-hosts).
+Steadybit's capabilities for AWS ECS on EC2 are described above at the level of [container](#containers) and [pysical and virtual hosts](#physical-and-virtual-hosts).  Additionally, the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) supports API-based capabilities for [EC2s](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-instance).
+Also, Steadybit supports [AWS ECS Service](https://hub.steadybit.com/target/com.steadybit.extension_aws.ecs-service)-level attacks like [Scale Service](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.scale) attack, [Service Task Count](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.task_count_check) check, and [Service Event Log](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.event_log) action.
 
 ##### AWS ECS on Fargate
 
 Steadybit's capabilities for AWS ECS on Fargate are described above at [container level capabilities](#containers).
+Also, Steadybit supports [AWS ECS Service](https://hub.steadybit.com/target/com.steadybit.extension_aws.ecs-service)-level attacks like [Scale Service](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.scale) attack, [Service Task Count](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.task_count_check) check, and [Service Event Log](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.event_log) action.
 
 ##### AWS EKS (Elastic Kubernetes Service)
 
