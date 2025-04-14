@@ -107,15 +107,15 @@ The following attacks are available when working with physical hosts and virtual
 
 ### Network-related Attacks
 
-{% include "./hosts-network.md" %}
+{% include "./fragment-hosts-network.md" %}
 
 ### Resource-related Attacks
 
-{% include "./hosts-resource.md" %}
+{% include "./fragment-hosts-resource.md" %}
 
 ### State-related Attacks
 
-{% include "./hosts-state.md" %}
+{% include "./fragment-hosts-state.md" %}
 
 ## Cloud Providers
 
@@ -125,36 +125,124 @@ Steadybit supports fault injection on all major cloud providers and an ever-grow
 
 #### AWS EC2
 
-##### Network-related Attacks
+Steadybit's capabilities for AWS EC2 work at the level of [pysical and virtual hosts](#physical-and-virtual-hosts), and based on AWS EC2 API, see [extension AWS EC2](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-instance).
+The tables below summarizes the capabilities.
 
-{% include "./hosts-network.md" %}
-
-##### Resource-related Attacks
-
-{% include "./hosts-resource.md" %}
-
-##### State-related Attacks
-
-{% include "./hosts-state.md" %}
-
-|              | Hibernate | Reboot | Start | Stop | Terminate | 
-|--------------|-----------|:-------|:------|:-----|:----------|
-| EC2 Instance | ✅         | ✅      | ✅     | ✅    | ✅   |
-
+{% include "./fragment-aws-ec2.md" %}
 
 #### AWS ECS on EC2
 
-Steadybit's capabilities for AWS ECS on EC2 are described above at the level of [container](#containers) and [pysical and virtual hosts](#physical-and-virtual-hosts).  Additionally, the [AWS extension](https://hub.steadybit.com/extension/com.steadybit.extension_aws) supports API-based capabilities for [EC2s](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-instance).
-Also, Steadybit supports [AWS ECS Service](https://hub.steadybit.com/target/com.steadybit.extension_aws.ecs-service)-level attacks like [Scale Service](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.scale) attack, [Service Task Count](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.task_count_check) check, and [Service Event Log](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.event_log) action.
+Steadybit's capabilities for AWS ECS on EC2 work at the level of [container](#containers), [pysical and virtual hosts](#physical-and-virtual-hosts), and AWS API-based actions for EC2 and ECS.
+The tables below summarizes the capabilities.
+
+##### Container level
+The following capabilities are available when targeting containers.
+
+###### Network-related Attacks
+
+|                                                                      | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
+|----------------------------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
+| AWS Elastic Container Service (ECS) on [EC2](#user-content-fn-4)[^4] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+
+###### Resource-related Attacks
+
+|                                                                      | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
+|----------------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
+| AWS Elastic Container Service (ECS) on [EC2](#user-content-fn-4)[^4] | ✅         | ✅           | ✅          | ✅         | ✅             |
+
+###### State-related Attacks
+
+|                                                                      | Pause Container | Stop Container              |
+|----------------------------------------------------------------------|-----------------|-----------------------------|
+| AWS Elastic Container Service (ECS) on [EC2](#user-content-fn-4)[^4] | ✅               | ✅                           |
+
+###### ECS Service Level
+
+{% include "./fragment-aws-ecs-service.md" %}
+
+###### EC2 Host Level
+
+{% include "./fragment-aws-ec2.md" %}
 
 #### AWS ECS on Fargate
+Steadybit's capabilities for AWS ECS on Fargate work at the level of [container](#containers), and AWS API-based actions for ECS.
+The tables below summarizes the capabilities.
 
-Steadybit's capabilities for AWS ECS on Fargate are described above at [container level capabilities](#containers).
-Also, Steadybit supports [AWS ECS Service](https://hub.steadybit.com/target/com.steadybit.extension_aws.ecs-service)-level attacks like [Scale Service](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.scale) attack, [Service Task Count](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.task_count_check) check, and [Service Event Log](https://hub.steadybit.com/action/com.steadybit.extension_aws.ecs-service.event_log) action.
+##### Container level
+The following capabilities are available when targeting containers.
+
+###### Network-related Attacks
+
+|                                                                      | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
+|----------------------------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
+| AWS Elastic Container Service (ECS) on Fargate                       | ❌         | ❌             | ❌                         | ❌                      | ❌                     | ❌                        |
+
+###### Resource-related Attacks
+
+|                                                                      | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
+|----------------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
+| AWS Elastic Container Service (ECS) on Fargate                       | ✅         | ❌           | ✅          | ✅         | ✅             |
+
+###### State-related Attacks
+
+|                                                                      | Pause Container | Stop Container              |
+|----------------------------------------------------------------------|-----------------|-----------------------------|
+| AWS Elastic Container Service (ECS) on Fargate                       | ❌               | [✅](#user-content-fn-5)[^5] |
+
+###### ECS Service Level
+
+{% include "./fragment-aws-ecs-service.md" %}
+
 
 #### AWS EKS (Elastic Kubernetes Service)
 
-Capabilities for managed Kubernetes clusters in AWS EKS are identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes-environments) capabilities above.
+Capabilities for managed Kubernetes clusters in AWS EKS work at the [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes](#kubernetes-environments) level.
+The tables below summarizes the capabilities.
+
+##### Container level
+
+##### Network-related Attacks
+
+|                                                                      | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
+|----------------------------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
+| AWS Elastic Kubernetes Service (EKS)                                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+
+##### Resource-related Attacks
+
+|                                                                      | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
+|----------------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
+| AWS Elastic Kubernetes Service (EKS)                                 | ✅         | ✅           | ✅          | ✅         | ✅             |
+
+##### State-related Attacks
+
+|                                                                      | Pause Container | Stop Container              |
+|----------------------------------------------------------------------|-----------------|-----------------------------|
+| AWS Elastic Kubernetes Service (EKS)                                 | ✅               | ✅                           |
+
+##### EC2 Node Level
+
+{% include "./fragment-aws-ec2.md" %}
+
+##### Kubernetes Level
+
+### Attacks
+
+|                                           | Cause Crash Loop | Delete Pod | Rollout Restart Deployment | Scale Deployment | Scale StatefulSet | Taint Node |
+|-------------------------------------------|------------------|------------|----------------------------|------------------|-------------------|------------|
+| AWS Elastic Kubernetes Service (EKS)      | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
+
+### Checks
+
+|                                           | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | StatefulSet Pod Count |
+|-------------------------------------------|---------------------|----------------------|---------------------------|------------|-----------------------|
+| AWS Elastic Kubernetes Service (EKS)      | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
+
+### Other Actions
+
+|                                           | Display Pod Count Metrics | Display Kubernetes Event Logs |
+|-------------------------------------------|---------------------------|-------------------------------|
+| AWS Elastic Kubernetes Service (EKS)      | ✅                         | ✅                             |
+
 
 #### AWS Elastic Load Balancing
 
