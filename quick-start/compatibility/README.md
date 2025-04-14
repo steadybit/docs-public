@@ -107,57 +107,15 @@ The following attacks are available when working with physical hosts and virtual
 
 ### Network-related Attacks
 
-
-|                   | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
-|-------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
-| Ubuntu 20.04      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Ubuntu 22.04      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Ubuntu 24.04      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Fedora Latest     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Debian Bookworm   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Debian Bullseye   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Amazon Linux 2    | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Amazon Linux 2023 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-
-{% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
-{% endhint %}
+{% include "./fragment-hosts-network.md" %}
 
 ### Resource-related Attacks
 
+{% include "./fragment-hosts-resource.md" %}
 
-|                   | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
-|-------------------|-----------|-------------|------------|-----------|---------------|
-| Ubuntu 20.04      | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Ubuntu 22.04      | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Ubuntu 24.04      | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Fedora Latest     | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Debian Bookworm   | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Debian Bullseye   | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Amazon Linux 2    | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Amazon Linux 2023 | ✅         | ✅           | ✅          | ✅         | ✅             |
+## State-related Attacks
 
-{% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
-{% endhint %}
-
-### State-related Attacks
-
-
-|                   | Shutdown Host | Stop Process | Time Travel |
-|-------------------|---------------|--------------|-------------|
-| Ubuntu 20.04      | ✅             | ✅            | ✅           |
-| Ubuntu 22.04      | ✅             | ✅            | ✅           |
-| Ubuntu 24.04      | ✅             | ✅            | ✅           |
-| Fedora Latest     | ✅             | ✅            | ✅           |
-| Debian Bookworm   | ✅             | ✅            | ✅           |
-| Debian Bullseye   | ✅             | ✅            | ✅           |
-| Amazon Linux 2    | ✅             | ✅            | ✅           |
-| Amazon Linux 2023 | ✅             | ✅            | ✅           |
-
-{% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
-{% endhint %}
+{% include "./fragment-hosts-state.md" %}
 
 ## Cloud Providers
 
@@ -167,19 +125,31 @@ Steadybit supports fault injection on all major cloud providers and an ever-grow
 
 #### AWS EC2
 
-Steadybit's capabilities for AWS EC2 work at the level of [pysical and virtual hosts](#physical-and-virtual-hosts) (see above).
+Steadybit's capabilities for AWS EC2 work at the level of [physical and virtual hosts](#physical-and-virtual-hosts).
+
+<details>
+
+<summary>EC2 Host Level</summary>
+
+### Network-related Attacks
+
+{% include "./fragment-hosts-network.md" %}
+
+### Resource-related Attacks
+
+{% include "./fragment-hosts-resource.md" %}
+
+## State-related Attacks
+
+{% include "./fragment-hosts-state.md" %}
+
+</details>
+
 On top, it supports attacks based on the AWS EC2 API:
 
 |              | Hibernate | Reboot | Start | Stop | Terminate | 
 |--------------|-----------|:-------|:------|:-----|:----------|
 | EC2 Instance | ✅         | ✅      | ✅     | ✅    | ✅   |
-
-<details>
-
-<summary>Example</summary>
-{% include "./fragment-aws-ecs-service.md" %}
-
-</details>
 
 #### AWS ECS on EC2
 
