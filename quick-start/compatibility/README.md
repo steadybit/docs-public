@@ -125,37 +125,22 @@ Steadybit supports fault injection on all major cloud providers and an ever-grow
 
 #### AWS EC2
 
-Steadybit's capabilities for AWS EC2 work at the level of [physical and virtual hosts](#physical-and-virtual-hosts).
-
-<details>
-
-<summary>EC2 Host Level</summary>
-
-### Network-related Attacks
-
-{% include "./fragment-hosts-network.md" %}
-
-### Resource-related Attacks
-
-{% include "./fragment-hosts-resource.md" %}
-
-## State-related Attacks
-
-{% include "./fragment-hosts-state.md" %}
-
-</details>
-
-On top, it supports attacks based on the AWS EC2 API:
-
-|              | Hibernate | Reboot | Start | Stop | Terminate | 
-|--------------|-----------|:-------|:------|:-----|:----------|
-| EC2 Instance | ✅         | ✅      | ✅     | ✅    | ✅   |
+{% include "./fragment-aws-ec2.md" %}
 
 #### AWS ECS on EC2
 
 Steadybit's capabilities for AWS ECS on EC2 work at the level of [AWS EC2](#aws-ec2), and [container](#containers) (see above).
 
+<details>
+
+<summary>AWS EC2</summary>
+
+{% include "./fragment-aws-ec2.md" %}
+
+<details>
+
 On top, it provides actions based on the AWS ECS API.
+
 
 {% include "./fragment-aws-ecs-service.md" %}
 
