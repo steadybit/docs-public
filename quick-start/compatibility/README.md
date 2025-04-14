@@ -177,6 +177,7 @@ On top, it supports attacks based on the AWS EC2 API:
 #### AWS ECS on EC2
 
 Steadybit's capabilities for AWS ECS on EC2 work at the level of [AWS EC2](#aws-ec2), and [container](#containers) (see above).
+
 On top, it provides actions based on the AWS ECS API.
 
 {% include "./fragment-aws-ecs-service.md" %}
@@ -184,6 +185,7 @@ On top, it provides actions based on the AWS ECS API.
 #### AWS ECS on Fargate
 
 Steadybit's capabilities for AWS ECS on EC2 work at the level of [container](#containers) (see above).
+
 On top, it provides actions based on the AWS ECS API.
 
 {% include "./fragment-aws-ecs-service.md" %}
@@ -194,23 +196,40 @@ Capabilities for managed Kubernetes clusters in AWS EKS work at the [container-]
 
 #### AWS Elastic Load Balancing
 
-Application load balancers are supported on API-level by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.alb).
+|     | Return Static Response | 
+|-----|------------------------|
+| ALB | ✅                      |
 
 #### AWS Elasticache
 
-Elasticache in AWS are supported by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.elasticache.node-group).
+|             | Node Group Failover         | 
+|-------------|-----------------------------|
+| Elasticache | ✅                           |
+
 
 #### AWS Fault Injection Service (FIS)
 
 Steadybit integrates with AWS FIS experiment templates, which makes it easy to inject faults into additional managed services. See the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.fis-experiment-template) for more details.
 
+|     | Start Experiment Template | 
+|-----|---------------------------|
+| FIS | ✅                         |
+
+
 #### AWS Lambda
 
-Lambdas are supported by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.lambda).
+|        | Block TCP Connections | Fill Diskspace | Inject Exception | Inject Latency | Inject Status Code | 
+|--------|-----------------------|:---------------|:-----------------|----------------|--------------------|
+| Lambda | ✅                     | ✅              | ✅                | ✅              | ✅                  |
 
-#### AWS Managed Streaming for Apache Kafka (MSK)
+#### AWS Managed Streaming for Kafka (MSK)
 
-Managed Kafka instances are supported by the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.msk.cluster.broker). In addition, you can leverage Steadybit's capabilities for [Kafka](#kafka).
+##### Broker
+
+|     | Broker Reboot  | ... | ... | ... | ... |
+|-----|----------------|:-----|:----|-----|-----|
+| MSK | ✅              | ✅    | ✅   | ✅   | ✅   |
+
 
 #### AWS Relational Database Service (RDS)
 
@@ -266,7 +285,30 @@ Steadybit provides the following fault injections for service meshes and api gat
 ## Kafka
 
 Steadybit offers comprehensive support for chaos experiments on Kafka infrastructure.
-Please visit the [Kafka extension page on the Steadybit Reliability Hub](https://hub.steadybit.com/extension/com.steadybit.extension_kafka) for details.
+
+### Broker
+
+|                                       | Limit Connection Creation Rate | Limit IO Thread | Limit Network Threads |
+|---------------------------------------|--------------------------------|-----------------|-----------------------|
+| Unmanaged Kafka                       | ✅                              | ✅               | ✅                     |
+| AWS Managed Streaming for Kafka (MSK) | ✅                              | ✅               | ✅                     |
+| Azure Event Hub (Kafka)               | ✅                              | ✅               | ✅                     |
+
+### Consumer
+
+|                                       | Check Consumer State | Check Topic Lag | Deny Access |
+|---------------------------------------|----------------------|-----------------|-------------|
+| Unmanaged Kafka                       | ✅                    | ✅               | ✅           |
+| AWS Managed Streaming for Kafka (MSK) | ✅                    | ✅               | ✅           |
+| Azure Event Hub (Kafka)               | ✅                    | ✅               | ✅           |
+
+### Topics
+
+|                                       | Check Partitions | Produce Records | Reduce Message Batch Size | Delete Records         | Partition Leader Election         |
+|---------------------------------------|------------------|-----------------|---------------------------|:-----------------------|:----------------------------------|
+| Unmanaged Kafka                       | ✅                | ✅               | ✅                         | ✅                      | ✅                                 |
+| AWS Managed Streaming for Kafka (MSK) | ✅                | ✅               | ✅                         | ✅                      | ✅                                 |
+| Azure Event Hub (Kafka)               | ✅                | ✅               | ✅                         | ✅                      | ✅                                 |
 
 ## Observability
 
