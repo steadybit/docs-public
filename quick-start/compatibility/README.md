@@ -174,6 +174,13 @@ On top, it supports attacks based on the AWS EC2 API:
 |--------------|-----------|:-------|:------|:-----|:----------|
 | EC2 Instance | ✅         | ✅      | ✅     | ✅    | ✅   |
 
+<details>
+
+<summary>Example</summary>
+{% include "./fragment-aws-ecs-service.md" %}
+
+</details>
+
 #### AWS ECS on EC2
 
 Steadybit's capabilities for AWS ECS on EC2 work at the level of [AWS EC2](#aws-ec2), and [container](#containers) (see above).
