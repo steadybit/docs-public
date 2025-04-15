@@ -167,8 +167,12 @@ Steadybit supports fault injection on all major cloud providers and an ever-grow
 
 #### AWS EC2
 
-Steadybit's capabilities for AWS EC2 work at the level of [pysical and virtual hosts](#physical-and-virtual-hosts) (see above).
-On top, it supports attacks based on the AWS EC2 API:
+{% hint style="info" %}
+Steadybit's capabilities for [physical and virtual hosts](#physical-and-virtual-hosts) also work for AWS EC2 environments.
+Refer to the sections above to understand the full compatibility.
+{% endhint %}
+
+On top, Steadybit supports attacks based on the AWS EC2 API:
 
 |              | Hibernate | Reboot | Start | Stop | Terminate | 
 |--------------|-----------|:-------|:------|:-----|:----------|
@@ -176,23 +180,32 @@ On top, it supports attacks based on the AWS EC2 API:
 
 #### AWS ECS on EC2
 
-Steadybit's capabilities for AWS ECS on EC2 work at the level of [AWS EC2](#aws-ec2), and [container](#containers) (see above).
+{% hint style="info" %}
+Steadybit's capabilities for [AWS EC2s](#aws-ec2), and [containers](#containers) also work for AWS ECS on EC2 environments.
+Refer to the sections above to understand the full compatibility.
+{% endhint %}
 
-On top, it provides actions based on the AWS ECS API.
+On top, Steadybit provides capabilities based on the AWS ECS API.
 
 {% include "./fragment-aws-ecs-service.md" %}
 
 #### AWS ECS on Fargate
 
-Steadybit's capabilities for AWS ECS on EC2 work at the level of [container](#containers) (see above).
+{% hint style="info" %}
+Steadybit's capabilities for [containers](#containers) also work for AWS ECS on Fargate environments.
+Refer to the sections above to understand the full compatibility.
+{% endhint %}
 
-On top, it provides actions based on the AWS ECS API.
+On top, Steadybit provides capabilities based on the AWS ECS API.
 
 {% include "./fragment-aws-ecs-service.md" %}
 
 #### AWS EKS (Elastic Kubernetes Service)
 
-Capabilities for managed Kubernetes clusters in AWS EKS work at the [container-](#containers), [Kubernetes](#kubernetes-environments) and [AWS EC2](#aws-ec2) level (see above).
+{% hint style="info" %}
+Steadybit's capabilities for [containers](#containers), [Kubernetes](#kubernetes-environments) and [AWS EC2s](#aws-ec2) also work for AWS EKS environments.
+Refer to the sections above to understand the full compatibility.
+{% endhint %}
 
 #### AWS Elastic Load Balancing
 
@@ -224,11 +237,16 @@ Steadybit integrates with AWS FIS experiment templates, which makes it easy to i
 
 #### AWS Managed Streaming for Kafka (MSK)
 
-##### Broker
+{% hint style="info" %}
+Steadybit's capabilities for [Kafka](#kafka) also work for AWS MSK environments.
+Refer to the sections above to understand the full compatibility.
+{% endhint %}
 
-|     | Broker Reboot  | ... | ... | ... | ... |
-|-----|----------------|:-----|:----|-----|-----|
-| MSK | ✅              | ✅    | ✅   | ✅   | ✅   |
+On top, Steadybit provides capabilities based on the AWS MSK API.
+
+|     | Broker Reboot  |
+|-----|----------------|
+| MSK | ✅              |
 
 
 #### AWS Relational Database Service (RDS)
@@ -253,7 +271,7 @@ Azure Event Hub leveraging Kafka-compatibility are supported by Steadybit's capa
 
 #### Azure Virtual Machines (VMs)
 
-You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your Azure VMs. Additionally, the [Azure extension](https://hub.steadybit.com/extension/com.steadybit.extension_azure) supports API-based capabilities for [Virtual Machines](https://hub.steadybit.com/target/com.steadybit.extension_azure.vm) and [Virtual Machine Scale Set Instances](https://hub.steadybit.com/target/com.steadybit.extension_azure.scale_set.instance).
+You can leverage Steadybit's capabilities for [physical and virtual hosts](#physical-and-virtual-hosts) in your Azure VMs. Additionally, the [Azure extension](https://hub.steadybit.com/extension/com.steadybit.extension_azure) supports API-based capabilities for [Virtual Machines](https://hub.steadybit.com/target/com.steadybit.extension_azure.vm) and [Virtual Machine Scale Set Instances](https://hub.steadybit.com/target/com.steadybit.extension_azure.scale_set.instance).
 
 #### Other Azure Services
 
@@ -267,7 +285,7 @@ Capabilities for managed Kubernetes clusters in GCP are identical to fault injec
 
 #### GCP Virtual machines (VMs)
 
-You can leverage Steadybit's capabilities for [pysical and virtual hosts](#physical-and-virtual-hosts) in your GCP VMs. Additionally, the [GCP extension](https://hub.steadybit.com/extension/com.steadybit.extension_gcp) supports API-based capabilities for [Virtual Machines](https://hub.steadybit.com/target/com.steadybit.extension_gcp.vm).
+You can leverage Steadybit's capabilities for [physical and virtual hosts](#physical-and-virtual-hosts) in your GCP VMs. Additionally, the [GCP extension](https://hub.steadybit.com/extension/com.steadybit.extension_gcp) supports API-based capabilities for [Virtual Machines](https://hub.steadybit.com/target/com.steadybit.extension_gcp.vm).
 
 #### Other GCP Services
 
