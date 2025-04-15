@@ -174,6 +174,11 @@ Refer to the sections above to understand the full compatibility.
 {% content-ref url="#physical-and-virtual-hosts" %} [![host.svg](icons/host.svg)] . {% endcontent-ref %}
 {% content-ref url="#physical-and-virtual-hosts" %} [.] . {% endcontent-ref %}
 
+{% content-ref url="#physical-and-virtual-hosts" %} ![host.svg](icons/host.svg) Hosts {% endcontent-ref %}
+{% content-ref url="#physical-and-virtual-hosts" %} [![host.svg](icons/host.svg)] Hosts {% endcontent-ref %}
+{% content-ref url="#physical-and-virtual-hosts" %} [.] Hosts {% endcontent-ref %}
+
+![host.svg](icons/host.svg)
 On top, Steadybit supports attacks based on the AWS EC2 API:
 
 |              | Hibernate | Reboot | Start | Stop | Terminate | 
