@@ -61,7 +61,7 @@ The following capabilities are available when targeting containers.
 | Azure Kubernetes Service (AKS)                                       | ✅               | ✅                           |
 | minikube                                                             | ✅               | ✅                           |
 
-## Kubernetes environments
+## Kubernetes
 
 In addition to the above, the following Kubernetes specific actions are available.
 
@@ -101,7 +101,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 | Azure Kubernetes Service (AKS)            | ✅                         | ✅                             |
 | minikube                                  | ✅                         | ✅                             |
 
-## Physical and virtual hosts
+## Physical and Virtual Hosts
 
 The following attacks are available when working with physical hosts and virtual machines (both 64-bit PC and 64-bit ARM architectures).
 
@@ -168,17 +168,9 @@ Steadybit supports fault injection on all major cloud providers and an ever-grow
 #### AWS EC2
 
 Steadybit's capabilities for [physical and virtual hosts](#physical-and-virtual-hosts) also work for AWS EC2 environments.
-Refer to the sections above to understand the full compatibility.
 
-{% content-ref url="#physical-and-virtual-hosts" %} ![host.svg](icons/host.svg) . {% endcontent-ref %}
-{% content-ref url="#physical-and-virtual-hosts" %} [![host.svg](icons/host.svg)] . {% endcontent-ref %}
-{% content-ref url="#physical-and-virtual-hosts" %} [.] . {% endcontent-ref %}
+{% content-ref url="#physical-and-virtual-hosts" %} . {% endcontent-ref %}
 
-{% content-ref url="#physical-and-virtual-hosts" %} ![host.svg](icons/host.svg) Hosts {% endcontent-ref %}
-{% content-ref url="#physical-and-virtual-hosts" %} [![host.svg](icons/host.svg)] Hosts {% endcontent-ref %}
-{% content-ref url="#physical-and-virtual-hosts" %} [.] Hosts {% endcontent-ref %}
-
-![host.svg](icons/host.svg)
 On top, Steadybit supports attacks based on the AWS EC2 API:
 
 |              | Hibernate | Reboot | Start | Stop | Terminate | 
@@ -187,10 +179,10 @@ On top, Steadybit supports attacks based on the AWS EC2 API:
 
 #### AWS ECS on EC2
 
-{% hint style="info" %}
 Steadybit's capabilities for [AWS EC2s](#aws-ec2), and [containers](#containers) also work for AWS ECS on EC2 environments.
-Refer to the sections above to understand the full compatibility.
-{% endhint %}
+
+{% content-ref url="#aws-ec2" %} . {% endcontent-ref %}
+{% content-ref url="#containers" %} . {% endcontent-ref %}
 
 On top, Steadybit provides capabilities based on the AWS ECS API.
 
@@ -198,10 +190,9 @@ On top, Steadybit provides capabilities based on the AWS ECS API.
 
 #### AWS ECS on Fargate
 
-{% hint style="info" %}
 Steadybit's capabilities for [containers](#containers) also work for AWS ECS on Fargate environments.
-Refer to the sections above to understand the full compatibility.
-{% endhint %}
+
+{% content-ref url="#containers" %} . {% endcontent-ref %}
 
 On top, Steadybit provides capabilities based on the AWS ECS API.
 
@@ -209,10 +200,11 @@ On top, Steadybit provides capabilities based on the AWS ECS API.
 
 #### AWS EKS (Elastic Kubernetes Service)
 
-{% hint style="info" %}
 Steadybit's capabilities for [containers](#containers), [Kubernetes](#kubernetes-environments) and [AWS EC2s](#aws-ec2) also work for AWS EKS environments.
-Refer to the sections above to understand the full compatibility.
-{% endhint %}
+
+{% content-ref url="#containers" %} . {% endcontent-ref %}
+{% content-ref url="#kubernetes-environments" %} . {% endcontent-ref %}
+{% content-ref url="#aws-ec2" %} . {% endcontent-ref %}
 
 #### AWS Elastic Load Balancing
 
@@ -244,10 +236,9 @@ Steadybit integrates with AWS FIS experiment templates, which makes it easy to i
 
 #### AWS Managed Streaming for Kafka (MSK)
 
-{% hint style="info" %}
 Steadybit's capabilities for [Kafka](#kafka) also work for AWS MSK environments.
-Refer to the sections above to understand the full compatibility.
-{% endhint %}
+
+{% content-ref url="#kafka" %} . {% endcontent-ref %}
 
 On top, Steadybit provides capabilities based on the AWS MSK API.
 
@@ -270,7 +261,7 @@ Additional managed services are covered via [AWS FIS](#fault-injection-service-f
 
 #### Azure Kubernetes Service (AKS)
 
-Capabilities for managed Kubernetes clusters in Azure are identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes-environments) capabilities above.
+Capabilities for managed Kubernetes clusters in Azure are identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes) capabilities above.
 
 #### Azure Event Hub
 
@@ -288,7 +279,7 @@ More Azure services will be added to the [Azure](https://hub.steadybit.com/exten
 
 #### Google Kubernetes Engine (GKE)
 
-Capabilities for managed Kubernetes clusters in GCP are identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes-environments) capabilities above.
+Capabilities for managed Kubernetes clusters in GCP are identical to fault injection in unmanaged Kubernetes clusters, see [container-](#containers), [host-](#physical-and-virtual-hosts), and [Kubernetes-based](#kubernetes) capabilities above.
 
 #### GCP Virtual machines (VMs)
 
