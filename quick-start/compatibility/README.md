@@ -167,10 +167,10 @@ Steadybit supports fault injection on all major cloud providers and an ever-grow
 
 #### AWS EC2
 
-{% hint style="info" %}
 Steadybit's capabilities for [physical and virtual hosts](#physical-and-virtual-hosts) also work for AWS EC2 environments.
 Refer to the sections above to understand the full compatibility.
-{% endhint %}
+
+{% content-ref url="#physical-and-virtual-hosts" %} . {% endcontent-ref %}
 
 On top, Steadybit supports attacks based on the AWS EC2 API:
 
