@@ -300,6 +300,6 @@ The Steadybit Platform provides the following rate limit metrics:
 
 The platform can connect to multiple hubs.
 
-| Environment Variable            | Description                                                                                                                       |
-|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `STEADYBIT_HUBS_MAX_HUBS_COUNT` | Maximum number of hubs to connect to.                                                                                             |
+| Environment Variable            | Description                                                                                                                       | Default |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------|
+| `STEADYBIT_HUBS_MAX_HUBS_COUNT` | Maximum number of hubs to connect to.                                                                                             | 5       |
