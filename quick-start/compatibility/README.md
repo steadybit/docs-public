@@ -10,7 +10,7 @@ A detailed list is available on the [Steadybit Reliability Hub](https://hub.stea
 
 The following capabilities are available when targeting containers.
 
-### Network-related Attacks
+### Network Attacks
 
 |                                                                      | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
 |----------------------------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|
@@ -27,7 +27,7 @@ The following capabilities are available when targeting containers.
 | Azure Kubernetes Service (AKS)                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | minikube                                                             | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 
-### Resource-related Attacks
+### Resource Attacks
 
 |                                                                      | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
 |----------------------------------------------------------------------|-----------|-------------|------------|-----------|---------------|
@@ -44,7 +44,7 @@ The following capabilities are available when targeting containers.
 | Azure Kubernetes Service (AKS)                                       | ✅         | ✅           | ✅          | ✅         | ✅             |
 | minikube                                                             | ✅         | ✅           | ✅          | ✅         | ✅             |
 
-### State-related Attacks
+### State Attacks
 
 |                                                                      | Pause Container | Stop Container              |
 |----------------------------------------------------------------------|-----------------|-----------------------------|
@@ -105,7 +105,7 @@ In addition to the above, the following Kubernetes specific actions are availabl
 
 The following attacks are available when working with physical hosts and virtual machines (both 64-bit PC and 64-bit ARM architectures).
 
-### Network-related Attacks
+### Network Attacks
 
 
 |                   | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
@@ -123,7 +123,7 @@ The following attacks are available when working with physical hosts and virtual
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
-### Resource-related Attacks
+### Resource Attacks
 
 
 |                   | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
@@ -141,7 +141,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
-### State-related Attacks
+### State Attacks
 
 
 |                   | Shutdown Host | Stop Process | Time Travel |
