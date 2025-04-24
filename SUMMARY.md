@@ -5,7 +5,7 @@
 ## Quick Start
 
 * [First Steps](quick-start/getting-started.md)
-* [Compatibility](quick-start/compatibility.md)
+* [Compatibility](quick-start/compatibility/README.md)
 * [Install Agent and Extensions](quick-start/set-up-agents/README.md)
 * [Run an Experiment](quick-start/run-experiment/README.md)
 * [Deploy Example Application](quick-start/deploy-example-application/README.md)
