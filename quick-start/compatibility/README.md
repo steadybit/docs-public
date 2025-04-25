@@ -423,7 +423,7 @@ Steadybit offers comprehensive support for chaos experiments on Kafka infrastruc
 | AWS Managed Streaming for Kafka (MSK) | ✅                | ✅               | ✅                         | ✅              | ✅                         |
 | Azure Event Hub (Kafka)               | ✅                | ✅               | ✅                         | ✅              | ✅                         |
 
-## Java Virtual Machine (JVM) / Spring applications
+## Java Virtual Machine (JVM) / Spring Applications
 
 Steadybit supports the following application-level faults for JVM- and Spring-based applications. These don't require any dependency at work at runtime via bytecode manipulation.
 
@@ -450,16 +450,16 @@ Steadybit supports the following observability-related experiment actions:
 
 Steadybit integrates with the following load- and API-testing solutions:
 
-|                                     | Run Load Test from Experiment | Run Experiment from Load Test |
-| ----------------------------------- |------------------------------| ----------------------------- |
-| Micro Focus LoadRunner Professional | ❌                            | ✅                             |
-| Micro Focus LoadRunner Enterprise   | ❌                            | ✅                             |
-| Gatling                             | ✅                            | ❌                             |
-| JMeter                              | ✅                            | ❌                             |
-| K6                                  | ✅                            | ✅                             |
-| K6 Cloud                            | ✅                            | ✅                             |
-| Postman                             | ✅                            | ✅                             |
-| Custom HTTP Check                   | ✅                            | ❌                             |
+|                                     | Run Test from Experiment | Run Experiment from Test    |
+|-------------------------------------|--------------------------|-----------------------------|
+| Micro Focus LoadRunner Professional | ❌                        | ✅                           |
+| Micro Focus LoadRunner Enterprise   | ❌                        | ✅                           |
+| Gatling                             | ✅                        | [✅](#user-content-fn-6)[^6] |
+| JMeter                              | ✅                        | [✅](#user-content-fn-6)[^6] |
+| K6                                  | ✅                        | ✅                           |
+| K6 Cloud                            | ✅                        | ✅                           |
+| Postman                             | ✅                        | [✅](#user-content-fn-6)[^6] |
+| Custom HTTP Check                   | ✅                        | [✅](#user-content-fn-6)[^6] |
 
 [^1]: extension-host and extension-container needs to run in privileged mode and network mode host is required for the extensions.
 
@@ -472,3 +472,5 @@ Steadybit integrates with the following load- and API-testing solutions:
     details.
 
 [^5]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
+
+[^6]: Experiments can be triggered from tests using Steadybit's HTTP API.
