@@ -423,6 +423,14 @@ Steadybit offers comprehensive support for chaos experiments on Kafka infrastruc
 | AWS Managed Streaming for Kafka (MSK) | ✅                | ✅               | ✅                         | ✅              | ✅                         |
 | Azure Event Hub (Kafka)               | ✅                | ✅               | ✅                         | ✅              | ✅                         |
 
+## Java Virtual Machine (JVM) / Spring applications
+
+Steadybit supports the following application-level faults for JVM- and Spring-based applications. These don't require any dependency at work at runtime via bytecode manipulation.
+
+|                 | Spring Controller Delay | Spring Controller Exception | HTTP Client Delay | HTTP Client Status | Method Delay | Method Exception | JDBC Template Delay | JDBC Template Exception |
+|-----------------|-------------------------|-----------------------------|-------------------|:-------------------|:-------------|:-----------------|:--------------------|:------------------------|
+| JVM application | ✅                       | ✅                           | ✅                 | ✅                  | ✅            | ✅                | ✅                   | ✅                       |
+
 ## Observability
 
 Steadybit supports the following observability-related experiment actions:
@@ -438,18 +446,20 @@ Steadybit supports the following observability-related experiment actions:
 | Splunk     | ✅                                          | ❌                                     | ✅                                     |
 | StackState | ✅                                          | ❌                                     | ❌                                     |
 
-## Load Testing
+## Load and API Testing
 
-Steadybit integrates with the following load-testing solutions:
+Steadybit integrates with the following load- and API-testing solutions:
 
 |                                     | Run Load Test from Experiment | Run Experiment from Load Test |
-| ----------------------------------- | ----------------------------- | ----------------------------- |
-| Micro Focus LoadRunner Professional | ❌                             | ✅                             |
-| Micro Focus LoadRunner Enterprise   | ❌                             | ✅                             |
-| Gatling                             | ✅                             | ❌                             |
-| JMeter                              | ✅                             | ❌                             |
-| K6                                  | ✅                             | ✅                             |
-| K6 Cloud                            | ✅                             | ✅                             |
+| ----------------------------------- |------------------------------| ----------------------------- |
+| Micro Focus LoadRunner Professional | ❌                            | ✅                             |
+| Micro Focus LoadRunner Enterprise   | ❌                            | ✅                             |
+| Gatling                             | ✅                            | ❌                             |
+| JMeter                              | ✅                            | ❌                             |
+| K6                                  | ✅                            | ✅                             |
+| K6 Cloud                            | ✅                            | ✅                             |
+| Postman                             | ✅                            | ✅                             |
+| Custom HTTP Check                   | ✅                            | ❌                             |
 
 [^1]: extension-host and extension-container needs to run in privileged mode and network mode host is required for the extensions.
 
