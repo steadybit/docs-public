@@ -2,9 +2,7 @@
 
 Actions are the building blocks of Chaos Engineering experiments and allow you to attack, check, or load test your systems during an experiment run.
 
-For instance, a simple experiment may consist of a single attack, e.g., to increase CPU usage within a container.
-In more advanced cases, you may compose various actions to, e.g., inject traffic, increase memory usage, and check whether your Observability monitor notices anything.
-Check out [Steadybit's Templates](https://hub.steadybit.com/templates) to learn more about how to combine actions into valuable experiments.
+For instance, a simple experiment may consist of a single attack, e.g., to increase CPU usage within a container. In more advanced cases, you may compose various actions to, e.g., inject traffic, increase memory usage, and check whether your Observability monitor notices anything. Check out [Steadybit's Templates](https://hub.steadybit.com/templates) to learn more about how to combine actions into valuable experiments.
 
 {% hint style="info" %}
 An action is always coming from a Steadybit extension and is submitted via the Steadybit Agent to the platform.
@@ -13,6 +11,7 @@ If you haven't installed any extensions, only one action is available: a simple 
 {% endhint %}
 
 ## Kinds of Actions
+
 The following sections will explain the supported kinds of actions in more detail.
 
 ### Attacks
@@ -33,10 +32,10 @@ Checks (sometimes called probes) act as verifications or assertions within exper
 
 You can incorporate various checks into your experiments. Some examples:
 
-* Ensure that no Kubernetes rollout is in progress before starting an attack (see  [Kubernetes Deployment Rollout Status check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_kubernetes.rollout-status)
-* Verify that your Datadog monitors are reporting issues when there are issues (injected by attacks, see  [Datadog Monitor Status check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_datadog.monitor.status_check))
-* Run Prometheus PromQL queries to check internal system metrics (see  [Prometheus Metrics check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_prometheus.instance.metrics))
-* Leverage your Postman API tests to check that your API is still working as intended while a part of your system is under attack (see  [Postman Collection check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_postman.collection.run))
+* Ensure that no Kubernetes rollout is in progress before starting an attack (see [Kubernetes Deployment Rollout Status check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_kubernetes.rollout-status)
+* Verify that your Datadog monitors are reporting issues when there are issues (injected by attacks, see [Datadog Monitor Status check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_datadog.monitor.status_check))
+* Run Prometheus PromQL queries to check internal system metrics (see [Prometheus Metrics check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_prometheus.instance.metrics))
+* Leverage your Postman API tests to check that your API is still working as intended while a part of your system is under attack (see [Postman Collection check in Reliability Hub](https://hub.steadybit.com/action/com.steadybit.extension_postman.collection.run))
 
 Most checks will immediately abort the experiment run and mark it as _failed_. You can learn about all supported checks within our [Reliability Hub](https://hub.steadybit.com/actions?kind=check).
 

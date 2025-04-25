@@ -2,22 +2,21 @@
 title: Custom Webhooks
 ---
 
-# Webhooks
+# Custom Webhooks
 
 Custom webhooks are triggered by Steadybit whenever an experiment has progressed or the killswitch's status changes.
 
 ## Configure
 
-You can configure custom webhooks at `Settings` -> `Integrations` -> `Custom webhook`.
-The content type is `application/json`, and the message is described in our [OpenAPI specification](https://platform.steadybit.com/api/spec) as `WebhookPayload`.
+You can configure custom webhooks at `Settings` -> `Integrations` -> `Custom webhook`. The content type is `application/json`, and the message is described in our [OpenAPI specification](https://platform.steadybit.com/api/spec) as `WebhookPayload`.
 
-|            |                                                                                                                                                                                                                          |
-|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**   | The name for this integration will not show up in the JSON body.                                                                                                                                                         |
-| **URL**    | The URL, which will receive an HTTP Post request with the JSON body                                                                                                                                                       |
-| **Secret** | <p>You may specify a secret that will be used to sign the body. <a href="/integrate-with-steadybit/webhooks/custom-webhooks.md#verifying-the-signature">Verifying the signature.</a><br><strong>optional</strong></p> |
-| **Team**   | If no team is specified, you'll receieve all events. If you do specify a team, you'll only receive events relevant to this team                                                                                          |
-| **Events** | Choose the events you want to receive.                                                                                                                                                                           |
+|            |                                                                                                                                                                                    |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**   | The name for this integration will not show up in the JSON body.                                                                                                                   |
+| **URL**    | The URL, which will receive an HTTP Post request with the JSON body                                                                                                                |
+| **Secret** | <p>You may specify a secret that will be used to sign the body. <a href="custom-webhooks.md#verifying-the-signature">Verifying the signature.</a><br><strong>optional</strong></p> |
+| **Team**   | If no team is specified, you'll receieve all events. If you do specify a team, you'll only receive events relevant to this team                                                    |
+| **Events** | Choose the events you want to receive.                                                                                                                                             |
 
 ## Supported Events
 
@@ -28,7 +27,7 @@ You can decide to react to the following events individually or get informed abo
 The body contains the event identifier (`event`), the `time`, and the experiment `execution` (see below).
 
 | Event                | Event Identifier                      | Description                                                                                                                 |
-|----------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| -------------------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | **Created**          | `experiment.execution.created`        | A new experiment execution was just started. As soon as all required agents have connected, the first step will be executed |
 | **Step Started**     | `experiment.execution.step-started`   | One step of a running experiment started.                                                                                   |
 | **Step Completed**   | `experiment.execution.step-completed` | One step of a running experiment completed successfully (e.g. a check succeeded or the attack was performed).               |
@@ -38,23 +37,20 @@ The body contains the event identifier (`event`), the `time`, and the experiment
 | **Completed**        | `experiment.execution.completed`      | The experiment completed succesfully, e.g., all steps have been completed successfully.                                     |
 | **Failed**           | `experiment.execution.failed`         | The experiment execution failed because at least one step failed.                                                           |
 | **Errored**          | `experiment.execution.errored`        | The experiment execution errored because at least one step errored.                                                         |
-| **Preflight Checks** | `experiment.execution.preflight`      | A [preflight webhook check](./preflight-webhooks) is performed before the experiment is allowed to start.                   |
+| **Preflight Checks** | `experiment.execution.preflight`      | A [preflight webhook check](preflight-webhooks/) is performed before the experiment is allowed to start.                    |
 
 ### Killswitch
 
 The body contains the event identifier (`event`), the `time` and the `killswitch`'s state (see below).
 
-| Event                         | Event Identifier        | Description                                                                                                                       |
-|-------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| **Engaged Emergency Stop**    | `killswitch.disengaged` | The [emergency stop](/use-steadybit/experiments/emergencyStop) was triggered to stop all experiment runs and prevent future runs. |
-| **Disengaged Emergency Stop** | `killswitch.engaged`    | The [emergency stop](/use-steadybit/experiments/emergencyStop) was disengaged to allow future experiment runs.                    |
-
+| Event                         | Event Identifier        | Description                                                                                                                             |
+| ----------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Engaged Emergency Stop**    | `killswitch.disengaged` | The [emergency stop](../../use-steadybit/experiments/emergencyStop/) was triggered to stop all experiment runs and prevent future runs. |
+| **Disengaged Emergency Stop** | `killswitch.engaged`    | The [emergency stop](../../use-steadybit/experiments/emergencyStop/) was disengaged to allow future experiment runs.                    |
 
 ## Developing Webhooks
 
-A webhook uses an HTTP POST request at an endpoint reachable from the Steadybit platform.
-The HTTP request sends a body with the content-type `application/json`.
-Our [OpenAPI specification](https://platform.steadybit.com/api/spec) describes the exact body in `WebhookPayload`.
+A webhook uses an HTTP POST request at an endpoint reachable from the Steadybit platform. The HTTP request sends a body with the content-type `application/json`. Our [OpenAPI specification](https://platform.steadybit.com/api/spec) describes the exact body in `WebhookPayload`.
 
 ### Examples
 
@@ -152,8 +148,7 @@ curl --request POST \
 
 ### Verify Webhook Requests
 
-If a secret is provided a signature of the body is computed using `HMAC SHA-256` and sent as `X-SB-Signature` http header. You can use this header to verify the
-message.
+If a secret is provided a signature of the body is computed using `HMAC SHA-256` and sent as `X-SB-Signature` http header. You can use this header to verify the message.
 
 Here is an example of doing this in Java:
 

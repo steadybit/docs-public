@@ -1,6 +1,6 @@
 # Install on Linux Hosts
 
-Using the respective package managers, this method will install the Steadybit agent on your Linux machine. By default, it will install the agent as well as the extensions [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension\_http), [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension\_container), and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension\_host).
+Using the respective package managers, this method will install the Steadybit agent on your Linux machine. By default, it will install the agent as well as the extensions [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http), [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container), and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host).
 
 ## Supported Package Managers
 
@@ -28,14 +28,13 @@ chmod a+x agent-linux.sh
 ./agent-linux.sh --key <agent-key>
 ```
 
-| Parameter         | Description                                                | Default                                                                           |
-| ----------------- | ---------------------------------------------------------- |-----------------------------------------------------------------------------------|
-| `--key`           | The API key the agent uses                                 |                                                                                   |
-| `--extensions`    | The extensions to install                                  | `steadybit-extension-host,steadybit-extension-container,steadybit-extension-http` |
-| `--platform-url`  | If running on-prem, the URL of your platform installation  | `https://platform.steadybit.com`                                                  |
-| `--version`       | Override the used package version                          |                                                                                   |
+| Parameter        | Description                                               | Default                                                                           |
+| ---------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `--key`          | The API key the agent uses                                |                                                                                   |
+| `--extensions`   | The extensions to install                                 | `steadybit-extension-host,steadybit-extension-container,steadybit-extension-http` |
+| `--platform-url` | If running on-prem, the URL of your platform installation | `https://platform.steadybit.com`                                                  |
+| `--version`      | Override the used package version                         |                                                                                   |
 
-{% hint style="info" %}
 The package repositories have a pull limit. If you're installing the packages on a large number of servers, please consider using a mirror repository.
 
 ### Configure HTTP Proxy Server
@@ -70,9 +69,7 @@ service steadybit-agent restart
 
 ### Configure container runtime
 
-For Linux installations, the docker runtime is auto-configured by the extension by looking at the system paths. 
-If this is incorrectly auto-configured, it can be set in `/etc/steadybit/extension-container` using `STEADYBIT_EXTENSION_CONTAINER_SOCKET` and `STEADYBIT_EXTENSION_CONTAINER_RUNTIME`.
-If you have installed docker just before, etc., please restart your host or the needed services.
+For Linux installations, the docker runtime is auto-configured by the extension by looking at the system paths. If this is incorrectly auto-configured, it can be set in `/etc/steadybit/extension-container` using `STEADYBIT_EXTENSION_CONTAINER_SOCKET` and `STEADYBIT_EXTENSION_CONTAINER_RUNTIME`. If you have installed docker just before, etc., please restart your host or the needed services.
 
 ## Managing the Agent and Extension
 
@@ -126,15 +123,14 @@ yum remove steadybit-agent \
 
 ## Additional Extensions
 
-If you want to use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension\_jvm) for attacking Java applications), you can apply the `--extensions` parameter.
+If you want to use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension_jvm) for attacking Java applications), you can apply the `--extensions` parameter.
 
 <pre><code><strong>./agent-linux.sh --key &#x3C;agent-key> --extensions steadybit-extension-host,steadybit-extension-container,steadybit-extension-http,steadybit-extension-jvm
 </strong></code></pre>
 
 ## Using a single agent across multiple hosts
 
-By default, the `agent-linux.sh` installs the agent and extension on a single host. 
-When installed on multiple hosts, each runs an agent instance, allocating many resources. It is possible to install the agent on a dedicated host and only the container and host extension on each host.
+By default, the `agent-linux.sh` installs the agent and extension on a single host. When installed on multiple hosts, each runs an agent instance, allocating many resources. It is possible to install the agent on a dedicated host and only the container and host extension on each host.
 
 #### Non-Agent Hosts
 

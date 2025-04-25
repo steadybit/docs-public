@@ -4,8 +4,7 @@ title: CLI
 
 # CLI
 
-The [steadybit CLI ](https://github.com/steadybit/cli) allows you to connect your repository to Steadybit and having a single source of truth for all your experiments.
-By enabling you to create / update and retrieve your experiment definitions you have the truth versionized at one place. Of course, you can also run your experiments from the command line interface.
+The [steadybit CLI ](https://github.com/steadybit/cli)allows you to connect your repository to Steadybit and having a single source of truth for all your experiments. By enabling you to create / update and retrieve your experiment definitions you have the truth versionized at one place. Of course, you can also run your experiments from the command line interface.
 
 This allows you to implement GitOps practices easily.
 

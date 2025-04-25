@@ -6,7 +6,7 @@ In order to access the API, you need to have an Access token.
 
 ## Access Tokens
 
-In order to use the API you need to create an API access token and provide it via the `Authorization` header in your API requests. 
+In order to use the API you need to create an API access token and provide it via the `Authorization` header in your API requests.
 
 API access tokens are managed by the administrator and team owners, and can be found in Settings → API Access Tokens section in the UI.
 
@@ -32,10 +32,9 @@ Once you created a new API access token, you can't see it again. Make sure to sa
 
 On-Prem customers have also the possibility to create an admin token via internal APIs.
 
-##### Create Admin Token via CLI
+**Create Admin Token via CLI**
 
-To generate a new admin token in your On-Prem Platform via CLI, first ssh into the platform server.
-Afterward, run the following command: 
+To generate a new admin token in your On-Prem Platform via CLI, first ssh into the platform server. Afterward, run the following command:
 
 ```bash
 /scripts/createAdminToken.sh
@@ -53,9 +52,9 @@ Z8pChlF2*************
 
 The token will be printed to the console.
 
-##### [On-Prem] Create Admin Token via HTTP API
-To generate a new admin token in your On-Prem Platform via HTTP API, first ssh into the platform server.
-Afterward, you can run curl:
+**\[On-Prem] Create Admin Token via HTTP API**
+
+To generate a new admin token in your On-Prem Platform via HTTP API, first ssh into the platform server. Afterward, you can run curl:
 
 ```bash
 curl --header "Content-Type: application/json" \
@@ -68,24 +67,19 @@ curl --header "Content-Type: application/json" \
 
 ## OpenApi Specification
 
-We provide a [OpenApi 3.0 Specification for the API](https://platform.steadybit.com/api/spec) as well as an [interactive documentation](https://platform.steadybit.com/api/swagger).
-In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
+We provide a [OpenApi 3.0 Specification for the API](https://platform.steadybit.com/api/spec) as well as an [interactive documentation](https://platform.steadybit.com/api/swagger). In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
 
 ### Requests and Responses
 
 All API requests require a specified access token via the `Authorization` header in the format `Authorization: accessToken <token>`.
 
-If applicable, request and response bodies are expressed using `json` or `yml`, depending on the used `Content-Type` and `Accept` headers.
-Success or failure of an API call is expressed via HTTP status.
+If applicable, request and response bodies are expressed using `json` or `yml`, depending on the used `Content-Type` and `Accept` headers. Success or failure of an API call is expressed via HTTP status.
 
 #### Too Many Requests
 
 API endpoints are rate limited and may return the HTTP status code `429 - Too Many Requests`.
 
-In this case the `Retry-After` response header contains the number of seconds to wait before executing further requests, see 
-[RFC 7231](https://www.rfc-editor.org/rfc/rfc7231.html#section-7.1.3). Furthermore, the response headers `RateLimit-Limit`,
-`RateLimit-Remaining` and `RateLimit-Reset`, as defined in the IETF draft 
-[RateLimit Header Fields for HTTP](https://www.ietf.org/archive/id/draft-polli-ratelimit-headers-02.html), are returned containing more details. 
+In this case the `Retry-After` response header contains the number of seconds to wait before executing further requests, see [RFC 7231](https://www.rfc-editor.org/rfc/rfc7231.html#section-7.1.3). Furthermore, the response headers `RateLimit-Limit`, `RateLimit-Remaining` and `RateLimit-Reset`, as defined in the IETF draft [RateLimit Header Fields for HTTP](https://www.ietf.org/archive/id/draft-polli-ratelimit-headers-02.html), are returned containing more details.
 
 ```bash
 curl \
@@ -157,12 +151,14 @@ curl \
 ### Create a golang client with oapi-codegen
 
 In case you want to [generate the structs](https://github.com/oapi-codegen/oapi-codegen), you should add this parameter to your configuration file:
+
 ```yaml
 compatibility:
   circular-reference-limit: 11
 ```
 
 Here an example configuration to generate a go client with net/http:
+
 ```yaml
 package: api
 generate:
@@ -174,6 +170,7 @@ compatibility:
 ```
 
 And then in your golang file:
+
 ```go
 //go:generate go run github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen --config=config.yaml https://platform.steadybit.com/api/spec
 ```

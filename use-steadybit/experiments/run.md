@@ -27,7 +27,7 @@ Every experiment run has a unique identifier (e.g. **#33131**), which you can us
 Experiment runs can have the following states:
 
 | State     | Description                                                                                                                                                                                                                                          |
-|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | REQUESTED | The experiment was requested by a user, api call or a schedule.                                                                                                                                                                                      |
 | CREATED   | The experiment was created and all targets were resolved.                                                                                                                                                                                            |
 | PREPARED  | The experiment was prepared and all agents are ready to execute the needed actions.                                                                                                                                                                  |
@@ -37,4 +37,4 @@ Experiment runs can have the following states:
 | FAILED    | The run failed due to some failing checks, for example a _HTTP Check_ not reaching the required success rate.                                                                                                                                        |
 | ERRORED   | The run failed due to some technical reasons like _Failed attack execution_ or _Agent disconnected unexpectedly_. This shouldn't happen frequently, in case it does, let us know. We are constantly improving the platform to reduce failure states. |
 
-In case an agent looses the connection to the platform during an experiment, it will immediately stop and rollback running attacks. There are some attacks ( like `Stop Container`) which can't be rolled back due to it's nature.
+In case an agent looses the connection to the platform during an experiment, it will immediately stop and rollback running attacks. There are some attacks (like `Stop Container`) which can't be rolled back due to it's nature.

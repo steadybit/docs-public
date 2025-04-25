@@ -1,7 +1,6 @@
 # Agent API
 
-The Agent provides some HTTP endpoints to interact with the agent itself. It's only needed for advanced use cases, like debugging, troubleshooting or for
-example manual extension registrations.
+The Agent provides some HTTP endpoints to interact with the agent itself. It's only needed for advanced use cases, like debugging, troubleshooting or for example manual extension registrations.
 
 The agent listens on port `42899` by default.
 

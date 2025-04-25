@@ -1,10 +1,8 @@
 # Discovery
 
-Steadybit automatically discovers your system and makes it available as potential Chaos Engineering targets.
-Each target is associated with attributes you can use to specify the exact set of targets when designing or running a Chaos Engineering experiment.
+Steadybit automatically discovers your system and makes it available as potential Chaos Engineering targets. Each target is associated with attributes you can use to specify the exact set of targets when designing or running a Chaos Engineering experiment.
 
-What kind of targets are discovered (e.g., containers, hosts, Kubernetes deployments, or JVM applications), and what kind of attributes are associated
-(e.g., `k8s.cluster-name`, `aws.zone` or `application.name`) depends on the installed extensions.
+What kind of targets are discovered (e.g., containers, hosts, Kubernetes deployments, or JVM applications), and what kind of attributes are associated (e.g., `k8s.cluster-name`, `aws.zone` or `application.name`) depends on the installed extensions.
 
 {% hint style="info" %}
 Target discovery is always performed by a Steadybit extension. The discovered metadata is submitted via the Steadybit Agent to the platform.

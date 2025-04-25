@@ -47,6 +47,7 @@
 * [Experiments](use-steadybit/experiments/README.md)
   * [Design](use-steadybit/experiments/design.md)
   * [Run](use-steadybit/experiments/run.md)
+  * [Run History](use-steadybit/experiments/run-history.md)
   * [Schedule](use-steadybit/experiments/schedule/README.md)
   * [Variables](use-steadybit/experiments/variables.md)
   * [Emergency Stop](use-steadybit/experiments/emergencyStop.md)
@@ -79,7 +80,6 @@
 * [Slack Notifications](integrate-with-steadybit/slack-notifications.md)
 * [Audit Log](integrate-with-steadybit/audit-log.md)
 * [Hubs](integrate-with-steadybit/hubs/README.md)
-
 
 ## Troubleshooting
 
