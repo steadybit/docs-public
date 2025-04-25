@@ -8,7 +8,7 @@ A detailed list is available on the [Steadybit Reliability Hub](https://hub.stea
 
 ## Containers
 
-The following capabilities are available when targeting containers.
+The following capabilities are available when targeting containers, running standalone or in a container orchestration platform like Kubernetes:
 
 ### Network Attacks
 
@@ -63,7 +63,12 @@ The following capabilities are available when targeting containers.
 
 ## Kubernetes
 
-In addition to the above, the following Kubernetes specific actions are available.
+Steadybit's capabilities for [containers](#containers) and [physical and virtual hosts](#physical-and-virtual-hosts) also work within Kubernetes clusters:
+
+{% content-ref url="#containers" %} . {% endcontent-ref %}
+{% content-ref url="#physical-and-virtual-hosts" %} . {% endcontent-ref %}
+
+On top, Steadybit supports attacks based on the Kubernetes API:
 
 ### Attacks
 
