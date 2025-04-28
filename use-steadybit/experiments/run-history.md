@@ -7,4 +7,4 @@ After you [run an experiment](run.md), you can see the history of all past runs 
 You can visit the "Experiments > Experiment Runs" page to get the whole history across multiple teams.\
 The filters allow you to select the experiment runs by team, environment, outcome, or time. You can also download a CSV report for that particular selection and use it for further processing.
 
-![Experiment Run History](recent-runs.png)
+![Experiment Run History](experiment-runs.png)
