@@ -35,7 +35,7 @@ Learn more about [advice](advice.md) in the corresponding section.
 
 Once you have identified a relevant group of targets for an experiment, you can click on that group and choose to use the target selection for an experiment. The Landscape provides the exact Query so that you can copy it into an experiment design.
 
-![Creating an experiment from the Landscape.png](explorer-landscape-create-experiment.png)
+![Creating an experiment from the Landscape](explorer-landscape-create-experiment.png)
 
 ## Saved Views
 

@@ -20,7 +20,7 @@ If you are on the experiments overview page, you will find a button with 3 dots 
 
 If you are on the experiment designer page, you will find a button ![Button](duplicateButton.png) to duplicate the experiment.
 
-![Duplicate via Designer.png](duplicateExperimentViaDesigner.png)
+![Duplicate via Designer](duplicateExperimentViaDesigner.png)
 
 ## Duplicated Experiment
 
