@@ -295,3 +295,11 @@ The Steadybit Platform provides the following rate limit metrics:
 | `ratelimit_tokens_available` | `tenantKey`, `bucketName` (as described above), `qualifier` (username or agent id)                                                | Number of available token |
 | `ratelimit_tokens_total`     | `tenantKey`, `bucketName` (as described above), `qualifier` (username or agent id), `status` (`consumed`, `rejected` or `failed`) | Number of requested token |
 
+
+#### Hub Connections
+
+The platform can connect to multiple hubs.
+
+| Environment Variable            | Description                                                                                                                       | Default |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------|
+| `STEADYBIT_HUBS_MAX_HUBS_COUNT` | Maximum number of hubs to connect to.                                                                                             | 5       |
