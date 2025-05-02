@@ -230,7 +230,7 @@ Steadybit's capabilities for [containers](./#containers), [Kubernetes](./#kubern
 [#aws-ec2](./#aws-ec2)
 {% endcontent-ref %}
 
-#### AWS Elastic Load Balancing
+#### AWS ELB (Elastic Load Balancing)
 
 Steadybit supports attacks based on the AWS ALB API:
 
