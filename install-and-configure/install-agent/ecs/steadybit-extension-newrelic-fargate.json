@@ -1,0 +1,76 @@
+{
+  "family": "steadybit-extension-newrelic",
+  "cpu": "256",
+  "memory": "512",
+  "containerDefinitions": [
+    {
+      "name": "steadybit-extension-newrelic",
+      "image": "ghcr.io/steadybit/extension-newrelic:latest",
+      "portMappings": [],
+      "essential": true,
+      "environment": [
+        {
+          "name": "STEADYBIT_LOG_LEVEL",
+          "value": "INFO"
+        },
+        {
+          "name": "STEADYBIT_EXTENSION_API_BASE_URL",
+          "value": "https://api.newrelic.com"
+        },
+        {
+          "name": "STEADYBIT_EXTENSION_API_KEY",
+          "value": "MY-NEWRELIC-API-KEY"
+        },
+        {
+          "name": "STEADYBIT_EXTENSION_INSIGHTS_COLLECTOR_API_BASE_URL",
+          "value": "https://insights-collector.newrelic.com"
+        },
+        {
+            "name": "STEADYBIT_EXTENSION_INSIGHTS_COLLECTOR_API_KEY",
+            "value": "MY-NEWRELIC-INSIGHTS-COLLECTOR-API-KEY"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "readonlyRootFilesystem": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/steadybit-extension-newrelic",
+          "mode": "non-blocking",
+          "awslogs-create-group": "true",
+          "max-buffer-size": "25m",
+          "awslogs-region": "MY-REGION",
+          "awslogs-stream-prefix": "ecs"
+        },
+        "secretOptions": []
+      },
+      "systemControls": []
+    }
+  ],
+  "tags": [
+    {
+      "key": "steadybit_extension_type",
+      "value": "ACTION:DISCOVERY:EVENT"
+    },
+    {
+      "key": "steadybit_extension_port",
+      "value": "8090"
+    },
+    {
+      "key": "steadybit.com/discovery-disabled",
+      "value": "true"
+    }
+  ],
+  "executionRoleArn": "arn:aws:iam::MY-ACCOUNT:role/steadybit-agent-task-execution-role",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  }
+}
