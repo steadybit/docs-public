@@ -43,10 +43,10 @@ The body contains the event identifier (`event`), the `time`, and the experiment
 
 The body contains the event identifier (`event`), the `time` and the `killswitch`'s state (see below).
 
-| Event                         | Event Identifier        | Description                                                                                                                                |
-| ----------------------------- | ----------------------- |--------------------------------------------------------------------------------------------------------------------------------------------|
-| **Engaged Emergency Stop**    | `killswitch.disengaged` | The [emergency stop](../../use-steadybit/experiments/emergencyStop) was triggered to stop all experiment runs and prevent future runs. |
-| **Disengaged Emergency Stop** | `killswitch.engaged`    | The [emergency stop](../../use-steadybit/experiments/emergencyStop) was disengaged to allow future experiment runs.                       |
+| Event                         | Event Identifier        | Description                                                                                                                               |
+| ----------------------------- | ----------------------- |-------------------------------------------------------------------------------------------------------------------------------------------|
+| **Engaged Emergency Stop**    | `killswitch.disengaged` | The [emergency stop](../../use-steadybit/experiments/emergencyStop.md) was triggered to stop all experiment runs and prevent future runs. |
+| **Disengaged Emergency Stop** | `killswitch.engaged`    | The [emergency stop](../../use-steadybit/experiments/emergencyStop.md) was disengaged to allow future experiment runs.                       |
 
 ## Developing Webhooks
 
