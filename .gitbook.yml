@@ -8,6 +8,7 @@ redirects:
   install-configure/30-install-agents/10-docker: install-and-configure/install-agent/install-as-docker-container.md
   install-configure/30-install-agents/20-kubernetes: install-and-configure/install-agent/install-on-kubernetes.md
   install-configure/30-install-agents/30-host: install-and-configure/install-agent/install-on-linux-hosts.md
+  install-configure/30-install-agents/30-host-windows: install-and-configure/install-agent/install-on-windows-hosts.md
   install-configure/30-install-agents/35-aws-ecs-ec2: install-and-configure/install-agent/aws-ecs-ec2.md
   install-configure/30-install-agents/40-aws-cloud: install-and-configure/install-agent/README.md
   install-configure/30-install-agents/50-advanced-configuration: install-and-configure/install-agent/advanced-configuration.md
@@ -17,6 +18,7 @@ redirects:
   install-and-configure/install-agents/docker: install-and-configure/install-agent/install-as-docker-container.md
   install-and-configure/install-agents/kubernetes: install-and-configure/install-agent/install-on-kubernetes.md
   install-and-configure/install-agents/host: install-and-configure/install-agent/install-on-linux-hosts.md
+  install-and-configure/install-agents/host-windows: install-and-configure/install-agent/install-on-windows-hosts.md
   install-and-configure/install-agents/aws-ecs-ec2: install-and-configure/install-agent/aws-ecs-ec2.md
   install-and-configure/install-agents/aws-cloud: install-and-configure/install-agent/README.md
   install-and-configure/install-agents/advanced-configuration: install-and-configure/install-agent/advanced-configuration.md
@@ -26,6 +28,7 @@ redirects:
   install-and-configure/install-outpost-agent-preview/outpost-agent-architecture: install-and-configure/install-agent/agent-architecture.md
   install-and-configure/install-outpost-agent-preview/install-on-kubernetes: install-and-configure/install-agent/install-on-kubernetes.md
   install-and-configure/install-outpost-agent-preview/install-on-linux-hosts: install-and-configure/install-agent/install-on-linux-hosts.md
+  install-and-configure/install-outpost-agent-preview/install-on-windows-hosts: install-and-configure/install-agent/install-on-windows-hosts.md
   install-and-configure/install-outpost-agent-preview/install-as-docker-container: install-and-configure/install-agent/install-as-docker-container.md
   install-and-configure/install-outpost-agent-preview/aws-ecs-ec2: install-and-configure/install-agent/aws-ecs-ec2.md
   install-and-configure/install-outpost-agent-preview/extension-discovery: install-and-configure/install-agent/extension-registration.md
@@ -35,6 +38,7 @@ redirects:
   install-and-configure/install-outpost-agent/outpost-agent-architecture: install-and-configure/install-agent/agent-architecture.md
   install-and-configure/install-outpost-agent/install-on-kubernetes: install-and-configure/install-agent/install-on-kubernetes.md
   install-and-configure/install-outpost-agent/install-on-linux-hosts: install-and-configure/install-agent/install-on-linux-hosts.md
+  install-and-configure/install-outpost-agent/install-on-windows-hosts: install-and-configure/install-agent/install-on-windows-hosts.md
   install-and-configure/install-outpost-agent/install-as-docker-container: install-and-configure/install-agent/install-as-docker-container.md
   install-and-configure/install-outpost-agent/aws-ecs-ec2: install-and-configure/install-agent/aws-ecs-ec2.md
   install-and-configure/install-outpost-agent/extension-discovery: install-and-configure/install-agent/extension-registration.md
