@@ -29,5 +29,6 @@ We offer the following deployment options:
 * [Docker](install-as-docker-container.md)
 * [Kubernetes](install-on-kubernetes.md)
 * [Host](install-on-linux-hosts.md)
+* [Windows](install-on-windows-hosts.md)
 
 More configuration options can be found in [Advanced Configuration](advanced-configuration.md)
