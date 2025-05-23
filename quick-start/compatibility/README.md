@@ -117,19 +117,21 @@ The following attacks are available when working with physical hosts and virtual
 
 ### Network Attacks
 
-|                   | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
-| ----------------- | --------- | ------------- | ------------------------- | ---------------------- | --------------------- | ------------------------ |
-| Ubuntu 20.04      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Ubuntu 22.04      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Ubuntu 24.04      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Fedora Latest     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Debian Bookworm   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Debian Bullseye   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Amazon Linux 2    | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Amazon Linux 2023 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+|                     | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
+| -----------------   | --------- | ------------- | ------------------------- | ---------------------- | --------------------- | ------------------------ |
+| Ubuntu 20.04        | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
+| Ubuntu 22.04        | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
+| Ubuntu 24.04        | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
+| Fedora Latest       | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
+| Debian Bookworm     | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
+| Debian Bullseye     | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
+| Amazon Linux 2      | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
+| Amazon Linux 2023   | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
+| Windows 11          | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
+| Windows Server 2022 | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
 
 {% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
 ### Resource Attacks
