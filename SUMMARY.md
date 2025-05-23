@@ -22,6 +22,7 @@
   * [Architecture](install-and-configure/install-agent/agent-architecture.md)
   * [Install on Kubernetes](install-and-configure/install-agent/install-on-kubernetes.md)
   * [Install on Linux Hosts](install-and-configure/install-agent/install-on-linux-hosts.md)
+  * [Install on Windows Hosts](install-and-configure/install-agent/install-on-windows-hosts.md)
   * [Install using Docker Compose](install-and-configure/install-agent/install-as-docker-container.md)
   * [Install on Amazon ECS](install-and-configure/install-agent/aws-ecs-ec2.md)
   * [Extension Registration](install-and-configure/install-agent/extension-registration.md)
