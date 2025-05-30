@@ -2,11 +2,10 @@
 
 Steadybit Agent is packaged as a Windows _.msi_ installer. Unlike the Linux installation, the [extension-host](https://hub.steadybit.com/target/com.steadybit.extension_host_windows.host) is not bundled and has to be installed separately.
 
-
 ## Agent installation
 
-To install the agent on your Windows system, download the [installer](https://s3.eu-central-1.amazonaws.com/windows-registry.steadybit.com/steadybit-agent/windows-agent-latest.zip).
-You may download the [SHA-256 checksum](https://s3.eu-central-1.amazonaws.com/windows-registry.steadybit.com/steadybit-agent/windows-agent-latest.sha256) and verify it matches the hash of the downloaded ZIP file.
+To install the agent on your Windows system, download the [installer](https://windows-registry.steadybit.com/steadybit-agent/windows-agent-latest.zip).
+You may download the [SHA-256 checksum](https://windows-registry.steadybit.com/steadybit-agent/windows-agent-latest.sha256) and verify it matches the hash of the downloaded ZIP file.
 
 The installer is bundled with the _config.json_ file that must be populated before running the installer. 
 
