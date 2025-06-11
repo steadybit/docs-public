@@ -24,7 +24,7 @@
   * [Install on Linux Hosts](install-and-configure/install-agent/install-on-linux-hosts.md)
   * [Install on Windows Hosts](install-and-configure/install-agent/install-on-windows-hosts.md)
   * [Install using Docker Compose](install-and-configure/install-agent/install-as-docker-container.md)
-  * [Install on Amazon ECS](install-and-configure/install-agent/aws-ecs-ec2.md)
+  * [Install on Amazon ECS](install-and-configure/install-agent/aws-ecs.md)
   * [Extension Registration](install-and-configure/install-agent/extension-registration.md)
   * [Using Mutual TLS for Extensions](install-and-configure/install-agent/using-mutual-tls-for-extensions.md)
   * [Configuration Options](install-and-configure/install-agent/advanced-configuration.md)
