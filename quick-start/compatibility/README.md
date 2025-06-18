@@ -21,7 +21,7 @@ The following capabilities are available when targeting containers, running stan
 | Red Hat OpenShift                              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | AWS Elastic Kubernetes Service (EKS)           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | AWS Elastic Container Service (ECS) on EC2[^1] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| AWS Elastic Container Service (ECS) on Fargate | ❌         | ❌             | ❌                         | ❌                      | ❌                     | ❌                        |
+| AWS Elastic Container Service (ECS) on Fargate | ✅         | ✅             | ❌                         | ✅                      | ✅                     | ❌                        |
 | Google Kubernetes Engine (GKE)                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Google Kubernetes Engine (GKE, Autopilot[^2])  | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Azure Kubernetes Service (AKS)                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
