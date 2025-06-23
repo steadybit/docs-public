@@ -44,7 +44,7 @@ Get in touch with us and we will provide you an on-prem license key and an agent
 It is our goal to make the installation as easy as possible for you, that's why we recommend you to use our Helm chart that takes a lot of the work out of it and only requires a few parameters from you. If you are not familiar with Helm and would like to learn more about it, check out [helm's QuickStart](https://helm.sh/docs/intro/quickstart/)
 
 {% hint style="info" %}
-In case you can't use Helm or Kubernetes at all, get in touch with us and we'll find the best solution. The platform kan be deployed without Helm and also on plain Docker hosts.
+In case you can't use Helm or Kubernetes at all, get in touch with us and we'll find the best solution. The platform can be deployed without Helm and also on plain Docker hosts.
 {% endhint %}
 
 Please replace the placeholders `replace-with-agent-key` and `replace-with-license-key` with your agent key and license key of [Step 1 - Get your keys](./#step-1-get-your-keys):
