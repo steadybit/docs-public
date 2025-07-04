@@ -20,16 +20,24 @@ Please note that the Query UI is limited in regard to the queries you write. For
 
 #### Key-value comparison
 
-Keys and values can be compared using `=`, `!=`, `~`, `!~`, `=*`, `!=*`, `~*`, and `!~*`.
+Keys and values can be compared using `=`, `!=`, `~`, `!~`, `=*`, `!=*`, `~*`, `!~*`, `IN ()` and `NOT IN ()`
 
 ```
 // Simple equals check to get all targets of Kubernetes Cluster 'prod'
 k8s.cluster-name="prod"
+
+// Get all Daemonsets/Deployments/Statefulsets (needs platform >= 2.3.7)
+target.type IN ("com.steadybit.extension_kubernetes.kubernetes-daemonset", "com.steadybit.extension_kubernetes.kubernetes-deployment", "com.steadybit.extension_kubernetes.kubernetes-statefulset")  
 ```
+
 ```
 // Not equals check to get all targets not running in the Kuberneters Cluster 'prod'
 k8s.cluster-name!="prod"
+
+// Get all targets that are not a Daemonset/Deployment/Statefulset (needs platform >= 2.3.7)
+target.type NOT IN ("com.steadybit.extension_kubernetes.kubernetes-daemonset", "com.steadybit.extension_kubernetes.kubernetes-deployment", "com.steadybit.extension_kubernetes.kubernetes-statefulset")  
 ```
+
 ```
 // Get all targets with a container name that contains "hot-deals"
 k8s.container.name~"hot-deals"
@@ -66,6 +74,7 @@ k8s.cluster-name IS PRESENT
 // Kubernetes label service-tier isn't set on a target
 k8s.label.service-tier IS NOT PRESENT
 ```
+
 
 #### Aggregations
 
