@@ -52,7 +52,10 @@ If you are running on-prem, make sure to set the URL of the platform: `--set age
 
 ### Extensions
 
-The agent's purpose is to establish a communication from the platform to your systems. However, the discovery of your systems and providing Chaos Engineering to a technology works via extensions. By default, the helm chart already installs the extensions [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container), [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host), [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http) and [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension_kubernetes).
+The agent's purpose is to establish a communication from the platform to your systems. However, the discovery of your systems and providing Chaos Engineering to a technology works via extensions. 
+By default, the official helm chart already installs the extensions [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container), [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host), [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http) and [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension_kubernetes).
+
+In order to discover all extensions in the Kubernetes custer the agent needs to access the Kubernetes API. For more details, please take a look at the [Kubernetes Auto Registration](extension-registration.md#kubernetes-auto-registration) documentation.
 
 #### Add more Extensions
 
