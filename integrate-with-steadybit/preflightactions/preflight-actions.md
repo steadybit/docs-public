@@ -13,6 +13,8 @@ To decide whether that specific experiment run is allowed to start, you get a li
 Please note that, due to concurrency, these affected targets may change in case one of the targets is gone when the actual step starts or new ones are
 discovered.
 
+Preflight actions can additionally be used to perform checks during the experiment run, e.g., to check if a target is still healthy or if the environment is
+still in a state that allows the experiment to run. An interval can be configured as an additional trigger.
 
 ## Precondition
 
@@ -21,18 +23,20 @@ Implement the preflight action at your needs. See [docs](https://github.com/stea
 
 ## Configure
 
-
 You can add preflight actions at `Settings` -> `Integrations` -> `Preflight Actions`.
 
 ![Add Preflight Action Integration](addPreflightAction.png)
 
 A preflight action integration has the following parameters to be specified:
 
-|                      |                                                                                                                                                   |
-|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**             | The preflight action's name, it is shown in the experiment run.                                                                                   |
-| **Team**             | If no team is specified, preflight actions will be performed for all teams. If you specify a team, preflight actions are only made for this team. |
-| **Preflight Action** | The Preflight Action to use from a registered extension                                                                                           |
+|                                      |                                                                                                                                                   |
+|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Name**                             | The preflight action's name, it is shown in the experiment run.                                                                                   |
+| **Team**                             | If no team is specified, preflight actions will be performed for all teams. If you specify a team, preflight actions are only made for this team. |
+| **Preflight Action**                 | The Preflight Action to use from a registered extension                                                                                           |
+| **Triggers**                         | When the Preflight Action should trigger                                                                                                          |
+| - *Before the experiment is started* | default - can't be turned off                                                                                                                     |
+| - *While the experiment is running*  | The interval specifies the time Steadybit will wait between the end and the next execution of a preflight action.                                 |
 
 ## Experiment Runs
 
@@ -45,7 +49,7 @@ If an preflight action fails, the experiment run fails, and no targets are attac
 
 ## Developing actions
 
-A preflight action uses [preflight kit](https://github.com/steadybit/preflight-kit). 
+A preflight action uses [preflight kit](https://github.com/steadybit/preflight-kit).
 See our [docs](https://github.com/steadybit/preflight-kit/blob/main/README.md#getting-started) to get started.
 
 ### Lifecycle of Preflight actions
