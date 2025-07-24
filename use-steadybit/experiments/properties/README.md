@@ -51,6 +51,9 @@ Property definitions can be created and managed in the settings of the Steadybit
 ones, and delete them. If an administrator deletes a property definition, all associations and values of this property definition will be removed from all
 experiments. Values in existing executions will not be deleted.
 
+![Property Definitions in the settings](property_definitions.png)
+![Edit a Property Definition](property_definition_edit.png)
+
 ## Property Associations
 
 An administrator can assign property definitions to each experiment design in your Steadybit tenant. He can also mark a property as required, which means that
@@ -65,15 +68,21 @@ edited if the association allows it. If the association read-only, the property 
 
 A property association consists of the following fields:
 
-- **Property Definition**: The property definition that is associated with the experiment design or execution.
+- **Property Definition Key**: The property definition that is associated with the experiment design or execution.
 - **Mandatory**: A checkbox that indicates whether the property is required or not. If checked, the property must be filled in before the experiment can be run.
 - **Allow edits after the experiment has started**: A checkbox that indicates whether the property can be edited after the experiment has started. If checked,
   the property can be edited in the execution details page.
+
+![Property Associations in the settings](property_associations.png)
+![Edit a Property Association](property_association_edit.png)
 
 ## Property Values
 
 Property values are the actual values of the properties that are saved as part of an experiment design and copied to each experiment
 execution. [Variables](../variables.md) are fully supported for the input fields of all properties. (including overrides for single executions or via schedules).
+
+![Properties in the experiment editor](properties_experiment_design.png)
+![Properties in the execution view](properties_experiment_execution.png)
 
 ## Properties via API
 
