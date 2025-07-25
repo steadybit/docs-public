@@ -17,7 +17,7 @@ An experiment generally consists of the following elements:
   How the [environments are configured and assigned to your team](../../install-and-configure/manage-environments/) is up to your admin.
 - **Variables**: A variable allows you to reference a value in your experiment's configuration to have a single source of truth.
   Steadybit supports different scopes (e.g., experiment variables or environment variables).
-  Learn more in the [variables section](/use-steadybit/experiments/variables.md).
+  Learn more in the [variables section](./variables.md).
 - **Hypothesis**: The hypothesis should answer the question of the expected outcome.
   In addition, you can describe the steady state, the turbulent condition, and the expected behavior.
   See this example of a hypothesis: 'When requests to the recommendation service exceed 1000ms, the catalog responds using an empty recommendation list.'
@@ -118,6 +118,16 @@ The third option for creating a new experiment is to upload a YAML- or JSON-base
 Once you've uploaded the file, the experiment is created in the defined team.
 Please note that when the experiment file references an explicit team and environment (e.g., `team: "ADM"` or `environment: "Online shop"`), they have to exist.
 If you want to be flexible, you can use the variable `{{teamKey}}` to apply it to the current team and `{{environmentName}}` to apply it to the team's first environment.
+
+## Action and Template Documentation
+
+Within the experiment editor you can read up the full documentation of an action or a template by clicking on the individual step.
+This helps to understand the exact details, read up use cases and a full documentation of the parameters.
+
+![Experiment Editor - Action Documentation](experiment-action-documentation.png)
+
+The documentation of a template is coming from the [experiment template's description](../../install-and-configure/manage-experiment-templates/README.md#template-description).
+The documentation of an action is provided via the [Hub Connection](../../integrate-with-steadybit/hubs/README.md), and can also be achieved for your own custom actions.
 
 ## Supported Actions
 
