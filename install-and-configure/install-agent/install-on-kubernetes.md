@@ -97,6 +97,7 @@ helm template steadybit-agent --namespace steadybit-agent \
   --create-namespace \
   --set agent.key=<replace-with-agent-key> \
   --set global.clusterName=<replace-with-cluster-name> \
+  --set podSecurityContext.fsGroup=null \
   --set extension-container.container.runtime=cri-o \
   steadybit/steadybit-agent
 ```
@@ -112,6 +113,7 @@ helm template steadybit-agent --namespace steadybit-agent \
   --create-namespace \
   --set agent.key=<replace-with-agent-key> \
   --set global.clusterName=<replace-with-cluster-name> \
+  --set podSecurityContext.fsGroup=null \
   --set extension-container.container.engine=cri-o \
   --set extension-container.containerEngines.cri-o.ociRuntime.path=crun \
   --set extension-container.containerEngines.cri-o.ociRuntime.root=/run/crun \
