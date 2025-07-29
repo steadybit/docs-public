@@ -86,7 +86,7 @@ helm template steadybit-agent --namespace steadybit-agent \
   steadybit/steadybit-agent
 ```
 
-### Alternative: OpenShift installation
+### Alternative: OpenShift installation (< 4.18)
 
 The SecurityContextConstraints for OpenShift are included in our helm chart. You need to configure the CRI-O container runtime and we're good to go.
 
@@ -100,6 +100,24 @@ helm template steadybit-agent --namespace steadybit-agent \
   --set extension-container.container.runtime=cri-o \
   steadybit/steadybit-agent
 ```
+
+### Alternative: OpenShift installation (>= 4.18)
+
+The SecurityContextConstraints for OpenShift are included in our helm chart. You need to configure the CRI-O container runtime and to use the crun container engine and we're good to go.
+
+```bash
+helm repo add steadybit https://steadybit.github.io/helm-charts
+helm repo update
+helm template steadybit-agent --namespace steadybit-agent \
+  --create-namespace \
+  --set agent.key=<replace-with-agent-key> \
+  --set global.clusterName=<replace-with-cluster-name> \
+  --set extension-container.container.runtime=cri-o \
+  --set extension-container.containerEngines.cri-o.ociRuntime.path=crun \
+  --set extension-container.containerEngines.cri-o.ociRuntime.root=/run/crun \
+  steadybit/steadybit-agent
+```
+
 
 ### Alternative: GKE Autopilot installation
 
