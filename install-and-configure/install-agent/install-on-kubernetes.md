@@ -112,7 +112,7 @@ helm template steadybit-agent --namespace steadybit-agent \
   --create-namespace \
   --set agent.key=<replace-with-agent-key> \
   --set global.clusterName=<replace-with-cluster-name> \
-  --set extension-container.container.runtime=cri-o \
+  --set extension-container.container.engine=cri-o \
   --set extension-container.containerEngines.cri-o.ociRuntime.path=crun \
   --set extension-container.containerEngines.cri-o.ociRuntime.root=/run/crun \
   steadybit/steadybit-agent
@@ -147,7 +147,7 @@ helm upgrade --install steadybit-agent --namespace steadybit-agent \
   --create-namespace \
   --set agent.key=<replace-with-agent-key> \
   --set global.clusterName=<replace-with-cluster-name> \
-  --set extension-container.container.runtime=containerd \
+  --set extension-container.container.engine=containerd \
   --set extension-container.platform=gke-autopilot \
   --set extension-host.enabled=false \
   --set agent.registerUrl=https://platform.steadybit.com \
