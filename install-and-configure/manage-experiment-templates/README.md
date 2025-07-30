@@ -31,11 +31,11 @@ However, when using a template to create an experiment, the user can select the 
 This way, it is still easy to define a template and safe for teams to use one.
 
 #### Templating
-To make the experiment adaptable to different contexts, you can reference [template placeholders (see below)](#template-placeholder) and [environment variables](../../use-steadybit/experiments/design.md#basic-elements) in the experiment's steps (e.g., target query, parameters, and step labels), hypothesis, and experiment name.
+To make the experiment adaptable to different contexts, you can reference [template placeholders (see below)](#template-placeholder) and [environment variables](../../use-steadybit/experiments/variables.md#environment) in the experiment's steps (e.g., target query, parameters, and step labels), hypothesis, and experiment name.
 
 #### Properties
 Similar to experiments, an experiment in an experiment template can have properties assigned.
-Properties' values can be hard-coded in the experiment or can reference [template placeholders (see below)](#template-placeholder) and [environment variables](../../use-steadybit/experiments/design.md#basic-elements) to capture these when [using the experiment](../../use-steadybit/experiments/templates/README.md).
+Properties' values can be hard-coded in the experiment or can reference [template placeholders (see below)](#template-placeholder) and [environment variables](../../use-steadybit/experiments/variables.md#environment) to capture these when [using the experiment](../../use-steadybit/experiments/templates/README.md).
 Templates can only reference defined property definitions.
 
 Learn more on [managing properties](../../install-and-configure/manage-properties/README.md) and [using properties in experiments](../../use-steadybit/experiments/properties/README.md).
