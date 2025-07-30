@@ -42,6 +42,7 @@
   * [Teams](install-and-configure/manage-teams-and-users/teams.md)
   * [Permissions](install-and-configure/manage-teams-and-users/permissions.md)
 * [Manage Experiment Templates](install-and-configure/manage-experiment-templates/README.md)
+* [Manage Experiment Properties](install-and-configure/manage-properties/README.md)
 
 ## Use Steadybit
 
