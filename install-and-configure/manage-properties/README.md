@@ -52,7 +52,7 @@ ones, and delete them. If an administrator deletes a property definition, all as
 experiment designs and templates. Values in existing runs will not be deleted.
 
 ![Property Definitions in the settings](property_definitions.png)
-![Edit a Property Definition](property_definition_edit.png)
+![Edit a Property Definition](property_definitions_edit.png)
 
 Properties can also be managed and assigned using the following API endpoint.
 Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) how to access the API.
