@@ -158,6 +158,7 @@ However, [extension-host](https://hub.steadybit.com/extension/com.steadybit.exte
     ```bash
     aws iam create-role --role-name steadybit-agent-task-execution-role --assume-role-policy-document file://steadybit-agent-role-trust-policy.json
     aws iam attach-role-policy --role-name steadybit-agent-task-execution-role --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+    aws iam attach-role-policy --role-name steadybit-agent-task-execution-role --policy-arn arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
     ```
 4.  If you like to install the `extension-aws` you need to create a new IAM role with the following permissions. Please have a look at the [extension documentation](https://github.com/steadybit/extension-aws?tab=readme-ov-file#required-permissions-policies) for the latest list of required permissions.
 
