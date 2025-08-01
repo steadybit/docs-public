@@ -186,7 +186,7 @@ However, [extension-host](https://hub.steadybit.com/extension/com.steadybit.exte
     aws ecs create-service \
      --cluster MY-CLUSTER \
      --service-name steadybit-agent \
-     --task-definition steadybit-agent \
+     --task-definition steadybit-agent-fargate \
      --propagate-tags TASK_DEFINITION \
      --launch-type FARGATE \
      --desired-count 1 \
