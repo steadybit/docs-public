@@ -42,6 +42,7 @@
   * [Teams](install-and-configure/manage-teams-and-users/teams.md)
   * [Permissions](install-and-configure/manage-teams-and-users/permissions.md)
 * [Manage Experiment Templates](install-and-configure/manage-experiment-templates/README.md)
+* [Manage Experiment Properties](install-and-configure/manage-properties/README.md)
 
 ## Use Steadybit
 
@@ -51,6 +52,7 @@
   * [Run History](use-steadybit/experiments/run-history.md)
   * [Schedule](use-steadybit/experiments/schedule/README.md)
   * [Variables](use-steadybit/experiments/variables.md)
+  * [Properties](use-steadybit/experiments/properties/README.md)
   * [Emergency Stop](use-steadybit/experiments/emergencyStop.md)
   * [Share](use-steadybit/experiments/share.md)
     * [Templates](use-steadybit/experiments/templates/README.md)
