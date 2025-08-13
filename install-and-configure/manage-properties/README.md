@@ -66,6 +66,8 @@ in before the experiment can be run. This allows administrators to enforce certa
 The assignment also defines whether the property is editable after the run has been started or if it should be read-only. This can be done in the
 settings section of the Steadybit platform.
 
+### Property Assignment Configuration
+
 A property assignment configuration consists of the following fields:
 
 #### Property Definition API name
@@ -88,6 +90,7 @@ If checked, the property can also be edited for each experiment run individually
 ![Edit a Property Assignment](property_association_edit.png)
 
 ### API
+
 Properties can also be managed and assigned using the following API endpoint.
 Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) how to access the API.
 
