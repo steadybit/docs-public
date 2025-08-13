@@ -66,17 +66,30 @@ in before the experiment can be run. This allows administrators to enforce certa
 The assignment also defines whether the property is editable after the run has been started or if it should be read-only. This can be done in the
 settings section of the Steadybit platform.
 
+### Property Assignment Configuration
+
 A property assignment configuration consists of the following fields:
 
-- **Property Definition Key**: The referenced property definition assigned to the experiment design or run.
-- **Mandatory**: A checkbox that indicates whether a value is required or not. If checked, the property must be filled in before the experiment can be run.
-- **Allow editing the value in the experiment run**: A checkbox that indicates whether the property can be edited at run-level. If checked,
-  the property can be edited in the run details page.
+#### Property Definition API name
+The referenced property definition assigned to the experiment design or run.
+For the UI, this is automatically given due to the context.
+For the API, you have to explicitly specify the property's API name.
+
+#### Mandatory
+
+Define a property's value to be required before being able to run the experiment.
+
+#### Allow editing the value in the experiment run
+
+Decide whether the property's value can be edited at run-level or only at design level.
+By default, this is design-only and thus, the property's value can only be edited at the experiment design level.
+If activated, the property can also be edited for each experiment run individually at the run details page.
 
 ![Property Assignments in the settings](property_associations.png)
 ![Edit a Property Assignment](property_association_edit.png)
 
 ### API
+
 Properties can also be managed and assigned using the following API endpoint.
 Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) how to access the API.
 
