@@ -81,8 +81,8 @@ A checkbox that indicates whether a value is required or not. If checked, the pr
 
 A checkbox that indicates whether the property's value can be edited at run-level.
 By default, this is unchecked.
-Thus, the property's value can only be edited at experiment design level.
-If checked, the property can be edited also for each experiment run individually at the run details page.
+Thus, the property's value can only be edited at the experiment design level.
+If checked, the property can also be edited for each experiment run individually at the run details page.
 
 ![Property Assignments in the settings](property_associations.png)
 ![Edit a Property Assignment](property_association_edit.png)
