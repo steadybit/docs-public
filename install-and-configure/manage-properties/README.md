@@ -68,12 +68,12 @@ settings section of the Steadybit platform.
 
 A property assignment configuration consists of the following fields:
 
-### Property Definition Key
+#### Property Definition API name
 The referenced property definition assigned to the experiment design or run.
 For the UI, this is automatically given due to the context.
 For the API, you have to explicitly specify the property's API name.
 
-### Mandatory
+#### Mandatory
 
 A checkbox that indicates whether a value is required or not. If checked, the property must be filled in before the experiment can be run.
 
