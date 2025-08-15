@@ -23,12 +23,11 @@ The machine you are installing Steadybit onto, must have **at least** 4 CPUs and
 
 ### Debug Docker Images
 
-The platform docker image doesn't contain any shell by default. In case you need to exec into the container using a
-shell for debugging purposes, we provide an additional debug variant whith the `platform-debug` tag.
+The platform container image doesn't contain a shell by default. However, in case you need to exec into the container using a shell for debugging purposes, we provide an additional debug variant with the `platform-debug` tag.
 
 ### Database Configuration
 
-Steadybit requires a PostgresSQL 15 database.
+Steadybit requires a PostgreSQL 15 database.
 
 | Environment Variable         | Required | Description                                                                                                                       |
 |------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------|
@@ -41,15 +40,14 @@ Steadybit requires a PostgresSQL 15 database.
 
 The workload is bound by the database CPU on peaks.
 
-If you have ~100k targets simultaneously in the platform, we recommend a burstable instance with four vCPU (e.g., db.t4g.xlarge). Regarding disk size, 20 GB
-should be enough capacity for the start (as extending on AWS should not be a problem).
+If you have ~100k targets simultaneously in the platform, we recommend a burstable instance with four vCPU (e.g., db.t4g.xlarge). Regarding disk size, 20 GB should be enough capacity for the start (as extending on AWS should not be a problem).
 
 If you choose a smaller instance for cost savings, the target ingestion will be slower, so it will take a bit longer until the target data in the platform is
 consistent.
 
 ### Message Broker Configuration
 
-For running the platform with multiple instances, a Redis message broker is required.
+A Redis message broker is required to run the platform with multiple instances.
 
 | Environment Variable                                                                | Required | Description                                                                          |
 |-------------------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------|
@@ -71,19 +69,19 @@ For running the platform with multiple instances, a Redis message broker is requ
 
 | Environment Variable                   | Required | Description                                                                                                                                                                                     |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `STEADYBIT_WEB_PUBLIC_URL`             |          | URL to point to your Steadybit installation. Use this if your platform is running behind a reverse proxy doing path rewriting. Also it is used for the links in notifications.                  |
-| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` |          | By default the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.           |
-| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL`  |          | By default the Websocket connections are advertised on the same url name as the agents registers to. If you run a separate loadbalancer for the websockets you can override the advertised url. |
+| `STEADYBIT_WEB_PUBLIC_URL`             |          | URL to point to your Steadybit installation. Use this if your platform runs behind a reverse proxy doing path rewriting. Also, it is used for the links in notifications.                  |
+| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` |          | By default, the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.           |
+| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL` | | By default, the Websocket connections are advertised using the same URL name as the agents register to. You can override the advertised URL if you run a separate load balancer for the websockets. |
 
 ### Log Configuration
 
 | Environment Variable | Required | Description                                                                                        |
 |----------------------|----------|----------------------------------------------------------------------------------------------------|
-| `LOGGING_FORMAT`     |          | By default Steadybit uses `text` format. Set this this to `json` to switch the log format to JSON. |
+| `LOGGING_FORMAT`     |          | By default, Steadybit uses `text` format. Set this to `json` to switch the log format to JSON. |
 
 ### Static-Authentication
 
-You can use a static username/password to authenticate as an admin user
+You can use a static username/password to authenticate as an admin user.
 
 | Environment Variable               | Required | Description                                                                                             |
 |------------------------------------|----------|---------------------------------------------------------------------------------------------------------|
@@ -93,28 +91,32 @@ You can use a static username/password to authenticate as an admin user
 
 ### LDAP-Authentication
 
-You can use a LDAP Server for user authentication.
+You can use an LDAP Server for user authentication.
 
-By default the ldap is accessed anonymously, unless `STEADYBIT_AUTH_LDAP_MANAGER_DN`
-and `STEADYBIT_AUTH_LDAP_MANAGER_PASSWORD` is set. The users are authenticated by doing a bind with their credentials,
+By default, the LDAP is accessed anonymously, unless `STEADYBIT_AUTH_LDAP_MANAGER_DN`
+and `STEADYBIT_AUTH_LDAP_MANAGER_PASSWORD` is set. The users are authenticated by binding their credentials
 unless `STEADYBIT_AUTH_LDAP_METHOD` is set to `password-compare`.
+
+If you encounter `LDAP connection has been closed` errors, set `JAVA_OPTS=-Dcom.sun.jndi.ldap.connect.pool.timeout=20000 -Dcom.sun.jndi.ldap.connect.pool.maxsize=20`
+
 
 | Environment Variable                           | Required | Description                                                                                                                                                                       |
 |------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `STEADYBIT_AUTH_PROVIDER`                      | yes      | <p>Use <code>LDAP</code> for LDAP-Authentication<br><strong>Example:</strong> <code>LDAP</code></p>                                                                               |
 | `STEADYBIT_AUTH_LDAP_URL`                      | yes      | <p>LDAP-Server URL<br><strong>Example:</strong> <code>ldap://openldap:389/dc=steadybit,dc=com</code></p>                                                                          |
-| `STEADYBIT_AUTH_LDAP_MANAGER_DN`               |          | Username (DN) of the "manager" user identity is used to authenticate to a LDAP server. If omitted anonymous access will be used. **Example:** `uid=admin,ou=system`               |
+| `STEADYBIT_AUTH_LDAP_MANAGER_DN`               |          | Username (DN) of the "manager" user identity is used to authenticate to an LDAP server. If omitted, anonymous access will be used. **Example:** `uid=admin,ou=system`               |
 | `STEADYBIT_AUTH_LDAP_MANAGER_PASSWORD`         |          | The password for the manager DN. This is required if the manager-dn is specified.                                                                                                 |
 | `STEADYBIT_AUTH_LDAP_USER_SEARCH_BASE`         |          | <p>the base DN for searching users in the LDAP directory</p>                                                                       |
 | `STEADYBIT_AUTH_LDAP_USER_SEARCH_FILTER`       |          | <p>the filter for searching users in the LDAP directory <br> <strong>Default:</strong> <code>(&(objectClass=inetOrgPerson)(uid={0}))</code></p>                                                                       |
 | `STEADYBIT_AUTH_LDAP_METHOD`                   |          | <p>The method to authenticate the user. Either <code>bind</code> or <code>password-compare</code>.<br><strong>Default:</strong> <code>bind</code></p>                             |
-| `STEADYBIT_AUTH_LDAP_PASSWORD_ATTRIBUTE`       |          | <p>The attribute in the directory which contains the user password, used if using <code>password-compare</code><br><strong>Default:</strong> <code>userPassword</code></p>        |
+| `STEADYBIT_AUTH_LDAP_USERNAME_ATTRIBUTE`       |          | <p>Name of the attribute that contains the username<br><strong>Default:</strong> <code>uid</code></p>        |
+| `STEADYBIT_AUTH_LDAP_PASSWORD_ATTRIBUTE`       |          | <p>Name of the attribute that contains the user password, used if using <code>password-compare</code><br><strong>Default:</strong> <code>userPassword</code></p>        |
 | `STEADYBIT_AUTH_LDAP_SYNC_ADMIN_GROUP_DN`      | yes      | <p>The DN for the groupOfNames/groupOfUniqueNames for the <code>Admin</code> users<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p> |
 | `STEADYBIT_AUTH_LDAP_SYNC_USER_GROUP_DN`       | yes      | <p>The DN for the groupOfNames/groupOfUniqueNames for the <code>User</code> users<br><strong>Example:</strong> <code>cn=steadybit_user,ou=groups,dc=steadybit,dc=com</code></p>   |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER`  |          | <p>The filter for the groupOfNames/groupOfUniqueNames for the teams<br><strong>Example:</strong> <code>ou=teams,ou=groups,dc=steadybit,dc=com</code></p>                          |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_KEY_ATTRIBUTE`  |          | <p>The attribute to use as Team key<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                                |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE` |          | <p>The attribute to use as Team name<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                               |
-| `STEADYBIT_AUTH_SYNC_CRON`                     |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 _/2 ? _ * *</code></p>                                           |
+| `STEADYBIT_AUTH_LDAP_SYNC_CRON`                |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 _/2 ? _ * *</code></p>                                           |
 
 ### OpenID-Connect Authentication
 
@@ -129,10 +131,10 @@ You can use an OpenID Connect (OIDC) compatible authentication provider for user
 | Response type | `code`                                     |
 
 
-> The first user to login will be assigned the `ADMIN` role, all other will be assigned the `USER` role. The roles can
+> The first user to log in will be assigned the `ADMIN` role; all others will be assigned the `USER` role. The roles can
 > be changed by an admin user via the UI.
 
-Be aware to configure your ingress / loadbalancer to set the `X-Forwarded-Proto` and `x-forwarded-for` header. Otherwise the correct redirect URL will not be
+Be aware to configure your ingress / loadbalancer to set the `X-Forwarded-Proto` and `x-forwarded-for` headers. Otherwise, the correct redirect URL will not be
 generated.
 
 | Environment Variable                                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -145,7 +147,7 @@ generated.
 | `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE`             |          | <p>Name of the OidcIdToken attribute that will be used to identify the user<br><strong>Default:</strong> <code>sub</code></p>                                                                                                                                                                                                                                                                                                                              |
 | `STEADYBIT_AUTH_OAUTH2_FULL_NAME_ATTRIBUTE`             |          | <p>Name of the OidcIdToken attribute that will be used to pick the full name of the user<br><strong>Default:</strong> <code>name</code></p>                                                                                                                                                                                                                                                                                                                |
 | `STEADYBIT_AUTH_OAUTH2_CLAIMS_TEAM_NAME_ATTRIBUTE_NAME` |          | <p>Name of the OidcIdToken claims attribute that will be used to pick up the assigned team names from. Steadybit automatically creates the specified teams in the platform and assigns the user to them.<br><strong>Default:</strong> <code>groups</code><br><strong>Example value in OIDC provider for single team:</strong> <code>team1</code><br><strong>Example value in OIDC provider for multiple teams:</strong> <code>["team1","team2"]</code></p> |
-| `STEADYBIT_AUTH_OAUTH2_HOSTED_DOMAIN`                   |          | <p>Restrict the login to users with a specific email domain. If set, only users with an email address from this domain will be allowed to login. Can be used with Google Workspace OIDC. <br><strong>Example:</strong> <code>example.com</code></p>                                                                                                                                                                                                        |
+| `STEADYBIT_AUTH_OAUTH2_HOSTED_DOMAIN`                   |          | <p>Restrict the login to users with a specific email domain. If set, only users with an email address from this domain will be allowed to log in. Can be used with Google Workspace OIDC. <br><strong>Example:</strong> <code>example.com</code></p>                                                                                                                                                                                                        |
 
 ### Syncing Teams via OIDC Attribute
 
@@ -166,7 +168,7 @@ SSL can be configured by setting the various `SERVER_SSL_*` properties and requi
 
 ### Audit-Log Export
 
-Audit logs can be exported to a AWS S3 Bucket
+Audit logs can be exported to an AWS S3 Bucket.
 
 | Environment Variable                       | Required | Description                                                               |
 |--------------------------------------------|----------|---------------------------------------------------------------------------|
@@ -186,7 +188,7 @@ OpenID Connect can be used to [authenticate the agents to the platform](advanced
 
 ### Proxy Settings
 
-Steadybit will use these proxy settings if the platform needs to connect to other services (for example your OIDC
+Steadybit will use these proxy settings if the platform needs to connect to other services (for example, your OIDC
 identity provider).
 
 | Environment Variable       | Required | Description                                                                  |
@@ -201,7 +203,7 @@ identity provider).
 
 | Environment Variable                                            | Description                                                                                                              |
 |-----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| `STEADYBIT_EXPERIMENT_EXECUTION_PARALLEL_EXECUTION_CHECK_SCOPE` | Steadybit will show a warning, if there are experiments running for the same `TENANT` (default), `TEAM` or `ENVIRONMENT` |
+| `STEADYBIT_EXPERIMENT_EXECUTION_PARALLEL_EXECUTION_CHECK_SCOPE` | Steadybit will show a warning if experiments are running for the same `TENANT` (default), `TEAM`, or `ENVIRONMENT` |
 | `STEADYBIT_EXPERIMENT_EXECUTION_MAXIMUM_DURATION`               | The maximum total duration of an experiment. Default is `12h`                                                            |
 | `STEADYBIT_EXPERIMENT_EXECUTION_EXPERIMENT_TIMEOUT`             | The time after which the experiment execution should time out after the estimated duration is reached. Default is `15m`  |
 | `STEADYBIT_EXPERIMENT_EXECUTION_PREPARATION_TIMEOUT`            | The time after which the experiment execution should time out if not all agents are prepared. Default is `60s`           |
@@ -211,15 +213,15 @@ identity provider).
 
 All retention settings are defined via
 
-- `STEADYBIT_X_RETENTION_PERIOD` a duration string, sequence of decimal numbers and a unit suffix,
+- `STEADYBIT_X_RETENTION_PERIOD` a duration string, sequence of decimal numbers, and a unit suffix,
   see [Spring conversion expressions](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.typesafe-configuration-properties.conversion.durations).
 - `STEADYBIT_X_RETENTION_CRON` cron string for Quartz
 
-Note that `X` links to a specific domain, see below (e.g. targets stats via `TARGETS_STATS`).
+Note that `X` links to a specific domain, see below (e.g., targets stats via `TARGETS_STATS`).
 
 | Environment Variable                                                 | Description                                                                                                                       | Database Table                  | Default Value                              |
 |----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------------|--------------------------------------------|
-| `STEADYBIT_EXTERNAL_VENDOR_AMPLITUDE_LOCAL_STORAGE_RETENTION_PERIOD` | Maximum age of Amplitude analytics events.<br/>Only applicable, if Amplitude is enabled and the `mode` is set to `LOCAL_STORAGE`. | `amplitude_local_event`         | `365d`                                     |
+| `STEADYBIT_EXTERNAL_VENDOR_AMPLITUDE_LOCAL_STORAGE_RETENTION_PERIOD` | Maximum age of Amplitude analytics events.<br/>Only applicable if Amplitude is enabled and the `mode` is set to `LOCAL_STORAGE`. | `amplitude_local_event`         | `365d`                                     |
 | `STEADYBIT_EXTERNAL_VENDOR_AMPLITUDE_LOCAL_STORAGE_RETENTION_CRON`   | Cron String for the cleanup job of Amplitude analytics events.                                                                    | `amplitude_local_event`         | `0 15 5 1/1 * ? *`<br/>(every day at 5:15) |
 | `STEADYBIT_AUDITLOG_RETENTION_PERIOD`                                | Maximum age of audit logs.                                                                                                        | `audit_log`                     | `90d`                                      |
 | `STEADYBIT_AUDITLOG_RETENTION_CRON`                                  | Cron String for the cleanup job of audit logs.                                                                                    | `audit_log`                     | `0 20 5 1/1 * ? *`<br/>(every day at 5:20) |
@@ -241,13 +243,12 @@ Note that `X` links to a specific domain, see below (e.g. targets stats via `TAR
 ### Endpoint Rate Limits
 
 Rate limits protect the UI, API, and Agent endpoints of the Steadybit platform. They can be enabled or disabled by setting the environment variable 
-`steadybit.ratelimit.enabled` to `true` or `false`, respectively.
+`steadybit.ratelimit.enabled` to `true` or `false`.
 
 Rate limits restrict the number of processable requests in a given timeframe. Every request reduces this capacity and will fail if none is left. After a given
 time, the capacity is refilled, and requests can be processed again.
 
-All rate limits apply to the associated tenant, whereas some endpoints are additionally restricted by a qualifier, specifying the user or agent issuing the
-request.
+All rate limits apply to the associated tenant, whereas some endpoints are additionally restricted by a qualifier, specifying the user or agent issuing the request.
 
 | Name               | Description                                                                      | Tenant <br/>(capacity,refill token, refill rate) | Qualifier <br/>(capacity,refill token, refill rate) |
 |--------------------|----------------------------------------------------------------------------------|--------------------------------------------------|-----------------------------------------------------|
@@ -261,10 +262,10 @@ request.
 | Agent Experiment   | Experiment execution and metadata like metrics, logs, spans                      | 1000/1000/1s                                     | 100/100/10s                                         | 
 | Agent Target       | Submitted targets <br/> (based on target count, and not request count)           | 100000/30000/5s                                  | 75000/7500/5s                                       |                  
 
-To define stricter or more relaxed restrictions environment variables can override the predefined defaults.
+Environment variables can override the predefined defaults to define stricter or more relaxed restrictions.
 
 `name` has to be replaced by the rate limit name in environment variable format (all uppercase, separated by underscore). `capacity` states the initial
-capacity, `refill-tokens` the amount that should be refilled every `refill-period` in unit `refill-unit`. Furthermore, tenant and qualifier (user or agent)
+capacity, `refill-tokens` the amount that should be refilled every `refill-period` in unit `refill-unit`. Furthermore, the tenant and qualifier (user or agent)
 restrictions can be overridden separately.
 
 ```bash
@@ -293,8 +294,8 @@ The Steadybit Platform provides the following rate limit metrics:
 
 | Metric                       | Labels                                                                                                                            | Value                     |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| `ratelimit_tokens_available` | `tenantKey`, `bucketName` (as described above), `qualifier` (username or agent id)                                                | Number of available token |
-| `ratelimit_tokens_total`     | `tenantKey`, `bucketName` (as described above), `qualifier` (username or agent id), `status` (`consumed`, `rejected` or `failed`) | Number of requested token |
+| `ratelimit_tokens_available` | `tenantKey`, `bucketName` (as described above), `qualifier` (username or agent id)                                                | Number of available tokens |
+| `ratelimit_tokens_total`     | `tenantKey`, `bucketName` (as described above), `qualifier` (username or agent id), `status` (`consumed`, `rejected` or `failed`) | Number of requested tokens |
 
 
 #### Hub Connections
