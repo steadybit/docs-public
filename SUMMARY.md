@@ -18,7 +18,7 @@
 
 ## Install and Configure
 
-* [Install Agent](install-and-configure/install-agent/README.md)
+* [Install Agent and Extensions](install-and-configure/install-agent/README.md)
   * [Architecture](install-and-configure/install-agent/agent-architecture.md)
   * [Install on Kubernetes](install-and-configure/install-agent/install-on-kubernetes.md)
   * [Install on Linux Hosts](install-and-configure/install-agent/install-on-linux-hosts.md)

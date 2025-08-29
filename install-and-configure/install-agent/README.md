@@ -1,4 +1,4 @@
-# Install Agent
+# Install Agent and Extensions
 
 ### Overview
 
