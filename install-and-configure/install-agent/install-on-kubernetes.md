@@ -1,4 +1,4 @@
-# Install on Kubernetes
+# Install on Kubernetes/OpenShift
 
 This method will install the Steadybit Agent on your Kubernetes Cluster using [Helm](https://helm.sh). So you need to have helm installed.
 
@@ -72,20 +72,6 @@ If you want to disable some, or all, of the default extensions, please set the f
 * [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http): `--set extension-http.enabled=false`
 * [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension_kubernetes): `--set extension-kubernetes.enabled=false`
 
-### Alternative: Generate Kubernetes Manifests
-
-We currently don't provide a static Kubernetes manifest, but you can generate it from the helm chart. We recommend to use the helm chart, as it is easier to update the agent and extensions.
-
-```shell
-helm repo add steadybit https://steadybit.github.io/helm-charts
-helm repo update
-helm template steadybit-agent --namespace steadybit-agent \
-  --create-namespace \
-  --set agent.key=<replace-with-agent-key> \
-  --set global.clusterName=<replace-with-cluster-name> \
-  steadybit/steadybit-agent
-```
-
 ### Alternative: OpenShift installation (< 4.18)
 
 The SecurityContextConstraints for OpenShift are included in our helm chart. You need to configure the CRI-O container runtime and we're good to go.
@@ -97,7 +83,6 @@ helm template steadybit-agent --namespace steadybit-agent \
   --create-namespace \
   --set agent.key=<replace-with-agent-key> \
   --set global.clusterName=<replace-with-cluster-name> \
-  --set podSecurityContext.fsGroup=null \
   --set extension-container.container.runtime=cri-o \
   steadybit/steadybit-agent
 ```
@@ -113,7 +98,6 @@ helm template steadybit-agent --namespace steadybit-agent \
   --create-namespace \
   --set agent.key=<replace-with-agent-key> \
   --set global.clusterName=<replace-with-cluster-name> \
-  --set podSecurityContext.fsGroup=null \
   --set extension-container.container.engine=cri-o \
   --set extension-container.containerEngines.cri-o.ociRuntime.path=crun \
   --set extension-container.containerEngines.cri-o.ociRuntime.root=/run/crun \
@@ -155,6 +139,22 @@ helm upgrade --install steadybit-agent --namespace steadybit-agent \
   --set agent.registerUrl=https://platform.steadybit.com \
   steadybit/steadybit-agent
 ```
+
+
+### Alternative: Generate Kubernetes Manifests
+
+We currently don't provide a static Kubernetes manifest, but you can generate it from the helm chart. We recommend to use the helm chart, as it is easier to update the agent and extensions.
+
+```shell
+helm repo add steadybit https://steadybit.github.io/helm-charts
+helm repo update
+helm template steadybit-agent --namespace steadybit-agent \
+  --create-namespace \
+  --set agent.key=<replace-with-agent-key> \
+  --set global.clusterName=<replace-with-cluster-name> \
+  steadybit/steadybit-agent
+```
+
 
 ## Resource limits
 
