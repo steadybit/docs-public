@@ -1,6 +1,6 @@
 # Syncing Teams via OIDC Attribute
 
-This feature allows dynamic synchronization of teams between your identity provider (IdP) and the SteadyBit platform. By leveraging an OIDC attribute, you can automatically map or create teams in SteadyBit based on the values provided in the OIDC token. This streamlines onboarding and team management, ensuring that users are assigned to the appropriate teams during authentication.
+This feature allows dynamic synchronization of teams between your identity provider (IdP) and the Steadybit platform. By leveraging an OIDC attribute, you can automatically map or create teams in Steadybit based on the values provided in the OIDC token. This streamlines onboarding and team management, ensuring that users are assigned to the appropriate teams during authentication.
 
 
 ## Overview
