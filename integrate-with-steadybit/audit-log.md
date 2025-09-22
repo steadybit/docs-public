@@ -11,4 +11,4 @@ You can access the audit log through the `/api/audit-log` endpoint. For more inf
 
 ### Retention
 
-Audit logs are retained for up to _90 days_ for our SaaS platform. Customers leveraging an on-premise Steadybit platform installation can extend the retention through the `steadybit.auditlog.removeAfter` configuration option. The configuration option accepts shorthands for time units, e.g., `90d` for 90 days.
+Audit logs are retained for up to _90 days_ for our SaaS platform. Customers leveraging an on-premise Steadybit platform installation can extend the retention through the `steadybit.auditlog.retention.period` configuration option. The configuration option accepts shorthands for time units, e.g., `90d` for 90 days.
