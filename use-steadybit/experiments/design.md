@@ -73,12 +73,48 @@ You can preview matching targets using the 'show targets' button next to the que
 
 #### Limiting Targets via Blast Radius
 
-![Create Experiment - Limiting Targets in the Editor](create-experiment-blank-limit-targets.png)
-
 Furthermore, you can limit your targets randomly to only attack a subset of your target selection and avoid attacking all at once.
-You can specify the target limitation as a percentage or a fixed number.
+You can choose between the basic blast radius, a simple randomizer across all target selections, and the advanced blast radius, allowing you to group your targets on a given attribute hierarchically.
 
-Finally, you can also rename each step to reveal the intention by clicking on the step's label in the sidebar.
+##### Basic Blast Radius
+The basic blast radius simply randomizes all selected targets and limits the subset by a percentage or a fixed number.
+The total number of attacked targets is shown at the top of the sidebar.
+
+![Create Experiment - Limiting Targets in the Editor via Basic Blast Radius](create-experiment-blank-limit-targets-basic-blast-radius.png)
+
+##### Advanced Blast Radius
+The advanced blast radius allows you to hierarchically group your targets on a given attribute and attack only a subset of the groups.
+This is perfect whenever you need to add context to the randomization to express a more realistic blast radius.
+
+Some common examples for this are
+* attacking a random Kubernetes deployment in a cluster
+* attacking a random Kubernetes pod of a specific deployment
+* attacking one random service's components, but all in a random availability zone
+
+The screenshot below shows an example where we group containers first on the label `k8s.label.domain`, and afterwards - within each group - on the available zone.
+We will select 50% of the service-groups and one availability zone.
+
+![Create Experiment - Limiting Targets in the Editor via Advanced Blast Radius](create-experiment-blank-limit-targets-advanced-blast-radius.png)
+So, in this example, we may attack all containers in, e.g.,
+1. `k8s.label.domain` = `shop-inventory`, `shop-gateway`, `shop-products` and `aws.zone` = `eu-central-1a`
+2. `k8s.label.domain` = `shop-inventory`, `shop-gateway`, `shop-products` and `aws.zone` = `us-east-1a`
+3.`k8s.label.domain` = `shop-checkout`, `shop-orders`, `shop-products` and `aws.zone` = `eu-central-1b`
+4. ...
+
+This helps to simulate an unavailability of a zone across services (i.e. case 1, `eu-central-1a`), but results in some container's domain unaffected (i.e. case 1, `k8s.label.domain` = `shop-inventory`, as no containers are running in `eu-central-1a`).
+The actual picked values are shown in the [run modal](./run.md#advanced-blast-radius)
+
+Please note that a percentage limit can easily result in no targets when running the experiment for small numbers of targets.
+This can happen when specifying a low percentage or having a low number of targets in a group.
+Steadybit rounds mathematically, so, for example, ` 20% of 2 targets` results in `0 targets`, and the experiment run to stop.
+
+In case the radius' limit is specified in a variable, template placeholder, or the API, you need to define the unit like `50%` for percentage limit and `1#` for an absolute number.
+
+
+
+#### Revealing Step's Intention
+When designing and running experiments as a team, it is a best practice to reveal every step's intention by renaming it.
+Click on a step's label in the sidebar to rename and help others understand it easily.
 
 ![Create Experiment - Rename Steps in the Editor](create-experiment-blank-step-label.png)
 
