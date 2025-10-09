@@ -39,7 +39,7 @@ The run modal also details more information whenever a step - and thus the exper
 ![Experiment Run Modal - Failed Step](run-experiment-modal-failed.png)
 
 #### Advanced Blast Radius
-Whenever you have used the [advanced blast radius](./design.md#advanced-blast-radius), you can see the picked values at the top of the run modal.
+Whenever you have used the [advanced blast radius](./design.md#limiting-targets-via-blast-radius), you can see the picked values at the top of the run modal.
 
 ![Experiment Run Modal - Advanced Blast Radius](run-experiment-modal-advanced-blast-radius.png)
 
