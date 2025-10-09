@@ -97,19 +97,20 @@ We will select 50% of the service-groups and one availability zone.
 ![Create Experiment - Limiting Targets in the Editor via Advanced Blast Radius](create-experiment-blank-limit-targets-advanced-blast-radius.png)
 
 So, in this example, we may attack all containers in, e.g.,
-1. `k8s.label.domain` = `shop-inventory`, `shop-gateway`, `shop-products` and `aws.zone` = `eu-central-1a`
-2. `k8s.label.domain` = `shop-inventory`, `shop-gateway`, `shop-products` and `aws.zone` = `us-east-1a`
-3. `k8s.label.domain` = `shop-checkout`, `shop-orders`, `shop-products` and `aws.zone` = `eu-central-1b`
+1. `k8s.label.domain` = `shop-inventory`, `shop-gateway`, `shop-products` and `aws.zone` = `eu-central-1a` _or_
+2. `k8s.label.domain` = `shop-inventory`, `shop-gateway`, `shop-products` and `aws.zone` = `us-east-1a` _or_
+3. `k8s.label.domain` = `shop-checkout`, `shop-orders`, `shop-products` and `aws.zone` = `eu-central-1b` _or_
 4. ...
 
 This allows to simulate an unavailability of a random zone across random services (i.e. case 1, `eu-central-1a`), but results in some container's domain unaffected (i.e. case 1, `k8s.label.domain` = `shop-inventory`, as no containers are running in `eu-central-1a`).
 The actual picked values are shown in the [run modal](./run.md#advanced-blast-radius).
 
 {% hint style="info" %}
-Note that a percentage limit can easily result in no targets while running the experiment.
+A percentage limit can easily result in no targets while running the experiment.
 This can happen when specifying a low percentage or having a low number of targets in a group.
+
 Steadybit rounds mathematically, so, for example, ` 20% of 2 targets` results in `0 targets`, and the experiment run to stop.
-For advanced blast radius, this is not validated when designing the experiment.
+This is not validated when designing the experiment in case of the advanced blast radius.
 {% endhint %}
 
 In case you use a variable, template placeholder, or the API, you need to define the unit of the radius limit, like `50%` for percentage and `1#` for an absolute number.
