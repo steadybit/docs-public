@@ -95,22 +95,24 @@ The screenshot below shows an example where we group containers first on the lab
 We will select 50% of the service-groups and one availability zone.
 
 ![Create Experiment - Limiting Targets in the Editor via Advanced Blast Radius](create-experiment-blank-limit-targets-advanced-blast-radius.png)
+
 So, in this example, we may attack all containers in, e.g.,
 1. `k8s.label.domain` = `shop-inventory`, `shop-gateway`, `shop-products` and `aws.zone` = `eu-central-1a`
 2. `k8s.label.domain` = `shop-inventory`, `shop-gateway`, `shop-products` and `aws.zone` = `us-east-1a`
 3.`k8s.label.domain` = `shop-checkout`, `shop-orders`, `shop-products` and `aws.zone` = `eu-central-1b`
 4. ...
 
-This helps to simulate an unavailability of a zone across services (i.e. case 1, `eu-central-1a`), but results in some container's domain unaffected (i.e. case 1, `k8s.label.domain` = `shop-inventory`, as no containers are running in `eu-central-1a`).
-The actual picked values are shown in the [run modal](./run.md#advanced-blast-radius)
+This allows to simulate an unavailability of a random zone across random services (i.e. case 1, `eu-central-1a`), but results in some container's domain unaffected (i.e. case 1, `k8s.label.domain` = `shop-inventory`, as no containers are running in `eu-central-1a`).
+The actual picked values are shown in the [run modal](./run.md#advanced-blast-radius).
 
-Please note that a percentage limit can easily result in no targets when running the experiment for small numbers of targets.
+{% hint style="info" %}
+Note that a percentage limit can easily result in no targets while running the experiment.
 This can happen when specifying a low percentage or having a low number of targets in a group.
 Steadybit rounds mathematically, so, for example, ` 20% of 2 targets` results in `0 targets`, and the experiment run to stop.
+For advanced blast radius, this is not validated when designing the experiment.
+{% endhint %}
 
-In case the radius' limit is specified in a variable, template placeholder, or the API, you need to define the unit like `50%` for percentage limit and `1#` for an absolute number.
-
-
+In case you use a variable, template placeholder, or the API, you need to define the unit of the radius limit, like `50%` for percentage and `1#` for an absolute number.
 
 #### Revealing Step's Intention
 When designing and running experiments as a team, it is a best practice to reveal every step's intention by renaming it.

@@ -31,15 +31,17 @@ The run view itself consists of the following elements.
 ### Run Modal
 You can click on each experiment step in the 'run timeline'- or 'run status'-widgets to get more details.
 The modal allow you to see the actions' configuration, the exact timing and affected targets (e.g., containers attacked by the blackhole-attack).
-It also details more information whenever a step/experiment has errored or failed.
 
-![Experiment Run View](run-experiment-modal.png)
-![img.png](run-experiment-modal-failed.png)
+![Experiment Run Modal - Attacked Targets](run-experiment-modal.png)
+
+The run modal also details more information whenever a step - and thus the experiment - has errored or failed.
+
+![Experiment Run Modal - Failed Step](run-experiment-modal-failed.png)
 
 #### Advanced Blast Radius
 Whenever you have used the [advanced blast radius](./design.md#advanced-blast-radius), you can see the picked values at the top of the run modal.
 
-![img.png](run-experiment-modal-advanced-blast-radius.png)
+![Experiment Run Modal - Advanced Blast Radius](run-experiment-modal-advanced-blast-radius.png)
 
 ## States
 Experiment runs can have the following states:
