@@ -99,7 +99,7 @@ We will select 50% of the service-groups and one availability zone.
 So, in this example, we may attack all containers in, e.g.,
 1. `k8s.label.domain` = `shop-inventory`, `shop-gateway`, `shop-products` and `aws.zone` = `eu-central-1a`
 2. `k8s.label.domain` = `shop-inventory`, `shop-gateway`, `shop-products` and `aws.zone` = `us-east-1a`
-3.`k8s.label.domain` = `shop-checkout`, `shop-orders`, `shop-products` and `aws.zone` = `eu-central-1b`
+3. `k8s.label.domain` = `shop-checkout`, `shop-orders`, `shop-products` and `aws.zone` = `eu-central-1b`
 4. ...
 
 This allows to simulate an unavailability of a random zone across random services (i.e. case 1, `eu-central-1a`), but results in some container's domain unaffected (i.e. case 1, `k8s.label.domain` = `shop-inventory`, as no containers are running in `eu-central-1a`).
