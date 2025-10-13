@@ -109,7 +109,7 @@ The actual picked values are shown in the [run modal](./run.md#advanced-blast-ra
 A percentage limit can easily result in no targets while running the experiment.
 This can happen when specifying a low percentage or having a low number of targets in a group.
 
-Steadybit rounds mathematically, so, for example, ` 20% of 2 targets` results in `0 targets`, and the experiment run to stop.
+Steadybit rounds mathematically, so, for example, `20% of 2 targets` results in `0 targets`, and the experiment run to stop.
 This is not validated when designing the experiment in case of the advanced blast radius.
 {% endhint %}
 
