@@ -4,14 +4,26 @@ title: Users
 
 # Users
 
-### User LDAP-Synchronization
+This page describes user roles, how to invite users, and how external identity systems affect user management.
 
-If you have configured the LDAP synchronization for users (on-premises only), you cannot add or remove users.
+## Role Types
 
-### User Invitation (SaaS only)
+Users have two role types that determine access and permissions:
 
-You can invite new users using their email address. If they accept the invitation they'll will be assigned the `user` role and gain access to you Steadybit tenant.
+- Platform role: Assigned at the platform (tenant) level. Each user has exactly one of `admin` or `user`.
+- Team role: Assigned within a specific team. A user can be an `owner` or a `member` in that team.
 
-### Manage Roles
+See [Permissions](permissions.md) for the functional differences between these roles.
 
-You can change a user's role to `admin` or `user`.
+{% hint style="info" %}
+Users who are not members of any team do not count toward license limits.
+{% endhint %}
+
+## Inviting Users (SaaS only)
+
+New users can be invited by email and directly assigned to teams and roles. 
+When an invitation is accepted, the corresponding user is created and gains access to your Steadybit tenant.
+
+## Integrations
+
+User management can be automated by the [OIDC Integration](../install-on-prem-platform/oidc-integration.md) and [LDAP Integration](../install-on-prem-platform/ldap-integration.md).

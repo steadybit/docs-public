@@ -5,14 +5,6 @@ navTitle: Advanced Configuration
 
 # Configuration Options
 
-{% hint style="info" %}
-This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the
-Steadybit team. Please, [book an appointment](https://www.steadybit.com/book-demo) to scope your PoC before continuing
-to evaluate the on-prem solution.
-
-If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
-{% endhint %}
-
 ### Machine Requirements
 
 The machine you are installing Steadybit onto, must have **at least** 4 CPUs and 8 GB available memory.
@@ -91,14 +83,7 @@ You can use a static username/password to authenticate as an admin user.
 
 ### LDAP-Authentication
 
-You can use an LDAP Server for user authentication.
-
-By default, the LDAP is accessed anonymously, unless `STEADYBIT_AUTH_LDAP_MANAGER_DN`
-and `STEADYBIT_AUTH_LDAP_MANAGER_PASSWORD` is set. The users are authenticated by binding their credentials
-unless `STEADYBIT_AUTH_LDAP_METHOD` is set to `password-compare`.
-
-If you encounter `LDAP connection has been closed` errors, set `JAVA_OPTS=-Dcom.sun.jndi.ldap.connect.pool.timeout=20000 -Dcom.sun.jndi.ldap.connect.pool.maxsize=20`
-
+You can use an LDAP server for [authentication and synchronization](ldap-integration.md).
 
 | Environment Variable                           | Required | Description                                                                                                                                                                       |
 |------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -118,40 +103,21 @@ If you encounter `LDAP connection has been closed` errors, set `JAVA_OPTS=-Dcom.
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE` |          | <p>The attribute to use as Team name<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                               |
 | `STEADYBIT_AUTH_LDAP_SYNC_CRON`                |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 _/2 ? _ * *</code></p>                                           |
 
-### OpenID-Connect Authentication
+### OpenID Connect Authentication
 
-You can use an OpenID Connect (OIDC) compatible authentication provider for user authentication.
+You can use OpenID Connect compatible authentication provider for [authentication and synchronization](oidc-integration.md).
 
-
-| Config        | Value                                      |
-|---------------|--------------------------------------------|
-| Grant type    | `authorization_code`                       |
-| Redirect uri  | `https://<host>/oauth2/login/code/default` |
-| Login url     | `https://<host>/login`                     |
-| Response type | `code`                                     |
-
-
-> The first user to log in will be assigned the `ADMIN` role; all others will be assigned the `USER` role. The roles can
-> be changed by an admin user via the UI.
-
-Be aware to configure your ingress / loadbalancer to set the `X-Forwarded-Proto` and `x-forwarded-for` headers. Otherwise, the correct redirect URL will not be
-generated.
-
-| Environment Variable                                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|---------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `STEADYBIT_AUTH_PROVIDER`                               | yes      | <p>Use <code>OAUTH2</code> for OIDC-Authentication<br><strong>Example:</strong> <code>OAUTH2</code></p>                                                                                                                                                                                                                                                                                                                                                    |
-| `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`                      | yes      | <p>URI for the OpenID Connect discovery endpoint.<br><strong>Example:</strong> <code>https://keycloak/auth/realms/demo</code></p>                                                                                                                                                                                                                                                                                                                          |
-| `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`                       | yes      | <p>The client ID to use for the OIDC registration<br><strong>Example:</strong> <code>steadybit</code></p>                                                                                                                                                                                                                                                                                                                                                  |
-| `STEADYBIT_AUTH_OAUTH2_CLIENT_SECRET`                   | yes      | <p>The client secret to use for the OIDC registration<br><strong>Example:</strong> <code>ijhdfpjdf80wiphubfqwd113342r</code></p>                                                                                                                                                                                                                                                                                                                           |
-| `STEADYBIT_AUTH_OAUTH2_SCOPE`                           |          | <p>The OAUTH2 scope to use for the OIDC registration<br><strong>Default:</strong> <code>openid,profile,email</code></p>                                                                                                                                                                                                                                                                                                                                    |
-| `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE`             |          | <p>Name of the OidcIdToken attribute that will be used to identify the user<br><strong>Default:</strong> <code>sub</code></p>                                                                                                                                                                                                                                                                                                                              |
-| `STEADYBIT_AUTH_OAUTH2_FULL_NAME_ATTRIBUTE`             |          | <p>Name of the OidcIdToken attribute that will be used to pick the full name of the user<br><strong>Default:</strong> <code>name</code></p>                                                                                                                                                                                                                                                                                                                |
+| Environment Variable                                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|---------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `STEADYBIT_AUTH_PROVIDER`                               | yes      | <p>Use <code>OAUTH2</code> for OIDC-Authentication<br><strong>Example:</strong> <code>OAUTH2</code></p>                                                                                                                                                                                                                                                                                                                                                   |
+| `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`                      | yes      | <p>URI for the OpenID Connect discovery endpoint<br><strong>Example:</strong> <code>https://keycloak/auth/realms/demo</code></p>                                                                                                                                                                                                                                                                                                                          |
+| `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`                       | yes      | <p>The client ID to use for the OIDC registration<br><strong>Example:</strong> <code>steadybit</code></p>                                                                                                                                                                                                                                                                                                                                                 |
+| `STEADYBIT_AUTH_OAUTH2_CLIENT_SECRET`                   | yes      | <p>The client secret to use for the OIDC registration<br><strong>Example:</strong> <code>ijhdfpjdf80wiphubfqwd113342r</code></p>                                                                                                                                                                                                                                                                                                                          |
+| `STEADYBIT_AUTH_OAUTH2_SCOPE`                           |          | <p>The OAUTH2 scope to use for the OIDC registration<br><strong>Default:</strong> <code>openid,profile,email</code></p>                                                                                                                                                                                                                                                                                                                                   |
+| `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE`             |          | <p>Name of the OidcIdToken attribute that will be used to identify the user<br><strong>Default:</strong> <code>sub</code></p>                                                                                                                                                                                                                                                                                                                             |
+| `STEADYBIT_AUTH_OAUTH2_FULL_NAME_ATTRIBUTE`             |          | <p>Name of the OidcIdToken attribute that will be used to pick the full name of the user<br><strong>Default:</strong> <code>name</code></p>                                                                                                                                                                                                                                                                                                               |
 | `STEADYBIT_AUTH_OAUTH2_CLAIMS_TEAM_NAME_ATTRIBUTE_NAME` |          | <p>Name of the OidcIdToken claims attribute that will be used to pick up the assigned team names from. Steadybit automatically creates the specified teams in the platform and assigns the user to them.<br><strong>Default:</strong> <code>groups</code><br><strong>Example value in OIDC provider for single team:</strong> <code>team1</code><br><strong>Example value in OIDC provider for multiple teams:</strong> <code>["team1","team2"]</code></p> |
-| `STEADYBIT_AUTH_OAUTH2_HOSTED_DOMAIN`                   |          | <p>Restrict the login to users with a specific email domain. If set, only users with an email address from this domain will be allowed to log in. Can be used with Google Workspace OIDC. <br><strong>Example:</strong> <code>example.com</code></p>                                                                                                                                                                                                        |
-
-### Syncing Teams via OIDC Attribute
-
-see [Syncing Teams via OIDC Attribute](syncing-teams-via-oidc-attribute.md)
+| `STEADYBIT_AUTH_OAUTH2_HOSTED_DOMAIN`                   |          | <p>Restrict the login to users with a specific email domain. If set, only users with an email address from this domain will be allowed to log in. Can be used with Google Workspace OIDC. <br><strong>Example:</strong> <code>example.com</code></p>                                                                                                                                                                                                       |
 
 ### Using SSL/TLS Encryption
 
