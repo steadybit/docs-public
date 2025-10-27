@@ -30,13 +30,15 @@ You can't see it again once you create a new API access token. Make sure to save
 
 #### Create an Admin Token via internal API
 
-On-premises customers can also create an admin token via internal APIs. 
-These tokens can be used to provision environments, teams, templates, etc., automatically via the API.
+On-premises customers can create admin tokens via an internal API. 
+During an automated provisioning process, these tokens can be used to create environments, teams, templates, etc.
 
 {% hint style="warning" %}
 These API tokens are associated with an implicit "machine" user, which cannot be removed/disabled.
-That means: if you schedule experiments with these tokens and then revoke the token, the schedules are still active, and the experiments will be executed.
-This differs from API tokens associated with a user: If the user is removed or loses their permissions, the scheduled experiments will fail due to insufficient permissions.
+
+That means: experiments scheduled with such a token will still be executed after that token is removed.
+
+This differs from "ordinary" API tokens associated with a user: If the user is removed or loses their permissions, the scheduled experiments will fail due to insufficient permissions.
 {% endhint %}
 
 **Create Admin Token via CLI**
