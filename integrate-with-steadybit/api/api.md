@@ -1,22 +1,22 @@
 # API
 
-The Steadybit Web API allows interfacing with the platform. We follow the principle that every feature available at UI also is available via API.
+The Steadybit Web API allows interfacing with the platform. We follow the principle that every feature available at the UI is also available via API.
 
-In order to access the API, you need to have an Access token.
+To access the API, you need to have an Access token.
 
 ## Access Tokens
 
-In order to use the API you need to create an API access token and provide it via the `Authorization` header in your API requests.
+To use the API, you need to create an API access token and provide it via the `Authorization` header in your API requests.
 
-API access tokens are managed by the administrator and team owners, and can be found in Settings → API Access Tokens section in the UI.
+API access tokens are managed by the administrator and team owners and can be found in the UI's Settings → API Access Tokens section.
 
 ![Management of API Access Token](api-access-token.png)
 
 We differentiate between team tokens and admin tokens.
 
-**Team Tokens** are bound to a team and can be used to access all experiments of a team.
+**Team Tokens** are bound to a team and can be used to access all team experiments.
 
-**Admin Tokens** have access to management APIs to manage e.g. teams or environments. Admin tokens are only available to the administrator user.
+**Admin Tokens** have access to management APIs to manage, e.g., teams or environments. Admin tokens are only available to the administrator user.
 
 ### Create a new Access Token
 
@@ -25,12 +25,19 @@ You can create a new access token via the platform's user interface. Go to Setti
 ![Add a new API access token](api-access-token-create.png)
 
 {% hint style="info" %}
-Once you created a new API access token, you can't see it again. Make sure to save it at a safe place!
+You can't see it again once you create a new API access token. Make sure to save it in a safe place!
 {% endhint %}
 
 #### Create an Admin Token via internal API
 
-On-Prem customers have also the possibility to create an admin token via internal APIs.
+On-premises customers can also create an admin token via internal APIs. 
+These tokens can be used to provision environments, teams, templates, etc., automatically via the API.
+
+{% hint style="warning" %}
+These API tokens are associated with an implicit "machine" user, which cannot be removed/disabled.
+That means: if you schedule experiments with these tokens and then revoke the token, the schedules are still active, and the experiments will be executed.
+This differs from API tokens associated with a user: If the user is removed or loses their permissions, the scheduled experiments will fail due to insufficient permissions.
+{% endhint %}
 
 **Create Admin Token via CLI**
 
@@ -54,7 +61,7 @@ The token will be printed to the console.
 
 **\[On-Prem] Create Admin Token via HTTP API**
 
-To generate a new admin token in your On-Prem Platform via HTTP API, first ssh into the platform server. Afterward, you can run curl:
+To generate a new admin token in your On-Prem Platform via HTTP API, first ssh into the platform server. Afterwards, you can curl:
 
 ```bash
 curl --header "Content-Type: application/json" \
@@ -63,7 +70,9 @@ curl --header "Content-Type: application/json" \
   http://localhost:9090/actuator/adminaccesstoken
 ```
 
-> This end point is only accessible for On-Prem customers and only from localhost. It can not be accessed from outside your server.
+> This endpoint is only accessible for On-Prem customers and only from localhost. It cannot be accessed from outside your server.
+
+
 
 ## OpenApi Specification
 
@@ -157,7 +166,7 @@ compatibility:
   circular-reference-limit: 11
 ```
 
-Here an example configuration to generate a go client with net/http:
+Here is an example configuration to generate a Go client with net/http:
 
 ```yaml
 package: api
