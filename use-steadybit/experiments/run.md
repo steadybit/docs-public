@@ -59,9 +59,9 @@ Whenever you have used the [advanced blast radius](./design.md#limiting-targets-
 
 An experiment run supports different level of states:
 
-- **Experiment Run** indicating an overall state of the run *(highest level)*
-- **Step** each individual step performed in an experiment run
-- **Target Execution** each individual target affected in a step *(lowest level)*
+- [**Experiment run**](#experiment-run) indicating an overall state of the run *(highest level)*
+- [**Step**](#step) each individual step performed in an experiment run
+- [**Target execution**](#target-execution) each individual target affected in a step *(lowest level)*
 
 The state from a lower level is propagated to the upper level, as described [below](#state-propagation).
 
@@ -102,6 +102,8 @@ Every step that is executed as part of an experiment run is in one of the follow
 
 For every step, there are single or multiple target executions.
 The actual number depends on the number of targets selected in the experiment design and the nature of the step.
+The target executions are listed as 'selected targets' in the [run modal](#run-modal).
+
 Each target execution is in one of the following states:
 
 | State     | Description                                                                                                                                                                                                                                                                           |
