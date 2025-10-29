@@ -127,6 +127,18 @@ Once you have saved it, you are ready to [run it](./#run) to learn how your syst
 
 ![Create Experiment - Example in the Editor](create-experiment-blank-example.png)
 
+#### Step's Parameters
+Depending on the actual chosen step, you can configure different parameter for the step.
+This dependency heavily on the chosen action.
+For instance, an attack to fill memory allows to configure the amount of memory to be filled where as a stop container attack can be configured whether it is a graceful termination.
+
+##### Continue on Any Failures / Errors
+By default, a failed/errored step causes the entire experiment run to fail/error immediately.
+For all steps, you can configure to continue the experiment run even when a failure or error occurred in the step's execution.
+Once activated, the experiment will continue to run, the step will be marked as a failure/error.
+See more details in the [experiment run state documentation](./run.md#state-propagation)
+
+
 ### From Template
 
 A second option for creating a new experiment is using an existing template.
