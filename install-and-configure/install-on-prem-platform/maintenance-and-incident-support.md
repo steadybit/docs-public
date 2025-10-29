@@ -1,11 +1,5 @@
 # Maintenance & Incident Support
 
-{% hint style="info" %}
-This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team. Please, [book an appointment](https://www.steadybit.com/book-demo) to scope your PoC before continuing to evaluate the on-prem solution.
-
-If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
-{% endhint %}
-
 During the operation of the on-premise Steadybit platform, you may run into situations that require users to be informed about incidents and planned maintenance that will affect on-premise Steadybit users. To inform these users, you can tell the Steadybit platform about incidents and maintenance windows. Once done, the platform can
 
 * show banners in the user interface indicating the specific situation,
