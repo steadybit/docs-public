@@ -58,7 +58,13 @@ Choose actions with the desired effect to perform your overall experiment.
 ![Create Experiment - Drag'n Drop Editor](create-experiment-blank.png)
 
 Once you've dropped the action or selected it later, you can define its configuration on the right-hand side.
-For example, you can specify an attack's target selection and blast radius.
+
+#### Revealing Step's Intention
+When designing and running experiments as a team, it is a best practice to reveal every step's intention by renaming it.
+Click on a step's label in the sidebar to rename and help others understand it easily.
+
+![Create Experiment - Rename Steps in the Editor](create-experiment-blank-step-label.png)
+
 
 #### Target Selection
 
@@ -115,29 +121,24 @@ This is not validated when designing the experiment in case of the advanced blas
 
 In case you use a variable, template placeholder, or the API, you need to define the unit of the radius limit, like `50%` for percentage and `1#` for an absolute number.
 
-#### Revealing Step's Intention
-When designing and running experiments as a team, it is a best practice to reveal every step's intention by renaming it.
-Click on a step's label in the sidebar to rename and help others understand it easily.
+#### Action and Attack Settings
+Depending on the action chosen, you can configure different settings for the step.
+For instance, an attack to 'fill memory' allows to configure the amount of memory to be filled, an attack to 'stop container' allows to configure whether it is a graceful termination, and an 'HTTP check' allows to configure the expected success rate.
 
-![Create Experiment - Rename Steps in the Editor](create-experiment-blank-step-label.png)
+![Action Settings Example of 'Stress CPU'](create-experiment-blank-action-settings.png)
+
+##### Continue on Any Failures / Errors
+By default, a failed/errored step causes the entire experiment run to fail/error immediately.
+All steps have a configuration to continue an experiment run even when a failure or error occurred in the step's execution.
+Once activated, the step is still marked as a failure/error, but the experiment continues running and may still eventually end in `COMPLETED`.
+This is further described in the [experiment run state documentation](./run.md#state-propagation).
+
 
 Continue with these steps until you've designed your experiment.
 A reasonable experiment could easily look like the one below.
 Once you have saved it, you are ready to [run it](./#run) to learn how your system behaves.
 
 ![Create Experiment - Example in the Editor](create-experiment-blank-example.png)
-
-#### Step's Parameters
-Depending on the actual chosen step, you can configure different parameter for the step.
-This dependency heavily on the chosen action.
-For instance, an attack to fill memory allows to configure the amount of memory to be filled where as a stop container attack can be configured whether it is a graceful termination.
-
-##### Continue on Any Failures / Errors
-By default, a failed/errored step causes the entire experiment run to fail/error immediately.
-For all steps, you can configure to continue the experiment run even when a failure or error occurred in the step's execution.
-Once activated, the experiment will continue to run, the step will be marked as a failure/error.
-See more details in the [experiment run state documentation](./run.md#state-propagation)
-
 
 ### From Template
 
