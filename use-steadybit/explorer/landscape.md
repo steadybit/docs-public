@@ -23,6 +23,18 @@ For every target or group of targets, you can view the discovered target types a
 
 ![Landscape to show targets grouped by type and target's attributes](explorer-landscape-details.png)
 
+### Attribute Configuration
+
+For 'grouping by' an attribute, you can additionally configure:
+
+![Explorer Landscape Attribute Configuration](explorer-landscape-attribute-configuration.png)
+
+- **Show "unknown" group** whether a target that doesn't have a value for the chosen attribute (i.e., `k8s.deployment`) should be added to the `unknown` group. If deactivated, the target will be hidden. Otherwise, you see an additional `unknown` group.
+- **Assign unmapped values to "unknown"** whether a target's attribute value that isn't assigned to a bucket (see below) is added to the above-explained "unknown" group as well, or handled as separate groups. 
+- **Buckets** allow you to group multiple target attribute values into one. For instance, grouping deployments named `hot-deals`, `fashion-bestseller`, and `toys-bestseller` into the bucket `products` will be shown in the grouping as if all three deployments are named `products`
+
+Buckets are also available in the attribute configuration of 'color by'.
+
 ## Advice
 
 Once you activate the 'Show Advice' in the sidebar, the targets are colored depending on the worst advice state (see [Advice Lifecycle](advice.md#advice-lifecycle)). You can see more details for each target by opening up the target sidebar or target details.
