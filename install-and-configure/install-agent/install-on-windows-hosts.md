@@ -83,6 +83,12 @@ If you need to diagnose issues or review the activity of the agent and its exten
     *   You can sort by "Date and Time" to find recent events or use the "Filter Current Log..." option in the right-hand pane to narrow down your search (e.g., by Event level like "Error" or "Warning", or by specific Event sources)."
 
 
+## Certificates
+
+By default, the Steadybit Agent (version 2.2.2 and later) will pick up the Certificates trusted by the system.
+
+If you don't want this, remove the line `-Djavax.net.ssl.trustStoreType=Windows-ROOT` from the file `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\agent.l4j.ini`.
+Then it will use the JREs (located in `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\jre`) keystore, which can be managed using the keytool.
 
 ## Uninstalling the Steadybit Agent
 
