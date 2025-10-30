@@ -63,6 +63,12 @@ Restart-Service SteadybitAgent
 
 ## Logs 
 
+### File System
+
+Navigate to `C:\ProgramData\Steadybit GmbH\Steadybit Agent\steadybit-agent.log`
+
+### Event Viewer
+
 If you need to diagnose issues or review the activity of the agent and its extensions, their logs are recorded in the **Windows Application Event Log**. Here's how to access them:
 
 1.  **Open Event Viewer:**
