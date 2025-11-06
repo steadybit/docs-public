@@ -207,6 +207,30 @@ Optionally, you can return a `message` in the HTTP response to show why the expe
 {"message":  "Jane Doe rejected this experiment run because it needs to run in a permitted execution window."}
 ```
 
+#### Response: Property Modifications
+
+Preflight Webhooks can also modify properties of the experiment execution by returning `modifications` in the response body. Examples:
+```json
+{"modifications": [
+  {
+    "type": "set_property_value",
+    "propertyKey": "approvedBy",
+    "value": "Daniel"
+  },
+  {
+    "type": "add_value_to_list_property",
+    "propertyKey": "observations",
+    "value": "This looks interesting!"
+  }
+]}
+```
+
+Currently, two modification types are supported:
+- `set_property_value`: Sets the value of a property identified by `propertyKey` to the provided `value`. If the property does not exist, it will be added.
+- `add_value_to_list_property`: Adds the provided `value` to a list property identified by `propertyKey`. If the property does not exist, it will be added. If it exists but is not a list, the execution will fail.
+
+Properties needs to be `editableInExecution` if inherited from the experiment design. You can learn more about properties [here](../../install-and-configure/manage-properties/README.md).
+
 ### Verify Webhook Requests
 
 You can verify that the call to the preflight webhook is legitimate by verifying the signature. as soon as the webhook's optional secret is configured. To do that, you need to configure the optional webhook's secret. The body's signature is computed using `HMAC SHA-256` and sent as an `X-SB-Signature` HTTP header.
