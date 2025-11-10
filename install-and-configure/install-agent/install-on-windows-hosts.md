@@ -1,64 +1,63 @@
 # Install on Windows Hosts
 
-Steadybit Agent is packaged as a Windows _.msi_ installer. Unlike the Linux installation, the [extension-host](https://hub.steadybit.com/target/com.steadybit.extension_host_windows.host) is not bundled and has to be installed separately.
+Steadybit Agent is packaged as a Windows _.msi_ installer. Unlike the Linux installation, the [extension-host-windows](https://hub.steadybit.com/target/com.steadybit.extension_host_windows.host) is not bundled and has to be installed separately.
 
 ## Agent installation
 
-To install the agent on your Windows system, download the [installer](https://windows-registry.steadybit.com/steadybit-agent/windows-agent-latest.zip).
-You may download the [SHA-256 checksum](https://windows-registry.steadybit.com/steadybit-agent/windows-agent-latest.sha256) and verify it matches the hash of the downloaded ZIP file.
-
-The installer is bundled with the _config.json_ file that must be populated before running the installer. 
+To install the agent on your Windows system, download the latest [installer](https://windows-registry.steadybit.com/steadybit-agent/windows-agent-latest.zip) archive and extract the installer into a folder of your choice.
+You may also download the [SHA-256 checksum](https://windows-registry.steadybit.com/steadybit-agent/windows-agent-latest.sha256) and verify it matches the hash of the downloaded archive.
 
 Looking for a specific version? Find it in the [Windows Registry](https://windows-registry.steadybit.com).
 
-*STEADYBIT_AGENT_REGISTER_URL* and *STEADYBIT_AGENT_KEY* are __mandatory__ fields. 
-
 ### Regular installation (GUI)
 
-Double click the downloaded _.msi_ installer and follow the installation instructions.
+Double-click the downloaded _.msi_ installer and follow the installation instructions. During the installation process you must specify the _Agent Key_ and _Registration URL_, and are also able to configure
+proxy settings in a dedicated dialog.
+
+![Windows Agent Installer](windows-agent-installer.png)
 
 ### Headless installation (No GUI)
 
 Run the following command from the __administrator__ powershell:
 
 ```pwsh
-Start-Process msiexec.exe "/i SteadybitAgentInstaller.msi /qn" -Wait -NoNewWindow
+msiexec /i SteadybitAgentInstaller.msi \`
+  STEADYBIT_AGENT_KEY="<agent-key>" \`
+  STEADYBIT_AGENT_REGISTER_URL="<registration-url>" \`
+/qn
 ```
 
-## Start/Stop Agent
+### Configure HTTP Proxy Server
 
-When the agent is installed, the application service is automatically initialized for you. If you want to manually control whether the agent is running or not, use the following commands:
+The Steadybit Agent uses HTTP and WebSockets to communicate with the platform. To simplify the agent deployment, consider allowing direct communication to our platform.
+
+If you require a single entry into and out of your network, you can configure the agent to use a proxy server. Enter your proxy server settings during installation in the GUI
+or add the following command line flags to the terminal installation command:
+
+```pwsh
+STEADYBIT_AGENT_PROXY_HOST="<host>"
+STEADYBIT_AGENT_PROXY_PORT="<port>"
+STEADYBIT_AGENT_PROXY_PROTOCOL="<http|https>"
+STEADYBIT_AGENT_PROXY_USER="<username>"
+STEADYBIT_AGENT_PROXY_PASSWORD="<password>"
+```
+
+You may also add these entries as environment variables and restart the _SteadybitAgent_ service.
+
+## Start/Stop
+
+During the agent installation, an application service is automatically initialized for you. If you want to manually control whether the agent is running or not, use the following commands:
 
 ```pwsh
 Start-Service SteadybitAgent
 ```
 
 ```pwsh
-Stop-Service SteadybitAgent
+Restart-Service SteadybitAgent
 ```
-
-### Configure HTTP Proxy Server
-
-The Steadybit Agent uses HTTP and WebSockets to communicate with the platform and to download updates. To simplify the agent deployment, consider allowing direct communication to our platform.
-
-If you require a single entry into and out of your network, you can configure the agent to use a proxy.
-
-1. If the agent is not yet installed you can set values for these environment variables in the _config.json_ and install the agent. Otherwise you may add these entries in the environment variables and restart the _SteadybitAgent_ service.
-
-```json
-{
-    "STEADYBIT_AGENT_PROXY_HOST":"<hostname or address of your proxy>",
-    "STEADYBIT_AGENT_PROXY_PORT":"<port of your proxy>",
-    "STEADYBIT_AGENT_PROXY_PROTOCOL":"<proxy protocol e.g. http>",
-    "STEADYBIT_AGENT_PROXY_USER":"<username of the proxy (if needed)>",
-    "STEADYBIT_AGENT_PROXY_PASSWORD":"<password of the proxy (if needed)>"
-}
-```
-
-2. Restart the service
 
 ```pwsh
-Restart-Service SteadybitAgent
+Stop-Service SteadybitAgent
 ```
 
 ## Logs 
@@ -81,7 +80,6 @@ If you need to diagnose issues or review the activity of the agent and its exten
 3.  **Find Relevant Entries:**
     *   The central pane will now display a list of events. Look for entries where the **Source** column might indicate the agent or its extensions (e.g., "Steadybit Agent," or a specific extension name).
     *   You can sort by "Date and Time" to find recent events or use the "Filter Current Log..." option in the right-hand pane to narrow down your search (e.g., by Event level like "Error" or "Warning", or by specific Event sources)."
-
 
 ## Certificates
 
@@ -113,8 +111,6 @@ This method uses the modern Windows Settings panel, which is common in Windows 1
 6.  **Follow Uninstaller Prompts:**
     *   A confirmation pop-up might appear asking if you're sure. Click **Uninstall** again if prompted.
     *   The Steadybit Agent's own uninstaller will then launch. Follow any instructions it provides to complete the removal.
-
----
 
 ### Method 2: Using Control Panel
 
