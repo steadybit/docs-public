@@ -34,7 +34,7 @@ For more configuration options have a look at our [steadybit/helm-charts reposit
 
 ### Configure Container Runtime
 
-By default, the agent assumes that your cluster uses the `containerd` runtime. If this is not the case, you need to add`--set extension-container.container.runtime=docker` or `cri-o`.
+By default, the agent assumes that your cluster uses the `containerd` runtime. If this is not the case, you need to add`--set extension-container.container.engine=docker` or `cri-o`.
 
 #### Determine Container Runtime on a Node
 
@@ -83,7 +83,7 @@ helm template steadybit-agent --namespace steadybit-agent \
   --create-namespace \
   --set agent.key=<replace-with-agent-key> \
   --set global.clusterName=<replace-with-cluster-name> \
-  --set extension-container.container.runtime=cri-o \
+  --set extension-container.container.engine=cri-o \
   steadybit/steadybit-agent
 ```
 

@@ -78,7 +78,7 @@ helm upgrade steadybit-agent --install --namespace <replace-me-with-namespace> \
   --create-namespace \
   --set agent.key="<replace-me>" \
   --set global.clusterName="<replace-me>" \
-  --set extension-container.container.runtime="<replace-me>" \
+  --set extension-container.container.engine="<replace-me>" \
   --set agent.registerUrl="<replace-me>"\
   --set rbac.roleKind="role" \
   --set agent.extensions.autoregistration.namespace="<replace-me-with-namespace>" \

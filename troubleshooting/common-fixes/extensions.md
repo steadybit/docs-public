@@ -12,13 +12,13 @@ When deploying the extension-container, the extension startup may fail with an e
 MountVolume.SetUp failed for volume "..." : hostPath type check failed: /run/.../runc/k8s.io is not a directory
 ```
 
-This error indicates that the extension runs on the wrong container runtime (Docker, cri-o, or containerd). To fix this issue, you must configure another one in the installation. You can change the extension's runtime easily via helm parameter. If you've used the Agent helm-chart to deploy Agent and extensions, you can configure the `extension-container.container.runtime` parameter.
+This error indicates that the extension runs on the wrong container runtime (Docker, cri-o, or containerd). To fix this issue, you must configure another one in the installation. You can change the extension's runtime easily via helm parameter. If you've used the Agent helm-chart to deploy Agent and extensions, you can configure the `extension-container.container.engine` parameter.
 
 ```
-  --set extension-container.container.runtime=... //containerd, docker or cri-io
+  --set extension-container.container.engine=... //containerd, docker or cri-io
 ```
 
-If you deployed the extension-container standalone, the parameter's name is `container.runtime`.
+If you deployed the extension-container standalone, the parameter's name is `container.engine` (without the `extension-container` prefix).
 
 #### My nodes report that they run on containerd but the extension-container fails with the error message `SetUp failed for volume "runtime-socket" : hostPath type check failed: /run/containerd/containerd.sock is not a socket file`
 
