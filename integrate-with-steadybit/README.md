@@ -45,11 +45,10 @@ The remaining Extension Kits ([AdviceKit](/integrate-with-steadybit/extensions/e
 
 ### CLI vs. API
 
-
-|     | Validate advice status | CRUD and run experiments | Use experiment templates | Schedule Experiments | [Emergency stop](/use-steadybit/experiments/emergencyStop.md) | Read targets | [Configure Steadybit](#user-content-fn-2)[^2] |
-|-----|------------------------|--------------------------|:-------------------------|----------------------|:--------------------------------------------------------------|:-------------|:----------------------------------------------|
-| CLI | ✅                      | ✅                        | ❌                        | ❌                    | ❌                                                             | ❌            | ❌                                             |
-| API | ✅                      | ✅                        | ✅                        | ✅                    | ✅                                                             | ✅            | ✅                                             |
+|     | [Validate advice status](/use-steadybit/explorer/adivce.md) | [CRUD of experiments](/use-steadybit/experiments/design.md) | [Run experiments](/use-steadybit/experiments/run.md) | [Use experiment templates](/use-steadybit/experiments/design.md#from-template) | [Schedule Experiments](/use-steadybit/experiments/schedule/README.md) | [Emergency stop](/use-steadybit/experiments/emergencyStop.md) | [Read targets](/use-steadybit/explorer/targets.md) | [Configure Steadybit](#user-content-fn-2)[^2] |
+|-----|-------------------------------------------------------------|-------------------------------------------------------------|:-----------------------------------------------------|:-------------------------------------------------------------------------------|-----------------------------------------------------------------------|:--------------------------------------------------------------|:---------------------------------------------------|:----------------------------------------------|
+| CLI | ✅                                                           | ✅                                                           | ✅                                                    | ❌                                                                              | ❌                                                                     | ❌                                                             | ❌                                                  | ❌                                             |
+| API | ✅                                                           | ✅                                                           | ✅                                                    | ✅                                                                              | ✅                                                                     | ✅                                                             | ✅                                                  | ✅                                             |
 
 
 [^1]: Only when the action is part of the experiment design and is currently running.
