@@ -53,5 +53,6 @@ The remaining Extension Kits ([AdviceKit](/integrate-with-steadybit/extensions/e
 | API | ✅                      | ✅                        | ✅                        | ✅                    | ✅                                                             | ✅            | ✅                                             |
 
 
-[^1] Only when the action is part of the experiment design and is currently running.
-[^2] Administrative functionality like managing [teams and users](/install-and-configure/manage-teams-and-users/README.md), [environments](/install-and-configure/manage-environments/README.md), [experiment templates](/install-and-configure/manage-experiment-templates/README.md), [hub connections](/integrate-with-steadybit/hubs/README.md), and [properties](/install-and-configure/manage-properties/README.md).
+[^1]: Only when the action is part of the experiment design and is currently running.
+
+[^2]: Administrative functionality like managing [teams and users](/install-and-configure/manage-teams-and-users/README.md), [environments](/install-and-configure/manage-environments/README.md), [experiment templates](/install-and-configure/manage-experiment-templates/README.md), [hub connections](/integrate-with-steadybit/hubs/README.md), and [properties](/install-and-configure/manage-properties/README.md).
