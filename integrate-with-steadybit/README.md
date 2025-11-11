@@ -1,6 +1,6 @@
 # Overview
 Steadybit is highly flexible, and you can seamlessly integrate it into your use cases and processes.
-TODO LOREM IPSUM
+For that, we offer different integration points that you can use.
 
 ## Integration Points
 ### Command-Line Interface (CLI)
