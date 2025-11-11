@@ -68,22 +68,22 @@
 
 ## Integrate with Steadybit
 
+* [Audit Log](integrate-with-steadybit/audit-log.md)
+* [API](integrate-with-steadybit/api/api.md)
+  * [Interactive API Documentation](https://platform.steadybit.com/api/swagger)
+* [CLI](integrate-with-steadybit/cli.md)
+* [Experiment Badges](integrate-with-steadybit/badges/README.md)
 * [Extensions](integrate-with-steadybit/extensions/README.md)
   * [Anatomy of an Extension](integrate-with-steadybit/extensions/anatomy-of-an-extension.md)
   * [Extension Installation](integrate-with-steadybit/extensions/extension-installation.md)
   * [Extension Kits](integrate-with-steadybit/extensions/extension-kits.md)
   * [Available Extensions](https://hub.steadybit.com)
-* [API](integrate-with-steadybit/api/api.md)
-  * [Interactive API Documentation](https://platform.steadybit.com/api/swagger)
-* [CLI](integrate-with-steadybit/cli.md)
-* [Badges](integrate-with-steadybit/badges/README.md)
+* [Hubs](integrate-with-steadybit/hubs/README.md)
+* [Preflight Actions](integrate-with-steadybit/preflightactions/preflight-actions.md)
+* [Slack Notifications](integrate-with-steadybit/slack-notifications.md)
 * [Webhooks](integrate-with-steadybit/webhooks/README.md)
   * [Custom Webhooks](integrate-with-steadybit/webhooks/custom-webhooks.md)
   * [Preflight Webhooks](integrate-with-steadybit/webhooks/preflight-webhooks.md)
-* [Preflight Actions](integrate-with-steadybit/preflightactions/preflight-actions.md)
-* [Slack Notifications](integrate-with-steadybit/slack-notifications.md)
-* [Audit Log](integrate-with-steadybit/audit-log.md)
-* [Hubs](integrate-with-steadybit/hubs/README.md)
 
 ## Troubleshooting
 
