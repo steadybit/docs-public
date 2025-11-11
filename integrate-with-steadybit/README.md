@@ -33,13 +33,13 @@ Don't hesitate to reach out to us if you need support by discussing your integra
 
 ### Webhooks vs. Extension Kits
 
-|                                                                                     | Sender   | Communication                                 | Preventing experiment runs |    Stop running Experiments    | Listening to experiment lifecycle | Changing Properties |
-|-------------------------------------------------------------------------------------|----------|-----------------------------------------------|:--------------------------:|:------------------------------:|:---------------------------------:|:-------------------:|
-| [Preflight Webhook](/integrate-with-steadybit/webhooks/preflight-webhooks.md)       | Platform | Synchronous,<br/>`55s` timeout                |             ✅              |               ❌                |                 ❌                 |          ✅          |
-| [Custom Webhook](/integrate-with-steadybit/webhooks/custom-webhooks.md)             | Platform | Fire-and-forget,<br/>no response handling     |             ❌              |               ❌                |                 ✅                 |          ❌          |
-| [PreflightKit](/integrate-with-steadybit/extensions/extension-kits.md#preflightkit) | Agent    | Asynchronous,<br/>polling via `status` method |             ✅              |               ✅                |                 ❌                 |          ✅          |
-| [EventKit](/integrate-with-steadybit/extensions/extension-kits.md#eventkit)         | Agent    | Asynchronous,<br/>polling via `status` method |             ❌              |               ❌                |                 ✅                 |          ❌          |
-| [ActionKit](/integrate-with-steadybit/extensions/extension-kits.md#actionkit)       | Agent    | Asynchronous,<br/>polling via `status` method |             ❌              | ️[✅/❌](#user-content-fn-1)[^1] |                 ❌                 |          ✅          |
+|                                                                                     | Sender   | Interaction Type | Back-channel | Preventing experiment runs |    Stop running Experiments    | Listening to experiment lifecycle | Changing Properties |
+|-------------------------------------------------------------------------------------|----------|------------------|:-------------|:--------------------------:|:------------------------------:|:---------------------------------:|:-------------------:|
+| [Preflight Webhook](/integrate-with-steadybit/webhooks/preflight-webhooks.md)       | Platform | Synchronous      | ✅            |             ✅              |               ❌                |                 ❌                 |          ✅          |
+| [Custom Webhook](/integrate-with-steadybit/webhooks/custom-webhooks.md)             | Platform | Asynchronous     | ❌            |             ❌              |               ❌                |                 ✅                 |          ❌          |
+| [PreflightKit](/integrate-with-steadybit/extensions/extension-kits.md#preflightkit) | Agent    | Asynchronous     | ✅            |             ✅              |               ✅                |                 ❌                 |          ✅          |
+| [EventKit](/integrate-with-steadybit/extensions/extension-kits.md#eventkit)         | Agent    | Asynchronous     | ❌            |             ❌              |               ❌                |                 ✅                 |          ❌          |
+| [ActionKit](/integrate-with-steadybit/extensions/extension-kits.md#actionkit)       | Agent    | Asynchronous     | ✅            |             ❌              | ️[✅/❌](#user-content-fn-1)[^1] |                 ❌                 |          ✅          |
 
 The remaining Extension Kits ([AdviceKit](/integrate-with-steadybit/extensions/extension-kits.md#advicekit) and [DiscoveryKit](/integrate-with-steadybit/extensions/extension-kits.md#discoverykit)) serve different purposes and are therefore not included in this comparison.
 
