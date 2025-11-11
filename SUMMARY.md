@@ -68,6 +68,7 @@
 
 ## Integrate with Steadybit
 
+* [Overview](integrate-with-steadybit/README.md)
 * [Audit Log](integrate-with-steadybit/audit-log.md)
 * [API](integrate-with-steadybit/api/api.md)
   * [Interactive API Documentation](https://platform.steadybit.com/api/swagger)
