@@ -19,7 +19,7 @@ If an experiment is to be executed for the agent, the agent connects via a webso
 
 {% hint style="info" %}
 The Steadybit platform never connects to the agent or any extensions:\
-&#xNAN;_&#x61;ll connections are initiated by the agent_, regardless of the deployment model.
+_all connections are initiated by the agent_, regardless of the deployment model.
 {% endhint %}
 
 Check our [reliability hub](https://hub.steadybit.com/extensions) for an up-to-date list of extensions. Our extensions are Open Source and available on [github.com](https://github.com/steadybit). They are written in Go to ensure the best possible resource usage.
