@@ -6,9 +6,9 @@ Steadybit helps you on your Chaos Engineering journey to a reliable system by pr
 
 Advice apply to a single target of a particular target type and is in one of the following states:
 
-* ![Advice icon for state 'Action Needed'](advice-action-needed.svg) Action Needed
-* ![Advice icon for state 'Validation Needed'](active-validation-needed.svg) Validation Needed
-* ![Advice icon for state 'Implemented'](advice-implemented.svg) Implemented
+* ![Advice icon for state 'Action Needed'](../../.gitbook/assets/advice-action-needed.svg) Action Needed
+* ![Advice icon for state 'Validation Needed'](../../.gitbook/assets/active-validation-needed.svg) Validation Needed
+* ![Advice icon for state 'Implemented'](../../.gitbook/assets/advice-implemented.svg) Implemented
 
 Advice may not support and skip a particular state depending on its definition.
 
@@ -16,7 +16,7 @@ Advice may not support and skip a particular state depending on its definition.
 
 The advice has automatically discovered that your target's configuration requires changes to follow best practices. For instance, advising you to address redundancy configuration for Kubernetes deployments or deploying your application in multiple cloud vendor's availability zones. The advice summarizes the matter, gives additional motivation to explain why you should address it, and gives specific instructions to improve it.
 
-![Advice for target 'fashion-bestseller' in state 'Action Needed'](advice-action-needed.png)
+![Advice for target 'fashion-bestseller' in state 'Action Needed'](../../.gitbook/assets/advice-action-needed.png)
 
 As soon as you implement the suggested instruction, Steadybit automatically discovers the change and - depending on the advice definition - asks you to validate your changes (lifecycle 'Validation Needed') or marks the advice as 'Implemented'.
 
@@ -27,7 +27,7 @@ The advice has discovered that your target's configuration follows best practice
 * Experiments: The advice suggests an experiment you should run to validate whether the target's configuration is working.
 * Text: The advice gives additional context for manually checking whether the target's configuration works.
 
-![Advice for target 'toys-bestseller' in state 'Validation Needed'](advice-validation-needed.png)
+![Advice for target 'toys-bestseller' in state 'Validation Needed'](../../.gitbook/assets/advice-validation-needed.png)
 
 To perform the validation, we suggest you do the corresponding action (run an experiment or follow the text-based instruction) and mark the validation as done. When you've performed all validations, the advice's states go into the end state ('Implemented').
 
@@ -35,7 +35,7 @@ To perform the validation, we suggest you do the corresponding action (run an ex
 
 Great job! You followed the advice and have fulfilled all required actions and validations.
 
-![Advice for target 'gateway' in state 'Implemented'](advice-implemented.png)
+![Advice for target 'gateway' in state 'Implemented'](../../.gitbook/assets/advice-implemented.png)
 
 In case you invalidate one of the validations or the discovery detects a required configuration change, the advice will return to the 'Validation Needed' or 'Action Needed' state.
 
@@ -47,19 +47,19 @@ You can see given pieces of advice in the Steadybit Explorer. The Explorer Lands
 
 Once you activate the 'Show Advice' in the sidebar, the targets are colored depending on the worst advice state (see [Advice Lifecycle](advice.md#advice-lifecycle)). You can see more details for each target by opening up the target sidebar or target details.
 
-![Explorer Landscape showing you targets and advice](advice-explorer-landscape.png)
+![Explorer Landscape showing you targets and advice](../../.gitbook/assets/advice-explorer-landscape.png)
 
 ### Targets Table
 
 Once you activate the 'Show Advice' in the sidebar, the general advice icon indicates target types having advice. You can see the advice per target in the table and details about each advice in the target details.
 
-![Explorer Targets Table showing you targets and advice](advice-explorer-targets.png)
+![Explorer Targets Table showing you targets and advice](../../.gitbook/assets/advice-explorer-targets.png)
 
 ### Advice
 
 In the Explorer Advice, you can see all supported advice, followed by the applicable targets and the respective status. It's the perfect place if you want to resolve the same advice for multiple targets. You can also filter based on advice's status to concentrate, e.g., first on targets requiring action for a specific advice.
 
-![Explorer Advice showing you advice and targets](advice-explorer-advice.png)
+![Explorer Advice showing you advice and targets](../../.gitbook/assets/advice-explorer-advice.png)
 
 ## Query Language
 

@@ -17,21 +17,21 @@ When using the Landscape, you have the following capabilities at your hand to be
 * **Size by** to analyze the target's attributes that have multiple different values assigned
 * **Color by** to highlight and differentiate attribute's values
 
-![Explorer Landscape to analyze your system](explorer-landscape-view.png)
+![Explorer Landscape to analyze your system](../../.gitbook/assets/landscape-explorer-view.png)
 
 For every target or group of targets, you can view the discovered target types and attributes.
 
-![Landscape to show targets grouped by type and target's attributes](explorer-landscape-details.png)
+![Landscape to show targets grouped by type and target's attributes](../../.gitbook/assets/explorer-landscape-details.png)
 
 ### Attribute Configuration
 
 For 'grouping by' an attribute, you can additionally configure:
 
-![Explorer Landscape Attribute Configuration](explorer-landscape-attribute-configuration.png)
+![Explorer Landscape Attribute Configuration](../../.gitbook/assets/explorer-landscape-attribute-configuration.png)
 
-- **Show "unknown" group** whether a target that doesn't have a value for the chosen attribute (i.e., `k8s.deployment`) should be added to the `unknown` group. If deactivated, the target will be hidden. Otherwise, you see an additional `unknown` group.
-- **Assign unmapped values to "unknown"** whether a target's attribute value that isn't assigned to a bucket (see below) is added to the above-explained "unknown" group as well, or handled as separate groups. 
-- **Buckets** allow you to group multiple target attribute values into one. For instance, grouping deployments named `hot-deals`, `fashion-bestseller`, and `toys-bestseller` into the bucket `products` will be shown in the grouping as if all three deployments are named `products`
+* **Show "unknown" group** whether a target that doesn't have a value for the chosen attribute (i.e., `k8s.deployment`) should be added to the `unknown` group. If deactivated, the target will be hidden. Otherwise, you see an additional `unknown` group.
+* **Assign unmapped values to "unknown"** whether a target's attribute value that isn't assigned to a bucket (see below) is added to the above-explained "unknown" group as well, or handled as separate groups.
+* **Buckets** allow you to group multiple target attribute values into one. For instance, grouping deployments named `hot-deals`, `fashion-bestseller`, and `toys-bestseller` into the bucket `products` will be shown in the grouping as if all three deployments are named `products`
 
 Buckets are also available in the attribute configuration of 'color by'.
 
@@ -39,7 +39,7 @@ Buckets are also available in the attribute configuration of 'color by'.
 
 Once you activate the 'Show Advice' in the sidebar, the targets are colored depending on the worst advice state (see [Advice Lifecycle](advice.md#advice-lifecycle)). You can see more details for each target by opening up the target sidebar or target details.
 
-![Explorer Landscape showing you targets and advice](advice-explorer-landscape.png)
+![Explorer Landscape showing you targets and advice](../../.gitbook/assets/advice-explorer-landscape.png)
 
 Learn more about [advice](advice.md) in the corresponding section.
 
@@ -47,7 +47,7 @@ Learn more about [advice](advice.md) in the corresponding section.
 
 Once you have identified a relevant group of targets for an experiment, you can click on that group and choose to use the target selection for an experiment. The Landscape provides the exact Query so that you can copy it into an experiment design.
 
-![Creating an experiment from the Landscape](explorer-landscape-create-experiment.png)
+![Creating an experiment from the Landscape](../../.gitbook/assets/landscape-explorer-create-experiment.png)
 
 ## Saved Views
 
@@ -55,4 +55,4 @@ You can save all views you have created with the Landscape to share them automat
 
 In addition, Steadybit shares some predefined views that will help you to get started with the Landscape. They are dependent on the actual discovered targets, showing e.g. a Kubernetes map only when at least one Kubernetes cluster is discovered.
 
-![Landscape views](explorer-landscape-views.png)
+![Landscape views](../../.gitbook/assets/landscape-explorer-views.png)

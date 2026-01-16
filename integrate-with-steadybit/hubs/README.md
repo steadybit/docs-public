@@ -16,7 +16,7 @@ On-premise platform installations connect to a bundled local copy of our Reliabi
 
 Steadybit supports connecting your own hub to the platform. An administrator can manage hub connections via `Settings`> `Hubs`. To add a hub, you need to specify the URL to the hub's index.json (see section [hub convention](./#hub-connections)).
 
-![Platform - connect new hub](hub-connect.png)
+![Platform - connect new hub](../../.gitbook/assets/hub-connect.png)
 
 Once you've added your hub, you can [import templates from the hub easily](../../install-and-configure/manage-experiment-templates/) and view documentation of actions integrated into the experiment editor.
 
@@ -24,7 +24,7 @@ Once you've added your hub, you can [import templates from the hub easily](../..
 
 When you disconnect a connected hub, you can decide to remove imported templates. Experiments created from a template are never deleted when you disconnect a hub.
 
-![Platform - disconnect hub](hub-disconnect.png)
+![Platform - disconnect hub](../../.gitbook/assets/hub-disconnect.png)
 
 ## Host Your Own Hub
 
@@ -32,8 +32,7 @@ You can host your own hub to share content within your organization instead of w
 
 ### Hub Convention
 
-To host your own hub, you have to serve a JSON-based endpoint via HTTP with a last modified unix timestamp (`lastChange`) and path references to templates and action documentation (see below).
-The platform will only update the referenced content when the unix timestamp (`lastChange`) has changed.
+To host your own hub, you have to serve a JSON-based endpoint via HTTP with a last modified unix timestamp (`lastChange`) and path references to templates and action documentation (see below). The platform will only update the referenced content when the unix timestamp (`lastChange`) has changed.
 
 ```json
 {
@@ -54,12 +53,14 @@ The platform will only update the referenced content when the unix timestamp (`l
 You can check out the `index.json` and all referenced content of [Steadybit's Reliability Hub](https://hub.steadybit.com/) in our [open-source GitHub repository](https://github.com/steadybit/reliability-hub-db/blob/main/index.json).
 
 #### Experiment Templates
-Experiment templates, that can be [imported to your platform](../../install-and-configure/manage-experiment-templates/), are listed in the `templates` section and are referencing the [exported templates](../../install-and-configure/manage-experiment-templates/README.md#export-templates-as-files) from your platform.
+
+Experiment templates, that can be [imported to your platform](../../install-and-configure/manage-experiment-templates/), are listed in the `templates` section and are referencing the [exported templates](../../install-and-configure/manage-experiment-templates/#export-templates-as-files) from your platform.
 
 #### Action Documentation
+
 The [documentation of an action](../../use-steadybit/experiments/design.md#action-and-template-documentation) references a `description.yml` with the following format:
 
-````yaml
+```yaml
 ---
 id:  com.steadybit.extension_host.shutdown
 label: Trigger Shutdown Host
@@ -75,7 +76,8 @@ promotedActions:
 tags:
   - Host
   - Kubernetes
-````
+```
+
 The `id` needs to match the action-id provided by your extension.
 
 Also, in the same folder as the `description.yml`, the platform will look for a `summary.mdx` containing Markdown content, see for example:

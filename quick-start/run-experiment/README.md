@@ -20,7 +20,7 @@ In our case, we want to identify how our shopping demo behaves when one of the p
 
 In the Steadybit platform, go to 'Experiments' -> 'New Experiment' -> 'From Template' and search for a template with the tag `Shopping Demo Quick Start`.
 
-![Run Experiment - Step 1: Use Template](run-experiment-step-1.png)
+![Run Experiment - Step 1: Use Template](../../.gitbook/assets/run-experiment-step-1.png)
 
 You can see the overall experiment structure in the template details or continue this tutorial by choosing 'Use This Template'.
 
@@ -34,19 +34,19 @@ Now, you need to define step-by-step template-specific experiment details to val
 
 The first option is always to select the environment where you want to run the experiment. The environment limits the set of attackable targets and thus prevents you from affecting the wrong stage or interfering with other teams. Check out [Manage Environments](../../install-and-configure/manage-environments/) later. If you haven't set up environments yet, you can continue with the `Global` environment, which contains everything Steadybit discovered.
 
-![Run Experiment - Template Wizard Step 1: Environment](run-experiment-step-2.png)
+![Run Experiment - Template Wizard Step 1: Environment](../../.gitbook/assets/run-experiment-step-2.png)
 
 ### (2) Cluster Name, (3) Namespace, and (4) Deployment
 
 Based on the selected template, the experiment needs to know the name of your Kubernetes cluster (`minikube`), the Kubernetes namespace (`steadybit-demo`), and the deployment (`hot-deals`). Just choose the values from the drop-down.
 
-![Run Experiment - Template Wizard Step 2: Kubernetes Cluster Name](run-experiment-step-3.png)
+![Run Experiment - Template Wizard Step 2: Kubernetes Cluster Name](../../.gitbook/assets/run-experiment-step-3.png)
 
 ### (5) HTTP Upstream Endpoint, and (6) Success Rate
 
 The next step is to define the upstream HTTP endpoint dependent on our downstream deployment `hot deals`. This is the `/products` endpoint of `gateway`, which crawls all products from `hot-deals`, `toys-bestseller`, and `fashion-bestseller`. The resulting products are shown on our shop's landing page. In Steadybit, we can also use Kubernetes-internal URLs, like `http://gateway.steadybit-demo.svc.cluster.local/products`.
 
-![Run Experiment - Template Wizard Step 5: HTTP Upstream Endpoint](run-experiment-step-4.png)
+![Run Experiment - Template Wizard Step 5: HTTP Upstream Endpoint](../../.gitbook/assets/run-experiment-step-4.png)
 
 In the next step, we specify the expected HTTP success rate. Since the shop's landing page uses this endpoint, we aim for `100%` successful responses.
 
@@ -60,7 +60,7 @@ Finalize the template's wizard by clicking 'Create Experiment'.
 
 Woohoo! There is our first experiment design! 🎉 You're now in the timeline-based experiment editor that you can always use to design an experiment from scratch via drag-and-drop.
 
-![Run Experiment - Experiment Design](run-experiment-step-5.png)
+![Run Experiment - Experiment Design](../../.gitbook/assets/run-experiment-step-5.png)
 
 Our experiment was already designed by using the template, so we can save and run it immediately to learn whether the shop survives an outage of the downstream deployment `hot-deals`.
 
@@ -68,11 +68,11 @@ Our experiment was already designed by using the template, so we can save and ru
 
 When hitting the 'Run Experiment'-button you see the Steadybit run view. As soon as the agent connected, the experiment starts to validate the HTTP endpoint `/products`, and the amount of ready pods for the deployment `hot-deals`. When isolating the deployment's containers, we start noticing faults in the HTTP responses as `hot-deals`' products can't be requested anymore. This is undesirable as there are other products of `fashion-bestseller` and `toys-bestseller` which could have been shown at the shop's landing page. You can improve this behavior by adding appropriate fallbacks or scaling the services.
 
-![Run Experiment - Experiment Run View](run-experiment-step-6.png)
+![Run Experiment - Experiment Run View](../../.gitbook/assets/run-experiment-step-6.png)
 
 Continuing to run the experiment, we see that eventually, Kubernetes restarts the deployment's pods, resulting in missing pods. Even so, after the attack, all pods become ready within the expected 60 seconds. However, the overall experiment run failed, as the HTTP success rate of `100%` was not achieved.
 
-![Run Experiment - Experiment Run View](run-experiment-step-7.png)
+![Run Experiment - Experiment Run View](../../.gitbook/assets/run-experiment-step-7.png)
 
 ## Conclusion
 

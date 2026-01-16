@@ -26,7 +26,7 @@ With the query UI, you can build regular queries which are connected with an AND
 
 Finally, don't forget to finally assign the environment to a team and give it a meaningful name. That's it, you are ready to use that environment in an experiment!
 
-![Create a new environment](new_environment.png)
+![Create a new environment](../../.gitbook/assets/new_environment.png)
 
 ### Use Environments
 

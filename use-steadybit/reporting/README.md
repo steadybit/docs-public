@@ -6,7 +6,7 @@ title: Reporting
 
 Steadybit's integrated reporting feature provides you with a comprehensive overview of your experiments, experiment runs and your adoption of Steadybit in terms of users, teams and environments.
 
-![Example of a report showing experiment run results](example-report.png)
+![Example of a report showing experiment run results](../../.gitbook/assets/example-report.png)
 
 You can click on the labels below any report to filter the data shown in the graphs.
 
@@ -17,9 +17,10 @@ All charts can be downloaded as png or pdf files.
 The Experiment Runs report gives you an overview of all experiment runs that have been executed.
 
 You can filter the reports by the following criteria:
- - Timeframe
- - Teams
- - Environments
+
+* Timeframe
+* Teams
+* Environments
 
 ### Number of Runs
 
@@ -54,9 +55,10 @@ Identify how many experiment runs turned from failed to completed. We count expe
 The Experiments report gives you an overview of experiments that have been created in your environment.
 
 You can filter the report by the following criteria:
-- Timeframe
-- Teams
-- Environments
+
+* Timeframe
+* Teams
+* Environments
 
 ### Number of Experiments
 

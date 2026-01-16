@@ -7,13 +7,13 @@ navTitle: Duplicate
 
 ## Export Experiment
 
-When you edit your experiment in the designer, you can export it to a JSON file. To do that, please click on the button ![Export Button](exportButton.png) `View Experiment as json`.
+When you edit your experiment in the designer, you can export it to a JSON file. To do that, please click on the button ![Export Button](../../../.gitbook/assets/ymlBtn.png) `View Experiment as json`.
 
-![Experiment Editor Export](editorExport.png)
+![Experiment Editor Export](../../../.gitbook/assets/editorExport.png)
 
 Then you see a popup with a download button and you can copy it to your clipboard.
 
-![Download json](editorJsonPopup.png)
+![Download json](../../../.gitbook/assets/editorJsonPopup.png)
 
 So, you can edit your experiment using the JSON editor of your choice.
 
@@ -21,7 +21,7 @@ So, you can edit your experiment using the JSON editor of your choice.
 
 When you want to import an experiment, you can do it via the `New Experiment` button in the experiment list.
 
-![New Experiment](newExperiment.png)
+![New Experiment](../../../.gitbook/assets/newExperiment.png)
 
 Then, you can drag and drop the JSON file onto the upload area or click on it to select a file. The file is parsed, imported, and the resulting experiment is opened.
 

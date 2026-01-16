@@ -10,7 +10,7 @@ To use the API, you need to create an API access token and provide it via the `A
 
 API access tokens are managed by the administrator and team owners and can be found in the UI's Settings → API Access Tokens section.
 
-![Management of API Access Token](api-access-token.png)
+![Management of API Access Token](../../.gitbook/assets/api-access-token.png)
 
 We differentiate between team tokens and admin tokens.
 
@@ -22,7 +22,7 @@ We differentiate between team tokens and admin tokens.
 
 You can create a new access token via the platform's user interface. Go to Settings → API Access Tokens.
 
-![Add a new API access token](api-access-token-create.png)
+![Add a new API access token](../../.gitbook/assets/api-access-token-create.png)
 
 {% hint style="info" %}
 You can't see it again once you create a new API access token. Make sure to save it in a safe place!
@@ -30,8 +30,7 @@ You can't see it again once you create a new API access token. Make sure to save
 
 #### Create an Admin Token via internal API
 
-On-premises customers can create admin tokens via an internal API. 
-During an automated provisioning process, these tokens can be used to create environments, teams, templates, etc.
+On-premises customers can create admin tokens via an internal API. During an automated provisioning process, these tokens can be used to create environments, teams, templates, etc.
 
 {% hint style="warning" %}
 These API tokens are associated with an implicit "machine" user, which cannot be removed/disabled.
@@ -73,8 +72,6 @@ curl --header "Content-Type: application/json" \
 ```
 
 > This endpoint is only accessible for On-Prem customers and only from localhost. It cannot be accessed from outside your server.
-
-
 
 ## OpenApi Specification
 

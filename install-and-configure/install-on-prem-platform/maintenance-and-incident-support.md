@@ -42,7 +42,7 @@ curl -X POST \
 '
 ```
 
-![System banner appearing at the top of the Steadybit UI presenting the information provided through the maintenance API](maintenance-planned.png)
+![System banner appearing at the top of the Steadybit UI presenting the information provided through the maintenance API](../../.gitbook/assets/maintenance-planned.png)
 
 ### Incidents
 
@@ -62,7 +62,7 @@ curl -X POST \
 '
 ```
 
-![System banner appearing at the top of the Steadybit UI presenting the information provided through the incident API](incident.png)
+![System banner appearing at the top of the Steadybit UI presenting the information provided through the incident API](../../.gitbook/assets/incident.png)
 
 The following severities are supported by the API. The user interface will adapt its banner style according to the chosen incident severity.
 

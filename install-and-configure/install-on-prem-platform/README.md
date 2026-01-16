@@ -31,8 +31,8 @@ Before continuing, make sure that access to the following URLs via HTTPS (443) i
 
 The platform itself exposes the following ports:
 
-* Port `8080`: Application port for UI/API
-* Port `7878`: Acceptor port for agents
+* Port `8080`: Application port for UI/API/agents
+* Port `7878`: Websocket port for agents
 
 ## Step 1 - Get your keys
 

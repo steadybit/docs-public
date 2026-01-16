@@ -1,4 +1,4 @@
-# Badges
+# Experiment Badges
 
 Get a badge for your experiment to integrate the latest run state, e.g., in wikis, ticketing tools, or wherever else it is valuable for you. You can easily integrate the badge using HTML, Markdown, or just a hosted image.
 
@@ -17,11 +17,11 @@ It’s an excellent way to get a link to your experiment and view the status wit
 
 Go to an experiment that interests you, and click on the experiment badge icon on the top right.
 
-![Steadybit Experiment Editor - Create Experiment Badge](experiment-badge-1.png)
+![Steadybit Experiment Editor - Create Experiment Badge](../../.gitbook/assets/experiment-badge-1.png)
 
 You can choose your badge's desirable format and scale and copy the resulting script.
 
-![Steadybit Experiment Editor - Configure Experiment Badge](experiment-badge-2.png)
+![Steadybit Experiment Editor - Configure Experiment Badge](../../.gitbook/assets/experiment-badge-2.png)
 
 Alternatively, below are examples to copy and adjust to create your badge manually
 
@@ -53,21 +53,21 @@ Example
 
 Experiment badges always link to a single existing experiment. If you want to refer to experiments that have a common purpose, you can instead use tag badges. Example use cases for this are linking to experiments reproducing a past issue from within your post-mortem documentation, indicating whether a specific architecture requirement is fulfilled, or providing visual evidence of the outcome of your latest disaster recovery test. Unlike experiment badges, tag badges can be created even if no experiment with the chosen tag exists, allowing you to use them as a call to action for creating a new experiment. This is how they look like in different states:
 
-<figure><img src="bade-example-create.png" alt="Tag badge when no experiment with the chosen tag exists" width="400"><figcaption><p>Tag badge when no experiment with the chosen tag exists</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/bade-example-create.png" alt="Tag badge when no experiment with the chosen tag exists" width="400"><figcaption><p>Tag badge when no experiment with the chosen tag exists</p></figcaption></figure>
 
-<figure><img src="badge-example-1.png" alt="Tag badge when a single experiment with the chosen tag exists" width="240"><figcaption><p>Tag badge when a single experiment with the chosen tag exists</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/badge-example-1.png" alt="Tag badge when a single experiment with the chosen tag exists" width="240"><figcaption><p>Tag badge when a single experiment with the chosen tag exists</p></figcaption></figure>
 
-<figure><img src="badge-example-2.png" alt="Tag badge when multiple experiments with the chosen tag exist" width="200"><figcaption><p>Tag badge when multiple experiments with the chosen tag exist</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/badge-example-2.png" alt="Tag badge when multiple experiments with the chosen tag exist" width="200"><figcaption><p>Tag badge when multiple experiments with the chosen tag exist</p></figcaption></figure>
 
 To create a tag badge, navigate to the Steadybit dashboard and click on 'Create a Badge'.
 
-![Steadybit Dashboard - Create a Badge](tag-badge-1.png)
+![Steadybit Dashboard - Create a Badge](../../.gitbook/assets/tag-badge-1.png)
 
 You then either choose an existing tag or create a new one. That tag will be automatically added to any experiment created via the badge and used to identify experiments that should be associated with it.
 
 You can then configure the desired format and scale for your badge and provide the text that will be shown when no experiment with the chosen tag exists.
 
-![Steadybit Dashboard - Create a Tag Badge](tag-badge-2.png)
+![Steadybit Dashboard - Create a Tag Badge](../../.gitbook/assets/tag-badge-2.png)
 
 Alternatively, below are some examples that you can copy and adjust to create your tag badge manually:
 

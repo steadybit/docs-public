@@ -14,7 +14,7 @@ Preflight webhooks are triggered by Steadybit whenever an experiment is about to
 
 You can add preflight webhooks at `Settings` -> `Integrations` -> `Preflight webhook`.
 
-![Add Preflight Webhook](addPreflightWebhook.png)
+![Add Preflight Webhook](../../.gitbook/assets/addPreflightWebhook.png)
 
 A webhook has the following parameters to be specified:
 
@@ -30,9 +30,9 @@ A webhook has the following parameters to be specified:
 
 During the experiment run, you can see the triggered preflight webhooks. If a webhook fails, the experiment run fails, and no targets are attacked.
 
-![Preflight Webhook Success](prefligtRunStatusSuccess.png)
+![Preflight Webhook Success](../../.gitbook/assets/prefligtRunStatusSuccess.png)
 
-![Preflight Webhook Failure - Stopped Experiment Run](prefligtRunStatusFail.png)
+![Preflight Webhook Failure - Stopped Experiment Run](../../.gitbook/assets/prefligtRunStatusFail.png)
 
 ## Developing Webhooks
 
@@ -210,6 +210,7 @@ Optionally, you can return a `message` in the HTTP response to show why the expe
 #### Response: Property Modifications
 
 Preflight Webhooks can also modify properties of the experiment execution by returning `modifications` in the response body. Examples:
+
 ```json
 {"modifications": [
   {
@@ -226,10 +227,11 @@ Preflight Webhooks can also modify properties of the experiment execution by ret
 ```
 
 Currently, two modification types are supported:
-- `set_property_value`: Sets the value of a property identified by `propertyKey` to the provided `value`. If the property does not exist, it will be added.
-- `add_value_to_list_property`: Adds the provided `value` to a list property identified by `propertyKey`. If the property does not exist, it will be added. If it exists but is not a list, the execution will fail.
 
-Properties needs to be `editableInExecution` if inherited from the experiment design. You can learn more about properties [here](../../install-and-configure/manage-properties/README.md).
+* `set_property_value`: Sets the value of a property identified by `propertyKey` to the provided `value`. If the property does not exist, it will be added.
+* `add_value_to_list_property`: Adds the provided `value` to a list property identified by `propertyKey`. If the property does not exist, it will be added. If it exists but is not a list, the execution will fail.
+
+Properties needs to be `editableInExecution` if inherited from the experiment design. You can learn more about properties [here](../../install-and-configure/manage-properties/).
 
 ### Verify Webhook Requests
 

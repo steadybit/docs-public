@@ -9,8 +9,7 @@ For every experiment run, Steadybit collects distributed tracing spans using [Op
 
 As the following sections show, Steadybit enables the collection of this data automatically for simple use cases. However, you can instruct the Steadybit agents to report this data to your observability pipeline. This document explains both approaches.
 
-![Trace encompassing the Steadybit platform and three Steadybit agents in Jaeger](traces-jaeger.png)
-
+![Trace encompassing the Steadybit platform and three Steadybit agents in Jaeger](<../../../.gitbook/assets/Screenshot 2023-04-12 at 11.47.53.png>)
 
 ## Download through the Experiment Run View
 
@@ -20,7 +19,7 @@ You can download the distributed tracing data as multiple [OTLP JSON files](http
 
 Distributed tracing data for experiments is retained for 28 days within the Steadybit platform.
 
-![Downloading a zip file containing distributed tracing data through the experiment run view](traces-download.png)
+![Downloading a zip file containing distributed tracing data through the experiment run view](../../../.gitbook/assets/traces-download.png)
 
 ## Exporting OpenTelemetry Data
 
@@ -89,7 +88,7 @@ service:
 
 Next, we start all the systems locally using [Docker compose](https://docs.docker.com/compose/). Note the comments about UI endpoints within the snippet.
 
-Store this in a file called `docker-compose.yml` within your current working directory. Then run `docker-compose up` to start everything.&#x20;
+Store this in a file called `docker-compose.yml` within your current working directory. Then run `docker-compose up` to start everything.
 
 Once the startup completes, you can use the following URLs to interact with the systems:
 

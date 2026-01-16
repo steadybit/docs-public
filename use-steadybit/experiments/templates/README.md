@@ -11,11 +11,11 @@ The easiest way to share a valuable experiment within or outside your Steadybit 
 
 Open the experiment you want to share and select 'Save as Template' in the save-split button.
 
-![Experiment Editor - Save as Template](experiment-save-as-template.png)
+![Experiment Editor - Save as Template](../../../.gitbook/assets/experiment-save-as-template.png)
 
 The experiment is opened in the experiment template's editor. Here, you must describe at least the template description (title and details). But it's also advisable to replace the experiment's parameters with relevant template placeholders or environment variables. Check out [manage experiment templates](../../../install-and-configure/manage-experiment-templates/) to learn more.
 
-![Experiment Template Editor](experiment-template-editor.png)
+![Experiment Template Editor](../../../.gitbook/assets/experiment-template-editor.png)
 
 Once you're done, you can save the experiment template.
 
@@ -25,7 +25,7 @@ Once you're done, you can save the experiment template.
 
 All experiment templates are automatically shared with all teams in your Steadybit tenant. You can also share deep links to an experiment template's details page.
 
-![Template details](template-details.png)
+![Template details](../../../.gitbook/assets/template-details.png)
 
 ### Sharing with the Community
 

@@ -55,7 +55,7 @@ The following capabilities are available when targeting containers, running stan
 | Red Hat OpenShift                              | ✅               | ✅              |
 | AWS Elastic Kubernetes Service (EKS)           | ✅               | ✅              |
 | AWS Elastic Container Service (ECS) on EC2[^1] | ✅               | ✅              |
-| AWS Elastic Container Service (ECS) on Fargate | ❌               | ✅[^3]          |
+| AWS Elastic Container Service (ECS) on Fargate | ❌               | ✅              |
 | Google Kubernetes Engine (GKE)                 | ✅               | ✅              |
 | Google Kubernetes Engine (GKE, Autopilot[^2])  | ✅               | ✅              |
 | Azure Kubernetes Service (AKS)                 | ✅               | ✅              |
@@ -118,17 +118,17 @@ The following attacks are available when working with physical hosts and virtual
 ### Network Attacks
 
 |                     | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
-| -----------------   | --------- | ------------- | ------------------------- | ---------------------- | --------------------- | ------------------------ |
-| Ubuntu 20.04        | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
-| Ubuntu 22.04        | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
-| Ubuntu 24.04        | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
-| Fedora Latest       | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
-| Debian Bookworm     | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
-| Debian Bullseye     | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
-| Amazon Linux 2      | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
-| Amazon Linux 2023   | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
-| Windows 11          | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
-| Windows Server 2022 | ✅        | ✅            | ✅                        | ✅                     | ✅                    | ✅                       |
+| ------------------- | --------- | ------------- | ------------------------- | ---------------------- | --------------------- | ------------------------ |
+| Ubuntu 20.04        | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Ubuntu 22.04        | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Ubuntu 24.04        | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Fedora Latest       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Debian Bookworm     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Debian Bullseye     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Amazon Linux 2      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Amazon Linux 2023   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Windows 11          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Windows Server 2022 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 
 {% hint style="info" %}
 Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
@@ -430,14 +430,14 @@ Steadybit offers comprehensive support for chaos experiments on Kafka infrastruc
 Steadybit supports the following application-level faults for JVM- and Spring-based applications. These don't require any dependency at work at runtime via bytecode manipulation.
 
 |                 | Spring Controller Delay | Spring Controller Exception | HTTP Client Delay | HTTP Client Status | Method Delay | Method Exception | JDBC Template Delay | JDBC Template Exception |
-|-----------------|-------------------------|-----------------------------|-------------------|:-------------------|:-------------|:-----------------|:--------------------|:------------------------|
+| --------------- | ----------------------- | --------------------------- | ----------------- | ------------------ | ------------ | ---------------- | ------------------- | ----------------------- |
 | JVM application | ✅                       | ✅                           | ✅                 | ✅                  | ✅            | ✅                | ✅                   | ✅                       |
 
 ## Observability
 
 Steadybit supports the following observability-related experiment actions:
 
-|            | [Check for Alerts](#user-content-fn-4)[^4] | [Mute Alerts](#user-content-fn-4)[^4] | [Send Events](#user-content-fn-5)[^5] |
+|            | [Check for Alerts](#user-content-fn-3)[^3] | [Mute Alerts](#user-content-fn-3)[^3] | [Send Events](#user-content-fn-4)[^4] |
 | ---------- | ------------------------------------------ | ------------------------------------- | ------------------------------------- |
 | Datadog    | ✅                                          | ✅                                     | ✅                                     |
 | Dynatrace  | ✅                                          | ✅                                     | ✅                                     |
@@ -452,27 +452,25 @@ Steadybit supports the following observability-related experiment actions:
 
 Steadybit integrates with the following load- and API-testing solutions:
 
-|                                     | Run Test from Experiment | Run Experiment from Test    |
-|-------------------------------------|--------------------------|-----------------------------|
-| Micro Focus LoadRunner Professional | ❌                        | ✅                           |
-| Micro Focus LoadRunner Enterprise   | ❌                        | ✅                           |
-| Gatling                             | ✅                        | [✅](#user-content-fn-6)[^6] |
-| JMeter                              | ✅                        | [✅](#user-content-fn-6)[^6] |
-| K6                                  | ✅                        | ✅                           |
-| K6 Cloud                            | ✅                        | ✅                           |
-| Postman                             | ✅                        | [✅](#user-content-fn-6)[^6] |
-| Custom HTTP Check                   | ✅                        | [✅](#user-content-fn-6)[^6] |
+|                                     | Run Test from Experiment | Run Experiment from Test |
+| ----------------------------------- | ------------------------ | ------------------------ |
+| Micro Focus LoadRunner Professional | ❌                        | ✅                        |
+| Micro Focus LoadRunner Enterprise   | ❌                        | ✅                        |
+| Gatling                             | ✅                        | ✅[^5]                    |
+| JMeter                              | ✅                        | ✅[^5]                    |
+| K6                                  | ✅                        | ✅                        |
+| K6 Cloud                            | ✅                        | ✅                        |
+| Postman                             | ✅                        | ✅[^5]                    |
+| Custom HTTP Check                   | ✅                        | ✅[^5]                    |
 
 [^1]: extension-host and extension-container needs to run in privileged mode and network mode host is required for the extensions.
 
 [^2]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. Container attacks in the following namespaces are\
     disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
 
-[^3]: Stop container is equivalent to stop task in AWS ECS on Fargate
-
-[^4]: Different observability integrations us different names for these action. Please check the [Steadybit Reliability Hub](https://hub.steadybit.com) for more\
+[^3]: Different observability integrations us different names for these action. Please check the [Steadybit Reliability Hub](https://hub.steadybit.com) for more\
     details.
 
-[^5]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
+[^4]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
 
-[^6]: Experiments can be triggered from tests using Steadybit's HTTP API.
+[^5]: Experiments can be triggered from tests using Steadybit's HTTP API.
