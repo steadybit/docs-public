@@ -28,6 +28,16 @@ Steadybit requires a PostgreSQL 15 database.
 | `SPRING_DATASOURCE_PASSWORD` | yes      | <p>Database Password<br><strong>Example:</strong> <code>postgres</code></p>                                                       |
 | `STEADYBIT_DB_WEB_ENABLED`   |          | <p>Enable Http Endpoint for Database export<br><strong>Default:</strong> <code>true</code></p>                                    |
 
+#### Database Maintenance
+
+The platform performs periodic database maintenance (VACUUM, ANALYZE) on configurable tables to optimize performance.
+
+| Environment Variable               | Required | Description                                                                                                                                                                                                                                                                                                             |
+|------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `STEADYBIT_DB_MAINTENANCE_ENABLED` |          | <p>Enable automatic database maintenance<br><strong>Default:</strong> <code>true</code></p>                                                                                                                                                                                                                             |
+| `STEADYBIT_DB_MAINTENANCE_CRON`    |          | <p>Cron expression for when maintenance runs<br><strong>Default:</strong> <code>0 0 0 ? * SAT *</code> (midnight on Saturdays)</p>                                                                                                                                                                                      |
+| `STEADYBIT_DB_MAINTENANCE_TABLES`  |          | <p>Comma-separated list of tables to maintain<br><strong>Default:</strong> <code>target,target_stats,target_submission_tracking,audit_log,experiment_execution,execution_log_event,execution_metric_event,execution_artifact,execution_spans,license_usage,file</code></p> |
+
 #### RDS Machine Requirements
 
 The workload is bound by the database CPU on peaks.
