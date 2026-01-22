@@ -5,6 +5,7 @@
 ## Quick Start
 
 * [First Steps](quick-start/getting-started.md)
+* [Explore with Sample Data](quick-start/sample-data/README.md)
 * [Compatibility](quick-start/compatibility/README.md)
 * [Install Agent and Extensions](quick-start/set-up-agents/README.md)
 * [Run an Experiment](quick-start/run-experiment/README.md)
