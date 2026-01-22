@@ -22,7 +22,7 @@ The experiments cannot be executed since they target simulated infrastructure.
 To run real chaos experiments, you'll need to install agents and extensions in your environment.
 {% endhint %}
 
-## Sample Data Contents
+## Sample Data Content
 
 ### Targets
 
@@ -116,7 +116,7 @@ When opening up Steadybit, you're welcomed by the dashboard showing you a summar
 
 ![Explorer showing a simulated Kubernetes environment](10-explorer.png)
  
-### Exploring Experiment Designs
+### Checking Experiment Designs
 
 1. Navigate to **Experiments** in the Steadybit UI
 2. Filter by the **Sample** environment or look for experiments tagged with `sample`
@@ -149,10 +149,10 @@ When opening up Steadybit, you're welcomed by the dashboard showing you a summar
 
 ![Sample advice for simulated Kubernetes environment](40-advice.png)
 
-## Transitioning to Real Data
+## Integrating with Your Environment
 
-Once you're ready to start chaos engineering with your own infrastructure:
+Once you're ready to start chaos engineering with your own infrastructure, simply [install the Steadybit agent and extensions](../set-up-agents/README.md) in your environment.
 
-1. [Install the Steadybit agent and extensions](../set-up-agents/README.md) in your environment
-2. The sample data targets will automatically be removed once you have real agents connected
-3. Sample experiment designs and run history remain available and can be manually deleted when no longer needed
+
+The sample data targets will automatically be removed once you have real agents connected.
+Sample experiment designs and run history remain available and can be manually deleted when no longer needed
