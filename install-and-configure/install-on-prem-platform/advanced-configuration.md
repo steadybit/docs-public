@@ -47,6 +47,49 @@ If you have ~100k targets simultaneously in the platform, we recommend a burstab
 If you choose a smaller instance for cost savings, the target ingestion will be slower, so it will take a bit longer until the target data in the platform is
 consistent.
 
+#### AWS RDS IAM Authentication
+
+Steadybit supports AWS RDS IAM authentication using the [AWS Advanced JDBC Wrapper](https://github.com/aws/aws-advanced-jdbc-wrapper). This allows you to authenticate to your RDS database using IAM credentials instead of a database password.
+
+##### Prerequisites
+
+Before configuring Steadybit, you need to set up IAM database authentication on your RDS instance. Follow the [AWS documentation on IAM database authentication for MariaDB, MySQL, and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) to:
+
+1. Enable IAM authentication on your RDS instance
+2. Create a database user that uses IAM authentication
+3. Configure the required IAM policy with `rds-db:connect` permission
+
+##### Configuration
+
+To enable IAM authentication, configure the following environment variables:
+
+| Environment Variable                                              | Required | Description                                                                                                                                                                                                      |
+|-------------------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `SPRING_DATASOURCE_URL`                                           | yes      | <p>JDBC URL using the AWS wrapper prefix<br><strong>Example:</strong> <code>jdbc:aws-wrapper:postgresql://your-rds-endpoint:5432/steadybitdb</code></p>                                                          |
+| `SPRING_DATASOURCE_USERNAME`                                      | yes      | <p>The IAM database user<br><strong>Example:</strong> <code>steadybit_iam</code></p>                                                                                                                             |
+| `SPRING_DATASOURCE_HIKARI_DATA_SOURCE_PROPERTIES_WRAPPERPLUGINS`  | yes      | <p>Comma-separated list of AWS JDBC Wrapper plugins. Include <code>iam</code> for IAM authentication.<br><strong>Example:</strong> <code>iam,initialConnection,auroraConnectionTracker,failover2,efm2</code></p> |
+| `SPRING_DATASOURCE_HIKARI_DATA_SOURCE_PROPERTIES_WRAPPERDIALECT`  |          | <p>The database dialect for the AWS JDBC Wrapper. Required for some plugins to work correctly.</p>                                                                                                               |
+
+**Note:** When using IAM authentication, you do not need to set `SPRING_DATASOURCE_PASSWORD` as the AWS SDK will generate authentication tokens automatically using the configured IAM credentials.
+
+##### Example Configuration
+
+```yaml
+env:
+  - name: SPRING_DATASOURCE_URL
+    value: "jdbc:aws-wrapper:postgresql://my-rds-instance.abc123.us-east-1.rds.amazonaws.com:5432/steadybitdb"
+  - name: SPRING_DATASOURCE_USERNAME
+    value: "steadybit_iam"
+  - name: SPRING_DATASOURCE_HIKARI_DATA_SOURCE_PROPERTIES_WRAPPERPLUGINS
+    value: "iam,efm2"
+  - name: SPRING_DATASOURCE_HIKARI_DATA_SOURCE_PROPERTIES_WRAPPERDIALECT
+    value: "aurora-pg"
+```
+
+##### Available Wrapper Plugins
+
+You can also configure additional wrapper plugins for aurora (e.g. `initialConnection`, `auroraConnectionTracker`) or clusters (`failover2`). For a complete list of available plugins and their configuration options, see the [AWS Advanced JDBC Wrapper documentation](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/UsingTheJdbcDriver.md#list-of-available-plugins).
+
 ### Message Broker Configuration
 
 A Redis message broker is required to run the platform with multiple instances.
