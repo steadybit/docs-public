@@ -80,9 +80,9 @@ env:
     value: "jdbc:aws-wrapper:postgresql://my-rds-instance.abc123.us-east-1.rds.amazonaws.com:5432/steadybitdb"
   - name: SPRING_DATASOURCE_USERNAME
     value: "steadybit_iam"
-  - name: SPRING_DATASOURCE_HIKARI_DATA_SOURCE_PROPERTIES_WRAPPERPLUGINS
+  - name: spring.datasource.hikari.data-source-properties.wrapperPlugins
     value: "iam,efm2"
-  - name: SPRING_DATASOURCE_HIKARI_DATA_SOURCE_PROPERTIES_WRAPPERDIALECT
+  - name: spring.datasource.hikari.data-source-properties.wrapperDialect
     value: "aurora-pg"
 ```
 
