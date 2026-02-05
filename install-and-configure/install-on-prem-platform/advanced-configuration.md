@@ -68,7 +68,7 @@ To enable IAM authentication, configure the following environment variables:
 | `SPRING_DATASOURCE_URL`                                          | yes      | <p>JDBC URL using the AWS wrapper prefix<br><strong>Example:</strong> <code>jdbc:aws-wrapper:postgresql://your-rds-endpoint:5432/steadybitdb</code></p>                                                          |
 | `SPRING_DATASOURCE_USERNAME`                                     | yes      | <p>The IAM database user<br><strong>Example:</strong> <code>steadybit_iam</code></p>                                                                                                                             |
 | `spring.datasource.hikari.data-source-properties.wrapperPlugins` | yes      | <p>Comma-separated list of AWS JDBC Wrapper plugins. Include <code>iam</code> for IAM authentication.<br><strong>Example:</strong> <code>iam,initialConnection,auroraConnectionTracker,failover2,efm2</code></p> |
-| `spring.datasource.hikari.data-source-properties.wrapperDialect` |          | <p>The database dialect for the AWS JDBC Wrapper. Required for some plugins to work correctly.</p>                                                                                                               |
+| `spring.datasource.hikari.data-source-properties.wrapperDialect` |          | <p>The database dialect for the AWS JDBC Wrapper. Required for some plugins to work correctly, e.g. when using aurora.</p>                                                                                       |
 
 **Note:** When using IAM authentication, you do not need to set `SPRING_DATASOURCE_PASSWORD` as the AWS SDK will generate authentication tokens automatically using the configured IAM credentials.
 
@@ -82,8 +82,6 @@ env:
     value: "steadybit_iam"
   - name: spring.datasource.hikari.data-source-properties.wrapperPlugins
     value: "iam,efm2"
-  - name: spring.datasource.hikari.data-source-properties.wrapperDialect
-    value: "aurora-pg"
 ```
 
 ##### Available Wrapper Plugins
