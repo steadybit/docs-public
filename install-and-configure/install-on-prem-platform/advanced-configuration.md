@@ -19,7 +19,9 @@ The platform container image doesn't contain a shell by default. However, in cas
 
 ### Database Configuration
 
-Steadybit requires a PostgreSQL 15 database.
+Steadybit requires a PostgreSQL 15 database. The platform relies heavily on PostgreSQL-specific features and cannot run on other RDBMS.
+
+**Note**: Ensure the database and platform clocks are in sync, as time-based operations might be impacted otherwise.
 
 | Environment Variable         | Required | Description                                                                                                                       |
 |------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------|
@@ -37,6 +39,17 @@ The platform performs periodic database maintenance (VACUUM, ANALYZE) on configu
 | `STEADYBIT_DB_MAINTENANCE_ENABLED` |          | <p>Enable automatic database maintenance<br><strong>Default:</strong> <code>true</code></p>                                                                                                                                                                                                                             |
 | `STEADYBIT_DB_MAINTENANCE_CRON`    |          | <p>Cron expression for when maintenance runs<br><strong>Default:</strong> <code>0 0 0 ? * SAT *</code> (midnight on Saturdays)</p>                                                                                                                                                                                      |
 | `STEADYBIT_DB_MAINTENANCE_TABLES`  |          | <p>Comma-separated list of tables to maintain<br><strong>Default:</strong> <code>target,target_stats,target_submission_tracking,audit_log,experiment_execution,execution_log_event,execution_metric_event,execution_artifact,execution_spans,license_usage,file</code></p> |
+
+#### Database Permissions
+
+The database user requires the following permissions:
+
+| Command                                              | Description                                                                                         |
+|------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `GRANT CONNECT ON DATABASE <steadybitdb> TO <user>;` | Allow the application user (e.g. `postgres`) to connect                                             |
+| `GRANT CREATE ON DATABASE <steadybitdb> TO <user>;`  | Allow the application user (e.g. `postgres`) to create schemas                                      |
+| `GRANT CREATE ON SCHEMA public TO <user>;`           | Eextensions (`pg_trgm`, `uuid-ossp`, `btree-gin`, `pg_stat_statements`) are created by the platform | 
+| `GRANT USAGE ON SCHEMA public TO <user>;`            | Access to PostgreSQL extension functions                                                            |
 
 #### RDS Machine Requirements
 
