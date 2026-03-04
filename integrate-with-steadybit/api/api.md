@@ -1,77 +1,119 @@
 # API
 
-The Steadybit Web API allows interfacing with the platform. We follow the principle that every feature available at the UI is also available via API.
+The Steadybit API gives you programmatic access to the platform. Every feature available in the UI is also available via the API.
 
-To access the API, you need to have an Access token.
+All API requests require an access token for authentication.
 
 ## Access Tokens
 
-To use the API, you need to create an API access token and provide it via the `Authorization` header in your API requests.
+To authenticate API requests, create an access token and pass it via the `Authorization` header in your request.
 
-API access tokens are managed by the administrator and team owners and can be found in the UI's Settings → API Access Tokens section.
+Access tokens can be managed in the UI under Settings → API Access Tokens.
 
-![Management of API Access Token](../../.gitbook/assets/api-access-token.png)
+![Management of API Access Token](../../.gitbook/assets/api-access-token-overview.png)
 
-We differentiate between team tokens and admin tokens.
+### Token Types
 
-**Team Tokens** are bound to a team and can be used to access all team experiments.
+Steadybit supports three token types:
 
-**Admin Tokens** have access to management APIs to manage, e.g., teams or environments. Admin tokens are only available to the administrator user.
+**Team Tokens** are associated with one or more teams and can be used to access experiments and team-related operations within those teams. Admins and team owners can create team tokens. 
 
-### Create a new Access Token
+**Wildcard Tokens** grant access to all teams the token creator is an owner of. Team ownerships are resolved dynamically at authentication time, so the token automatically reflects any future team changes. Admins and team owners can create wildcard tokens.
+**Wildcard Tokens created by admin users allow access to all teams.**
 
-You can create a new access token via the platform's user interface. Go to Settings → API Access Tokens.
+**Admin Tokens** grant access to platform management APIs (e.g., teams, environments, users). They are not associated with any team and can only be created by administrators.
 
-![Add a new API access token](../../.gitbook/assets/api-access-token-create.png)
+Tokens are automatically invalidated if their initial conditions no longer hold, e.g., if an administrator is changed to a normal user, admin tokens are invalidated.
+
+### Token Expiration
+
+Access tokens can have an optional expiration date. Once expired, a token can no longer be used for authentication. Tokens without an expiration date never expire.
+
+Expired tokens can be **recreated** with a new expiration date. Recreating a token generates a new secret while preserving the original name, type, and team associations. The old token is invalidated.
+
+### Token Permissions
+
+Who can manage tokens depends on the token type:
+
+| Action   | Admin Token | Team Token and Wildcard Token                 |
+|----------|-------------|-----------------------------------------------|
+| Create   | Admin only  | Admin or team owner (of all associated teams) |
+| Delete   | Admin only  | Admin or token creator                        |
+| Recreate | Admin only  | Admin or token creator                        |
+
+### Creating a Token via the UI
+
+You can create a new access token in the UI under Settings → API Access Tokens.
+
+![Add a new API access token](../../.gitbook/assets/api-access-token-create-new.png)
 
 {% hint style="info" %}
-You can't see it again once you create a new API access token. Make sure to save it in a safe place!
+The token value is shown only once at creation time. Make sure to save it in a safe place.
 {% endhint %}
 
-#### Create an Admin Token via internal API
+### Creating a Token via the API
 
-On-premises customers can create admin tokens via an internal API. During an automated provisioning process, these tokens can be used to create environments, teams, templates, etc.
-
-{% hint style="warning" %}
-These API tokens are associated with an implicit "machine" user, which cannot be removed/disabled.
-
-That means: experiments scheduled with such a token will still be executed after that token is removed.
-
-This differs from "ordinary" API tokens associated with a user: If the user is removed or loses their permissions, the scheduled experiments will fail due to insufficient permissions.
-{% endhint %}
-
-**Create Admin Token via CLI**
-
-To generate a new admin token in your On-Prem Platform via CLI, first ssh into the platform server. Afterward, run the following command:
+Access tokens can also be managed programmatically via the `/api/access-tokens/v2` endpoints.
 
 ```bash
-/scripts/createAdminToken.sh
+curl -X 'POST' \
+  'https://platform.dev.steadybit.com/api/access-tokens/v2' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: accessToken <admin-token>' \
+  -d '{
+  "name": "CI/CD access token",
+  "type": "TEAM",
+  "teams": [
+    "ADM",
+    "DEV"
+  ],
+  "expiresAt": "2027-01-01T00:00:00Z"
+}'
+```
 
-Missing mandatory arguments
-Usage: /scripts/createAdminToken.sh -n <name> -t <tenantKey>
-  -n | --name <name>           Name of the token
-  -t | --tenantKey <tenantKey> Tenant key
-  -h | --help                  Show this help
-  
-  
-/scripts/createAdminToken.sh -t demo -n AdminToken
+Details on the Access Token API endpoint can be found in specification linked in the [OpenApi Specification](#openapi-specification) section.
+
+### Creating an Admin Token via Internal API (On-Prem)
+
+On-premises customers can create admin tokens via an internal API. This is useful for automated provisioning of environments, teams, and templates.
+
+{% hint style="warning" %}
+Tokens created via the internal API are associated with an implicit "machine" user that cannot be removed or disabled.
+
+Experiments scheduled with such a token will continue to execute even after the token is deleted. This differs from tokens associated with a regular user, if that user is removed or loses permissions, their scheduled experiments will fail.
+{% endhint %}
+
+**Via CLI**
+
+SSH into the platform server and run:
+
+```bash
+/scripts/createAdminToken.sh -t <tenantKey> -n <name>
+```
+
+Example:
+
+```bash
+/scripts/createAdminToken.sh -t onprem -n AdminToken
 Z8pChlF2*************
 ```
 
-The token will be printed to the console.
+**Via HTTP API**
 
-**\[On-Prem] Create Admin Token via HTTP API**
-
-To generate a new admin token in your On-Prem Platform via HTTP API, first ssh into the platform server. Afterwards, you can curl:
+SSH into the platform server and call:
 
 ```bash
-curl --header "Content-Type: application/json" \
-  --request POST \
-  --data '{"name":"'$NAME'","tenantKey":"'$TENANTKEY'"}' \
+curl \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '{"name":"'$NAME'","tenantKey":"'$TENANTKEY'"}' \
   http://localhost:9090/actuator/adminaccesstoken
 ```
 
-> This endpoint is only accessible for On-Prem customers and only from localhost. It cannot be accessed from outside your server.
+{% hint style="info" %}
+This endpoint is only accessible from localhost and is not reachable from outside the server.
+{% endhint %}
 
 ## OpenApi Specification
 
