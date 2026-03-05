@@ -1,4 +1,4 @@
-# Manage Experiment Properties
+# Manage Properties
 
 Properties are key-value pairs that can be used to add additional information to your experiments and runs. They can be used to store metadata about the experiment, such as the experiment's purpose, the team responsible for it, the outcome, or just a note of a specific run or any other relevant information.
 

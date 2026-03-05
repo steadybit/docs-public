@@ -44,10 +44,16 @@
   * [Teams](install-and-configure/manage-teams-and-users/teams.md)
   * [Permissions](install-and-configure/manage-teams-and-users/permissions.md)
 * [Manage Experiment Templates](install-and-configure/manage-experiment-templates/README.md)
-* [Manage Experiment Properties](install-and-configure/manage-properties/README.md)
+* [Manage Service Profiles](install-and-configure/manage-service-profiles/README.md)
+* [Manage Properties](install-and-configure/manage-properties/README.md)
 
 ## Use Steadybit
 
+* [Services](use-steadybit/services/README.md)
+ * [Managing](use-steadybit/services/README.md#managing-services)
+ * [Detail](use-steadybit/services/README.md#service-detail)
+ * [Explore](use-steadybit/services/README.md#exploring-services)
+ * [Profiles](use-steadybit/services/README.md#service-profiles)
 * [Experiments](use-steadybit/experiments/README.md)
   * [Design](use-steadybit/experiments/design.md)
   * [Run](use-steadybit/experiments/run.md)
