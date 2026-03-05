@@ -29,7 +29,7 @@ A team member can instantiate and run experiments, link custom experiment or val
 ### Target Scope
 
 The target scope determines which infrastructure targets belong to this service.
-You select an [environment](https://docs.steadybit.com/install-and-configure/manage-environments) to restrict available infrastructure components, and then use a **query** (either Query UI or [Query Language](https://docs.steadybit.com/concepts/query-language)) to filter targets precisely.
+You select an [environment](../../install-and-configure/manage-environments) to restrict available infrastructure components, and then use a **query** (either Query UI or [Query Language](../../concepts/query-language)) to filter targets precisely.
 
 ![Editing service's target scope](./service-edit-target.png)
 
@@ -132,10 +132,9 @@ Every target that belongs to a service is enriched with two additional attribute
 - `service.name` — the name of the service
 
 These attributes are available throughout Steadybit: use them in the Explorer to filter or group by service, and in experiment design to target specific services or reference them in queries.
+[Learn more about Explorer's capabilities](/use-steadybit/explorer/).
 
 ![Exploring services](explore-services.png)
-
-[Learn more about Explorer's capabilities](/use-steadybit/explorer/). 
 
 ## Service Profiles
 

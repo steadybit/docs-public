@@ -6,7 +6,7 @@ title: Manage Service Profiles
 
 # Manage Service Profiles
 
-A service profile defines the set of experiments provided to a service.
+A service profile defines the set of experiments provided to a [service](../../use-steadybit/services).
 It specifies which reliability categories matter (e.g., Scalability, Redundancy, Dependencies) and which experiment templates are instantiated per service per category.
 When a service is linked to a profile, Steadybit automatically generates concrete experiments from those templates using the service's target scope and validations.
 
@@ -21,7 +21,7 @@ They help teams focus on one reliability dimension at a time.
 
 ### Experiment Templates
 
-Each experiment template in a profile defines the structure of an experiment to be generated for each service.
+Each [experiment template](../../use-steadybit/experiments/templates/) in a profile defines the structure of an experiment to be generated for each service.
 When a service uses a profile, Steadybit instantiates a profile's template on-the-fly by substituting the service into the template — producing ready-to-run experiments scoped to that specific service.
 To reference to a service, you can create a template placeholder with the placeholder key `[[SERVICE]]`.
 Use this placeholder in, e.g., a service validation drop down or a target query (`service.id="[[SERVICE]]"`).
@@ -37,7 +37,7 @@ If you delete a template from one category and assign it to another one, without
 
 ### Linking a Service Profile to a Service
 
-A service profile is selected when creating or editing a service via the **Customize** tab in the service settings.
+A service profile is selected when creating or editing a service via the **Customize** tab in the [service settings](../../use-steadybit/services/README.md#customize).
 Every service must be linked to exactly one service profile.
 
 {% hint style="warning" %}
