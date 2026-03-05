@@ -20,7 +20,7 @@ A service is defined by three core elements:
 A service always fulfills a **service profile**, which defines the set of experiment templates that the service is expected to fulfill for reliability.
 [Learn more how to manage and set up a custom service profile](../../install-and-configure/manage-service-profiles/README.md).
 
-## Creating and Editing a Service
+## Managing Services
 
 Create a new service via **Services** → **New Service** and configure it through four tabs: _Target Scope_, _Validations_, _Properties_, and _Customize_.
 A service can be created and edited by administrator or team owners.
@@ -63,7 +63,7 @@ You can associate properties [to all services via settings](/install-and-configu
 
 ![Editing service's properties](./service-edit-properties.png)
 
-## Customize
+### Customize
 
 Additionally, you can change the look and feel of your service by customizing the used icon and icon color.
 More importantly, you can change the service profile of a service - defining a different set of experiment templates used to provide experiments.

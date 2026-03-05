@@ -49,6 +49,11 @@
 
 ## Use Steadybit
 
+* [Services](use-steadybit/services/README.md)
+ * [Managing](use-steadybit/services/README.md#managing-services)
+ * [Detail](use-steadybit/services/README.md#service-detail)
+ * [Explore](use-steadybit/services/README.md#exploring-services)
+ * [Profiles](use-steadybit/services/README.md#service-profiles)
 * [Experiments](use-steadybit/experiments/README.md)
   * [Design](use-steadybit/experiments/design.md)
   * [Run](use-steadybit/experiments/run.md)
@@ -66,7 +71,6 @@
   * [Landscape](use-steadybit/explorer/landscape.md)
   * [Targets](use-steadybit/explorer/targets.md)
   * [Advice](use-steadybit/explorer/advice.md)
-* [Services](use-steadybit/services/README.md)
 * [Reporting](use-steadybit/reporting/README.md)
 
 ## Integrate with Steadybit
