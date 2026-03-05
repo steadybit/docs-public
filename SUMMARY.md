@@ -44,7 +44,8 @@
   * [Teams](install-and-configure/manage-teams-and-users/teams.md)
   * [Permissions](install-and-configure/manage-teams-and-users/permissions.md)
 * [Manage Experiment Templates](install-and-configure/manage-experiment-templates/README.md)
-* [Manage Experiment Properties](install-and-configure/manage-properties/README.md)
+* [Manage Service Profiles](install-and-configure/manage-service-profiles/README.md)
+* [Manage Properties](install-and-configure/manage-properties/README.md)
 
 ## Use Steadybit
 
@@ -65,6 +66,7 @@
   * [Landscape](use-steadybit/explorer/landscape.md)
   * [Targets](use-steadybit/explorer/targets.md)
   * [Advice](use-steadybit/explorer/advice.md)
+* [Services](use-steadybit/services/README.md)
 * [Reporting](use-steadybit/reporting/README.md)
 
 ## Integrate with Steadybit
