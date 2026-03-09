@@ -139,10 +139,7 @@ These attributes are available throughout Steadybit: use them in the Explorer to
 ## Service Profiles
 
 Every service is linked to a service profile that defines which experiment categories and templates are provided.
-Steadybit ships with two default profiles:
+Steadybit ships with a default Starter profiles — a focused set of experiments to get started with reliability testing quickly.
 
-- **Steadybit Starter** — a focused set of experiments to get started with reliability testing quickly
-- **Steadybit Presets** — a broader set of experiments covering common reliability patterns across Scalability, Redundancy, and Dependencies
-
-Administrators can create custom service profiles tailored to organizational standards.
+Administrators can create custom service profiles tailored to organizational standards, which is highly recommended when rolling out Steadybit.
 See [Manage Service Profiles](../../install-and-configure/manage-service-profiles/README.md) for details.

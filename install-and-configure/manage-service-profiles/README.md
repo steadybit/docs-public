@@ -48,20 +48,13 @@ Be aware, that changing a service's service profile results in deleting provided
 You can use the existing built-in service profiles, coming from Steadybit for easy starting and best practices in reliability.
 Alternatively, you can create your own service profile to match organizational standards.
 
-### Built-in Service Profiles
+### Built-in Starter Service Profile
 
-Steadybit ships with two built-in service profiles:
-
-#### Steadybit Starter
-
+Steadybit ships with a Starter built-in service profiles.
 The **Steadybit Starter** profile makes it easy to begin with services.
-It contains a focused set of experiment templates covering the most impactful reliability scenarios, so teams can get meaningful results quickly without being overwhelmed.
+It contains a broad set of experiment templates covering impactful reliability scenarios for various technologies, so teams can get meaningful results quickly without being overwhelmed.
 
-#### Steadybit Presets
-
-The **Steadybit Presets** profile provides a broader collection of experiment templates organized across multiple categories.
-It is designed to help teams continuously improve their reliability posture by covering a wide range of common failure scenarios.
-
+We recommend creating your own custom service profile for rolling Steadybit out into your organization.
 
 ### Custom Service Profiles
 
