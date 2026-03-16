@@ -27,7 +27,7 @@ You can decide to react to the following events individually or get informed abo
 The body contains the event identifier (`event`), the `time`, and the experiment `execution` (see below).
 
 | Event                | Event Identifier                      | Description                                                                                                                 |
-| -------------------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ------------------------------------- |-----------------------------------------------------------------------------------------------------------------------------|
 | **Created**          | `experiment.execution.created`        | A new experiment execution was just started. As soon as all required agents have connected, the first step will be executed |
 | **Step Started**     | `experiment.execution.step-started`   | One step of a running experiment started.                                                                                   |
 | **Step Completed**   | `experiment.execution.step-completed` | One step of a running experiment completed successfully (e.g. a check succeeded or the attack was performed).               |
@@ -37,7 +37,7 @@ The body contains the event identifier (`event`), the `time`, and the experiment
 | **Completed**        | `experiment.execution.completed`      | The experiment completed succesfully, e.g., all steps have been completed successfully.                                     |
 | **Failed**           | `experiment.execution.failed`         | The experiment execution failed because at least one step failed.                                                           |
 | **Errored**          | `experiment.execution.errored`        | The experiment execution errored because at least one step errored.                                                         |
-| **Preflight Checks** | `experiment.execution.preflight`      | A [preflight webhook check](preflight-webhooks/) is performed before the experiment is allowed to start.                    |
+| **Preflight Checks** | `experiment.execution.preflight`      | A [preflight webhook check](./preflight-webhooks.md) is performed before the experiment is allowed to start.                |
 
 ### Killswitch
 
