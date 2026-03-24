@@ -9,7 +9,7 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 | Permission/Role                                                                                                           | Admin | Team Owner | Team Member | Any Authenticated User |
 |---------------------------------------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------|
 | **Administration (Permissions and Integrations)**                                                                         |       |            |             |                        |
-| Manage Users <br/> <<span style="font-size: 10px;">Invite/remove users, [change user roles](./users.md#role-types)</span> | <1>   |            |             |                        |
+| Manage Users <br/> <span style="font-size: 10px;">Invite/remove users, [change user roles](./users.md#role-types)</span> | <1>   |            |             |                        |
 | Manage Teams <br/> <small>Create/delete Teams, Edit Team Members</small>                                                  | <1>   |            |             |                        |
 | Manage Team Permissions <br/> <small>Configure Allowed environments/actions</small>                                       | x     |            |             |                        |
 | Manage\* Environments <br/> <small>Create/edit/delete environments</small>                                                | x     |            |             |                        |
