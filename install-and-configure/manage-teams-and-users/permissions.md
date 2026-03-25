@@ -7,17 +7,16 @@ title: Permissions
 The roles in Steadybit are associated with permissions, which cannot be altered. See the table for the permissions:
 
 ## Administration
-| Permission/Role             | Admin | Team Owner | Team Member | Any Authenticated User |
-|-----------------------------|-------|------------|-------------|------------------------|
-| Manage[^2] Users            | ✅[^1] | ❌          | ❌           | ❌                      |
-| Manage[^3] Teams            | ✅[^1] | ❌          | ❌           | ❌                      |
-| Manage[^4] Team Permissions | ✅     | ❌          | ❌           | ❌                      |
-| Manage[^5] Environments     | ✅     | ❌          | ❌           | ❌                      |
-| Manage[^6] Access Tokens    | ✅     | ✅          | ❌           | ❌                      |
-| Add Agents                  | ✅     | ❌          | ❌           | ❌                      |
-| Manage[^7] Integrations     | ✅     | ✅          | ❌           | ❌                      |
-| View Audit Log              | ✅     | ❌          | ❌           | ❌                      |
-| Database Export[^8]         | ✅     | ❌          | ❌           | ❌                      |
+| Permission/Role          | Admin         | Team Owner | Team Member | Any Authenticated User |
+|--------------------------|---------------|------------|-------------|------------------------|
+| Manage[^2] Users         | ✅[^1]         | ❌          | ❌           | ❌                      |
+| Manage[^3] Teams         | ✅[^1]         | ☑️[^4]     | ❌           | ❌                      |
+| Manage[^5] Environments  | ✅             | ❌          | ❌           | ❌                      |
+| Manage[^6] Access Tokens | ✅             | ✅          | ❌           | ❌                      |
+| Add Agents               | ✅             | ❌          | ❌           | ❌                      |
+| Manage[^7] Integrations  | ✅             | ✅          | ❌           | ❌                      |
+| View Audit Log           | ✅             | ❌          | ❌           | ❌                      |
+| Database Export[^8]      | ✅             | ❌          | ❌           | ❌                      |
 
 ## Prepare Rollout of Chaos Engineering
 | Permission/Role                  | Admin | Team Owner | Team Member | Any Authenticated User |
@@ -39,9 +38,9 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 
 [^2]: Invite/remove users, [change user roles](./users.md#role-types)
 
-[^3]: Add/delete Teams, Edit Team Members
+[^3]: Add / delete teams, configure allowed environments/actions, Add/delete team members
 
-[^4]: Configure Allowed environments/actions
+[^4]: Team owners can add/delete team members and delete the entire team
 
 [^5]: Add/edit/delete [environments](/install-and-configure/manage-environments/)
 
