@@ -26,16 +26,16 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 | [Manage Experiment Templates](/install-and-configure/manage-experiment-templates/)            | ✅     | ❌          | ❌           | ❌                      |
 
 ## Performing Chaos Engineering
-| Permission/Role                                                                            | Admin | Team Owner | Team Member | Any Authenticated User |
-|--------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------|
-| [Work within Services](/use-steadybit/services/)[^12]                                      | ✅     | ✅          | ❌           | ❌                      |
-| [Design and run Experiments](/use-steadybit/experiments/)[^13]                             | ✅     | ✅          | ✅           | ❌                      |
-| [View Experiments](/use-steadybit/experiments/)[^13]                                       | ✅     | ✅          | ✅           | ✅                      |
-| [Stop Experiments](/use-steadybit/experiments/)[^13]                                       | ✅     | ✅          | ✅           | ✅                      |
-| Stop all Experiments via [Emergency Stop](../../use-steadybit/experiments/#Emergency-Stop) | ✅     | ✅          | ✅           | ✅                      |
+| Permission/Role                                                                                                                                   | Admin | Team Owner | Team Member | Any Authenticated User |
+|---------------------------------------------------------------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------|
+| [Work within Services](/use-steadybit/services/)                                                                                                  | ✅     | ✅          | ❌           | ❌                      |
+| [Design](/use-steadybit/experiments/design), [run](/use-steadybit/experiments/run), and [schedule experiments](/use-steadybit/experiments/design) | ✅     | ✅          | ✅           | ❌                      |
+| [View Experiments](/use-steadybit/experiments/)                                                                                                   | ✅     | ✅          | ✅           | ✅                      |
+| [Stop Experiments](/use-steadybit/experiments/)                                                                                                   | ✅     | ✅          | ✅           | ✅                      |
+| Stop all Experiments via [Emergency Stop](../../use-steadybit/experiments/emergencystop)                                                          | ✅     | ✅          | ✅           | ✅                      |
 
 [^1]: unless synced via [LDAP](/install-and-configure/install-on-prem-platform/ldap-integration.md)
 
-[^2]: Team owners can [add/delete team members](./teams.md#managing-team-members and [delete teams](./teams.md)
+[^2]: Team owners can [add/delete team members](./teams.md#managing-team-members) and [delete teams](./teams.md)
 
 [^3]: Unless disabled via configuration
