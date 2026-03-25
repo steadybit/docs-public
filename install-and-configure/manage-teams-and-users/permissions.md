@@ -7,16 +7,32 @@ title: Permissions
 The roles in Steadybit are associated with permissions, which cannot be altered. See the table for the permissions:
 
 ## Administration
-| Permission/Role          | Admin         | Team Owner | Team Member | Any Authenticated User |
-|--------------------------|---------------|------------|-------------|------------------------|
-| Manage[^2] Users         | ✅[^1]         | ❌          | ❌           | ❌                      |
-| Manage[^3] Teams         | ✅[^1]         | ☑️[^4]     | ❌           | ❌                      |
-| Manage[^5] Environments  | ✅             | ❌          | ❌           | ❌                      |
-| Manage[^6] Access Tokens | ✅             | ✅          | ❌           | ❌                      |
-| Add Agents               | ✅             | ❌          | ❌           | ❌                      |
-| Manage[^7] Integrations  | ✅             | ✅          | ❌           | ❌                      |
-| View Audit Log           | ✅             | ❌          | ❌           | ❌                      |
-| Database Export[^8]      | ✅             | ❌          | ❌           | ❌                      |
+| Permission/Role                                                    | Admin                                          | Team Owner                                  | Team Member | Any Authenticated User |
+|--------------------------------------------------------------------|------------------------------------------------|---------------------------------------------|-------------|------------------------|
+| [Manage Users](#user-content-fn-2)[^2]                             | [✅](#user-content-fn-1)[^1]                   | ❌                                           | ❌           | ❌                      |
+| [Manage Teams](#user-content-fn-3)[^3]                             | [✅](#user-content-fn-1)[^1]                   | [☑️](#user-content-fn-4)[^4]               | ❌           | ❌                      |
+| [Manage Environments](#user-content-fn-5)[^5]                      | ✅                                             | ❌                                           | ❌           | ❌                      |
+| [Manage Access Tokens](#user-content-fn-6)[^6]                     | ✅                                             | ✅                                           | ❌           | ❌                      |
+| Add Agents                                                         | ✅                                             | ❌                                           | ❌           | ❌                      |
+| [Manage Integrations](#user-content-fn-7)[^7]                      | ✅                                             | ✅                                           | ❌           | ❌                      |
+| View Audit Log                                                     | ✅                                             | ❌                                           | ❌           | ❌                      |
+| [Database Export](#user-content-fn-8)[^8]                          | ✅                                             | ❌                                           | ❌           | ❌                      |
+
+## Prepare Rollout of Chaos Engineering
+| Permission/Role                                                    | Admin | Team Owner | Team Member | Any Authenticated User |
+|--------------------------------------------------------------------|-------|------------|-------------|------------------------|
+| [Manage Services](#user-content-fn-9)[^9]                          | ✅     | ✅          | ❌           | ❌                      |
+| [Manage Service Profiles](#user-content-fn-10)[^10]                | ✅     | ❌          | ❌           | ❌                      |
+| [Manage Experiment Templates](#user-content-fn-11)[^11]            | ✅     | ❌          | ❌           | ❌                      |
+
+## Performing Chaos Engineering
+| Permission/Role                                                                            | Admin | Team Owner | Team Member | Any Authenticated User |
+|--------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------|
+| [Work within Services](#user-content-fn-12)[^12]                                           | ✅     | ✅          | ❌           | ❌                      |
+| [Design and run Experiments](#user-content-fn-13)[^13]                                     | ✅     | ✅          | ✅           | ❌                      |
+| View Experiments                                                                           | ✅     | ✅          | ✅           | ✅                      |
+| Stop Experiments                                                                           | ✅     | ✅          | ✅           | ✅                      |
+| Stop all Experiments via [Emergency Stop](../../use-steadybit/experiments/#Emergency-Stop) | ✅     | ✅          | ✅           | ✅                      |
 
 [^1]: unless synced via LDAP
 
@@ -34,28 +50,11 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 
 [^8]: Unless disabled via configuration
 
-
-## Prepare Rollout of Chaos Engineering
-| Permission/Role                  | Admin | Team Owner | Team Member | Any Authenticated User |
-|----------------------------------|-------|------------|-------------|------------------------|
-| Manage[^9] Services              | ✅     | ✅          | ❌           | ❌                      |
-| Manage[^10] Service Profiles     | ✅     | ❌          | ❌           | ❌                      |
-| Manage[^11] Experiment Templates | ✅     | ❌          | ❌           | ❌                      |
-
 [^9]: Add / edit / delete [service](/use-steadybit/services/)
 
 [^10]: Add / edit / delete [service profile](/install-and-configure/manage-service-profiles/), set a profile as default
 
 [^11]: Add / edit / delete [experiment templates](/install-and-configure/manage-experiment-templates/)
-
-## Performing Chaos Engineering
-| Permission/Role                                                                            | Admin | Team Owner | Team Member | Any Authenticated User |
-|--------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------|
-| Work[^12] within Services                                                                  | ✅     | ✅          | ❌           | ❌                      |
-| Design and run[^13] Experiments                                                            | ✅     | ✅          | ✅           | ❌                      |
-| View Experiments                                                                           | ✅     | ✅          | ✅           | ✅                      |
-| Stop Experiments                                                                           | ✅     | ✅          | ✅           | ✅                      |
-| Stop all Experiments via [Emergency Stop](../../use-steadybit/experiments/#Emergency-Stop) | ✅     | ✅          | ✅           | ✅                      |
 
 [^12]: Run provided experiments, assign custom experiments, follow advice (TODO)
 
