@@ -6,21 +6,28 @@ title: Permissions
 
 The roles in Steadybit are associated with permissions, which cannot be altered. See the table for the permissions:
 
+<table>
+<tr>
+<th>Head</th>
+<th>Table</th>
+</tr>
+</table>
+
 | Permission/Role                                                                                                   | Admin | Team Owner | Team Member | Any Authenticated User |
 |-------------------------------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------|
-| **Administration (Permissions and Integrations)**                                                                 |       |            |             |                        |
-| [Manage Users][^1]                                                                                          | <1>   |            |             |                        |
-| (Manage Teams)[^2]                                                                                                | <1>   |            |             |                        |
-| Manage Team Permissions <br/> <small>Configure Allowed environments/actions</small>                               | x     |            |             |                        |
-| Manage\* Environments <br/> <small>Create/edit/delete environments</small>                                        | x     |            |             |                        |
-| Manage\* Access Tokens <br> <small>Create/recreate/delete access tokens</small>                                   | x     | x          |             |                        |
+<td colspan='3'>**Administration (Permissions and Integrations)**</td>
+| Manage[^2] Users                                                                                                  | x[^1] |            |             |                        |
+| Manage[^3] Teams                                                                                                  | x[^1] |            |             |                        |
+| Manage[^4] Team Permissions                                                                                       | x     |            |             |                        |
+| Manage[^5] Environments                                                                                           | x     |            |             |                        |
+| Manage[^6] Access Tokens                                                                                          | x     | x          |             |                        |
 | **Infrastructure and Integration**                                                                                |       |            |             |                        |
-| Add Agents <br/> <small>Adding agents to discover more infrastructure</small>                                     | x     |            |             |                        |
-| Manage\* Integrations (Slack Integration, Webhooks, Preflight Actions)                                            | x     | x          |             |                        |
+| Add Agents                                                                                                        | x     |            |             |                        |
+| Manage[^7] Integrations                                                                                           | x     | x          |             |                        |
 | View Audit Log                                                                                                    | x     |            |             |                        |
 | **Prepare Rollout**                                                                                               |       |            |             |                        |
-| Manage\* Service Profiles                                                                                         | x     |            |             |                        |
-| Manage\* Services                                                                                                 | x     | x          |             |                        |
+| Manage[^8] Service Profiles                                                                                       | x     |            |             |                        |
+| Manage[^9] Services                                                                                               | x     | x          |             |                        |
 | Manage\* Experiment Templates                                                                                     | x     |            |             |                        |
 | **Experiments**                                                                                                   |       |            |             |                        |
 | Manage\* Experiments                                                                                              | x     | x          | x           |                        |
@@ -37,9 +44,22 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 | Database Export                                                                                                   | <2>   |            |             |                        |
 
 * \* Manage means create, update and delete
-* <1> unless synced via LDAP
 * <2> unless disabled via configuration
 
-[^1]: Invite/remove users, [change user roles](./users.md#role-types)
+[^1]: unless synced via LDAP
 
-[^2]: Create/delete Teams, Edit Team Members
+[^2]: Invite/remove users, [change user roles](./users.md#role-types)
+
+[^3]: Add/delete Teams, Edit Team Members
+
+[^4]: Configure Allowed environments/actions
+
+[^5]: Add/edit/delete [environments](/install-and-configure/manage-environments/)
+
+[^6]: Add/recreate/delete [access tokens](/integrate-with-steadybit/api/)
+
+[^7]: Add / edit / delete [platform integrations](/integrate-with-steadybit/) like Slack Integration, Webhooks, and Preflight Actions
+
+[^8]: Add / edit / delete [service profile](/install-and-configure/manage-service-profiles/), set a profile as default
+
+[^9]: Add / edit / delete [service](/use-steadybit/services/)
