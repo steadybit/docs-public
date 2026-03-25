@@ -25,16 +25,17 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 | [Manage Service Profiles](/install-and-configure/manage-service-profiles/)         | ✅     | ❌          | ❌           | ❌                      |
 | [Manage Experiment Templates](/install-and-configure/manage-experiment-templates/) | ✅     | ❌          | ❌           | ❌                      |
 | [Manage Properties](/install-and-configure/manage-properties/)                     | ✅     | ❌          | ❌           | ❌                      |
+| [Manage Hubs](/integrate-with-steadybit/hubs/)                                     | ✅     | ❌          | ❌           | ❌                      |
 
-## Performing Chaos Engineering
-| Permission/Role                                                                                                                                   | Admin | Team Owner | Team Member | Any Authenticated User |
-|---------------------------------------------------------------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------|
-| [Work within Services](/use-steadybit/services/)                                                                                                  | ✅     | ✅          | ❌           | ❌                      |
-| [Design](/use-steadybit/experiments/design), [run](/use-steadybit/experiments/run), and [schedule experiments](/use-steadybit/experiments/design) | ✅     | ✅          | ✅           | ❌                      |
-| [Capture properties](/use-steadybit/experiments/properties/)                                                                                      | ✅     | ✅          | ✅           | ❌                      |
-| [View Experiments](/use-steadybit/experiments/)                                                                                                   | ✅     | ✅          | ✅           | ✅                      |
-| [Stop Experiments](/use-steadybit/experiments/)                                                                                                   | ✅     | ✅          | ✅           | ✅                      |
-| Stop all Experiments via [Emergency Stop](../../use-steadybit/experiments/emergencystop)                                                          | ✅     | ✅          | ✅           | ✅                      |
+## Doing Chaos Engineering
+| Permission/Role                                                                                                                                           | Admin | Team Owner | Team Member | Any Authenticated User |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------|
+| [Work within Services](/use-steadybit/services/)                                                                                                          | ✅     | ✅          | ❌           | ❌                      |
+| [Design](/use-steadybit/experiments/design.md), [run](/use-steadybit/experiments/run.md), and [schedule experiments](/use-steadybit/experiments/schedule) | ✅     | ✅          | ✅           | ❌                      |
+| [Capture properties](/use-steadybit/experiments/properties/)                                                                                              | ✅     | ✅          | ✅           | ❌                      |
+| [View Experiments](/use-steadybit/experiments/)                                                                                                           | ✅     | ✅          | ✅           | ✅                      |
+| [Stop Experiments](/use-steadybit/experiments/)                                                                                                           | ✅     | ✅          | ✅           | ✅                      |
+| Stop all Experiments via [Emergency Stop](../../use-steadybit/experiments/emergencyStop.md)                                                               | ✅     | ✅          | ✅           | ✅                      |
 
 [^1]: unless synced via [LDAP](/install-and-configure/install-on-prem-platform/ldap-integration.md)
 
