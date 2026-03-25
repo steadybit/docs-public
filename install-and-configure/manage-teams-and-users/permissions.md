@@ -17,16 +17,16 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 | Add Agents                  | ✅     | ❌          | ❌           | ❌                      |
 | Manage[^7] Integrations     | ✅     | ✅          | ❌           | ❌                      |
 | View Audit Log              | ✅     | ❌          | ❌           | ❌                      |
-| Database Export             | ✅[^8] | ❌          | ❌           | ❌                      |
+| Database Export[^8]         | ✅     | ❌          | ❌           | ❌                      |
 
-## Prepare Rollout
+## Prepare Rollout of Chaos Engineering
 | Permission/Role                  | Admin | Team Owner | Team Member | Any Authenticated User |
 |----------------------------------|-------|------------|-------------|------------------------|
 | Manage[^9] Services              | ✅     | ✅          | ❌           | ❌                      |
 | Manage[^10] Service Profiles     | ✅     | ❌          | ❌           | ❌                      |
 | Manage[^11] Experiment Templates | ✅     | ❌          | ❌           | ❌                      |
 
-## Validate and Improve Reliability of Your Infrastructure (Services, Experiments)
+## Performing Chaos Engineering
 | Permission/Role                                                                            | Admin | Team Owner | Team Member | Any Authenticated User |
 |--------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------|
 | Work[^12] within Services                                                                  | ✅     | ✅          | ❌           | ❌                      |
