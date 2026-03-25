@@ -6,28 +6,34 @@ title: Permissions
 
 The roles in Steadybit are associated with permissions, which cannot be altered. See the table for the permissions:
 
+## Administration
+| Permission/Role             | Admin | Team Owner | Team Member | Any Authenticated User |
+|-----------------------------|-------|------------|-------------|------------------------|
+| Manage[^2] Users            | ✅[^1] | ❌          | ❌           | ❌                      |
+| Manage[^3] Teams            | ✅[^1] | ❌          | ❌           | ❌                      |
+| Manage[^4] Team Permissions | ✅     | ❌          | ❌           | ❌                      |
+| Manage[^5] Environments     | ✅     | ❌          | ❌           | ❌                      |
+| Manage[^6] Access Tokens    | ✅     | ✅          | ❌           | ❌                      |
+| Add Agents                  | ✅     | ❌          | ❌           | ❌                      |
+| Manage[^7] Integrations     | ✅     | ✅          | ❌           | ❌                      |
+| View Audit Log              | ✅     | ❌          | ❌           | ❌                      |
+| Database Export             | ✅[^8] | ❌          | ❌           | ❌                      |
+
+## Prepare Rollout
+| Permission/Role                  | Admin | Team Owner | Team Member | Any Authenticated User |
+|----------------------------------|-------|------------|-------------|------------------------|
+| Manage[^9] Services              | ✅     | ✅          | ❌           | ❌                      |
+| Manage[^10] Service Profiles     | ✅     | ❌          | ❌           | ❌                      |
+| Manage[^11] Experiment Templates | ✅     | ❌          | ❌           | ❌                      |
+
+## Validate and Improve Reliability of Your Infrastructure (Services, Experiments)
 | Permission/Role                                                                            | Admin | Team Owner | Team Member | Any Authenticated User |
 |--------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------|
-| **Administration (Permissions and Integrations)**                                          |       |            |             |                        |
-| Manage[^2] Users                                                                           | x[^1] |            |             |                        |
-| Manage[^3] Teams                                                                           | x[^1] |            |             |                        |
-| Manage[^4] Team Permissions                                                                | x     |            |             |                        |
-| Manage[^5] Environments                                                                    | x     |            |             |                        |
-| Manage[^6] Access Tokens                                                                   | x     | x          |             |                        |
-| Add Agents                                                                                 | x     |            |             |                        |
-| Manage[^7] Integrations                                                                    | x     | x          |             |                        |
-| View Audit Log                                                                             | x     |            |             |                        |
-| Database Export                                                                            | x[^8] |            |             |                        |
-| **Prepare Rollout**                                                                        |       |            |             |                        |
-| Manage[^9] Services                                                                        | x     | x          |             |                        |
-| Manage[^10] Service Profiles                                                               | x     |            |             |                        |
-| Manage[^11] Experiment Templates                                                           | x     |            |             |                        |
-| **Validate and Improve Reliability of Your Infrastructure (Services, Experiments)**        |       |            |             |                        |
-| Work[^12] within Services                                                                  | x     | x          |             |                        |
-| Design and run[^13] Experiments                                                            | x     | x          | x           |                        |
-| View Experiments                                                                           | x     | x          | x           | X                      |
-| Stop Experiments                                                                           | x     | x          | x           | X                      |
-| Stop all Experiments via [Emergency Stop](../../use-steadybit/experiments/#Emergency-Stop) | x     | x          | x           | X                      |
+| Work[^12] within Services                                                                  | ✅     | ✅          | ❌           | ❌                      |
+| Design and run[^13] Experiments                                                            | ✅     | ✅          | ✅           | ❌                      |
+| View Experiments                                                                           | ✅     | ✅          | ✅           | ✅                      |
+| Stop Experiments                                                                           | ✅     | ✅          | ✅           | ✅                      |
+| Stop all Experiments via [Emergency Stop](../../use-steadybit/experiments/#Emergency-Stop) | ✅     | ✅          | ✅           | ✅                      |
 
 [^1]: unless synced via LDAP
 
