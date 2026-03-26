@@ -38,13 +38,13 @@
   * [Maintenance & Incident Support](install-and-configure/install-on-prem-platform/maintenance-and-incident-support.md)
   * [OIDC Integration](install-and-configure/install-on-prem-platform/oidc-integration.md)
   * [LDAP Integration](install-and-configure/install-on-prem-platform/ldap-integration.md)
-* [Manage Environments](install-and-configure/manage-environments/README.md)
 * [Manage Teams and Users](install-and-configure/manage-teams-and-users/README.md)
-  * [Users](install-and-configure/manage-teams-and-users/users.md)
   * [Teams](install-and-configure/manage-teams-and-users/teams.md)
+  * [Users](install-and-configure/manage-teams-and-users/users.md)
   * [Permissions](install-and-configure/manage-teams-and-users/permissions.md)
-* [Manage Experiment Templates](install-and-configure/manage-experiment-templates/README.md)
+* [Manage Environments](install-and-configure/manage-environments/README.md)
 * [Manage Service Profiles](install-and-configure/manage-service-profiles/README.md)
+* [Manage Experiment Templates](install-and-configure/manage-experiment-templates/README.md)
 * [Manage Properties](install-and-configure/manage-properties/README.md)
 
 ## Use Steadybit
