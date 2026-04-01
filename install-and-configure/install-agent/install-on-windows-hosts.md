@@ -43,6 +43,10 @@ You may also add these entries as environment variables and restart the _Steadyb
 
 ## Start/Stop
 
+{% hint style="info" %}
+The Windows Service runs as the Local System account and inherits its privileges.
+{% endhint %}
+
 During the agent installation, an application service is automatically initialized for you. If you want to manually control whether the agent is running or not, use the following commands:
 
 ```pwsh
