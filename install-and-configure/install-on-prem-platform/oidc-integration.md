@@ -40,7 +40,7 @@ To connect to a compatible Identity Provider (IdP) set the following environment
 - `STEADYBIT_AUTH_OAUTH2_CLIENT_SECRET`: The client secret to use for the OIDC registration
 
 When a user authenticates via OIDC in the Steadybit Platform for the first time, a corresponding Steadybit user object is created.
-The user has the type `user` (see [Permissions](../manage-teams-and-users/permissions.md)) and is not assigned to any team.
+The user has the type `user` (see [Permissions](../manage-teams-and-users/permissions.md)). If the ID token contains a groups claim, the user is automatically assigned to the corresponding teams (see [Synchronization](#synchronization)).
 
 For detailed OIDC authentication configuration parameters, refer to [OpenID Connect Authentication](./advanced-configuration.md#openid-connect-authentication).
 
@@ -86,11 +86,18 @@ During authentication, the platform inspects the returned OIDC ID token for the 
 
 1. Read the configured claim from the ID token and validate that it is an array of strings.
 2. For each team key:
+   - The team key is derived from the claim value: the first 16 characters, uppercased (for example, `"my-developers"` becomes `MY-DEVELOPERS`).
    - Look up the corresponding team in Steadybit.
    - If the team does not exist, create it.
    - Assign the authenticated user to the team with the role `member`.
+3. Remove the user from any OIDC-managed teams that are no longer present in the claim. If the claim is empty or absent, the user is removed from all OIDC-managed teams.
 
-**Note**: Team memberships can also be managed manually. A user is not automatically removed from a team if the team key is not present in the claim.
+Teams and memberships created through OIDC synchronization are marked as **managed by OIDC**. This has the following effects:
+
+- **Team name and key** of OIDC-managed teams cannot be edited by platform admins. They are controlled by the IdP.
+- **OIDC-managed members** cannot be removed from teams via the UI or API by platform admins. Membership changes must be made in the IdP.
+- **Manually added members** on an OIDC-managed team are preserved and can be managed normally. OIDC synchronization only affects OIDC-managed memberships.
+- Other team properties (description, allowed environments, allowed actions) remain editable by admins.
 
 ### Limitations
 
