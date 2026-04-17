@@ -49,14 +49,24 @@ LDAP groups must contain `uniqueMember` or `member` attributes that reference us
 
 Teams are identified using the LDAP search filter defined in `STEADYBIT_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER`.
 Teams that do not exist in the Steadybit Platform are created automatically.
-
-**Note**: Teams removed in LDAP are not automatically removed from the platform.
+Teams that no longer exist in LDAP are automatically deleted from the platform, provided they were originally created by LDAP synchronization.
 
 ### 3. Team Member Synchronization
 
-Users referenced in LDAP teams are assigned to the corresponding Steadybit teams with the `member` role, or removed when they are no longer referenced.
+Users referenced in LDAP teams are assigned to the corresponding Steadybit teams with the `member` role.
+LDAP-managed members that are no longer referenced in the LDAP group are removed from the team.
+Manually added members on an LDAP-managed team are preserved and not affected by the synchronization.
 
 Only users that exist in the Steadybit Platform (from User Synchronization) can be assigned to teams.
+
+### Managed by LDAP
+
+Teams and memberships created through LDAP synchronization are marked as **managed by LDAP**. This has the following effects:
+
+- **Team name and key** of LDAP-managed teams cannot be edited by platform admins. They are controlled by LDAP.
+- **LDAP-managed members** cannot be removed from teams via the UI or API by platform admins. Membership changes must be made in LDAP.
+- **Manually added members** on an LDAP-managed team are preserved and can be managed normally.
+- Other team properties (description, allowed environments, allowed actions) remain editable by admins.
 
 For additional synchronization configuration parameters, refer to [LDAP-Authentication](./advanced-configuration.md#ldap-authentication).
 
