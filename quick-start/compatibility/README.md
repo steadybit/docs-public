@@ -127,8 +127,8 @@ The following attacks are available when working with physical hosts and virtual
 | Debian Bullseye     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Amazon Linux 2      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 | Amazon Linux 2023   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Windows 11          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Windows Server 2022 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Windows 11 (x64)          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+| Windows Server 2022 (x64) | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
 
 {% hint style="info" %}
 Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
@@ -146,6 +146,8 @@ Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but 
 | Debian Bullseye   | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Amazon Linux 2    | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Amazon Linux 2023 | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Windows 11 (x64)          | ✅         | ✅           | ✅          | ✅         | ❌             |
+| Windows Server 2022 (x64) | ✅         | ✅           | ✅          | ✅         | ❌             |
 
 {% hint style="info" %}
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
@@ -163,6 +165,8 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 | Debian Bullseye   | ✅             | ✅            | ✅           |
 | Amazon Linux 2    | ✅             | ✅            | ✅           |
 | Amazon Linux 2023 | ✅             | ✅            | ✅           |
+| Windows 11 (x64)          | ✅             | ✅            | ✅           |
+| Windows Server 2022 (x64) | ✅             | ✅            | ✅           |
 
 {% hint style="info" %}
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
