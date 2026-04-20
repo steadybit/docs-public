@@ -20,6 +20,21 @@ The platform offers integrations via webhooks to get notified of events. We diff
 
 Extension Kits allow you to extend the Chaos Engineering capabilities by adding support for additional technologies or proprietary applications. For instance, to support a custom attack, check, load test, or observability integration, you need to implement [DiscoveryKit](extensions/extension-kits.md#discoverykit) and [ActionKit](extensions/extension-kits.md#actionkit). [EventKit](extensions/extension-kits.md#eventkit) is perfect when you want to react to experiment events, and [PreflightKit](extensions/extension-kits.md#preflightkit) is perfect whenever you want to have control over starting an experiment run. Last but not least, [AdviceKit](extensions/extension-kits.md#advicekit) allows you to ease your rollout by checking organization-specific best practices. [Learn more about Extension Kits](extensions/extension-kits.md).
 
+## IP Ranges
+
+If your environment restricts outbound or inbound traffic to/from Steadybit (for example, via a firewall or security group), you can allowlist the following fixed CIDR range for our SaaS platform:
+
+| Scope                                                                                                                                     | CIDR            |
+|-------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| All inbound connections to and outbound connections from the Steadybit SaaS platform (`platform.steadybit.com` / `platform.steadybit.io`) | `5.60.96.56/29` |
+
+This single range covers:
+
+- **Inbound** — agents, users, and API clients connecting to the Steadybit platform.
+- **Outbound** — webhooks, preflight checks, and any other call originated by the Steadybit platform back to your systems.
+
+This CIDR is fixed.
+
 ## When to use which Integration Point?
 
 This section highlights some key differentiators. Don't hesitate to reach out to us if you need support by discussing your integration use case.
