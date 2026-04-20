@@ -33,8 +33,6 @@ This single range covers:
 - **Inbound** — agents, users, and API clients connecting to the Steadybit platform.
 - **Outbound** — webhooks, preflight checks, and any other call originated by the Steadybit platform back to your systems.
 
-This CIDR is fixed.
-
 ## When to use which Integration Point?
 
 This section highlights some key differentiators. Don't hesitate to reach out to us if you need support by discussing your integration use case.
