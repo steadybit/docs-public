@@ -20,61 +20,6 @@ A service is defined by three core elements:
 A service always fulfills a **service profile**, which defines the set of experiment templates that the service is expected to fulfill for reliability.
 [Learn more how to manage and set up a custom service profile](../../install-and-configure/manage-service-profiles/README.md).
 
-## Managing Services
-
-Create a new service via **Services** → **New Service** and configure it through four tabs: _Target Scope_, _Validations_, _Properties_, and _Customize_.
-A service can be created and edited by administrator or team owners.
-A team member can instantiate and run experiments, link custom experiment or validate advice.
-
-### Target Scope
-
-The target scope determines which infrastructure targets belong to this service.
-You select an [environment](../../install-and-configure/manage-environments) to restrict available infrastructure components, and then use a **query** (either Query UI or [Query Language](../../concepts/query-language)) to filter targets precisely.
-
-![Editing service's target scope](./service-edit-target.png)
-
-The right panel shows all included targets matching your query, grouped by target type (e.g., Containers, Hosts, or Kubernetes resources).
-This gives you immediate feedback on which infrastructure components are in scope before saving.
-
-Target scope will be used when configuring validations (see next chapter), running experiments and can be explored via [explorer](/use-steadybit/explorer/).
-
-### Validations
-
-Validations define whether your service is healthy during an experiment.
-They are used as the steady-state checks in provided experiments.
-
-![Editing service's validations](./service-edit-validations.png)
-
-Click **Add Validation** to pick from available actions of type `check` or `load test`.
-Common validations include:
-
-- HTTP checks
-- Observability monitors (e.g. Datadog, Dynatrace, Prometheus metrics)
-- Load tests (e.g. k6, JMeter, Gatling)
-- Any other validation tools (e.g. Cypress UI Tests) via Jenkins jobs
-
-Refer to our [Reliability Hub](https://hub.steadybit.com/?kind=CHECK%2CLOAD_TEST) for a complete list of available actions
-
-### Properties
-
-Custom properties let you attach metadata to a service — for example, service ownership, business criticality, or links to runbooks.
-Properties are defined globally and can be managed in [Manage Properties](../../install-and-configure/manage-properties/README.md#manage-property-definitions).
-You can associate properties [to all services via settings](/install-and-configure/manage-properties/README.md#assign-properties) or to [individual services](/install-and-configure/manage-properties/README.md#assign-properties-individually).
-
-![Editing service's properties](./service-edit-properties.png)
-
-### Customize
-
-Additionally, you can change the look and feel of your service by customizing the used icon and icon color.
-More importantly, you can change the service profile of a service - defining a different set of experiment templates used to provide experiments.
-Thus, adhering to different reliability expectations.
-
-{% hint style="warning" %}
-Be aware, that changing a service's service profile results in deleting provided experiments and experiment runs that aren't part of the newly associated profile anymore.
-{% endhint %}
-
-![Editing service's profile and look&feel](./service-edit-customize.png)
-
 ## Service Detail
 
 Once a service is set up, its detail view gives you three tabs: _Provided Experiments_, _Custom Experiments_, and _Advice_.
@@ -135,6 +80,61 @@ These attributes are available throughout Steadybit: use them in the Explorer to
 [Learn more about Explorer's capabilities](/use-steadybit/explorer/).
 
 ![Exploring services](explore-services.png)
+
+## Managing Services
+
+Create a new service via **Services** → **New Service** and configure it through four tabs: _Target Scope_, _Validations_, _Properties_, and _Customize_.
+A service can be created and edited by administrator or team owners.
+A team member can instantiate and run experiments, link custom experiment or validate advice.
+
+### Target Scope
+
+The target scope determines which infrastructure targets belong to this service.
+You select an [environment](../../install-and-configure/manage-environments) to restrict available infrastructure components, and then use a **query** (either Query UI or [Query Language](../../concepts/query-language)) to filter targets precisely.
+
+![Editing service's target scope](./service-edit-target.png)
+
+The right panel shows all included targets matching your query, grouped by target type (e.g., Containers, Hosts, or Kubernetes resources).
+This gives you immediate feedback on which infrastructure components are in scope before saving.
+
+Target scope will be used when configuring validations (see next chapter), running experiments and can be explored via [explorer](/use-steadybit/explorer/).
+
+### Validations
+
+Validations define whether your service is healthy during an experiment.
+They are used as the steady-state checks in provided experiments.
+
+![Editing service's validations](./service-edit-validations.png)
+
+Click **Add Validation** to pick from available actions of type `check` or `load test`.
+Common validations include:
+
+- HTTP checks
+- Observability monitors (e.g. Datadog, Dynatrace, Prometheus metrics)
+- Load tests (e.g. k6, JMeter, Gatling)
+- Any other validation tools (e.g. Cypress UI Tests) via Jenkins jobs
+
+Refer to our [Reliability Hub](https://hub.steadybit.com/?kind=CHECK%2CLOAD_TEST) for a complete list of available actions
+
+### Properties
+
+Custom properties let you attach metadata to a service — for example, service ownership, business criticality, or links to runbooks.
+Properties are defined globally and can be managed in [Manage Properties](../../install-and-configure/manage-properties/README.md#manage-property-definitions).
+You can associate properties [to all services via settings](/install-and-configure/manage-properties/README.md#assign-properties) or to [individual services](/install-and-configure/manage-properties/README.md#assign-properties-individually).
+
+![Editing service's properties](./service-edit-properties.png)
+
+### Customize
+
+Additionally, you can change the look and feel of your service by customizing the used icon and icon color.
+More importantly, you can change the service profile of a service - defining a different set of experiment templates used to provide experiments.
+Thus, adhering to different reliability expectations.
+
+{% hint style="warning" %}
+Be aware, that changing a service's service profile results in deleting provided experiments and experiment runs that aren't part of the newly associated profile anymore.
+{% endhint %}
+
+![Editing service's profile and look&feel](./service-edit-customize.png)
 
 ## Service Profiles
 
