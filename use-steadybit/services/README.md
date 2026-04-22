@@ -22,9 +22,10 @@ A service always fulfills a **service profile**, which defines the set of experi
 
 ## Service Detail
 
-Once a service is set up, its detail view gives you three tabs: _Provided Experiments_, _Custom Experiments_, and _Advice_.
+Once a service is set up, its detail view gives you a tab per profile's category (e.g., Scalability, Redundancy, Dependencies).
+Followed by distinguishing between _Provided Experiments_, _Custom Experiments_, and _Advice_ (see below).
 
-The header bar always shows you a quick summary of the service — its linked environment, the number of resolved targets, active validations, any service properties, and the current [risk score](#risk).
+The header bar always shows you a quick summary of the service — its used environment, the number of resolved targets, active validations, any service properties, and the associated [risk](#risk).
 
 ### Provided Experiments
 
@@ -67,9 +68,9 @@ Advice is generated based on the discovered targets and [installed advice-suppor
 Every service has a **risk** associated to give you a quick indicator of its reliability posture.
 
 The risk is calculated per category defined in the service profile (e.g., Scalability, Redundancy, Dependencies), and the overall service risk is a rollup across those categories.
-You can see both the overall score and the per-category breakdown in the header of the service detail page, and open **How is the risk calculated?** for a detailed explanation in the product.
+You can see both the overall risk and the per-category breakdown in the header of the service detail page, and open **How is the risk calculated?** for a detailed explanation in the product.
 
-The higher the score, the higher the risk: 100 indicates the highest risk, where as 10 is the lowest achievable risk.
+The higher the risk, the higher the risk value: 100 indicates the highest risk, where as 10 is the lowest achievable risk.
 The risk never reaches zero, because reliability is a continuous effort: the service always needs ongoing validation to stay trustworthy.
 
 ### How to Reduce the Risk
@@ -77,7 +78,7 @@ The risk never reaches zero, because reliability is a continuous effort: the ser
 The following factors reduce the risk of a service:
 
 - **Successful experiment runs** — each linked experiment (both [provided](#provided-experiments) and [custom](#custom-experiments)) that finishes with state `COMPLETED` lowers the risk. Failed, errored, or never-executed experiments keep the risk high.
-- **Recent runs** — the score reflects how recently experiments were executed. Re-run your experiments at least every 30 days; the older the last run, the more the risk drifts back up.
+- **Recent runs** — the risk reflects how recently experiments were executed. Re-run your experiments at least every 30 days; the older the last run, the more the risk drifts back up.
 - **Strong validation coverage** — service validations, and additional checks and load tests inside your experiments increase confidence.
 - **Resolved advice** — working through items on the [Advice](#advice) tab reduces the risk of the affected category. An advice requiring action is associated with a high risk (`100`), whereas a required validation is a medium risk (`50`), and an implement advice results in low risk (`10`).  
 
@@ -87,10 +88,12 @@ The product surfaces inline guidance next to each experiment and category, showi
 
 ### Comparing Services
 
-The risk score is also surfaced outside of the service detail page so you can spot where to invest next:
+The risk is also surfaced outside the service detail page so you can spot where to invest next:
 
-- In the **Services** overview, each service shows its current score — making it easy to compare the reliability posture of different services at a glance.
+- In the **Services** overview, each service shows its current risk — making it easy to compare the reliability posture of different services at a glance.
 - On each team's **Dashboard**, the top-risk services are highlighted so owners can prioritize their reliability work.
+
+![Dashboard featuring the service with highest risk](dashboard-service.png)
 
 ## Exploring Services
 
