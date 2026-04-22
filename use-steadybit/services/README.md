@@ -20,6 +20,8 @@ A service is defined by three core elements:
 A service always fulfills a **service profile**, which defines the set of experiment templates that the service is expected to fulfill for reliability.
 [Learn more how to manage and set up a custom service profile](../../install-and-configure/manage-service-profiles/README.md).
 
+Based on how well and up-to-date those have been validated, Steadybit derives a service's reliability [risk](#risk) — a single indicator that summarizes the service's current reliability posture and makes it easy to compare services with each other.
+
 ## Service Detail
 
 Once a service is set up, its detail view gives you a tab per profile's category (e.g., Scalability, Redundancy, Dependencies).
@@ -84,7 +86,7 @@ The following factors reduce the risk of a service:
 
 The product surfaces inline guidance next to each experiment and category, showing you the most impactful next steps to lower the risk.
 
-![Suggestions to lower the risk](service-risk-suggestions.png)
+![Suggestions how to lower the risk](service-risk-suggestions.png)
 
 ### Comparing Services
 
