@@ -69,3 +69,16 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
 ```
 
 To avoid this warning or be able to use this extension in future java releases you can use the `-XX:+EnableDynamicAgentLoading` flag in your JVM commandline to be able to load the javaagent dynamically.
+
+#### I'm seeing unversioned extension content in my platform. How do I resolve this?
+
+This can occur when an extension is deployed using a non-released version, such as SNAPSHOT or a main branch build.
+In these cases, the platform registers the extension without a fixed version identifier.
+
+Once you switch back to a released version, the previously registered unversioned entries are not automatically removed.
+To resolve this, you need to clean them up manually by going to `settings` → `extensions` → `actions`, check the unversioned actions and choose `delete selected actions`.
+
+After deletion, the platform will remove the unversioned action definitions.
+Affected agents will automatically re-submit the correct, versioned action definitions.
+
+![extension-unversioned.jpg](../imgs/extension-unversioned.jpg)
