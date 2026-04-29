@@ -20,6 +20,102 @@ A service is defined by three core elements:
 A service always fulfills a **service profile**, which defines the set of experiment templates that the service is expected to fulfill for reliability.
 [Learn more how to manage and set up a custom service profile](../../install-and-configure/manage-service-profiles/README.md).
 
+Based on how well and up-to-date those have been validated, Steadybit derives a service's reliability [risk](#risk) — a single indicator that summarizes the service's current reliability posture and makes it easy to compare services with each other.
+
+## Service Detail
+
+Once a service is set up, its detail view gives you a tab per profile's category (e.g., Scalability, Redundancy, Dependencies).
+Followed by distinguishing between _Provided Experiments_, _Custom Experiments_, and _Advice_ (see below).
+
+The header bar always shows you a quick summary of the service — its used environment, the number of resolved targets, active validations, any service properties, and the associated [risk](#risk).
+
+### Provided Experiments
+
+Provided experiments are automatically generated from the linked service profile.
+Each experiment template in the profile is instantiated with your service's targets and validations, giving you ready-to-run experiments without manual setup.
+
+![Service's provided experiments](./service-detail-provided.png)
+
+Experiments are grouped by the categories defined in the service profile (e.g., Scalability, Redundancy, Dependencies).
+Each card shows the experiment name, its last run status, and a quick-run button.
+You can filter the list by category using the filter pills at the top.
+
+The generated experiments use your service's targets and validations directly — for example, the **Pod Redundancy** experiment is created as `SHOP-3073 Pod Redundancy` and scoped to the exact pods in your service's target scope.
+
+![Service's provided experiment for pod redundancy](./service-detail-provided-experiment.png)
+
+### Custom Experiments
+
+Beyond provided experiments, you can link any existing experiment to the service to keep all relevant reliability work in one place.
+
+![Service's custom experiments](./service-detail-custom.png)
+
+Click **Link Experiments** to associate one or more existing experiments with the service.
+Linked experiments appear alongside the provided experiments, giving your team a complete picture of all reliability validation for this service.
+
+You can use the `Service Validation` step inside a custom experiment, to reuse service's validations or use other actions (e.g. checks, or load tests) to validate your infrastructure's behavior.
+
+### Advice
+
+The **advice** tab surfaces reliability recommendations for the targets within your service's scope.
+Each advice item is categorized (e.g., Scalability, Redundancy) and indicates its current state — making it easy to identify gaps and prioritize improvements.
+
+![Service's advice](service-detail-advice.png)
+
+Advice is generated based on the discovered targets and [installed advice-supported extensions](https://hub.steadybit.com/extensions?tags=Advice) in your service's scope.
+[Learn more about advice](../explorer/advice.md).
+
+## Risk
+
+Every service has a **risk** associated to give you a quick indicator of its reliability posture.
+
+The risk is calculated per category defined in the service profile (e.g., Scalability, Redundancy, Dependencies), and the overall service risk is a rollup across those categories.
+You can see both the overall risk and the per-category breakdown in the header of the service detail page, and open **How is the risk calculated?** for a detailed explanation in the product.
+
+The higher the risk, the higher the risk value: 100 indicates the highest risk, where as 10 is the lowest achievable risk.
+The risk never reaches zero, because reliability is a continuous effort: the service always needs ongoing validation to stay trustworthy.
+
+### How to Reduce the Risk
+
+The following factors reduce the risk of a service:
+
+- **Successful experiment runs** — each linked experiment (both [provided](#provided-experiments) and [custom](#custom-experiments)) that finishes with state `COMPLETED` lowers the risk. Failed, errored, or never-executed experiments keep the risk high.
+- **Recent runs** — the risk reflects how recently experiments were executed. Re-run your experiments at least every 30 days; the older the last run, the more the risk drifts back up.
+- **Strong validation coverage** — service validations, and additional checks and load tests inside your experiments increase confidence.
+- **Resolved advice** — working through items on the [Advice](#advice) tab reduces the risk of the affected category. An advice requiring action is associated with a high risk (`100`), whereas a required validation is a medium risk (`50`), and an implement advice results in low risk (`10`).  
+
+The product surfaces inline guidance next to each experiment and category, showing you the most impactful next steps to lower the risk.
+
+![Suggestions how to lower the risk](service-risk-suggestions.png)
+
+### Comparing Services
+
+The risk is also surfaced outside the service detail page so you can spot where to invest next:
+
+- In the **Services** overview, each service shows its current risk — making it easy to compare the reliability posture of different services at a glance.
+- On each team's **Dashboard**, the top-risk services are highlighted so owners can prioritize their reliability work.
+
+![Dashboard featuring the service with highest risk](dashboard-service.png)
+
+## Exploring Services
+
+You can explore the targets of a service directly from two entry points:
+
+- **Services overview** — click **Explore Services** to open the Explorer with all targets across all services.
+- **Service detail** — click **Explore Targets** in the top-right corner to open the Explorer scoped to the targets of that specific service.
+
+In the Explorer, you can group and filter targets by any attribute — for example, by Kubernetes labels, AWS zone, or deployment — to understand how your service's infrastructure is distributed and identify potential reliability gaps.
+
+Every target that belongs to a service is enriched with two additional attributes:
+
+- `service.id` — the unique identifier of the service
+- `service.name` — the name of the service
+
+These attributes are available throughout Steadybit: use them in the Explorer to filter or group by service, and in experiment design to target specific services or reference them in queries.
+[Learn more about Explorer's capabilities](/use-steadybit/explorer/).
+
+![Exploring services](explore-services.png)
+
 ## Managing Services
 
 Create a new service via **Services** → **New Service** and configure it through four tabs: _Target Scope_, _Validations_, _Properties_, and _Customize_.
@@ -74,67 +170,6 @@ Be aware, that changing a service's service profile results in deleting provided
 {% endhint %}
 
 ![Editing service's profile and look&feel](./service-edit-customize.png)
-
-## Service Detail
-
-Once a service is set up, its detail view gives you three tabs: _Provided Experiments_, _Custom Experiments_, and _Advice_.
-
-The header bar always shows you a quick summary of the service — its linked environment, the number of resolved targets, active validations, and any service properties.
-
-### Provided Experiments
-
-Provided experiments are automatically generated from the linked service profile.
-Each experiment template in the profile is instantiated with your service's targets and validations, giving you ready-to-run experiments without manual setup.
-
-![Service's provided experiments](./service-detail-provided.png)
-
-Experiments are grouped by the categories defined in the service profile (e.g., Scalability, Redundancy, Dependencies).
-Each card shows the experiment name, its last run status, and a quick-run button.
-You can filter the list by category using the filter pills at the top.
-
-The generated experiments use your service's targets and validations directly — for example, the **Pod Redundancy** experiment is created as `SHOP-3073 Pod Redundancy` and scoped to the exact pods in your service's target scope.
-
-![Service's provided experiment for pod redundancy](./service-detail-provided-experiment.png)
-
-### Custom Experiments
-
-Beyond provided experiments, you can link any existing experiment to the service to keep all relevant reliability work in one place.
-
-![Service's custom experiments](./service-detail-custom.png)
-
-Click **Link Experiments** to associate one or more existing experiments with the service.
-Linked experiments appear alongside the provided experiments, giving your team a complete picture of all reliability validation for this service.
-
-You can use the `Service Validation` step inside a custom experiment, to reuse service's validations or use other actions (e.g. checks, or load tests) to validate your infrastructure's behavior.
-
-### Advice
-
-The **advice** tab surfaces reliability recommendations for the targets within your service's scope.
-Each advice item is categorized (e.g., Scalability, Redundancy) and indicates its current state — making it easy to identify gaps and prioritize improvements.
-
-![Service's advice](service-detail-advice.png)
-
-Advice is generated based on the discovered targets and [installed advice-supported extensions](https://hub.steadybit.com/extensions?tags=Advice) in your service's scope.
-[Learn more about advice](../explorer/advice.md).
-
-## Exploring Services
-
-You can explore the targets of a service directly from two entry points:
-
-- **Services overview** — click **Explore Services** to open the Explorer with all targets across all services.
-- **Service detail** — click **Explore Targets** in the top-right corner to open the Explorer scoped to the targets of that specific service.
-
-In the Explorer, you can group and filter targets by any attribute — for example, by Kubernetes labels, AWS zone, or deployment — to understand how your service's infrastructure is distributed and identify potential reliability gaps.
-
-Every target that belongs to a service is enriched with two additional attributes:
-
-- `service.id` — the unique identifier of the service
-- `service.name` — the name of the service
-
-These attributes are available throughout Steadybit: use them in the Explorer to filter or group by service, and in experiment design to target specific services or reference them in queries.
-[Learn more about Explorer's capabilities](/use-steadybit/explorer/).
-
-![Exploring services](explore-services.png)
 
 ## Service Profiles
 

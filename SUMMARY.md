@@ -50,9 +50,10 @@
 ## Use Steadybit
 
 * [Services](use-steadybit/services/README.md)
-  * [Managing](use-steadybit/services/README.md#managing-services)
   * [Detail](use-steadybit/services/README.md#service-detail)
+  * [Risk](use-steadybit/services/README.md#risk)
   * [Explore](use-steadybit/services/README.md#exploring-services)
+  * [Managing](use-steadybit/services/README.md#managing-services)
   * [Profiles](use-steadybit/services/README.md#service-profiles)
 * [Experiments](use-steadybit/experiments/README.md)
   * [Design](use-steadybit/experiments/design.md)
