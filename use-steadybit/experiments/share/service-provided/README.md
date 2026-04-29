@@ -22,11 +22,11 @@ The result is a **provided experiment** that appears on the service detail page 
 
 ## Single Source of Truth
 
-| Aspect              | Source of truth                                                          |
-|---------------------|--------------------------------------------------------------------------|
-| Experiment instance | The experiment template (one template → many provided experiments)       |
-| Experiment design   | Controlled by the experiment template and propagates on changes          |
-| Experiment runs     | Per service — each service produces its own runs against its own targets |
+| Aspect              | Source of truth                                                                        |
+|---------------------|----------------------------------------------------------------------------------------|
+| Experiment instance | Per service — each service has its own provided experiment generated from the template |
+| Experiment design   | Controlled by the experiment template and propagates on changes                        |
+| Experiment runs     | Per service — each service produces its own runs against its own targets               |
 
 Because the design lives only in the template, every service that uses the same profile sees the same scenario, with the only difference being the service-specific targets and validations.
 
@@ -38,6 +38,8 @@ Provided experiments cannot be edited in the experiment designer. The design is 
 * Schedule the experiment
 
 To change *what* the experiment does, edit the underlying experiment template.
+
+![Read-only Service Provided Experiment](service-detail-provided-experiment.png)
 
 ## Template Updates Are Propagated
 

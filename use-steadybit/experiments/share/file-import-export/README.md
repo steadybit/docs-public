@@ -1,30 +1,70 @@
 ---
 title: Share Experiment as File
-navTitle: Duplicate
+navTitle: File
 ---
 
-# File
+# File Import / Export
 
-## Export Experiment
+Exporting an experiment as a JSON file lets you share its design across Steadybit platforms — for example to move an experiment between on-prem instances, archive it in version control, or hand it off out-of-band.
 
-When you edit your experiment in the designer, you can export it to a JSON file. To do that, please click on the button ![Export Button](../../../.gitbook/assets/ymlBtn.png) `View Experiment as json`.
+Use this when sharing must cross a Steadybit platform boundary, or when the experiment design should live alongside other artifacts in your repository.
 
-![Experiment Editor Export](../../../.gitbook/assets/editorExport.png)
+## How Sharing Works
 
-Then you see a popup with a download button and you can copy it to your clipboard.
+Two artifacts are involved:
 
-![Download json](../../../.gitbook/assets/editorJsonPopup.png)
+* **Exported JSON file** — a snapshot of the experiment's design at the moment of export, including team and environment references.
+* **Imported Experiment** — a new experiment created from the file in the importing platform. Once imported, it is a regular, fully editable experiment with no link back to the original.
 
-So, you can edit your experiment using the JSON editor of your choice.
+Because the file is a snapshot, file import/export creates a **detached copy** rather than a live link.
 
-## Import Experiment
+## Single Source of Truth
 
-When you want to import an experiment, you can do it via the `New Experiment` button in the experiment list.
+| Aspect              | Source of truth                                      |
+|---------------------|------------------------------------------------------|
+| Experiment instance | Per import — each import creates its own experiment  |
+| Experiment design   | Detached copy at the time of export                  |
+| Experiment runs     | Per imported experiment                              |
 
-![New Experiment](../../../.gitbook/assets/newExperiment.png)
+There is no propagation of design changes after import.
+To apply updates, re-export and re-import — or use [Service Provided Experiments](../service-provided/README.md) for a single source of truth that propagates.
 
-Then, you can drag and drop the JSON file onto the upload area or click on it to select a file. The file is parsed, imported, and the resulting experiment is opened.
+## Export an Experiment
+
+Open the experiment in the designer and click ![Export Button](exportButton.png) **View Experiment as JSON**.
+
+![Experiment Editor Export](editorExport.png)
+
+A popup appears with a download button and the option to copy the JSON to your clipboard.
+From there, you can edit it in the JSON editor of your choice.
+
+![Download JSON](editorJsonPopup.png)
+
+## Import an Experiment
+
+Click **New Experiment** in the experiment list and drop a JSON file onto the upload area (or click to pick one).
+The file is parsed, imported, and the resulting experiment is opened in the designer.
+
+![New Experiment](newExperiment.png)
 
 ## Flexible Team and Environment Assignment
 
-The current team and environment are saved in the experiment's file when exporting an experiment. So, whenever you import the experiment, it will also use that particular team and environment. If the team or environment doesn't exist or the user doesn't have access to it, the experiment can't be created. To improve sharing and make experiments easily adaptable, you can use the variable `{{teamKey}}` to apply it to the current team and `{{environmentName}}` to apply it to the team's first environment.
+The exporting team and environment are written into the file.
+On import, the same team and environment must exist and be accessible to you.
+Otherwise, you have to change the team and environment in the import-flow.
+
+To make exported experiments portable from beginning on, replace the concrete values with variables before export:
+
+* `{{teamKey}}` — applies the experiment to the importing user's current team
+* `{{environmentName}}` — applies the experiment to that team's first environment
+
+## When to Use This Approach
+
+File import/export is the right choice when:
+
+* You need to share a design across Steadybit platform instances (e.g. between on-prem tenants)
+* You want to keep experiment definitions in version control alongside other code
+* You plan to use the API to automate experiment creation e.g. in CI/CD
+* Each receiving environment should own a fully editable, independent copy
+
+For other sharing needs, see the [overview of sharing options](../README.md).

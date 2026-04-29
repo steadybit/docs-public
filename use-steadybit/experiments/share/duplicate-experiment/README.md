@@ -3,31 +3,60 @@ title: Share Experiment as Duplicate
 navTitle: Duplicate
 ---
 
-# Duplicate
+# Duplicate Experiment
 
-To duplicate an experiment, you can do it in two ways:
+Duplicating an experiment creates a fully editable copy — even across teams and environments within the same Steadybit tenant.
 
-* by duplicate the experiment via experiment list
-* by duplicate the experiment via the experiment designer
+Use this when another team wants to use your experiment as a **starting point** and adapt it freely, with no expectation that future changes to the original will reach the copy.
+Once you expect increased reusing across teams, consider using the [experiment template](../templates/README.md) approach.
 
-## Duplicate via Experiment list
+## How Sharing Works
 
-If you are on the experiments overview page, you will find a button with 3 dots next to each experiment. In its dropdown you will find the option `Duplicate Experiment`.
+Two artifacts are involved:
 
-![Duplicate via Experiement List](../../../.gitbook/assets/duplicateViaList.png)
+* **Original Experiment** — the source of the duplicate. After duplication, it continues to live and evolve independently.
+* **Duplicated Experiment** — a new, independent experiment placed into a team and environment of your choice. Once created, it has no link back to the original.
+
+Because the duplicate is a detached copy, design changes do not propagate in either direction.
+
+## Single Source of Truth
+
+| Aspect              | Source of truth                                    |
+|---------------------|----------------------------------------------------|
+| Experiment instance | Per duplicate — each duplicate is a new experiment |
+| Experiment design   | Detached copy at the time of duplication           |
+| Experiment runs     | Per duplicate                                      |
+
+For sharing where design changes should propagate, use [Service Provided Experiments](../service-provided/README.md) or [Share Experiment](../share-experiment/README.md) instead.
+
+## Duplicate via Experiment List
+
+On the experiments overview page, every experiment row has a 3-dot menu. Choose **Duplicate Experiment**.
+
+![Duplicate via Experiment List](duplicateViaList.png)
 
 ## Duplicate via Experiment Designer
 
-If you are on the experiment designer page, you will find a button ![Button](../../../.gitbook/assets/duplicateButton.png) to duplicate the experiment.
+In the experiment designer, the ![Button](duplicateButton.png) duplicate button creates a copy of the currently opened experiment.
 
-![Duplicate via Designer](../../../.gitbook/assets/duplicateExperimentViaDesigner.png)
+![Duplicate via Designer](duplicateExperimentViaDesigner.png)
 
-## Duplicated Experiment
+## Choose Name, Team and Environment
 
-If you have duplicated an experiment, you will be required to edit the experiment by name, description, team and environment.
+After duplicating, you are prompted for the new experiment's name, description, team and environment.
 
-![Duplicate Popup](../../../.gitbook/assets/duplicatePopup.png)
+![Duplicate Popup](duplicatePopup.png)
 
-Once you have confirmed that pop-up window, the experiment will be saved and opened in the Experience Designer.
+Confirm the dialog to save the new experiment and open it in the experiment designer.
 
-![Duplicated Experiment](../../../.gitbook/assets/duplicatedExperiment.png)
+![Duplicated Experiment](duplicatedExperiment.png)
+
+## When to Use This Approach
+
+Duplicating an experiment is the right choice when:
+
+* Another team should start from a copy of your experiment and freely adapt it
+* The original and the copy should evolve independently going forward
+* You want to keep the duplicate in a different team or environment within the same tenant
+
+For other sharing needs, see the [overview of sharing options](../README.md).
