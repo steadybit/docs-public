@@ -23,7 +23,7 @@ Ordered from most-coupled (single live experiment) to least-coupled (detached co
 * [Duplicate Experiment](duplicate-experiment/README.md) — create a fully editable copy across teams and environments within the same tenant.
 * [File Import/Export](file-import-export/README.md) — export to JSON to move experiments across Steadybit platforms or into version control.
 
-## Single Source of Truth Comparison
+### Comparison
 
 | Single Source of Truth for...➡️                           | Experiment Instance | Experiment Design            | Experiment Runs |
 |-----------------------------------------------------------|:--------------------|------------------------------|-----------------|
@@ -35,7 +35,7 @@ Ordered from most-coupled (single live experiment) to least-coupled (detached co
 
 [^1]: Experiment templates can be instantiated to create individual experiments without individually designing them. However, this experiment design is detached from the template. Thus, template changes are not propagated to individual experiments created from the template.
 
-## How to Choose
+### How to Choose
 
 * Another team should run a specific experiment as-is, with one shared run history → [Share Experiment Design](share-experiment/README.md)
 * The same reliability scenario should apply to many services, with central control over the design → [Service Provided Experiment](service-provided/README.md)
