@@ -27,12 +27,10 @@ A shared experiment is not duplicated. The receiving team sees the same instance
 | Experiment design   | The owning team — only the owning team can edit the design                              |
 | Experiment runs     | All runs land on the owning team's experiment, visible to every team it is shared with  |
 
-## Who Can Share
+## Permissions
 
 Only **Administrators** and **Team Owners** can share an experiment.
 See [Permissions](../../../../install-and-configure/manage-teams-and-users/permissions.md) for details.
-
-## Read-Only for the Receiving Team
 
 A team that an experiment has been shared with can:
 

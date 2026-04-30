@@ -30,7 +30,7 @@ The result is a **provided experiment** that appears on the service detail page 
 
 Because the design lives only in the template, every service that uses the same profile sees the same scenario, with the only difference being the service-specific targets and validations.
 
-## Read-Only Provided Experiments
+## Permissions
 
 Provided experiments cannot be edited in the experiment designer. The design is owned by the template; on a service, you can only:
 
@@ -40,8 +40,6 @@ Provided experiments cannot be edited in the experiment designer. The design is 
 To change *what* the experiment does, edit the underlying experiment template.
 
 ![Read-only Service Provided Experiment](service-detail-provided-experiment.png)
-
-## Template Updates Are Propagated
 
 Edits to a template are propagated automatically to every provided experiment derived from it, across all services and teams that use a profile referencing the template.
 There is no per-service copy to keep in sync — fix a step or tighten a check once, and every service immediately runs the updated scenario on its next execution.

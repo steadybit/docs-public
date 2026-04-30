@@ -32,7 +32,7 @@ Template changes are **not** propagated to experiments that were already instant
 For a single source of truth that propagates updates, use [Service Provided Experiments](../service-provided/README.md) instead.
 {% endhint %}
 
-## Who Can Share
+## Permissions
 
 Saving an experiment as a template requires **administrator** permission.
 See [Permissions](../../../../install-and-configure/manage-teams-and-users/permissions.md) for details.
