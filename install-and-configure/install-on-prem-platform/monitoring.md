@@ -79,55 +79,13 @@ How "full" the platform is. The two limits to watch:
 
 A connection pool above 80 % is a strong indicator of either long-running transactions on the database or an undersized pool. See the [Database Runbooks](database-runbooks.md) page for cleanup procedures.
 
-## Dashboard Panels
+## Grafana Dashboard
 
-The internal Grafana dashboard we operate is grouped into the following sections. We recommend you replicate this structure in your own observability stack.
+We publish the same Grafana dashboard we use to operate Steadybit SaaS. It is grouped into four sections — Message Queues, Target Ingestion, Platform Chaos Engineering Activity, and Platform Resource Consumption — each backed by the metrics described above.
 
-### Message Queues
+**Download:** [steadybit-platform-dashboard.json](../../.gitbook/assets/steadybit-platform-dashboard.json)
 
-Tracks the asynchronous pipeline that ingests target updates from agents and feeds them into the platform.
-
-| Panel | Metric | What to watch for |
-|-------|--------|-------------------|
-| Message Queue Length | `queue_size` | A non-zero value sustained for minutes means the platform is falling behind. |
-| Message Creation Rate | rate of `queue_messages_total` | Incoming load. Compare with throughput. |
-| Message Queue Accumulated Lead Time | `queue_lead_time` | Most important latency indicator for ingestion. |
-| Target Post Processing Throughput | rate of `target_post_processing_seconds_count` | Should match or exceed the creation rate. |
-| Target Post Processing Latency (p95) | `target_post_processing_seconds` | Per-processor breakdown helps identify slow steps. |
-
-### Target Ingestion
-
-Validates that targets discovered by agents are being received and stored.
-
-| Panel | What it shows |
-|-------|---------------|
-| Targets by Type | Distribution of target types currently in the platform. |
-| Target & EnrichmentData Count / by Type | Total target count over time — a sudden drop is a red flag. |
-| Target Submit Count | Submissions per second from agents. |
-| Agents registered | Count of agents currently connected per tenant. A drop indicates connectivity loss. |
-
-### Platform Chaos Engineering Activity
-
-Business-level signals that confirm Steadybit is being used.
-
-| Panel | Metric |
-|-------|--------|
-| Experiment(s) running | `platform.experiments.executing` |
-| Experiments executed (7 days) | Long-window counter, useful as a lagging indicator. |
-| Number of active users | Useful before maintenance windows. See [Maintenance & Incident Support](maintenance-and-incident-support.md). |
-
-### Platform Resource Consumption
-
-The infrastructure-level signals to alert on.
-
-| Panel | Metric |
-|-------|--------|
-| Platform CPU Usage | `process_cpu_usage` |
-| Thread Pool Usage | `executor_active_threads` per executor |
-| Datasource connections | `hikaricp_connections_active` per pool |
-| Quartz Job Activity | Background jobs running on schedule. |
-| Outgoing Requests | `connectivity_outgoing_address_filter_total` (allowed / blocked) |
-| Platform Log Events | Rate of `error` and `warn` log lines. |
+To install, in Grafana go to **Dashboards → New → Import**, then either upload the file or paste its contents. Select your Prometheus data source when prompted.
 
 ## Recommended Prometheus Alert Rules
 
