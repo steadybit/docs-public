@@ -35,6 +35,8 @@
   * [Install on Minikube](install-and-configure/install-on-prem-platform/minikube.md)
   * [Advanced Agent Authentication](install-and-configure/install-on-prem-platform/advanced-agent-authentication.md)
   * [Configuration Options](install-and-configure/install-on-prem-platform/advanced-configuration.md)
+  * [Monitoring the Platform](install-and-configure/install-on-prem-platform/monitoring.md)
+  * [Database Runbooks](install-and-configure/install-on-prem-platform/database-runbooks.md)
   * [Maintenance & Incident Support](install-and-configure/install-on-prem-platform/maintenance-and-incident-support.md)
   * [OIDC Integration](install-and-configure/install-on-prem-platform/oidc-integration.md)
   * [LDAP Integration](install-and-configure/install-on-prem-platform/ldap-integration.md)
