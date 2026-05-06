@@ -28,8 +28,6 @@ Port `9090` is administrative and is not exposed to end users. Scrape it from yo
 
 ## The Four Golden Signals
 
-Monitor these four families first. They cover almost every customer-facing problem.
-
 ### 1. Latency
 
 How long requests take to complete. Two views matter:
@@ -179,26 +177,6 @@ spec:
           labels: { severity: critical }
           annotations:
             summary: "HikariCP pool {{ $labels.pool }} > 80 % utilized"
-```
-
-### Optional: Security & Rate Limit Alerts
-
-If your platform is exposed to user-defined webhooks or hubs, the following alerts help catch abusive or misconfigured integrations:
-
-```yaml
-- alert: SteadybitBlockedOutgoingRequests
-  expr: sum by(status) (increase(connectivity_outgoing_address_filter_total{status="blocked"}[1m])) > 5
-  for: 1m
-  labels: { severity: warning }
-  annotations:
-    summary: "Outgoing webhook or hub requests are being blocked"
-
-- alert: SteadybitTenantRateLimitReached
-  expr: |
-    avg by (tenantKey, bucketName) (avg_over_time((ratelimit_tokens_available{qualifier="none"})[10m:])) <= 1
-  labels: { severity: warning }
-  annotations:
-    summary: "Tenant rate limit reached: tenant={{ $labels.tenantKey }}, bucket={{ $labels.bucketName }}"
 ```
 
 ## When an Alert Fires

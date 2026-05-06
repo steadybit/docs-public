@@ -9,7 +9,7 @@ navTitle: Database Runbooks
 This page applies to **on-premise installations** of the Steadybit platform. It assumes you are running a PostgreSQL 15+ database that the platform connects to. See [Database Configuration](advanced-configuration.md#database-configuration) for connection settings.
 {% endhint %}
 
-The Steadybit platform is heavily backed by PostgreSQL. Two operational situations come up often enough to warrant a runbook:
+The Steadybit platform stores its state in PostgreSQL. This page covers two operational scenarios:
 
 1. [The connection pool is saturated by long-running or blocked transactions.](#blocking-transactions)
 2. [The database is running out of disk space.](#running-out-of-disk-space)
