@@ -13,7 +13,7 @@ When you operate the Steadybit platform yourself, observing a small set of metri
 
 * the metrics endpoint exposed by the platform,
 * the **four Golden Signals** to monitor (latency, traffic, errors, saturation),
-* the dashboard panels we use internally,
+* a downloadable Grafana dashboard — the same one we use internally,
 * a ready-to-use set of **recommended Prometheus alert rules** with the thresholds we run in production.
 
 ## Metrics Endpoint
