@@ -12,25 +12,25 @@ The following capabilities are available when targeting containers, running stan
 
 ### Network Attacks
 
-|                                                | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
-| ---------------------------------------------- | --------- | ------------- | ------------------------- | ---------------------- | --------------------- | ------------------------ |
-| Docker                                         | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| CRI-O                                          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| containerd                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Kubernetes                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Red Hat OpenShift                              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| AWS Elastic Kubernetes Service (EKS)           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| AWS Elastic Container Service (ECS) on EC2[^1] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| AWS Elastic Container Service (ECS) on Fargate | ✅         | ✅             | ❌                         | ✅                      | ✅                     | ❌                        |
-| Google Kubernetes Engine (GKE)                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Google Kubernetes Engine (GKE, Autopilot[^2])  | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Azure Kubernetes Service (AKS)                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| minikube                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+|                                                | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth | DNS Error Injection | TCP Reset |
+|------------------------------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|---------------------|-----------|
+| Docker                                         | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| CRI-O                                          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| containerd                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Kubernetes                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Red Hat OpenShift                              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| AWS Elastic Kubernetes Service (EKS)           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| AWS Elastic Container Service (ECS) on EC2[^1] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| AWS Elastic Container Service (ECS) on Fargate | ✅         | ✅             | ❌                         | ✅                      | ✅                     | ❌                        | ❌                   | ❌         |
+| Google Kubernetes Engine (GKE)                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Google Kubernetes Engine (GKE, Autopilot[^2])  | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Azure Kubernetes Service (AKS)                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| minikube                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 
 ### Resource Attacks
 
 |                                                | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
-| ---------------------------------------------- | --------- | ----------- | ---------- | --------- | ------------- |
+|------------------------------------------------|-----------|-------------|------------|-----------|---------------|
 | Docker                                         | ✅         | ✅           | ✅          | ✅         | ✅             |
 | CRI-O                                          | ✅         | ✅           | ✅          | ✅         | ✅             |
 | containerd                                     | ✅         | ✅           | ✅          | ✅         | ✅             |
@@ -47,7 +47,7 @@ The following capabilities are available when targeting containers, running stan
 ### State Attacks
 
 |                                                | Pause Container | Stop Container |
-| ---------------------------------------------- | --------------- | -------------- |
+|------------------------------------------------|-----------------|----------------|
 | Docker                                         | ✅               | ✅              |
 | CRI-O                                          | ✅               | ✅              |
 | containerd                                     | ✅               | ✅              |
@@ -77,32 +77,32 @@ On top, Steadybit supports attacks based on the Kubernetes API:
 
 ### Attacks
 
-|                                           | Cause Crash Loop | Delete Pod | Rollout Restart Deployment | Scale Deployment | Scale StatefulSet | Taint Node |
-| ----------------------------------------- | ---------------- | ---------- | -------------------------- | ---------------- | ----------------- | ---------- |
-| Kubernetes                                | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
-| Red Hat OpenShift                         | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
-| AWS Elastic Kubernetes Service (EKS)      | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
-| Google Kubernetes Engine (GKE)            | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
-| Google Kubernetes Engine (GKE, Autopilot) | ✅                | ✅          | ✅                          | ✅                | ✅                 | ❌          |
-| Azure Kubernetes Service (AKS)            | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
-| minikube                                  | ✅                | ✅          | ✅                          | ✅                | ✅                 | ✅          |
+|                                           | Cause Crash Loop | Delete Pod | Drain Node | Rollout Restart Deployment | Rollout Restart Argo | Scale Deployment | Scale ReplicaSet | Scale StatefulSet | Set Image | Taint Node |
+|-------------------------------------------|------------------|------------|------------|----------------------------|----------------------|------------------|------------------|-------------------|-----------|------------|
+| Kubernetes                                | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
+| Red Hat OpenShift                         | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
+| AWS Elastic Kubernetes Service (EKS)      | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
+| Google Kubernetes Engine (GKE)            | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
+| Google Kubernetes Engine (GKE, Autopilot) | ✅                | ✅          | ❌          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ❌          |
+| Azure Kubernetes Service (AKS)            | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
+| minikube                                  | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
 
 ### Checks
 
-|                                           | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | StatefulSet Pod Count |
-| ----------------------------------------- | ------------------- | -------------------- | ------------------------- | ---------- | --------------------- |
-| Kubernetes                                | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Red Hat OpenShift                         | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| AWS Elastic Kubernetes Service (EKS)      | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Google Kubernetes Engine (GKE)            | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Google Kubernetes Engine (GKE, Autopilot) | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| Azure Kubernetes Service (AKS)            | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
-| minikube                                  | ✅                   | ✅                    | ✅                         | ✅          | ✅                     |
+|                                           | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | ReplicaSet Pod Count | StatefulSet Pod Count |
+|-------------------------------------------|---------------------|----------------------|---------------------------|------------|----------------------|-----------------------|
+| Kubernetes                                | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
+| Red Hat OpenShift                         | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
+| AWS Elastic Kubernetes Service (EKS)      | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
+| Google Kubernetes Engine (GKE)            | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
+| Google Kubernetes Engine (GKE, Autopilot) | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
+| Azure Kubernetes Service (AKS)            | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
+| minikube                                  | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
 
 ### Other Actions
 
 |                                           | Display Pod Count Metrics | Display Kubernetes Event Logs |
-| ----------------------------------------- | ------------------------- | ----------------------------- |
+|-------------------------------------------|---------------------------|-------------------------------|
 | Kubernetes                                | ✅                         | ✅                             |
 | Red Hat OpenShift                         | ✅                         | ✅                             |
 | AWS Elastic Kubernetes Service (EKS)      | ✅                         | ✅                             |
@@ -111,24 +111,38 @@ On top, Steadybit supports attacks based on the Kubernetes API:
 | Azure Kubernetes Service (AKS)            | ✅                         | ✅                             |
 | minikube                                  | ✅                         | ✅                             |
 
+### Ingress Controller Attacks
+
+Steadybit can interfere with traffic routed through ingress controllers in the cluster:
+
+|                                           | HAProxy Block Traffic | HAProxy Delay Traffic | Nginx Block Traffic | Nginx Delay Traffic |
+|-------------------------------------------|-----------------------|-----------------------|---------------------|---------------------|
+| Kubernetes                                | ✅                     | ✅                     | ✅                   | ✅                   |
+| Red Hat OpenShift                         | ✅                     | ✅                     | ✅                   | ✅                   |
+| AWS Elastic Kubernetes Service (EKS)      | ✅                     | ✅                     | ✅                   | ✅                   |
+| Google Kubernetes Engine (GKE)            | ✅                     | ✅                     | ✅                   | ✅                   |
+| Google Kubernetes Engine (GKE, Autopilot) | ✅                     | ✅                     | ✅                   | ✅                   |
+| Azure Kubernetes Service (AKS)            | ✅                     | ✅                     | ✅                   | ✅                   |
+| minikube                                  | ✅                     | ✅                     | ✅                   | ✅                   |
+
 ## Physical and Virtual Hosts
 
 The following attacks are available when working with physical hosts and virtual machines (both 64-bit PC and 64-bit ARM architectures).
 
 ### Network Attacks
 
-|                     | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth |
-| ------------------- | --------- | ------------- | ------------------------- | ---------------------- | --------------------- | ------------------------ |
-| Ubuntu 20.04        | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Ubuntu 22.04        | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Ubuntu 24.04        | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Fedora Latest       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Debian Bookworm     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Debian Bullseye     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Amazon Linux 2      | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Amazon Linux 2023   | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Windows 11 (x64)          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
-| Windows Server 2022 (x64) | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        |
+|                           | Block DNS | Block Traffic | Corrupt Outgoing Packages | Delay Outgoing Traffic | Drop Outgoing Traffic | Limit Outgoing Bandwidth | DNS Error Injection | TCP Reset |
+|---------------------------|-----------|---------------|---------------------------|------------------------|-----------------------|--------------------------|---------------------|-----------|
+| Ubuntu 20.04              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Ubuntu 22.04              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Ubuntu 24.04              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Fedora Latest             | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Debian Bookworm           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Debian Bullseye           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Amazon Linux 2            | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Amazon Linux 2023         | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Windows 11 (x64)          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ❌                   | ❌         |
+| Windows Server 2022 (x64) | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ❌                   | ❌         |
 
 {% hint style="info" %}
 Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
@@ -136,18 +150,18 @@ Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but 
 
 ### Resource Attacks
 
-|                   | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory |
-| ----------------- | --------- | ----------- | ---------- | --------- | ------------- |
-| Ubuntu 20.04      | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Ubuntu 22.04      | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Ubuntu 24.04      | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Fedora Latest     | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Debian Bookworm   | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Debian Bullseye   | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Amazon Linux 2    | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Amazon Linux 2023 | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Windows 11 (x64)          | ✅         | ✅           | ✅          | ✅         | ❌             |
-| Windows Server 2022 (x64) | ✅         | ✅           | ✅          | ✅         | ❌             |
+|                           | Fill Disk | Fill Memory | Stress CPU | Stress IO | Stress Memory | Limit CPU |
+|---------------------------|-----------|-------------|------------|-----------|---------------|-----------|
+| Ubuntu 20.04              | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
+| Ubuntu 22.04              | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
+| Ubuntu 24.04              | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
+| Fedora Latest             | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
+| Debian Bookworm           | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
+| Debian Bullseye           | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
+| Amazon Linux 2            | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
+| Amazon Linux 2023         | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
+| Windows 11 (x64)          | ✅         | ✅           | ✅          | ✅         | ❌             | ❌         |
+| Windows Server 2022 (x64) | ✅         | ✅           | ✅          | ✅         | ❌             | ❌         |
 
 {% hint style="info" %}
 Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
@@ -155,16 +169,16 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 
 ### State Attacks
 
-|                   | Shutdown Host | Stop Process | Time Travel |
-| ----------------- | ------------- | ------------ | ----------- |
-| Ubuntu 20.04      | ✅             | ✅            | ✅           |
-| Ubuntu 22.04      | ✅             | ✅            | ✅           |
-| Ubuntu 24.04      | ✅             | ✅            | ✅           |
-| Fedora Latest     | ✅             | ✅            | ✅           |
-| Debian Bookworm   | ✅             | ✅            | ✅           |
-| Debian Bullseye   | ✅             | ✅            | ✅           |
-| Amazon Linux 2    | ✅             | ✅            | ✅           |
-| Amazon Linux 2023 | ✅             | ✅            | ✅           |
+|                           | Shutdown Host | Stop Process | Time Travel |
+|---------------------------|---------------|--------------|-------------|
+| Ubuntu 20.04              | ✅             | ✅            | ✅           |
+| Ubuntu 22.04              | ✅             | ✅            | ✅           |
+| Ubuntu 24.04              | ✅             | ✅            | ✅           |
+| Fedora Latest             | ✅             | ✅            | ✅           |
+| Debian Bookworm           | ✅             | ✅            | ✅           |
+| Debian Bullseye           | ✅             | ✅            | ✅           |
+| Amazon Linux 2            | ✅             | ✅            | ✅           |
+| Amazon Linux 2023         | ✅             | ✅            | ✅           |
 | Windows 11 (x64)          | ✅             | ✅            | ✅           |
 | Windows Server 2022 (x64) | ✅             | ✅            | ✅           |
 
@@ -189,7 +203,7 @@ Steadybit's capabilities for [physical and virtual hosts](./#physical-and-virtua
 On top, Steadybit supports attacks based on the AWS EC2 API:
 
 |              | Hibernate | Reboot | Start | Stop | Terminate |
-| ------------ | --------- | ------ | ----- | ---- | --------- |
+|--------------|-----------|--------|-------|------|-----------|
 | EC2 Instance | ✅         | ✅      | ✅     | ✅    | ✅         |
 
 #### AWS ECS on EC2
@@ -241,7 +255,7 @@ Steadybit's capabilities for [containers](./#containers), [Kubernetes](./#kubern
 Steadybit supports attacks based on the AWS ALB API:
 
 |     | Return Static Response |
-| --- | ---------------------- |
+|-----|------------------------|
 | ALB | ✅                      |
 
 #### AWS Elasticache
@@ -249,7 +263,7 @@ Steadybit supports attacks based on the AWS ALB API:
 Steadybit supports attacks based on the AWS Elasticache API:
 
 |             | Node Group Failover |
-| ----------- | ------------------- |
+|-------------|---------------------|
 | Elasticache | ✅                   |
 
 #### AWS Fault Injection Service (FIS)
@@ -257,7 +271,7 @@ Steadybit supports attacks based on the AWS Elasticache API:
 Steadybit integrates with AWS FIS experiment templates, which makes it easy to inject faults into additional managed services. See the [AWS extension](https://hub.steadybit.com/target/com.steadybit.extension_aws.fis-experiment-template) for more details.
 
 |     | Start Experiment Template |
-| --- | ------------------------- |
+|-----|---------------------------|
 | FIS | ✅                         |
 
 #### AWS Lambda
@@ -265,7 +279,7 @@ Steadybit integrates with AWS FIS experiment templates, which makes it easy to i
 Steadybit supports attacks based on the failure injection wrapper [failure-lambda](https://github.com/steadybit/failure-lambda):
 
 |        | Block TCP Connections | Fill Diskspace | Inject Exception | Inject Latency | Inject Status Code |
-| ------ | --------------------- | -------------- | ---------------- | -------------- | ------------------ |
+|--------|-----------------------|----------------|------------------|----------------|--------------------|
 | Lambda | ✅                     | ✅              | ✅                | ✅              | ✅                  |
 
 #### AWS Managed Streaming for Kafka (MSK)
@@ -279,7 +293,7 @@ Steadybit's capabilities for [Kafka](./#kafka) also work for AWS MSK environment
 On top, Steadybit provides capabilities based on the AWS MSK API:
 
 |     | Broker Reboot |
-| --- | ------------- |
+|-----|---------------|
 | MSK | ✅             |
 
 #### AWS Relational Database Service (RDS)
@@ -289,13 +303,13 @@ Steadybit provides capabilities based on the AWS RDS API for RDS clusters and in
 **RDS Clusters**
 
 |             | Cluster Failover |
-| ----------- | ---------------- |
+|-------------|------------------|
 | RDS Cluster | ✅                |
 
 **RDS Instance**
 
 |              | Reboot | Stop |
-| ------------ | ------ | ---- |
+|--------------|--------|------|
 | RDS Instance | ✅      | ✅    |
 
 #### Other AWS Services
@@ -343,14 +357,38 @@ On top, Steadybit supports attacks based on the Azure VMs API:
 **Virtual Machine**
 
 |                 | Reboot | Delete | Stop | Deallocate |
-| --------------- | ------ | ------ | ---- | ---------- |
+|-----------------|--------|--------|------|------------|
 | Virtual Machine | ✅      | ✅      | ✅    | ✅          |
 
 **Virtual Machine Scale Set Instances**
 
 |                    | Reboot | Delete | Stop | Deallocate |
-| ------------------ | ------ | ------ | ---- | ---------- |
+|--------------------|--------|--------|------|------------|
 | Scale Set Instance | ✅      | ✅      | ✅    | ✅          |
+
+#### Azure Functions
+
+Steadybit supports application-level fault injections for Azure Functions:
+
+|                | Inject Exception | Fill Disk | Inject Latency | Inject Status Code |
+|----------------|------------------|-----------|----------------|--------------------|
+| Azure Function | ✅                | ✅         | ✅              | ✅                  |
+
+#### Azure Container Apps
+
+Steadybit supports application-level fault injections for Azure Container Apps:
+
+|                     | Inject Exception | Fill Disk | Inject Latency | Inject Status Code |
+|---------------------|------------------|-----------|----------------|--------------------|
+| Azure Container App | ✅                | ✅         | ✅              | ✅                  |
+
+#### Azure Network Security Groups
+
+Steadybit supports network attacks via Azure NSGs:
+
+|                        | Block Hosts |
+|------------------------|-------------|
+| Network Security Group | ✅           |
 
 #### Other Azure Services
 
@@ -385,19 +423,27 @@ Steadybit's capabilities for [physical and virtual hosts](./#physical-and-virtua
 On top, Steadybit supports attacks based on the GCP VMs API:
 
 |                 | Reset | Delete | Stop | Suspend |
-| --------------- | ----- | ------ | ---- | ------- |
+|-----------------|-------|--------|------|---------|
 | Virtual Machine | ✅     | ✅      | ✅    | ✅       |
 
 #### Other GCP Services
 
 More GCP services will be added to the [GCP](https://hub.steadybit.com/extension/com.steadybit.extension_gcp) extension in the future.
 
+## Cloud Foundry
+
+Steadybit supports the following capabilities for Cloud Foundry applications:
+
+|             | Check App State | Restart App | Stop App |
+|-------------|-----------------|-------------|----------|
+| Application | ✅               | ✅           | ✅        |
+
 ## Service Mesh & API Gateway
 
 Steadybit provides the following fault injections for service meshes and api gateways.
 
 |       | GRPC Abort | HTTP Abort | HTTP Delay |
-| ----- | ---------- | ---------- | ---------- |
+|-------|------------|------------|------------|
 | Istio | ✅          | ✅          | ✅          |
 | Kong  | ❌          | ✅          | ❌          |
 
@@ -407,65 +453,109 @@ Steadybit offers comprehensive support for chaos experiments on Kafka infrastruc
 
 ### Broker
 
-|                                       | Limit Connection Creation Rate | Limit IO Thread | Limit Network Threads |
-| ------------------------------------- | ------------------------------ | --------------- | --------------------- |
-| Unmanaged Kafka                       | ✅                              | ✅               | ✅                     |
-| AWS Managed Streaming for Kafka (MSK) | ✅                              | ✅               | ✅                     |
-| Azure Event Hub (Kafka)               | ✅                              | ✅               | ✅                     |
+|                                       | Check Broker State | Limit Connection Creation Rate | Limit IO Thread | Limit Network Threads | Reduce Message Batch Size |
+|---------------------------------------|--------------------|--------------------------------|-----------------|-----------------------|---------------------------|
+| Unmanaged Kafka                       | ✅                  | ✅                              | ✅               | ✅                     | ✅                         |
+| AWS Managed Streaming for Kafka (MSK) | ✅                  | ✅                              | ✅               | ✅                     | ✅                         |
+| Azure Event Hub (Kafka)               | ✅                  | ✅                              | ✅               | ✅                     | ✅                         |
 
 ### Consumer
 
 |                                       | Check Consumer State | Check Topic Lag | Deny Access |
-| ------------------------------------- | -------------------- | --------------- | ----------- |
+|---------------------------------------|----------------------|-----------------|-------------|
 | Unmanaged Kafka                       | ✅                    | ✅               | ✅           |
 | AWS Managed Streaming for Kafka (MSK) | ✅                    | ✅               | ✅           |
 | Azure Event Hub (Kafka)               | ✅                    | ✅               | ✅           |
 
 ### Topics
 
-|                                       | Check Partitions | Produce Records | Reduce Message Batch Size | Delete Records | Partition Leader Election |
-| ------------------------------------- | ---------------- | --------------- | ------------------------- | -------------- | ------------------------- |
-| Unmanaged Kafka                       | ✅                | ✅               | ✅                         | ✅              | ✅                         |
-| AWS Managed Streaming for Kafka (MSK) | ✅                | ✅               | ✅                         | ✅              | ✅                         |
-| Azure Event Hub (Kafka)               | ✅                | ✅               | ✅                         | ✅              | ✅                         |
+|                                       | Check Partitions | Produce Records | Delete Records | Partition Leader Election |
+|---------------------------------------|------------------|-----------------|----------------|---------------------------|
+| Unmanaged Kafka                       | ✅                | ✅               | ✅              | ✅                         |
+| AWS Managed Streaming for Kafka (MSK) | ✅                | ✅               | ✅              | ✅                         |
+| Azure Event Hub (Kafka)               | ✅                | ✅               | ✅              | ✅                         |
+
+## Redis
+
+Steadybit offers attacks and checks for Redis databases and instances.
+
+### Database
+
+|          | Cache Expiration |
+|----------|------------------|
+| Database | ✅                |
+
+### Instance
+
+|          | Check Connections | Check Latency | Check Memory | Check Replication | Client Pause | Connection Exhaustion | Maxmemory Limit | Sentinel Stop |
+|----------|-------------------|---------------|--------------|-------------------|--------------|-----------------------|-----------------|---------------|
+| Instance | ✅                 | ✅             | ✅            | ✅                 | ✅            | ✅                     | ✅               | ✅             |
+
+## RabbitMQ
+
+Steadybit offers attacks and checks for RabbitMQ infrastructure.
+
+### Node
+
+|      | Check Node |
+|------|------------|
+| Node | ✅          |
+
+### Queue
+
+|       | Alter Max Length | Check Backlog | Publish Records |
+|-------|------------------|---------------|-----------------|
+| Queue | ✅                | ✅             | ✅               |
+
+## CI/CD
+
+Steadybit integrates with the following CI/CD systems for triggering jobs from experiments:
+
+|         | Run Job |
+|---------|---------|
+| Jenkins | ✅       |
+
+Triggering a Steadybit experiment from a CI/CD pipeline works with all products by using the [CLI](../../integrate-with-steadybit/cli.md), [API](../../integrate-with-steadybit/api/api.md).
 
 ## Java Virtual Machine (JVM) / Spring Applications
 
 Steadybit supports the following application-level faults for JVM- and Spring-based applications. These don't require any dependency at work at runtime via bytecode manipulation.
 
 |                 | Spring Controller Delay | Spring Controller Exception | HTTP Client Delay | HTTP Client Status | Method Delay | Method Exception | JDBC Template Delay | JDBC Template Exception |
-| --------------- | ----------------------- | --------------------------- | ----------------- | ------------------ | ------------ | ---------------- | ------------------- | ----------------------- |
+|-----------------|-------------------------|-----------------------------|-------------------|--------------------|--------------|------------------|---------------------|-------------------------|
 | JVM application | ✅                       | ✅                           | ✅                 | ✅                  | ✅            | ✅                | ✅                   | ✅                       |
 
 ## Observability
 
 Steadybit supports the following observability-related experiment actions:
 
-|            | [Check for Alerts](#user-content-fn-3)[^3] | [Mute Alerts](#user-content-fn-3)[^3] | [Send Events](#user-content-fn-4)[^4] |
-| ---------- | ------------------------------------------ | ------------------------------------- | ------------------------------------- |
-| Datadog    | ✅                                          | ✅                                     | ✅                                     |
-| Dynatrace  | ✅                                          | ✅                                     | ✅                                     |
-| Grafana    | ✅                                          | ❌                                     | ✅                                     |
-| Instana    | ✅                                          | ✅                                     | ❌                                     |
-| New Relic  | ✅                                          | ✅                                     | ✅                                     |
-| Prometheus | ✅                                          | ❌                                     | ❌                                     |
-| Splunk     | ✅                                          | ❌                                     | ✅                                     |
-| StackState | ✅                                          | ❌                                     | ❌                                     |
+|                            | [Check for Alerts](#user-content-fn-3)[^3] | [Mute Alerts](#user-content-fn-3)[^3] | [Send Events](#user-content-fn-4)[^4] |
+|----------------------------|--------------------------------------------|---------------------------------------|---------------------------------------|
+| AppDynamics                | ✅                                          | ✅                                     | ❌                                     |
+| Datadog                    | ✅                                          | ✅                                     | ✅                                     |
+| Dynatrace                  | ✅                                          | ✅                                     | ✅                                     |
+| Grafana                    | ✅                                          | ❌                                     | ✅                                     |
+| Instana                    | ✅                                          | ✅                                     | ❌                                     |
+| New Relic[^7]              | ✅                                          | ✅                                     | ✅                                     |
+| Prometheus                 | ✅                                          | ❌                                     | ❌                                     |
+| Splunk Observability Cloud | ✅                                          | ❌                                     | ✅                                     |
+| Splunk Platform            | ✅                                          | ❌                                     | ❌                                     |
+| StackState                 | ✅                                          | ❌                                     | ❌                                     |
 
 ## Load and API Testing
 
 Steadybit integrates with the following load- and API-testing solutions:
 
-|                                     | Run Test from Experiment | Run Experiment from Test |
-| ----------------------------------- | ------------------------ | ------------------------ |
-| Micro Focus LoadRunner Professional | ❌                        | ✅                        |
-| Micro Focus LoadRunner Enterprise   | ❌                        | ✅                        |
-| Gatling                             | ✅                        | ✅[^5]                    |
-| JMeter                              | ✅                        | ✅[^5]                    |
-| K6                                  | ✅                        | ✅                        |
-| K6 Cloud                            | ✅                        | ✅                        |
-| Postman                             | ✅                        | ✅[^5]                    |
-| Custom HTTP Check                   | ✅                        | ✅[^5]                    |
+|                                                       | Run Test from Experiment | Run Experiment from Test |
+|-------------------------------------------------------|--------------------------|--------------------------|
+| Micro Focus LoadRunner Professional                   | ❌                        | ✅                        |
+| Micro Focus LoadRunner Enterprise                     | ❌                        | ✅                        |
+| Gatling                                               | ✅                        | ✅[^5]                    |
+| JMeter                                                | ✅                        | ✅[^5]                    |
+| K6                                                    | ✅                        | ✅                        |
+| K6 Cloud                                              | ✅                        | ✅                        |
+| Postman                                               | ✅                        | ✅[^5]                    |
+| Custom HTTP Check (fixed amount, periodic, bandwidth) | ✅                        | ✅[^5]                    |
 
 [^1]: extension-host and extension-container needs to run in privileged mode and network mode host is required for the extensions.
 
@@ -478,3 +568,5 @@ Steadybit integrates with the following load- and API-testing solutions:
 [^4]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.
 
 [^5]: Experiments can be triggered from tests using Steadybit's HTTP API.
+
+[^7]: Steadybit integrates with New Relic's Workload and Incident alerting.
