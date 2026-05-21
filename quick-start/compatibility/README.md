@@ -23,7 +23,7 @@ The following capabilities are available when targeting containers, running stan
 | AWS Elastic Container Service (ECS) on EC2[^1] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | AWS Elastic Container Service (ECS) on Fargate | ✅         | ✅             | ❌                         | ✅                      | ✅                     | ❌                        | ❌                   | ❌         |
 | Google Kubernetes Engine (GKE)                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
-| Google Kubernetes Engine (GKE, Autopilot[^2])  | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Google Kubernetes Engine (GKE, Autopilot[^2])  | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ❌                   | ❌         |
 | Azure Kubernetes Service (AKS)                 | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | minikube                                       | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 
