@@ -55,7 +55,3 @@ A preflight action can be in one of the following lifecycle statuses, indicated 
 | **SUCCESSFUL** | The preflight action was resolved successfully. The experiment is allowed to continue (if all preflight actions are successful).                           |
 | **FAILED**     | The preflight action resolved with a failure. The experiment will fail. Optionally, the response may contain a message as a reason for experiment failure. |
 | **ERRORED**    | Technical error happened while requesting the preflight action, e.g., the extension URL couldn't be resolved, or the HTTP request timed out.               |
-
-{% hint style="info" %}
-A action will timeout after 55 seconds. In that case, the preflight action is marked as `ERRORED`, and the experiment will not start. If the action resolves later, the actual result will be submitted to the preflight action step in the experiment.
-{% endhint %}
