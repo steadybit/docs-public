@@ -22,6 +22,10 @@ curl -sfL https://get.steadybit.com/env-check.sh | sh -s
 ```
 {% endhint %}
 
+{% hint style="warning" %}
+**Container image retention.** Steadybit publishes container images for the agent, extensions on `ghcr.io/steadybit/...` and retains each image for **1 year** after publication. Older images — including tagged releases — are pruned automatically. If you need to keep specific versions available beyond that window, mirror them into your own registry before they expire.
+{% endhint %}
+
 ### Setup of Agents
 
 We offer the following deployment options:
