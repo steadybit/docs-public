@@ -149,7 +149,14 @@ Common validations include:
 - Load tests (e.g. k6, JMeter, Gatling)
 - Any other validation tools (e.g. Cypress UI Tests) via Jenkins jobs
 
-Refer to our [Reliability Hub](https://hub.steadybit.com/?kind=CHECK%2CLOAD_TEST) for a complete list of available actions
+Refer to our [Reliability Hub](https://hub.steadybit.com/?kind=CHECK%2CLOAD_TEST) for a complete list of available actions.
+
+{% hint style="info" %}
+Validations that rely on targets are evaluated against the service's [target scope](#target-scope).
+
+Make sure the targets your validations need are included in the target query.
+For example, add `OR datadog.monitor.tags="env:stage"` when using Datadog Monitors, or `OR (target.type="com.steadybit.extension_http.client-location" AND k8s.cluster-name="stage")` when using [HTTP client locations](https://github.com/steadybit/extension-http#location-selection).
+{% endhint %}
 
 ### Properties
 
