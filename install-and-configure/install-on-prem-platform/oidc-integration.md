@@ -94,7 +94,8 @@ During authentication, the platform inspects the returned OIDC ID token for the 
 
 Teams and memberships created through OIDC synchronization are marked as **managed by OIDC**. This has the following effects:
 
-- **Team name and key** of OIDC-managed teams cannot be edited by platform admins. They are controlled by the IdP.
+- **Team key** of OIDC-managed teams cannot be edited by platform admins — it is controlled by the IdP.
+- **Team name** of OIDC-managed teams can be edited by platform admins. The IdP-provided name is used when the team is first created; subsequent OIDC syncs do not overwrite the team name, so renames made in Steadybit are preserved.
 - **OIDC-managed members** cannot be removed from teams via the UI or API by platform admins. Membership changes must be made in the IdP.
 - **Manually added members** on an OIDC-managed team are preserved and can be managed normally. OIDC synchronization only affects OIDC-managed memberships.
 - Other team properties (description, allowed environments, allowed actions) remain editable by admins.
