@@ -14,11 +14,22 @@ If you want to use a literal string `{{..}}` in your experiment design, you can 
 
 A variable in an experiment design / run supports different scopes to be resolved:
 
-| Order     | Scope       | Time of resolving variable                   |
-| --------- | ----------- | -------------------------------------------- |
-| outermost | Environment | When designing and/or running the experiment |
-| ...       | Experiment  | When designing and/or running the experiment |
-| innermost | Run         | Only when running the experiment             |
+| Order     | Scope       | Defined on / managed in                      | Time of resolving variable                   |
+| --------- | ----------- | -------------------------------------------- | -------------------------------------------- |
+| outermost | Environment | An environment (Settings → Environments)     | When designing and/or running the experiment |
+| ...       | Service     | A service (Service editor → Variables)       | When designing and/or running the experiment |
+| ...       | Experiment  | The experiment itself                        | When designing and/or running the experiment |
+| innermost | Run         | A single run or an experiment schedule       | Only when running the experiment             |
+
+### Resolution Strategy
+
+When a `{{variable}}` is used, Steadybit resolves it by looking through the scopes from the innermost to the outermost and uses the first definition it finds. In other words, an inner scope shadows (overrides) the same variable key defined in an outer scope.
+
+For example, if a key `k8sClusterName` is defined both as an environment variable and as an experiment variable, the experiment uses the experiment-scoped value. Steadybit highlights such shadowing in the variables popup (see below) so you always know which value actually applies.
+
+A variable only needs to be defined in one scope to be usable, you can, for instance, reference an environment variable in an experiment without redefining it.
+
+![Variable shadowing in an experiment an environment-scoped variable](../../.gitbook/assets/variable-experiment-shadow.png)
 
 ### Environment
 
@@ -26,11 +37,25 @@ Some values are associated with an experiment's environment and change whenever 
 
 ![Variables scoped to an environment](../../.gitbook/assets/variable-environment.png)
 
+### Service
+
+Service-scoped variables are defined on a [service](../services/README.md#variables) and apply to every experiment that uses the service, both the experiments provided by the service and custom experiments linked to it. They sit between the environment and experiment scope: a service variable extends or overrides an [environment variable](../../install-and-configure/manage-environments/README.md#environment-variables) with the same key, and can itself be overridden by an experiment variable or a run override.
+
+Use service variables to align common configuration across all of a service's experiments, for example a service-specific base URL, namespace, or duration, without repeating it in every experiment. Service variables can also be referenced inside the service's [validation](../services/README.md#validations) definitions.
+
+{% hint style="info" %}
+When an experiment is linked to **multiple services** and more than one of them defines the same variable key, the service that was associated later takes precedence.
+{% endhint %}
+
+Service variables are managed in the service editor's _Variables_ tab. [Learn more in the services section](../services/README.md#variables).
+
+![Editing service's variables](../services/service-edit-variables.png)
+
 ### Experiment
 
 The next scope in an experiment design is the 'experiment' scope of a variable. An experiment-scoped variable is only accessible from within the current experiment, and changing the variable's value only affects the current experiment. If you have two different experiments, they can each use the same variable name but assign different values without affecting each other, as they refer to different variable definitions.
 
-An experiment-scoped variable can shadow variables in an outer-scope (i.e., environment variable). If that is the case, the experiment uses the value of the experiment variable instead of the environment variable. Steadybit indicates shadowing as shown below, where the value for the `k8sClusterName` variable is defined as `docs-demo` for this specific experiment and `demo` for all other experiments using the environment `Global`. The variable doesn't exist for experiments that aren't using the environment `Global`.
+An experiment-scoped variable can shadow variables in an outer scope (i.e., a service or environment variable). If that is the case, the experiment uses the value of the experiment variable instead of the service or environment variable. Steadybit indicates shadowing as shown below, where the value for the `k8sClusterName` variable is defined as `docs-demo` for this specific experiment and `demo` for all other experiments using the environment `Global`. The variable doesn't exist for experiments that aren't using the environment `Global`.
 
 ![Variable shadowing in an experiment an environment-scoped variable](../../.gitbook/assets/variable-experiment-shadow.png)
 
@@ -40,14 +65,62 @@ For single experiment runs you can override used variables. Doing so, will apply
 
 ![How to access experiment overrides](../../.gitbook/assets/experiment-run-with-overrides.png)
 
-Doing so will open a modal where you can specify new values for each used variable. Experiment variable overrides will only be applied for this specific run. After the run was triggered, overrides are gone and environment/experiment variable values are applied again.
+Doing so will open a modal where you can specify new values for each used variable. Experiment variable overrides will only be applied for this specific run. After the run was triggered, overrides are gone and environment/service/experiment variable values are applied again.
 
 ![Defining experiment variable overrides](../../.gitbook/assets/experiment-run-with-overrides-modal.png)
 
 Alternatively, you can define different overrides for different experiment schedules, see [experiment schedules](schedule/)
 
+## Fixed and Dynamic Values
+
+Independent of its scope, every variable (environment, service, or experiment) holds either a fixed or a dynamic value. You choose the kind in the variable's value settings dialog, reachable via the settings icon next to the value field.
+
+![Variable Value Settings](./variable-value-settings.png)
+
+
+### Fixed Value
+
+A fixed value is a constant string you type yourself. It resolves to exactly that value wherever the variable is used and is known already at design time.
+
+Use a fixed value for stable, well-known configuration, for example a Kubernetes cluster name, an HTTP base URL, or a fixed duration like `30s`.
+
+![Fixed Variable Value](./variable-value-settings-fixed.png)
+
+### Dynamic Value
+
+A dynamic value is not typed by hand. Instead, it is selected from your live infrastructure when the experiment run starts. You configure it as _"select one value of a target attribute on a target type"_, optionally narrowed by a filter query:
+
+- Target type — the kind of target to read the value from (e.g., a Kubernetes pod, a host, an AWS EC2 instance).
+- Attribute — the target attribute whose value should be used (e.g., the pod name, host name, or an AWS instance id).
+- Filter _(optional)_ — a query that restricts the candidate targets before a value is picked (e.g., only pods in a certain namespace).
+
+You also control the **cardinality** of the selection, how many of the matching values are picked: a single value or several. When more than one value is selected, the variable carries the whole set. In a blast-radius query such as `... IN ({{var}})` it expands to one comparison value per selected value; where a single string is expected, the selected values are combined into a comma-separated list.
+
+Use dynamic values when the concrete value isn't known up front or should adapt to the current state of your infrastructure, for example, to attack a representative pod that actually exists at run time rather than hard-coding a name, or to vary the affected target between runs.
+
+Because a dynamic value depends on the live target index, it is resolved at the start of each run (not at design time). The selected value or values then stay stable for the entire experiment run, every step that references the variable uses the same selection, and the resolution happens again only on the next run. The concrete value that was selected for a given run can be inspected afterward in the [resolved variables](#resolved-variables-in-experiment-run) view.
+
+![Dynamic Variable Value](./variable-value-settings-dynamic.png)
+
+{% hint style="info" %}
+A dynamic value resolves to a value of the target index. If, at run time, no target matches the configured type and filter, the variable cannot be resolved and the experiment run will report the unresolved variable.
+{% endhint %}
+
+## Referencing Other Variables
+
+Variables can be built from other variables using the same `{{...}}` syntax, so you can compose values from reusable building blocks instead of repeating them:
+
+- A **fixed value** can embed other variables. For example, a `baseUrl` variable defined as `https://{{host}}/api` reuses a `host` variable.
+- The **filter query of a dynamic value** can reference other variables. For example, a filter `k8s.namespace="{{namespace}}"` scopes the candidate targets to whatever the `namespace` variable resolves to.
+
+Referenced variables are resolved with the same [resolution strategy](#resolution-strategy) and scope rules as everywhere else, a reference can point to a variable from any scope (environment, service, experiment, or a run override).
+
+{% hint style="warning" %}
+References must ultimately resolve to a concrete value. Avoid circular references (a variable that refers back to itself, directly or through another variable),they cannot be resolved and the experiment run will fail.
+{% endhint %}
+
 ## Resolved Variables in Experiment Run
 
-In case you want to check which variables have been used for a single experiment run, you can check this in experiment rus view by clicking `See used variables` on the top section. The icon on the variable key will tell you about the scope of the used variable (environment, experiment or override).
+In case you want to check which variables have been used for a single experiment run, you can check this in the experiment run view by clicking `See used variables` on the top section. The icon on the variable key tells you about the scope of the used variable (environment, service, experiment, or run override). For dynamic values, this view shows the concrete value that was selected for that specific run.
 
 ![Defining experiment variable overrides](../../.gitbook/assets/experiment-run-overrides.png)

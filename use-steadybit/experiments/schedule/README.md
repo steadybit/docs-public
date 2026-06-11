@@ -44,7 +44,7 @@ In the experiment list section on the left-hand side, you can find a quick overv
 
 ### Experiment variable overrides
 
-If the experiment is making use of an [environment or experiment variable](../variables.md), you can override them is the schedule. As in the experiment editor, the exeriment is validated when you enter non supported values (e.g. entering "name" into a duration variable). Schedule variables will override environment or experiment variable values for each run, triggered by this schedule.
+If the experiment is making use of an [environment, service, or experiment variable](../variables.md), you can override them is the schedule. As in the experiment editor, the exeriment is validated when you enter non supported values (e.g. entering "name" into a duration variable). Schedule variables will override environment, service, or experiment variable values for each run, triggered by this schedule.
 
 ![Experiment Schedule override](../../../.gitbook/assets/experiment-schedule-overrides.png)
 
