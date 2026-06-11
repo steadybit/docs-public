@@ -37,7 +37,9 @@ The platform itself exposes the following ports:
 ## Step 1 - Get your keys
 
 To install the platform on-premise and connect the agents against it you need an agent key and a valid license.\
-Get in touch with us and we will provide you an on-prem license key and an agent key.
+Get in touch with us, and we will provide you an on-prem license key and an agent key.
+
+The agent key is also used to authenticate against our Docker registry `docker.steadybit.io` hosting the platform images. The username is `_` and the password is the agent key.
 
 ## Step 2 - Deploy Platform
 
@@ -45,6 +47,12 @@ It is our goal to make the installation as easy as possible for you, that's why 
 
 {% hint style="info" %}
 In case you can't use Helm or Kubernetes at all, get in touch with us and we'll find the best solution. The platform can be deployed without Helm and also on plain Docker hosts.
+
+When pulling the platform images manually, e.g., on plain Docker hosts or to mirror them into an internal registry, log in to our Docker registry first using your agent key from [Step 1 - Get your keys](./#step-1-get-your-keys):
+
+```bash
+docker login docker.steadybit.io --username _ --password <replace-with-agent-key>
+```
 {% endhint %}
 
 Please replace the placeholders `replace-with-agent-key` and `replace-with-license-key` with your agent key and license key of [Step 1 - Get your keys](./#step-1-get-your-keys):
@@ -59,6 +67,8 @@ helm install steadybit-platform \
   --set platform.tenant.license=<replace-with-license-key> \
   steadybit/steadybit-platform
 ```
+
+The Helm chart automatically creates the Kubernetes image pull secret for `docker.steadybit.io` from your agent key, so no manual `docker login` is required.
 
 To make it convenient for you, we have a default for everything. That's also why we include the necessary Postgres database and set up everything for you automatically. Nevertheless, feel free to adjust parameters after having a look on the helm chart in our public [GitHub repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-platform).
 

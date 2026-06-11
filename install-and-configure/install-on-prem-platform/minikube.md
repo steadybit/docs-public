@@ -39,6 +39,8 @@ The platform itself exposes the following ports:
 To install the platform on-premise and connect the agents against it you need an agent key and a valid license.\
 Get in touch with us and we will provide you an on-prem license key and an agent key.
 
+The agent key is also used to authenticate against our Docker registry `docker.steadybit.io` hosting the platform images. The username is `_` and the password is the agent key. The Helm chart used below automatically creates the Kubernetes image pull secret from your agent key, so no manual `docker login` is required.
+
 ## Step 2 - Install Minikube
 
 First install Minikube to run on your system: https://minikube.sigs.k8s.io/docs/start

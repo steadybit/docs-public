@@ -13,6 +13,22 @@ If you just want to try out Steadybit, we recommend you [sign up for our SaaS pl
 
 This page describes some common issues and how to solve them.
 
+### Pulling the platform images fails with `unauthorized: authentication required` or pods are in ImagePullBackOff
+
+The platform images on `docker.steadybit.io` require authentication. The username is `_` and the password is your agent key.
+
+* When deploying via our Helm chart, the image pull secret is created automatically from `platform.tenant.agentKey`. Verify that the agent key is set correctly:
+
+```bash
+kubectl get secret -n steadybit-platform steadybit-platform-pull-secrets -o jsonpath='{.data.\.dockerconfigjson}' | base64 -d
+```
+
+* When pulling images manually, e.g., on plain Docker hosts or to mirror them into an internal registry, log in first:
+
+```bash
+docker login docker.steadybit.io --username _ --password <replace-with-agent-key>
+```
+
 ### Platform and Postgres are in CrashLoopBackOff
 
 * Check the logs of the platform and Postgres containers
