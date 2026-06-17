@@ -158,6 +158,16 @@ Make sure the targets your validations need are included in the target query.
 For example, add `OR datadog.monitor.tags="env:stage"` when using Datadog Monitors, or `OR (target.type="com.steadybit.extension_http.client-location" AND k8s.cluster-name="stage")` when using [HTTP client locations](https://github.com/steadybit/extension-http#location-selection).
 {% endhint %}
 
+### Variables
+
+Service variables can be used to abstract and align common properties throughout all experiments of the service. In this functionality they extend or override [variables of the associated environment](../../install-and-configure/manage-environments/README.md#environment-variables), and can themselves be overridden by experiment variables or per-run overrides.
+
+They apply to both the experiments provided by the service and custom experiments linked to it, and can also be referenced inside this service's [validations](#validations). Like other variables, a service variable can hold a [fixed or a dynamic value](../../use-steadybit/experiments/variables.md#fixed-and-dynamic-values).
+
+You can [learn more in the experiment's variable section](../../use-steadybit/experiments/variables.md#service).
+
+![Editing service's variables](./service-edit-variables.png)
+
 ### Properties
 
 Custom properties let you attach metadata to a service — for example, service ownership, business criticality, or links to runbooks.
