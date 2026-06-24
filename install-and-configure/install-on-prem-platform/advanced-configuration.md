@@ -270,6 +270,68 @@ Note that `X` links to a specific domain, see below (e.g., targets stats via `TA
 | `STEADYBIT_TARGETS_STATS_RETENTION_PERIOD`                           | Maximum age of target stats.                                                                                                     | `target_stats`                  | `7d`                                       |
 | `STEADYBIT_TARGETS_STATS_RETENTION_CRON`                             | Cron String for the cleanup job of target stats.                                                                                 | `target_stats`                  | `0 30 5 1/1 * ? *`<br/>(every day at 5:30) |
 
+### Steadybit AI
+
+[Steadybit AI](../../use-steadybit/ai/README.md) is the built-in assistant for designing, running, and analyzing experiments via natural language.
+On-prem, it is **disabled until you configure a model provider** and requires the AI capability to be part of your license.
+
+#### Core Settings
+
+| Environment Variable           | Required | Description                                                                                                                                                                                                                                                                                    | Default Value      |
+|--------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| `STEADYBIT_AI_PROVIDER`        | yes      | <p>Enables Steadybit AI and selects the model provider. One of <code>BEDROCK</code>, <code>OLLAMA</code>, <code>ANTHROPIC</code>, <code>OPENAI</code>. When unset, the entire AI feature is disabled.<br><strong>Example:</strong> <code>ANTHROPIC</code></p>                                  | none — AI disabled |
+| `STEADYBIT_AI_REQUEST_TIMEOUT` |          | Per-request timeout for LLM calls.                                                                                                                                                                                                                                                             | <code>120s</code>  |
+
+#### Data Retention
+
+| Environment Variable                          | Description                                                                                                                                                                               | Default                                    |
+|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
+| `STEADYBIT_AI_RETENTION_CONVERSATIONS_PERIOD` | Maximum age of conversations and their chat memory, state, and history.                                                                                                                   | `30d`                                      |
+| `STEADYBIT_AI_RETENTION_CONVERSATIONS_CRON`   | Cron expression for the conversation cleanup job.                                                                                                                                         | `0 35 5 1/1 * ? *`<br/>(every day at 5:35) |
+| `STEADYBIT_AI_TRACING_ENABLED`                | When <code>true</code>, every chat turn and suggestion records a debug trace in the database. The trace exposes the full assembled context (system prompt, action catalog, environments). | <code>false</code>                         |
+| `STEADYBIT_AI_RETENTION_TRACES_PERIOD`        | Maximum age of persisted LLM debug traces.                                                                                                                                                | `7d`                                       |
+| `STEADYBIT_AI_RETENTION_TRACES_CRON`          | Cron expression for the trace cleanup job.                                                                                                                                                | `0 40 5 1/1 * ? *`<br/>(every day at 5:40) |
+
+#### AI Providers
+
+##### Amazon Bedrock
+
+| Environment Variable                      | Required | Description                                       | Default                                                  |
+|-------------------------------------------|----------|--------------------------------------------------|----------------------------------------------------------|
+| `STEADYBIT_AI_BEDROCK_REGION`             |          | AWS region for Bedrock.                          | <code>eu-central-1</code>                                |
+| `STEADYBIT_AI_BEDROCK_REGULAR_MODEL_NAME` |          | Inference profile id for the capable model.      | <code>eu.anthropic.claude-sonnet-4-6</code>             |
+| `STEADYBIT_AI_BEDROCK_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.         | <code>4096</code>                                       |
+| `STEADYBIT_AI_BEDROCK_CHEAP_MODEL_NAME`   |          | Inference profile id for the classifier model.   | <code>eu.anthropic.claude-haiku-4-5-20251001-v1:0</code> |
+| `STEADYBIT_AI_BEDROCK_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.      | <code>1024</code>                                       |
+
+##### Ollama
+
+
+| Environment Variable             | Required | Description                | Default                              |
+|----------------------------------|----------|----------------------------|--------------------------------------|
+| `STEADYBIT_AI_OLLAMA_BASE_URL`   |          | Base URL of the Ollama server. | <code>http://localhost:11434</code> |
+| `STEADYBIT_AI_OLLAMA_MODEL_NAME` |          | Model name to use.         | <code>qwen3.6</code>                 |
+
+##### Anthropic
+
+| Environment Variable                        | Required | Description                                              | Default                          |
+|---------------------------------------------|----------|---------------------------------------------------------|----------------------------------|
+| `STEADYBIT_AI_ANTHROPIC_API_KEY`            | yes      | API key for Anthropic. Treat it as sensitive information. | —                                |
+| `STEADYBIT_AI_ANTHROPIC_REGULAR_MODEL_NAME` |          | Capable model.                                          | <code>claude-sonnet-4-6</code>   |
+| `STEADYBIT_AI_ANTHROPIC_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.                | <code>8192</code>                |
+| `STEADYBIT_AI_ANTHROPIC_CHEAP_MODEL_NAME`   |          | Classifier model.                                       | <code>claude-haiku-4-5</code>    |
+| `STEADYBIT_AI_ANTHROPIC_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.             | <code>1024</code>                |
+
+##### OpenAI
+
+| Environment Variable                     | Required | Description                                            | Default                       |
+|------------------------------------------|----------|-------------------------------------------------------|-------------------------------|
+| `STEADYBIT_AI_OPENAI_API_KEY`            | yes      | API key for OpenAI. Treat it as sensitive information. | —                             |
+| `STEADYBIT_AI_OPENAI_REGULAR_MODEL_NAME` |          | Capable model.                                        | <code>gpt-5.4</code>          |
+| `STEADYBIT_AI_OPENAI_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.              | <code>4096</code>             |
+| `STEADYBIT_AI_OPENAI_CHEAP_MODEL_NAME`   |          | Classifier model.                                     | <code>gpt-5.4-mini</code>     |
+| `STEADYBIT_AI_OPENAI_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.           | <code>1024</code>             |
+
 ### Endpoint Rate Limits
 
 Rate limits protect the UI, API, and Agent endpoints of the Steadybit platform. They can be enabled or disabled by setting the environment variable 
