@@ -7,8 +7,7 @@ title: SteadyBuddy
 SteadyBuddy is Steadybit's AI-powered assistant built into the platform that helps you design, run, and understand chaos experiments using natural language.
 Instead of clicking through the experiment editor, you can describe what you want to test, ask why an experiment failed, or let SteadyBuddy propose ready-to-run experiments tailored to your environment.
 
-<!-- TODO screenshot: SteadyBuddy chat overview / assistant landing page -->
-
+![SteadyBuddy chat overview with experiment suggestions](landing-page-suggestions.png)
 
 ## How SteadyBuddy Works
 
@@ -40,8 +39,7 @@ Once enabled, every user within your tenant can start using SteadyBuddy.
 
 If you are not an administrator, ask one of your tenant admins to enable it for you.
 
-<!-- TODO screenshot: SaaS opt-in / introduction page with "Enable SteadyBuddy for tenant" -->
-
+![SaaS opt-in to enable SteadyBuddy](opt-in.png)
 
 ### On-Prem — Configure a Provider
 
@@ -76,7 +74,7 @@ Each suggestion comes with a short description and a **More details** view; from
 
 Use this when you are getting started in a new environment, or need guidance on what to test next.
 
-<!-- TODO screenshot: experiment suggestion cards for a selected environment -->
+![SteadyBuddy showing experiment suggestions for the selected environment](experiment-suggestions.png)
 
 Experiment suggestions use the same flow described in [the following section](#create-experiments-from-scratch-via-chat).
 
@@ -91,7 +89,7 @@ You can:
 
 The draft is scoped to your selected environment and uses only actions and targets your team can access.
 
-<!-- TODO screenshot: chat conversation showing an inline experiment draft with Open/Run buttons -->
+![SteadyBuddy chat conversation showing an inline experiment draft with Open/Run options](chat-create-experiment.png)
 
 The experiment draft must be saved manually before it appears in the Experiments section or can be run later.
 
@@ -100,8 +98,7 @@ The experiment draft must be saved manually before it appears in the Experiments
 Ask questions like *"Why did my last experiment fail?"*.
 SteadyBuddy reads the relevant run data and explains what happened, grounding its answer in the actual execution results rather than guessing.
 
-<!-- TODO screenshot: chat answer analyzing a failed experiment run -->
-
+![SteadyBuddy chat conversation showing an analysis of a failed experiment run](chat-experiment-run-analysis.png)
 
 ### Usage Limits
 
