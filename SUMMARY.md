@@ -72,7 +72,7 @@
     * [Templates](use-steadybit/experiments/share/templates/README.md)
     * [Service-Provided](use-steadybit/experiments/share/service-provided/README.md)
   * [OpenTelemetry Integration](use-steadybit/experiments/opentelemetry-integration/README.md)
-* [Steadybit AI](use-steadybit/ai/README.md)
+* [SteadyBuddy](use-steadybit/steadybuddy/README.md)
 * [Explorer](use-steadybit/explorer/README.md)
   * [Landscape](use-steadybit/explorer/landscape.md)
   * [Targets](use-steadybit/explorer/targets.md)
