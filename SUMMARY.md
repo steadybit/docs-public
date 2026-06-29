@@ -57,6 +57,10 @@
   * [Explore](use-steadybit/services/README.md#exploring-services)
   * [Managing](use-steadybit/services/README.md#managing-services)
   * [Profiles](use-steadybit/services/README.md#service-profiles)
+* [Explorer](use-steadybit/explorer/README.md)
+  * [Landscape](use-steadybit/explorer/landscape.md)
+  * [Targets](use-steadybit/explorer/targets.md)
+  * [Advice](use-steadybit/explorer/advice.md)
 * [Experiments](use-steadybit/experiments/README.md)
   * [Design](use-steadybit/experiments/design.md)
   * [Run](use-steadybit/experiments/run.md)
@@ -72,12 +76,8 @@
     * [Templates](use-steadybit/experiments/share/templates/README.md)
     * [Service-Provided](use-steadybit/experiments/share/service-provided/README.md)
   * [OpenTelemetry Integration](use-steadybit/experiments/opentelemetry-integration/README.md)
-* [SteadyBuddy](use-steadybit/steadybuddy/README.md)
-* [Explorer](use-steadybit/explorer/README.md)
-  * [Landscape](use-steadybit/explorer/landscape.md)
-  * [Targets](use-steadybit/explorer/targets.md)
-  * [Advice](use-steadybit/explorer/advice.md)
 * [Reporting](use-steadybit/reporting/README.md)
+* [SteadyBuddy](use-steadybit/steadybuddy/README.md)
 
 ## Integrate with Steadybit
 
