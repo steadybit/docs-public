@@ -269,10 +269,10 @@ Note that `X` links to a specific domain, see below (e.g., targets stats via `TA
 | `STEADYBIT_METRIC_RETENTION_CRON`                                    | Cron String for the cleanup job of metrics.                                                                                      | `metric`                        | `0 35 5 1/1 * ? *`<br/>(every day at 5:35) |
 | `STEADYBIT_TARGETS_STATS_RETENTION_PERIOD`                           | Maximum age of target stats.                                                                                                     | `target_stats`                  | `7d`                                       |
 | `STEADYBIT_TARGETS_STATS_RETENTION_CRON`                             | Cron String for the cleanup job of target stats.                                                                                 | `target_stats`                  | `0 30 5 1/1 * ? *`<br/>(every day at 5:30) |
-| `STEADYBIT_AI_RETENTION_CONVERSATIONS_PERIOD`                        | Maximum age of [SteadyBuddy](#steadybuddy) conversations and their chat memory, state, and history.                           | `ai_conversation` and more      | `30d`                                      |
-| `STEADYBIT_AI_RETENTION_CONVERSATIONS_CRON`                          | Cron String for the cleanup job of SteadyBuddy conversations.                                                                   | `ai_conversation` and more      | `0 35 5 1/1 * ? *`<br/>(every day at 5:35) |
-| `STEADYBIT_AI_RETENTION_TRACES_PERIOD`                               | Maximum age of persisted SteadyBuddy LLM debug traces.                                                                          | `ai_trace`                      | `7d`                                       |
-| `STEADYBIT_AI_RETENTION_TRACES_CRON`                                 | Cron String for the cleanup job of SteadyBuddy traces.                                                                          | `ai_trace`                      | `0 40 5 1/1 * ? *`<br/>(every day at 5:40) |
+| `STEADYBIT_STEADYBUDDY_RETENTION_CONVERSATIONS_PERIOD`               | Maximum age of [SteadyBuddy](#steadybuddy) conversations and their chat memory, state, and history.                              | `ai_conversation` and more      | `30d`                                      |
+| `STEADYBIT_STEADYBUDDY_RETENTION_CONVERSATIONS_CRON`                 | Cron String for the cleanup job of SteadyBuddy conversations.                                                                    | `ai_conversation` and more      | `0 35 5 1/1 * ? *`<br/>(every day at 5:35) |
+| `STEADYBIT_STEADYBUDDY_RETENTION_TRACES_PERIOD`                      | Maximum age of persisted SteadyBuddy LLM debug traces.                                                                           | `ai_trace`                      | `7d`                                       |
+| `STEADYBIT_STEADYBUDDY_RETENTION_TRACES_CRON`                        | Cron String for the cleanup job of SteadyBuddy traces.                                                                           | `ai_trace`                      | `0 40 5 1/1 * ? *`<br/>(every day at 5:40) |
 
 ### SteadyBuddy
 
@@ -281,55 +281,55 @@ On-prem, it is **disabled until you configure a model provider** and requires th
 
 #### Core Settings
 
-| Environment Variable           | Required | Description                                                                                                                                                                                                                                                                                                                                                                              | Default Value      |
-|--------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| `STEADYBIT_AI_PROVIDER`        | yes      | Enables SteadyBuddy and selects the model provider. See [AI Provider Settings](#ai-provider-settings) for available options. When unset, the entire AI feature is disabled.                                                                                                                                                                                                             | none — AI disabled |
-| `STEADYBIT_AI_REQUEST_TIMEOUT` |          | Per-request timeout for LLM calls.                                                                                                                                                                                                                                                                                                                                                       | <code>120s</code>  |
-| `STEADYBIT_AI_TRACING_ENABLED` |          | When <code>true</code>, every chat turn and suggestion records a debug trace in the database. The trace exposes the full assembled context (system prompt, action catalog, environments). For support requests, the Steadybit team may ask you to share the trace to improve the provided answers. See [Data Retention Settings](#data-retention-settings) for how long traces are kept. | <code>false</code> |
+| Environment Variable                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                              | Default Value      |
+|-----------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| `STEADYBIT_STEADYBUDDY_PROVIDER`        | yes      | Enables SteadyBuddy and selects the model provider. See [AI Provider Settings](#ai-provider-settings) for available options. When unset, the entire AI feature is disabled.                                                                                                                                                                                                              | none — AI disabled |
+| `STEADYBIT_STEADYBUDDY_REQUEST_TIMEOUT` |          | Per-request timeout for LLM calls.                                                                                                                                                                                                                                                                                                                                                       | <code>120s</code>  |
+| `STEADYBIT_STEADYBUDDY_TRACING_ENABLED` |          | When <code>true</code>, every chat turn and suggestion records a debug trace in the database. The trace exposes the full assembled context (system prompt, action catalog, environments). For support requests, the Steadybit team may ask you to share the trace to improve the provided answers. See [Data Retention Settings](#data-retention-settings) for how long traces are kept. | <code>false</code> |
 
 #### AI Provider Settings
 
 ##### Amazon Bedrock
 
-| Environment Variable                      | Required | Description                                       | Default                                                  |
-|-------------------------------------------|----------|--------------------------------------------------|----------------------------------------------------------|
-| `STEADYBIT_AI_PROVIDER`                   | yes      | Set to <code>BEDROCK</code> to use Amazon Bedrock. | none — AI disabled                                     |
-| `STEADYBIT_AI_BEDROCK_REGION`             |          | AWS region for Bedrock.                          | <code>eu-central-1</code>                                |
-| `STEADYBIT_AI_BEDROCK_REGULAR_MODEL_NAME` |          | Inference profile id for the capable model.      | <code>eu.anthropic.claude-sonnet-4-6</code>             |
-| `STEADYBIT_AI_BEDROCK_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.         | <code>4096</code>                                       |
-| `STEADYBIT_AI_BEDROCK_CHEAP_MODEL_NAME`   |          | Inference profile id for the classifier model.   | <code>eu.anthropic.claude-haiku-4-5-20251001-v1:0</code> |
-| `STEADYBIT_AI_BEDROCK_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.      | <code>1024</code>                                       |
+| Environment Variable                               | Required | Description                                        | Default                                                  |
+|----------------------------------------------------|----------|----------------------------------------------------|----------------------------------------------------------|
+| `STEADYBIT_STEADYBUDDY_PROVIDER`                   | yes      | Set to <code>BEDROCK</code> to use Amazon Bedrock. | none — AI disabled                                       |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_REGION`             |          | AWS region for Bedrock.                            | <code>eu-central-1</code>                                |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_MODEL_NAME` |          | Inference profile id for the capable model.        | <code>eu.anthropic.claude-sonnet-4-6</code>              |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.           | <code>4096</code>                                        |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MODEL_NAME`   |          | Inference profile id for the classifier model.     | <code>eu.anthropic.claude-haiku-4-5-20251001-v1:0</code> |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.        | <code>1024</code>                                        |
 
 ##### Ollama
 
 
-| Environment Variable             | Required | Description                | Default                              |
-|----------------------------------|----------|----------------------------|--------------------------------------|
-| `STEADYBIT_AI_PROVIDER`          | yes      | Set to <code>OLLAMA</code> to use Ollama. | none — AI disabled            |
-| `STEADYBIT_AI_OLLAMA_BASE_URL`   |          | Base URL of the Ollama server. | <code>http://localhost:11434</code> |
-| `STEADYBIT_AI_OLLAMA_MODEL_NAME` |          | Model name to use.         | <code>qwen3.6</code>                 |
+| Environment Variable                      | Required | Description                               | Default                             |
+|-------------------------------------------|----------|-------------------------------------------|-------------------------------------|
+| `STEADYBIT_STEADYBUDDY_PROVIDER`          | yes      | Set to <code>OLLAMA</code> to use Ollama. | none — AI disabled                  |
+| `STEADYBIT_STEADYBUDDY_OLLAMA_BASE_URL`   |          | Base URL of the Ollama server.            | <code>http://localhost:11434</code> |
+| `STEADYBIT_STEADYBUDDY_OLLAMA_MODEL_NAME` |          | Model name to use.                        | <code>qwen3.6</code>                |
 
 ##### Anthropic
 
-| Environment Variable                        | Required | Description                                              | Default                          |
-|---------------------------------------------|----------|---------------------------------------------------------|----------------------------------|
-| `STEADYBIT_AI_PROVIDER`                     | yes      | Set to <code>ANTHROPIC</code> to use Anthropic.         | none — AI disabled               |
-| `STEADYBIT_AI_ANTHROPIC_API_KEY`            | yes      | API key for Anthropic. Treat it as sensitive information. | —                                |
-| `STEADYBIT_AI_ANTHROPIC_REGULAR_MODEL_NAME` |          | Capable model.                                          | <code>claude-sonnet-4-6</code>   |
-| `STEADYBIT_AI_ANTHROPIC_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.                | <code>8192</code>                |
-| `STEADYBIT_AI_ANTHROPIC_CHEAP_MODEL_NAME`   |          | Classifier model.                                       | <code>claude-haiku-4-5</code>    |
-| `STEADYBIT_AI_ANTHROPIC_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.             | <code>1024</code>                |
+| Environment Variable                                 | Required | Description                                               | Default                        |
+|------------------------------------------------------|----------|-----------------------------------------------------------|--------------------------------|
+| `STEADYBIT_STEADYBUDDY_PROVIDER`                     | yes      | Set to <code>ANTHROPIC</code> to use Anthropic.           | none — AI disabled             |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_API_KEY`            | yes      | API key for Anthropic. Treat it as sensitive information. | —                              |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_REGULAR_MODEL_NAME` |          | Capable model.                                            | <code>claude-sonnet-4-6</code> |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.                  | <code>8192</code>              |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_CHEAP_MODEL_NAME`   |          | Classifier model.                                         | <code>claude-haiku-4-5</code>  |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.               | <code>1024</code>              |
 
 ##### OpenAI
 
-| Environment Variable                     | Required | Description                                            | Default                       |
-|------------------------------------------|----------|-------------------------------------------------------|-------------------------------|
-| `STEADYBIT_AI_PROVIDER`                  | yes      | Set to <code>OPENAI</code> to use OpenAI.             | none — AI disabled            |
-| `STEADYBIT_AI_OPENAI_API_KEY`            | yes      | API key for OpenAI. Treat it as sensitive information. | —                             |
-| `STEADYBIT_AI_OPENAI_REGULAR_MODEL_NAME` |          | Capable model.                                        | <code>gpt-5.4</code>          |
-| `STEADYBIT_AI_OPENAI_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.              | <code>4096</code>             |
-| `STEADYBIT_AI_OPENAI_CHEAP_MODEL_NAME`   |          | Classifier model.                                     | <code>gpt-5.4-mini</code>     |
-| `STEADYBIT_AI_OPENAI_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.           | <code>1024</code>             |
+| Environment Variable                              | Required | Description                                            | Default                   |
+|---------------------------------------------------|----------|--------------------------------------------------------|---------------------------|
+| `STEADYBIT_STEADYBUDDY_PROVIDER`                  | yes      | Set to <code>OPENAI</code> to use OpenAI.              | none — AI disabled        |
+| `STEADYBIT_STEADYBUDDY_OPENAI_API_KEY`            | yes      | API key for OpenAI. Treat it as sensitive information. | —                         |
+| `STEADYBIT_STEADYBUDDY_OPENAI_REGULAR_MODEL_NAME` |          | Capable model.                                         | <code>gpt-5.4</code>      |
+| `STEADYBIT_STEADYBUDDY_OPENAI_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.               | <code>4096</code>         |
+| `STEADYBIT_STEADYBUDDY_OPENAI_CHEAP_MODEL_NAME`   |          | Classifier model.                                      | <code>gpt-5.4-mini</code> |
+| `STEADYBIT_STEADYBUDDY_OPENAI_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.            | <code>1024</code>         |
 
 ### Endpoint Rate Limits
 
