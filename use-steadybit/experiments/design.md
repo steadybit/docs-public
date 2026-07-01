@@ -116,7 +116,14 @@ A second option for creating a new experiment is using an existing template. Thi
 
 ![Create Experiment - Browse and Search Templates](../../.gitbook/assets/create-experiment-template.png)
 
-Once you've decided to use an experiment template, you are guided step-by-step through applying it to your context. The first step asks you to select the environment where you eventually want to run your experiment. If the experiment template references any environment variable, they are also listed. You only need to specify a value for new environment variables.
+Once you've decided to use an experiment template, you are guided step-by-step through applying it to your context.
+The first step asks you to select the environment where you eventually want to run your experiment.
+If the experiment template references any [variables](variables.md) (via the `{{variable}}` syntax), they are also listed so you can decide how each one should be resolved:
+
+* **Provide a value** — the variable is created as an [environment variable](variables.md#environment) on the selected environment and shared with all experiments using that environment. You only need to provide values for variables that don't exist on the environment yet; existing ones are reused automatically.
+* **Leave the value empty** — the variable falls back to an [experiment variable](variables.md#experiment). It then shows up in the created experiment, where you provide its value in the experiment variable's dropdown in the editor's subheader.
+
+If you create the experiment within a [service](../services/README.md), any variable already defined as a [service variable](variables.md#service) is resolved from the service, so you don't need to specify it as an environment or experiment variable.
 
 ![Create Experiment - Use Template: Environment](../../.gitbook/assets/create-experiment-template-wizard1.png)
 

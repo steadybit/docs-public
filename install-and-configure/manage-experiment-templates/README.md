@@ -26,15 +26,21 @@ To define the experiment of the template, you benefit from a similar experiment 
 
 #### Environment
 
-When designing the experiment of the template, all targets are resolved to the `Global` environment. However, when using a template to create an experiment, the user can select the desired environment, and all target and environment variables are evaluated against the selected environment. This way, it is still easy to define a template and safe for teams to use one.
+When designing the experiment of the template, all targets are resolved to the `Global` environment.
+However, when using a template to create an experiment, the user can select the desired environment, and all targets and variables are evaluated against the selected environment.
+This way, it is still easy to define a template and safe for teams to use one.
 
 #### Templating
 
-To make the experiment adaptable to different contexts, you can reference [template placeholders (see below)](./#template-placeholder) and [environment variables](../../use-steadybit/experiments/variables.md#environment) in the experiment's steps (e.g., target query, parameters, and step labels), hypothesis, and experiment name.
+To make the experiment adaptable to different contexts, you can reference [template placeholders (see below)](./#template-placeholder) and [variables](../../use-steadybit/experiments/variables.md) in the experiment's steps (e.g., target query, parameters, and step labels), hypothesis, and experiment name.
+Template placeholders use the `[[placeholder]]` syntax and are documented within the template editor.
+Variables use the `{{variable}}` syntax and are not restricted to a single scope: when someone uses the template, they can provide a value to create an [environment variable](../../use-steadybit/experiments/variables.md#environment) or leave it empty to fall back to an [experiment variable](../../use-steadybit/experiments/variables.md#experiment) (see [creating an experiment from a template](../../use-steadybit/experiments/design.md#from-template)).
 
 #### Properties
 
-Similar to experiments, an experiment in an experiment template can have properties assigned. Properties' values can be hard-coded in the experiment or can reference [template placeholders (see below)](./#template-placeholder) and [environment variables](../../use-steadybit/experiments/variables.md#environment) to capture these when [using the experiment](../../use-steadybit/experiments/templates/). Templates can only reference defined property definitions.
+Similar to experiments, an experiment in an experiment template can have properties assigned.
+Properties' values can be hard-coded in the experiment or can reference [template placeholders (see below)](./#template-placeholder) and [variables](../../use-steadybit/experiments/variables.md) to capture these when [using the experiment](../../use-steadybit/experiments/templates/).
+Templates can only reference defined property definitions.
 
 Learn more on [managing properties](../manage-properties/) and [using properties in experiments](../../use-steadybit/experiments/properties/).
 
