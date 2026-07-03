@@ -6,7 +6,7 @@ title: SteadyBuddy
 
 {% hint style="info" %}
 **SteadyBuddy is part of Steadybit Labs** and is currently only available upon request.
-[Contact us](https://steadybit.com/contact-us/) to request access.
+[Learn more]([https://steadybit.com/contact-us/](https://steadybit.com/blog/introducing-steadybit-labs-help-shape-the-future-of-reliability-testing/))
 {% endhint %}
 
 SteadyBuddy is Steadybit's AI-powered assistant built into the platform that helps you design, run, and understand chaos experiments using natural language.
