@@ -43,6 +43,8 @@ Service-scoped variables are defined on a [service](../services/README.md#variab
 
 Use service variables to align common configuration across all of a service's experiments, for example a service-specific base URL, namespace, or duration, without repeating it in every experiment. Service variables can also be referenced inside the service's [validation](../services/README.md#validations) definitions.
 
+When a service variable holds a [dynamic value](#dynamic-value), you additionally choose its **evaluation scope**: whether the value is sampled from the service's own targets (the default) or from the whole environment the service lives in. See [Dynamic Value](#dynamic-value) for details.
+
 {% hint style="info" %}
 When an experiment is linked to **multiple services** and more than one of them defines the same variable key, the service that was associated later takes precedence.
 {% endhint %}
@@ -95,6 +97,13 @@ A dynamic value is not typed by hand. Instead, it is selected from your live inf
 - Filter _(optional)_ — a query that restricts the candidate targets before a value is picked (e.g., only pods in a certain namespace).
 
 You also control the **cardinality** of the selection, how many of the matching values are picked: a single value or several. When more than one value is selected, the variable carries the whole set. In a blast-radius query such as `... IN ({{var}})` it expands to one comparison value per selected value; where a single string is expected, the selected values are combined into a comma-separated list.
+
+For a dynamic value on a [service variable](#service), you additionally choose the **evaluation scope**, i.e. which targets the value is sampled from:
+
+- **Service's targets** _(default)_ — only the service's own targets are considered: the service's environment narrowed by the service's [target query](../services/README.md).
+- **Service's environment** — all targets in the environment the service lives in are considered, ignoring the service's query.
+
+The evaluation scope only applies to service variables. For environment, experiment, and run variables a dynamic value is always sampled from the environment.
 
 Use dynamic values when the concrete value isn't known up front or should adapt to the current state of your infrastructure, for example, to attack a representative pod that actually exists at run time rather than hard-coding a name, or to vary the affected target between runs.
 
