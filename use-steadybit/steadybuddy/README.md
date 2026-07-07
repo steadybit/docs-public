@@ -119,7 +119,7 @@ Your previous conversations appear under **Recent chats**. From there you can:
 
 ![SteadyBuddy search across the chat history](chat-search.png)
 
-Your chat history is scoped to you and follows the same [retention rules](#data-processing-and-privacy) as the rest of SteadyBuddy.
+Your chat history is scoped to you and your currently selected team, and follows the same [retention rules](#data-processing-and-privacy) as the rest of SteadyBuddy.
 
 ### Usage Limits
 
