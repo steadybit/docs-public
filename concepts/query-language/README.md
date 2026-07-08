@@ -75,6 +75,29 @@ k8s.cluster-name IS PRESENT
 k8s.label.service-tier IS NOT PRESENT
 ```
 
+#### Using variables and placeholders
+
+You can use an experiment [variable](../../use-steadybit/experiments/variables.md) (`{{...}}`) or a template placeholder (`[[...]]`) as a value in a query. Markers may be written with or without quotes:
+
+```
+// Reference a variable as the value
+k8s.deployment={{deployment}}
+
+// Equivalent, quoted form
+k8s.deployment="{{deployment}}"
+```
+
+When a variable holds several values (a [list of fixed values](../../use-steadybit/experiments/variables.md#list-of-fixed-values) or a multi-value [dynamic value](../../use-steadybit/experiments/variables.md#dynamic-value)), using it inside `IN (...)` matches _any_ of its values:
+
+```
+// Matches every deployment the variable resolves to
+k8s.deployment IN ({{deployment}})
+```
+
+{% hint style="info" %}
+A `=` (or `!=`) comparison against a multi-value variable also works: it matches when the attribute equals **any** of the values (and `!=` when it equals **none**), i.e. it is equivalent to `IN (...)` (`NOT IN (...)`). The Query UI displays it in the `IN (...)` form.
+{% endhint %}
+
 
 #### Aggregations
 
