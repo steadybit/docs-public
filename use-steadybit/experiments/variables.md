@@ -84,7 +84,7 @@ A fixed value is a constant string you type yourself. It resolves to exactly tha
 
 Use a fixed value for stable, well-known configuration, for example a Kubernetes cluster name, an HTTP base URL, or a fixed duration like `30s`.
 
-![Fixed Variable Value](./variable-value-settings-fixed.png)
+![Fixed Value](./variable-value-settings-fixed.png)
 
 ### List of Fixed Values
 
@@ -96,6 +96,8 @@ A list behaves like a multi-value [dynamic value](#dynamic-value), but the value
 - Where a single string is expected (for example a step parameter or a message), the entries are combined into a comma-separated list.
 
 Add the values as separate entries rather than typing one comma-separated string, a single fixed value is always treated as one literal (so a value may itself contain commas, spaces, or other punctuation without being split).
+
+![List of Fixed Values](./variable-value-settings-fixed-list.png)
 
 ### Dynamic Value
 
@@ -111,7 +113,7 @@ Use dynamic values when the concrete value isn't known up front or should adapt 
 
 Because a dynamic value depends on the live target index, it is resolved at the start of each run (not at design time). The selected value or values then stay stable for the entire experiment run, every step that references the variable uses the same selection, and the resolution happens again only on the next run. The concrete value that was selected for a given run can be inspected afterward in the [resolved variables](#resolved-variables-in-experiment-run) view.
 
-![Dynamic Variable Value](./variable-value-settings-dynamic.png)
+![Dynamic Value](./variable-value-settings-dynamic.png)
 
 {% hint style="info" %}
 A dynamic value resolves to a value of the target index. If, at run time, no target matches the configured type and filter, the variable cannot be resolved and the experiment run will report the unresolved variable.
