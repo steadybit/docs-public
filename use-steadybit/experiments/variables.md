@@ -119,6 +119,36 @@ Because a dynamic value depends on the live target index, it is resolved at the 
 A dynamic value resolves to a value of the target index. If, at run time, no target matches the configured type and filter, the variable cannot be resolved and the experiment run will report the unresolved variable.
 {% endhint %}
 
+#### Sample Values in Experiment Editor
+
+Because a dynamic value is only resolved for real when a run starts, the concrete values it will take are not known while you design the experiment.
+To give you a meaningful preview, Steadybit draws **one sample** of the matching values, when you open the experiment, when you change the environment, and whenever you create or edit a dynamic value, and uses that same sample everywhere in the editor.
+As a result the target counts per step, the _show targets_ list, and the sampled values shown beneath each dynamic variable all agree with one another, instead of changing every time a preview is recalculated.
+
+The sampled values are shown directly under the variable's definition in the variables popup:
+
+<!-- TODO screenshot: variables popup showing the sampled values beneath a dynamic variable -->
+
+This sample is only a design-time preview, it is never saved with the experiment.
+To draw a fresh sample at any time, use **Resample dynamic variable values** in the variables popup.
+Editing a dynamic value re-samples only that variable, so the sampled values for the other variables stay stable.
+
+<!-- TODO screenshot: "Resample dynamic variable values" action in the variables popup -->
+
+Each run still selects its values independently when it starts (see above), so the preview shows a representative selection, not necessarily the values a future run will use, unless you deliberately run with the previewed sample (see [Run with sample values](#run-with-sample-values)).
+
+#### Run with Sample Values
+
+The primary _Run Experiment_ button lets each run pick its own dynamic values at start.
+If you instead want to run the experiment with exactly the sample values in the editor, open the split button next to _Run Experiment_ and choose **Run with sample values**.
+
+<!-- TODO screenshot: Run Experiment split button with the "Run with sample values" option -->
+
+A dialog lists the dynamic variables in use together with their current sample values and starts a single run pinned to exactly those values.
+You can draw a fresh sample from within the dialog before running.
+
+<!-- TODO screenshot: "Run with sample values" dialog listing variables in use and their sample values -->
+
 ## Referencing Other Variables
 
 Variables can be built from other variables using the same `{{...}}` syntax, so you can compose values from reusable building blocks instead of repeating them:
