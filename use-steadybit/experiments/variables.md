@@ -43,6 +43,8 @@ Service-scoped variables are defined on a [service](../services/README.md#variab
 
 Use service variables to align common configuration across all of a service's experiments, for example a service-specific base URL, namespace, or duration, without repeating it in every experiment. Service variables can also be referenced inside the service's [validation](../services/README.md#validations) definitions.
 
+When a service variable holds a [dynamic value](#dynamic-value), you additionally choose its **evaluation scope**: whether the value is sampled from the service's own targets (the default) or from the whole environment the service lives in. See [Evaluation scope](#evaluation-scope) for details.
+
 {% hint style="info" %}
 When an experiment is linked to **multiple services** and more than one of them defines the same variable key, the service that was associated later takes precedence.
 {% endhint %}
@@ -88,22 +90,36 @@ Use a fixed value for stable, well-known configuration, for example a Kubernetes
 
 ### Dynamic Value
 
-A dynamic value is not typed by hand. Instead, it is selected from your live infrastructure when the experiment run starts. You configure it as _"select one value of a target attribute on a target type"_, optionally narrowed by a filter query:
+A dynamic value is not typed by hand. Instead, it is selected from your live infrastructure when the experiment run starts. You configure it as _"select one or more values of a target attribute on a target type"_.
+
+Use dynamic values when the specific value isn't known up front or should adapt to the current state of your infrastructure. For example, you might attack a pod that actually exists at run time rather than hard-coding a name, or vary the affected target between runs.
+
+The configuration consists of:
 
 - Target type — the kind of target to read the value from (e.g., a Kubernetes pod, a host, an AWS EC2 instance).
 - Attribute — the target attribute whose value should be used (e.g., the pod name, host name, or an AWS instance id).
+- Evaluation scope _(only for service variables)_ — whether to sample from the service's own targets or the whole environment (see [Evaluation scope](#evaluation-scope)).
 - Filter _(optional)_ — a query that restricts the candidate targets before a value is picked (e.g., only pods in a certain namespace).
 
 You also control the **cardinality** of the selection, how many of the matching values are picked: a single value or several. When more than one value is selected, the variable carries the whole set. In a blast-radius query such as `... IN ({{var}})` it expands to one comparison value per selected value; where a single string is expected, the selected values are combined into a comma-separated list.
 
-Use dynamic values when the concrete value isn't known up front or should adapt to the current state of your infrastructure, for example, to attack a representative pod that actually exists at run time rather than hard-coding a name, or to vary the affected target between runs.
+#### Evaluation scope
 
-Because a dynamic value depends on the live target index, it is resolved at the start of each run (not at design time). The selected value or values then stay stable for the entire experiment run, every step that references the variable uses the same selection, and the resolution happens again only on the next run. The concrete value that was selected for a given run can be inspected afterward in the [resolved variables](#resolved-variables-in-experiment-run) view.
+For a dynamic value on a [service variable](#service), you additionally choose the **evaluation scope**, i.e. which targets the value is sampled from:
+
+- **Only targets of this service** _(default)_ — only the service's own targets are considered: the service's environment narrowed by the service's [target query](../services/README.md#target-scope).
+- **All targets of this service's environment** — all targets in the environment the service lives in are considered, ignoring the service's query.
+
+The evaluation scope only applies to service variables. For environment, experiment, and run variables, a dynamic value is always sampled from the environment.
+
+#### Run-time resolution
+
+Because a dynamic value depends on the live target index, it is resolved at the start of each run (not at experiment design time). The selected value or values then stay stable for the entire experiment run, every step that references the variable uses the same selection, and the resolution happens again only on the next run. The concrete value that was selected for a given run can be inspected afterward in the [resolved variables](#resolved-variables-in-experiment-run) view.
 
 ![Dynamic Variable Value](./variable-value-settings-dynamic.png)
 
 {% hint style="info" %}
-A dynamic value resolves to a value of the target index. If, at run time, no target matches the configured type and filter, the variable cannot be resolved and the experiment run will report the unresolved variable.
+A dynamic value resolves to a value from the target index. If, at run time, no target matches the configured type and filter, the variable cannot be resolved and the experiment run will report the unresolved variable.
 {% endhint %}
 
 ## Referencing Other Variables
