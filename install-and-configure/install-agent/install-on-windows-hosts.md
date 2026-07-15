@@ -86,7 +86,10 @@ If you need to diagnose issues or review the activity of the agent and its exten
 
 By default, the Steadybit Agent (version 2.2.2 and later) will pick up the Certificates trusted by the system.
 
-If you don't want this, remove the line `-Djavax.net.ssl.trustStoreType=Windows-ROOT` from the file `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\agent.l4j.ini`. Then it will use the JREs (located in `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\jre`) keystore, which can be managed using the keytool.
+If you don't want this, remove the line containing `-Djavax.net.ssl.trustStoreType=Windows-ROOT` from the agent's JVM options file and restart the _SteadybitAgent_ service. It will then use the bundled Java runtime's keystore, which can be managed using `keytool`.
+
+* Recent installers (≥ 2.4.0): the option is a `java-options=…` line in `C:\Program Files\Steadybit GmbH\Steadybit Agent\app\agent.cfg`; the runtime is located at `C:\Program Files\Steadybit GmbH\Steadybit Agent\runtime`.
+* Older installers (< 2.4.0): the option is in `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\agent.l4j.ini`; the runtime is located at `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\jre`.
 
 ## Uninstalling the Steadybit Agent
 
