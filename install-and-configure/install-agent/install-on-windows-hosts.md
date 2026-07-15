@@ -82,11 +82,29 @@ If you need to diagnose issues or review the activity of the agent and its exten
    * The central pane will now display a list of events. Look for entries where the **Source** column might indicate the agent or its extensions (e.g., "Steadybit Agent," or a specific extension name).
    * You can sort by "Date and Time" to find recent events or use the "Filter Current Log..." option in the right-hand pane to narrow down your search (e.g., by Event level like "Error" or "Warning", or by specific Event sources)."
 
+## Java Virtual Machine Options
+
+Additional JVM options — for example to tune the heap size — go into the agent's JVM options file. Edit it and restart the _SteadybitAgent_ service to apply your changes. Its location depends on the installer version:
+
+* Recent installers (≥ 2.4.0): `C:\Program Files\Steadybit GmbH\Steadybit Agent\app\agent.cfg`, with one option per line, each prefixed with `java-options=`:
+
+  ```
+  java-options=-Xms16m
+  java-options=-Xmx1024m
+  ```
+
+* Older installers (< 2.4.0): `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\agent.l4j.ini`, with one option per line:
+
+  ```
+  -Xms16m
+  -Xmx1024m
+  ```
+
 ## Certificates
 
 By default, the Steadybit Agent (version 2.2.2 and later) will pick up the Certificates trusted by the system.
 
-If you don't want this, remove the line `-Djavax.net.ssl.trustStoreType=Windows-ROOT` from the file `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\agent.l4j.ini`. Then it will use the JREs (located in `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\jre`) keystore, which can be managed using the keytool.
+If you don't want this, remove the option `-Djavax.net.ssl.trustStoreType=Windows-ROOT` from the agent's [JVM options file](#java-virtual-machine-options) and restart the _SteadybitAgent_ service. It will then use the bundled Java runtime's keystore, which can be managed using `keytool`. The runtime is located at `C:\Program Files\Steadybit GmbH\Steadybit Agent\runtime` (≥ 2.4.0) or `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\jre` (< 2.4.0).
 
 ## Uninstalling the Steadybit Agent
 
