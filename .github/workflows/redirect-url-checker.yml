@@ -18,14 +18,11 @@ jobs:
         if: "!cancelled()"
 
       - name: Notify Slack channel
-        uses: 8398a7/action-slack@1750b5085f3ec60384090fb7c52965ef822e869e # v3.18.9
+        uses: act10ns/slack@d96404edccc6d6467fc7f8134a420c851b1e9054 # v2.2.0
         with:
           channel: '#test-docs'
           status: ${{ job.status }}
-          text: Found broken redirects in docs
-          fields: workflow,action
-          author_name: github
+          message: "Found broken redirects in docs"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # required
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
         if: failure()

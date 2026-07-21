@@ -67,7 +67,7 @@ Your data is **not used to train any models** — this is covered by our [data p
 **On-prem:** processing happens through your own chosen AI provider.
 No data ever leaves your infrastructure — neither to a Steadybit-hosted service nor to any other AI provider.
 
-Chat history is retained for a limited time (30 days by default) and can be cleared at any time with **Clear chat now**.
+Chat history is retained for a limited time (30 days by default), and you can [delete any individual chat](#work-with-your-chat-history) at any time.
 On-prem, retention periods are [configurable](../../install-and-configure/install-on-prem-platform/advanced-configuration.md#steadybuddy).
 
 ## What You Can Do
@@ -104,6 +104,22 @@ Ask questions like *"Why did my last experiment fail?"*.
 SteadyBuddy reads the relevant run data and explains what happened, grounding its answer in the actual execution results rather than guessing.
 
 ![SteadyBuddy chat conversation showing an analysis of a failed experiment run](chat-experiment-run-analysis.png)
+
+### Work With Your Chat History
+
+SteadyBuddy keeps a history of your past conversations in a collapsible sidebar on the left.
+Use the panel toggle to show or hide it, and **New chat** to start a fresh conversation at any time.
+
+Your previous conversations appear under **Recent chats**. From there you can:
+
+- **Open** any past chat to continue where you left off.
+- **Rename** a chat to give it a more descriptive title — hover over an entry and open its **⋯** menu, then choose **Rename**.
+- **Delete chat** from the same **⋯** menu to remove a conversation you no longer need.
+- **Search** across your chats to quickly find a specific conversation by its title.
+
+![SteadyBuddy search across the chat history](chat-search.png)
+
+Your chat history is scoped to you and your currently selected team, and follows the same [retention rules](#data-processing-and-privacy) as the rest of SteadyBuddy.
 
 ### Usage Limits
 
