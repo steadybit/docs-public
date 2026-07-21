@@ -73,9 +73,9 @@ Doing so will open a modal where you can specify new values for each used variab
 
 Alternatively, you can define different overrides for different experiment schedules, see [experiment schedules](schedule/)
 
-## Fixed and Dynamic Values
+## Value Settings
 
-Independent of its scope, every variable (environment, service, or experiment) holds either a fixed or a dynamic value. You choose the kind in the variable's value settings dialog, reachable via the settings icon next to the value field.
+Independent of its scope, every variable (environment, service, or experiment) holds one of three kinds of value: a single **fixed value**, a **list of fixed values**, or a **dynamic value**. You choose the kind in the variable's value settings dialog, reachable via the settings icon next to the value field.
 
 ![Variable Value Settings](./variable-value-settings.png)
 
@@ -86,7 +86,20 @@ A fixed value is a constant string you type yourself. It resolves to exactly tha
 
 Use a fixed value for stable, well-known configuration, for example a Kubernetes cluster name, an HTTP base URL, or a fixed duration like `30s`.
 
-![Fixed Variable Value](./variable-value-settings-fixed.png)
+![Fixed Value](./variable-value-settings-fixed.png)
+
+### List of Fixed Values
+
+A variable can also hold several fixed values at once. Pick _"List of fixed values"_ in the value settings dialog and add each value as its own entry.
+
+A list behaves like a multi-value [dynamic value](#dynamic-value), but the values are known at design time instead of being selected from your infrastructure:
+
+- In a blast-radius query such as `... IN ({{var}})` the variable expands to one comparison value per entry, so the query matches _any_ of them. For example, a variable `{{deployments}}` with the values `gateway`, `hot-deals`, and `fashion-bestseller` used as `k8s.deployment IN ({{deployments}})` matches all three deployments.
+- Where a single string is expected (for example a step parameter or a message), the entries are combined into a comma-separated list.
+
+Add the values as separate entries rather than typing one comma-separated string, a single fixed value is always treated as one literal (so a value may itself contain commas, spaces, or other punctuation without being split).
+
+![List of Fixed Values](./variable-value-settings-fixed-list.png)
 
 ### Dynamic Value
 
@@ -116,7 +129,7 @@ The evaluation scope only applies to service variables. For environment, experim
 
 Because a dynamic value depends on the live target index, it is resolved at the start of each run (not at experiment design time). The selected value or values then stay stable for the entire experiment run, every step that references the variable uses the same selection, and the resolution happens again only on the next run. The concrete value that was selected for a given run can be inspected afterward in the [resolved variables](#resolved-variables-in-experiment-run) view.
 
-![Dynamic Variable Value](./variable-value-settings-dynamic.png)
+![Dynamic Value](./variable-value-settings-dynamic.png)
 
 {% hint style="info" %}
 A dynamic value resolves to a value from the target index. If, at run time, no target matches the configured type and filter, the variable cannot be resolved and the experiment run will report the unresolved variable.

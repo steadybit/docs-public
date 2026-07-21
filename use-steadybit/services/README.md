@@ -162,9 +162,11 @@ For example, add `OR datadog.monitor.tags="env:stage"` when using Datadog Monito
 
 Service variables can be used to abstract and align common properties throughout all experiments of the service. In this functionality they extend or override [variables of the associated environment](../../install-and-configure/manage-environments/README.md#environment-variables), and can themselves be overridden by experiment variables or per-run overrides.
 
-They apply to both the experiments provided by the service and custom experiments linked to it, and can also be referenced inside this service's [validations](#validations). Like other variables, a service variable can hold a [fixed or a dynamic value](../../use-steadybit/experiments/variables.md#fixed-and-dynamic-values). For a dynamic value, you also choose its [evaluation scope](../../use-steadybit/experiments/variables.md#evaluation-scope) — whether it is sampled from the service's own [target scope](#target-scope) (the default) or from the whole environment the service lives in.
+They apply to both the experiments provided by the service and custom experiments linked to it, and can also be referenced inside this service's [validations](#validations).
+Like other variables, a service variable can have [different value configurations](../../use-steadybit/experiments/variables.md#value-settings).
+For a dynamic value, you also choose its [evaluation scope](../../use-steadybit/experiments/variables.md#evaluation-scope) — whether it is sampled from the service's own [target scope](#target-scope) (the default) or from the whole environment the service lives in.
 
-You can [learn more in the experiment's variable section](../../use-steadybit/experiments/variables.md#service).
+You can [learn more in the variable section](../../use-steadybit/experiments/variables.md#service).
 
 ![Editing service's variables](./service-edit-variables.png)
 
