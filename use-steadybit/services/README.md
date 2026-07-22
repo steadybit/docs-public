@@ -164,6 +164,7 @@ Service variables can be used to abstract and align common properties throughout
 
 They apply to both the experiments provided by the service and custom experiments linked to it, and can also be referenced inside this service's [validations](#validations).
 Like other variables, a service variable can have [different value configurations](../../use-steadybit/experiments/variables.md#value-settings).
+
 For a dynamic value, you also choose its [evaluation scope](../../use-steadybit/experiments/variables.md#evaluation-scope) — whether it is sampled from the service's own [target scope](#target-scope) (the default) or from the whole environment the service lives in.
 
 You can [learn more in the variable section](../../use-steadybit/experiments/variables.md#service).
