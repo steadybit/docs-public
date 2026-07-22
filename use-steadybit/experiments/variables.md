@@ -143,13 +143,11 @@ As a result the target counts per step, the _show targets_ list, and the sampled
 
 The sampled values are shown directly under the variable's definition in the variables popup:
 
-<!-- TODO screenshot: variables popup showing the sampled values beneath a dynamic variable -->
+![Variables popup showing the sampled values beneath a dynamic variable](variables-dropdown-sample.png)
 
 This sample is only a design-time preview, it is never saved with the experiment.
 To draw a fresh sample at any time, use **Resample dynamic variable values** in the variables popup.
 Editing a dynamic value re-samples only that variable, so the sampled values for the other variables stay stable.
-
-<!-- TODO screenshot: "Resample dynamic variable values" action in the variables popup -->
 
 Each run still selects its values independently when it starts (see above), so the preview shows a representative selection, not necessarily the values a future run will use, unless you deliberately run with the previewed sample (see [Run with sample values](#run-with-sample-values)).
 
@@ -158,12 +156,12 @@ Each run still selects its values independently when it starts (see above), so t
 The primary _Run Experiment_ button lets each run pick its own dynamic values at start.
 If you instead want to run the experiment with exactly the sample values in the editor, open the split button next to _Run Experiment_ and choose **Run with sample values**.
 
-<!-- TODO screenshot: Run Experiment split button with the "Run with sample values" option -->
+![Run Experiment split button with the 'Run with sample values' option](variables-run-experiment-split-button.png)
 
 A dialog lists the dynamic variables in use together with their current sample values and starts a single run pinned to exactly those values.
 You can draw a fresh sample from within the dialog before running.
 
-<!-- TODO screenshot: "Run with sample values" dialog listing variables in use and their sample values -->
+!['Run with sample values' dialog listing variables in use and their sample values](variables-run-with-sample-values.png)
 
 ## Referencing Other Variables
 
