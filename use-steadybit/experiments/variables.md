@@ -65,7 +65,7 @@ An experiment-scoped variable can shadow variables in an outer scope (i.e., a se
 
 For single experiment runs you can override used variables. Doing so, will apply different values, which can be defined by the user. The overrides are just applied of a single run. To do so, access the modal through the `Run Experiment` button in the editor.
 
-![How to access experiment overrides](../../.gitbook/assets/experiment-run-with-overrides.png)
+![How to access experiment overrides](variables-run-experiment-split-button.png)
 
 Doing so will open a modal where you can specify new values for each used variable. Experiment variable overrides will only be applied for this specific run. After the run was triggered, overrides are gone and environment/service/experiment variable values are applied again.
 
