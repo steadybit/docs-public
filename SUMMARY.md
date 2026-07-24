@@ -86,6 +86,7 @@
 * [API](integrate-with-steadybit/api/api.md)
   * [Interactive API Documentation](https://platform.steadybit.com/api/swagger)
 * [CLI](integrate-with-steadybit/cli.md)
+* [Remote MCP Server](integrate-with-steadybit/remote-mcp-server.md)
 * [Experiment Badges](integrate-with-steadybit/badges/README.md)
 * [Extensions](integrate-with-steadybit/extensions/README.md)
   * [Anatomy of an Extension](integrate-with-steadybit/extensions/anatomy-of-an-extension.md)
