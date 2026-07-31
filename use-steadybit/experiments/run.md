@@ -25,6 +25,7 @@ The run view itself consists of the following elements.
 * **Kubernetes Event Log**: When using an experiment in a Kubernetes context we provide you access to the Kubernetes Events so that you can identify what exactly happens in the Kubernetes cluster.
 * **HTTP Call**: If your experiment contains a `HTTP Call`-action you can see the response time as well as HTTP response status as a separate widget in the run window.
 * **Monitoring Events**: In case your admin has installed a monitoring extension to Steadybit ( see [monitoring extensions in Reliability Hub](https://hub.steadybit.com/extensions?tags=Monitoring)) you can see occurring events and alerts of your setup directly in the run view.
+* **Run Analysis**: If [SteadyBuddy](../steadybuddy/README.md) is enabled, a failed or errored run offers to explain itself — verdict, root cause, a judgement on your hypothesis, and a recommendation. See [analyze an experiment run](../steadybuddy/README.md#analyze-an-experiment-run).
 
 ### Run Modal
 
