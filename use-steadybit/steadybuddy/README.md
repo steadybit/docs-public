@@ -53,6 +53,27 @@ On-prem deployments run against your own AI provider.
 
 See [configuration options / AI](../../install-and-configure/install-on-prem-platform/advanced-configuration.md#steadybuddy) for the provider, model, and retention settings.
 
+## Where to Use SteadyBuddy
+
+There are two ways to talk to SteadyBuddy:
+
+- **The SteadyBuddy sidebar** — available on every page via **Ask SteadyBuddy** at the bottom of the screen. It stays open while you navigate, so you can keep a conversation running next to whatever you are looking at.
+- **The SteadyBuddy page** — open it from the navigation for a full-width chat. Use this when the assistant is your starting point rather than your companion.
+
+Some pages give the conversation a context to work with, shown as a pill above the message box:
+
+| Page                  | What SteadyBuddy knows          |
+|-----------------------|---------------------------------|
+| An experiment run     | The run and its experiment      |
+| An experiment design  | The experiment being designed   |
+| A service's detail    | The service                     |
+
+With a context in place you can just ask *"Why did this fail?"* without naming the run. Remove the pill if you want to ask something unrelated.
+
+**Ask SteadyBuddy** always starts a new conversation. To continue an earlier one, use the chat history in the sidebar's bottom bar, or open the SteadyBuddy page.
+
+![SteadyBuddy sidebar generating experiment suggestions for a service](sidebar-service-suggestions.png)
+
 ## Data Processing and Privacy
 
 SteadyBuddy only sends the context needed to answer your request.
