@@ -74,12 +74,19 @@ On-prem, retention periods are [configurable](../../install-and-configure/instal
 
 ### Get Experiment Suggestions
 
-Pick an environment and SteadyBuddy analyzes the targets it contains to propose ready-to-run experiment ideas tailored to what it finds.
+Ask SteadyBuddy what to test and it analyzes the targets it finds to propose ready-to-run experiment ideas.
 Each suggestion comes with a short description and a **More details** view; from there you can **Build experiment** to open it in the editor.
 
-Use this when you are getting started in a new environment, or need guidance on what to test next.
+Use this when you are getting started in a new environment or with a new service, or need guidance on what to test next.
+
+You can scope suggestions in two ways:
+
+**For an environment** — on the SteadyBuddy page, pick an environment and SteadyBuddy proposes experiments for the targets it contains.
 
 ![SteadyBuddy showing experiment suggestions for the selected environment](experiment-suggestions.png)
+
+**For a service** — on a [service's detail page](../services/README.md#service-detail), use **Get suggestions** in the SteadyBuddy banner (or **Suggest experiments for this service** in the sidebar).
+The suggestions are scoped to that service's targets and its environment, and appear in the sidebar next to the service, so you can compare them against the service's existing [provided](../services/README.md#provided-experiments) and [custom experiments](../services/README.md#custom-experiments) without leaving the page.
 
 Experiment suggestions use the same flow described in [the following section](#create-experiments-from-scratch-via-chat).
 
@@ -107,8 +114,9 @@ SteadyBuddy reads the relevant run data and explains what happened, grounding it
 
 ### Work With Your Chat History
 
-SteadyBuddy keeps a history of your past conversations in a collapsible sidebar on the left.
-Use the panel toggle to show or hide it, and **New chat** to start a fresh conversation at any time.
+SteadyBuddy keeps a history of your past conversations.
+On the SteadyBuddy page it lives in a collapsible panel on the left — use the panel toggle to show or hide it, and **New chat** to start a fresh conversation at any time.
+In the [sidebar](#where-to-use-steadybuddy), the same history is reachable from the bottom bar.
 
 Your previous conversations appear under **Recent chats**. From there you can:
 
