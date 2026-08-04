@@ -57,7 +57,7 @@ The state from a lower level is propagated to the upper level, as described [bel
 Experiment runs is in one of the following states:
 
 | State     | Description                                                                                                                                                                                                                                                               |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | REQUESTED | The experiment was requested by a user, api call or a schedule.                                                                                                                                                                                                           |
 | CREATED   | The experiment was created and all targets were resolved.                                                                                                                                                                                                                 |
 | PREPARED  | The experiment is prepared, all preflight checks were successful, and agents are ready to execute the needed actions.                                                                                                                                                     |
@@ -73,16 +73,16 @@ In case an agent looses the connection to the platform during an experiment, it 
 
 Every step that is executed as part of an experiment run is in one of the following states:
 
-| State     | Description                                                                                                                                                                                                    |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CREATED   | All targets of the step have been resolved.                                                                                                                                                                    |
-| PREPARED  | Agents for all resolved targets are connected and ready to execute the step's action as soon as it's the step's turn in the designed experiment timeline.                                                      |
-| RUNNING   | The step's action is currently executed on all targets.                                                                                                                                                        |
-| COMPLETED | The step's action was successfully executed on all targets - no failure or error.                                                                                                                              |
-| CANCELED  | The step was running before and has now been canceled, either by a user canceling the entire experiment run or by the system (e.g. when another step running in parallel caused the experiment to stop early). |
-| SKIPPED   | The step was never executed, because the experiment was stopped before.                                                                                                                                        |
-| FAILED    | The step's action noticed a failed check, such as an _HTTP Check_ that did not reach the required success rate.                                                                                                |
-| ERRORED   | The step's action errored due to some technical reasons, such as `I/O error on POST request: Connection refused` or `Agent disconnected unexpectedly`.                                                         |
+| State     | Description                                                                                                                                                                                                                                                        |
+|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CREATED   | All targets of the step have been resolved.                                                                                                                                                                                                                        |
+| PREPARED  | Agents for all resolved targets are connected and ready to execute the step's action as soon as it's the step's turn in the designed experiment timeline.                                                                                                          |
+| RUNNING   | The step's action is currently executed on at least one target. Targets may start at different times, so a step becomes `RUNNING` as soon as its first target execution starts.                                                                                    |
+| COMPLETED | The step's action was successfully executed on all targets - no failure or error.                                                                                                                                                                                  |
+| CANCELED  | The step was running before - i.e., at least one target execution had started - and has now been canceled, either by a user canceling the entire experiment run or by the system (e.g. when another step running in parallel caused the experiment to stop early). |
+| SKIPPED   | The step's action was never executed, because the experiment was stopped before.                                                                                                                                                                                   |
+| FAILED    | The step failed because of a failed check, such as an _HTTP Check_ that did not reach the required success rate, or because it had no matching targets anymore.                                                                                                    |
+| ERRORED   | The step's action errored due to some technical reasons, such as `I/O error on POST request: Connection refused` or `Agent disconnected unexpectedly`.                                                                                                             |
 
 ### Target Execution
 
@@ -91,7 +91,7 @@ For every step, there are single or multiple target executions. The actual numbe
 Each target execution is in one of the following states:
 
 | State     | Description                                                                                                                                                                                                                                                                           |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | CREATED   | The target was selected to be attacked in an experiment run's step.                                                                                                                                                                                                                   |
 | PREPARED  | The agent, that discovered the selected target, is connected.                                                                                                                                                                                                                         |
 | RUNNING   | The action is currently executed on the selected target.                                                                                                                                                                                                                              |
@@ -104,6 +104,8 @@ Each target execution is in one of the following states:
 ### State Propagation
 
 The different levels of states (**experiment run**, **step**, **target execution**) can be propagated to higher levels (e.g., state `FAILED` at target execution level is propagated to step being `FAILED` and experiment run being `FAILED`). But also change the states of adjacent instances of the same level (i.e., a `FAILED` step causes subsequent steps to be `SKIPPED`) and level below (i.e., for a `SKIPPED` step all target executions are in the `SKIPPED` state as well).
+
+A step and its target executions therefore always agree on whether anything was actually executed: a step is only `CANCELED` if at least one of its target executions was `RUNNING`. If none of them ever started, the step and all of its target executions are `SKIPPED` - even if the action had already been sent to the agents.
 
 #### Example: State Propagation
 
