@@ -55,6 +55,8 @@ Linked experiments appear alongside the provided experiments, giving your team a
 
 You can use the `Service Validation` step inside a custom experiment, to reuse service's validations or use other actions (e.g. checks, or load tests) to validate your infrastructure's behavior.
 
+If you are unsure what else is worth testing for this service, use **Get suggestions** in the SteadyBuddy banner to let [SteadyBuddy propose experiments](../steadybuddy/README.md#get-experiment-suggestions) based on the service's targets.
+
 ### Advice
 
 The **advice** tab surfaces reliability recommendations for the targets within your service's scope.

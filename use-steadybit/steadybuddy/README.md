@@ -53,6 +53,27 @@ On-prem deployments run against your own AI provider.
 
 See [configuration options / AI](../../install-and-configure/install-on-prem-platform/advanced-configuration.md#steadybuddy) for the provider, model, and retention settings.
 
+## Where to Use SteadyBuddy
+
+There are two ways to talk to SteadyBuddy:
+
+- **The SteadyBuddy sidebar** — available on every page via **Ask SteadyBuddy** at the bottom of the screen. It stays open while you navigate, so you can keep a conversation running next to whatever you are looking at.
+- **The SteadyBuddy page** — open it from the navigation for a full-width chat. Use this when the assistant is your starting point rather than your companion.
+
+Some pages give the conversation a context to work with, shown as a pill above the message box:
+
+| Page                  | What SteadyBuddy knows          |
+|-----------------------|---------------------------------|
+| An experiment run     | The run and its experiment      |
+| An experiment design  | The experiment being designed   |
+| A service's detail    | The service                     |
+
+With a context in place you can just ask *"Why did this fail?"* without naming the run. Remove the pill if you want to ask something unrelated.
+
+**Ask SteadyBuddy** always starts a new conversation. To continue an earlier one, use the chat history in the sidebar's bottom bar, or open the SteadyBuddy page.
+
+![SteadyBuddy sidebar generating experiment suggestions for a service](sidebar-service-suggestions.png)
+
 ## Data Processing and Privacy
 
 SteadyBuddy only sends the context needed to answer your request.
@@ -74,12 +95,19 @@ On-prem, retention periods are [configurable](../../install-and-configure/instal
 
 ### Get Experiment Suggestions
 
-Pick an environment and SteadyBuddy analyzes the targets it contains to propose ready-to-run experiment ideas tailored to what it finds.
+Ask SteadyBuddy what to test and it analyzes the targets it finds to propose ready-to-run experiment ideas.
 Each suggestion comes with a short description and a **More details** view; from there you can **Build experiment** to open it in the editor.
 
-Use this when you are getting started in a new environment, or need guidance on what to test next.
+Use this when you are getting started in a new environment or with a new service, or need guidance on what to test next.
+
+You can scope suggestions in two ways:
+
+**For an environment** — on the SteadyBuddy page, pick an environment and SteadyBuddy proposes experiments for the targets it contains.
 
 ![SteadyBuddy showing experiment suggestions for the selected environment](experiment-suggestions.png)
+
+**For a service** — on a [service's detail page](../services/README.md#service-detail), use **Get suggestions** in the SteadyBuddy banner (or **Suggest experiments for this service** in the sidebar).
+The suggestions are scoped to that service's targets and its environment, and appear in the sidebar next to the service, so you can compare them against the service's existing [provided](../services/README.md#provided-experiments) and [custom experiments](../services/README.md#custom-experiments) without leaving the page.
 
 Experiment suggestions use the same flow described in [the following section](#create-experiments-from-scratch-via-chat).
 
@@ -107,8 +135,9 @@ SteadyBuddy reads the relevant run data and explains what happened, grounding it
 
 ### Work With Your Chat History
 
-SteadyBuddy keeps a history of your past conversations in a collapsible sidebar on the left.
-Use the panel toggle to show or hide it, and **New chat** to start a fresh conversation at any time.
+SteadyBuddy keeps a history of your past conversations.
+On the SteadyBuddy page it lives in a collapsible panel on the left — use the panel toggle to show or hide it, and **New chat** to start a fresh conversation at any time.
+In the [sidebar](#where-to-use-steadybuddy), the same history is reachable from the bottom bar.
 
 Your previous conversations appear under **Recent chats**. From there you can:
 
