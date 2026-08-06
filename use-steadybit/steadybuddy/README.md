@@ -134,9 +134,9 @@ SteadyBuddy's run analysis adds the *why*.
 When a run fails or errors, the run page offers to explain it. One click and SteadyBuddy reads the actual execution results and answers in a fixed, scannable shape:
 
 - **Verdict** — one sentence: what failed, and at which check.
-- **Root cause** — the causal chain, making the crucial distinction explicit: the attack usually worked exactly as intended, and the failure is in how your system responded to it.
+- **Root cause** — the causal chain: for a **failure**, why your system's reliability fell short of your expectations; for an **error**, why Steadybit itself couldn't run an action.
 - **Hypothesis** — a judgement on whether your hypothesis held. If the experiment carried no hypothesis, SteadyBuddy derives one from the design and labels it as derived.
-- **Recommendation** — what to do about it.
+- **Recommendation** — one concrete step to improve your system's reliability: the fix to apply, plus a re-run at the same blast radius to confirm it.
 
 A few things worth knowing:
 
