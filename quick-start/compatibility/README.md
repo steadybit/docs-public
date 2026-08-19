@@ -519,7 +519,8 @@ Triggering a Steadybit experiment from a CI/CD pipeline works with all products 
 
 ## Java Virtual Machine (JVM) / Spring Applications
 
-Steadybit supports the following application-level faults for JVM- and Spring-based applications. These don't require any dependency at work at runtime via bytecode manipulation.
+Steadybit supports the following application-level faults for JVM- and Spring-based applications.
+These don't require any dependency and work at runtime via bytecode manipulation.
 
 |                 | Spring Controller Delay | Spring Controller Exception | HTTP Client Delay | HTTP Client Status | Method Delay | Method Exception | JDBC Template Delay | JDBC Template Exception |
 |-----------------|-------------------------|-----------------------------|-------------------|--------------------|--------------|------------------|---------------------|-------------------------|
