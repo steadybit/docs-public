@@ -128,10 +128,26 @@ The experiment draft must be saved manually before it appears in the Experiments
 
 ### Analyze an Experiment Run
 
-Ask questions like *"Why did my last experiment fail?"*.
-SteadyBuddy reads the relevant run data and explains what happened, grounding its answer in the actual execution results rather than guessing.
+The [run view](../experiments/run.md#run-view) shows you *what* happened — every step, target, timing, metric and log line.
+SteadyBuddy's run analysis adds the *why*.
 
-![SteadyBuddy chat conversation showing an analysis of a failed experiment run](chat-experiment-run-analysis.png)
+When a run fails or errors, the run page offers to explain it. One click and SteadyBuddy reads the actual execution results and answers in a fixed, scannable shape:
+
+- **Verdict** — one sentence: what failed, and at which check.
+- **Root cause** — the causal chain: for a **failure**, why your system's reliability fell short of your expectations; for an **error**, why Steadybit itself couldn't run an action.
+- **Hypothesis** — if the experiment carries a hypothesis, a judgement on whether it held.
+- **Recommendation** — one concrete step to improve your system's reliability: the fix to apply, plus a re-run at the same blast radius to confirm it.
+
+A few things worth knowing:
+
+- The analysis is **computed once per run and stored with it**. Reopening the run — or a colleague opening it — shows the same analysis, and asking for it again in the chat reuses the existing one instead of producing a second opinion.
+- Analysis runs in the background. Everyone with the run open sees it appear without refreshing.
+- You can collapse the panel; that choice is remembered for that run.
+- Runs that passed or were canceled do not advertise an analysis, but you can still ask for one in the chat.
+
+You can also ask in your own words — *"Why did my last experiment fail?"* — either in the sidebar on the run itself or on the SteadyBuddy page.
+
+![Run page panel showing a structured AI analysis of a failed experiment run — verdict, root cause, hypothesis and recommendation](experiment-run-analysis.png)
 
 ### Work With Your Chat History
 
