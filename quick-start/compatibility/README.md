@@ -18,7 +18,7 @@ The following capabilities are available when targeting containers, running stan
 | CRI-O                                          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | containerd                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | Kubernetes                                     | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
-| Red Hat OpenShift                              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
+| Red Hat OpenShift[^8]                          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | AWS Elastic Kubernetes Service (EKS)           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | AWS Elastic Container Service (ECS) on EC2[^1] | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | AWS Elastic Container Service (ECS) on Fargate | ✅         | ✅             | ❌                         | ✅                      | ✅                     | ❌                        | ❌                   | ❌         |
@@ -35,7 +35,7 @@ The following capabilities are available when targeting containers, running stan
 | CRI-O                                          | ✅         | ✅           | ✅          | ✅         | ✅             |
 | containerd                                     | ✅         | ✅           | ✅          | ✅         | ✅             |
 | Kubernetes                                     | ✅         | ✅           | ✅          | ✅         | ✅             |
-| Red Hat OpenShift                              | ✅         | ✅           | ✅          | ✅         | ✅             |
+| Red Hat OpenShift[^8]                          | ✅         | ✅           | ✅          | ✅         | ✅             |
 | AWS Elastic Kubernetes Service (EKS)           | ✅         | ✅           | ✅          | ✅         | ✅             |
 | AWS Elastic Container Service (ECS) on EC2[^1] | ✅         | ✅           | ✅          | ✅         | ✅             |
 | AWS Elastic Container Service (ECS) on Fargate | ✅         | ❌           | ✅          | ✅         | ✅             |
@@ -52,7 +52,7 @@ The following capabilities are available when targeting containers, running stan
 | CRI-O                                          | ✅               | ✅              |
 | containerd                                     | ✅               | ✅              |
 | Kubernetes                                     | ✅               | ✅              |
-| Red Hat OpenShift                              | ✅               | ✅              |
+| Red Hat OpenShift[^8]                          | ✅               | ✅              |
 | AWS Elastic Kubernetes Service (EKS)           | ✅               | ✅              |
 | AWS Elastic Container Service (ECS) on EC2[^1] | ✅               | ✅              |
 | AWS Elastic Container Service (ECS) on Fargate | ❌               | ✅              |
@@ -80,7 +80,7 @@ On top, Steadybit supports attacks based on the Kubernetes API:
 |                                           | Cause Crash Loop | Delete Pod | Drain Node | Rollout Restart Deployment | Rollout Restart Argo | Scale Deployment | Scale ReplicaSet | Scale StatefulSet | Set Image | Taint Node |
 |-------------------------------------------|------------------|------------|------------|----------------------------|----------------------|------------------|------------------|-------------------|-----------|------------|
 | Kubernetes                                | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
-| Red Hat OpenShift                         | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
+| Red Hat OpenShift[^8]                     | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
 | AWS Elastic Kubernetes Service (EKS)      | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
 | Google Kubernetes Engine (GKE)            | ✅                | ✅          | ✅          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ✅          |
 | Google Kubernetes Engine (GKE, Autopilot) | ✅                | ✅          | ❌          | ✅                          | ✅                    | ✅                | ✅                | ✅                 | ✅         | ❌          |
@@ -92,7 +92,7 @@ On top, Steadybit supports attacks based on the Kubernetes API:
 |                                           | DaemonSet Pod Count | Deployment Pod Count | Deployment Rollout Status | Node Count | ReplicaSet Pod Count | StatefulSet Pod Count |
 |-------------------------------------------|---------------------|----------------------|---------------------------|------------|----------------------|-----------------------|
 | Kubernetes                                | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
-| Red Hat OpenShift                         | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
+| Red Hat OpenShift[^8]                     | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
 | AWS Elastic Kubernetes Service (EKS)      | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
 | Google Kubernetes Engine (GKE)            | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
 | Google Kubernetes Engine (GKE, Autopilot) | ✅                   | ✅                    | ✅                         | ✅          | ✅                    | ✅                     |
@@ -104,7 +104,7 @@ On top, Steadybit supports attacks based on the Kubernetes API:
 |                                           | Display Pod Count Metrics | Display Kubernetes Event Logs |
 |-------------------------------------------|---------------------------|-------------------------------|
 | Kubernetes                                | ✅                         | ✅                             |
-| Red Hat OpenShift                         | ✅                         | ✅                             |
+| Red Hat OpenShift[^8]                     | ✅                         | ✅                             |
 | AWS Elastic Kubernetes Service (EKS)      | ✅                         | ✅                             |
 | Google Kubernetes Engine (GKE)            | ✅                         | ✅                             |
 | Google Kubernetes Engine (GKE, Autopilot) | ✅                         | ✅                             |
@@ -570,3 +570,5 @@ Steadybit integrates with the following load- and API-testing solutions:
 [^5]: Experiments can be triggered from tests using Steadybit's HTTP API.
 
 [^7]: Steadybit integrates with New Relic's Workload and Incident alerting.
+
+[^8]: Tested with OpenShift 4.18, 4.20, and 4.22. Other versions may work as well, but aren't explicitly tested yet.
