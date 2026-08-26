@@ -34,6 +34,16 @@ The platform itself exposes the following ports:
 * Port `8080`: Application port for UI/API/agents
 * Port `7878`: Websocket port for agents
 
+### Database
+
+The platform needs a PostgreSQL 15 database. For a quick evaluation the Helm chart can deploy one for you (see [Step 2](./#step-2-deploy-platform)); for productive usage bring your own PostgreSQL instance. In that case prepare the following before the first start:
+
+* An empty database (e.g. `steadybitdb`) and an application user for the platform. The user does **not** need to be a superuser, but it must be allowed to `CONNECT` to and `CREATE` schemas in that database: the platform creates the schemas `steadybit` and `sb_onprem` on startup and owns all objects inside them.
+* The PostgreSQL extensions `pg_trgm`, `btree_gin`, `uuid-ossp` and `pg_stat_statements` in the `public` schema. The platform installs missing ones itself if the user has `CREATE` on schema `public`, except for `pg_stat_statements`, which only a superuser can install. If you don't run the platform with a superuser, install the extensions beforehand.
+* Database and platform clocks in sync.
+
+The exact `GRANT` and `CREATE EXTENSION` statements are listed under [Database Permissions](advanced-configuration.md#database-permissions).
+
 ## Step 1 - Get your keys
 
 To install the platform on-premise and connect the agents against it you need an agent key and a valid license.\
@@ -93,7 +103,7 @@ As mentioned above, this getting started helped to set up quickly a Steadybit pl
 
 Before using Steadybit
 
-* configure your own Postgres database as [described here](advanced-configuration.md#database-configuration).
+* configure your own Postgres database as [described here](advanced-configuration.md#database-configuration) and make sure the database user has the [required permissions](advanced-configuration.md#database-permissions).
 * we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](advanced-configuration.md#ldap-authentication).
 
 ### Advanced Configuration
