@@ -60,8 +60,6 @@ Consequently the database user does not need to be a superuser, but it needs the
 
 **Extensions.** `CREATE EXTENSION` is skipped for extensions that already exist, so you can either pre-install them or let the platform do it. Both `pg_trgm` and `btree_gin` are [trusted extensions](https://www.postgresql.org/docs/current/sql-createextension.html), i.e. the platform can install them itself as long as the user has `CREATE` on the database and on schema `public`. A superuser is not required at any point.
 
-Older platform releases additionally created the `uuid-ossp` and `pg_stat_statements` extensions, the latter of which only a superuser can install. Neither is needed anymore: UUIDs are generated with the built-in `gen_random_uuid()`, and `pg_stat_statements` was never queried by the platform. If you upgrade from such a release, the two extensions stay installed but unused; you can leave them in place or drop them.
-
 The recommended setup for an application user without `CREATE` on `public` is to run the following once as a privileged user, after which the application user only needs the grants from the table above:
 
 ```sql
