@@ -46,7 +46,7 @@ On startup the platform creates and migrates its own database objects; nothing h
 
 * `CREATE SCHEMA IF NOT EXISTS steadybit` — shared, non-tenant data (users, sessions, background jobs)
 * `CREATE SCHEMA IF NOT EXISTS sb_onprem` — tenant data (experiments, targets, executions, ...)
-* `CREATE EXTENSION IF NOT EXISTS ... SCHEMA public` for `pg_trgm`, `btree_gin`, `uuid-ossp` and `pg_stat_statements`
+* `CREATE EXTENSION IF NOT EXISTS ... SCHEMA public` for `pg_trgm` and `btree_gin`
 * all tables, indexes, functions and triggers inside the two schemas (including migrations on upgrades and the indexes created by the [Target Index Advisor](#target-index-advisor))
 
 Consequently the database user does not need to be a superuser, but it needs the following privileges. Replace `<steadybitdb>` and `<user>` with your database name and application user:
@@ -58,18 +58,15 @@ Consequently the database user does not need to be a superuser, but it needs the
 | `GRANT USAGE ON SCHEMA public TO <user>;`            | Access to the extension functions and operators installed in `public`. Granted to every user by default; listed here for hardened setups that revoked it.                                                                                                                                                                                              |
 | `GRANT CREATE ON SCHEMA public TO <user>;`           | Only needed if the platform should install the extensions itself (see below). Since PostgreSQL 15 `CREATE` on `public` is no longer granted to every user by default, only to the database owner.                                                                                                                                                       |
 
-**Extensions.** `CREATE EXTENSION` is skipped for extensions that already exist, so you can either pre-install them or let the platform do it:
+**Extensions.** `CREATE EXTENSION` is skipped for extensions that already exist, so you can either pre-install them or let the platform do it. Both `pg_trgm` and `btree_gin` are [trusted extensions](https://www.postgresql.org/docs/current/sql-createextension.html), i.e. the platform can install them itself as long as the user has `CREATE` on the database and on schema `public`. A superuser is not required at any point.
 
-* `pg_trgm`, `btree_gin` and `uuid-ossp` are [trusted extensions](https://www.postgresql.org/docs/current/sql-createextension.html), i.e. the platform can install them itself as long as the user has `CREATE` on the database and on schema `public`.
-* `pg_stat_statements` is **not** a trusted extension and can only be installed by a superuser (or, on managed services such as AWS RDS, by the master user / a member of `rds_superuser`). If your application user is not a superuser, install it beforehand: `CREATE EXTENSION IF NOT EXISTS pg_stat_statements SCHEMA public;`. Otherwise the very first schema migration fails with `permission denied to create extension "pg_stat_statements"`. The platform does not query `pg_stat_statements` itself; it is installed so that query statistics are available when analyzing database performance in support cases.
+Older platform releases additionally created the `uuid-ossp` and `pg_stat_statements` extensions, the latter of which only a superuser can install. Neither is needed anymore: UUIDs are generated with the built-in `gen_random_uuid()`, and `pg_stat_statements` was never queried by the platform. If you upgrade from such a release, the two extensions stay installed but unused; you can leave them in place or drop them.
 
-The recommended setup for a non-superuser application user is therefore to run the following once as a superuser, after which the application user needs neither superuser rights nor `CREATE` on `public`:
+The recommended setup for an application user without `CREATE` on `public` is to run the following once as a privileged user, after which the application user only needs the grants from the table above:
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS pg_trgm SCHEMA public;
 CREATE EXTENSION IF NOT EXISTS btree_gin SCHEMA public;
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp" SCHEMA public;
-CREATE EXTENSION IF NOT EXISTS pg_stat_statements SCHEMA public;
 GRANT CONNECT, CREATE ON DATABASE <steadybitdb> TO <user>;
 GRANT USAGE ON SCHEMA public TO <user>;
 ```

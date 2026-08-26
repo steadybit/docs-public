@@ -39,7 +39,7 @@ The platform itself exposes the following ports:
 The platform needs a PostgreSQL 15 database. For a quick evaluation the Helm chart can deploy one for you (see [Step 2](./#step-2-deploy-platform)); for productive usage bring your own PostgreSQL instance. In that case prepare the following before the first start:
 
 * An empty database (e.g. `steadybitdb`) and an application user for the platform. The user does **not** need to be a superuser, but it must be allowed to `CONNECT` to and `CREATE` schemas in that database: the platform creates the schemas `steadybit` and `sb_onprem` on startup and owns all objects inside them.
-* The PostgreSQL extensions `pg_trgm`, `btree_gin`, `uuid-ossp` and `pg_stat_statements` in the `public` schema. The platform installs missing ones itself if the user has `CREATE` on schema `public`, except for `pg_stat_statements`, which only a superuser can install. If you don't run the platform with a superuser, install the extensions beforehand.
+* The PostgreSQL extensions `pg_trgm` and `btree_gin` in the `public` schema. Both are trusted extensions, so the platform installs missing ones itself if the user has `CREATE` on schema `public`; alternatively, install them beforehand. No superuser is required at any point.
 * Database and platform clocks in sync.
 
 The exact `GRANT` and `CREATE EXTENSION` statements are listed under [Database Permissions](advanced-configuration.md#database-permissions).
