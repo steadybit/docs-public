@@ -4,11 +4,6 @@ title: Remote MCP Server
 
 # Remote MCP Server
 
-{% hint style="info" %}
-**The Remote MCP Server is part of Steadybit Labs** and is currently only available upon request.
-[Learn more](https://steadybit.com/blog/introducing-steadybit-labs-help-shape-the-future-of-reliability-testing/)
-{% endhint %}
-
 Steadybit ships a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server, so you can connect AI agents such as Claude Code, Claude Desktop, or GitHub Copilot in VS Code directly to your Steadybit tenant. Once connected, the assistant can explore your environments, targets, actions, services, experiments, and execution results — and, with the right permissions, help you design, save, and run experiments — so you can understand your system, reason about resilience, and act on it.
 
 Every tool runs with the permissions of the credential you connect with — the same team permissions, environment allowances, and license that apply in the UI and public API — so the assistant can only do what that credential is allowed to do. With OAuth the credential is your own user account; an access token acts with the token's own scope (a single team, all teams, or an admin token's tenant-wide access).
