@@ -6,7 +6,7 @@ If you need help finding and resolving problems within Steadybit, you can look i
 
 By downloading a copy of your Steadybit tenant database, you'll be able to analyze it using a third-party application.
 
-1. In the Steadybit platform, go to "Settings."
+1. In the Steadybit platform, go to "Settings".
 
 <figure><img src="../.gitbook/assets/settings.png" alt="Screenshot of the Settings menu in the Steadybit platform"><figcaption></figcaption></figure>
 
@@ -14,7 +14,7 @@ By downloading a copy of your Steadybit tenant database, you'll be able to analy
 
 <figure><img src="../.gitbook/assets/troubleshooting.png" alt="Screenshot of the Troubleshooting menu in the Steadybit platform"><figcaption></figcaption></figure>
 
-3. On the "Database export" section, choose "Database export (.zip)."
+3. In the "Database export" section, choose "Database export (.zip)".
 
 <figure><img src="../.gitbook/assets/databaseExport.png" alt="Screenshot of the Database export section in the Steadybit platform"><figcaption></figcaption></figure>
 
@@ -22,13 +22,13 @@ You'll find a ZIP file in your local downloads folder with a copy of your tenant
 
 ## Technical support by Steadybit
 
-Steadybit's technical support team can log in to your tenant account to investigate and fix problems you might experience within the platform. But they can only do that if you allow it.
+Steadybit's technical support team can log in to your tenant account to investigate and fix problems you might experience within the platform, but only if you allow it.
 
 {% hint style="info" %}
-We can only view your data and never change it or run an experiment through your tenant. And the audit log records any login and logout activity of our team in your account. Besides, you can withdraw the authorization at any time.
+We can only view your data and never change it or run an experiment through your tenant. The audit log records any login and logout activity of our team in your account, and you can withdraw the authorization at any time.
 {% endhint %}
 
-1. In the Steadybit platform, go to "Settings."
+1. In the Steadybit platform, go to "Settings".
 2. Navigate to the "Troubleshooting" menu.
 3. Click the "Let Steadybit troubleshoot your tenant" button.
 

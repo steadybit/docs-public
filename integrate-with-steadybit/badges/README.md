@@ -5,7 +5,7 @@ Get a badge for your experiment to integrate the latest run state, e.g., in wiki
 We support two badges:
 
 * an [experiment badge](./#experiment-badges) that shows the latest run state of a specific experiment
-* a [tag badge](./#tag-badges) that either creates an experiment linked to an external reference or shows the latest run as soon as it is created state
+* a [tag badge](./#tag-badges) that either offers to create an experiment linked to an external reference, or - once such an experiment exists - shows the state of its latest run
 
 ## Experiment Badges
 
@@ -19,11 +19,11 @@ Go to an experiment that interests you, and click on the experiment badge icon o
 
 ![Steadybit Experiment Editor - Create Experiment Badge](../../.gitbook/assets/experiment-badge-1.png)
 
-You can choose your badge's desirable format and scale and copy the resulting script.
+You can choose the format and scale you want for your badge, then copy the resulting snippet.
 
 ![Steadybit Experiment Editor - Configure Experiment Badge](../../.gitbook/assets/experiment-badge-2.png)
 
-Alternatively, below are examples to copy and adjust to create your badge manually
+Alternatively, below are examples to copy and adjust to create your badge manually:
 
 ### Example Markdown
 

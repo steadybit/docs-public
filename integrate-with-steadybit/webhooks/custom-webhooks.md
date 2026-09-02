@@ -4,7 +4,7 @@ title: Custom Webhooks
 
 # Custom Webhooks
 
-Custom webhooks are triggered by Steadybit whenever an experiment has progressed or the killswitch's status changes.
+Custom webhooks are triggered by Steadybit whenever an experiment has progressed or the kill switch's status changes.
 
 ## Configure
 
@@ -13,7 +13,7 @@ You can configure custom webhooks at `Settings` -> `Integrations` -> `Custom web
 |            |                                                                                                                                                                                    |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Name**   | The name for this integration will not show up in the JSON body.                                                                                                                   |
-| **URL**    | The URL, which will receive an HTTP Post request with the JSON body                                                                                                                |
+| **URL**    | The URL that will receive an HTTP POST request with the JSON body.                                                                                                                 |
 | **Secret** | <p>You may specify a secret that will be used to sign the body. <a href="custom-webhooks.md#verifying-the-signature">Verifying the signature.</a><br><strong>optional</strong></p> |
 | **Team**   | If no team is specified, you'll receive all events. If you do specify a team, you'll only receive events relevant to this team                                                     |
 | **Events** | Choose the events you want to receive.                                                                                                                                             |
@@ -151,7 +151,7 @@ curl --request POST \
 
 ### Verify Webhook Requests
 
-If a secret is provided a signature of the body is computed using `HMAC SHA-256` and sent as `X-SB-Signature` http header. You can use this header to verify the message.
+If a secret is provided, a signature of the body is computed using `HMAC SHA-256` and sent as an `X-SB-Signature` HTTP header. You can use this header to verify the message.
 
 Here is an example of doing this in Java:
 

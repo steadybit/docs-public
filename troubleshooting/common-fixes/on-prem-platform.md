@@ -38,23 +38,23 @@ docker login docker.steadybit.io --username _ --password <replace-with-agent-key
     kubectl logs -f -n steadybit-platform steadybit-platform-0 --previous
 ```
 
-* Verify that the Postgres password is correct and base64 encoded in the manifest file
+* Verify that the Postgres password is correct and base64-encoded in the manifest file
 
-### Create Heap dump
+### Create a heap dump
 
 Prerequisites:
 
-* If the platform is launched under docker, you need to have a dedicated volume or use an existing one for this mount path.
-* A network access to the host machine to retrieve the file.
+* If the platform is launched under Docker, you need to have a dedicated volume or use an existing one for this mount path.
+* Network access to the host machine, to retrieve the file.
 
-The platform can suffer from out of memory issues at JVM level. If that happens, a heap dump might be needed to diagnose further, for providing it, add this environment variable:
+The platform can suffer from out-of-memory issues at the JVM level. If that happens, a heap dump might be needed to diagnose the problem further. To produce one, add this environment variable:
 
 ```yaml
 - name: JAVA_TOOL_OPTIONS
   value: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/PATH_TO_BE_MOUNTED/heapdump-%p.hprof
 ```
 
-Then you need to retrieve the heap dump. Usually by copying the file from the destination to your machine:
+Then you need to retrieve the heap dump, usually by copying the file to your machine:
 
 ```bash
 scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
@@ -85,10 +85,10 @@ scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
     kubectl exec -it -n steadybit-agent steadybit-agent-0 -- curl -k https://steadybit-platform.steadybit-platform.svc.cluster.local:8080
 ```
 
-*   Check if the agent can reach the Websocket port of the platform.
+*   Check if the agent can reach the WebSocket port of the platform.
 
     * This is usually port 7878 and can be configured in the platform manifest via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` (helm chart: `platform.publicWebsocketPort`)
-    * If setting the port is not enough, you can set the url via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL` (helm chart: `platform.ingressOrigin`)
+    * If setting the port is not enough, you can set the URL via the environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL` (helm chart: `platform.ingressOrigin`)
     * Please also check your ingress configuration.
 
     ```yaml
@@ -152,7 +152,7 @@ Solution:
 
 * set the nginx backend protocol to HTTPS instead of HTTP
 
-### Configured the Platform with a oidc provider and the redirect to the platform is been send as http instead of https
+### The platform is configured with an OIDC provider, and the redirect to the platform is sent as http instead of https
 
 Example error message in the browser:
 
@@ -162,7 +162,7 @@ The redirect URI 'http://steadybit-platform.example.com/oauth2/login/code/defaul
 
 Solution:
 
-Set the environment variable: server.tomcat.remoteip.trusted-proxies to a regex that matches the CIDRs of the loadbalancer or reverse proxy. Add the following environment variable to the platform manifest: (Example for Google Cloud Load Balancer CIDRs regex)
+Set the environment variable `server.tomcat.remoteip.trusted-proxies` to a regex that matches the CIDRs of your load balancer or reverse proxy, by adding it to the platform manifest. The example below matches the Google Cloud Load Balancer CIDRs:
 
 ```yaml
 env:

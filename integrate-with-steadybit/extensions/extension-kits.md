@@ -4,11 +4,11 @@ Steadybit's Extension Kits allow you to extend the Chaos Engineering capabilitie
 
 Steadybit provides development kits for the following purposes:
 
-* [ActionKit](extension-kits.md#actionkit) to create your own custom Chaos Engineering attacks, checks for integrating, e.g., into observability or load test integration
-* [AdviceKit](extension-kits.md#advicekit) to implement your own [advice](../../use-steadybit/explorer/advice.md) and ease identifying experiments and tracking progress
+* [ActionKit](extension-kits.md#actionkit) to create your own custom Chaos Engineering attacks, checks (e.g., into your observability tooling), and load test integrations
+* [AdviceKit](extension-kits.md#advicekit) to implement your own [advice](../../use-steadybit/explorer/advice.md) and make it easier to identify experiments and track progress
 * [DiscoveryKit](extension-kits.md#discoverykit) to support discovery of new infrastructure components
 * [EventKit](extension-kits.md#eventkit) to send events about running experiments from Steadybit to other third-party applications (e.g., observability)
-* [ExtensionKit](extension-kits.md#extensionkit) utility classes and best practices for extension authors using the Go programming language
+* [ExtensionKit](extension-kits.md#extensionkit) to reuse utility classes and best practices for extension authors using the Go programming language
 * [PreflightKit](extension-kits.md#preflightkit) to implement preflight actions that can be used to prevent experiment executions
 
 All these development kits are agnostic to the programming language and rely on HTTP interfaces. However, if you want to develop your extension using Go, we recommend our [ExtensionKit](extension-kits.md#extensionkit) to benefit from helpful utility classes and best practices.
@@ -19,10 +19,10 @@ All these development kits are agnostic to the programming language and rely on 
 
 The Steadybit ActionKit enables the extension of Steadybit with new action capabilities that you can use within experiments. For example, ActionKit can be used to author open/closed source:
 
-* attacks to attack AWS, Azure, and Google Cloud services that Steadybit cannot natively attack,
-* integrate load testing tools,
-* health and state checks and
-* every other runnable action!
+* attacks against AWS, Azure, and Google Cloud services that Steadybit cannot natively attack,
+* integrations with load testing tools,
+* health and state checks, and
+* any other runnable action.
 
 You can learn more about ActionKit through its [GitHub repository](https://github.com/steadybit/action-kit).
 
@@ -56,7 +56,7 @@ EventKit allows extensions to consume events from the Steadybit platform to inte
 * Forward audit logs to an external system.
 * Add markers to monitoring systems' charts during experiment runs.
 * Capture experiment run statistics.
-* Report information about experiment runs to Slack, Discord etc.
+* Report information about experiment runs to Slack, Discord, etc.
 
 You can learn more about EventKit through its [GitHub repository](https://github.com/steadybit/event-kit).
 
@@ -64,7 +64,7 @@ You can learn more about EventKit through its [GitHub repository](https://github
 
 <figure><img src="../../.gitbook/assets/extension-kit.png" alt="ExtensionKit logo depicting the text extension kit and a wrench icon"><figcaption><p>ExtensionKit logo depicting the text extension kit and a wrench icon</p></figcaption></figure>
 
-Through kits like ActionKit and DiscoveryKit, Steadybit can be extended with new capabilities. ExtensionKit on the other hand contains helpful utilities and best practices for extension authors leveraging the Go programming language.
+Through kits like ActionKit and DiscoveryKit, Steadybit can be extended with new capabilities. ExtensionKit, on the other hand, contains helpful utilities and best practices for extension authors leveraging the Go programming language.
 
 You can learn more about ExtensionKit through its [GitHub repository](https://github.com/steadybit/extension-kit).
 
