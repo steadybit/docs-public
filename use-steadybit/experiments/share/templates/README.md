@@ -73,6 +73,6 @@ Sharing an experiment as a template is the right choice when:
 * Other teams should start from your design but adapt it with team-specific targets, validations, or parameters
 * The instantiated experiments should evolve independently per team
 * You want to publish a reliability scenario to the wider community via the Reliability Hub
-* You want to prepare for a [Service Provided Experiments](../service-provided/README.md)
+* You want to prepare for [Service Provided Experiments](../service-provided/README.md)
 
 For other sharing needs, see the [overview of sharing options](../README.md).

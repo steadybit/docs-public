@@ -2,9 +2,9 @@
 
 For every experiment run, Steadybit collects distributed tracing spans using [OpenTelemetry](https://opentelemetry.io/) across the Steadybit platform and agents. Access to this data benefits users, extension authors and Steadybit maintainers alike. Here are some scenarios as part of which you might access this data:
 
-* Steadybit interests your organization, and you are in the process of building trust in the solution. As part of this, you want to understand what is happening as part of experiments – including the nitty-gritty details.
+* Your organization is interested in Steadybit, and you are in the process of building trust in the solution. As part of this, you want to understand what is happening as part of experiments – including the nitty-gritty details.
 * You are developing an extension, and something went wrong. You want to know precisely how your extension was called, the parameters, and how it responded.
-* To correlate experiment runs with other monitoring and observability data, e.g., in your Jaeger or Zipkin installations.
+* You want to correlate experiment runs with other monitoring and observability data, e.g., in your Jaeger or Zipkin installations.
 * Something went wrong, and you need help from Steadybit's support staff to resolve the situation. Attach the distributed tracing data to give them context.
 
 As the following sections show, Steadybit enables the collection of this data automatically for simple use cases. However, you can instruct the Steadybit agents to report this data to your observability pipeline. This document explains both approaches.
@@ -27,18 +27,18 @@ _**Note: OpenTelemetry data export is currently an experimental capability.**_
 
 It can be helpful to have Steadybit observability data within your systems. Steadybit agents can be instructed to export distributed tracing data to OpenTelemetry-compatible systems.
 
-This section explains how to configure the Steadybit agents to achieve this. To validate the configuration, the section contains optional guidance on how to set up a local Jaeger instance, Zipkin instance and an OpenTelemetry collector.
+This section explains how to configure the Steadybit agents to achieve this. To validate the configuration, the section contains optional guidance on how to set up a local Jaeger instance, a local Zipkin instance and an OpenTelemetry collector.
 
 ### Agent Configuration
 
-The Steadybit agent internally leverages the OpenTelemetry SDK auto-configuration module. Consequently, all of the [module's configuration parameters](https://github.com/open-telemetry/opentelemetry-java/blob/v1.24.0/sdk-extensions/autoconfigure/README.md#sampler) are supported! This section only shows the most basic configuration to achieve data export.
+The Steadybit agent internally leverages the OpenTelemetry SDK auto-configuration module. Consequently, all of the [module's configuration parameters](https://github.com/open-telemetry/opentelemetry-java/blob/v1.24.0/sdk-extensions/autoconfigure/README.md#sampler) are supported. This section only shows the most basic configuration to achieve data export.
 
 The configuration parameters are set through environment variables, as the following `shell` snippet shows. You may also pass these environment variables when deploying the agent through any other mechanism, e.g., Helm charts.
 
 ```bash
 # enable the auto-configuration mechanism
 export JAVA_OPTS="-Dotel.java.global-autoconfigure.enabled=true"
-# Name the service. You most likely wanna keep it as 'steadybit-agent'
+# Name the service. You most likely want to keep it as 'steadybit-agent'
 export OTEL_SERVICE_NAME="steadybit-agent"
 # Define where to export the data to.
 export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4317"
@@ -86,9 +86,9 @@ service:
 
 #### Docker Compose Configuration
 
-Next, we start all the systems locally using [Docker compose](https://docs.docker.com/compose/). Note the comments about UI endpoints within the snippet.
+Next, we start all the systems locally using [Docker Compose](https://docs.docker.com/compose/). Note the comments about UI endpoints within the snippet.
 
-Store this in a file called `docker-compose.yml` within your current working directory. Then run `docker-compose up` to start everything.
+Store this in a file called `docker-compose.yml` within your current working directory. Then run `docker compose up` to start everything.
 
 Once the startup completes, you can use the following URLs to interact with the systems:
 
