@@ -99,10 +99,10 @@ You can do a local port forward to your minikube to open the `gateway` service v
 kubectl port-forward deployment/gateway 8080:8080 --namespace steadybit-shopping-demo
 ```
 
-Visit `http://127.0.01:8080/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
+Visit `http://127.0.0.1:8080/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
 
 ```bash
-curl http://127.0.01:8080/products
+curl http://127.0.0.1:8080/products
 ```
 
 The result is an aggregated list of all products of the services `toys`, `hot-deals` and `fashion`:

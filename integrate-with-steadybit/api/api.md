@@ -57,7 +57,7 @@ Access tokens can also be managed programmatically via the `/api/access-tokens/v
 
 ```bash
 curl -X 'POST' \
-  'https://platform.dev.steadybit.com/api/access-tokens/v2' \
+  'https://platform.steadybit.com/api/access-tokens/v2' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: accessToken <admin-token>' \
@@ -183,7 +183,7 @@ lanes:
 The `Location` header of the response indicates the url of the newly created experiment:
 
 ```
-location: https://platform.steadybit.com/api/experiments/ADM-
+location: https://platform.steadybit.com/api/experiments/ADM-1
 ```
 
 ### Example: Run Experiment

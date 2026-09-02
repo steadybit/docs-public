@@ -412,9 +412,9 @@ Steadybit's capabilities for [containers](./#containers), [Kubernetes](./#kubern
 [#gcp-virtual-machines-vms](./#gcp-virtual-machines-vms)
 {% endcontent-ref %}
 
-#### GCP Virtual machines (VMs)
+#### GCP Virtual Machines (VMs)
 
-Steadybit's capabilities for [physical and virtual hosts](./#physical-and-virtual-hosts) also work for Azure Virtual Machines (VMs):
+Steadybit's capabilities for [physical and virtual hosts](./#physical-and-virtual-hosts) also work for GCP Virtual Machines (VMs):
 
 {% content-ref url="./#physical-and-virtual-hosts" %}
 [#physical-and-virtual-hosts](./#physical-and-virtual-hosts)

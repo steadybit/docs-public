@@ -111,7 +111,7 @@ Linux packages installations are using this approach by default. The package ins
 The content of each file is a YAML document with the following structure:
 
 ```yaml
-url: http://123.45.67.890:8085
+url: http://192.0.2.10:8085
 types:
   - ACTION
   - DISCOVERY
@@ -131,7 +131,7 @@ Example:
 
 ```json
 {
-  "url": "http://123.45.67.890:8085",
+  "url": "http://192.0.2.10:8085",
   "types": [
     "ACTION",
     "DISCOVERY"
