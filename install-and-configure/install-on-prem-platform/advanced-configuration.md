@@ -5,7 +5,7 @@ navTitle: Advanced Configuration
 
 # Configuration Options
 
-### Machine Requirements
+## Machine Requirements
 
 The machine you are installing Steadybit onto, must have **at least** 4 CPUs and 8 GB available memory.
 
@@ -13,11 +13,11 @@ The machine you are installing Steadybit onto, must have **at least** 4 CPUs and
 |--------------------------|----------|--------------------------------------------------------------------------------------------------------------------|
 | `JVM_MAX_RAM_PERCENTAGE` |          | <p>Define the <code>MaxRAMPercentage</code> of the platform JVM<br><strong>Default:</strong> <code>75.0</code></p> |
 
-### Debug Docker Images
+## Debug Docker Images
 
 The platform container image doesn't contain a shell by default. However, in case you need to exec into the container using a shell for debugging purposes, we provide an additional debug variant with the `platform-debug` tag.
 
-### Database Configuration
+## Database Configuration
 
 Steadybit requires a PostgreSQL 15 database. The platform relies heavily on PostgreSQL-specific features and cannot run on other RDBMS.
 
@@ -30,7 +30,7 @@ Steadybit requires a PostgreSQL 15 database. The platform relies heavily on Post
 | `SPRING_DATASOURCE_PASSWORD` | yes      | <p>Database Password<br><strong>Example:</strong> <code>postgres</code></p>                                                       |
 | `STEADYBIT_DB_WEB_ENABLED`   |          | <p>Enable Http Endpoint for Database export<br><strong>Default:</strong> <code>true</code></p>                                    |
 
-#### Database Maintenance
+### Database Maintenance
 
 The platform performs periodic database maintenance (VACUUM, ANALYZE) on configurable tables to optimize performance.
 
@@ -40,7 +40,7 @@ The platform performs periodic database maintenance (VACUUM, ANALYZE) on configu
 | `STEADYBIT_DB_MAINTENANCE_CRON`    |          | <p>Cron expression for when maintenance runs<br><strong>Default:</strong> <code>0 0 0 ? * SAT *</code> (midnight on Saturdays)</p>                                                                                                                                         |
 | `STEADYBIT_DB_MAINTENANCE_TABLES`  |          | <p>Comma-separated list of tables to maintain<br><strong>Default:</strong> <code>target,target_stats,target_submission_tracking,audit_log,experiment_execution,execution_log_event,execution_metric_event,execution_artifact,execution_spans,license_usage,file</code></p> |
 
-#### Database Permissions
+### Database Permissions
 
 On startup the platform creates and migrates its own database objects; nothing has to be created by hand beforehand. It performs the following DDL with the configured database user:
 
@@ -69,7 +69,7 @@ GRANT CONNECT, CREATE ON DATABASE <steadybitdb> TO <user>;
 GRANT USAGE ON SCHEMA public TO <user>;
 ```
 
-#### Target Index Advisor
+### Target Index Advisor
 
 Steadybit runs a nightly job that inspects which target attribute keys are actually used as target
 enrichment rule selectors, samples their real-world cardinality, and suggests — or, by default, creates —
@@ -87,7 +87,7 @@ to act on by hand. Suggestions and the DDL to run manually are logged under `[Ta
 | `STEADYBIT_TARGETS_INDEX_ADVISOR_POPULATION_FLOOR`        |          | <p>Skip classifying/indexing a key if its target type's total population is smaller than this — a full scan of a small type is already fast regardless of selectivity.<br><strong>Default:</strong> <code>5000</code></p>                                                                                                                                                                                      |
 | `STEADYBIT_TARGETS_INDEX_ADVISOR_SAMPLE_CONFIDENCE_FLOOR` |          | <p>Below this many matched rows, the adaptive sampling estimate isn't trusted and the classifier falls back to a full scan for that key.<br><strong>Default:</strong> <code>2000</code></p>                                                                                                                                                                                                                    |
 
-#### RDS Machine Requirements
+### RDS Machine Requirements
 
 The workload is bound by the database CPU on peaks.
 
@@ -96,11 +96,11 @@ If you have ~100k targets simultaneously in the platform, we recommend a burstab
 If you choose a smaller instance for cost savings, the target ingestion will be slower, so it will take a bit longer until the target data in the platform is
 consistent.
 
-#### AWS RDS IAM Authentication
+### AWS RDS IAM Authentication
 
 Steadybit supports AWS RDS IAM authentication using the [AWS Advanced JDBC Wrapper](https://github.com/aws/aws-advanced-jdbc-wrapper). This allows you to authenticate to your RDS database using IAM credentials instead of a database password.
 
-##### Prerequisites
+#### Prerequisites
 
 Before configuring Steadybit, you need to set up IAM database authentication on your RDS instance. Follow the [AWS documentation on IAM database authentication for MariaDB, MySQL, and PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html) to:
 
@@ -108,7 +108,7 @@ Before configuring Steadybit, you need to set up IAM database authentication on 
 2. Create a database user that uses IAM authentication
 3. Configure the required IAM policy with `rds-db:connect` permission
 
-##### Configuration
+#### Configuration
 
 To enable IAM authentication, configure the following environment variables:
 
@@ -121,7 +121,7 @@ To enable IAM authentication, configure the following environment variables:
 
 **Note:** When using IAM authentication, you do not need to set `SPRING_DATASOURCE_PASSWORD` as the AWS SDK will generate authentication tokens automatically using the configured IAM credentials.
 
-##### Example Configuration
+#### Example Configuration
 
 ```yaml
 env:
@@ -133,11 +133,11 @@ env:
     value: "iam,efm2"
 ```
 
-##### Available Wrapper Plugins
+#### Available Wrapper Plugins
 
 You can also configure additional wrapper plugins for aurora (e.g. `initialConnection`, `auroraConnectionTracker`) or clusters (`failover2`). For a complete list of available plugins and their configuration options, see the [AWS Advanced JDBC Wrapper documentation](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/UsingTheJdbcDriver.md#list-of-available-plugins).
 
-### Message Broker Configuration
+## Message Broker Configuration
 
 A Redis message broker is required to run the platform with multiple instances.
 
@@ -150,14 +150,14 @@ A Redis message broker is required to run the platform with multiple instances.
 | platform <= 1.0.96 `SPRING_REDIS_SSL`, platform > 1.0.96 `SPRING_REDIS_SSL_ENABLED` |          | <p>Wether to enable ssl support.<br><strong>Default:</strong> <code>false</code></p> |
 | `SPRING_REDIS_CLIENT_NAME`                                                          |          | Client name to be set on connections with CLIENT SETNAME.                            |
 
-### Tenant Configuration
+## Tenant Configuration
 
 | Environment Variable        | Required | Description                                                                                                                                    |
 |-----------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | `STEADYBIT_TENANT_AGENTKEY` | yes      | <p>Agent key for the tenant assigned to you. Treat it as sensitive information.<br><strong>Example:</strong> <code>foobar</code></p>           |
 | `STEADYBIT_TENANT_LICENSE`  | yes      | <p>License key for the tenant assigned to you. Treat it as sensitive information.<br><strong>Example:</strong> <code>secret-license</code></p> |
 
-### Web Configuration
+## Web Configuration
 
 | Environment Variable                   | Required | Description                                                                                                                                                                                         |
 |----------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -165,13 +165,13 @@ A Redis message broker is required to run the platform with multiple instances.
 | `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` |          | By default, the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.              |
 | `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL`  |          | By default, the Websocket connections are advertised using the same URL name as the agents register to. You can override the advertised URL if you run a separate load balancer for the websockets. |
 
-### Log Configuration
+## Log Configuration
 
 | Environment Variable | Required | Description                                                                                    |
 |----------------------|----------|------------------------------------------------------------------------------------------------|
 | `LOGGING_FORMAT`     |          | By default, Steadybit uses `text` format. Set this to `json` to switch the log format to JSON. |
 
-### Static-Authentication
+## Static-Authentication
 
 You can use a static username/password to authenticate as an admin user.
 
@@ -181,7 +181,7 @@ You can use a static username/password to authenticate as an admin user.
 | `STEADYBIT_AUTH_STATIC_0_USERNAME` | yes      | <p>Username<br><strong>Example:</strong> <code>admin</code></p>                                         |
 | `STEADYBIT_AUTH_STATIC_0_PASSWORD` | yes      | <p>Password<br><strong>Example:</strong> <code>{noop}admin</code></p>                                   |
 
-### LDAP-Authentication
+## LDAP-Authentication
 
 You can use an LDAP server for [authentication and synchronization](ldap-integration.md).
 
@@ -203,7 +203,7 @@ You can use an LDAP server for [authentication and synchronization](ldap-integra
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE` |          | <p>The attribute to use as Team name<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                               |
 | `STEADYBIT_AUTH_LDAP_SYNC_CRON`                |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 _/2 ? _ * *</code></p>                                           |
 
-### OpenID Connect Authentication
+## OpenID Connect Authentication
 
 You can use OpenID Connect compatible authentication provider for [authentication and synchronization](oidc-integration.md).
 
@@ -219,7 +219,7 @@ You can use OpenID Connect compatible authentication provider for [authenticatio
 | `STEADYBIT_AUTH_OAUTH2_CLAIMS_TEAM_NAME_ATTRIBUTE_NAME` |          | <p>Name of the OidcIdToken claims attribute that will be used to pick up the assigned team names from. Steadybit automatically creates the specified teams in the platform and assigns the user to them.<br><strong>Default:</strong> <code>groups</code><br><strong>Example value in OIDC provider for single team:</strong> <code>team1</code><br><strong>Example value in OIDC provider for multiple teams:</strong> <code>["team1","team2"]</code></p> |
 | `STEADYBIT_AUTH_OAUTH2_HOSTED_DOMAIN`                   |          | <p>Restrict the login to users with a specific email domain. If set, only users with an email address from this domain will be allowed to log in. Can be used with Google Workspace OIDC. <br><strong>Example:</strong> <code>example.com</code></p>                                                                                                                                                                                                       |
 
-### Using SSL/TLS Encryption
+## Using SSL/TLS Encryption
 
 SSL can be configured by setting the various `SERVER_SSL_*` properties and requires a java keystore (typically PKCS12).
 
@@ -232,7 +232,7 @@ SSL can be configured by setting the various `SERVER_SSL_*` properties and requi
 | `SERVER_SSL_KEY_ALIAS`          |          | Alias that identifies the key in the keystore to be used                                                                                                                                       |
 | `SERVER_SSL_KEY_PASSWORD`       |          | Password used to access the key in the key store.                                                                                                                                              |
 
-### Audit-Log Export
+## Audit-Log Export
 
 Audit logs can be exported to an AWS S3 Bucket.
 
@@ -243,7 +243,7 @@ Audit logs can be exported to an AWS S3 Bucket.
 | `STEADYBIT_AUDITLOG_EXPORT_SUBFOLDER`      |          | <p>Subfolder in the S3 Bucket</p>                                         |
 | `STEADYBIT_AUDITLOG_EXPORT_REGION`         |          | <p>AWS Region</p>                                                         |
 
-### Advanced Agent Authentication
+## Advanced Agent Authentication
 
 OpenID Connect can be used to [authenticate the agents to the platform](advanced-agent-authentication.md).
 
@@ -252,7 +252,7 @@ OpenID Connect can be used to [authenticate the agents to the platform](advanced
 | `STEADYBIT_AUTH_AGENT_PROVIDER`          |          | <p>Set to <code>OAUTH2</code> to use the OIDC.<br><strong>Default:</strong> <code>AGENT_KEY</code></p> |
 | `STEADYBIT_AUTH_AGENT_OAUTH2_ISSUER_URI` | yes      | The issuer URI of your identity provider                                                               |
 
-### Proxy Settings
+## Proxy Settings
 
 Steadybit will use these proxy settings if the platform needs to connect to other services (for example, your OIDC
 identity provider).
@@ -265,7 +265,7 @@ identity provider).
 | `STEADYBIT_PROXY_USER`     |          | Username of your proxy                                                       |
 | `STEADYBIT_PROXY_PASSWORD` |          | Password of your proxy                                                       |
 
-### Experiment Execution
+## Experiment Execution
 
 | Environment Variable                                            | Description                                                                                                             |
 |-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -275,7 +275,7 @@ identity provider).
 | `STEADYBIT_EXPERIMENT_EXECUTION_PREPARATION_TIMEOUT`            | The time after which the experiment execution should time out if not all agents are prepared. Default is `60s`          |
 | `STEADYBIT_EXPERIMENT_EXECUTION_STEP_START_TIMEOUT`             | The time after which an experiment step should time out if not started after triggering. Default is `180s`              |
 
-### Data Retention Settings
+## Data Retention Settings
 
 All retention settings are defined via
 
@@ -310,12 +310,12 @@ Note that `X` links to a specific domain, see below (e.g., targets stats via `TA
 | `STEADYBIT_STEADYBUDDY_RETENTION_TRACES_PERIOD`                      | Maximum age of persisted SteadyBuddy LLM debug traces.                                                                           | `ai_trace`                      | `7d`                                       |
 | `STEADYBIT_STEADYBUDDY_RETENTION_TRACES_CRON`                        | Cron String for the cleanup job of SteadyBuddy traces.                                                                           | `ai_trace`                      | `0 40 5 1/1 * ? *`<br/>(every day at 5:40) |
 
-### SteadyBuddy
+## SteadyBuddy
 
 [SteadyBuddy](../../use-steadybit/steadybuddy/README.md) is Steadybit's AI-powered assistant for designing, running, and analyzing experiments via natural language.
 On-prem, it is **disabled until you configure a model provider** and requires the AI capability to be part of your license.
 
-#### Core Settings
+### Core Settings
 
 | Environment Variable                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                              | Default Value      |
 |-----------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
@@ -323,9 +323,9 @@ On-prem, it is **disabled until you configure a model provider** and requires th
 | `STEADYBIT_STEADYBUDDY_REQUEST_TIMEOUT` |          | Per-request timeout for LLM calls.                                                                                                                                                                                                                                                                                                                                                       | <code>120s</code>  |
 | `STEADYBIT_STEADYBUDDY_TRACING_ENABLED` |          | When <code>true</code>, every chat turn and suggestion records a debug trace in the database. The trace exposes the full assembled context (system prompt, action catalog, environments). For support requests, the Steadybit team may ask you to share the trace to improve the provided answers. See [Data Retention Settings](#data-retention-settings) for how long traces are kept. | <code>false</code> |
 
-#### AI Provider Settings
+### AI Provider Settings
 
-##### Amazon Bedrock
+#### Amazon Bedrock
 
 | Environment Variable                               | Required | Description                                        | Default                                                  |
 |----------------------------------------------------|----------|----------------------------------------------------|----------------------------------------------------------|
@@ -336,7 +336,7 @@ On-prem, it is **disabled until you configure a model provider** and requires th
 | `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MODEL_NAME`   |          | Inference profile id for the classifier model.     | <code>eu.anthropic.claude-haiku-4-5-20251001-v1:0</code> |
 | `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.        | <code>1024</code>                                        |
 
-##### Ollama
+#### Ollama
 
 
 | Environment Variable                      | Required | Description                               | Default                             |
@@ -345,7 +345,7 @@ On-prem, it is **disabled until you configure a model provider** and requires th
 | `STEADYBIT_STEADYBUDDY_OLLAMA_BASE_URL`   |          | Base URL of the Ollama server.            | <code>http://localhost:11434</code> |
 | `STEADYBIT_STEADYBUDDY_OLLAMA_MODEL_NAME` |          | Model name to use.                        | <code>qwen3.6</code>                |
 
-##### Anthropic
+#### Anthropic
 
 | Environment Variable                                 | Required | Description                                               | Default                        |
 |------------------------------------------------------|----------|-----------------------------------------------------------|--------------------------------|
@@ -356,7 +356,7 @@ On-prem, it is **disabled until you configure a model provider** and requires th
 | `STEADYBIT_STEADYBUDDY_ANTHROPIC_CHEAP_MODEL_NAME`   |          | Classifier model.                                         | <code>claude-haiku-4-5</code>  |
 | `STEADYBIT_STEADYBUDDY_ANTHROPIC_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.               | <code>1024</code>              |
 
-##### OpenAI
+#### OpenAI
 
 | Environment Variable                              | Required | Description                                            | Default                   |
 |---------------------------------------------------|----------|--------------------------------------------------------|---------------------------|
@@ -367,7 +367,7 @@ On-prem, it is **disabled until you configure a model provider** and requires th
 | `STEADYBIT_STEADYBUDDY_OPENAI_CHEAP_MODEL_NAME`   |          | Classifier model.                                      | <code>gpt-5.4-mini</code> |
 | `STEADYBIT_STEADYBUDDY_OPENAI_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.            | <code>1024</code>         |
 
-### Endpoint Rate Limits
+## Endpoint Rate Limits
 
 Rate limits protect the UI, API, and Agent endpoints of the Steadybit platform. They can be enabled or disabled by setting the environment variable 
 `steadybit.ratelimit.enabled` to `true` or `false`.
@@ -415,7 +415,7 @@ steadybit.ratelimit.configurations.UI_GENERAL.perTenant.refill-period=5
 steadybit.ratelimit.configurations.UI_GENERAL.perTenant.refill-unit=s
 ```
 
-#### Rate Limit Metrics
+### Rate Limit Metrics
 
 The Steadybit Platform provides the following rate limit metrics:
 
@@ -425,7 +425,7 @@ The Steadybit Platform provides the following rate limit metrics:
 | `ratelimit_tokens_total`     | `tenantKey`, `bucketName` (as described above), `qualifier` (username or agent id), `status` (`consumed`, `rejected` or `failed`) | Number of requested tokens |
 
 
-#### Hub Connections
+### Hub Connections
 
 The platform can connect to multiple hubs.
 
