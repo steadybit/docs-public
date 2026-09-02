@@ -69,17 +69,17 @@ service steadybit-agent restart
 
 ### Configure container runtime
 
-For Linux installations, the docker runtime is auto-configured by the extension by looking at the system paths. If this is incorrectly auto-configured, it can be set in `/etc/steadybit/extension-container` using `STEADYBIT_EXTENSION_CONTAINER_SOCKET` and `STEADYBIT_EXTENSION_CONTAINER_RUNTIME`. If you have installed docker just before, etc., please restart your host or the needed services.
+For Linux installations, the docker runtime is auto-configured by the extension by looking at the system paths. If this is incorrectly auto-configured, it can be set in `/etc/steadybit/extension-container` using `STEADYBIT_EXTENSION_CONTAINER_SOCKET` and `STEADYBIT_EXTENSION_CONTAINER_RUNTIME`. If you have only just installed Docker, please restart your host or the affected services.
 
 ## Managing the Agent and Extension
 
 ### Logs
 
-The logs for agent and extensions are located in `/var/log/steadybit-*.log`
+The logs for the agent and extensions are located in `/var/log/steadybit-*.log`.
 
 ### Configuration
 
-The configurations for agent and extensions are located in `/etc/steadybit`
+The configurations for the agent and extensions are located in `/etc/steadybit`.
 
 ### Start/Stop
 
@@ -130,17 +130,17 @@ If you want to use additional extensions (e.g. [extension-jvm](https://hub.stead
 
 ## Using a single agent across multiple hosts
 
-By default, the `agent-linux.sh` installs the agent and extension on a single host. When installed on multiple hosts, each runs an agent instance, allocating many resources. It is possible to install the agent on a dedicated host and only the container and host extension on each host.
+By default, the `agent-linux.sh` installs the agent and extension on a single host. When installed on multiple hosts, each host runs its own agent instance, which uses more resources than necessary. Instead, you can install the agent on a dedicated host and only the container and host extensions on each of the other hosts.
 
 #### Non-Agent Hosts
 
-* Install only container and host extensions by using `--no-agent` flag
+* Install only the container and host extensions by using the `--no-agent` flag
 
 ```bash
 ./agent-linux.sh --key <agent-key> --no-agent --extensions steadybit-extension-host,steadybit-extension-container
 ```
 
-* Reconfigure the extension to listen on http by editing `/etc/steadybit/extension-container` and `/etc/steadybit/extension-host` and removing the `STEADYBIT_EXTENSION_UNIX_SOCKET=...` line.\
+* Reconfigure the extension to listen on HTTP by editing `/etc/steadybit/extension-container` and `/etc/steadybit/extension-host` and removing the `STEADYBIT_EXTENSION_UNIX_SOCKET=...` line.\
   If you want to override the default port, set `STEADYBIT_EXTENSION_PORT`.
 * Restart the extensions
 

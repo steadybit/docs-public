@@ -2,7 +2,7 @@
 
 For stronger security, the communication between the agent and extensions can be secured using mutual TLS.&#x20;
 
-You need to configure a client certificate at the agent that will be used to communicate with the extensions. And also a server certificate and client CAs at the extension to verify the client certificate.
+You need to configure a client certificate on the agent, which is used to communicate with the extensions, plus a server certificate and client CAs on the extension to verify that client certificate.
 
 ## Configuring a Client Certificate for Agent
 
@@ -67,7 +67,7 @@ In case the private key is password protected, you can specify it as well:
 
 #### Additional Certificate Authorities
 
-In case the extension uses a custom CA that is not known to the agent you can add them as well.
+In case the extension uses a custom CA that is not known to the agent, you can add it as well.
 
 `STEADYBIT_AGENT_EXTRA_CERTS_PATH=/some/ca-certs/`
 {% endtab %}
@@ -85,7 +85,7 @@ If you have successfully configured the client certificate for the agent, the lo
 
 {% tabs %}
 {% tab title="Using Helm Chart" %}
-The `steadybit-agent` helm charts include all extensions provided by Steadybit using an `extension-*` prefix.  This sample is for `extension-container`, the options shown here apply to the other extensions as well. And in case you use the extensions helm chart directly, you need to strip the prefix from the examples.
+The `steadybit-agent` helm charts include all extensions provided by Steadybit using an `extension-*` prefix. This sample is for `extension-container`; the options shown here apply to the other extensions as well. If you use an extension's helm chart directly, strip the prefix from the examples.
 
 For the extension to require client certificates, you need to configure both the server certificate and allowed client certificates. If you only specify a server certificate, TLS is used, but client certificates are not mandatory.
 

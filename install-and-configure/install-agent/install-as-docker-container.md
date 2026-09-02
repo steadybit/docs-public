@@ -17,9 +17,9 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 * MacOS (using Docker Desktop)
 
 {% hint style="warning" %}
-**Docker Desktop:** You're only able to attack containers and processes running on Docker
+**Docker Desktop:** You're only able to attack containers and processes running on Docker.
 
-**Windows Subsystem for Linux:** With the default Kernel you won't be able to execute network attacks.
+**Windows Subsystem for Linux:** With the default kernel you won't be able to execute network attacks.
 {% endhint %}
 
 ## Agent Installation

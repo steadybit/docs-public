@@ -8,15 +8,15 @@ Properties consist of three parts:
 * Property assignments: Assignments define the relationship between a property definition and an experiment. They define where the property is visible and editable.
   * Administrators can assign properties to each experiment in your Steadybit tenant and even mark it as a required property.
   * Users can assign properties to a single experiment or a single run that they are allowed to edit. This allows users to add additional information to the experiment. More details can be found in the [experiment's section of property assignments](../../use-steadybit/experiments/properties/#assign-properties).
-* Property values: The actual values of the properties. Values saved as part of an experiment design are copied to each experiment run. These values can be updated after the experiment has been run, if the assignment configuration allows so. Learn more in the [experiment's section of properties](../../use-steadybit/experiments/properties/).
+* Property values: The actual values of the properties. Values saved as part of an experiment design are copied to each experiment run. These values can be updated after the experiment has been run, if the assignment configuration allows it. Learn more in the [experiment's section of properties](../../use-steadybit/experiments/properties/).
 
 ## Examples
 
 * Adding a note to a single experiment run
-  * Your administrator defines a property definition called `note` with the datatype `rich text`.
+  * Your administrator defines a property definition called `note` with the data type `Rich Text`.
   * You can add the property `note` to a single experiment run you are allowed to edit and fill out a Markdown value like "This experiment was _really_ great!".
 * Adding a mandatory cost center field to each experiment
-  * Your administrator defines a property definition called `costCenter` with the datatype `integer`.
+  * Your administrator defines a property definition called `costCenter` with the data type `Number`.
   * Your administrator assigns the property definition `costCenter` to all experiment designs and marks it as required.
   * You need to fill out the cost center for each experiment you want to run.
 
@@ -52,7 +52,7 @@ Properties can also be managed and assigned using the following API endpoint. Ch
 
 ## Assign Properties
 
-An administrator can assign property definitions to each experiment design. He can also mark a property as required, which means that the property must be filled in before the experiment can be run. This allows administrators to enforce certain properties for all experiments in the tenant. The assignment also defines whether the property is editable after the run has been started or if it should be read-only. This can be done in the settings section of the Steadybit platform.
+An administrator can assign property definitions to each experiment design. They can also mark a property as required, which means that the property must be filled in before the experiment can be run. This allows administrators to enforce certain properties for all experiments in the tenant. The assignment also defines whether the property is editable after the run has been started or if it should be read-only. This can be done in the settings section of the Steadybit platform.
 
 ### Property Assignment Configuration
 
@@ -68,7 +68,7 @@ Define a property's value to be required before being able to run the experiment
 
 #### Allow editing the value in the experiment run
 
-Decide whether the property's value can be edited at run-level or only at design level. By default, this is design-only and thus, the property's value can only be edited at the experiment design level. If activated, the property can also be edited for each experiment run individually at the run details page.
+Decide whether the property's value can be edited at the run level or only at the design level. By default it is design-only, so the value can only be edited on the experiment design. If activated, the property can also be edited for each experiment run individually on the run details page.
 
 ![Property Assignments in the settings](../../.gitbook/assets/property_associations.png) ![Edit a Property Assignment](../../.gitbook/assets/property_association_edit.png)
 

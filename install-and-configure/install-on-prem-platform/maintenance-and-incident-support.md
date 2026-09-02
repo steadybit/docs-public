@@ -1,9 +1,9 @@
 # Maintenance & Incident Support
 
-During the operation of the on-premise Steadybit platform, you may run into situations that require users to be informed about incidents and planned maintenance that will affect on-premise Steadybit users. To inform these users, you can tell the Steadybit platform about incidents and maintenance windows. Once done, the platform can
+During the operation of the on-premise Steadybit platform, you may run into situations where your users need to be informed about incidents and planned maintenance. To inform these users, you can tell the Steadybit platform about incidents and maintenance windows. Once done, the platform can
 
 * show banners in the user interface indicating the specific situation,
-* require explicit confirmation when executing experiments via the user interface and
+* require explicit confirmation when executing experiments via the user interface, and
 * optionally disable experiment runs entirely during an ongoing incident.
 
 This feature is available in versions > 1.0.2 of the Steadybit platform.
