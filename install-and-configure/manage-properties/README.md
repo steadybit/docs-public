@@ -46,7 +46,7 @@ Property definitions can be created and managed in the settings of the Steadybit
 
 ![Property Definitions in the settings](../../.gitbook/assets/property_definitions.png) ![Edit a Property Definition](../../.gitbook/assets/property_definitions_edit.png)
 
-Properties can also be managed and assigned using the following API endpoint. Check out [Integrate with Steadybit / API](../../integrate-with-steadybit/api/api.md) how to access the API.
+Properties can also be managed and assigned using the following API endpoint. Check out [Integrate with Steadybit / API](../../integrate-with-steadybit/api/api.md) to learn how to access the API.
 
 * [Manage property definitions](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Properties)
 
@@ -74,7 +74,7 @@ Decide whether the property's value can be edited at run-level or only at design
 
 ### API
 
-Properties can also be managed and assigned using the following API endpoint. Check out [Integrate with Steadybit / API](../../integrate-with-steadybit/api/api.md) how to access the API.
+Properties can also be managed and assigned using the following API endpoint. Check out [Integrate with Steadybit / API](../../integrate-with-steadybit/api/api.md) to learn how to access the API.
 
 * [Manage property assignments](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Properties)
 

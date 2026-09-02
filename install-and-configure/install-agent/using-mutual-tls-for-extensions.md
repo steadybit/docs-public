@@ -50,7 +50,7 @@ The volume in this sample refers to a config map, but any other volume config wo
 
 If you put the extra CAs into the container another way, you can specify the path to it:
 
-`agent.extraCertificates.fromVolume=extra-certs`
+`agent.extraCertificates.path=/some/ca-certs/`
 {% endtab %}
 
 {% tab title="using Environment Variables" %}
@@ -85,7 +85,7 @@ If you have successfully configured the client certificate for the agent, the lo
 
 {% tabs %}
 {% tab title="Using Helm Chart" %}
-The `steadybit-agent` helm charts include all extensions provided by Steadybit using a `extension-*` prefix.  This sample is for `extension-container`, the options shown here apply to the other extensions as well. And in case you use the extensions helm chart directly, you need to strip the prefix from the examples.
+The `steadybit-agent` helm charts include all extensions provided by Steadybit using an `extension-*` prefix.  This sample is for `extension-container`, the options shown here apply to the other extensions as well. And in case you use the extensions helm chart directly, you need to strip the prefix from the examples.
 
 For the extension to require client certificates, you need to configure both the server certificate and allowed client certificates. If you only specify a server certificate, TLS is used, but client certificates are not mandatory.
 

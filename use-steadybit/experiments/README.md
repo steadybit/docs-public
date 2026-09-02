@@ -13,5 +13,5 @@ Once designed, you can [run the experiment](run.md) directly and see everything 
 - [Variables](variables.md)
 - [Properties](properties/)
 - [Emergency Stop](emergencyStop.md)
-- [Share](share.md)
+- [Share](share/README.md)
 - [OpenTelemetry Integration](opentelemetry-integration/)

@@ -12,7 +12,7 @@ Another option is to use [Redis](https://redis.io/) as a state provider. The fol
 
 | Environment Variable                      | Required | Description                                                                                  |
 | ----------------------------------------- | -------- | -------------------------------------------------------------------------------------------- |
-| `STEADYBIT_AGENT_IDENTIFIER`              | yes      | The unique agent identifiert, required if `redis` is used. Should be stable across restarts. |
+| `STEADYBIT_AGENT_IDENTIFIER`              | yes      | The unique agent identifier, required if `redis` is used. Should be stable across restarts.  |
 | `STEADYBIT_AGENT_STATE_PROVIDER`          | yes      | Needs to be set to `redis`                                                                   |
 | `STEADYBIT_AGENT_STATE_REDIS_HOST`        | yes      | The redis host                                                                               |
 | `STEADYBIT_AGENT_STATE_REDIS_PORT`        | no       | The redis port, defaults to `6379`                                                           |

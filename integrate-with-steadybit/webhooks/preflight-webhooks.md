@@ -18,13 +18,13 @@ You can add preflight webhooks at `Settings` -> `Integrations` -> `Preflight web
 
 A webhook has the following parameters to be specified:
 
-|            |                                                                                                                                                     |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name**   | The preflight webhook's name, it is shown in the experiment run.                                                                                    |
-| **URL**    | The URL, which will receive an HTTP Post request with the HTTP request body                                                                         |
-| **Secret** | **optional**You may specify a secret which is used to sign the body to [verify the webhook request](preflight-webhooks.md#verify-webhook-requests). |
-| **Team**   | If no team is specified, preflight checks will be performed for all teams. If you specify a team, preflight checks are only made for this team.     |
-| **Events** | Right now, there is only one event here: `Execution preflight checks`, which is triggered before starting an experiment run.                        |
+|            |                                                                                                                                                                                        |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**   | The preflight webhook's name, it is shown in the experiment run.                                                                                                                       |
+| **URL**    | The URL, which will receive an HTTP Post request with the HTTP request body                                                                                                            |
+| **Secret** | <p>You may specify a secret which is used to sign the body to <a href="preflight-webhooks.md#verify-webhook-requests">verify the webhook request</a>.<br><strong>optional</strong></p> |
+| **Team**   | If no team is specified, preflight checks will be performed for all teams. If you specify a team, preflight checks are only made for this team.                                        |
+| **Events** | Right now, there is only one event here: `Execution preflight checks`, which is triggered before starting an experiment run.                                                           |
 
 ## Experiment Runs
 
@@ -51,10 +51,10 @@ A preflight webhook can be in one of the following lifecycle statuses, indicated
 | **CREATED**    | The preflight webhook was created and has sent the request to the configured webhook. It is still waiting for the response.                                                  |
 | **SUCCESSFUL** | The preflight webhook was resolved successfully with an HTTP status code 2xx. The experiment is allowed to continue (if all preflight webhooks are successful).              |
 | **FAILED**     | The preflight webhook resolved with a non-2xx HTTP status code. The experiment will fail. Optionally, the response may contain a message as a reason for experiment failure. |
-| **ERRORED**    | Technical error happened while requesting the HTTP endpoint, e.g., the URL couldn't be resolved, or the HTTP request timed out.                                              |
+| **ERRORED**    | A technical error occurred while requesting the HTTP endpoint, e.g., the URL couldn't be resolved, or the HTTP request timed out.                                            |
 
 {% hint style="info" %}
-A webhook will timeout after 55 seconds. In that case, the preflight check is marked as `ERRORED`, and the experiment will not start. If the webhook resolves later, the actual result will be submitted to the preflight check step in the experiment.
+A webhook will time out after 55 seconds. In that case, the preflight check is marked as `ERRORED`, and the experiment will not start. If the webhook resolves later, the actual result will be submitted to the preflight check step in the experiment.
 {% endhint %}
 
 ### Examples
@@ -65,7 +65,7 @@ This section covers some example requests to ease the development of the preflig
 
 The below curl command can be used to mock a preflight request from Steadybit to your endpoint.
 
-Please note, that some of the metadata (i.e., step's `parameters`, and `targetExecutions`' `attributes`) have been omitted.
+Please note that some of the metadata (i.e., step's `parameters`, and `targetExecutions`' `attributes`) have been omitted.
 
 ```bash
 curl --request POST \
@@ -95,7 +95,7 @@ curl --request POST \
         "parameters": {
           "url": "https://demo.steadybit.io/products",
           "method": "GET",
-          "duration": "140s",
+          "duration": "140s"
         },
         "customLabel": "HTTP Endpoint works all the time",
         "actionId": "com.steadybit.extension_http.check.periodically",
@@ -114,7 +114,7 @@ curl --request POST \
           }
         ],
         "totalTargetCount": 1
-      }
+      },
       {
         "id": "0192fbf3-7c7c-701b-af5a-8bbc567b7b9f",
         "state": "PREPARED",
@@ -231,7 +231,7 @@ Currently, two modification types are supported:
 * `set_property_value`: Sets the value of a property identified by `propertyKey` to the provided `value`. If the property does not exist, it will be added.
 * `add_value_to_list_property`: Adds the provided `value` to a list property identified by `propertyKey`. If the property does not exist, it will be added. If it exists but is not a list, the execution will fail.
 
-Properties needs to be `editableInExecution` if inherited from the experiment design. You can learn more about properties [here](../../install-and-configure/manage-properties/).
+Properties need to be `editableInExecution` if inherited from the experiment design. You can learn more about properties [here](../../install-and-configure/manage-properties/).
 
 ### Verify Webhook Requests
 
@@ -240,16 +240,16 @@ You can verify that the call to the preflight webhook is legitimate by verifying
 You can use this header to verify the message. Here is an example of doing this in Java:
 
 ```java
-private static boolean validateSignature(byte[]body,String secret,String header)throws Exception{
+private static boolean validateSignature(byte[] body, String secret, String header) throws Exception {
     //calculate the signature using the secret
-    Mac mac=Mac.getInstance("HmacSHA256");
-    mac.init(new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8),"HmacSHA256"));
-    byte[]signature=mac.doFinal(body);
+    Mac mac = Mac.getInstance("HmacSHA256");
+    mac.init(new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
+    byte[] signature = mac.doFinal(body);
 
     //remove the algorithm prefix and decode the hex to bytes[]
-    byte[]receivedSignature=Hex.decode(header.replaceFirst("^hmac-sha256 ",""));
+    byte[] receivedSignature = Hex.decode(header.replaceFirst("^hmac-sha256 ", ""));
 
     //compare using time-constant algorithm
-    return MessageDigest.isEqual(signature,receivedSignature);
+    return MessageDigest.isEqual(signature, receivedSignature);
 }
 ```

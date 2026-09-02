@@ -31,7 +31,7 @@ target.type IN ("com.steadybit.extension_kubernetes.kubernetes-daemonset", "com.
 ```
 
 ```
-// Not equals check to get all targets not running in the Kuberneters Cluster 'prod'
+// Not equals check to get all targets not running in the Kubernetes Cluster 'prod'
 k8s.cluster-name!="prod"
 
 // Get all targets that are not a Daemonset/Deployment/Statefulset (needs platform >= 2.3.7)
@@ -52,7 +52,7 @@ container.label.maintainer!~"Jane"
 k8s.cluster-name=*"PrOd"
 ```
 ```
-// Not equals ignore case check to get all targets not running in the Kuberneters Cluster 'PrOd' ignore casing
+// Not equals ignore case check to get all targets not running in the Kubernetes Cluster 'PrOd' ignore casing
 k8s.cluster-name!=*"PrOd"
 ```
 ```
@@ -144,7 +144,7 @@ Expression blocks can be encapsulated using parenthesis.
 
 ### Quoting Special Characters
 
-Keys containing special characters like `:` and `/` needs to be quoted to work properly.
+Keys containing special characters like `:` and `/` need to be quoted to work properly.
 
 ```
 // Quoting keys with special characters is necessary

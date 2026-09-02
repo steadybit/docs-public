@@ -86,7 +86,7 @@ So, in this example, we may attack all containers in, e.g.,
 3. `k8s.label.domain` = `shop-checkout`, `shop-orders`, `shop-products` and `aws.zone` = `eu-central-1b` _or_
 4. ...
 
-This allows to simulate an unavailability of a random zone across random services (i.e. case 1, `eu-central-1a`), but results in some container's domain unaffected (i.e. case 1, `k8s.label.domain` = `shop-inventory`, as no containers are running in `eu-central-1a`). The actual picked values are shown in the [run modal](run.md#advanced-blast-radius).
+This allows you to simulate an unavailability of a random zone across random services (i.e. case 1, `eu-central-1a`), but results in some container's domain unaffected (i.e. case 1, `k8s.label.domain` = `shop-inventory`, as no containers are running in `eu-central-1a`). The actual picked values are shown in the [run modal](run.md#advanced-blast-radius).
 
 {% hint style="info" %}
 A percentage limit can easily result in no targets while running the experiment. This can happen when specifying a low percentage or having a low number of targets in a group.
@@ -98,15 +98,15 @@ In case you use a variable, template placeholder, or the API, you need to define
 
 #### Action and Attack Settings
 
-Depending on the action chosen, you can configure different settings for the step. For instance, an attack to 'fill memory' allows to configure the amount of memory to be filled, an attack to 'stop container' allows to configure whether it is a graceful termination, and an 'HTTP check' allows to configure the expected success rate.
+Depending on the action chosen, you can configure different settings for the step. For instance, an attack to 'fill memory' allows you to configure the amount of memory to be filled, an attack to 'stop container' allows you to configure whether it is a graceful termination, and an 'HTTP check' allows you to configure the expected success rate.
 
 ![Action Settings Example of 'Stress CPU'](../../.gitbook/assets/create-experiment-blank-action-settings.png)
 
-**Continue on Any Failures / Errors**
+##### Continue on Any Failures or Errors
 
 By default, a failed/errored step causes the entire experiment run to fail/error immediately. All steps have a configuration to continue an experiment run even when a failure or error occurred in the step's execution. Once activated, the step is still marked as a failure/error, but the experiment continues running and may still eventually end in `COMPLETED`. This is further described in the [experiment run state documentation](run.md#state-propagation).
 
-Continue with these steps until you've designed your experiment. A reasonable experiment could easily look like the one below. Once you have saved it, you are ready to [run it](./#run) to learn how your system behaves.
+Continue with these steps until you've designed your experiment. A reasonable experiment could easily look like the one below. Once you have saved it, you are ready to [run it](run.md) to learn how your system behaves.
 
 ![Create Experiment - Example in the Editor](../../.gitbook/assets/create-experiment-blank-example.png)
 
@@ -131,7 +131,7 @@ The subsequent steps depend on the selected experiment template and will guide y
 
 ![Create Experiment - Use Template: Further Steps](../../.gitbook/assets/create-experiment-template-wizard2.png)
 
-Eventually, you end up in the experiment editor, where you can adjust the experiment or [run it](./#run) to learn how your system behaves.
+Eventually, you end up in the experiment editor, where you can adjust the experiment or [run it](run.md) to learn how your system behaves.
 
 ![Create Experiment - Use Template: Further Steps](../../.gitbook/assets/create-experiment-template-wizard3.png)
 

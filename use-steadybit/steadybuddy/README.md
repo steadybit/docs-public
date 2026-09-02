@@ -130,7 +130,7 @@ When a run fails or errors, the run page offers to explain it. One click and Ste
 
 - **Verdict** — one sentence: what failed, and at which check.
 - **Root cause** — the causal chain: for a **failure**, why your system's reliability fell short of your expectations; for an **error**, why Steadybit itself couldn't run an action.
-- **Hypothesis** — if the experiment carries a hypothesis, a judgement on whether it held.
+- **Hypothesis** — if the experiment carries a hypothesis, a judgment on whether it held.
 - **Recommendation** — one concrete step to improve your system's reliability: the fix to apply, plus a re-run at the same blast radius to confirm it.
 
 A few things worth knowing:

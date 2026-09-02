@@ -145,7 +145,7 @@ The following attacks are available when working with physical hosts and virtual
 | Windows Server 2022 (x64) | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ❌                   | ❌         |
 
 {% hint style="info" %}
-Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+Other .exe, .deb and .rpm-based distributions will most likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
 ### Resource Attacks
@@ -164,7 +164,7 @@ Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but 
 | Windows Server 2022 (x64) | ✅         | ✅           | ✅          | ✅         | ❌             | ❌         |
 
 {% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+Other .deb and .rpm-based distributions will most likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
 ### State Attacks
@@ -183,7 +183,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 | Windows Server 2022 (x64) | ✅             | ✅            | ✅           |
 
 {% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+Other .deb and .rpm-based distributions will most likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
 ## Cloud Providers
@@ -314,7 +314,7 @@ Steadybit provides capabilities based on the AWS RDS API for RDS clusters and in
 
 #### Other AWS Services
 
-Steadybit has cross-services capabilities like simulating a full [availability zone outage](https://hub.steadybit.com/target/com.steadybit.extension_aws.zone) or [partial zone outage via subnets](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-subnet).
+Steadybit has cross-service capabilities like simulating a full [availability zone outage](https://hub.steadybit.com/target/com.steadybit.extension_aws.zone) or [partial zone outage via subnets](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-subnet).
 
 Additional managed services are covered via [AWS FIS](./#aws-fault-injection-service-fis), or will be added to Steadybit natively in the future.
 
@@ -412,9 +412,9 @@ Steadybit's capabilities for [containers](./#containers), [Kubernetes](./#kubern
 [#gcp-virtual-machines-vms](./#gcp-virtual-machines-vms)
 {% endcontent-ref %}
 
-#### GCP Virtual machines (VMs)
+#### GCP Virtual Machines (VMs)
 
-Steadybit's capabilities for [physical and virtual hosts](./#physical-and-virtual-hosts) also work for Azure Virtual Machines (VMs):
+Steadybit's capabilities for [physical and virtual hosts](./#physical-and-virtual-hosts) also work for GCP Virtual Machines (VMs):
 
 {% content-ref url="./#physical-and-virtual-hosts" %}
 [#physical-and-virtual-hosts](./#physical-and-virtual-hosts)

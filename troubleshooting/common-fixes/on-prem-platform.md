@@ -47,14 +47,14 @@ Prerequisites:
 * If the platform is launched under docker, you need to have a dedicated volume or use an existing one for this mount path.
 * A network access to the host machine to retrieve the file.
 
-The platform can suffer from out of memory issues at JVM level. If that's happen, a heap dump might be needed to diagnose further, for providing it, add this environment variable :
+The platform can suffer from out of memory issues at JVM level. If that happens, a heap dump might be needed to diagnose further, for providing it, add this environment variable:
 
 ```yaml
 - name: JAVA_TOOL_OPTIONS
   value: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/PATH_TO_BE_MOUNTED/heapdump-%p.hprof
 ```
 
-Then you need to retrieve the heat dump. Usually by copying the file from the destination to your machine :
+Then you need to retrieve the heap dump. Usually by copying the file from the destination to your machine:
 
 ```bash
 scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
@@ -87,29 +87,29 @@ scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
 
 *   Check if the agent can reach the Websocket port of the platform.
 
-    * This is usally port 7878 and can be configured in the platform manifest via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` (helm chart: `platform.publicWebsocketPort`)
+    * This is usually port 7878 and can be configured in the platform manifest via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` (helm chart: `platform.publicWebsocketPort`)
     * If setting the port is not enough, you can set the url via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL` (helm chart: `platform.ingressOrigin`)
     * Please also check your ingress configuration.
 
     ```yaml
     spec:
-    rules:
-      - http:
-          paths:
-            - pathType: Prefix
-              path: /ws
-              backend:
-                service:
-                  name: steadybit-platform
-                  port:
-                    number: 7878
-            - pathType: Prefix
-              path: /
-              backend:
-                service:
-                  name: steadybit-platform
-                  port:
-                    number: 80
+      rules:
+        - http:
+            paths:
+              - pathType: Prefix
+                path: /ws
+                backend:
+                  service:
+                    name: steadybit-platform
+                    port:
+                      number: 7878
+              - pathType: Prefix
+                path: /
+                backend:
+                  service:
+                    name: steadybit-platform
+                    port:
+                      number: 80
     ```
 
     * You can try to connect to the websocket port via curl:
@@ -150,7 +150,7 @@ java.lang.IllegalArgumentException: Invalid character found in method name [0x16
 
 Solution:
 
-* set the nginx backend protocol is HTTPS instead of HTTP
+* set the nginx backend protocol to HTTPS instead of HTTP
 
 ### Configured the Platform with a oidc provider and the redirect to the platform is been send as http instead of https
 
@@ -162,7 +162,7 @@ The redirect URI 'http://steadybit-platform.example.com/oauth2/login/code/defaul
 
 Solution:
 
-Set the environment variable: server.tomcat.remoteip.trusted-proxies to a regex that matches the CIDRs of the loadbalancer or reverse proxy. Add the following environment variable to the platform manifest: (Example for Google Cloud Load Balancer CIRDs regex)
+Set the environment variable: server.tomcat.remoteip.trusted-proxies to a regex that matches the CIDRs of the loadbalancer or reverse proxy. Add the following environment variable to the platform manifest: (Example for Google Cloud Load Balancer CIDRs regex)
 
 ```yaml
 env:

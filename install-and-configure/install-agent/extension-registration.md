@@ -2,7 +2,7 @@
 
 ## Overview
 
-Extensions needs to be registered with the agent. There are multiple ways to do that:
+Extensions need to be registered with the agent. There are multiple ways to do that:
 
 * [Kubernetes Auto Registration](extension-registration.md#kubernetes-auto-registration) (default behavior when using Kubernetes with our helm charts)
 * [Environment Variables](extension-registration.md#using-environment-variables)
@@ -15,7 +15,7 @@ The agent is looking for services and pods with an annotation `steadybit.com/ext
 
 #### Permissions
 
-In order to automatically discover and register extensions present in the Kubernetes cluster, the agent needs access pod and service definitions via the Kubernetes API.
+In order to automatically discover and register extensions present in the Kubernetes cluster, the agent needs access to pod and service definitions via the Kubernetes API.
 
 Appropriate permissions are already configured in the official helm charts by creating a (cluster) role granting `get`, `list` and `watch` on `pods` and `services` 
 and a corresponding (cluster) role binding to a service account used for the agent pod. The used `rules` property is listed below.
@@ -34,8 +34,8 @@ rules:
 If you want to fine tune the auto registration, you can configure the mechanism to:
 
 * include only extension pods matching a given label selector
-* exclude extensions pod matching a given label selector
-* include only extension from a specific namespace
+* exclude extension pods matching a given label selector
+* include only extensions from a specific namespace
 
 {% tabs %}
 {% tab title="using Helm Chart" %}
@@ -70,7 +70,7 @@ Please note that these environment variables are index-based (referred to as `n`
 
 Valid Types are:
 
-* `DISCOVERIES` referring to a [index response of a discovery](https://github.com/steadybit/discovery-kit/blob/main/docs/discovery-api.md#index-response).
+* `DISCOVERIES` referring to an [index response of a discovery](https://github.com/steadybit/discovery-kit/blob/main/docs/discovery-api.md#index-response).
 * `ACTIONS` referring to a [list of actions](https://github.com/steadybit/action-kit/blob/main/docs/action-api.md#action-list).
 * `EVENTS` referring to a [list of event listeners](https://github.com/steadybit/event-kit/blob/main/docs/event-api.md#event-listeners-list).
 * `ADVICE` referring to a [list of advices](https://github.com/steadybit/advice-kit/blob/main/docs/advice-api.md#index-response).
@@ -93,7 +93,7 @@ Valid Types are:
 {% endtab %}
 
 {% tab title="without specifying a type" %}
-You can also register extension without specifying the type, e.g., `STEADYBIT_AGENT_EXTENSIONS_REGISTRATIONS_0_URL`. In this case, the agent will try all known Types.
+You can also register extensions without specifying the type, e.g., `STEADYBIT_AGENT_EXTENSIONS_REGISTRATIONS_0_URL`. In this case, the agent will try all known Types.
 
 | <p>Environment Variable<br>(<code>n</code> refers to the index of the extension's instance)</p> | Required | Description                                                                                                         |
 | ----------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -111,7 +111,7 @@ Linux packages installations are using this approach by default. The package ins
 The content of each file is a YAML document with the following structure:
 
 ```yaml
-url: http://123.45.67.890:8085
+url: http://192.0.2.10:8085
 types:
   - ACTION
   - DISCOVERY
@@ -131,7 +131,7 @@ Example:
 
 ```json
 {
-  "url": "http://123.45.67.890:8085",
+  "url": "http://192.0.2.10:8085",
   "types": [
     "ACTION",
     "DISCOVERY"

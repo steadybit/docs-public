@@ -147,7 +147,7 @@ A Redis message broker is required to run the platform with multiple instances.
 | `SPRING_REDIS_PORT`                                                                 |          | <p>Redis server port<br><strong>Default:</strong> <code>6379</code></p>              |
 | `SPRING_REDIS_USERNAME`                                                             |          | Redis Username                                                                       |
 | `SPRING_REDIS_PASSWORD`                                                             |          | Redis Password                                                                       |
-| platform <= 1.0.96 `SPRING_REDIS_SSL`, platform > 1.0.96 `SPRING_REDIS_SSL_ENABLED` |          | <p>Wether to enable ssl support.<br><strong>Default:</strong> <code>false</code></p> |
+| platform <= 1.0.96 `SPRING_REDIS_SSL`, platform > 1.0.96 `SPRING_REDIS_SSL_ENABLED` |          | <p>Whether to enable ssl support.<br><strong>Default:</strong> <code>false</code></p>|
 | `SPRING_REDIS_CLIENT_NAME`                                                          |          | Client name to be set on connections with CLIENT SETNAME.                            |
 
 ## Tenant Configuration
@@ -199,9 +199,9 @@ You can use an LDAP server for [authentication and synchronization](ldap-integra
 | `STEADYBIT_AUTH_LDAP_SYNC_ADMIN_GROUP_DN`      | yes      | <p>The DN for the groupOfNames/groupOfUniqueNames for the <code>Admin</code> users<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p> |
 | `STEADYBIT_AUTH_LDAP_SYNC_USER_GROUP_DN`       | yes      | <p>The DN for the groupOfNames/groupOfUniqueNames for the <code>User</code> users<br><strong>Example:</strong> <code>cn=steadybit_user,ou=groups,dc=steadybit,dc=com</code></p>   |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER`  |          | <p>The filter for the groupOfNames/groupOfUniqueNames for the teams<br><strong>Example:</strong> <code>ou=teams,ou=groups,dc=steadybit,dc=com</code></p>                          |
-| `STEADYBIT_AUTH_LDAP_SYNC_TEAM_KEY_ATTRIBUTE`  |          | <p>The attribute to use as Team key<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                                |
-| `STEADYBIT_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE` |          | <p>The attribute to use as Team name<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                               |
-| `STEADYBIT_AUTH_LDAP_SYNC_CRON`                |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 _/2 ? _ * *</code></p>                                           |
+| `STEADYBIT_AUTH_LDAP_SYNC_TEAM_KEY_ATTRIBUTE`  |          | <p>The name of the LDAP attribute to use as Team key<br><strong>Example:</strong> <code>cn</code></p>                                                                             |
+| `STEADYBIT_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE` |          | <p>The name of the LDAP attribute to use as Team name<br><strong>Example:</strong> <code>description</code></p>                                                                   |
+| `STEADYBIT_AUTH_LDAP_SYNC_CRON`                |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 &#42;/2 ? * * *</code> (every two hours)</p>                     |
 
 ## OpenID Connect Authentication
 

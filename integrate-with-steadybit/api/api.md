@@ -57,7 +57,7 @@ Access tokens can also be managed programmatically via the `/api/access-tokens/v
 
 ```bash
 curl -X 'POST' \
-  'https://platform.dev.steadybit.com/api/access-tokens/v2' \
+  'https://platform.steadybit.com/api/access-tokens/v2' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: accessToken <admin-token>' \
@@ -117,7 +117,7 @@ This endpoint is only accessible from localhost and is not reachable from outsid
 
 ## OpenApi Specification
 
-We provide a [OpenApi 3.0 Specification for the API](https://platform.steadybit.com/api/spec) as well as an [interactive documentation](https://platform.steadybit.com/api/swagger). In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
+We provide an [OpenAPI 3.0 Specification for the API](https://platform.steadybit.com/api/spec) as well as an [interactive documentation](https://platform.steadybit.com/api/swagger). In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
 
 ### Requests and Responses
 
@@ -183,7 +183,7 @@ lanes:
 The `Location` header of the response indicates the url of the newly created experiment:
 
 ```
-location: https://platform.steadybit.com/api/experiments/ADM-
+location: https://platform.steadybit.com/api/experiments/ADM-1
 ```
 
 ### Example: Run Experiment

@@ -34,7 +34,7 @@ For more configuration options have a look at our [steadybit/helm-charts reposit
 
 ### Configure Container Runtime
 
-By default, the agent assumes that your cluster uses the `containerd` runtime. If this is not the case, you need to add`--set extension-container.container.engine=docker` or `cri-o`.
+By default, the agent assumes that your cluster uses the `containerd` runtime. If this is not the case, you need to add `--set extension-container.container.engine=docker` or `cri-o`.
 
 #### Determine Container Runtime on a Node
 
@@ -55,11 +55,11 @@ If you are running on-prem, make sure to set the URL of the platform: `--set age
 The agent's purpose is to establish a communication from the platform to your systems. However, the discovery of your systems and providing Chaos Engineering to a technology works via extensions. 
 By default, the official helm chart already installs the extensions [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container), [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host), [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http) and [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension_kubernetes).
 
-In order to discover all extensions in the Kubernetes custer the agent needs to access the Kubernetes API. For more details, please take a look at the [Kubernetes Auto Registration](extension-registration.md#kubernetes-auto-registration) documentation.
+In order to discover all extensions in the Kubernetes cluster the agent needs to access the Kubernetes API. For more details, please take a look at the [Kubernetes Auto Registration](extension-registration.md#kubernetes-auto-registration) documentation.
 
 #### Add more Extensions
 
-Further extensions can be enabled via helm values of steadybit-agent. For example, [`extension-postman`](https://github.com/steadybit/extension-postman) can be enabled by setting`extension-postman.enabled=true`. See our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-agent) for a detailed list of all the configuration parameters.
+Further extensions can be enabled via helm values of steadybit-agent. For example, [`extension-postman`](https://github.com/steadybit/extension-postman) can be enabled by setting `extension-postman.enabled=true`. See our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-agent) for a detailed list of all the configuration parameters.
 
 Alternatively, you can also install extensions independently with their own helm charts. The installation instructions are listed in the Github repositories of the extension and can be browsed via the [Reliability Hub](https://hub.steadybit.com/).
 
@@ -143,7 +143,7 @@ helm upgrade --install steadybit-agent --namespace steadybit-agent \
 
 ### Alternative: Generate Kubernetes Manifests
 
-We currently don't provide a static Kubernetes manifest, but you can generate it from the helm chart. We recommend to use the helm chart, as it is easier to update the agent and extensions.
+We currently don't provide a static Kubernetes manifest, but you can generate it from the helm chart. We recommend using the helm chart, as it is easier to update the agent and extensions.
 
 ```shell
 helm repo add steadybit https://steadybit.github.io/helm-charts

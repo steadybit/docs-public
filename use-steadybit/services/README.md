@@ -74,7 +74,7 @@ Every service has a **risk** associated to give you a quick indicator of its rel
 The risk is calculated per category defined in the service profile (e.g., Scalability, Redundancy, Dependencies), and the overall service risk is a rollup across those categories.
 You can see both the overall risk and the per-category breakdown in the header of the service detail page, and open **How is the risk calculated?** for a detailed explanation in the product.
 
-The higher the risk, the higher the risk value: 100 indicates the highest risk, where as 10 is the lowest achievable risk.
+The higher the risk, the higher the risk value: 100 indicates the highest risk, whereas 10 is the lowest achievable risk.
 The risk never reaches zero, because reliability is a continuous effort: the service always needs ongoing validation to stay trustworthy.
 
 ### How to Reduce the Risk
@@ -188,7 +188,7 @@ More importantly, you can change the service profile of a service - defining a d
 Thus, adhering to different reliability expectations.
 
 {% hint style="warning" %}
-Be aware, that changing a service's service profile results in deleting provided experiments and experiment runs that aren't part of the newly associated profile anymore.
+Be aware that changing a service's service profile results in deleting provided experiments and experiment runs that aren't part of the newly associated profile anymore.
 {% endhint %}
 
 ![Editing service's profile and look&feel](./service-edit-customize.png)

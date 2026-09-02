@@ -53,7 +53,7 @@ The exporting team and environment are written into the file.
 On import, the same team and environment must exist and be accessible to you.
 Otherwise, you have to change the team and environment in the import-flow.
 
-To make exported experiments portable from beginning on, replace the concrete values with variables before export:
+To make exported experiments portable from the beginning, replace the concrete values with variables before export:
 
 * `{{teamKey}}` — applies the experiment to the importing user's current team
 * `{{environmentName}}` — applies the experiment to that team's first environment

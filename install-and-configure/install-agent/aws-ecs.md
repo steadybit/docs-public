@@ -29,7 +29,7 @@ The Steadybit Agent can be installed on **Amazon Elastic Container Service**.
 * [steadybit-extension-aws.json](ecs/steadybit-extension-aws.json)
 * [steadybit-extension-aws-role-permissions.json](ecs/steadybit-extension-aws-role-permissions.json)
 
-2.  The agent needs some permissions to be able to look up extensions running in the cluster. Create a IAM role for the agent task with the following permissions:
+2.  The agent needs some permissions to be able to look up extensions running in the cluster. Create an IAM role for the agent task with the following permissions:
 
     ```bash
     aws iam create-role --role-name steadybit-agent-task-role --assume-role-policy-document file://steadybit-agent-role-trust-policy.json
@@ -72,7 +72,7 @@ The Steadybit Agent can be installed on **Amazon Elastic Container Service**.
      --network-configuration '{"awsvpcConfiguration": {"subnets": ["MY-SUBNET-1", "MY-SUBNET-2", "MY-SUBNET-3"], "securityGroups": ["MY-SECURITY-GROUP-ID"], "assignPublicIp": "DISABLED"}}'
     ```
 
-    * **Extension Host** - please replace the cluster-name. The extension will use the host network strategy and use the security groupd and subnets of your ec2 instances.
+    * **Extension Host** - please replace the cluster-name. The extension will use the host network strategy and use the security group and subnets of your ec2 instances.
 
     ```bash
     aws ecs create-service \
@@ -85,7 +85,7 @@ The Steadybit Agent can be installed on **Amazon Elastic Container Service**.
      --scheduling-strategy DAEMON
     ```
 
-    * **Extension Container** - please replace the cluster-name. The extension will use the host network strategy and use the security groupd and subnets of your ec2 instances.
+    * **Extension Container** - please replace the cluster-name. The extension will use the host network strategy and use the security group and subnets of your ec2 instances.
 
     ```bash
     aws ecs create-service \
@@ -147,13 +147,13 @@ However, [extension-host](https://hub.steadybit.com/extension/com.steadybit.exte
 * [steadybit-extension-aws-fargate.json](ecs/steadybit-extension-aws-fargate.json)
 * [steadybit-extension-aws-role-permissions.json](ecs/steadybit-extension-aws-role-permissions.json)
 
-2.  The agent needs some permissions to be able to look up extensions running in the cluster. Create a IAM role for the agent task with the following permissions:
+2.  The agent needs some permissions to be able to look up extensions running in the cluster. Create an IAM role for the agent task with the following permissions:
 
     ```bash
     aws iam create-role --role-name steadybit-agent-task-role --assume-role-policy-document file://steadybit-agent-role-trust-policy.json
     aws iam put-role-policy --role-name steadybit-agent-task-role --policy-name steadybit-agent-extension-lookup --policy-document file://steadybit-agent-role-permissions.json
     ```
-3.  Fargate tasks needs a task execution role to be able to write logs. If you don't already have an existing role, you can create one via:
+3.  Fargate tasks need a task execution role to be able to write logs. If you don't already have an existing role, you can create one via:
 
     ```bash
     aws iam create-role --role-name steadybit-agent-task-execution-role --assume-role-policy-document file://steadybit-agent-role-trust-policy.json
@@ -232,7 +232,7 @@ However, [extension-host](https://hub.steadybit.com/extension/com.steadybit.exte
   * **A:** `aws ecs update-service --cluster <your-cluster> --service <your-service> --force-new-deployment`
 * **Q:** Can I shell into the agent/extension tasks?
   * **A:** Yes, with ECS Exec, details can be found [here](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html), short summary below:
-    * You need to allow update your service to allow it, e.g.: `aws ecs update-service --service steadybit-agent --cluster <your-cluster> --enable-execute-command`
+    * You need to update your service to allow it, e.g.: `aws ecs update-service --service steadybit-agent --cluster <your-cluster> --enable-execute-command`
     * The task role needs the following permissions:
       * `ssmmessages:CreateControlChannel`
       * `ssmmessages:CreateDataChannel`

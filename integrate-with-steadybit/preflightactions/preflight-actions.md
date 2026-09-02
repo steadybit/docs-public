@@ -14,7 +14,7 @@ Preflight actions can additionally be used to perform checks during the experime
 
 ## Precondition
 
-You need to write your own extension with [preflight kit](https://github.com/steadybit/preflight-kit) added to it. Implement the preflight action at your needs. See [docs](https://github.com/steadybit/preflight-kit/blob/main/docs/preflight-api.md).
+You need to write your own extension with [preflight kit](https://github.com/steadybit/preflight-kit) added to it. Implement the preflight action to suit your needs. See [docs](https://github.com/steadybit/preflight-kit/blob/main/docs/preflight-api.md).
 
 ## Configure
 
@@ -35,7 +35,7 @@ A preflight action integration has the following parameters to be specified:
 
 ## Experiment Runs
 
-During the experiment run, you can see the triggered preflight actions. If an preflight action fails, the experiment run fails, and no targets are attacked.
+During the experiment run, you can see the triggered preflight actions. If a preflight action fails, the experiment run fails, and no targets are attacked.
 
 ![Preflight Action Success](<../../.gitbook/assets/prefligtRunStatusSuccess (1).png>)
 
@@ -54,4 +54,4 @@ A preflight action can be in one of the following lifecycle statuses, indicated 
 | **CREATED**    | The preflight action was created and has sent the request to the configured action in the extension. It is still waiting for the response.                 |
 | **SUCCESSFUL** | The preflight action was resolved successfully. The experiment is allowed to continue (if all preflight actions are successful).                           |
 | **FAILED**     | The preflight action resolved with a failure. The experiment will fail. Optionally, the response may contain a message as a reason for experiment failure. |
-| **ERRORED**    | Technical error happened while requesting the preflight action, e.g., the extension URL couldn't be resolved, or the HTTP request timed out.               |
+| **ERRORED**    | A technical error occurred while requesting the preflight action, e.g., the extension URL couldn't be resolved, or the HTTP request timed out.             |

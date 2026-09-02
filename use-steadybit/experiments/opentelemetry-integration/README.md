@@ -97,8 +97,6 @@ Once the startup completes, you can use the following URLs to interact with the 
 * OpenTelemetry collector OTLP gRPC endpoint: http://127.0.0.1:4317
 
 ```yaml
-version: "4.0"
-
 services:
   zipkin-service:
     image: openzipkin/zipkin:latest

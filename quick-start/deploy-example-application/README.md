@@ -99,10 +99,10 @@ You can do a local port forward to your minikube to open the `gateway` service v
 kubectl port-forward deployment/gateway 8080:8080 --namespace steadybit-shopping-demo
 ```
 
-Visit `http://127.0.01:8080/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
+Visit `http://127.0.0.1:8080/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
 
 ```bash
-curl http://127.0.01:8080/products
+curl http://127.0.0.1:8080/products
 ```
 
 The result is an aggregated list of all products of the services `toys`, `hot-deals` and `fashion`:
@@ -158,13 +158,13 @@ The result is an aggregated list of all products of the services `toys`, `hot-de
 
 **Create your AWS Elastic Kubernetes Service (AWS EKS) cluster and nodes**
 
-Verfiy your AWS CLI configuration by running:
+Verify your AWS CLI configuration by running:
 
 ```bash
 aws --version
 ```
 
-Your output should be similiar to:
+Your output should be similar to:
 
 ```bash
 aws-cli/2.0.44 Python/3.8.5 Darwin/19.6.0 source/x86_64

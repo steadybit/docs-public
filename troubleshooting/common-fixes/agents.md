@@ -64,11 +64,11 @@ Install the agent/extension with the following helm settings to use roles instea
 
 ```shell
   --set rbac.roleKind="role" \
-  --set agent.extensions.autoregistration.namespace=<replaceme-with-your-namespace> \
+  --set agent.extensions.autoregistration.namespace=<replace-me-with-namespace> \
   --set extension-kubernetes.role.create=true \
   --set extension-kubernetes.roleBinding.create=true \
   --set extension-kubernetes.clusterRole.create=false \
-  --set extension-kubernetes.clusterRoleBinding.create=false \
+  --set extension-kubernetes.clusterRoleBinding.create=false
 ```
 
 Full example:
@@ -79,7 +79,7 @@ helm upgrade steadybit-agent --install --namespace <replace-me-with-namespace> \
   --set agent.key="<replace-me>" \
   --set global.clusterName="<replace-me>" \
   --set extension-container.container.engine="<replace-me>" \
-  --set agent.registerUrl="<replace-me>"\
+  --set agent.registerUrl="<replace-me>" \
   --set rbac.roleKind="role" \
   --set agent.extensions.autoregistration.namespace="<replace-me-with-namespace>" \
   --set extension-kubernetes.role.create=true \

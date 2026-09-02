@@ -10,7 +10,7 @@ It's up to you whether you use environments to separate parts of your system fro
 
 ## Default Environment: Global
 
-Per default, your system contains one environment called `Global`. This is the place where **every** target that Steadybit has discovered will be in. So, using Global for the start is fine (when trying out Steadybit), but on the long run dangerous and you should create your own.
+By default, your system contains one environment called `Global`. This is the place where **every** target that Steadybit has discovered will be in. So, using Global for the start is fine (when trying out Steadybit), but in the long run dangerous and you should create your own.
 
 ## Define your own Environment
 
@@ -34,4 +34,4 @@ Once the environments are defined and assigned to teams, you can make use of the
 
 ## Environment Variables
 
-With an environment often comes variables that are useful in an experiment associated with the provided environment (e.g., the name of the Kubernetes cluster, the HTTP base path of a load-balanced ingress, or the AWS account). You can manage environment variables to define those and use them consistently across all your experiments referencing the environment. Each variable can hold a fixed value or a [dynamic value](../../use-steadybit/experiments/variables.md#value-settings) that is resolved from your infrastructure when an experiment run starts. You can [learn more in the experiment's variable section](../../use-steadybit/experiments/variables.md).
+With an environment often come variables that are useful in an experiment associated with the provided environment (e.g., the name of the Kubernetes cluster, the HTTP base path of a load-balanced ingress, or the AWS account). You can manage environment variables to define those and use them consistently across all your experiments referencing the environment. Each variable can hold a fixed value or a [dynamic value](../../use-steadybit/experiments/variables.md#value-settings) that is resolved from your infrastructure when an experiment run starts. You can [learn more in the experiment's variable section](../../use-steadybit/experiments/variables.md).

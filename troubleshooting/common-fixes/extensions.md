@@ -15,7 +15,7 @@ MountVolume.SetUp failed for volume "..." : hostPath type check failed: /run/...
 This error indicates that the extension runs on the wrong container runtime (Docker, cri-o, or containerd). To fix this issue, you must configure another one in the installation. You can change the extension's runtime easily via helm parameter. If you've used the Agent helm-chart to deploy Agent and extensions, you can configure the `extension-container.container.engine` parameter.
 
 ```
-  --set extension-container.container.engine=... //containerd, docker or cri-io
+  --set extension-container.container.engine=... //containerd, docker or cri-o
 ```
 
 If you deployed the extension-container standalone, the parameter's name is `container.engine` (without the `extension-container` prefix).
@@ -61,7 +61,7 @@ Running observability tools that instrument your applications by injecting proce
 
 #### Extension-jvm warning about `Dynamic loading of agents`
 
-To be able to discover we need access to the java process. This is done by using the `attach` mechanism of the JVM. This is a standard mechanism and is used by many other tools. You may see a warning in the logs of the JVM that the extension is attaching to the JVM. This is normal and expected. It will look like this:
+To discover targets, we need access to the Java process. This is done by using the `attach` mechanism of the JVM. This is a standard mechanism and is used by many other tools. You may see a warning in the logs of the JVM that the extension is attaching to the JVM. This is normal and expected. It will look like this:
 
 ```
 WARNING: A Java agent has been loaded dynamically (...javaagent-init.jar)

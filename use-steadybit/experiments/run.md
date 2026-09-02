@@ -5,7 +5,7 @@ After having your [experiment fully designed](./) you can simply use the `Run`-b
 1. No validation errors
 2. Every attack resolves at that moment to at least one target.
 3. You are member of the same team as the experiment
-4. [Emergency stop](./#Emergency-Stop) has not been triggered.
+4. [Emergency stop](emergencyStop.md) has not been triggered.
 
 Otherwise, you'll get an error message and the experiment is not started.
 
@@ -19,17 +19,17 @@ Every experiment run has a unique identifier (e.g. **#33131**), which you can us
 
 The run view itself consists of the following elements.
 
-* **Run Timeline**: At the top you see the sequence defined previously in the [design](./#design). While the experiment is running a special marker indicates the current point of time. Some attacks need a little bit of extra time before being started which is indicated by a light green colouring in the front. The extra time is added to the timing of the attack and is currently caused by technical reasons .You can click on each step to get more details in the [run modal](run.md#run-modal).
+* **Run Timeline**: At the top you see the sequence defined previously in the [design](design.md). While the experiment is running a special marker indicates the current point of time. Some attacks need a little bit of extra time before being started which is indicated by a light green coloring in the front. The extra time is added to the timing of the attack and is currently caused by technical reasons .You can click on each step to get more details in the [run modal](run.md#run-modal).
 * **Run Status**: The run log lists the currently active or already performed experiment's steps. You can click on each step to get more details in the [run modal](run.md#run-modal).
 * **Deployment Replica Count**: When using an experiment in a Kubernetes context we will automatically monitor how many PODs are ready in your cluster and indicate whenever there is a discrepancy.
 * **Kubernetes Event Log**: When using an experiment in a Kubernetes context we provide you access to the Kubernetes Events so that you can identify what exactly happens in the Kubernetes cluster.
-* **HTTP Call**: If your experiment contains a `HTTP Call`-action you can see the response time as well as HTTP response status as a separate widget in the run window.
+* **HTTP Call**: If your experiment contains an `HTTP Call` action you can see the response time as well as HTTP response status as a separate widget in the run window.
 * **Monitoring Events**: In case your admin has installed a monitoring extension to Steadybit ( see [monitoring extensions in Reliability Hub](https://hub.steadybit.com/extensions?tags=Monitoring)) you can see occurring events and alerts of your setup directly in the run view.
-* **Run Analysis**: If [SteadyBuddy](../steadybuddy/README.md) is enabled, a failed or errored run offers to explain itself — verdict, root cause, a judgement on your hypothesis, and a recommendation. See [analyze an experiment run](../steadybuddy/README.md#analyze-an-experiment-run).
+* **Run Analysis**: If [SteadyBuddy](../steadybuddy/README.md) is enabled, a failed or errored run offers to explain itself — verdict, root cause, a judgment on your hypothesis, and a recommendation. See [analyze an experiment run](../steadybuddy/README.md#analyze-an-experiment-run).
 
 ### Run Modal
 
-You can click on each experiment step in the 'run timeline'- or 'run status'-widgets to get more details. The modal allow you to see the actions' configuration, the exact timing and affected targets (e.g., containers attacked by the blackhole-attack).
+You can click on each experiment step in the 'run timeline'- or 'run status'-widgets to get more details. The modal allows you to see the actions' configuration, the exact timing and affected targets (e.g., containers attacked by the blackhole-attack).
 
 ![Experiment Run Modal - Attacked Targets](../../.gitbook/assets/run-experiment-modal.png)
 
@@ -55,7 +55,7 @@ The state from a lower level is propagated to the upper level, as described [bel
 
 ### Experiment Run
 
-Experiment runs is in one of the following states:
+An experiment run is in one of the following states:
 
 | State     | Description                                                                                                                                                                                                                                                               |
 |-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -63,12 +63,12 @@ Experiment runs is in one of the following states:
 | CREATED   | The experiment was created and all targets were resolved.                                                                                                                                                                                                                 |
 | PREPARED  | The experiment is prepared, all preflight checks were successful, and agents are ready to execute the needed actions.                                                                                                                                                     |
 | RUNNING   | The experiment is currently running and performing actions (e.g. attacks).                                                                                                                                                                                                |
-| COMPLETED | Entire experiment including all actions were successfully executed - no failure or error reported by any step.                                                                                                                                                            |
+| COMPLETED | The entire experiment, including all actions, was successfully executed - no failure or error reported by any step.                                                                                                                                                       |
 | CANCELED  | The experiment was canceled by user interaction or system (in case of a failed validation in `REQUESTED` or `CREATED`) and all attacks were rolled back.                                                                                                                  |
-| FAILED    | The run failed due to some failing checks, for example a _HTTP Check_ not reaching the required success rate.                                                                                                                                                             |
+| FAILED    | The run failed due to some failing checks, for example an _HTTP Check_ not reaching the required success rate.                                                                                                                                                            |
 | ERRORED   | The run errored due to some technical reasons like `I/O error on POST request: Connection refused` or `Agent disconnected unexpectedly`. This shouldn't happen frequently, in case it does, let us know. We are constantly improving the platform to reduce error states. |
 
-In case an agent looses the connection to the platform during an experiment, it will immediately stop and rollback running attacks. There are some attacks (like `Stop Container`) which can't be rolled back due to it's nature.
+In case an agent loses the connection to the platform during an experiment, it will immediately stop and rollback running attacks. There are some attacks (like `Stop Container`) which can't be rolled back due to its nature.
 
 ### Step
 
@@ -124,7 +124,7 @@ The following example shows the state propagation in action:
 
 #### Example: Continue on Any Failures / Errors
 
-In some cases, state propagation is not desirable. Especially when running an experiment that attacks a large number of targets, single targets becoming unavailable may be expected and shouldn't cause the experiment to stop immediately. For these cases, you can configure a step to [continue on any failures or errors](design.md#continue-on-any-failures--errors) in the experiment design.
+In some cases, state propagation is not desirable. Especially when running an experiment that attacks a large number of targets, single targets becoming unavailable may be expected and shouldn't cause the experiment to stop immediately. For these cases, you can configure a step to [continue on any failures or errors](design.md#continue-on-any-failures-or-errors) in the experiment design.
 
 Once activated, the above example looks different:
 

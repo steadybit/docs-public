@@ -15,7 +15,7 @@ You can configure custom webhooks at `Settings` -> `Integrations` -> `Custom web
 | **Name**   | The name for this integration will not show up in the JSON body.                                                                                                                   |
 | **URL**    | The URL, which will receive an HTTP Post request with the JSON body                                                                                                                |
 | **Secret** | <p>You may specify a secret that will be used to sign the body. <a href="custom-webhooks.md#verifying-the-signature">Verifying the signature.</a><br><strong>optional</strong></p> |
-| **Team**   | If no team is specified, you'll receieve all events. If you do specify a team, you'll only receive events relevant to this team                                                    |
+| **Team**   | If no team is specified, you'll receive all events. If you do specify a team, you'll only receive events relevant to this team                                                     |
 | **Events** | Choose the events you want to receive.                                                                                                                                             |
 
 ## Supported Events
@@ -33,8 +33,8 @@ The body contains the event identifier (`event`), the `time`, and the experiment
 | **Step Completed**   | `experiment.execution.step-completed` | One step of a running experiment completed successfully (e.g. a check succeeded or the attack was performed).               |
 | **Step Failed**      | `experiment.execution.step-failed`    | One step of a running experiment failed (e.g. a check didn't match the defined expectation).                                |
 | **Step Errored**     | `experiment.execution.step-errored`   | One step of a running experiment errored (e.g. a check or attack couldn't be executed due to a technical error).            |
-| **Canceled**         | `experiment.execution.step-canceled`  | The experiment execution was canceled, e.g., by a user.                                                                     |
-| **Completed**        | `experiment.execution.completed`      | The experiment completed succesfully, e.g., all steps have been completed successfully.                                     |
+| **Canceled**         | `experiment.execution.canceled`       | The experiment execution was canceled, e.g., by a user.                                                                     |
+| **Completed**        | `experiment.execution.completed`      | The experiment completed successfully, e.g., all steps have been completed successfully.                                    |
 | **Failed**           | `experiment.execution.failed`         | The experiment execution failed because at least one step failed.                                                           |
 | **Errored**          | `experiment.execution.errored`        | The experiment execution errored because at least one step errored.                                                         |
 | **Preflight Checks** | `experiment.execution.preflight`      | A [preflight webhook check](./preflight-webhooks.md) is performed before the experiment is allowed to start.                |
@@ -45,8 +45,8 @@ The body contains the event identifier (`event`), the `time` and the `killswitch
 
 | Event                         | Event Identifier        | Description                                                                                                                               |
 | ----------------------------- | ----------------------- |-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Engaged Emergency Stop**    | `killswitch.disengaged` | The [emergency stop](../../use-steadybit/experiments/emergencyStop.md) was triggered to stop all experiment runs and prevent future runs. |
-| **Disengaged Emergency Stop** | `killswitch.engaged`    | The [emergency stop](../../use-steadybit/experiments/emergencyStop.md) was disengaged to allow future experiment runs.                       |
+| **Engaged Emergency Stop**    | `killswitch.engaged`    | The [emergency stop](../../use-steadybit/experiments/emergencyStop.md) was triggered to stop all experiment runs and prevent future runs. |
+| **Disengaged Emergency Stop** | `killswitch.disengaged` | The [emergency stop](../../use-steadybit/experiments/emergencyStop.md) was disengaged to allow future experiment runs.                    |
 
 ## Developing Webhooks
 

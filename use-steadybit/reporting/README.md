@@ -28,7 +28,7 @@ You can filter Service Risk reports by
 * Services
 * Service Properties (enum-typed [custom properties](../experiments/properties/README.md)).
 
-This allows to focus on services being tagged, e.g., with `Tier 0 - Mission Critical` and drill down on [reliability categories](../../install-and-configure/manage-service-profiles/README.md#categories) like 'Scalability'.
+This allows you to focus on services being tagged, e.g., with `Tier 0 - Mission Critical` and drill down on [reliability categories](../../install-and-configure/manage-service-profiles/README.md#categories) like 'Scalability'.
 
 ### Average Risk Over Time
 

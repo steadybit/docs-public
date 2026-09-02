@@ -166,7 +166,7 @@ Review advice
 
 Navigate via
 
-* **Services** > **Explore Services** to the **Explorer** to drill-down your targets or
+* **Services** > **Explore Services** to the **Explorer** to drill down into your targets or
 * check out the **Explorer**'s **Kubernetes Cluster** view to browse the simulated Kubernetes resources and their attributes
 
 ![Explorer showing a simulated Kubernetes environment](10-explorer.png)

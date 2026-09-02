@@ -9,8 +9,8 @@ Once you - or your administrator - has defined the property, you can assign and 
 ## Examples
 
 * Defining a service's business criticality
-  * Your administrator has defined a property definition called `serviceCritcality` with the datatype `enumeration (select one)`.
-  * Your administrator has assigned the property definition `serviceCritcality` to all services and marks it as required.
+  * Your administrator has defined a property definition called `serviceCriticality` with the datatype `enumeration (select one)`.
+  * Your administrator has assigned the property definition `serviceCriticality` to all services and marks it as required.
   * Whenever an administrator or team owner adds or edits a service, he can capture the value of the property (e.g. `Tier 0 - Mission Critical`)
 * Adding a mandatory cost center field to each experiment
   * Your administrator has defined a property definition called `costCenter` with the datatype `integer`.
@@ -39,7 +39,7 @@ A property assignment configuration consists of the following fields:
 
 ### API
 
-Properties can also be assigned using the following API endpoints. Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) how to access the API.
+Properties can also be assigned using the following API endpoints. Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) to learn how to access the API.
 
 * [Assign properties to a service](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Services/upsertService)
 * [Assign properties to an experiment design](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Experiment%20Designs/createOrUpdateExperiment)
@@ -55,7 +55,7 @@ Property values are the actual values of the properties that are saved as part o
 ### API
 
 Properties' values can also be read and edited using the following API endpoints.
-Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) how to access the API.
+Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) to learn how to access the API.
 
 * [Update the properties of a service](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Services/upsertService)
 * [Update the properties of an experiment design](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Experiment%20Designs/createOrUpdateExperiment)
