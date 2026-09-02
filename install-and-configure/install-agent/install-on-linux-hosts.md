@@ -61,7 +61,7 @@ When using **systemd**
 systemctl daemon-reload && systemctl restart steadybit-agent
 ```
 
-When using **InitV**
+When using **SysV init**
 
 ```shell
 service steadybit-agent restart
@@ -91,7 +91,7 @@ systemctl stop steadybit-agent
 systemctl restart steadybit-agent
 ```
 
-When using **InitV**
+When using **SysV init**
 
 ```shell
 service steadybit-agent start
