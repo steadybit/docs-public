@@ -33,7 +33,7 @@ The body contains the event identifier (`event`), the `time`, and the experiment
 | **Step Completed**   | `experiment.execution.step-completed` | One step of a running experiment completed successfully (e.g. a check succeeded or the attack was performed).               |
 | **Step Failed**      | `experiment.execution.step-failed`    | One step of a running experiment failed (e.g. a check didn't match the defined expectation).                                |
 | **Step Errored**     | `experiment.execution.step-errored`   | One step of a running experiment errored (e.g. a check or attack couldn't be executed due to a technical error).            |
-| **Canceled**         | `experiment.execution.step-canceled`  | The experiment execution was canceled, e.g., by a user.                                                                     |
+| **Canceled**         | `experiment.execution.canceled`       | The experiment execution was canceled, e.g., by a user.                                                                     |
 | **Completed**        | `experiment.execution.completed`      | The experiment completed succesfully, e.g., all steps have been completed successfully.                                     |
 | **Failed**           | `experiment.execution.failed`         | The experiment execution failed because at least one step failed.                                                           |
 | **Errored**          | `experiment.execution.errored`        | The experiment execution errored because at least one step errored.                                                         |
@@ -45,8 +45,8 @@ The body contains the event identifier (`event`), the `time` and the `killswitch
 
 | Event                         | Event Identifier        | Description                                                                                                                               |
 | ----------------------------- | ----------------------- |-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Engaged Emergency Stop**    | `killswitch.disengaged` | The [emergency stop](../../use-steadybit/experiments/emergencyStop.md) was triggered to stop all experiment runs and prevent future runs. |
-| **Disengaged Emergency Stop** | `killswitch.engaged`    | The [emergency stop](../../use-steadybit/experiments/emergencyStop.md) was disengaged to allow future experiment runs.                       |
+| **Engaged Emergency Stop**    | `killswitch.engaged`    | The [emergency stop](../../use-steadybit/experiments/emergencyStop.md) was triggered to stop all experiment runs and prevent future runs. |
+| **Disengaged Emergency Stop** | `killswitch.disengaged` | The [emergency stop](../../use-steadybit/experiments/emergencyStop.md) was disengaged to allow future experiment runs.                    |
 
 ## Developing Webhooks
 
