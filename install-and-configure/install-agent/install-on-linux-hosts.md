@@ -132,7 +132,7 @@ If you want to use additional extensions (e.g. [extension-jvm](https://hub.stead
 
 By default, the `agent-linux.sh` installs the agent and extension on a single host. When installed on multiple hosts, each runs an agent instance, allocating many resources. It is possible to install the agent on a dedicated host and only the container and host extension on each host.
 
-#### Non-Agent Hosts
+### Non-Agent Hosts
 
 * Install only container and host extensions by using `--no-agent` flag
 
@@ -149,7 +149,7 @@ systemctl restart steadybit-extension-container
 systemctl restart steadybit-extension-host
 ```
 
-#### Agent Host
+### Agent Host
 
 * Install the Agent as usual
 * For each extension running on a different host, create a `/etc/steadybit/extensions.d/extension-*.yaml` to configure the remote-located extensions

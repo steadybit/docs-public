@@ -9,6 +9,6 @@ At the moment, only a handful of activities are logged for auditing purposes. In
 
 You can access the audit log through the `/api/audit-log` endpoint. For more information, please see our [API documentation](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Audit%20Log).
 
-### Retention
+## Retention
 
 Audit logs are retained for up to _90 days_ for our SaaS platform. Customers leveraging an on-premise Steadybit platform installation can extend the retention through the `steadybit.auditlog.retention.period` configuration option. The configuration option accepts shorthands for time units, e.g., `90d` for 90 days.
