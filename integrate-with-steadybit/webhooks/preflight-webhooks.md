@@ -95,7 +95,7 @@ curl --request POST \
         "parameters": {
           "url": "https://demo.steadybit.io/products",
           "method": "GET",
-          "duration": "140s",
+          "duration": "140s"
         },
         "customLabel": "HTTP Endpoint works all the time",
         "actionId": "com.steadybit.extension_http.check.periodically",
@@ -114,7 +114,7 @@ curl --request POST \
           }
         ],
         "totalTargetCount": 1
-      }
+      },
       {
         "id": "0192fbf3-7c7c-701b-af5a-8bbc567b7b9f",
         "state": "PREPARED",
@@ -240,16 +240,16 @@ You can verify that the call to the preflight webhook is legitimate by verifying
 You can use this header to verify the message. Here is an example of doing this in Java:
 
 ```java
-private static boolean validateSignature(byte[]body,String secret,String header)throws Exception{
+private static boolean validateSignature(byte[] body, String secret, String header) throws Exception {
     //calculate the signature using the secret
-    Mac mac=Mac.getInstance("HmacSHA256");
-    mac.init(new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8),"HmacSHA256"));
-    byte[]signature=mac.doFinal(body);
+    Mac mac = Mac.getInstance("HmacSHA256");
+    mac.init(new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
+    byte[] signature = mac.doFinal(body);
 
     //remove the algorithm prefix and decode the hex to bytes[]
-    byte[]receivedSignature=Hex.decode(header.replaceFirst("^hmac-sha256 ",""));
+    byte[] receivedSignature = Hex.decode(header.replaceFirst("^hmac-sha256 ", ""));
 
     //compare using time-constant algorithm
-    return MessageDigest.isEqual(signature,receivedSignature);
+    return MessageDigest.isEqual(signature, receivedSignature);
 }
 ```
