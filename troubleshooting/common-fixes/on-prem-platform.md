@@ -13,7 +13,7 @@ If you just want to try out Steadybit, we recommend you [sign up for our SaaS pl
 
 This page describes some common issues and how to solve them.
 
-## Pulling the platform images fails with `unauthorized: authentication required` or pods are in ImagePullBackOff
+### Pulling the platform images fails with `unauthorized: authentication required` or pods are in ImagePullBackOff
 
 The platform images on `docker.steadybit.io` require authentication. The username is `_` and the password is your agent key.
 
@@ -29,7 +29,7 @@ kubectl get secret -n steadybit-platform steadybit-platform-pull-secrets -o json
 docker login docker.steadybit.io --username _ --password <replace-with-agent-key>
 ```
 
-## Platform and Postgres are in CrashLoopBackOff
+### Platform and Postgres are in CrashLoopBackOff
 
 * Check the logs of the platform and Postgres containers
 
@@ -40,7 +40,7 @@ docker login docker.steadybit.io --username _ --password <replace-with-agent-key
 
 * Verify that the Postgres password is correct and base64 encoded in the manifest file
 
-## Create Heap dump
+### Create Heap dump
 
 Prerequisites:
 
@@ -60,7 +60,7 @@ Then you need to retrieve the heat dump. Usually by copying the file from the de
 scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
 ```
 
-## Kubernetes namespaces and deployments show up multiple times in the landscape table
+### Kubernetes namespaces and deployments show up multiple times in the landscape table
 
 * Check the logs of the agents
 
@@ -77,7 +77,7 @@ scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
     leases          coordination.k8s.io           ✓              ✓              ✓              ✓              ×              ✓               ×               ×
     ```
 
-## Agents are not able to connect to the platform during an experiment
+### Agents are not able to connect to the platform during an experiment
 
 * Check if you can reach the platform from the agent:
 
@@ -139,7 +139,7 @@ scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
     < upgrade: websocket
     ```
 
-## Platform is behind Nginx and the agents are not able to connect to the platform
+### Platform is behind Nginx and the agents are not able to connect to the platform
 
 Error message in the platform logs:
 
@@ -152,7 +152,7 @@ Solution:
 
 * set the nginx backend protocol is HTTPS instead of HTTP
 
-## Configured the Platform with a oidc provider and the redirect to the platform is been send as http instead of https
+### Configured the Platform with a oidc provider and the redirect to the platform is been send as http instead of https
 
 Example error message in the browser:
 
