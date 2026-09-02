@@ -50,7 +50,7 @@ The volume in this sample refers to a config map, but any other volume config wo
 
 If you put the extra CAs into the container another way, you can specify the path to it:
 
-`agent.extraCertificates.fromVolume=extra-certs`
+`agent.extraCertificates.path=/some/ca-certs/`
 {% endtab %}
 
 {% tab title="using Environment Variables" %}
