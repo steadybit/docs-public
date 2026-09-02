@@ -47,7 +47,7 @@ Prerequisites:
 * If the platform is launched under docker, you need to have a dedicated volume or use an existing one for this mount path.
 * A network access to the host machine to retrieve the file.
 
-The platform can suffer from out of memory issues at JVM level. If that's happen, a heap dump might be needed to diagnose further, for providing it, add this environment variable :
+The platform can suffer from out of memory issues at JVM level. If that happens, a heap dump might be needed to diagnose further, for providing it, add this environment variable :
 
 ```yaml
 - name: JAVA_TOOL_OPTIONS
@@ -150,7 +150,7 @@ java.lang.IllegalArgumentException: Invalid character found in method name [0x16
 
 Solution:
 
-* set the nginx backend protocol is HTTPS instead of HTTP
+* set the nginx backend protocol to HTTPS instead of HTTP
 
 ### Configured the Platform with a oidc provider and the redirect to the platform is been send as http instead of https
 

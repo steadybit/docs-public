@@ -51,7 +51,7 @@ Example
 
 ## Tag Badges
 
-Experiment badges always link to a single existing experiment. If you want to refer to experiments that have a common purpose, you can instead use tag badges. Example use cases for this are linking to experiments reproducing a past issue from within your post-mortem documentation, indicating whether a specific architecture requirement is fulfilled, or providing visual evidence of the outcome of your latest disaster recovery test. Unlike experiment badges, tag badges can be created even if no experiment with the chosen tag exists, allowing you to use them as a call to action for creating a new experiment. This is how they look like in different states:
+Experiment badges always link to a single existing experiment. If you want to refer to experiments that have a common purpose, you can instead use tag badges. Example use cases for this are linking to experiments reproducing a past issue from within your post-mortem documentation, indicating whether a specific architecture requirement is fulfilled, or providing visual evidence of the outcome of your latest disaster recovery test. Unlike experiment badges, tag badges can be created even if no experiment with the chosen tag exists, allowing you to use them as a call to action for creating a new experiment. This is what they look like in different states:
 
 <figure><img src="../../.gitbook/assets/bade-example-create.png" alt="Tag badge when no experiment with the chosen tag exists" width="400"><figcaption><p>Tag badge when no experiment with the chosen tag exists</p></figcaption></figure>
 

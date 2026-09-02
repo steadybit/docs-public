@@ -144,7 +144,7 @@ Expression blocks can be encapsulated using parenthesis.
 
 #### Quoting Special Characters
 
-Keys containing special characters like `:` and `/` needs to be quoted to work properly.
+Keys containing special characters like `:` and `/` need to be quoted to work properly.
 
 ```
 // Quoting keys with special characters is necessary

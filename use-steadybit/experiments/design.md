@@ -86,7 +86,7 @@ So, in this example, we may attack all containers in, e.g.,
 3. `k8s.label.domain` = `shop-checkout`, `shop-orders`, `shop-products` and `aws.zone` = `eu-central-1b` _or_
 4. ...
 
-This allows to simulate an unavailability of a random zone across random services (i.e. case 1, `eu-central-1a`), but results in some container's domain unaffected (i.e. case 1, `k8s.label.domain` = `shop-inventory`, as no containers are running in `eu-central-1a`). The actual picked values are shown in the [run modal](run.md#advanced-blast-radius).
+This allows you to simulate an unavailability of a random zone across random services (i.e. case 1, `eu-central-1a`), but results in some container's domain unaffected (i.e. case 1, `k8s.label.domain` = `shop-inventory`, as no containers are running in `eu-central-1a`). The actual picked values are shown in the [run modal](run.md#advanced-blast-radius).
 
 {% hint style="info" %}
 A percentage limit can easily result in no targets while running the experiment. This can happen when specifying a low percentage or having a low number of targets in a group.
@@ -98,7 +98,7 @@ In case you use a variable, template placeholder, or the API, you need to define
 
 #### Action and Attack Settings
 
-Depending on the action chosen, you can configure different settings for the step. For instance, an attack to 'fill memory' allows to configure the amount of memory to be filled, an attack to 'stop container' allows to configure whether it is a graceful termination, and an 'HTTP check' allows to configure the expected success rate.
+Depending on the action chosen, you can configure different settings for the step. For instance, an attack to 'fill memory' allows you to configure the amount of memory to be filled, an attack to 'stop container' allows you to configure whether it is a graceful termination, and an 'HTTP check' allows you to configure the expected success rate.
 
 ![Action Settings Example of 'Stress CPU'](../../.gitbook/assets/create-experiment-blank-action-settings.png)
 

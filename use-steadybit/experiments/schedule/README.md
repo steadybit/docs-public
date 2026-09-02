@@ -44,13 +44,13 @@ In the experiment list section on the left-hand side, you can find a quick overv
 
 ### Experiment variable overrides
 
-If the experiment is making use of an [environment, service, or experiment variable](../variables.md), you can override them is the schedule. As in the experiment editor, the experiment is validated when you enter non supported values (e.g. entering "name" into a duration variable). Schedule variables will override environment, service, or experiment variable values for each run, triggered by this schedule.
+If the experiment is making use of an [environment, service, or experiment variable](../variables.md), you can override them in the schedule. As in the experiment editor, the experiment is validated when you enter non supported values (e.g. entering "name" into a duration variable). Schedule variables will override environment, service, or experiment variable values for each run, triggered by this schedule.
 
 ![Experiment Schedule override](../../../.gitbook/assets/experiment-schedule-overrides.png)
 
 ## Scheduling via API
 
-Schedules can also be configured using the following API endpoints. Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) how to access the API.
+Schedules can also be configured using the following API endpoints. Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) to learn how to access the API.
 
 * [Create or update an experiment schedule](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiment%20Schedule/upsertSchedule)
 * [Get an experiment schedule](https://platform.steadybit.com/api/swagger/swagger-ui/index.html#/Experiment%20Schedule/getSchedules)

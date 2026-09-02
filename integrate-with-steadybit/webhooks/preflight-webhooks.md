@@ -51,10 +51,10 @@ A preflight webhook can be in one of the following lifecycle statuses, indicated
 | **CREATED**    | The preflight webhook was created and has sent the request to the configured webhook. It is still waiting for the response.                                                  |
 | **SUCCESSFUL** | The preflight webhook was resolved successfully with an HTTP status code 2xx. The experiment is allowed to continue (if all preflight webhooks are successful).              |
 | **FAILED**     | The preflight webhook resolved with a non-2xx HTTP status code. The experiment will fail. Optionally, the response may contain a message as a reason for experiment failure. |
-| **ERRORED**    | Technical error happened while requesting the HTTP endpoint, e.g., the URL couldn't be resolved, or the HTTP request timed out.                                              |
+| **ERRORED**    | A technical error occurred while requesting the HTTP endpoint, e.g., the URL couldn't be resolved, or the HTTP request timed out.                                            |
 
 {% hint style="info" %}
-A webhook will timeout after 55 seconds. In that case, the preflight check is marked as `ERRORED`, and the experiment will not start. If the webhook resolves later, the actual result will be submitted to the preflight check step in the experiment.
+A webhook will time out after 55 seconds. In that case, the preflight check is marked as `ERRORED`, and the experiment will not start. If the webhook resolves later, the actual result will be submitted to the preflight check step in the experiment.
 {% endhint %}
 
 ### Examples
@@ -65,7 +65,7 @@ This section covers some example requests to ease the development of the preflig
 
 The below curl command can be used to mock a preflight request from Steadybit to your endpoint.
 
-Please note, that some of the metadata (i.e., step's `parameters`, and `targetExecutions`' `attributes`) have been omitted.
+Please note that some of the metadata (i.e., step's `parameters`, and `targetExecutions`' `attributes`) have been omitted.
 
 ```bash
 curl --request POST \
@@ -231,7 +231,7 @@ Currently, two modification types are supported:
 * `set_property_value`: Sets the value of a property identified by `propertyKey` to the provided `value`. If the property does not exist, it will be added.
 * `add_value_to_list_property`: Adds the provided `value` to a list property identified by `propertyKey`. If the property does not exist, it will be added. If it exists but is not a list, the execution will fail.
 
-Properties needs to be `editableInExecution` if inherited from the experiment design. You can learn more about properties [here](../../install-and-configure/manage-properties/).
+Properties need to be `editableInExecution` if inherited from the experiment design. You can learn more about properties [here](../../install-and-configure/manage-properties/).
 
 ### Verify Webhook Requests
 

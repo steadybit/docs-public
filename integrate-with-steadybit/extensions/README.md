@@ -23,7 +23,7 @@ Extension authors, maintainers and contributors will leverage extension APIs to 
 
 ### Extension Kits
 
-Kits are the combination of extension APIs, conventions, contracts, documentation, examples and more. They are leveraged mainly by the same audience that would author extension.
+Kits are the combination of extension APIs, conventions, contracts, documentation, examples and more. They are leveraged mainly by the same audience that would author extensions.
 
 ## Next Steps
 

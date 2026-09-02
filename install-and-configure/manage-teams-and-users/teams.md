@@ -8,7 +8,7 @@ Teams are the grouping element for multiple users. Each team consists of multipl
 
 ## Default Team: Administrators
 
-Per default one team is created called `Administrators` (key: `ADM`). It contains only the first user of Steadybit and has access to the [Global environment](../../install-and-configure/manage-environments/README.md).
+By default, one team is created called `Administrators` (key: `ADM`). It contains only the first user of Steadybit and has access to the [Global environment](../../install-and-configure/manage-environments/README.md).
 
 ## Creating Teams
 

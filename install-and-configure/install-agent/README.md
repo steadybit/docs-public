@@ -2,7 +2,7 @@
 
 ### Overview
 
-Before installing the agent, we recommend to make yourself familiar with the general [Agent Architecture](agent-architecture.md).
+Before installing the agent, we recommend familiarizing yourself with the general [Agent Architecture](agent-architecture.md).
 
 ### Prerequisites
 

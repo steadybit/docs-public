@@ -47,7 +47,7 @@ In case you don't want to deploy to Docker directly using the script or you need
 
 ### Configure HTTP Proxy Server
 
-The Steadybit Agent uses HTTP and websockets to communicate with the platform. To simplify the agent deployment, consider to allow direct communication to our platform.
+The Steadybit Agent uses HTTP and websockets to communicate with the platform. To simplify the agent deployment, consider allowing direct communication to our platform.
 
 If a single entry into and out of your network is required, you can configure the agent to use an HTTP proxy. Export the following environment variables before running the script or edit the Docker compose configuration printed by the `config` command.
 

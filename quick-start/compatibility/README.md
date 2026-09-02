@@ -314,7 +314,7 @@ Steadybit provides capabilities based on the AWS RDS API for RDS clusters and in
 
 #### Other AWS Services
 
-Steadybit has cross-services capabilities like simulating a full [availability zone outage](https://hub.steadybit.com/target/com.steadybit.extension_aws.zone) or [partial zone outage via subnets](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-subnet).
+Steadybit has cross-service capabilities like simulating a full [availability zone outage](https://hub.steadybit.com/target/com.steadybit.extension_aws.zone) or [partial zone outage via subnets](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-subnet).
 
 Additional managed services are covered via [AWS FIS](./#aws-fault-injection-service-fis), or will be added to Steadybit natively in the future.
 

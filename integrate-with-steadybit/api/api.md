@@ -117,7 +117,7 @@ This endpoint is only accessible from localhost and is not reachable from outsid
 
 ## OpenApi Specification
 
-We provide a [OpenApi 3.0 Specification for the API](https://platform.steadybit.com/api/spec) as well as an [interactive documentation](https://platform.steadybit.com/api/swagger). In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
+We provide an [OpenAPI 3.0 Specification for the API](https://platform.steadybit.com/api/spec) as well as an [interactive documentation](https://platform.steadybit.com/api/swagger). In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
 
 ### Requests and Responses
 

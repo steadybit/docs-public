@@ -143,7 +143,7 @@ helm upgrade --install steadybit-agent --namespace steadybit-agent \
 
 ### Alternative: Generate Kubernetes Manifests
 
-We currently don't provide a static Kubernetes manifest, but you can generate it from the helm chart. We recommend to use the helm chart, as it is easier to update the agent and extensions.
+We currently don't provide a static Kubernetes manifest, but you can generate it from the helm chart. We recommend using the helm chart, as it is easier to update the agent and extensions.
 
 ```shell
 helm repo add steadybit https://steadybit.github.io/helm-charts

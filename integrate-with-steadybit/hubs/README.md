@@ -32,7 +32,7 @@ You can host your own hub to share content within your organization instead of w
 
 ### Hub Convention
 
-To host your own hub, you have to serve a JSON-based endpoint via HTTP with a last modified unix timestamp (`lastChange`) and path references to templates and action documentation (see below). The platform will only update the referenced content when the unix timestamp (`lastChange`) has changed.
+To host your own hub, you have to serve a JSON-based endpoint via HTTP with a last-modified Unix timestamp (`lastChange`) and path references to templates and action documentation (see below). The platform will only update the referenced content when the unix timestamp (`lastChange`) has changed.
 
 ```json
 {

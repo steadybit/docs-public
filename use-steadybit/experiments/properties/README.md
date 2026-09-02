@@ -39,7 +39,7 @@ A property assignment configuration consists of the following fields:
 
 ### API
 
-Properties can also be assigned using the following API endpoints. Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) how to access the API.
+Properties can also be assigned using the following API endpoints. Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) to learn how to access the API.
 
 * [Assign properties to a service](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Services/upsertService)
 * [Assign properties to an experiment design](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Experiment%20Designs/createOrUpdateExperiment)
@@ -55,7 +55,7 @@ Property values are the actual values of the properties that are saved as part o
 ### API
 
 Properties' values can also be read and edited using the following API endpoints.
-Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) how to access the API.
+Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) to learn how to access the API.
 
 * [Update the properties of a service](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Services/upsertService)
 * [Update the properties of an experiment design](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Experiment%20Designs/createOrUpdateExperiment)
