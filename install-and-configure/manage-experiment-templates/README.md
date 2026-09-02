@@ -76,7 +76,7 @@ After you delete a template, users can't create an experiment from it anymore. H
 
 ![Template list provide capability to hide templates](../../.gitbook/assets/template-hide.png)
 
-By default, all saved templates are discoverable when creating a new experiment from a template. However, you can hide a template to prevent users from using it. To hide a template, change the toggle in `Settings`> `Template` of a specific template. Experiments that have already been created from that template are not affected.
+By default, all saved templates are discoverable when creating a new experiment from a template. However, you can hide a template to prevent users from using it. To hide a template, change the toggle in `Settings` > `Template` of a specific template. Experiments that have already been created from that template are not affected.
 
 ## Export Templates as Files
 

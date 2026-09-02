@@ -37,7 +37,7 @@ chmod a+x agent.sh
 | Parameter        | Description                                                                                                          | Default                          |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
 | `<command>`      | The action to take. Either one of `up`, `down`, `restart`, `config`                                                  | `up`                             |
-| `--key`          | The agent key. Can be found on your platform's \[https://platform.steadybit.com/settings/agents/setup]\(setup page). |                                  |
+| `--key`          | The agent key. Can be found on your platform's [setup page](https://platform.steadybit.com/settings/agents/setup). |                                    |
 | `--platform-url` | If running on-prem, the url of your platform installation to use                                                     | `https://platform.steadybit.com` |
 | `--image`        | The Agent Docker image to use.                                                                                       | `steadybit/agent:latest`         |
 

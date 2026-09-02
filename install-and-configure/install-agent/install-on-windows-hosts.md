@@ -80,7 +80,7 @@ If you need to diagnose issues or review the activity of the agent and its exten
    * Select **Application**.
 3. **Find Relevant Entries:**
    * The central pane will now display a list of events. Look for entries where the **Source** column might indicate the agent or its extensions (e.g., "Steadybit Agent," or a specific extension name).
-   * You can sort by "Date and Time" to find recent events or use the "Filter Current Log..." option in the right-hand pane to narrow down your search (e.g., by Event level like "Error" or "Warning", or by specific Event sources)."
+   * You can sort by "Date and Time" to find recent events or use the "Filter Current Log..." option in the right-hand pane to narrow down your search (e.g., by Event level like "Error" or "Warning", or by specific Event sources).
 
 ## Java Virtual Machine Options
 
@@ -148,5 +148,3 @@ This method uses the traditional Control Panel interface, which has been around 
 5. **Follow Uninstaller Prompts:**
    * A confirmation pop-up might appear. Confirm that you want to uninstall.
    * The Steadybit Agent's own uninstaller will then launch. Follow any instructions it provides to complete the removal.
-
-***

@@ -34,7 +34,7 @@ For more configuration options have a look at our [steadybit/helm-charts reposit
 
 ### Configure Container Runtime
 
-By default, the agent assumes that your cluster uses the `containerd` runtime. If this is not the case, you need to add`--set extension-container.container.engine=docker` or `cri-o`.
+By default, the agent assumes that your cluster uses the `containerd` runtime. If this is not the case, you need to add `--set extension-container.container.engine=docker` or `cri-o`.
 
 #### Determine Container Runtime on a Node
 
@@ -59,7 +59,7 @@ In order to discover all extensions in the Kubernetes cluster the agent needs to
 
 #### Add more Extensions
 
-Further extensions can be enabled via helm values of steadybit-agent. For example, [`extension-postman`](https://github.com/steadybit/extension-postman) can be enabled by setting`extension-postman.enabled=true`. See our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-agent) for a detailed list of all the configuration parameters.
+Further extensions can be enabled via helm values of steadybit-agent. For example, [`extension-postman`](https://github.com/steadybit/extension-postman) can be enabled by setting `extension-postman.enabled=true`. See our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-agent) for a detailed list of all the configuration parameters.
 
 Alternatively, you can also install extensions independently with their own helm charts. The installation instructions are listed in the Github repositories of the extension and can be browsed via the [Reliability Hub](https://hub.steadybit.com/).
 

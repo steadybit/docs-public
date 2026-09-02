@@ -17,4 +17,4 @@ You want to receive a Slack message whenever an experiment has started or failed
 | **Team**     | If no team is specified, you'll receive all events. If you do specify a team you'll only receive notifications relevant for this team                       |
 | **Events**   | You may select the events you want to receive.                                                                                                              |
 
-If you want, you can also use a [custom Webhook ](webhooks/custom-webhooks.md)to further customize Slack message or integrate with other chat applications.
+If you want, you can also use a [custom webhook](webhooks/custom-webhooks.md) to further customize Slack message or integrate with other chat applications.

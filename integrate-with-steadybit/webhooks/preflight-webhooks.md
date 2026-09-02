@@ -18,13 +18,13 @@ You can add preflight webhooks at `Settings` -> `Integrations` -> `Preflight web
 
 A webhook has the following parameters to be specified:
 
-|            |                                                                                                                                                     |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name**   | The preflight webhook's name, it is shown in the experiment run.                                                                                    |
-| **URL**    | The URL, which will receive an HTTP Post request with the HTTP request body                                                                         |
-| **Secret** | **optional**You may specify a secret which is used to sign the body to [verify the webhook request](preflight-webhooks.md#verify-webhook-requests). |
-| **Team**   | If no team is specified, preflight checks will be performed for all teams. If you specify a team, preflight checks are only made for this team.     |
-| **Events** | Right now, there is only one event here: `Execution preflight checks`, which is triggered before starting an experiment run.                        |
+|            |                                                                                                                                                                                        |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name**   | The preflight webhook's name, it is shown in the experiment run.                                                                                                                       |
+| **URL**    | The URL, which will receive an HTTP Post request with the HTTP request body                                                                                                            |
+| **Secret** | <p>You may specify a secret which is used to sign the body to <a href="preflight-webhooks.md#verify-webhook-requests">verify the webhook request</a>.<br><strong>optional</strong></p> |
+| **Team**   | If no team is specified, preflight checks will be performed for all teams. If you specify a team, preflight checks are only made for this team.                                        |
+| **Events** | Right now, there is only one event here: `Execution preflight checks`, which is triggered before starting an experiment run.                                                           |
 
 ## Experiment Runs
 
