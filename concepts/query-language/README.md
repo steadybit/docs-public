@@ -161,8 +161,7 @@ A comment can stand on its own line:
 
 ```
 // The canary tier is deployed continuously, so it is expected to be unstable.
-k8s.cluster-name="prod"
-AND NOT k8s.label.tier="canary"
+k8s.cluster-name="prod" AND NOT k8s.label.tier="canary"
 ```
 
 or follow a query on the same line:
@@ -178,5 +177,9 @@ Two things to be aware of:
 
 - A `//` inside a quoted value is part of the value, not a comment, so URLs keep working:
   `"label.url"="https://example.com"`.
-- A query made up of nothing but comments is treated as an empty query, and an empty query matches
-  **everything**. Commenting out an entire query therefore widens it rather than emptying it.
+- A query made up of nothing but comments is treated as an empty query. A query only ever *narrows*
+  what its scope already contains, so commenting one out stops the narrowing rather than emptying
+  the selection: an experiment's blast radius then covers every target of that action's target type
+  in the experiment's environment, and a service's target scope every target in its environment. The
+  one to watch is an [environment's own scope](/install-and-configure/manage-environments/#define-your-own-environment),
+  where the query *is* the boundary — commenting that out covers every target in the tenant.
