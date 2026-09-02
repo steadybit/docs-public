@@ -102,11 +102,11 @@ Depending on the action chosen, you can configure different settings for the ste
 
 ![Action Settings Example of 'Stress CPU'](../../.gitbook/assets/create-experiment-blank-action-settings.png)
 
-**Continue on Any Failures / Errors**
+##### Continue on Any Failures or Errors
 
 By default, a failed/errored step causes the entire experiment run to fail/error immediately. All steps have a configuration to continue an experiment run even when a failure or error occurred in the step's execution. Once activated, the step is still marked as a failure/error, but the experiment continues running and may still eventually end in `COMPLETED`. This is further described in the [experiment run state documentation](run.md#state-propagation).
 
-Continue with these steps until you've designed your experiment. A reasonable experiment could easily look like the one below. Once you have saved it, you are ready to [run it](./#run) to learn how your system behaves.
+Continue with these steps until you've designed your experiment. A reasonable experiment could easily look like the one below. Once you have saved it, you are ready to [run it](run.md) to learn how your system behaves.
 
 ![Create Experiment - Example in the Editor](../../.gitbook/assets/create-experiment-blank-example.png)
 
@@ -131,7 +131,7 @@ The subsequent steps depend on the selected experiment template and will guide y
 
 ![Create Experiment - Use Template: Further Steps](../../.gitbook/assets/create-experiment-template-wizard2.png)
 
-Eventually, you end up in the experiment editor, where you can adjust the experiment or [run it](./#run) to learn how your system behaves.
+Eventually, you end up in the experiment editor, where you can adjust the experiment or [run it](run.md) to learn how your system behaves.
 
 ![Create Experiment - Use Template: Further Steps](../../.gitbook/assets/create-experiment-template-wizard3.png)
 

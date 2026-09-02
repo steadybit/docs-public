@@ -21,14 +21,14 @@ They help teams focus on one reliability dimension at a time.
 
 ### Experiment Templates
 
-Each [experiment template](../../use-steadybit/experiments/templates/) in a profile defines the structure of an experiment to be generated for each service.
+Each [experiment template](../../use-steadybit/experiments/share/templates/) in a profile defines the structure of an experiment to be generated for each service.
 When a service uses a profile, Steadybit instantiates a profile's template on-the-fly by substituting the service into the template — producing ready-to-run experiments scoped to that specific service.
 To reference to a service, you can create a template placeholder with the placeholder key `[[SERVICE]]`.
 Use this placeholder in, e.g., a service validation drop down or a target query (`service.id="[[SERVICE]]"`).
 
 ![Experiment template linking service in dropdown](experiment-template-service-placeholder.png)
 
-![Experiment template linking service in query](experiment-template-service-query.png)
+![Experiment template linking service in query](experiment-template-query.png)
 
 {% hint style="warning" %}
 Be aware, that removing a template from a service profile results in deleting provided experiments and experiment runs for all services refering to this service profile.

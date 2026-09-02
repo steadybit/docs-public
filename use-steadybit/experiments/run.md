@@ -5,7 +5,7 @@ After having your [experiment fully designed](./) you can simply use the `Run`-b
 1. No validation errors
 2. Every attack resolves at that moment to at least one target.
 3. You are member of the same team as the experiment
-4. [Emergency stop](./#Emergency-Stop) has not been triggered.
+4. [Emergency stop](emergencyStop.md) has not been triggered.
 
 Otherwise, you'll get an error message and the experiment is not started.
 
@@ -19,7 +19,7 @@ Every experiment run has a unique identifier (e.g. **#33131**), which you can us
 
 The run view itself consists of the following elements.
 
-* **Run Timeline**: At the top you see the sequence defined previously in the [design](./#design). While the experiment is running a special marker indicates the current point of time. Some attacks need a little bit of extra time before being started which is indicated by a light green colouring in the front. The extra time is added to the timing of the attack and is currently caused by technical reasons .You can click on each step to get more details in the [run modal](run.md#run-modal).
+* **Run Timeline**: At the top you see the sequence defined previously in the [design](design.md). While the experiment is running a special marker indicates the current point of time. Some attacks need a little bit of extra time before being started which is indicated by a light green colouring in the front. The extra time is added to the timing of the attack and is currently caused by technical reasons .You can click on each step to get more details in the [run modal](run.md#run-modal).
 * **Run Status**: The run log lists the currently active or already performed experiment's steps. You can click on each step to get more details in the [run modal](run.md#run-modal).
 * **Deployment Replica Count**: When using an experiment in a Kubernetes context we will automatically monitor how many PODs are ready in your cluster and indicate whenever there is a discrepancy.
 * **Kubernetes Event Log**: When using an experiment in a Kubernetes context we provide you access to the Kubernetes Events so that you can identify what exactly happens in the Kubernetes cluster.
@@ -124,7 +124,7 @@ The following example shows the state propagation in action:
 
 #### Example: Continue on Any Failures / Errors
 
-In some cases, state propagation is not desirable. Especially when running an experiment that attacks a large number of targets, single targets becoming unavailable may be expected and shouldn't cause the experiment to stop immediately. For these cases, you can configure a step to [continue on any failures or errors](design.md#continue-on-any-failures--errors) in the experiment design.
+In some cases, state propagation is not desirable. Especially when running an experiment that attacks a large number of targets, single targets becoming unavailable may be expected and shouldn't cause the experiment to stop immediately. For these cases, you can configure a step to [continue on any failures or errors](design.md#continue-on-any-failures-or-errors) in the experiment design.
 
 Once activated, the above example looks different:
 

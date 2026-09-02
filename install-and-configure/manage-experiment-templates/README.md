@@ -39,7 +39,7 @@ Variables use the `{{variable}}` syntax and are not restricted to a single scope
 #### Properties
 
 Similar to experiments, an experiment in an experiment template can have properties assigned.
-Properties' values can be hard-coded in the experiment or can reference [template placeholders (see below)](./#template-placeholder) and [variables](../../use-steadybit/experiments/variables.md) to capture these when [using the experiment](../../use-steadybit/experiments/templates/).
+Properties' values can be hard-coded in the experiment or can reference [template placeholders (see below)](./#template-placeholder) and [variables](../../use-steadybit/experiments/variables.md) to capture these when [using the experiment](../../use-steadybit/experiments/share/templates/).
 Templates can only reference defined property definitions.
 
 Learn more on [managing properties](../manage-properties/) and [using properties in experiments](../../use-steadybit/experiments/properties/).
@@ -70,7 +70,7 @@ You can edit a template and change all its content whenever needed. Please note 
 
 ## Delete Templates
 
-After you delete a template, users can't create an experiment from it anymore. However, experiments previously created using that template are never deleted automatically. Instead, you can also [hide a template](./#hide-a-template) to temporarily prevent the use of a template.
+After you delete a template, users can't create an experiment from it anymore. However, experiments previously created using that template are never deleted automatically. Instead, you can also [hide a template](./#hide-templates) to temporarily prevent the use of a template.
 
 ## Hide Templates
 

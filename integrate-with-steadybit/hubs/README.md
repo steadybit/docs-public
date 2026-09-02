@@ -14,7 +14,7 @@ On-premise platform installations connect to a bundled local copy of our Reliabi
 
 ### Connect New Hubs
 
-Steadybit supports connecting your own hub to the platform. An administrator can manage hub connections via `Settings`> `Hubs`. To add a hub, you need to specify the URL to the hub's index.json (see section [hub convention](./#hub-connections)).
+Steadybit supports connecting your own hub to the platform. An administrator can manage hub connections via `Settings`> `Hubs`. To add a hub, you need to specify the URL to the hub's index.json (see section [hub convention](./#hub-convention)).
 
 ![Platform - connect new hub](../../.gitbook/assets/hub-connect.png)
 
@@ -40,13 +40,11 @@ To host your own hub, you have to serve a JSON-based endpoint via HTTP with a la
   "templates": [
     "/templates/aws-zone.zone-outage/template.json",
     "/templates/kubernetes-deployment.time-to-readiness/template.json"
-    //...
   ],
-   "actions": [
+  "actions": [
     "/actions/com.steadybit.extension_container.stress_cpu/description.yml",
-    "/actions/com.steadybit.extension_host.shutdown/description.yml",
-    //...
-   ]
+    "/actions/com.steadybit.extension_host.shutdown/description.yml"
+  ]
 }
 ```
 
