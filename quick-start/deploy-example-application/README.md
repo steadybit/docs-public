@@ -158,13 +158,13 @@ The result is an aggregated list of all products of the services `toys`, `hot-de
 
 **Create your AWS Elastic Kubernetes Service (AWS EKS) cluster and nodes**
 
-Verfiy your AWS CLI configuration by running:
+Verify your AWS CLI configuration by running:
 
 ```bash
 aws --version
 ```
 
-Your output should be similiar to:
+Your output should be similar to:
 
 ```bash
 aws-cli/2.0.44 Python/3.8.5 Darwin/19.6.0 source/x86_64

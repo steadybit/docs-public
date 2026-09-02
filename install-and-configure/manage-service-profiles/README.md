@@ -31,7 +31,7 @@ Use this placeholder in, e.g., a service validation drop down or a target query 
 ![Experiment template linking service in query](experiment-template-query.png)
 
 {% hint style="warning" %}
-Be aware, that removing a template from a service profile results in deleting provided experiments and experiment runs for all services refering to this service profile.
+Be aware, that removing a template from a service profile results in deleting provided experiments and experiment runs for all services referring to this service profile.
 If you delete a template from one category and assign it to another one, without saving in between, no experiments are deleted.
 {% endhint %}
 

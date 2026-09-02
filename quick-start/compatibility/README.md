@@ -145,7 +145,7 @@ The following attacks are available when working with physical hosts and virtual
 | Windows Server 2022 (x64) | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ❌                   | ❌         |
 
 {% hint style="info" %}
-Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+Other .exe, .deb and .rpm-based distributions will most likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
 ### Resource Attacks
@@ -164,7 +164,7 @@ Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but 
 | Windows Server 2022 (x64) | ✅         | ✅           | ✅          | ✅         | ❌             | ❌         |
 
 {% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+Other .deb and .rpm-based distributions will most likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
 ### State Attacks
@@ -183,7 +183,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 | Windows Server 2022 (x64) | ✅             | ✅            | ✅           |
 
 {% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+Other .deb and .rpm-based distributions will most likely work, too, but aren't explicitly tested on.
 {% endhint %}
 
 ## Cloud Providers

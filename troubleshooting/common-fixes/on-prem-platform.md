@@ -54,7 +54,7 @@ The platform can suffer from out of memory issues at JVM level. If that's happen
   value: -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/PATH_TO_BE_MOUNTED/heapdump-%p.hprof
 ```
 
-Then you need to retrieve the heat dump. Usually by copying the file from the destination to your machine :
+Then you need to retrieve the heap dump. Usually by copying the file from the destination to your machine :
 
 ```bash
 scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
@@ -87,7 +87,7 @@ scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
 
 *   Check if the agent can reach the Websocket port of the platform.
 
-    * This is usally port 7878 and can be configured in the platform manifest via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` (helm chart: `platform.publicWebsocketPort`)
+    * This is usually port 7878 and can be configured in the platform manifest via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` (helm chart: `platform.publicWebsocketPort`)
     * If setting the port is not enough, you can set the url via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL` (helm chart: `platform.ingressOrigin`)
     * Please also check your ingress configuration.
 
@@ -162,7 +162,7 @@ The redirect URI 'http://steadybit-platform.example.com/oauth2/login/code/defaul
 
 Solution:
 
-Set the environment variable: server.tomcat.remoteip.trusted-proxies to a regex that matches the CIDRs of the loadbalancer or reverse proxy. Add the following environment variable to the platform manifest: (Example for Google Cloud Load Balancer CIRDs regex)
+Set the environment variable: server.tomcat.remoteip.trusted-proxies to a regex that matches the CIDRs of the loadbalancer or reverse proxy. Add the following environment variable to the platform manifest: (Example for Google Cloud Load Balancer CIDRs regex)
 
 ```yaml
 env:

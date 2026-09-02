@@ -147,7 +147,7 @@ A Redis message broker is required to run the platform with multiple instances.
 | `SPRING_REDIS_PORT`                                                                 |          | <p>Redis server port<br><strong>Default:</strong> <code>6379</code></p>              |
 | `SPRING_REDIS_USERNAME`                                                             |          | Redis Username                                                                       |
 | `SPRING_REDIS_PASSWORD`                                                             |          | Redis Password                                                                       |
-| platform <= 1.0.96 `SPRING_REDIS_SSL`, platform > 1.0.96 `SPRING_REDIS_SSL_ENABLED` |          | <p>Wether to enable ssl support.<br><strong>Default:</strong> <code>false</code></p> |
+| platform <= 1.0.96 `SPRING_REDIS_SSL`, platform > 1.0.96 `SPRING_REDIS_SSL_ENABLED` |          | <p>Whether to enable ssl support.<br><strong>Default:</strong> <code>false</code></p>|
 | `SPRING_REDIS_CLIENT_NAME`                                                          |          | Client name to be set on connections with CLIENT SETNAME.                            |
 
 ### Tenant Configuration

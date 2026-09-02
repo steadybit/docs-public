@@ -68,7 +68,7 @@ Experiment runs is in one of the following states:
 | FAILED    | The run failed due to some failing checks, for example a _HTTP Check_ not reaching the required success rate.                                                                                                                                                             |
 | ERRORED   | The run errored due to some technical reasons like `I/O error on POST request: Connection refused` or `Agent disconnected unexpectedly`. This shouldn't happen frequently, in case it does, let us know. We are constantly improving the platform to reduce error states. |
 
-In case an agent looses the connection to the platform during an experiment, it will immediately stop and rollback running attacks. There are some attacks (like `Stop Container`) which can't be rolled back due to it's nature.
+In case an agent loses the connection to the platform during an experiment, it will immediately stop and rollback running attacks. There are some attacks (like `Stop Container`) which can't be rolled back due to it's nature.
 
 ### Step
 

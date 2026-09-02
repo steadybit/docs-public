@@ -10,7 +10,7 @@ Please note that an experiment schedule always starts the experiment. In case of
 
 ## Scheduling via UI
 
-You can open the scheduling configuration dialog in the platform either in the experiment experiment editor or the experiment list's context menu.
+You can open the scheduling configuration dialog in the platform either in the experiment editor or the experiment list's context menu.
 
 ![Schedule experiment within the experiment editor](../../../.gitbook/assets/create-experiment-schedule.png)
 
@@ -44,7 +44,7 @@ In the experiment list section on the left-hand side, you can find a quick overv
 
 ### Experiment variable overrides
 
-If the experiment is making use of an [environment, service, or experiment variable](../variables.md), you can override them is the schedule. As in the experiment editor, the exeriment is validated when you enter non supported values (e.g. entering "name" into a duration variable). Schedule variables will override environment, service, or experiment variable values for each run, triggered by this schedule.
+If the experiment is making use of an [environment, service, or experiment variable](../variables.md), you can override them is the schedule. As in the experiment editor, the experiment is validated when you enter non supported values (e.g. entering "name" into a duration variable). Schedule variables will override environment, service, or experiment variable values for each run, triggered by this schedule.
 
 ![Experiment Schedule override](../../../.gitbook/assets/experiment-schedule-overrides.png)
 

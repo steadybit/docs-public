@@ -9,8 +9,8 @@ Once you - or your administrator - has defined the property, you can assign and 
 ## Examples
 
 * Defining a service's business criticality
-  * Your administrator has defined a property definition called `serviceCritcality` with the datatype `enumeration (select one)`.
-  * Your administrator has assigned the property definition `serviceCritcality` to all services and marks it as required.
+  * Your administrator has defined a property definition called `serviceCriticality` with the datatype `enumeration (select one)`.
+  * Your administrator has assigned the property definition `serviceCriticality` to all services and marks it as required.
   * Whenever an administrator or team owner adds or edits a service, he can capture the value of the property (e.g. `Tier 0 - Mission Critical`)
 * Adding a mandatory cost center field to each experiment
   * Your administrator has defined a property definition called `costCenter` with the datatype `integer`.

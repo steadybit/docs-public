@@ -15,7 +15,7 @@ MountVolume.SetUp failed for volume "..." : hostPath type check failed: /run/...
 This error indicates that the extension runs on the wrong container runtime (Docker, cri-o, or containerd). To fix this issue, you must configure another one in the installation. You can change the extension's runtime easily via helm parameter. If you've used the Agent helm-chart to deploy Agent and extensions, you can configure the `extension-container.container.engine` parameter.
 
 ```
-  --set extension-container.container.engine=... //containerd, docker or cri-io
+  --set extension-container.container.engine=... //containerd, docker or cri-o
 ```
 
 If you deployed the extension-container standalone, the parameter's name is `container.engine` (without the `extension-container` prefix).

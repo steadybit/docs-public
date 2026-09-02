@@ -30,7 +30,7 @@ Alternatively, below are examples to copy and adjust to create your badge manual
 {% code title="example.md" %}
 ```markdown
 Template:
-[![{{expermiment-key}}](https://platform.steadybit.com/api/experiments/{{experiment-key}}/badge.svg?tenantKey={{tenant-key}})](https://platform.steadybit.com/experiments/{{team-key}}/edit/{{experiment-key}}/executions/?tenant={{tenant-key}}~)
+[![{{experiment-key}}](https://platform.steadybit.com/api/experiments/{{experiment-key}}/badge.svg?tenantKey={{tenant-key}})](https://platform.steadybit.com/experiments/{{team-key}}/edit/{{experiment-key}}/executions/?tenant={{tenant-key}}~)
 
 Example:
 [![SHOP-61](https://platform.steadybit.com/api/experiments/SHOP-61/badge.svg?tenantKey=demo)](https://platform.steadybit.com/experiments/SHOP/edit/SHOP-61/executions/?tenant=demo~)

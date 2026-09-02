@@ -6,7 +6,7 @@ There are some use cases, where you want to restrict the targets discovered by S
 
 Boiling down to a set of targets can result in complex statements. For instance, you want to make sure that the targets are matching some sets of key-value pairs but also not in your production cluster. Expressions like these can now easily be written in Steadybits Query Language. The Query Language is a textual representation of the Query UI but with a more advanced feature set. It allows you to build semantic expression blocks, combining them with other expressions or negating them. The Query UI and the Query Language always come together, so it is up to you to choose the style.
 
-### How to switch between the Query UI and the Query Langauge
+### How to switch between the Query UI and the Query Language
 
 <figure><img src="../../.gitbook/assets/query-ui-and-language.png" alt=""><figcaption><p>The same query can be expressed with the Query UI on the left and the Query Language on the right</p></figcaption></figure>
 
@@ -31,7 +31,7 @@ target.type IN ("com.steadybit.extension_kubernetes.kubernetes-daemonset", "com.
 ```
 
 ```
-// Not equals check to get all targets not running in the Kuberneters Cluster 'prod'
+// Not equals check to get all targets not running in the Kubernetes Cluster 'prod'
 k8s.cluster-name!="prod"
 
 // Get all targets that are not a Daemonset/Deployment/Statefulset (needs platform >= 2.3.7)
@@ -52,7 +52,7 @@ container.label.maintainer!~"Jane"
 k8s.cluster-name=*"PrOd"
 ```
 ```
-// Not equals ignore case check to get all targets not running in the Kuberneters Cluster 'PrOd' ignore casing
+// Not equals ignore case check to get all targets not running in the Kubernetes Cluster 'PrOd' ignore casing
 k8s.cluster-name!=*"PrOd"
 ```
 ```

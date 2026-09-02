@@ -72,7 +72,7 @@ The Steadybit Agent can be installed on **Amazon Elastic Container Service**.
      --network-configuration '{"awsvpcConfiguration": {"subnets": ["MY-SUBNET-1", "MY-SUBNET-2", "MY-SUBNET-3"], "securityGroups": ["MY-SECURITY-GROUP-ID"], "assignPublicIp": "DISABLED"}}'
     ```
 
-    * **Extension Host** - please replace the cluster-name. The extension will use the host network strategy and use the security groupd and subnets of your ec2 instances.
+    * **Extension Host** - please replace the cluster-name. The extension will use the host network strategy and use the security group and subnets of your ec2 instances.
 
     ```bash
     aws ecs create-service \
@@ -85,7 +85,7 @@ The Steadybit Agent can be installed on **Amazon Elastic Container Service**.
      --scheduling-strategy DAEMON
     ```
 
-    * **Extension Container** - please replace the cluster-name. The extension will use the host network strategy and use the security groupd and subnets of your ec2 instances.
+    * **Extension Container** - please replace the cluster-name. The extension will use the host network strategy and use the security group and subnets of your ec2 instances.
 
     ```bash
     aws ecs create-service \
