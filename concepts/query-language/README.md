@@ -1,12 +1,12 @@
 # Query Language
 
-### What is the Query Language?
+## What is the Query Language?
 
 There are some use cases, where you want to restrict the targets discovered by Steadybit. One use case can be that you want to [design an experiment](/use-steadybit/experiments/design.md#basic-elements) and make sure, that there are only targets of a specific Kubernetes cluster affected by the experiment. Another use case is that you want to restrict the available targets when [configuring an environment](/install-and-configure/manage-environments/#define-your-own-environment).
 
 Boiling down to a set of targets can result in complex statements. For instance, you want to make sure that the targets are matching some sets of key-value pairs but also not in your production cluster. Expressions like these can now easily be written in Steadybits Query Language. The Query Language is a textual representation of the Query UI but with a more advanced feature set. It allows you to build semantic expression blocks, combining them with other expressions or negating them. The Query UI and the Query Language always come together, so it is up to you to choose the style.
 
-### How to switch between the Query UI and the Query Language
+## How to switch between the Query UI and the Query Langauge
 
 <figure><img src="../../.gitbook/assets/query-ui-and-language.png" alt=""><figcaption><p>The same query can be expressed with the Query UI on the left and the Query Language on the right</p></figcaption></figure>
 
@@ -16,9 +16,9 @@ Please note that the Query UI is limited in regard to the queries you write. For
 
 <figure><img src="../../.gitbook/assets/query-too-complex.png" alt=""><figcaption><p>Complex queries can only be edited in the Query language editor.</p></figcaption></figure>
 
-### Query Examples
+## Query Examples
 
-#### Key-value comparison
+### Key-value comparison
 
 Keys and values can be compared using `=`, `!=`, `~`, `!~`, `=*`, `!=*`, `~*`, `!~*`, `IN ()` and `NOT IN ()`
 
@@ -75,7 +75,7 @@ k8s.cluster-name IS PRESENT
 k8s.label.service-tier IS NOT PRESENT
 ```
 
-#### Using variables and placeholders
+### Using variables and placeholders
 
 You can use an experiment [variable](../../use-steadybit/experiments/variables.md) (`{{...}}`) or a template placeholder (`[[...]]`) as a value in a query. Markers may be written with or without quotes:
 
@@ -99,7 +99,7 @@ A `=` (or `!=`) comparison against a multi-value variable also works: it matches
 {% endhint %}
 
 
-#### Aggregations
+### Aggregations
 
 To aggregate a key's value, you can use the `COUNT` function to check for the number of distinct values with numeric operators like `<`,`<=`,`=`,`>=` and `>`.
 
@@ -112,7 +112,7 @@ COUNT(aws.zone) >= 2
 COUNT(k8s.pod.name) = 1
 ```
 
-#### Expression Concatenation
+### Expression Concatenation
 
 Simple expressions can be chained with AND & OR.
 
@@ -125,7 +125,7 @@ k8s.cluster-name="prod" OR k8s.cluster-name="staging"
 k8s.cluster-name="prod" AND host.hostname="ip-1-2-3-4"
 ```
 
-#### Expression Negation
+### Expression Negation
 
 You can negate a specific key-value expression using NOT.
 
@@ -134,7 +134,7 @@ You can negate a specific key-value expression using NOT.
 NOT k8s.cluster-name="prod"
 ```
 
-#### Parenthesis
+### Parenthesis
 
 Expression blocks can be encapsulated using parenthesis.
 
@@ -142,7 +142,7 @@ Expression blocks can be encapsulated using parenthesis.
 (k8s.cluster-name="prod" OR k8s.cluster-name="staging") AND aws.zone="eu-central-1b"
 ```
 
-#### Quoting Special Characters
+### Quoting Special Characters
 
 Keys containing special characters like `:` and `/` need to be quoted to work properly.
 
