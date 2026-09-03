@@ -105,6 +105,30 @@ helm template steadybit-agent --namespace steadybit-agent \
 ```
 
 
+### Alternative: Rancher (RKE2 / K3s) installation
+
+Rancher's RKE2 and K3s run an embedded containerd whose socket is not at the usual location, so the container extension needs to be pointed at it.
+
+```bash
+helm repo add steadybit https://steadybit.github.io/helm-charts
+helm repo update
+helm upgrade --install steadybit-agent --namespace steadybit-agent \
+  --create-namespace \
+  --set agent.key=<replace-with-agent-key> \
+  --set global.clusterName=<replace-with-cluster-name> \
+  --set extension-container.container.engine=containerd \
+  --set extension-container.containerEngines.containerd.socket=/run/k3s/containerd/containerd.sock \
+  steadybit/steadybit-agent
+```
+
+{% hint style="info" %}
+Leave `extension-container.containerEngines.containerd.ociRuntime.root` at its default. Even on RKE2/K3s, containerd keeps its runc state under `/run/containerd/runc/k8s.io`; pointing it at `/run/k3s/...` refers to a directory that does not exist and the extension pods will not start.
+{% endhint %}
+
+If the socket path is wrong, the pods of the container extension stay in `ContainerCreating` and report an event such as `MountVolume.SetUp failed for volume "runtime-socket": hostPath type check failed: /run/containerd/containerd.sock is not a socket file`.
+
+Rancher RKE1 clusters are Docker-based. Use `--set extension-container.container.engine=docker` instead; no further configuration is required.
+
 ### Alternative: GKE Autopilot installation
 
 You can install the agent and extensions on Google Kubernetes Engine Autopilot clusters (1.32.1-gke.1729000 or later). Due to restrictions imposed by GKE, host attacks won't be available.
