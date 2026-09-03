@@ -17,7 +17,7 @@ The agent is looking for services and pods with an annotation `steadybit.com/ext
 
 In order to automatically discover and register extensions present in the Kubernetes cluster, the agent needs access to pod and service definitions via the Kubernetes API.
 
-Appropriate permissions are already configured in the official helm charts by creating a (cluster) role granting `get`, `list` and `watch` on `pods` and `services` 
+Appropriate permissions are already configured in the official helm charts by creating a (cluster) role granting `get`, `list` and `watch` on `pods` and `services`
 and a corresponding (cluster) role binding to a service account used for the agent pod. The used `rules` property is listed below.
 
 ```yaml

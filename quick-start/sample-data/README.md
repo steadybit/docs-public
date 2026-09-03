@@ -169,7 +169,7 @@ Navigate via
 * check out the **Explorer**'s **Kubernetes Cluster** view to browse the simulated Kubernetes resources and their attributes
 
 ![Explorer showing a simulated Kubernetes environment](10-explorer.png)
- 
+
 
 ## Integrating with Your Environment
 

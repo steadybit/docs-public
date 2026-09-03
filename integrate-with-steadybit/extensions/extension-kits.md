@@ -73,7 +73,7 @@ You can learn more about ExtensionKit through its [GitHub repository](https://gi
 
 <figure><img src="../../.gitbook/assets/preflight-kit.png" alt="PreflightKit logo depicting the text preflight kit and a preflight icon"><figcaption><p>PreflightKit logo depicting the text preflight kit and a preflight icon</p></figcaption></figure>
 
-PreflightKit enables the extension of Steadybit with new preflight capabilities that you can use to prevent experiment executions. 
+PreflightKit enables the extension of Steadybit with new preflight capabilities that you can use to prevent experiment executions.
 For example, PreflightKit can be used to author open/closed source:
 
 * preflight actions to allow or disallow experiment executions based on the experiment and its targets,

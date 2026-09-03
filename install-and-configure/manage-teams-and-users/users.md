@@ -21,7 +21,7 @@ Users who are not members of any team do not count toward license limits.
 
 ## Inviting Users (SaaS only)
 
-New users can be invited by email and directly assigned to teams and roles. 
+New users can be invited by email and directly assigned to teams and roles.
 When an invitation is accepted, the corresponding user is created and gains access to your Steadybit tenant.
 
 ## Integrations

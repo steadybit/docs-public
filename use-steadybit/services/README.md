@@ -84,7 +84,7 @@ The following factors reduce the risk of a service:
 - **Successful experiment runs** — each linked experiment (both [provided](#provided-experiments) and [custom](#custom-experiments)) that finishes with state `COMPLETED` lowers the risk. Failed, errored, or never-executed experiments keep the risk high.
 - **Recent runs** — the risk reflects how recently experiments were executed. Re-run your experiments at least every 30 days; the older the last run, the more the risk drifts back up.
 - **Strong validation coverage** — service validations, and additional checks and load tests inside your experiments increase confidence.
-- **Resolved advice** — working through items on the [Advice](#advice) tab reduces the risk of the affected category. Advice that requires action carries a high risk (`100`), advice that requires a validation carries a medium risk (`50`), and implemented advice carries a low risk (`10`).  
+- **Resolved advice** — working through items on the [Advice](#advice) tab reduces the risk of the affected category. Advice that requires action carries a high risk (`100`), advice that requires a validation carries a medium risk (`50`), and implemented advice carries a low risk (`10`).
 
 The product surfaces inline guidance next to each experiment and category, showing you the most impactful next steps to lower the risk.
 
