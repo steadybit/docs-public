@@ -11,7 +11,7 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 * https://platform.steadybit.com (Platform)
 * https://packages.steadybit.com (.deb and .rpm packages; Linux installation only)
 * https://get.steadybit.com (Setup Scripts; one-liner for Docker or Linux installation only)
-* https://steadybit.github.io (Kubernetes installation via helm only)
+* https://steadybit.github.io (Kubernetes installation via Helm only)
 * https://ghcr.io and https://github.com and https://*.docker.io (Container Images; Kubernetes and Docker installation only)
 
 {% hint style="info" %}

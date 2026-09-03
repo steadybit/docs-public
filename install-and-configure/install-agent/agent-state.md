@@ -6,7 +6,7 @@ However, some information is persisted to ensure that the agent can recover from
 
 ## Configuration
 
-The default state provider is a file-based provider that stores the agent's state by default in the directory `/var/lib/steadybit-agent`. The path can be configured via the `STEADYBIT_AGENT_STATE_PATH` environment variable. The helm chart is, by default, creating a statefulset with a persistent volume claim to store the agent's state.
+The default state provider is a file-based provider that stores the agent's state by default in the directory `/var/lib/steadybit-agent`. The path can be configured via the `STEADYBIT_AGENT_STATE_PATH` environment variable. The Helm chart is, by default, creating a statefulset with a persistent volume claim to store the agent's state.
 
 Another option is to use [Redis](https://redis.io/) as a state provider. The following set of environment variables can be used to configure this.
 

@@ -16,7 +16,7 @@ Access tokens can be managed in the UI under Settings → API Access Tokens.
 
 Steadybit supports three token types:
 
-**Team Tokens** are associated with one or more teams and can be used to access experiments and team-related operations within those teams. Admins and team owners can create team tokens. 
+**Team Tokens** are associated with one or more teams and can be used to access experiments and team-related operations within those teams. Admins and team owners can create team tokens.
 
 **Wildcard Tokens** grant access to all teams the token creator is an owner of. Team ownerships are resolved dynamically at authentication time, so the token automatically reflects any future team changes. Admins and team owners can create wildcard tokens. A wildcard token created by an admin user grants access to **all** teams.
 

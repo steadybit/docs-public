@@ -12,7 +12,7 @@ Preflight webhooks are triggered by Steadybit whenever an experiment is about to
 
 ## Configure
 
-You can add preflight webhooks at `Settings` -> `Integrations` -> `Preflight webhook`.
+You can add preflight webhooks at `Settings` → `Integrations` → `Preflight webhook`.
 
 ![Add Preflight Webhook](../../.gitbook/assets/addPreflightWebhook.png)
 

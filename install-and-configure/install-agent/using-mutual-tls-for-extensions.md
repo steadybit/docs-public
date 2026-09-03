@@ -7,14 +7,14 @@ You need to configure a client certificate on the agent, which is used to commun
 ## Configuring a Client Certificate for Agent
 
 {% tabs %}
-{% tab title="using Helm Chart" %}
+{% tab title="Using Helm Chart" %}
 ### Using a Secret
 
 In case the client certificate is stored in a secret, you can directly reference it:
 
 `agent.extensions.tls.clientCertificate.fromSecret=some-client-secret`
 
-### Using a Container path
+### Using a Container Path
 
 If you put the client certificate into the container some other way, use this option to tell the agent where to find it:
 
@@ -46,14 +46,14 @@ The volume in this sample refers to a config map, but any other volume config wo
 `agent.extraVolumes[0].name=extra-certs`\
 `agent.extraVolumes[0].configMap.name=self-signed-ca`
 
-**Using Container Path**
+**Using a Container Path**
 
 If you put the extra CAs into the container another way, you can specify the path to it:
 
 `agent.extraCertificates.path=/some/ca-certs/`
 {% endtab %}
 
-{% tab title="using Environment Variables" %}
+{% tab title="Using Environment Variables" %}
 ### Client Certificate
 
 `STEADYBIT_AGENT_EXTENSIONS_CLIENT_CERT_CHAIN_FILE=/some/client.crt`\
@@ -85,7 +85,7 @@ If you have successfully configured the client certificate for the agent, the lo
 
 {% tabs %}
 {% tab title="Using Helm Chart" %}
-The `steadybit-agent` helm charts include all extensions provided by Steadybit using an `extension-*` prefix. This sample is for `extension-container`; the options shown here apply to the other extensions as well. If you use an extension's helm chart directly, strip the prefix from the examples.
+The `steadybit-agent` Helm charts include all extensions provided by Steadybit using an `extension-*` prefix. This sample is for `extension-container`; the options shown here apply to the other extensions as well. If you use an extension's Helm chart directly, strip the prefix from the examples.
 
 For the extension to require client certificates, you need to configure both the server certificate and allowed client certificates. If you only specify a server certificate, TLS is used, but client certificates are not mandatory.
 
@@ -113,7 +113,7 @@ In case the client certificates are stored in secrets, you can directly referenc
 `extension-container.tls.client.certificates.fromSecrets[0]=some-secret-1`\
 `extension-container.tls.client.certificates.fromSecrets[1]=some-secret-2`
 
-**using Container Path**
+**Using Container Paths**
 
 If you put the client certificates into the container some other way, use this option to tell the agent where to find them:
 

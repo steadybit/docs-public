@@ -18,7 +18,7 @@ You need to write your own extension with [preflight kit](https://github.com/ste
 
 ## Configure
 
-You can add preflight actions at `Settings` -> `Integrations` -> `Preflight Actions`.
+You can add preflight actions at `Settings` → `Integrations` → `Preflight Actions`.
 
 ![Add Preflight Action Integration](../../.gitbook/assets/addPreflightAction.png)
 

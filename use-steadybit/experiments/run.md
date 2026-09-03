@@ -33,7 +33,7 @@ You can click on each experiment step in the 'run timeline'- or 'run status'-wid
 
 ![Experiment Run Modal - Attacked Targets](../../.gitbook/assets/run-experiment-modal.png)
 
-The run modal also details more information whenever a step - and thus the experiment - has errored or failed.
+The run modal also details more information whenever a step — and thus the experiment — has errored or failed.
 
 ![Experiment Run Modal - Failed Step](../../.gitbook/assets/run-experiment-modal-failed.png)
 
@@ -63,7 +63,7 @@ An experiment run is in one of the following states:
 | CREATED   | The experiment was created and all targets were resolved.                                                                                                                                                                                                                 |
 | PREPARED  | The experiment is prepared, all preflight checks were successful, and agents are ready to execute the needed actions.                                                                                                                                                     |
 | RUNNING   | The experiment is currently running and performing actions (e.g. attacks).                                                                                                                                                                                                |
-| COMPLETED | The entire experiment, including all actions, was successfully executed - no failure or error reported by any step.                                                                                                                                                       |
+| COMPLETED | The entire experiment, including all actions, was successfully executed — no failure or error reported by any step.                                                                                                                                                       |
 | CANCELED  | The experiment was canceled by user interaction or system (in case of a failed validation in `REQUESTED` or `CREATED`) and all attacks were rolled back.                                                                                                                  |
 | FAILED    | The run failed due to some failing checks, for example an _HTTP Check_ not reaching the required success rate.                                                                                                                                                            |
 | ERRORED   | The run errored due to some technical reasons like `I/O error on POST request: Connection refused` or `Agent disconnected unexpectedly`. This shouldn't happen frequently, in case it does, let us know. We are constantly improving the platform to reduce error states. |
@@ -79,8 +79,8 @@ Every step that is executed as part of an experiment run is in one of the follow
 | CREATED   | All targets of the step have been resolved.                                                                                                                                                                                                                        |
 | PREPARED  | Agents for all resolved targets are connected and ready to execute the step's action as soon as it's the step's turn in the designed experiment timeline.                                                                                                          |
 | RUNNING   | The step's action is currently executed on at least one target. Targets may start at different times, so a step becomes `RUNNING` as soon as its first target execution starts.                                                                                    |
-| COMPLETED | The step's action was successfully executed on all targets - no failure or error.                                                                                                                                                                                  |
-| CANCELED  | The step was running before - i.e., at least one target execution had started - and has now been canceled, either by a user canceling the entire experiment run or by the system (e.g. when another step running in parallel caused the experiment to stop early). |
+| COMPLETED | The step's action was successfully executed on all targets — no failure or error.                                                                                                                                                                                  |
+| CANCELED  | The step was running before — i.e., at least one target execution had started — and has now been canceled, either by a user canceling the entire experiment run or by the system (e.g. when another step running in parallel caused the experiment to stop early). |
 | SKIPPED   | The step's action was never executed, because the experiment was stopped before.                                                                                                                                                                                   |
 | FAILED    | The step failed because of a failed check, such as an _HTTP Check_ that did not reach the required success rate, or because it had no matching targets anymore.                                                                                                    |
 | ERRORED   | The step's action errored due to some technical reasons, such as `I/O error on POST request: Connection refused` or `Agent disconnected unexpectedly`.                                                                                                             |
@@ -96,7 +96,7 @@ Each target execution is in one of the following states:
 | CREATED   | The target was selected to be attacked in an experiment run's step.                                                                                                                                                                                                                   |
 | PREPARED  | The agent that discovered the selected target is connected.                                                                                                                                                                                                                           |
 | RUNNING   | The action is currently executed on the selected target.                                                                                                                                                                                                                              |
-| COMPLETED | The action was successfully executed on the selected target - no failure or error.                                                                                                                                                                                                    |
+| COMPLETED | The action was successfully executed on the selected target — no failure or error.                                                                                                                                                                                                    |
 | CANCELED  | The action was executed before and has now been canceled on the selected target, either by a user canceling the entire experiment run or by the system (e.g. when another target execution of the same step or another step running in parallel caused the experiment to stop early). |
 | SKIPPED   | The action was never executed on the selected target, because the experiment's step was stopped before.                                                                                                                                                                               |
 | FAILED    | The action performed on the selected target noticed a deviation in the check, such as an _HTTP Check_ that did not reach the required success rate.                                                                                                                                   |
@@ -106,7 +106,7 @@ Each target execution is in one of the following states:
 
 The different levels of states (**experiment run**, **step**, **target execution**) can be propagated to higher levels (e.g., state `FAILED` at target execution level is propagated to step being `FAILED` and experiment run being `FAILED`). They also change the states of adjacent instances at the same level (e.g., a `FAILED` step causes subsequent steps to be `SKIPPED`) and at the level below (e.g., for a `SKIPPED` step, all target executions are `SKIPPED` as well).
 
-A step and its target executions therefore always agree on whether anything was actually executed: a step is only `CANCELED` if at least one of its target executions was `RUNNING`. If none of them ever started, the step and all of its target executions are `SKIPPED` - even if the action had already been sent to the agents.
+A step and its target executions therefore always agree on whether anything was actually executed: a step is only `CANCELED` if at least one of its target executions was `RUNNING`. If none of them ever started, the step and all of its target executions are `SKIPPED` — even if the action had already been sent to the agents.
 
 #### Example: State Propagation
 
