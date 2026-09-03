@@ -43,6 +43,77 @@ This is the public documentation for Steadybit, a chaos engineering platform. Th
 ### When Adding Redirects
 Add entries to `.gitbook.yml` in the `redirects:` section to map old URLs to new file locations.
 
+## Writing Conventions
+
+`.github/workflows/docs-lint.yml` enforces the checkable ones on every pull
+request. It reports only what a change introduces, so existing violations never
+fail a build — but don't add new ones. Run it locally with:
+
+```bash
+python3 .github/scripts/docs_lint.py --base origin/main
+```
+
+### Headings
+
+Title case, with minor words (a, an, the, and, or, of, to, in, via, …) lowercase
+unless they start the heading:
+
+- `## Install Agent and Extensions`
+- `### Configure a Container Runtime`
+
+**Exception: question-style headings stay in sentence case.** The troubleshooting
+pages are written as questions, and title-casing them reads wrong:
+
+- `#### Why can't I install extension-container on Docker Desktop?`
+
+The linter skips any heading containing a `?`.
+
+### Spelling
+
+US English: **color**, **behavior**, **organization**, **analyze**, **license**,
+**center**, **canceled**, **judgment**, **customize**, **prioritize**,
+**initialize**. Not `colour`, `behaviour`, `organisation`, `analyse`, `cancelled`.
+
+The linter flags British forms in prose only. An identifier can legitimately
+contain one - a config key really may be named `labelled` - and renaming
+someone's field is not a docs decision. Plain misspellings are flagged
+everywhere, code samples included, since a typo like `Kuberneters` is never a
+valid identifier.
+
+### Product and technology names
+
+Use the vendor's casing in prose: **WebSocket**, **Docker Compose**, **Helm**
+(the tool is `helm`), **GitHub**, **Kubernetes**, **OpenAPI**, **PostgreSQL**.
+
+This applies to prose only. Identifiers keep whatever casing they really have —
+`STEADYBIT_AGENT_WEBSOCKET_PING_INTERVAL`, `platform.publicWebsocketPort`, the
+`helm` CLI, the `steadybit/helm-charts` repository, and protocol tokens such as
+the `Upgrade: websocket` header.
+
+### Lists
+
+Use the serial (Oxford) comma: *a, b, and c* — not *a, b and c*. This one is not
+linted, because distinguishing a three-item list from a compound like
+"open- and closed-source extensions" is not reliably detectable.
+
+### Dashes
+
+An em dash (`—`) sets off a phrase inside a sentence. A hyphen stays a hyphen:
+in compounds (`on-prem`), as a title separator in headings
+(`## Step 1 - Get your keys`), and in literal values (`429 - Too Many Requests`).
+
+### Tables
+
+Every row in a table shares one width, padded from the widest cell per column.
+After editing cell text, re-pad the table so the diff shows the change and not
+the reflow.
+
+### Moving or deleting a page
+
+Add a redirect to `.gitbook.yml` for the page's old URL, or the old link 404s.
+The linter fails a pull request that removes or renames a `.md` file without one,
+and also checks that every redirect target still resolves to a file that exists.
+
 ## Common Tasks
 
 ### Adding a New Documentation Page
@@ -57,4 +128,8 @@ Add entries to `.gitbook.yml` in the `redirects:` section to map old URLs to new
 
 ## CI/CD
 
-- `.github/workflows/redirect-url-checker.yml` - Validates that all redirects in `.gitbook.yml` resolve correctly
+- `.github/workflows/docs-lint.yml` - Runs `.github/scripts/docs_lint.py` on every pull
+  request: broken links and anchors, unparseable JSON samples, known misspellings,
+  product-name casing, US-English spelling, heading case, table alignment, trailing
+  whitespace, redirect targets, and missing redirects for moved pages. It compares against the target
+  branch, so only findings the pull request introduces fail the build.
