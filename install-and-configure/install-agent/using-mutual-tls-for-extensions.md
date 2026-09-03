@@ -8,20 +8,20 @@ You need to configure a client certificate on the agent, which is used to commun
 
 {% tabs %}
 {% tab title="using Helm Chart" %}
-#### Using a Secret
+### Using a Secret
 
 In case the client certificate is stored in a secret, you can directly reference it:
 
 `agent.extensions.tls.clientCertificate.fromSecret=some-client-secret`
 
-#### Using a Container path
+### Using a Container path
 
 If you put the client certificate into the container some other way, use this option to tell the agent where to find it:
 
 `agent.extensions.clientCertificate.path=/some/client.crt`\
 `agent.extensions.clientCertificate.key.path=/some/client.key`
 
-#### Password Protected Private Keys
+### Password Protected Private Keys
 
 In case the private key is password protected, you can specify it as well:
 
@@ -34,7 +34,7 @@ In case the private key is password protected, you can specify it as well:
 `agent.extensions.tls.clientCertificate.key.password.valueFrom.secretKeyRef.name=some-secret`\
 `agent.extensions.tls.clientCertificate.key.password.valueFrom.secretKeyRef.key=some-key`
 
-#### Additional Certificate Authorities
+### Additional Certificate Authorities
 
 In case the extension uses custom CAs that are not known to the agent, you can add them as well:
 
@@ -54,18 +54,18 @@ If you put the extra CAs into the container another way, you can specify the pat
 {% endtab %}
 
 {% tab title="using Environment Variables" %}
-#### Client Certificate
+### Client Certificate
 
 `STEADYBIT_AGENT_EXTENSIONS_CLIENT_CERT_CHAIN_FILE=/some/client.crt`\
 `STEADYBIT_AGENT_EXTENSIONS_CLIENT_CERT_KEY_FILE=/some/client.key`
 
-#### Password Protected Private Keys
+### Password Protected Private Keys
 
 In case the private key is password protected, you can specify it as well:
 
 `STEADYBIT_AGENT_EXTENSIONS_CLIENT_CERT_PASSWORD=password123`
 
-#### Additional Certificate Authorities
+### Additional Certificate Authorities
 
 In case the extension uses a custom CA that is not known to the agent, you can add it as well.
 
@@ -89,7 +89,7 @@ The `steadybit-agent` helm charts include all extensions provided by Steadybit u
 
 For the extension to require client certificates, you need to configure both the server certificate and allowed client certificates. If you only specify a server certificate, TLS is used, but client certificates are not mandatory.
 
-#### Server Certificate
+### Server Certificate
 
 **Using a Secret**
 
@@ -104,7 +104,7 @@ If you put the server certificate into the container some other way, use this op
 `extension-container.tls.server.certificate.path=/some/server.crt`\
 `extension-container.tls.server.certificate.key.path=/some/server.key`
 
-#### Client Certificates
+### Client Certificates
 
 **Using Secrets**
 
@@ -122,12 +122,12 @@ If you put the client certificates into the container some other way, use this o
 {% endtab %}
 
 {% tab title="Using Environment Variables" %}
-#### Server Certificate
+### Server Certificate
 
 `STEADYBIT_EXTENSION_TLS_SERVER_CERT=/some/server.crt`\
 `STEADYBIT_EXTENSION_TLS_SERVER_KEY=/some/server.key`
 
-#### Client Certificates
+### Client Certificates
 
 `STEADYBIT_EXTENSION_TLS_CLIENT_CAS=/some/client.crt,/some/clients/`
 {% endtab %}

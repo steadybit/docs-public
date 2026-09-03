@@ -1,10 +1,10 @@
 # Install Agent and Extensions
 
-### Overview
+## Overview
 
 Before installing the agent, we recommend familiarizing yourself with the general [Agent Architecture](agent-architecture.md).
 
-### Prerequisites
+## Prerequisites
 
 To install the agent, you must be able to access the following URLs via HTTPS (443) on your target environment:
 
@@ -26,7 +26,7 @@ curl -sfL https://get.steadybit.com/env-check.sh | sh -s
 **Container image retention.** Steadybit publishes container images for the agent and extensions on `ghcr.io/steadybit/...` and retains each image for **1 year** after publication. Older images — including tagged releases — are pruned automatically. If you need to keep specific versions available beyond that window, mirror them into your own registry before they expire.
 {% endhint %}
 
-### Setup of Agents
+## Setup of Agents
 
 We offer the following deployment options:
 

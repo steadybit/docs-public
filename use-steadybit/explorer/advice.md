@@ -70,6 +70,8 @@ Steadybit's [Query Language](../../concepts/query-language/) fully supports advi
 * `advice.status.validation-needed` contains for a given target all advice in the lifecycle state 'Validation Needed'
 * `advice.status.implemented` contains for a given target all advice in the lifecycle state 'Implemented'
 
+### Examples
+
 Based on these attributes you can build queries like:
 
 #### Example 1: Show all targets that need action for a specific advice
