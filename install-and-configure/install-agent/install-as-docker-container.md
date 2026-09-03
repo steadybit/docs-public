@@ -1,6 +1,6 @@
 # Install using Docker Compose
 
-This method will install the Steadybit Agent on your machine using Docker compose. It will run the agent as well as the [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http), [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container), and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host).
+This method will install the Steadybit Agent on your machine using Docker Compose. It will run the agent as well as the [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http), [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container), and [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host).
 
 ## Prerequisites
 
@@ -12,14 +12,14 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 
 ## Supported Platforms:
 
-* Linux (needs the Docker and Docker compose plugin installed)
+* Linux (needs the Docker and Docker Compose plugin installed)
 * Windows (using Docker Desktop using the WSL2 engine)
 * MacOS (using Docker Desktop)
 
 {% hint style="warning" %}
-**Docker Desktop:** You're only able to attack containers and processes running on Docker
+**Docker Desktop:** You're only able to attack containers and processes running on Docker.
 
-**Windows Subsystem for Linux:** With the default Kernel you won't be able to execute network attacks.
+**Windows Subsystem for Linux:** With the default kernel you won't be able to execute network attacks.
 {% endhint %}
 
 ## Agent Installation
@@ -37,19 +37,19 @@ chmod a+x agent.sh
 | Parameter        | Description                                                                                                          | Default                          |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
 | `<command>`      | The action to take. Either one of `up`, `down`, `restart`, `config`                                                  | `up`                             |
-| `--key`          | The agent key. Can be found on your platform's \[https://platform.steadybit.com/settings/agents/setup]\(setup page). |                                  |
+| `--key`          | The agent key. Can be found on your platform's [setup page](https://platform.steadybit.com/settings/agents/setup). |                                    |
 | `--platform-url` | If running on-prem, the url of your platform installation to use                                                     | `https://platform.steadybit.com` |
 | `--image`        | The Agent Docker image to use.                                                                                       | `steadybit/agent:latest`         |
 
 {% hint style="info" %}
-In case you don't want to deploy to Docker directly using the script or you need to modify it, you can use the `config` command to print the Docker compose configuration and apply it yourself.
+In case you don't want to deploy to Docker directly using the script or you need to modify it, you can use the `config` command to print the Docker Compose configuration and apply it yourself.
 {% endhint %}
 
 ### Configure HTTP Proxy Server
 
-The Steadybit Agent uses HTTP and websockets to communicate with the platform. To simplify the agent deployment, consider to allow direct communication to our platform.
+The Steadybit Agent uses HTTP and WebSockets to communicate with the platform. To simplify the agent deployment, consider allowing direct communication to our platform.
 
-If a single entry into and out of your network is required, you can configure the agent to use an HTTP proxy. Export the following environment variables before running the script or edit the Docker compose configuration printed by the `config` command.
+If a single entry into and out of your network is required, you can configure the agent to use an HTTP proxy. Export the following environment variables before running the script or edit the Docker Compose configuration printed by the `config` command.
 
 ```bash
 export STEADYBIT_AGENT_PROXY_HOST="<hostname or address of your proxy>" 
@@ -62,4 +62,4 @@ export STEADYBIT_AGENT_PROXY_PASSWORD="<password of the proxy (if needed)>"
 
 ## Additional Extensions
 
-To use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension_jvm) for attacking Java applications), you need to edit the Docker compose file generated using the `config` command: Add the extension as an additional service in the Docker compose and register it via environment variables to the agent. See [extension installation](../../integrate-with-steadybit/extensions/extension-installation.md) to learn more about extension registration.
+To use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension_jvm) for attacking Java applications), you need to edit the Docker Compose file generated using the `config` command: Add the extension as an additional service in the Docker Compose file and register it via environment variables to the agent. See [extension installation](../../integrate-with-steadybit/extensions/extension-installation.md) to learn more about extension registration.

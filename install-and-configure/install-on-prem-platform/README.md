@@ -10,7 +10,7 @@ This part of the documentation is only intended in the context of a supported Po
 If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
 
-This guide helps you with the initial installation and deployment of our Steadybit platform On-Premise. It is explicitly of use for spaces where it is not yet possible to take advantage of our Software as a Service (SaaS) platform and the need to host our platform yourself. After completing this getting started, continue by [setting up Steadybit](../install-agent/).
+This guide helps you with the initial installation and deployment of our Steadybit platform On-Premise. It is intended for situations where you cannot yet take advantage of our Software as a Service (SaaS) platform and need to host the platform yourself. After completing this getting started, continue by [setting up Steadybit](../install-agent/).
 
 Installing and deploying the Steadybit platform on your servers is simple:
 
@@ -27,16 +27,16 @@ Before continuing, make sure that access to the following URLs via HTTPS (443) i
 * https://docker.steadybit.io and https://index.docker.io (Docker Image)
 * https://packages.steadybit.com (Agent Linux Installation)
 * https://get.steadybit.com (Setup Scripts)
-* https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
+* https://steadybit.github.io/helm-charts (when using Kubernetes and Helm)
 
 The platform itself exposes the following ports:
 
 * Port `8080`: Application port for UI/API/agents
-* Port `7878`: Websocket port for agents
+* Port `7878`: WebSocket port for agents
 
 ### Database
 
-The platform needs a PostgreSQL 15 database. For a quick evaluation the Helm chart can deploy one for you (see [Step 2](./#step-2-deploy-platform)); for productive usage bring your own PostgreSQL instance. In that case prepare the following before the first start:
+The platform needs a PostgreSQL 15 database. For a quick evaluation, the Helm chart can deploy one for you (see [Step 2](./#step-2-deploy-platform)); for production use, bring your own PostgreSQL instance. In that case prepare the following before the first start:
 
 * An empty database (e.g. `steadybitdb`) and an application user for the platform. The user does **not** need to be a superuser, but it must be allowed to `CONNECT` to and `CREATE` schemas in that database: the platform creates the schemas `steadybit` and `sb_onprem` on startup and owns all objects inside them.
 * The PostgreSQL extensions `pg_trgm` and `btree_gin` in the `public` schema. Both are trusted extensions, so the platform installs missing ones itself if the user has `CREATE` on schema `public`; alternatively, install them beforehand. No superuser is required at any point.
@@ -47,13 +47,13 @@ The exact `GRANT` and `CREATE EXTENSION` statements are listed under [Database P
 ## Step 1 - Get your keys
 
 To install the platform on-premise and connect the agents against it you need an agent key and a valid license.\
-Get in touch with us, and we will provide you an on-prem license key and an agent key.
+Get in touch with us, and we will provide you with an on-prem license key and an agent key.
 
 The agent key is also used to authenticate against our Docker registry `docker.steadybit.io` hosting the platform images. The username is `_` and the password is the agent key.
 
 ## Step 2 - Deploy Platform
 
-It is our goal to make the installation as easy as possible for you, that's why we recommend you to use our Helm chart that takes a lot of the work out of it and only requires a few parameters from you. If you are not familiar with Helm and would like to learn more about it, check out [helm's QuickStart](https://helm.sh/docs/intro/quickstart/)
+It is our goal to make the installation as easy as possible for you, that's why we recommend using our Helm chart that takes a lot of the work out of it and only requires a few parameters from you. If you are not familiar with Helm and would like to learn more about it, check out [Helm's quickstart guide](https://helm.sh/docs/intro/quickstart/).
 
 {% hint style="info" %}
 In case you can't use Helm or Kubernetes at all, get in touch with us and we'll find the best solution. The platform can be deployed without Helm and also on plain Docker hosts.
@@ -80,11 +80,11 @@ helm install steadybit-platform \
 
 The Helm chart automatically creates the Kubernetes image pull secret for `docker.steadybit.io` from your agent key, so no manual `docker login` is required.
 
-To make it convenient for you, we have a default for everything. That's also why we include the necessary Postgres database and set up everything for you automatically. Nevertheless, feel free to adjust parameters after having a look on the helm chart in our public [GitHub repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-platform).
+To make it convenient for you, we have a default for everything. That's also why we include the necessary Postgres database and set up everything for you automatically. Nevertheless, feel free to adjust parameters after having a look at the Helm chart in our public [GitHub repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-platform).
 
 > **BE AWARE:** The database is not backed up and if the pod is deleted the data is lost!
 >
-> For productive usage, we strongly recommend to setup your own Postgres database and configure the Steadybit platform as described [here](advanced-configuration.md).
+> For production use, we strongly recommend setting up your own Postgres database and configuring the Steadybit platform as described [here](advanced-configuration.md).
 
 ## What's next?
 
@@ -95,20 +95,20 @@ Done, the platform is running. The default login for the on-prem platform is
 
 Now you can set it up by connecting the first agents to it.
 
-We'll show you how to do that in our getting started [Set up Platform & Agents](../../quick-start/set-up-agents/), at step 1.
+We'll show you how to do that in [Install Agent and Extensions](../../quick-start/set-up-agents/), at step 1.
 
-### Productive Usage
+### Production Use
 
-As mentioned above, this getting started helped to set up quickly a Steadybit platform.
+As mentioned above, this guide helped you set up a Steadybit platform quickly.
 
-Before using Steadybit
+Before using Steadybit in production:
 
-* configure your own Postgres database as [described here](advanced-configuration.md#database-configuration) and make sure the database user has the [required permissions](advanced-configuration.md#database-permissions).
-* we recommend to use your internal authorization services such as LDAP or OIDC provider as [described here](advanced-configuration.md#ldap-authentication).
+* Configure your own Postgres database as [described here](advanced-configuration.md#database-configuration), and make sure the database user has the [required permissions](advanced-configuration.md#database-permissions).
+* Connect your internal authentication service, such as LDAP or an OIDC provider, as [described here](advanced-configuration.md#ldap-authentication). We strongly recommend this.
 
 ### Advanced Configuration
 
-More configuration options can be found in [Advanced Configuration](advanced-configuration.md)
+More configuration options can be found in [Advanced Configuration](advanced-configuration.md).
 
 ### Troubleshooting
 

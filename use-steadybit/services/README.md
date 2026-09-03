@@ -5,7 +5,7 @@ title: Services
 # Services
 
 Services bring everything a team needs for reliability into one place.
-Instead of managing scattered experiments, validations, and reports separately, a service gives you a single view of a specific application or system component — covering which targets belong to it, how to validate its health, and experiments evaluating its reliability.
+Instead of managing scattered experiments, validations, and reports separately, a service gives you a single view of a specific application or system component — covering which targets belong to it, how to validate its health, and which experiments evaluate its reliability.
 
 ![Services overview](./service-overview.png)
 
@@ -13,21 +13,21 @@ Instead of managing scattered experiments, validations, and reports separately, 
 
 A service is defined by three core elements:
 
-- **Target Scope** — the environment and query that resolve the targets belonging to this service (e.g., all Kubernetes resources of a Kubernetes service, a set of Virtual Machines, or cloud managed services)
+- **Target Scope** — the environment and query that resolve the targets belonging to this service (e.g., all Kubernetes resources of a Kubernetes service, a set of virtual machines, or cloud-managed services)
 - **Validations** — checks or load tests (HTTP, Datadog, Dynatrace, Prometheus, k6, and more) that define what 'healthy' means for this service while an experiment runs. Refer to our [Reliability Hub](https://hub.steadybit.com/?kind=CHECK%2CLOAD_TEST) for a complete list of available actions
 - **Properties** — optional custom metadata to categorize and describe a service (e.g. business criticality, service owner)
 
-A service always fulfills a **service profile**, which defines the set of experiment templates that the service is expected to fulfill for reliability.
-[Learn more how to manage and set up a custom service profile](../../install-and-configure/manage-service-profiles/README.md).
+A service is always linked to a **service profile**, which defines the set of experiment templates the service is expected to fulfill for reliability.
+[Learn more about managing and setting up a custom service profile](../../install-and-configure/manage-service-profiles/README.md).
 
-Based on how well and up-to-date those have been validated, Steadybit derives a service's reliability [risk](#risk) — a single indicator that summarizes the service's current reliability posture and makes it easy to compare services with each other.
+Based on how thoroughly and how recently those have been validated, Steadybit derives a service's reliability [risk](#risk) — a single indicator that summarizes the service's current reliability posture and makes it easy to compare services with each other.
 
 ## Service Detail
 
-Once a service is set up, its detail view gives you a tab per profile's category (e.g., Scalability, Redundancy, Dependencies).
-Followed by distinguishing between _Provided Experiments_, _Custom Experiments_, and _Advice_ (see below).
+Once a service is set up, its detail view gives you a tab per profile category (e.g., Scalability, Redundancy, Dependencies).
+Within each tab, it distinguishes between _Provided Experiments_, _Custom Experiments_, and _Advice_ (see below).
 
-The header bar always shows you a quick summary of the service — its used environment, the number of resolved targets, active validations, any service properties, and the associated [risk](#risk).
+The header bar always shows you a quick summary of the service — the environment it uses, the number of resolved targets, active validations, any service properties, and the associated [risk](#risk).
 
 ### Provided Experiments
 
@@ -53,7 +53,7 @@ Beyond provided experiments, you can link any existing experiment to the service
 Click **Link Experiments** to associate one or more existing experiments with the service.
 Linked experiments appear alongside the provided experiments, giving your team a complete picture of all reliability validation for this service.
 
-You can use the `Service Validation` step inside a custom experiment, to reuse service's validations or use other actions (e.g. checks, or load tests) to validate your infrastructure's behavior.
+You can use the `Service Validation` step inside a custom experiment to reuse the service's validations, or use other actions (e.g. checks or load tests) to validate your infrastructure's behavior.
 
 If you are unsure what else is worth testing for this service, use **Get suggestions** in the SteadyBuddy banner to let [SteadyBuddy propose experiments](../steadybuddy/README.md#get-experiment-suggestions) based on the service's targets.
 
@@ -69,12 +69,12 @@ Advice is generated based on the discovered targets and [installed advice-suppor
 
 ## Risk
 
-Every service has a **risk** associated to give you a quick indicator of its reliability posture.
+Every service has a **risk** associated with it, giving you a quick indicator of its reliability posture.
 
 The risk is calculated per category defined in the service profile (e.g., Scalability, Redundancy, Dependencies), and the overall service risk is a rollup across those categories.
 You can see both the overall risk and the per-category breakdown in the header of the service detail page, and open **How is the risk calculated?** for a detailed explanation in the product.
 
-The higher the risk, the higher the risk value: 100 indicates the highest risk, where as 10 is the lowest achievable risk.
+The riskier the service, the higher the risk value: 100 is the highest risk, and 10 the lowest achievable one.
 The risk never reaches zero, because reliability is a continuous effort: the service always needs ongoing validation to stay trustworthy.
 
 ### How to Reduce the Risk
@@ -84,11 +84,11 @@ The following factors reduce the risk of a service:
 - **Successful experiment runs** — each linked experiment (both [provided](#provided-experiments) and [custom](#custom-experiments)) that finishes with state `COMPLETED` lowers the risk. Failed, errored, or never-executed experiments keep the risk high.
 - **Recent runs** — the risk reflects how recently experiments were executed. Re-run your experiments at least every 30 days; the older the last run, the more the risk drifts back up.
 - **Strong validation coverage** — service validations, and additional checks and load tests inside your experiments increase confidence.
-- **Resolved advice** — working through items on the [Advice](#advice) tab reduces the risk of the affected category. An advice requiring action is associated with a high risk (`100`), whereas a required validation is a medium risk (`50`), and an implement advice results in low risk (`10`).  
+- **Resolved advice** — working through items on the [Advice](#advice) tab reduces the risk of the affected category. Advice that requires action carries a high risk (`100`), advice that requires a validation carries a medium risk (`50`), and implemented advice carries a low risk (`10`).
 
 The product surfaces inline guidance next to each experiment and category, showing you the most impactful next steps to lower the risk.
 
-![Suggestions how to lower the risk](service-risk-suggestions.png)
+![Suggestions on how to lower the risk](service-risk-suggestions.png)
 
 ### Comparing Services
 
@@ -97,7 +97,7 @@ The risk is also surfaced outside the service detail page so you can spot where 
 - In the **Services** overview, each service shows its current risk — making it easy to compare the reliability posture of different services at a glance.
 - On each team's **Dashboard**, the top-risk services are highlighted so owners can prioritize their reliability work.
 
-![Dashboard featuring the service with highest risk](dashboard-service.png)
+![Dashboard featuring the service with the highest risk](dashboard-service.png)
 
 ## Exploring Services
 
@@ -121,8 +121,8 @@ These attributes are available throughout Steadybit: use them in the Explorer to
 ## Managing Services
 
 Create a new service via **Services** → **New Service** and configure it through four tabs: _Target Scope_, _Validations_, _Properties_, and _Customize_.
-A service can be created and edited by administrator or team owners.
-A team member can instantiate and run experiments, link custom experiment or validate advice.
+A service can be created and edited by administrators or team owners.
+A team member can instantiate and run experiments, link custom experiments, and validate advice.
 
 ### Target Scope
 
@@ -134,7 +134,7 @@ You select an [environment](../../install-and-configure/manage-environments) to 
 The right panel shows all included targets matching your query, grouped by target type (e.g., Containers, Hosts, or Kubernetes resources).
 This gives you immediate feedback on which infrastructure components are in scope before saving.
 
-Target scope will be used when configuring validations (see next chapter), running experiments and can be explored via [explorer](/use-steadybit/explorer/).
+The target scope is used when configuring validations (see the next section) and when running experiments, and it can be explored via the [Explorer](/use-steadybit/explorer/).
 
 ### Validations
 
@@ -162,7 +162,7 @@ For example, add `OR datadog.monitor.tags="env:stage"` when using Datadog Monito
 
 ### Variables
 
-Service variables can be used to abstract and align common properties throughout all experiments of the service. In this functionality they extend or override [variables of the associated environment](../../install-and-configure/manage-environments/README.md#environment-variables), and can themselves be overridden by experiment variables or per-run overrides.
+Service variables can be used to abstract and align common properties throughout all experiments of the service. In that respect they extend or override [variables of the associated environment](../../install-and-configure/manage-environments/README.md#environment-variables), and can themselves be overridden by experiment variables or per-run overrides.
 
 They apply to both the experiments provided by the service and custom experiments linked to it, and can also be referenced inside this service's [validations](#validations).
 Like other variables, a service variable can have [different value configurations](../../use-steadybit/experiments/variables.md#value-settings).
@@ -183,20 +183,19 @@ You can associate properties [to all services via settings](/install-and-configu
 
 ### Customize
 
-Additionally, you can change the look and feel of your service by customizing the used icon and icon color.
-More importantly, you can change the service profile of a service - defining a different set of experiment templates used to provide experiments.
-Thus, adhering to different reliability expectations.
+Additionally, you can change the look and feel of your service by customizing the icon and icon color it uses.
+More importantly, you can change the service profile of a service, which defines a different set of experiment templates used to provide experiments, and therefore a different set of reliability expectations.
 
 {% hint style="warning" %}
-Be aware, that changing a service's service profile results in deleting provided experiments and experiment runs that aren't part of the newly associated profile anymore.
+Be aware that changing a service's service profile results in deleting provided experiments and experiment runs that aren't part of the newly associated profile anymore.
 {% endhint %}
 
-![Editing service's profile and look&feel](./service-edit-customize.png)
+![Editing service's profile and look and feel](./service-edit-customize.png)
 
 ## Service Profiles
 
 Every service is linked to a service profile that defines which experiment categories and templates are provided.
-Steadybit ships with a default Starter profiles — a focused set of experiments to get started with reliability testing quickly.
+Steadybit ships with a default Starter profile — a focused set of experiments to get started with reliability testing quickly.
 
 Administrators can create custom service profiles tailored to organizational standards, which is highly recommended when rolling out Steadybit.
 See [Manage Service Profiles](../../install-and-configure/manage-service-profiles/README.md) for details.

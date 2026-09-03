@@ -4,11 +4,11 @@ title: Deploy Example Application
 
 # Deploy Example Application
 
-When trying out Steadybit you may want to start easy instead of directly using your fully fledged system. Therefore, we have a small example application called [Shopping Demo](https://github.com/steadybit/shopping-demo) which you can easily deploy on a local minikube or AWS EKS using this guide.
+When trying out Steadybit you may want to start easy instead of directly using your fully fledged production system. Therefore, we have a small example application called [Shopping Demo](https://github.com/steadybit/shopping-demo) which you can easily deploy on a local minikube or AWS EKS using this guide.
 
 Simply follow these two steps:
 
-* [Step 1 - Check out example application](./#step-1-have-a-look-a-the-example-application)
+* [Step 1 - Check out example application](./#step-1-have-a-look-at-the-example-application)
 * [Step 2 - Deploy the example application](./#step-2-deploy-the-example-application)
   * [a) on Minikube](./#step-2a-deploy-on-minikube)
   * [b) on AWS EKS](./#step-2b-deploy-on-aws-eks)
@@ -20,7 +20,7 @@ Simply follow these two steps:
 * You have [Kubernetes kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed
 * You have [Helm - The package manager for Kubernetes](https://helm.sh/) installed
 
-## Step 1 - Have a look a the example application
+## Step 1 - Have a look at the example application
 
 In order to give you a quick and easy start, we have developed a small demo application. Our shopping demo is a small product catalog provided by seven distributed backend services and a simple UI.
 
@@ -30,7 +30,7 @@ If you want to learn more about our demo, please take a look at our GitHub repos
 
 ## Step 2 - Deploy the example application
 
-The example application is already pre-configured to be deployed into a Kubernetes cluster. You can choose whether to deploy it into [a) local minikube installation](./#step-2a-deploy-on-minikube) or [b) AWS EKS](./#step-2b-deploy-on-aws-eks).
+The example application is already pre-configured to be deployed into a Kubernetes cluster. You can choose whether to deploy it into [a) a local minikube installation](./#step-2a-deploy-on-minikube) or [b) AWS EKS](./#step-2b-deploy-on-aws-eks).
 
 > [Kubernetes](https://kubernetes.io/), also known as k8s, is an open source system for automating the deployment, scaling, and management of containerized applications. You can use [minikube](https://minikube.sigs.k8s.io/docs/) to set up a local Kubernetes cluster on macOS, Linux or Windows. As an alternative choose [AWS EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) to set up a Kubernetes cluster in the cloud.
 
@@ -58,7 +58,7 @@ kubectl get po -A
 
 **Deploy the example application**
 
-Now we use helm to deploy the demo by running the following command:
+Now we use Helm to deploy the demo by running the following command:
 
 ```bash
 helm repo add steadybit-shopping-demo https://steadybit.github.io/shopping-demo
@@ -99,10 +99,10 @@ You can do a local port forward to your minikube to open the `gateway` service v
 kubectl port-forward deployment/gateway 8080:8080 --namespace steadybit-shopping-demo
 ```
 
-Visit `http://127.0.01:8080/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
+Visit `http://127.0.0.1:8080/products` in your browser to retrieve the aggregated list of all products or just use `curl`:
 
 ```bash
-curl http://127.0.01:8080/products
+curl http://127.0.0.1:8080/products
 ```
 
 The result is an aggregated list of all products of the services `toys`, `hot-deals` and `fashion`:
@@ -158,19 +158,19 @@ The result is an aggregated list of all products of the services `toys`, `hot-de
 
 **Create your AWS Elastic Kubernetes Service (AWS EKS) cluster and nodes**
 
-Verfiy your AWS CLI configuration by running:
+Verify your AWS CLI configuration by running:
 
 ```bash
 aws --version
 ```
 
-Your output should be similiar to:
+Your output should be similar to:
 
 ```bash
 aws-cli/2.0.44 Python/3.8.5 Darwin/19.6.0 source/x86_64
 ```
 
-Create your Amazon EKS cluster and containing 2 nodes by running the following command. More details are available at [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html)
+Create your Amazon EKS cluster with 2 nodes by running the following command. More details are available in the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html).
 
 From a terminal, run:
 
@@ -186,7 +186,7 @@ You can access your cluster with:
 kubectl get nodes
 ```
 
-Your output should be look like:
+Your output should look like:
 
 ```bash
 NAME                                           STATUS   ROLES    AGE    VERSION
@@ -196,7 +196,7 @@ ip-192-168-68-23.us-west-2.compute.internal    Ready    <none>   118s   v1.17.12
 
 **Deploy the Shopping Demo**
 
-Now we use kubectl to deploy the demo by running the following command:
+Now we use Helm to deploy the demo by running the following command:
 
 ```bash
 helm repo add steadybit-shopping-demo https://steadybit.github.io/shopping-demo
@@ -211,7 +211,7 @@ helm upgrade steadybit-shopping-demo \
     steadybit-shopping-demo/steadybit-shopping-demo
 ```
 
-Maybe you need to edit some ingress hosts names in your own `values.yaml` file.
+You may need to edit some ingress host names in your own `values.yaml` file.
 
 Verify that all Shopping Demo pods are running:
 

@@ -4,32 +4,32 @@ Steadybit helps you on your Chaos Engineering journey to a reliable system by pr
 
 ## Advice Lifecycle
 
-Advice apply to a single target of a particular target type and is in one of the following states:
+Advice applies to a single target of a particular target type and is in one of the following states:
 
 * ![Advice icon for state 'Action Needed'](../../.gitbook/assets/advice-action-needed.svg) Action Needed
 * ![Advice icon for state 'Validation Needed'](../../.gitbook/assets/active-validation-needed.svg) Validation Needed
 * ![Advice icon for state 'Implemented'](../../.gitbook/assets/advice-implemented.svg) Implemented
 
-Advice may not support and skip a particular state depending on its definition.
+Depending on its definition, a piece of advice may skip a particular state.
 
 ### 1. Action Needed
 
-The advice has automatically discovered that your target's configuration requires changes to follow best practices. For instance, advising you to address redundancy configuration for Kubernetes deployments or deploying your application in multiple cloud vendor's availability zones. The advice summarizes the matter, gives additional motivation to explain why you should address it, and gives specific instructions to improve it.
+The advice has automatically discovered that your target's configuration requires changes to follow best practices. For instance, it may advise you to address the redundancy configuration of a Kubernetes deployment, or to deploy your application across multiple availability zones of your cloud vendor. The advice summarizes the matter, gives additional motivation to explain why you should address it, and gives specific instructions to improve it.
 
 ![Advice for target 'fashion-bestseller' in state 'Action Needed'](../../.gitbook/assets/advice-action-needed.png)
 
-As soon as you implement the suggested instruction, Steadybit automatically discovers the change and - depending on the advice definition - asks you to validate your changes (lifecycle 'Validation Needed') or marks the advice as 'Implemented'.
+As soon as you implement the suggested instruction, Steadybit automatically discovers the change and — depending on the advice definition — asks you to validate your changes (lifecycle 'Validation Needed') or marks the advice as 'Implemented'.
 
 ### 2. Validation Needed
 
-The advice has discovered that your target's configuration follows best practices but recommends to validate that they are actually working. Validation can't be performed automatically by Steadybit and always requires human interaction. Supported validations are:
+The advice has discovered that your target's configuration follows best practices but recommends validating that they are actually working. Validation can't be performed automatically by Steadybit and always requires human interaction. Supported validations are:
 
 * Experiments: The advice suggests an experiment you should run to validate whether the target's configuration is working.
 * Text: The advice gives additional context for manually checking whether the target's configuration works.
 
 ![Advice for target 'toys-bestseller' in state 'Validation Needed'](../../.gitbook/assets/advice-validation-needed.png)
 
-To perform the validation, we suggest you do the corresponding action (run an experiment or follow the text-based instruction) and mark the validation as done. When you've performed all validations, the advice's states go into the end state ('Implemented').
+To perform the validation, we suggest you do the corresponding action (run an experiment or follow the text-based instruction) and mark the validation as done. When you've performed all validations, the advice's state goes to the end state ('Implemented').
 
 ### 3. Implemented
 
@@ -41,7 +41,7 @@ In case you invalidate one of the validations or the discovery detects a require
 
 ## Following Advice
 
-You can see given pieces of advice in the Steadybit Explorer. The Explorer Landscape and Explorer Targets show you advice in a target-first manner, showing all advice for a given target. The Explorer Advice lists all available advice and its applicable targets.
+You can see given pieces of advice in the Steadybit Explorer. The Explorer Landscape and Explorer Targets show you advice in a target-first manner, showing all advice for a given target. The Explorer Advice lists all available advice and their applicable targets.
 
 ### Landscape
 
@@ -57,7 +57,7 @@ Once you activate the 'Show Advice' in the sidebar, the general advice icon indi
 
 ### Advice
 
-In the Explorer Advice, you can see all supported advice, followed by the applicable targets and the respective status. It's the perfect place if you want to resolve the same advice for multiple targets. You can also filter based on advice's status to concentrate, e.g., first on targets requiring action for a specific advice.
+In the Explorer Advice, you can see all supported advice, followed by the applicable targets and the respective status. It's the perfect place if you want to resolve the same advice for multiple targets. You can also filter by advice status to concentrate, for example, on the targets that require action for a specific piece of advice first.
 
 ![Explorer Advice showing you advice and targets](../../.gitbook/assets/advice-explorer-advice.png)
 
@@ -65,7 +65,7 @@ In the Explorer Advice, you can see all supported advice, followed by the applic
 
 Steadybit's [Query Language](../../concepts/query-language/) fully supports advice to guide you on the Chaos Engineering journey. You can, e.g., filter targets in the Landscape and Experiments, or size targets in the Landscape by using the following attributes:
 
-* `advice.applicable` provides a set of advice definition ids that apply to the target, no matter in which lifecycle state.
+* `advice.applicable` provides a set of advice definition IDs that apply to the target, no matter in which lifecycle state.
 * `advice.status.action-needed` contains for a given target all advice in the lifecycle state 'Action Needed'
 * `advice.status.validation-needed` contains for a given target all advice in the lifecycle state 'Validation Needed'
 * `advice.status.implemented` contains for a given target all advice in the lifecycle state 'Implemented'

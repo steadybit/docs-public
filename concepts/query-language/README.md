@@ -2,17 +2,17 @@
 
 ## What is the Query Language?
 
-There are some use cases, where you want to restrict the targets discovered by Steadybit. One use case can be that you want to [design an experiment](/use-steadybit/experiments/design.md#basic-elements) and make sure, that there are only targets of a specific Kubernetes cluster affected by the experiment. Another use case is that you want to restrict the available targets when [configuring an environment](/install-and-configure/manage-environments/#define-your-own-environment).
+There are some use cases where you want to restrict the targets discovered by Steadybit. One use case is that you want to [design an experiment](/use-steadybit/experiments/design.md#basic-elements) and make sure that only targets of a specific Kubernetes cluster are affected by the experiment. Another use case is that you want to restrict the available targets when [configuring an environment](/install-and-configure/manage-environments/#define-your-own-environment).
 
-Boiling down to a set of targets can result in complex statements. For instance, you want to make sure that the targets are matching some sets of key-value pairs but also not in your production cluster. Expressions like these can now easily be written in Steadybits Query Language. The Query Language is a textual representation of the Query UI but with a more advanced feature set. It allows you to build semantic expression blocks, combining them with other expressions or negating them. The Query UI and the Query Language always come together, so it is up to you to choose the style.
+Boiling down to a set of targets can result in complex statements. For instance, you want to make sure that the targets are matching some sets of key-value pairs but also not in your production cluster. Expressions like these can now easily be written in Steadybit's Query Language. The Query Language is a textual representation of the Query UI but with a more advanced feature set. It allows you to build semantic expression blocks, combining them with other expressions or negating them. The Query UI and the Query Language always come together, so it is up to you to choose the style.
 
-## How to switch between the Query UI and the Query Langauge
+## How to switch between the Query UI and the Query Language
 
 <figure><img src="../../.gitbook/assets/query-ui-and-language.png" alt=""><figcaption><p>The same query can be expressed with the Query UI on the left and the Query Language on the right</p></figcaption></figure>
 
-When introducing the Query Language, we added a new tab to the already known query UI. Clicking it will switch the edit mode to the Query Language. The already configured query will be translated into the textual form and rendered within the text editor. You can just go ahead writing your own query expressions in there. Like the Query UI, the editor will provide you with auto-completion on available keys and values.&#x20;
+When introducing the Query Language, we added a new tab to the already known query UI. Clicking it will switch the edit mode to the Query Language. The already configured query will be translated into the textual form and rendered within the text editor. You can go ahead and write your own query expressions there. Like the Query UI, the editor will provide you with auto-completion on available keys and values.&#x20;
 
-Please note that the Query UI is limited in regard to the queries you write. For instance, one cannot express a query like `(a="b" AND d="e") OR f="g"` with the Query UI. The interface will tell you when the query can only be edited with the language editor.&#x20;
+Please note that the Query UI is limited with regard to the queries you can write. For instance, one cannot express a query like `(a="b" AND d="e") OR f="g"` with the Query UI. The interface will tell you when the query can only be edited with the language editor.&#x20;
 
 <figure><img src="../../.gitbook/assets/query-too-complex.png" alt=""><figcaption><p>Complex queries can only be edited in the Query language editor.</p></figcaption></figure>
 
@@ -31,7 +31,7 @@ target.type IN ("com.steadybit.extension_kubernetes.kubernetes-daemonset", "com.
 ```
 
 ```
-// Not equals check to get all targets not running in the Kuberneters Cluster 'prod'
+// Not equals check to get all targets not running in the Kubernetes Cluster 'prod'
 k8s.cluster-name!="prod"
 
 // Get all targets that are not a Daemonset/Deployment/Statefulset (needs platform >= 2.3.7)
@@ -52,7 +52,7 @@ container.label.maintainer!~"Jane"
 k8s.cluster-name=*"PrOd"
 ```
 ```
-// Not equals ignore case check to get all targets not running in the Kuberneters Cluster 'PrOd' ignore casing
+// Not equals ignore case check to get all targets not running in the Kubernetes Cluster 'PrOd' ignore casing
 k8s.cluster-name!=*"PrOd"
 ```
 ```
@@ -136,7 +136,7 @@ NOT k8s.cluster-name="prod"
 
 ### Parenthesis
 
-Expression blocks can be encapsulated using parenthesis.
+Expression blocks can be encapsulated using parentheses.
 
 ```
 (k8s.cluster-name="prod" OR k8s.cluster-name="staging") AND aws.zone="eu-central-1b"
@@ -144,7 +144,7 @@ Expression blocks can be encapsulated using parenthesis.
 
 ### Quoting Special Characters
 
-Keys containing special characters like `:` and `/` needs to be quoted to work properly.
+Keys containing special characters like `:` and `/` need to be quoted to work properly.
 
 ```
 // Quoting keys with special characters is necessary

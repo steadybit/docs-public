@@ -4,9 +4,9 @@ title: Run an Experiment
 
 # Run an Experiment
 
-We will now use Steadybit to design and run our first experiment in just 4 simple steps. This guide focuses on our example shopping demo application, which you can [deploy by follow this guide](../deploy-example-application/). However, you can also adapt the steps to your application.
+We will now use Steadybit to design and run our first experiment in just 4 simple steps. This guide focuses on our example shopping demo application, which you can [deploy by following this guide](../deploy-example-application/). However, you can also adapt the steps to your application.
 
-## Prerequisite
+## Prerequisites
 
 * You have already signed up for an account [on our website](https://signup.steadybit.com)
 * You can log in to the [Steadybit SaaS platform](https://platform.steadybit.com)
@@ -14,17 +14,17 @@ We will now use Steadybit to design and run our first experiment in just 4 simpl
 
 ## Step 1 - Define your Scenario
 
-The first step is to think about the scenario you want to test. Good inspiration for scenarios is, e.g., a past incident, dependencies of your architecture, or common pitfalls.
+The first step is to think about the scenario you want to test. Good sources of inspiration are a past incident, the dependencies in your architecture, or common pitfalls.
 
 In our case, we want to identify how our shopping demo behaves when one of the product backend services is unavailable. We can simply use one of the existing templates to create this experiment step-by-step.
 
-In the Steadybit platform, go to 'Experiments' -> 'New Experiment' -> 'From Template' and search for a template with the tag `Shopping Demo Quick Start`.
+In the Steadybit platform, go to 'Experiments' → 'New Experiment' → 'From Template' and search for a template with the tag `Shopping Demo Quick Start`.
 
 ![Run Experiment - Step 1: Use Template](../../.gitbook/assets/run-experiment-step-1.png)
 
 You can see the overall experiment structure in the template details or continue this tutorial by choosing 'Use This Template'.
 
-> If you miss this experiment template in your Steadybit platform, you can [download the resulting experiment here](experiment.json) and import it via 'Experiments' -> 'New Experiment' -> 'Upload'. Continue to [Step 3 - Experiment Design](./#step-3-experiment-design). In the future, the template will be available also in your tenant.
+> If this experiment template is missing from your Steadybit platform, you can [download the resulting experiment here](experiment.json) and import it via 'Experiments' → 'New Experiment' → 'Upload'. Continue to [Step 3 - Experiment Design](./#step-3-experiment-design). In the future, the template will also be available in your tenant.
 
 ## Step 2 - Define experiment
 
@@ -66,11 +66,11 @@ Our experiment was already designed by using the template, so we can save and ru
 
 ## Step 4 - Run experiment
 
-When hitting the 'Run Experiment'-button you see the Steadybit run view. As soon as the agent connected, the experiment starts to validate the HTTP endpoint `/products`, and the amount of ready pods for the deployment `hot-deals`. When isolating the deployment's containers, we start noticing faults in the HTTP responses as `hot-deals`' products can't be requested anymore. This is undesirable as there are other products of `fashion-bestseller` and `toys-bestseller` which could have been shown at the shop's landing page. You can improve this behavior by adding appropriate fallbacks or scaling the services.
+When hitting the 'Run Experiment'-button you see the Steadybit run view. As soon as the agent has connected, the experiment starts to validate the HTTP endpoint `/products` and the number of ready pods for the deployment `hot-deals`. When isolating the deployment's containers, we start noticing faults in the HTTP responses as `hot-deals`' products can't be requested anymore. This is undesirable as there are other products of `fashion-bestseller` and `toys-bestseller` which could have been shown on the shop's landing page. You can improve this behavior by adding appropriate fallbacks or scaling the services.
 
 ![Run Experiment - Experiment Run View](../../.gitbook/assets/run-experiment-step-6.png)
 
-Continuing to run the experiment, we see that eventually, Kubernetes restarts the deployment's pods, resulting in missing pods. Even so, after the attack, all pods become ready within the expected 60 seconds. However, the overall experiment run failed, as the HTTP success rate of `100%` was not achieved.
+Continuing to run the experiment, we see that Kubernetes eventually restarts the deployment's pods, resulting in missing pods. Even so, after the attack, all pods become ready within the expected 60 seconds. However, the overall experiment run failed, as the HTTP success rate of `100%` was not achieved.
 
 ![Run Experiment - Experiment Run View](../../.gitbook/assets/run-experiment-step-7.png)
 
@@ -80,6 +80,6 @@ You have now successfully run an experiment with Steadybit in a Kubernetes envir
 
 ### What are the next steps?
 
-Check how the shop's behavior differs when using [different implementation of the products endpoint](https://github.com/steadybit/shopping-demo?tab=readme-ov-file#products-rest-endpoint). Alternatively, explore your next experiment using the [explorer landscape](../../use-steadybit/explorer/landscape.md) and get [advice](../../use-steadybit/explorer/advice.md) to learn how to improve your system's reliability.
+Check how the shop's behavior differs when using a [different implementation of the products endpoint](https://github.com/steadybit/shopping-demo?tab=readme-ov-file#products-rest-endpoint). Alternatively, explore your next experiment using the [explorer landscape](../../use-steadybit/explorer/landscape.md) and get [advice](../../use-steadybit/explorer/advice.md) to learn how to improve your system's reliability.
 
 Eventually, before rolling it out to more users, make sure to [set up proper environments](../../install-and-configure/manage-environments/) and [create teams](../../install-and-configure/manage-teams-and-users/) to benefit from Steadybit's safety in Chaos Engineering rollouts.

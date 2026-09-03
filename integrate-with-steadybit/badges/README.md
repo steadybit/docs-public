@@ -5,7 +5,7 @@ Get a badge for your experiment to integrate the latest run state, e.g., in wiki
 We support two badges:
 
 * an [experiment badge](./#experiment-badges) that shows the latest run state of a specific experiment
-* an [incident badge](./#badges-linked-to-external-references) that either creates an experiment linked to an external reference or shows the latest run as soon as it is created state
+* a [tag badge](./#tag-badges) that either offers to create an experiment linked to an external reference, or — once such an experiment exists — shows the state of its latest run
 
 ## Experiment Badges
 
@@ -19,18 +19,18 @@ Go to an experiment that interests you, and click on the experiment badge icon o
 
 ![Steadybit Experiment Editor - Create Experiment Badge](../../.gitbook/assets/experiment-badge-1.png)
 
-You can choose your badge's desirable format and scale and copy the resulting script.
+You can choose the format and scale you want for your badge, then copy the resulting snippet.
 
 ![Steadybit Experiment Editor - Configure Experiment Badge](../../.gitbook/assets/experiment-badge-2.png)
 
-Alternatively, below are examples to copy and adjust to create your badge manually
+Alternatively, below are examples to copy and adjust to create your badge manually:
 
 ### Example Markdown
 
 {% code title="example.md" %}
 ```markdown
 Template:
-[![{{expermiment-key}}](https://platform.steadybit.com/api/experiments/{{experiment-key}}/badge.svg?tenantKey={{tenant-key}})](https://platform.steadybit.com/experiments/{{team-key}}/edit/{{experiment-key}}/executions/?tenant={{tenant-key}}~)
+[![{{experiment-key}}](https://platform.steadybit.com/api/experiments/{{experiment-key}}/badge.svg?tenantKey={{tenant-key}})](https://platform.steadybit.com/experiments/{{team-key}}/edit/{{experiment-key}}/executions/?tenant={{tenant-key}}~)
 
 Example:
 [![SHOP-61](https://platform.steadybit.com/api/experiments/SHOP-61/badge.svg?tenantKey=demo)](https://platform.steadybit.com/experiments/SHOP/edit/SHOP-61/executions/?tenant=demo~)
@@ -51,7 +51,7 @@ Example
 
 ## Tag Badges
 
-Experiment badges always link to a single existing experiment. If you want to refer to experiments that have a common purpose, you can instead use tag badges. Example use cases for this are linking to experiments reproducing a past issue from within your post-mortem documentation, indicating whether a specific architecture requirement is fulfilled, or providing visual evidence of the outcome of your latest disaster recovery test. Unlike experiment badges, tag badges can be created even if no experiment with the chosen tag exists, allowing you to use them as a call to action for creating a new experiment. This is how they look like in different states:
+Experiment badges always link to a single existing experiment. If you want to refer to experiments that have a common purpose, you can instead use tag badges. Example use cases for this are linking to experiments reproducing a past issue from within your post-mortem documentation, indicating whether a specific architecture requirement is fulfilled, or providing visual evidence of the outcome of your latest disaster recovery test. Unlike experiment badges, tag badges can be created even if no experiment with the chosen tag exists, allowing you to use them as a call to action for creating a new experiment. This is what they look like in different states:
 
 <figure><img src="../../.gitbook/assets/bade-example-create.png" alt="Tag badge when no experiment with the chosen tag exists" width="400"><figcaption><p>Tag badge when no experiment with the chosen tag exists</p></figcaption></figure>
 

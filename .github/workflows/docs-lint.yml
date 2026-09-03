@@ -1,0 +1,39 @@
+name: Docs Lint
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, ready_for_review, reopened]
+
+concurrency:
+  group: ${{ github.workflow }}-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  docs-lint:
+    name: Docs Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+
+    steps:
+      # The full history of the target branch is needed: the linter reads the
+      # base tree with `git ls-tree` / `git show` to work out which findings the
+      # pull request actually introduces.
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Fetch target branch
+        run: git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+
+      # actions/checkout checks out the merge of this PR into the target branch,
+      # so comparing against the target branch tip also catches a merge that
+      # silently undoes a fix already on main.
+      - name: Run docs lint
+        run: |
+          python3 .github/scripts/docs_lint.py \
+            --base "origin/${{ github.base_ref }}" \
+            --format github

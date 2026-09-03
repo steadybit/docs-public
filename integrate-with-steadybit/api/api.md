@@ -16,14 +16,13 @@ Access tokens can be managed in the UI under Settings → API Access Tokens.
 
 Steadybit supports three token types:
 
-**Team Tokens** are associated with one or more teams and can be used to access experiments and team-related operations within those teams. Admins and team owners can create team tokens. 
+**Team Tokens** are associated with one or more teams and can be used to access experiments and team-related operations within those teams. Admins and team owners can create team tokens.
 
-**Wildcard Tokens** grant access to all teams the token creator is an owner of. Team ownerships are resolved dynamically at authentication time, so the token automatically reflects any future team changes. Admins and team owners can create wildcard tokens.
-**Wildcard Tokens created by admin users allow access to all teams.**
+**Wildcard Tokens** grant access to all teams the token creator is an owner of. Team ownerships are resolved dynamically at authentication time, so the token automatically reflects any future team changes. Admins and team owners can create wildcard tokens. A wildcard token created by an admin user grants access to **all** teams.
 
 **Admin Tokens** grant access to platform management APIs (e.g., teams, environments, users). They are not associated with any team and can only be created by administrators.
 
-Tokens are automatically invalidated if their initial conditions no longer hold, e.g., if an administrator is changed to a normal user, admin tokens are invalidated.
+Tokens are automatically invalidated if the conditions they were created under no longer hold. For example, if an administrator is changed to a normal user, their admin tokens are invalidated.
 
 ### Token Expiration
 
@@ -57,7 +56,7 @@ Access tokens can also be managed programmatically via the `/api/access-tokens/v
 
 ```bash
 curl -X 'POST' \
-  'https://platform.dev.steadybit.com/api/access-tokens/v2' \
+  'https://platform.steadybit.com/api/access-tokens/v2' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: accessToken <admin-token>' \
@@ -72,7 +71,7 @@ curl -X 'POST' \
 }'
 ```
 
-Details on the Access Token API endpoint can be found in specification linked in the [OpenApi Specification](#openapi-specification) section.
+Details on the Access Token API endpoint can be found in the specification linked from the [OpenAPI Specification](#openapi-specification) section.
 
 ### Creating an Admin Token via Internal API (On-Prem)
 
@@ -81,7 +80,7 @@ On-premises customers can create admin tokens via an internal API. This is usefu
 {% hint style="warning" %}
 Tokens created via the internal API are associated with an implicit "machine" user that cannot be removed or disabled.
 
-Experiments scheduled with such a token will continue to execute even after the token is deleted. This differs from tokens associated with a regular user, if that user is removed or loses permissions, their scheduled experiments will fail.
+Experiments scheduled with such a token will continue to execute even after the token is deleted. This differs from tokens associated with a regular user: if that user is removed or loses permissions, their scheduled experiments will fail.
 {% endhint %}
 
 **Via CLI**
@@ -115,21 +114,21 @@ curl \
 This endpoint is only accessible from localhost and is not reachable from outside the server.
 {% endhint %}
 
-## OpenApi Specification
+## OpenAPI Specification
 
-We provide a [OpenApi 3.0 Specification for the API](https://platform.steadybit.com/api/spec) as well as an [interactive documentation](https://platform.steadybit.com/api/swagger). In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
+We provide an [OpenAPI 3.0 Specification for the API](https://platform.steadybit.com/api/spec) as well as an [interactive documentation](https://platform.steadybit.com/api/swagger). In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
 
 ### Requests and Responses
 
-All API requests require a specified access token via the `Authorization` header in the format `Authorization: accessToken <token>`.
+All API requests require an access token, passed via the `Authorization` header in the format `Authorization: accessToken <token>`.
 
-If applicable, request and response bodies are expressed using `json` or `yml`, depending on the used `Content-Type` and `Accept` headers. Success or failure of an API call is expressed via HTTP status.
+Where applicable, request and response bodies are JSON or YAML, depending on the `Content-Type` and `Accept` headers you send. Success or failure of an API call is expressed via the HTTP status code.
 
 #### Too Many Requests
 
-API endpoints are rate limited and may return the HTTP status code `429 - Too Many Requests`.
+API endpoints are rate-limited and may return the HTTP status code `429 - Too Many Requests`.
 
-In this case the `Retry-After` response header contains the number of seconds to wait before executing further requests, see [RFC 7231](https://www.rfc-editor.org/rfc/rfc7231.html#section-7.1.3). Furthermore, the response headers `RateLimit-Limit`, `RateLimit-Remaining` and `RateLimit-Reset`, as defined in the IETF draft [RateLimit Header Fields for HTTP](https://www.ietf.org/archive/id/draft-polli-ratelimit-headers-02.html), are returned containing more details.
+In this case, the `Retry-After` response header contains the number of seconds to wait before executing further requests, see [RFC 7231](https://www.rfc-editor.org/rfc/rfc7231.html#section-7.1.3). Furthermore, the response headers `RateLimit-Limit`, `RateLimit-Remaining` and `RateLimit-Reset`, as defined in the IETF draft [RateLimit Header Fields for HTTP](https://www.ietf.org/archive/id/draft-polli-ratelimit-headers-02.html), are returned containing more details.
 
 ```bash
 curl \
@@ -148,7 +147,7 @@ curl \
 
 ### Example: Create Experiment
 
-This is how you can create an experiment (`json` is supported as well):
+This is how you can create an experiment. The example uses YAML; JSON is supported as well:
 
 ```bash
 curl \
@@ -180,10 +179,10 @@ lanes:
 '
 ```
 
-The `Location` header of the response indicates the url of the newly created experiment:
+The `Location` header of the response gives the URL of the newly created experiment:
 
 ```
-location: https://platform.steadybit.com/api/experiments/ADM-
+location: https://platform.steadybit.com/api/experiments/ADM-1
 ```
 
 ### Example: Run Experiment
@@ -198,7 +197,7 @@ curl \
   https://platform.steadybit.com/api/experiments/ADM-1/execute
 ```
 
-### Create a golang client with oapi-codegen
+### Create a Go client with oapi-codegen
 
 In case you want to [generate the structs](https://github.com/oapi-codegen/oapi-codegen), you should add this parameter to your configuration file:
 
@@ -219,7 +218,7 @@ compatibility:
   circular-reference-limit: 11
 ```
 
-And then in your golang file:
+And then in your Go file:
 
 ```go
 //go:generate go run github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen --config=config.yaml https://platform.steadybit.com/api/spec

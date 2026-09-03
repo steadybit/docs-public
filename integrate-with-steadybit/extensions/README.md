@@ -1,6 +1,6 @@
 # Extensions
 
-Steadybit ships with various discoveries, attacks, checks and more to run chaos-engineering experiments and automatic weak spot identification. These capabilities ensure an excellent out-of-the-box experience. However, not every technology is supported natively by Steadybit. To this end, Steadybit exposes extension mechanisms through which everyone can add capabilities. For example, this enables
+Steadybit ships with various discoveries, attacks, checks and more to run chaos-engineering experiments and automatic weak-spot identification. These capabilities ensure an excellent out-of-the-box experience. However, not every technology is supported natively by Steadybit. To this end, Steadybit exposes extension mechanisms through which everyone can add capabilities. For example, this enables
 
 * the discovery of new targets that one can attack within experiments,
 * the definition of new attacks for existing or new targets,
@@ -23,7 +23,7 @@ Extension authors, maintainers and contributors will leverage extension APIs to 
 
 ### Extension Kits
 
-Kits are the combination of extension APIs, conventions, contracts, documentation, examples and more. They are leveraged mainly by the same audience that would author extension.
+Kits are the combination of extension APIs, conventions, contracts, documentation, examples and more. They are leveraged mainly by the same audience that would author extensions.
 
 ## Next Steps
 

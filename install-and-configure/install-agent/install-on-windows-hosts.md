@@ -2,7 +2,7 @@
 
 Steadybit Agent is packaged as a Windows _.msi_ installer. Unlike the Linux installation, the [extension-host-windows](https://hub.steadybit.com/target/com.steadybit.extension_host_windows.host) is not bundled and has to be installed separately.
 
-## Agent installation
+## Agent Installation
 
 To install the agent on your Windows system, download the latest [installer](https://windows-registry.steadybit.com/steadybit-agent/windows-agent-latest.zip) archive and extract the installer into a folder of your choice. You may also download the [SHA-256 checksum](https://windows-registry.steadybit.com/steadybit-agent/windows-agent-latest.sha256) and verify it matches the hash of the downloaded archive.
 
@@ -16,7 +16,7 @@ Double-click the downloaded _.msi_ installer and follow the installation instruc
 
 ### Headless installation (No GUI)
 
-Run the following command from the **administrator** powershell:
+Run the following command from an **administrator** PowerShell:
 
 ```pwsh
 msiexec /i SteadybitAgentInstaller.msi \`
@@ -80,7 +80,7 @@ If you need to diagnose issues or review the activity of the agent and its exten
    * Select **Application**.
 3. **Find Relevant Entries:**
    * The central pane will now display a list of events. Look for entries where the **Source** column might indicate the agent or its extensions (e.g., "Steadybit Agent," or a specific extension name).
-   * You can sort by "Date and Time" to find recent events or use the "Filter Current Log..." option in the right-hand pane to narrow down your search (e.g., by Event level like "Error" or "Warning", or by specific Event sources)."
+   * You can sort by "Date and Time" to find recent events or use the "Filter Current Log..." option in the right-hand pane to narrow down your search (e.g., by Event level like "Error" or "Warning", or by specific Event sources).
 
 ## Java Virtual Machine Options
 
@@ -102,7 +102,7 @@ Additional JVM options — for example to tune the heap size — go into the age
 
 ## Certificates
 
-By default, the Steadybit Agent (version 2.2.2 and later) will pick up the Certificates trusted by the system.
+By default, the Steadybit Agent (version 2.2.2 and later) will pick up the certificates trusted by the system.
 
 If you don't want this, remove the option `-Djavax.net.ssl.trustStoreType=Windows-ROOT` from the agent's [JVM options file](#java-virtual-machine-options) and restart the _SteadybitAgent_ service. It will then use the bundled Java runtime's keystore, which can be managed using `keytool`. The runtime is located at `C:\Program Files\Steadybit GmbH\Steadybit Agent\runtime` (≥ 2.4.0) or `C:\Program Files\Steadybit GmbH\Steadybit Agent\Core\jre` (< 2.4.0).
 
@@ -148,5 +148,3 @@ This method uses the traditional Control Panel interface, which has been around 
 5. **Follow Uninstaller Prompts:**
    * A confirmation pop-up might appear. Confirm that you want to uninstall.
    * The Steadybit Agent's own uninstaller will then launch. Follow any instructions it provides to complete the removal.
-
-***

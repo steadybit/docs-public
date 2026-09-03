@@ -5,7 +5,7 @@ navTitle: LDAP Integration
 
 # LDAP Integration
 
-The Steadybit Platform supports integration with Lightweight Directory Access Protocol (LDAP) servers for centralized user management. 
+The Steadybit Platform supports integration with Lightweight Directory Access Protocol (LDAP) servers for centralized user management.
 This integration enables LDAP-based authentication and automatic team membership assignment based on LDAP group memberships.
 
 ## Activation
@@ -18,7 +18,7 @@ STEADYBIT_AUTH_PROVIDER=LDAP
 
 ## Authentication
 
-The Steadybit Platform supports LDAP-based user authentication with the following behavior:
+The Steadybit Platform supports LDAP-based user authentication as follows.
 
 The platform accesses the LDAP server anonymously by default. To use authenticated access, configure both `STEADYBIT_AUTH_LDAP_MANAGER_DN` and `STEADYBIT_AUTH_LDAP_MANAGER_PASSWORD` environment variables.
 

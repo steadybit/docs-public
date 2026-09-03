@@ -1,9 +1,9 @@
 # Advanced Agent Authentication
 
-## Agent authentication using agent-key
+## Agent Authentication using an Agent Key
 
-By default, the agents are authenticating using the configured agent-key.\
-This key is global and all the same for all agents of your organization.
+By default, agents authenticate using the configured agent key.\
+This key is global: every agent in your organization uses the same one.
 
 {% hint style="warning" %}
 In case your agent key got compromised and you need to rotate the agent key, contact our [support](https://steadybit.com/contact).
@@ -11,9 +11,9 @@ In case your agent key got compromised and you need to rotate the agent key, con
 
 ## Agent Authentication using [OpenID Connect](https://openid.net/connect/)
 
-If you want to have more security controls, you can use OIDC for the agent authentication instead of the agent key. This requires a OIDC identity provider (e.g. Keycloak).
+If you want to have more security controls, you can use OIDC for the agent authentication instead of the agent key. This requires an OIDC identity provider (e.g. Keycloak).
 
-For each request to the platform the agent will use an access token which was issued by the identity provider. The platform verifies the token.
+For each request to the platform, the agent uses an access token issued by the identity provider. The platform verifies the token.
 
 ### Platform Configuration
 
@@ -23,8 +23,8 @@ All options are described in [Platform Configuration Options](advanced-configura
 
 ### Agent Configuration
 
-To tell the agent to use OIDC, set `STEADYBIT_AGENT_AUTH_PROVIDER=OAUTH2`, `STEADYBIT_AGENT_AUTH_OAUTH2_ISSUER_URI` to the issuer URI of your identity provider and the `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_ID` to the client id to use.\
-Alternatively instead of using the issuer URI you can directly configure the `STEADYBIT_AGENT_AUTH_OAUTH2_TOKEN_URI` to tell the agents where to get the access tokens from, this won't try to read the OIDC discovery endpoint.
+To tell the agent to use OIDC, set `STEADYBIT_AGENT_AUTH_PROVIDER=OAUTH2`, `STEADYBIT_AGENT_AUTH_OAUTH2_ISSUER_URI` to the issuer URI of your identity provider and the `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_ID` to the client ID to use.\
+Alternatively, instead of using the issuer URI, you can configure `STEADYBIT_AGENT_AUTH_OAUTH2_TOKEN_URI` directly to tell the agents where to get the access tokens from. In that case the OIDC discovery endpoint is not read.
 
 All options are described in [Agent Configuration Options](../install-agent/advanced-configuration.md).
 
@@ -34,7 +34,7 @@ To use the client credentials flow you need to set the `STEADYBIT_AGENT_AUTH_OAU
 
 #### Using password flow (with credentials or mutual TLS)
 
-For using username and password set `STEADYBIT_AGENT_AUTH_OAUTH2_AUTHORIZATION_GRANT_TYPE=password` and provide a username and password with `STEADYBIT_AGENT_AUTH_OAUTH2_USERNAME` and `STEADYBIT_AGENT_AUTH_OAUTH2_PASSWORD`.
+To use a username and password, set `STEADYBIT_AGENT_AUTH_OAUTH2_AUTHORIZATION_GRANT_TYPE=password` and provide a username and password with `STEADYBIT_AGENT_AUTH_OAUTH2_USERNAME` and `STEADYBIT_AGENT_AUTH_OAUTH2_PASSWORD`.
 
-For using mutual TLS specify PEM-files containing a X.509 certificate and a PKCS#8 private key by setting `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_KEY_FILE` and `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_CHAIN_FILE`. In case the key is encrypted you can specify the password using `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_PASSWORD`.\
-The agent will re-load the certificates when the file changes automatically, but it might take up to ten seconds.
+To use mutual TLS, specify PEM files containing an X.509 certificate and a PKCS#8 private key by setting `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_KEY_FILE` and `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_CHAIN_FILE`. In case the key is encrypted you can specify the password using `STEADYBIT_AGENT_AUTH_OAUTH2_CLIENT_CERT_PASSWORD`.\
+The agent reloads the certificates automatically when the file changes, but this might take up to ten seconds.

@@ -7,7 +7,7 @@ navTitle: Advanced Configuration
 
 ## Machine Requirements
 
-The machine you are installing Steadybit onto, must have **at least** 4 CPUs and 8 GB available memory.
+The machine you are installing Steadybit onto must have **at least** 4 CPUs and 8 GB available memory.
 
 | Environment Variable     | Required | Description                                                                                                        |
 |--------------------------|----------|--------------------------------------------------------------------------------------------------------------------|
@@ -19,7 +19,7 @@ The platform container image doesn't contain a shell by default. However, in cas
 
 ## Database Configuration
 
-Steadybit requires a PostgreSQL 15 database. The platform relies heavily on PostgreSQL-specific features and cannot run on other RDBMS.
+Steadybit requires a PostgreSQL 15 database. The platform relies heavily on PostgreSQL-specific features and cannot run on another RDBMS.
 
 **Note**: Ensure the database and platform clocks are in sync, as time-based operations might be impacted otherwise.
 
@@ -49,14 +49,14 @@ On startup the platform creates and migrates its own database objects; nothing h
 * `CREATE EXTENSION IF NOT EXISTS ... SCHEMA public` for `pg_trgm` and `btree_gin`
 * all tables, indexes, functions and triggers inside the two schemas (including migrations on upgrades and the indexes created by the [Target Index Advisor](#target-index-advisor))
 
-Consequently the database user does not need to be a superuser, but it needs the following privileges. Replace `<steadybitdb>` and `<user>` with your database name and application user:
+Consequently, the database user does not need to be a superuser, but it needs the following privileges. Replace `<steadybitdb>` and `<user>` with your database name and application user:
 
-| Command                                              | Description                                                                                                                                                                                                                                                                                                                                             |
-|------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `GRANT CONNECT ON DATABASE <steadybitdb> TO <user>;` | Allow the application user to connect.                                                                                                                                                                                                                                                                                                                  |
-| `GRANT CREATE ON DATABASE <steadybitdb> TO <user>;`  | Allow the application user to create the `steadybit` and `sb_onprem` schemas. The user becomes the owner of both schemas and therefore of every object inside them, so no further table-level grants are required.                                                                                                                                       |
-| `GRANT USAGE ON SCHEMA public TO <user>;`            | Access to the extension functions and operators installed in `public`. Granted to every user by default; listed here for hardened setups that revoked it.                                                                                                                                                                                              |
-| `GRANT CREATE ON SCHEMA public TO <user>;`           | Only needed if the platform should install the extensions itself (see below). Since PostgreSQL 15 `CREATE` on `public` is no longer granted to every user by default, only to the database owner.                                                                                                                                                       |
+| Command                                              | Description                                                                                                                                                                                                        |
+|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `GRANT CONNECT ON DATABASE <steadybitdb> TO <user>;` | Allow the application user to connect.                                                                                                                                                                             |
+| `GRANT CREATE ON DATABASE <steadybitdb> TO <user>;`  | Allow the application user to create the `steadybit` and `sb_onprem` schemas. The user becomes the owner of both schemas and therefore of every object inside them, so no further table-level grants are required. |
+| `GRANT USAGE ON SCHEMA public TO <user>;`            | Access to the extension functions and operators installed in `public`. Granted to every user by default; listed here for hardened setups that revoked it.                                                          |
+| `GRANT CREATE ON SCHEMA public TO <user>;`           | Only needed if the platform should install the extensions itself (see below). Since PostgreSQL 15 `CREATE` on `public` is no longer granted to every user by default, only to the database owner.                  |
 
 **Extensions.** `CREATE EXTENSION` is skipped for extensions that already exist, so you can either pre-install them or let the platform do it. Both `pg_trgm` and `btree_gin` are [trusted extensions](https://www.postgresql.org/docs/current/sql-createextension.html), i.e. the platform can install them itself as long as the user has `CREATE` on the database and on schema `public`. A superuser is not required at any point.
 
@@ -91,7 +91,7 @@ to act on by hand. Suggestions and the DDL to run manually are logged under `[Ta
 
 The workload is bound by the database CPU on peaks.
 
-If you have ~100k targets simultaneously in the platform, we recommend a burstable instance with four vCPU (e.g., db.t4g.xlarge). Regarding disk size, 20 GB should be enough capacity for the start (as extending on AWS should not be a problem).
+If you have ~100k targets simultaneously in the platform, we recommend a burstable instance with four vCPUs (e.g., db.t4g.xlarge). Regarding disk size, 20 GB should be enough to start with (as extending on AWS should not be a problem).
 
 If you choose a smaller instance for cost savings, the target ingestion will be slower, so it will take a bit longer until the target data in the platform is
 consistent.
@@ -117,7 +117,7 @@ To enable IAM authentication, configure the following environment variables:
 | `SPRING_DATASOURCE_URL`                                          | yes      | <p>JDBC URL using the AWS wrapper prefix<br><strong>Example:</strong> <code>jdbc:aws-wrapper:postgresql://your-rds-endpoint:5432/steadybitdb</code></p>                                                          |
 | `SPRING_DATASOURCE_USERNAME`                                     | yes      | <p>The IAM database user<br><strong>Example:</strong> <code>steadybit_iam</code></p>                                                                                                                             |
 | `spring.datasource.hikari.data-source-properties.wrapperPlugins` | yes      | <p>Comma-separated list of AWS JDBC Wrapper plugins. Include <code>iam</code> for IAM authentication.<br><strong>Example:</strong> <code>iam,initialConnection,auroraConnectionTracker,failover2,efm2</code></p> |
-| `spring.datasource.hikari.data-source-properties.wrapperDialect` |          | <p>The database dialect for the AWS JDBC Wrapper. Required for some plugins to work correctly, e.g. when using aurora.</p>                                                                                       |
+| `spring.datasource.hikari.data-source-properties.wrapperDialect` |          | <p>The database dialect for the AWS JDBC Wrapper. Required for some plugins to work correctly, e.g. when using Aurora.</p>                                                                                       |
 
 **Note:** When using IAM authentication, you do not need to set `SPRING_DATASOURCE_PASSWORD` as the AWS SDK will generate authentication tokens automatically using the configured IAM credentials.
 
@@ -135,7 +135,7 @@ env:
 
 #### Available Wrapper Plugins
 
-You can also configure additional wrapper plugins for aurora (e.g. `initialConnection`, `auroraConnectionTracker`) or clusters (`failover2`). For a complete list of available plugins and their configuration options, see the [AWS Advanced JDBC Wrapper documentation](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/UsingTheJdbcDriver.md#list-of-available-plugins).
+You can also configure additional wrapper plugins for Aurora (e.g. `initialConnection`, `auroraConnectionTracker`) or clusters (`failover2`). For a complete list of available plugins and their configuration options, see the [AWS Advanced JDBC Wrapper documentation](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/UsingTheJdbcDriver.md#list-of-available-plugins).
 
 ## Message Broker Configuration
 
@@ -147,7 +147,7 @@ A Redis message broker is required to run the platform with multiple instances.
 | `SPRING_REDIS_PORT`                                                                 |          | <p>Redis server port<br><strong>Default:</strong> <code>6379</code></p>              |
 | `SPRING_REDIS_USERNAME`                                                             |          | Redis Username                                                                       |
 | `SPRING_REDIS_PASSWORD`                                                             |          | Redis Password                                                                       |
-| platform <= 1.0.96 `SPRING_REDIS_SSL`, platform > 1.0.96 `SPRING_REDIS_SSL_ENABLED` |          | <p>Wether to enable ssl support.<br><strong>Default:</strong> <code>false</code></p> |
+| platform <= 1.0.96 `SPRING_REDIS_SSL`, platform > 1.0.96 `SPRING_REDIS_SSL_ENABLED` |          | <p>Whether to enable SSL support.<br><strong>Default:</strong> <code>false</code></p>|
 | `SPRING_REDIS_CLIENT_NAME`                                                          |          | Client name to be set on connections with CLIENT SETNAME.                            |
 
 ## Tenant Configuration
@@ -162,8 +162,8 @@ A Redis message broker is required to run the platform with multiple instances.
 | Environment Variable                   | Required | Description                                                                                                                                                                                         |
 |----------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `STEADYBIT_WEB_PUBLIC_URL`             |          | URL to point to your Steadybit installation. Use this if your platform runs behind a reverse proxy doing path rewriting. Also, it is used for the links in notifications.                           |
-| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` |          | By default, the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.              |
-| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL`  |          | By default, the Websocket connections are advertised using the same URL name as the agents register to. You can override the advertised URL if you run a separate load balancer for the websockets. |
+| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` |          | By default, the WebSocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.              |
+| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL`  |          | By default, the WebSocket connections are advertised using the same URL name as the agents register to. You can override the advertised URL if you run a separate load balancer for the WebSocket co|
 
 ## Log Configuration
 
@@ -189,7 +189,7 @@ You can use an LDAP server for [authentication and synchronization](ldap-integra
 |------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `STEADYBIT_AUTH_PROVIDER`                      | yes      | <p>Use <code>LDAP</code> for LDAP-Authentication<br><strong>Example:</strong> <code>LDAP</code></p>                                                                               |
 | `STEADYBIT_AUTH_LDAP_URL`                      | yes      | <p>LDAP-Server URL<br><strong>Example:</strong> <code>ldap://openldap:389/dc=steadybit,dc=com</code></p>                                                                          |
-| `STEADYBIT_AUTH_LDAP_MANAGER_DN`               |          | Username (DN) of the "manager" user identity is used to authenticate to an LDAP server. If omitted, anonymous access will be used. **Example:** `uid=admin,ou=system`             |
+| `STEADYBIT_AUTH_LDAP_MANAGER_DN`               |          | Username (DN) of the "manager" user identity that is used to authenticate to an LDAP server. If omitted, anonymous access will be used. **Example:** `uid=admin,ou=system`        |
 | `STEADYBIT_AUTH_LDAP_MANAGER_PASSWORD`         |          | The password for the manager DN. This is required if the manager-dn is specified.                                                                                                 |
 | `STEADYBIT_AUTH_LDAP_USER_SEARCH_BASE`         |          | <p>the base DN for searching users in the LDAP directory</p>                                                                                                                      |
 | `STEADYBIT_AUTH_LDAP_USER_SEARCH_FILTER`       |          | <p>the filter for searching users in the LDAP directory <br> <strong>Default:</strong> <code>(&(objectClass=inetOrgPerson)(uid={0}))</code></p>                                   |
@@ -199,13 +199,13 @@ You can use an LDAP server for [authentication and synchronization](ldap-integra
 | `STEADYBIT_AUTH_LDAP_SYNC_ADMIN_GROUP_DN`      | yes      | <p>The DN for the groupOfNames/groupOfUniqueNames for the <code>Admin</code> users<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p> |
 | `STEADYBIT_AUTH_LDAP_SYNC_USER_GROUP_DN`       | yes      | <p>The DN for the groupOfNames/groupOfUniqueNames for the <code>User</code> users<br><strong>Example:</strong> <code>cn=steadybit_user,ou=groups,dc=steadybit,dc=com</code></p>   |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER`  |          | <p>The filter for the groupOfNames/groupOfUniqueNames for the teams<br><strong>Example:</strong> <code>ou=teams,ou=groups,dc=steadybit,dc=com</code></p>                          |
-| `STEADYBIT_AUTH_LDAP_SYNC_TEAM_KEY_ATTRIBUTE`  |          | <p>The attribute to use as Team key<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                                |
-| `STEADYBIT_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE` |          | <p>The attribute to use as Team name<br><strong>Example:</strong> <code>cn=steadybit_admin,ou=groups,dc=steadybit,dc=com</code></p>                                               |
-| `STEADYBIT_AUTH_LDAP_SYNC_CRON`                |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 _/2 ? _ * *</code></p>                                           |
+| `STEADYBIT_AUTH_LDAP_SYNC_TEAM_KEY_ATTRIBUTE`  |          | <p>The name of the LDAP attribute to use as Team key<br><strong>Example:</strong> <code>cn</code></p>                                                                             |
+| `STEADYBIT_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE` |          | <p>The name of the LDAP attribute to use as Team name<br><strong>Example:</strong> <code>description</code></p>                                                                   |
+| `STEADYBIT_AUTH_LDAP_SYNC_CRON`                |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 &#42;/2 ? * * *</code> (every two hours)</p>                     |
 
 ## OpenID Connect Authentication
 
-You can use OpenID Connect compatible authentication provider for [authentication and synchronization](oidc-integration.md).
+You can use an OpenID Connect-compatible authentication provider for [authentication and synchronization](oidc-integration.md).
 
 | Environment Variable                                    | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |---------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -221,7 +221,7 @@ You can use OpenID Connect compatible authentication provider for [authenticatio
 
 ## Using SSL/TLS Encryption
 
-SSL can be configured by setting the various `SERVER_SSL_*` properties and requires a java keystore (typically PKCS12).
+SSL can be configured by setting the various `SERVER_SSL_*` properties and requires a Java keystore (typically PKCS12).
 
 | Environment Variable            | Required | Description                                                                                                                                                                                    |
 |---------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -283,7 +283,7 @@ All retention settings are defined via
   see [Spring conversion expressions](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.typesafe-configuration-properties.conversion.durations).
 - `STEADYBIT_X_RETENTION_CRON` cron string for Quartz
 
-Note that `X` links to a specific domain, see below (e.g., targets stats via `TARGETS_STATS`).
+Note that `X` refers to a specific domain, see below (e.g., target stats via `TARGETS_STATS`).
 
 | Environment Variable                                                 | Description                                                                                                                      | Database Table                  | Default Value                              |
 |----------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|---------------------------------|--------------------------------------------|
@@ -375,7 +375,7 @@ Rate limits protect the UI, API, and Agent endpoints of the Steadybit platform. 
 Rate limits restrict the number of processable requests in a given timeframe. Every request reduces this capacity and will fail if none is left. After a given
 time, the capacity is refilled, and requests can be processed again.
 
-All rate limits apply to the associated tenant, whereas some endpoints are additionally restricted by a qualifier, specifying the user or agent issuing the request.
+All rate limits apply to the associated tenant, while some endpoints are additionally restricted by a qualifier, specifying the user or agent issuing the request.
 
 | Name               | Description                                                                      | Tenant <br/>(capacity,refill token, refill rate) | Qualifier <br/>(capacity,refill token, refill rate) |
 |--------------------|----------------------------------------------------------------------------------|--------------------------------------------------|-----------------------------------------------------|
@@ -385,9 +385,9 @@ All rate limits apply to the associated tenant, whereas some endpoints are addit
 | UI General         | All UI requests not mentioned below                                              | 1000/1000/1s tenant, <br/> 500 user              | 500/100/10s                                         |
 | UI Security        | Killswitch, cancel experiment, remove schedule, remove team member, delete token | unlimited                                        | -                                                   |
 | Agent Registration | Agent registration requests                                                      | 200/200/10s                                      | -                                                   |
-| Agent Definition   | Extension metadata like target types, attributes, enrichment rules or advices    | 200/200/10s                                      | 10/10/10s                                           |                                                               | 
-| Agent Experiment   | Experiment execution and metadata like metrics, logs, spans                      | 1000/1000/1s                                     | 100/100/10s                                         | 
-| Agent Target       | Submitted targets <br/> (based on target count, and not request count)           | 100000/30000/5s                                  | 75000/7500/5s                                       |                  
+| Agent Definition   | Extension metadata like target types, attributes, enrichment rules or advices    | 200/200/10s                                      | 10/10/10s                                           |
+| Agent Experiment   | Experiment execution and metadata like metrics, logs, spans                      | 1000/1000/1s                                     | 100/100/10s                                         |
+| Agent Target       | Submitted targets <br/> (based on target count, and not request count)           | 100000/30000/5s                                  | 75000/7500/5s                                       |
 
 Environment variables can override the predefined defaults to define stricter or more relaxed restrictions.
 

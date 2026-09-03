@@ -6,11 +6,11 @@ Steadybit is highly flexible, and you can seamlessly integrate it into your use 
 
 ### Command-Line Interface (CLI)
 
-The CLI is ideal for integrating experiment runs or checking advice into your Continuous Integration/Continuous Delivery (CI/CD) pipeline. Under the hood, it uses the platform's [API](./#api). Because the CLI is an npm package, it is agnostic to your actual CI/CD tool in action. [Learn more about the CLI](cli.md).
+The CLI is ideal for integrating experiment runs, or advice checks, into your Continuous Integration/Continuous Delivery (CI/CD) pipeline. Under the hood, it uses the platform's [API](./#api). Because the CLI is an npm package, it is agnostic to your actual CI/CD tool in action. [Learn more about the CLI](cli.md).
 
 ### API
 
-The platform's API allows you to perform every action that can be done via the user interface also programmatically. This is ideal for setting up Steadybit in an automated manner, such as creating teams and assigning environments, as well as for advanced use cases involving experiment creation and execution, e.g., utilizing an experiment template to create and run an experiment. [Learn more about the API](api/api.md).
+The platform's API lets you perform programmatically every action that can be done via the user interface. This is ideal for setting up Steadybit in an automated manner, such as creating teams and assigning environments, as well as for advanced use cases involving experiment creation and execution, e.g., utilizing an experiment template to create and run an experiment. [Learn more about the API](api/api.md).
 
 ### Webhooks
 
@@ -35,7 +35,7 @@ This single range covers:
 
 ## When to use which Integration Point?
 
-This section highlights some key differentiators. Don't hesitate to reach out to us if you need support by discussing your integration use case.
+This section highlights some key differentiators. Don't hesitate to reach out to us if you would like to discuss your integration use case.
 
 ### Webhooks vs. Extension Kits
 

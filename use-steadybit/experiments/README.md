@@ -1,8 +1,8 @@
 # Experiments
 
 An experiment describes a chaos engineering scenario to validate your application's reliability.
-You can add attacks, like network latency and pod crashes, to inject turbulent conditions and checks or load tests to validate system's state.
-[Experiments are designed](design.md) using the drag'n drop experiment editor or easing creation via [experiment templates](design.md#from-template) or benefitting from [provided experiments in services](../services/README.md#provided-experiments).
+You can add attacks, like network latency and pod crashes, to inject turbulent conditions, and checks or load tests to validate the system's state.
+[Experiments are designed](design.md) in the drag-and-drop experiment editor. You can also speed up creation by using [experiment templates](design.md#from-template) or the [provided experiments in services](../services/README.md#provided-experiments).
 
 Once designed, you can [run the experiment](run.md) directly and see everything in action or use the [scheduler](schedule/), [API](../../integrate-with-steadybit/api/api.md) or [CLI](../../integrate-with-steadybit/cli.md) to run the experiment later on.
 
@@ -13,5 +13,5 @@ Once designed, you can [run the experiment](run.md) directly and see everything 
 - [Variables](variables.md)
 - [Properties](properties/)
 - [Emergency Stop](emergencyStop.md)
-- [Share](share.md)
+- [Share](share/README.md)
 - [OpenTelemetry Integration](opentelemetry-integration/)

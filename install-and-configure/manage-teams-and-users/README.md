@@ -4,7 +4,7 @@ title: Manage Teams and Users
 
 # Manage Teams and Users
 
-Steadybit lives transparency by allowing every user to see the performed actions of other teams and users. Even so, a Role-Based-Access-Control (RBAC) gives you the possibility to control fine-grained permissions and determine which parts users can take action.
+Steadybit is built around transparency: every user can see the actions performed by other teams and users. On top of that, Role-Based Access Control (RBAC) lets you control fine-grained permissions and determine where users can take action.
 
 * Start by defining your [Teams](teams.md)
 * Invite and assign [Users](users.md) to the teams

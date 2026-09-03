@@ -1,9 +1,9 @@
 # Compatibility
 
-Steadybit offers a wide variety of fault injections, checks and integrations (called [actions](../../concepts/actions/) for Chaos experiments which are provided by Steadybit's open-source [extensions](../../integrate-with-steadybit/extensions/).\
+Steadybit offers a wide variety of fault injections, checks and integrations (called [actions](../../concepts/actions/)) for Chaos experiments. They are provided by Steadybit's open-source [extensions](../../integrate-with-steadybit/extensions/).\
 These actions can be combined in a timeline-based editor to build your chaos engineering experiment.
 
-This page serves you as an overview of the supported technologies.\
+This page gives you an overview of the supported technologies.\
 A detailed list is available on the [Steadybit Reliability Hub](https://hub.steadybit.com).
 
 ## Containers
@@ -145,7 +145,7 @@ The following attacks are available when working with physical hosts and virtual
 | Windows Server 2022 (x64) | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ❌                   | ❌         |
 
 {% hint style="info" %}
-Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+Other .exe, .deb and .rpm-based distributions will most likely work, too, but aren't explicitly tested.
 {% endhint %}
 
 ### Resource Attacks
@@ -164,7 +164,7 @@ Other .exe, .deb and .rpm-based distributions will mostly likely work, too, but 
 | Windows Server 2022 (x64) | ✅         | ✅           | ✅          | ✅         | ❌             | ❌         |
 
 {% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+Other .deb and .rpm-based distributions will most likely work, too, but aren't explicitly tested.
 {% endhint %}
 
 ### State Attacks
@@ -183,7 +183,7 @@ Other .deb and .rpm-based distributions will mostly likely work, too, but aren't
 | Windows Server 2022 (x64) | ✅             | ✅            | ✅           |
 
 {% hint style="info" %}
-Other .deb and .rpm-based distributions will mostly likely work, too, but aren't explicitly tested on.
+Other .deb and .rpm-based distributions will most likely work, too, but aren't explicitly tested.
 {% endhint %}
 
 ## Cloud Providers
@@ -314,7 +314,7 @@ Steadybit provides capabilities based on the AWS RDS API for RDS clusters and in
 
 #### Other AWS Services
 
-Steadybit has cross-services capabilities like simulating a full [availability zone outage](https://hub.steadybit.com/target/com.steadybit.extension_aws.zone) or [partial zone outage via subnets](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-subnet).
+Steadybit has cross-service capabilities like simulating a full [availability zone outage](https://hub.steadybit.com/target/com.steadybit.extension_aws.zone) or [partial zone outage via subnets](https://hub.steadybit.com/target/com.steadybit.extension_aws.ec2-subnet).
 
 Additional managed services are covered via [AWS FIS](./#aws-fault-injection-service-fis), or will be added to Steadybit natively in the future.
 
@@ -412,9 +412,9 @@ Steadybit's capabilities for [containers](./#containers), [Kubernetes](./#kubern
 [#gcp-virtual-machines-vms](./#gcp-virtual-machines-vms)
 {% endcontent-ref %}
 
-#### GCP Virtual machines (VMs)
+#### GCP Virtual Machines (VMs)
 
-Steadybit's capabilities for [physical and virtual hosts](./#physical-and-virtual-hosts) also work for Azure Virtual Machines (VMs):
+Steadybit's capabilities for [physical and virtual hosts](./#physical-and-virtual-hosts) also work for GCP Virtual Machines (VMs):
 
 {% content-ref url="./#physical-and-virtual-hosts" %}
 [#physical-and-virtual-hosts](./#physical-and-virtual-hosts)
@@ -440,7 +440,7 @@ Steadybit supports the following capabilities for Cloud Foundry applications:
 
 ## Service Mesh & API Gateway
 
-Steadybit provides the following fault injections for service meshes and api gateways.
+Steadybit provides the following fault injections for service meshes and API gateways.
 
 |       | GRPC Abort | HTTP Abort | HTTP Delay |
 |-------|------------|------------|------------|
@@ -515,12 +515,12 @@ Steadybit integrates with the following CI/CD systems for triggering jobs from e
 |---------|---------|
 | Jenkins | ✅       |
 
-Triggering a Steadybit experiment from a CI/CD pipeline works with all products by using the [CLI](../../integrate-with-steadybit/cli.md), [API](../../integrate-with-steadybit/api/api.md).
+Triggering a Steadybit experiment from a CI/CD pipeline works with all products by using the [CLI](../../integrate-with-steadybit/cli.md) or the [API](../../integrate-with-steadybit/api/api.md).
 
 ## Java Virtual Machine (JVM) / Spring Applications
 
 Steadybit supports the following application-level faults for JVM- and Spring-based applications.
-These don't require any dependency and work at runtime via bytecode manipulation.
+These don't require any dependencies and work at runtime via bytecode manipulation.
 
 |                 | Spring Controller Delay | Spring Controller Exception | HTTP Client Delay | HTTP Client Status | Method Delay | Method Exception | JDBC Template Delay | JDBC Template Exception |
 |-----------------|-------------------------|-----------------------------|-------------------|--------------------|--------------|------------------|---------------------|-------------------------|
@@ -558,12 +558,12 @@ Steadybit integrates with the following load- and API-testing solutions:
 | Postman                                               | ✅                        | [✅](#user-content-fn-5)[^5] |
 | Custom HTTP Check (fixed amount, periodic, bandwidth) | ✅                        | [✅](#user-content-fn-5)[^5] |
 
-[^1]: extension-host and extension-container needs to run in privileged mode and network mode host is required for the extensions.
+[^1]: extension-host and extension-container need to run in privileged mode, and the extensions require network mode host.
 
 [^2]: Allow-listing Steadybit is required for container-level attacks in Autopilot-managed GKE clusters. Container attacks in the following namespaces are\
     disabled: `kube-system`, `gke-gmp-system`, `composer-system`, `gke-managed-*`
 
-[^3]: Different observability integrations us different names for these action. Please check the [Steadybit Reliability Hub](https://hub.steadybit.com) for more\
+[^3]: Different observability integrations use different names for these actions. Please check the [Steadybit Reliability Hub](https://hub.steadybit.com) for more\
     details.
 
 [^4]: Synthetic events will be sent to the observability solution to mark the beginning and end of every experiment action to facilitate root cause analysis.

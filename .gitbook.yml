@@ -12,7 +12,7 @@ redirects:
   install-configure/30-install-agents/35-aws-ecs-ec2: install-and-configure/install-agent/aws-ecs.md
   install-configure/30-install-agents/40-aws-cloud: install-and-configure/install-agent/README.md
   install-configure/30-install-agents/50-advanced-configuration: install-and-configure/install-agent/advanced-configuration.md
-  install-configure/30-install-agents/50-faq: troubleshooting/agent.md
+  install-configure/30-install-agents/50-faq: troubleshooting/common-fixes/agents.md
   install-and-configure: install-and-configure/install-agent/README.md
   install-and-configure/install-agents: install-and-configure/install-agent/README.md
   install-and-configure/install-agents/docker: install-and-configure/install-agent/install-as-docker-container.md
@@ -22,7 +22,7 @@ redirects:
   install-and-configure/install-agents/aws-ecs-ec2: install-and-configure/install-agent/aws-ecs.md
   install-and-configure/install-agents/aws-cloud: install-and-configure/install-agent/README.md
   install-and-configure/install-agents/advanced-configuration: install-and-configure/install-agent/advanced-configuration.md
-  install-and-configure/install-agents/faq: troubleshooting/agent.md
+  install-and-configure/install-agents/faq: troubleshooting/common-fixes/agents.md
   install-and-configure/install-agent/aws-ecs-ec2: install-and-configure/install-agent/aws-ecs.md
   install-and-configure/install-agent/extension-discovery: install-and-configure/install-agent/extension-registration.md
   install-and-configure/install-outpost-agent-preview: install-and-configure/install-agent/README.md
@@ -78,13 +78,13 @@ redirects:
   learn/15-actions/20-http-call: concepts/actions/README.md
   learn/15-actions/30-prometheus: concepts/actions/README.md
   learn/15-actions/40-postman: concepts/actions/README.md
-  learn/20-attacks: use-steadybit/actions.md
-  learn/20-attacks/application: use-steadybit/actions.md
-  learn/20-attacks/kubernetes: use-steadybit/actions.md
-  learn/20-attacks/network: use-steadybit/actions.md
-  learn/20-attacks/resource: use-steadybit/actions.md
-  learn/20-attacks/state: use-steadybit/actions.md
-  learn/30-discovery: use-steadybit/discovery/README.md
+  learn/20-attacks: concepts/actions/README.md
+  learn/20-attacks/application: concepts/actions/README.md
+  learn/20-attacks/kubernetes: concepts/actions/README.md
+  learn/20-attacks/network: concepts/actions/README.md
+  learn/20-attacks/resource: concepts/actions/README.md
+  learn/20-attacks/state: concepts/actions/README.md
+  learn/30-discovery: concepts/discovery/README.md
   learn/30-discovery/10-host: concepts/discovery/README.md
   learn/30-discovery/20-container: concepts/discovery/README.md
   learn/30-discovery/30-application: concepts/discovery/README.md
@@ -106,34 +106,34 @@ redirects:
   integrate/30-monitoring/40-newrelic: concepts/actions/README.md
   integrate/30-monitoring/50-prometheus: concepts/actions/README.md
   integrate/40-slack-notifications: integrate-with-steadybit/slack-notifications.md
-  integrate/50-webhooks: integrate-with-steadybit/webhooks.md
-  docs: getting-started.md
-  use-steadybit/attacks/README: use-steadybit/actions.md
-  use-steadybit/attacks: use-steadybit/actions.md
-  use-steadybit/attacks/state: use-steadybit/actions.md
-  use-steadybit/attacks/resource: use-steadybit/actions.md
-  use-steadybit/attacks/network: use-steadybit/actions.md
-  use-steadybit/attacks/kubernetes: use-steadybit/actions.md
-  use-steadybit/attacks/application: use-steadybit/actions.md
-  use-steadybit/attacks/aws-cloud-attacks: use-steadybit/actions.md
-  use-steadybit/checks/README: use-steadybit/actions.md
-  use-steadybit/checks: use-steadybit/actions.md
-  use-steadybit/checks/pod-count: use-steadybit/actions.md
-  use-steadybit/checks/http-call: use-steadybit/actions.md
-  use-steadybit/checks/prometheus: use-steadybit/actions.md
-  use-steadybit/checks/postman: use-steadybit/actions.md
-  use-steadybit/discovery/application: use-steadybit/discovery/README.md
-  use-steadybit/discovery/cloud: use-steadybit/discovery/README.md
-  use-steadybit/discovery/container: use-steadybit/discovery/README.md
-  use-steadybit/discovery/custom: use-steadybit/discovery/README.md
-  use-steadybit/discovery/host: use-steadybit/discovery/README.md
-  use-steadybit/load-tests/README: use-steadybit/actions.md
-  use-steadybit/load-tests: use-steadybit/actions.md
-  use-steadybit/load-tests/gatling: use-steadybit/actions.md
-  use-steadybit/load-tests/jmeter: use-steadybit/actions.md
-  use-steadybit/load-tests/k6: use-steadybit/actions.md
-  getting-started/20-define-resilience-expectations: getting-started.md
-  quick-start/define-resilience-expectations: getting-started.md
+  integrate/50-webhooks: integrate-with-steadybit/webhooks/README.md
+  docs: quick-start/getting-started.md
+  use-steadybit/attacks/README: concepts/actions/README.md
+  use-steadybit/attacks: concepts/actions/README.md
+  use-steadybit/attacks/state: concepts/actions/README.md
+  use-steadybit/attacks/resource: concepts/actions/README.md
+  use-steadybit/attacks/network: concepts/actions/README.md
+  use-steadybit/attacks/kubernetes: concepts/actions/README.md
+  use-steadybit/attacks/application: concepts/actions/README.md
+  use-steadybit/attacks/aws-cloud-attacks: concepts/actions/README.md
+  use-steadybit/checks/README: concepts/actions/README.md
+  use-steadybit/checks: concepts/actions/README.md
+  use-steadybit/checks/pod-count: concepts/actions/README.md
+  use-steadybit/checks/http-call: concepts/actions/README.md
+  use-steadybit/checks/prometheus: concepts/actions/README.md
+  use-steadybit/checks/postman: concepts/actions/README.md
+  use-steadybit/discovery/application: concepts/discovery/README.md
+  use-steadybit/discovery/cloud: concepts/discovery/README.md
+  use-steadybit/discovery/container: concepts/discovery/README.md
+  use-steadybit/discovery/custom: concepts/discovery/README.md
+  use-steadybit/discovery/host: concepts/discovery/README.md
+  use-steadybit/load-tests/README: concepts/actions/README.md
+  use-steadybit/load-tests: concepts/actions/README.md
+  use-steadybit/load-tests/gatling: concepts/actions/README.md
+  use-steadybit/load-tests/jmeter: concepts/actions/README.md
+  use-steadybit/load-tests/k6: concepts/actions/README.md
+  getting-started/20-define-resilience-expectations: quick-start/getting-started.md
+  quick-start/define-resilience-expectations: quick-start/getting-started.md
   use-steadybit/resilience-policies: use-steadybit/experiments/README.md
   use-steadybit/resilience-policies/references: use-steadybit/experiments/README.md
   use-steadybit/resilience-policies/taskandpolicydefinitions: use-steadybit/experiments/README.md
@@ -145,7 +145,7 @@ redirects:
   use-steadybit/query-language: concepts/query-language/README.md
   use-steadybit/actions: concepts/actions/README.md
   use-steadybit/discovery: concepts/discovery/README.md
-  use-steadybit/experiments/share/yml-import-export: use-steadybit/experiments/file-import-export/README.md
+  use-steadybit/experiments/share/yml-import-export: use-steadybit/experiments/share/file-import-export/README.md
   install-and-configure/configure-monitoring: concepts/actions/README.md
   install-and-configure/configure-monitoring/datadog: concepts/actions/README.md
   install-and-configure/configure-monitoring/instana: concepts/actions/README.md

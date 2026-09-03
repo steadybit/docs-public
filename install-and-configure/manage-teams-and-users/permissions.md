@@ -4,7 +4,7 @@ title: Permissions
 
 # Permissions
 
-The roles in Steadybit are associated with permissions, which cannot be altered. See the table for the permissions:
+The roles in Steadybit are associated with permissions, which cannot be altered. The tables below list the permissions:
 
 ## Install and Configure
 | Permission/Role                                                            | Admin                       | Team Owner                   | Team Member | Any Authenticated User |
@@ -32,7 +32,7 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 |-----------------------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------------|------------------------|
 | [Work within services](/use-steadybit/services/)                                                          | ✅     | ✅          | ❌           | ❌                            | ❌                      |
 | [Design experiments](/use-steadybit/experiments/design.md)                                                | ✅     | ✅          | ✅           | ❌                            | ❌                      |
-| [Share Experiment](/use-steadybit/experiments/share-experiment/)                                          | ✅     | ✅          | ❌           | ❌                            | ❌                      |
+| [Share Experiment](/use-steadybit/experiments/share/share-experiment/)                                    | ✅     | ✅          | ❌           | ❌                            | ❌                      |
 | [Run](/use-steadybit/experiments/run.md), and [schedule experiments](/use-steadybit/experiments/schedule) | ✅     | ✅          | ✅           | ✅                            | ❌                      |
 | [Capture properties](/use-steadybit/experiments/properties/)                                              | ✅     | ✅          | ✅           | [☑️](#user-content-fn-5)[^5] | ❌                      |
 | [View experiments](/use-steadybit/experiments/)                                                           | ✅     | ✅          | ✅           | ✅                            | ✅                      |
@@ -45,6 +45,6 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 
 [^3]: Unless [disabled via configuration](/install-and-configure/install-on-prem-platform/advanced-configuration.md)
 
-[^4]: A member of a team that an experiment has been [shared with](/use-steadybit/experiments/share-experiment/)
+[^4]: A member of a team that an experiment has been [shared with](/use-steadybit/experiments/share/share-experiment/)
 
-[^5]: Properties for a run can be edited by shared-with team member; Properties for the design not
+[^5]: A shared-with team member can edit the properties of a run, but not the properties of the design
