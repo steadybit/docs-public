@@ -105,7 +105,7 @@ helm template steadybit-agent --namespace steadybit-agent \
 ```
 
 
-### Alternative: Rancher (RKE2 / K3s) installation
+### Alternative: Rancher (RKE2 / K3s) Installation
 
 Rancher's RKE2 and K3s run an embedded containerd whose socket is not at the usual location, so the container extension needs to be pointed at it.
 
