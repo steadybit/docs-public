@@ -9,7 +9,7 @@ Steadybit's chaos engineering platform lets you connect to a hub to enable [impo
 Admins can manage connected hubs in the platform's settings. By default, the platform connects to our [Reliability Hub](https://hub.steadybit.com/).
 
 {% hint style="info" %}
-On-premise platform installations connect to a bundled local copy of our Reliability hub's content. Thus, air-gapped environments are supported even when reading data from the hub connection.
+On-premise platform installations connect to a bundled local copy of our Reliability Hub's content. Thus, air-gapped environments are supported even when reading data from the hub connection.
 {% endhint %}
 
 ### Connect New Hubs
@@ -32,7 +32,7 @@ You can host your own hub to share content within your organization instead of w
 
 ### Hub Convention
 
-To host your own hub, you have to serve a JSON-based endpoint via HTTP with a last-modified Unix timestamp (`lastChange`) and path references to templates and action documentation (see below). The platform will only update the referenced content when the unix timestamp (`lastChange`) has changed.
+To host your own hub, you have to serve a JSON-based endpoint via HTTP with a last-modified Unix timestamp (`lastChange`) and path references to templates and action documentation (see below). The platform only updates the referenced content when the Unix timestamp (`lastChange`) has changed.
 
 ```json
 {
@@ -52,7 +52,7 @@ You can check out the `index.json` and all referenced content of [Steadybit's Re
 
 #### Experiment Templates
 
-Experiment templates, that can be [imported to your platform](../../install-and-configure/manage-experiment-templates/), are listed in the `templates` section and are referencing the [exported templates](../../install-and-configure/manage-experiment-templates/#export-templates-as-files) from your platform.
+Experiment templates that can be [imported into your platform](../../install-and-configure/manage-experiment-templates/) are listed in the `templates` section, and reference the [exported templates](../../install-and-configure/manage-experiment-templates/#export-templates-as-files) from your platform.
 
 #### Action Documentation
 
@@ -76,14 +76,14 @@ tags:
   - Kubernetes
 ```
 
-The `id` needs to match the action-id provided by your extension.
+The `id` needs to match the action ID provided by your extension.
 
 Also, in the same folder as the `description.yml`, the platform will look for a `summary.mdx` containing Markdown content, see for example:
 
 ```markdown
 # Introduction
 
-This action executes a shutdown on the host by issuing the `shutdown` command/syscall (depending on the operating system). You can instruct the action to issue a host restart when desired - in which case the command/syscall will be adapted as necessary.
+This action executes a shutdown on the host by issuing the `shutdown` command/syscall (depending on the operating system). You can instruct the action to issue a host restart instead, in which case the command/syscall will be adapted as necessary.
 
 ...
 

@@ -36,15 +36,15 @@ You can also check the environment variable's effect by adding the `-CAfile root
 
 The agent requires a complete certificate chain configuration for security reasons and this return code indicates that your server responded with an incomplete certificate chain. You can fix this issue by modifying the server that terminates the TLS connection. Please refer to your server/proxy/CDN documentation to learn how to configure a complete certificate chain.
 
-### Installation agent on AWS EKS cluster
+### Installing the agent on an AWS EKS cluster
 
-1. First: make sure to configure the [Amazon-EBS-CSI-Driver](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html#adding-ebs-csi-eks-add-on)
-2. Afterwards add the Amazon-EBS-CSI-Driver addon on your EKS cluster, with newly created IAM role
-3. Then add your first node group to the cluster.
+1. Configure the [Amazon EBS CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html#adding-ebs-csi-eks-add-on).
+2. Add the Amazon EBS CSI driver add-on to your EKS cluster, with a newly created IAM role.
+3. Add your first node group to the cluster.
 
-### Occasional connection timeouts on the agent -> extension discovery calls, which cause remove targets from discovery
+### Occasional connection timeouts on the agent's discovery calls to an extension, causing targets to be removed from discovery
 
-We are using resilience4j for the retry mechanism. The default configuration is to retry 3 times with a wait duration of 30s with an exponential backoff multiplier of 2. This means that the first retry will be after 30s, the second after 60s, and the third after 120s. If all retries fail, the agent will remove the target from the discovery. You can configure the retry mechanism by setting the following environment variables:
+We use Resilience4j for the retry mechanism. The default configuration is to retry 3 times with a wait duration of 30s with an exponential backoff multiplier of 2. This means that the first retry will be after 30s, the second after 60s, and the third after 120s. If all retries fail, the agent will remove the target from the discovery. You can configure the retry mechanism by setting the following environment variables:
 
 | Environment Variable                                                      | Description                                                                                                                          |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -54,13 +54,13 @@ We are using resilience4j for the retry mechanism. The default configuration is 
 | `RESILIENCE4J.RETRY_INSTANCES_HTTPDISCOVERY_EXPONENTIALBACKOFFMULTIPLIER` | Optional - Resilience4j: The multiplier for exponential backoff for DiscoveryKit resources                                           |
 | `STEADYBIT_AGENT_HTTP_DISCOVERY_USE_RETRY`                                | Optional - Resilience4j: Enable/Disable the retry mechanism. Default is true / enabled                                               |
 
-### Agent takes a long time registering the extensions and to submit the first targets
+### The agent takes a long time to register the extensions and submit the first targets
 
-In a very large cluster it might take a while to read all pods in your cluster and scan them for extensions. You can limit the extension auto-registration to a single namespace using the environment variable `STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_NAMESPACE` (helm-value `agent.extensions.autoregistration.namespace`).
+In a very large cluster, it might take a while to read all pods in your cluster and scan them for extensions. You can limit the extension auto-registration to a single namespace using the environment variable `STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_NAMESPACE` (helm-value `agent.extensions.autoregistration.namespace`).
 
-### Install Agent and extension-kubernetes in a managed Kubernetes cluster where you are only allowed to deploy to one namespace
+### Install the agent and extension-kubernetes in a managed Kubernetes cluster where you may only deploy to one namespace
 
-Install the agent/extension with the following helm settings to use roles instead of clusterroles:
+Install the agent/extension with the following helm settings to use Roles instead of ClusterRoles:
 
 ```shell
   --set rbac.roleKind="role" \

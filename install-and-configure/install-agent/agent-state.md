@@ -27,7 +27,7 @@ The agent persists extension registrations to ensure they are not lost after a r
 
 If redis is used as the state provider, existing file-based extension registrations are ignored.
 
-Auto discovered extensions from Kubernetes are independently registered and not persisted via the configured persistence provider. They are also not visible or manageable via the agent API.
+Auto-discovered extensions from Kubernetes are independently registered and not persisted via the configured persistence provider. They are also not visible or manageable via the agent API.
 
 ## Execution State
 

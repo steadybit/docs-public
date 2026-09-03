@@ -10,11 +10,11 @@ Advice applies to a single target of a particular target type and is in one of t
 * ![Advice icon for state 'Validation Needed'](../../.gitbook/assets/active-validation-needed.svg) Validation Needed
 * ![Advice icon for state 'Implemented'](../../.gitbook/assets/advice-implemented.svg) Implemented
 
-Advice may not support and skip a particular state depending on its definition.
+Depending on its definition, a piece of advice may skip a particular state.
 
 ### 1. Action Needed
 
-The advice has automatically discovered that your target's configuration requires changes to follow best practices. For instance, advising you to address redundancy configuration for Kubernetes deployments or deploying your application in multiple cloud vendors' availability zones. The advice summarizes the matter, gives additional motivation to explain why you should address it, and gives specific instructions to improve it.
+The advice has automatically discovered that your target's configuration requires changes to follow best practices. For instance, it may advise you to address the redundancy configuration of a Kubernetes deployment, or to deploy your application across multiple availability zones of your cloud vendor. The advice summarizes the matter, gives additional motivation to explain why you should address it, and gives specific instructions to improve it.
 
 ![Advice for target 'fashion-bestseller' in state 'Action Needed'](../../.gitbook/assets/advice-action-needed.png)
 
@@ -57,7 +57,7 @@ Once you activate the 'Show Advice' in the sidebar, the general advice icon indi
 
 ### Advice
 
-In the Explorer Advice, you can see all supported advice, followed by the applicable targets and the respective status. It's the perfect place if you want to resolve the same advice for multiple targets. You can also filter based on advice's status to concentrate, e.g., first on targets requiring action for a specific advice.
+In the Explorer Advice, you can see all supported advice, followed by the applicable targets and the respective status. It's the perfect place if you want to resolve the same advice for multiple targets. You can also filter by advice status to concentrate, for example, on the targets that require action for a specific piece of advice first.
 
 ![Explorer Advice showing you advice and targets](../../.gitbook/assets/advice-explorer-advice.png)
 
@@ -65,7 +65,7 @@ In the Explorer Advice, you can see all supported advice, followed by the applic
 
 Steadybit's [Query Language](../../concepts/query-language/) fully supports advice to guide you on the Chaos Engineering journey. You can, e.g., filter targets in the Landscape and Experiments, or size targets in the Landscape by using the following attributes:
 
-* `advice.applicable` provides a set of advice definition ids that apply to the target, no matter in which lifecycle state.
+* `advice.applicable` provides a set of advice definition IDs that apply to the target, no matter in which lifecycle state.
 * `advice.status.action-needed` contains for a given target all advice in the lifecycle state 'Action Needed'
 * `advice.status.validation-needed` contains for a given target all advice in the lifecycle state 'Validation Needed'
 * `advice.status.implemented` contains for a given target all advice in the lifecycle state 'Implemented'

@@ -1,6 +1,6 @@
 # Install on Kubernetes/OpenShift
 
-This method will install the Steadybit Agent on your Kubernetes Cluster using [Helm](https://helm.sh). So you need to have helm installed.
+This method will install the Steadybit Agent on your Kubernetes Cluster using [Helm](https://helm.sh), so you need to have Helm installed.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ In case of a managed Kubernetes service, there might be a vendor-specific method
 kubectl get nodes -o wide
 ```
 
-The column `CONTAINER-RUNTIME` shows you the runtime you are using. You can find further in the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/administer-cluster/migrating-from-dockershim/find-out-runtime-you-use/).
+The column `CONTAINER-RUNTIME` shows you the runtime you are using. You can find more details in the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/administer-cluster/migrating-from-dockershim/find-out-runtime-you-use/).
 
 ### Configure custom On-Prem Platform
 
@@ -52,7 +52,7 @@ If you are running on-prem, make sure to set the URL of the platform: `--set age
 
 ### Extensions
 
-The agent's purpose is to establish a communication from the platform to your systems. However, the discovery of your systems and providing Chaos Engineering to a technology works via extensions. 
+The agent's purpose is to establish communication between the platform and your systems. Discovering your systems, and bringing Chaos Engineering to a given technology, is the job of extensions.
 By default, the official helm chart already installs the extensions [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container), [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host), [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http) and [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension_kubernetes).
 
 In order to discover all extensions in the Kubernetes cluster the agent needs to access the Kubernetes API. For more details, please take a look at the [Kubernetes Auto Registration](extension-registration.md#kubernetes-auto-registration) documentation.
@@ -89,7 +89,7 @@ helm template steadybit-agent --namespace steadybit-agent \
 
 ### Alternative: OpenShift installation (>= 4.18)
 
-The SecurityContextConstraints for OpenShift are included in our helm chart. You need to configure the CRI-O container runtime and to use the crun container engine and we're good to go.
+The SecurityContextConstraints for OpenShift are included in our helm chart. You need to configure the CRI-O container runtime and the crun container engine, and we're good to go.
 
 ```bash
 helm repo add steadybit https://steadybit.github.io/helm-charts
@@ -107,7 +107,7 @@ helm template steadybit-agent --namespace steadybit-agent \
 
 ### Alternative: GKE Autopilot installation
 
-You can install the agent and extensions on Google Kubernetes Engine Autopilot clusters  (1.32.1-gke.1729000 or later). Due to restrictions by GKE host attacks won't be available.
+You can install the agent and extensions on Google Kubernetes Engine Autopilot clusters (1.32.1-gke.1729000 or later). Due to restrictions imposed by GKE, host attacks won't be available.
 
 For the container extension to work, you first need to apply a workload allow list:
 
@@ -158,7 +158,7 @@ helm template steadybit-agent --namespace steadybit-agent \
 
 ## Resource limits
 
-Keep an eye on OOMing / crash looping agents and extensions after installation. The memory usage highly depends on the number of discovered targets. We try to provide reasonable defaults, but you might need to adapt the resource limits to your use case.
+Keep an eye on OOMing or crash-looping agents and extensions after installation. The memory usage highly depends on the number of discovered targets. We try to provide reasonable defaults, but you might need to adapt the resource limits to your use case.
 
 For example, to increase the memory limits for the agent:
 

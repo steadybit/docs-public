@@ -1,7 +1,7 @@
 # Explore with Sample Data
 
 Want to explore Steadybit without installing agents or extensions into your environment?
-You can use sample data to get a hands-on experience with Steadybit's features.
+You can use sample data to get hands-on experience with Steadybit's features.
 
 ## What is Sample Data?
 
@@ -27,7 +27,7 @@ To run real chaos experiments, you'll need to install agents and extensions in y
 ### Service: Online Shop
 
 The central piece of the sample data is a pre-configured [service](../../use-steadybit/services/README.md) named **Online Shop**.
-The service allows a single view into your reliability work, bundling your service's targets, defines healthiness of your service, and all experiments validating different reliability scenarios.
+The service gives you a single view into your reliability work: it bundles your service's targets, defines what healthy means for your service, and collects all the experiments validating different reliability scenarios.
 
 The **Online Shop** service is configured with:
 
@@ -106,7 +106,7 @@ Once you install an agent and the extension, they will [automatically discover t
 
 ## Working with Sample Data
 
-When opening up Steadybit, you're welcomed by the dashboard showing you a summary of the most-important activities in your tenant.
+When opening up Steadybit, you're welcomed by the dashboard showing you a summary of the most important activities in your tenant.
 
 ![Dashboard showing sample data](00-dashboard.png)
 
@@ -121,9 +121,10 @@ Review its target scope, validations, and properties in the header bar and brows
 
 ### Checking Experiment Designs
 
-Check out the 
-* linked provided and custom experiment designs in the service **Online Shop** or
-* navigate to **Experiments** in the Steadybit UI.
+Find the experiment designs either
+
+* in the service **Online Shop**, under its provided and custom experiments, or
+* by navigating to **Experiments** in the Steadybit UI.
 
 Open any experiment to explore its design, including:
 
@@ -149,13 +150,11 @@ Open any experiment to explore its design, including:
 
 ### Reviewing Advice
 
-Review advice 
+Review the reliability recommendations for the sample workloads either
 
-* linked in the service **Online Shop** or
-* navigate to **Explorer** and activate **Show Advice** in the landscape or
-* go to the **Advice**-tab
-
-* Review the reliability recommendations for sample workloads
+* in the service **Online Shop**, where the applicable advice is linked, or
+* in the **Explorer**, by activating **Show Advice** in the landscape, or
+* on the **Advice** tab
 
 ![Service showing sample advice for simulated Kubernetes environment](40-advice-service.png)
 
@@ -166,7 +165,7 @@ Review advice
 
 Navigate via
 
-* **Services** > **Explore Services** to the **Explorer** to drill down into your targets or
+* **Services** > **Explore Services**, which opens the **Explorer** so you can drill down into your targets, or
 * check out the **Explorer**'s **Kubernetes Cluster** view to browse the simulated Kubernetes resources and their attributes
 
 ![Explorer showing a simulated Kubernetes environment](10-explorer.png)
@@ -178,4 +177,4 @@ Once you're ready to start chaos engineering with your own infrastructure, simpl
 
 
 The sample data targets will automatically be removed once you have real agents connected.
-Sample experiment designs and run history remain available and can be manually deleted when no longer needed
+Sample experiment designs and run history remain available and can be manually deleted when no longer needed.

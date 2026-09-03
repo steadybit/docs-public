@@ -4,11 +4,11 @@ title: Manage Experiment Templates
 
 # Manage Experiment Templates
 
-Experiment templates allow you to easily share knowledge with the teams and make it easy for everyone to do and learn Chaos Engineering. You can create your own custom Experiment templates or import existing ones from a Reliability Hub.
+Experiment templates allow you to easily share knowledge with the teams and make it easy for everyone to do and learn Chaos Engineering. You can create your own custom experiment templates or import existing ones from a Reliability Hub.
 
 ## Permissions and Scope
 
-Only admin users can manage experiment templates and thus create, import, edit, or delete experiment templates. All experiment templates are scoped tenant-wide and automatically shared with all teams and users. Users can even create experiments from experiment templates where they lack permissions for actions (e.g., the template contains a `Shutdown host` attack for which the team lacks permission). However, before being able to run the experiment, they need to remove the action.
+Only admin users can manage experiment templates and thus create, import, edit, or delete experiment templates. All experiment templates are scoped tenant-wide and automatically shared with all teams and users. Users can even create experiments from experiment templates containing actions they lack permission for (e.g., the template contains a `Shutdown host` attack for which the team lacks permission). However, before being able to run the experiment, they need to remove the action.
 
 ## Create Templates
 
@@ -16,7 +16,7 @@ Create and edit a template via the `Platform's settings` -> `Templates` section.
 
 ![The template editor's welcome screen](../../.gitbook/assets/template-editor.png)
 
-An experiment template consists of three parts: the _experiment_ created when using a template, _template placeholders_ to make the experiment adaptable, and _template description_ to make the template discoverable for users. To save a template, you must specify all required values of all three parts.
+An experiment template consists of three parts: the _experiment_ created when using a template, _template placeholders_ to make the experiment adaptable, and a _template description_ to make the template discoverable for users. To save a template, you must specify all required values of all three parts.
 
 ### Experiment
 
@@ -50,9 +50,9 @@ Learn more on [managing properties](../manage-properties/) and [using properties
 
 A template placeholder defines occurrences where the exact value needs to be specified whenever one uses a template. A template placeholder consists of a
 
-* **Displayed Name** that is a human-readable name shown to the user of a template (e.g., `AWS Zone`, or `Kubernetes Deployment`
-* **Placeholder Key** that defines all occurrences in the template that should be replaced later on (e.g., `[[aws_zone]]`, or `[[k8s_deployment]]`)
-* **Placeholder Description** is shown when using the template and should help users understand the value. The description supports Markdown and can include, e.g., the intention of the placeholder and a question to ask for the value.
+* **Displayed Name**: a human-readable name shown to the user of a template (e.g., `AWS Zone` or `Kubernetes Deployment`)
+* **Placeholder Key**: defines all occurrences in the template that should be replaced later on (e.g., `[[aws_zone]]` or `[[k8s_deployment]]`)
+* **Placeholder Description**: shown when using the template, to help users understand the value. The description supports Markdown and can include, e.g., the intention of the placeholder and a question to ask for the value.
 
 ### Template Description
 
@@ -60,8 +60,8 @@ A template placeholder defines occurrences where the exact value needs to be spe
 
 Describe your template to make it approachable for users. The template description consists of the template's
 
-* **Title**, which is shown in search results, detail view before creating an experiment from a template
-* **Details** that allows you to provide noteworthy context and describe, e.g., the overall intention of the template or when it is useful. The field supports Markdown.
+* **Title**, which is shown in search results and in the detail view before creating an experiment from a template
+* **Details**, which let you provide noteworthy context and describe, e.g., the overall intention of the template or when it is useful. The field supports Markdown.
 * **Tags** to structure your template by assigning it to new or existing tags.
 
 ## Edit Templates
@@ -70,7 +70,7 @@ You can edit a template and change all its content whenever needed. Please note 
 
 ## Delete Templates
 
-After you delete a template, users can't create an experiment from it anymore. However, experiments previously created using that template are never deleted automatically. Instead, you can also [hide a template](./#hide-templates) to temporarily prevent the use of a template.
+After you delete a template, users can't create an experiment from it anymore. However, experiments previously created using that template are never deleted automatically. If you only want to prevent further use for a while, [hide the template](./#hide-templates) instead of deleting it.
 
 ## Hide Templates
 
@@ -84,11 +84,11 @@ Once you've saved your template, you can export it as a file from the template d
 
 ![Template details including possibility to download it as a file](../../.gitbook/assets/template-export-file.png)
 
-The saved file can be imported later on, either as a template or as an experiment (see [import templates](./#import-templates-files)). In addition, you can version your template as a file and update it automatically using Steadybit APIs.
+The saved file can be imported later on, either as a template or as an experiment (see [import templates](./#import-template-files)). In addition, you can version your template as a file and update it automatically using Steadybit APIs.
 
-## Import Templates Files
+## Import Template Files
 
-You can upload a template file into your Steadybit platform either as a new template so that everyone can create an experiment from it (via `Settings` -> `Template` -> `Create Template`) directly as an experiment by uploading it into the experiment creation flow (`Experiments` -> `New Experiment`) and running through the template wizard. While the first option is only available to administrators, the second option is available to everyone.
+You can upload a template file into your Steadybit platform either as a new template so that everyone can create an experiment from it (via `Settings` -> `Template` -> `Create Template`), or directly as an experiment by uploading it into the experiment creation flow (`Experiments` -> `New Experiment`) and running through the template wizard. While the first option is only available to administrators, the second option is available to everyone.
 
 {% hint style="warning" %}
 When you export a template, the file contains a unique UUID of the template. Whenever you import the template again, and the UUID already exists, the existing template is overwritten.
@@ -96,7 +96,7 @@ When you export a template, the file contains a unique UUID of the template. Whe
 
 ## Share Templates
 
-Instead of sharing template's files directly, you can also use Steadybit's [hub connection](../../integrate-with-steadybit/hubs/) to share a template via connected hubs.
+Instead of sharing template files directly, you can also use Steadybit's [hub connection](../../integrate-with-steadybit/hubs/) to share a template via connected hubs.
 
 ### Import Templates from Hub
 
@@ -119,7 +119,7 @@ We're always looking forward to your contribution to Steadybit's public [Reliabi
 1. Create a [fork of the repository reliability-hub-db](https://github.com/steadybit/reliability-hub-db/fork) into your GitHub account
 2. Check out the forked repository to your local machine
 3. If you haven't already, add yourself as a maintainer to `maintainers/<unique-identifier-of-your-org>/description.yml` (see, e.g., [maintainer Steadybit](https://github.com/steadybit/reliability-hub-db/blob/main/maintainers/com.steadybit/description.yml)).
-4. Download your created template from the platform and save it to a new folder in `templates/<short-name-of-the-template>/template.json`. Please ensure the template's description includes a short explanation, motivation, and structure overview. Also, you have to parameterize all environment-specifics via template placeholders.
+4. Download your created template from the platform and save it to a new folder in `templates/<short-name-of-the-template>/template.json`. Please ensure the template's description includes a short explanation, motivation, and structure overview. Also, you have to parameterize everything environment-specific via template placeholders.
 
 ![Download template from template details](<../../.gitbook/assets/template-details (1).png>)
 

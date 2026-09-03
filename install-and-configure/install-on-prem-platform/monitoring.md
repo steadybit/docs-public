@@ -186,7 +186,7 @@ spec:
 | Queue lead time | Database CPU and HikariCP saturation. The post-processing pipeline writes to Postgres on every step. |
 | GET / POST latency | Database, then JVM heap. |
 | 5xx error rate | Platform logs (`Platform Log Events` panel) for stack traces. |
-| JVM heap > 80 % | Capture a heap dump as described in [Troubleshooting › On-prem platform](../../troubleshooting/common-fixes/on-prem-platform.md#create-heap-dump). |
+| JVM heap > 80 % | Capture a heap dump as described in [Troubleshooting › On-prem platform](../../troubleshooting/common-fixes/on-prem-platform.md#create-a-heap-dump). |
 | HikariCP pool > 80 % | Long-running or blocked transactions. Follow the [Database Runbooks](database-runbooks.md). |
 | Blocked outgoing requests | A user webhook or hub points to a host that is blocked by your egress policy. |
 

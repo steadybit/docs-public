@@ -111,7 +111,7 @@ The most common offenders are:
 
 ### Step 2 — Reclaim space with VACUUM
 
-The platform runs scheduled `VACUUM`/`ANALYZE` (see `STEADYBIT_DB_MAINTENANCE_*` in [Configuration Options](advanced-configuration.md#database-maintenance)). When you need to reclaim space immediately, run a full vacuum **on a low-traffic window** — `VACUUM FULL` takes an exclusive lock on the affected table:
+The platform runs scheduled `VACUUM`/`ANALYZE` (see `STEADYBIT_DB_MAINTENANCE_*` in [Configuration Options](advanced-configuration.md#database-maintenance)). When you need to reclaim space immediately, run a full vacuum **in a low-traffic window** — `VACUUM FULL` takes an exclusive lock on the affected table:
 
 ```sql
 -- Releases space back to the OS but locks the table.
@@ -121,11 +121,11 @@ VACUUM FULL;
 VACUUM FULL public.target;
 ```
 
-For a non-blocking alternative on PostgreSQL, install and use [`pg_repack`](https://reorg.github.io/pg_repack/).
+For a non-blocking alternative, install and use [`pg_repack`](https://reorg.github.io/pg_repack/).
 
 ### Step 3 — Delete obsolete data (if needed)
 
-Only delete data after confirming that the platform's built-in retention is not enough for your situation, and after taking a backup. The data the platform tolerates losing the most are old target snapshots:
+Only delete data after confirming that the platform's built-in retention is not enough for your situation, and after taking a backup. The data the platform can most easily afford to lose is old target snapshots:
 
 ```sql
 -- Replace the cutoff with a date well before your current retention horizon.
@@ -136,7 +136,7 @@ After a large delete, run `VACUUM FULL` on the affected table again to release t
 
 ### Step 4 — Increase the volume size
 
-If after vacuuming, the database is still close to full, the safest fix is to increase the underlying volume. On AWS RDS this is a non-disruptive operation; on a self-hosted Postgres, follow your storage provider's resize procedure.
+If the database is still close to full after vacuuming, the safest fix is to increase the underlying volume. On AWS RDS this is a non-disruptive operation; on a self-hosted Postgres, follow your storage provider's resize procedure.
 
 Plan ahead by reviewing your [Machine Requirements](advanced-configuration.md#rds-machine-requirements) — at ~100 k targets we recommend at least 20 GB of database storage.
 

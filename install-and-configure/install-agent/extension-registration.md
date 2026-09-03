@@ -29,9 +29,9 @@ rules:
     verbs: [ "get", "list", "watch" ]
 ```
 
-#### Kubernetes Auto Registration fine tuning
+#### Kubernetes Auto Registration fine-tuning
 
-If you want to fine tune the auto registration, you can configure the mechanism to:
+If you want to fine-tune the auto registration, you can configure the mechanism to:
 
 * include only extension pods matching a given label selector
 * exclude extension pods matching a given label selector
@@ -64,11 +64,11 @@ STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_NAMESPACE=my-namespace
 
 ### Using Environment Variables
 
-You can specify environment Variables via `agent.env` files or directly via the command line.
+You can specify environment variables via `agent.env` files or directly via the command line.
 
 Please note that these environment variables are index-based (referred to as `n`) to register multiple extension instances.
 
-Valid Types are:
+Valid types are:
 
 * `DISCOVERIES` referring to an [index response of a discovery](https://github.com/steadybit/discovery-kit/blob/main/docs/discovery-api.md#index-response).
 * `ACTIONS` referring to a [list of actions](https://github.com/steadybit/action-kit/blob/main/docs/action-api.md#action-list).
@@ -93,7 +93,7 @@ Valid Types are:
 {% endtab %}
 
 {% tab title="without specifying a type" %}
-You can also register extensions without specifying the type, e.g., `STEADYBIT_AGENT_EXTENSIONS_REGISTRATIONS_0_URL`. In this case, the agent will try all known Types.
+You can also register extensions without specifying the type, e.g., `STEADYBIT_AGENT_EXTENSIONS_REGISTRATIONS_0_URL`. In this case, the agent will try all known types.
 
 | <p>Environment Variable<br>(<code>n</code> refers to the index of the extension's instance)</p> | Required | Description                                                                                                         |
 | ----------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -106,7 +106,7 @@ You can also register extensions without specifying the type, e.g., `STEADYBIT_A
 
 ### Using Configuration Files
 
-Linux packages installations are using this approach by default. The package installer of the extensions is writing configuration files to `/etc/steadybit/extensions.d/extension-*.yaml` which are read by the agent.
+Linux package installations use this approach by default. The extensions' package installer writes configuration files to `/etc/steadybit/extensions.d/extension-*.yaml` which are read by the agent.
 
 The content of each file is a YAML document with the following structure:
 
@@ -121,7 +121,7 @@ types:
 
 You can also register extensions via the [Agent API](agent-api.md).
 
-Extension registrations are persisted using the configured persistence provider. With each agent restart, the agent will re-register these manual extensions registrations.
+Extension registrations are persisted using the configured persistence provider. With each agent restart, the agent will re-register these manual extension registrations.
 
 You can find detailed information about the agent API in the [Agent API](agent-api.md) documentation.
 

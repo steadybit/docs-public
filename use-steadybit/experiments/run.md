@@ -1,17 +1,17 @@
 # Run
 
-After having your [experiment fully designed](./) you can simply use the `Run`-button to execute it. This action can be performed if all the following conditions are met:
+Once your [experiment is fully designed](./), you can use the `Run` button to execute it. This action can be performed if all the following conditions are met:
 
-1. No validation errors
+1. There are no validation errors.
 2. Every attack resolves at that moment to at least one target.
-3. You are member of the same team as the experiment
+3. You are a member of the same team as the experiment.
 4. [Emergency stop](emergencyStop.md) has not been triggered.
 
 Otherwise, you'll get an error message and the experiment is not started.
 
 ## Run View
 
-As soon as the experiment starts, the platform automatically switches over to the run view. The first step of the platform is to establish the connection to the matching agents. In addition, the running experiment is indicated at the top right run icon.
+As soon as the experiment starts, the platform automatically switches over to the run view. The first step of the platform is to establish the connection to the matching agents. In addition, a running experiment is indicated by the run icon in the top right.
 
 ![Experiment Run View](../../.gitbook/assets/run-experiment.png)
 
@@ -19,12 +19,12 @@ Every experiment run has a unique identifier (e.g. **#33131**), which you can us
 
 The run view itself consists of the following elements.
 
-* **Run Timeline**: At the top you see the sequence defined previously in the [design](design.md). While the experiment is running a special marker indicates the current point of time. Some attacks need a little bit of extra time before being started which is indicated by a light green coloring in the front. The extra time is added to the timing of the attack and is currently caused by technical reasons .You can click on each step to get more details in the [run modal](run.md#run-modal).
+* **Run Timeline**: At the top you see the sequence defined previously in the [design](design.md). While the experiment is running, a special marker indicates the current point in time. Some attacks need a little extra time before they start, which is indicated by light green coloring at the front. That extra time is added to the timing of the attack and is currently needed for technical reasons. You can click on each step to get more details in the [run modal](run.md#run-modal).
 * **Run Status**: The run log lists the currently active or already performed experiment's steps. You can click on each step to get more details in the [run modal](run.md#run-modal).
-* **Deployment Replica Count**: When using an experiment in a Kubernetes context we will automatically monitor how many PODs are ready in your cluster and indicate whenever there is a discrepancy.
+* **Deployment Replica Count**: When using an experiment in a Kubernetes context we automatically monitor how many pods are ready in your cluster and indicate whenever there is a discrepancy.
 * **Kubernetes Event Log**: When using an experiment in a Kubernetes context we provide you access to the Kubernetes Events so that you can identify what exactly happens in the Kubernetes cluster.
 * **HTTP Call**: If your experiment contains an `HTTP Call` action you can see the response time as well as HTTP response status as a separate widget in the run window.
-* **Monitoring Events**: In case your admin has installed a monitoring extension to Steadybit ( see [monitoring extensions in Reliability Hub](https://hub.steadybit.com/extensions?tags=Monitoring)) you can see occurring events and alerts of your setup directly in the run view.
+* **Monitoring Events**: In case your admin has installed a monitoring extension into Steadybit (see [monitoring extensions in Reliability Hub](https://hub.steadybit.com/extensions?tags=Monitoring)) you can see occurring events and alerts of your setup directly in the run view.
 * **Run Analysis**: If [SteadyBuddy](../steadybuddy/README.md) is enabled, a failed or errored run offers to explain itself — verdict, root cause, a judgment on your hypothesis, and a recommendation. See [analyze an experiment run](../steadybuddy/README.md#analyze-an-experiment-run).
 
 ### Run Modal
@@ -45,7 +45,7 @@ Whenever you have used the [advanced blast radius](design.md#limiting-targets-vi
 
 ## States
 
-An experiment run supports different level of states:
+An experiment run has states at three different levels:
 
 * [**Experiment run**](run.md#experiment-run) indicating an overall state of the run _(highest level)_
 * [**Step**](run.md#step) each individual step performed in an experiment run
@@ -59,7 +59,7 @@ An experiment run is in one of the following states:
 
 | State     | Description                                                                                                                                                                                                                                                               |
 |-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| REQUESTED | The experiment was requested by a user, api call or a schedule.                                                                                                                                                                                                           |
+| REQUESTED | The experiment was requested by a user, an API call or a schedule.                                                                                                                                                                                                        |
 | CREATED   | The experiment was created and all targets were resolved.                                                                                                                                                                                                                 |
 | PREPARED  | The experiment is prepared, all preflight checks were successful, and agents are ready to execute the needed actions.                                                                                                                                                     |
 | RUNNING   | The experiment is currently running and performing actions (e.g. attacks).                                                                                                                                                                                                |
@@ -68,7 +68,7 @@ An experiment run is in one of the following states:
 | FAILED    | The run failed due to some failing checks, for example an _HTTP Check_ not reaching the required success rate.                                                                                                                                                            |
 | ERRORED   | The run errored due to some technical reasons like `I/O error on POST request: Connection refused` or `Agent disconnected unexpectedly`. This shouldn't happen frequently, in case it does, let us know. We are constantly improving the platform to reduce error states. |
 
-In case an agent loses the connection to the platform during an experiment, it will immediately stop and rollback running attacks. There are some attacks (like `Stop Container`) which can't be rolled back due to its nature.
+In case an agent loses the connection to the platform during an experiment, it immediately stops and rolls back running attacks. Some attacks (like `Stop Container`) can't be rolled back, by their very nature.
 
 ### Step
 
@@ -87,14 +87,14 @@ Every step that is executed as part of an experiment run is in one of the follow
 
 ### Target Execution
 
-For every step, there are single or multiple target executions. The actual number depends on the number of targets selected in the experiment design and the nature of the step. The target executions are listed as 'selected targets' in the [run modal](run.md#run-modal).
+For every step, there are one or more target executions. The actual number depends on the number of targets selected in the experiment design and the nature of the step. The target executions are listed as 'selected targets' in the [run modal](run.md#run-modal).
 
 Each target execution is in one of the following states:
 
 | State     | Description                                                                                                                                                                                                                                                                           |
 |-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | CREATED   | The target was selected to be attacked in an experiment run's step.                                                                                                                                                                                                                   |
-| PREPARED  | The agent, that discovered the selected target, is connected.                                                                                                                                                                                                                         |
+| PREPARED  | The agent that discovered the selected target is connected.                                                                                                                                                                                                                           |
 | RUNNING   | The action is currently executed on the selected target.                                                                                                                                                                                                                              |
 | COMPLETED | The action was successfully executed on the selected target - no failure or error.                                                                                                                                                                                                    |
 | CANCELED  | The action was executed before and has now been canceled on the selected target, either by a user canceling the entire experiment run or by the system (e.g. when another target execution of the same step or another step running in parallel caused the experiment to stop early). |
@@ -104,7 +104,7 @@ Each target execution is in one of the following states:
 
 ### State Propagation
 
-The different levels of states (**experiment run**, **step**, **target execution**) can be propagated to higher levels (e.g., state `FAILED` at target execution level is propagated to step being `FAILED` and experiment run being `FAILED`). But also change the states of adjacent instances of the same level (i.e., a `FAILED` step causes subsequent steps to be `SKIPPED`) and level below (i.e., for a `SKIPPED` step all target executions are in the `SKIPPED` state as well).
+The different levels of states (**experiment run**, **step**, **target execution**) can be propagated to higher levels (e.g., state `FAILED` at target execution level is propagated to step being `FAILED` and experiment run being `FAILED`). They also change the states of adjacent instances at the same level (e.g., a `FAILED` step causes subsequent steps to be `SKIPPED`) and at the level below (e.g., for a `SKIPPED` step, all target executions are `SKIPPED` as well).
 
 A step and its target executions therefore always agree on whether anything was actually executed: a step is only `CANCELED` if at least one of its target executions was `RUNNING`. If none of them ever started, the step and all of its target executions are `SKIPPED` - even if the action had already been sent to the agents.
 
@@ -136,4 +136,4 @@ Once activated, the above example looks different:
 4. Steps running in parallel **(2)** continue to run (step's and target execution's state `COMPLETED`).
 5. Subsequent steps **(3)** are performed as usual; if no additional failure or error occurs, the steps' and target executions' states are `COMPLETED`.
 6. Steps already performed **(4)** beforehand don't change their state (i.e., `COMPLETED`).
-7. The experiment run ended in the state `COMPLETED` **(5)** because the step **(1)** failing was ignored, and all other steps `COMPLETED`.
+7. The experiment run ended in the state `COMPLETED` **(5)** because the failure of step **(1)** was ignored and all other steps `COMPLETED`.

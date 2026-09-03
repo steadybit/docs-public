@@ -4,7 +4,7 @@ title: Custom Webhooks
 
 # Custom Webhooks
 
-Custom webhooks are triggered by Steadybit whenever an experiment has progressed or the killswitch's status changes.
+Custom webhooks are triggered by Steadybit whenever an experiment has progressed or the kill switch's status changes.
 
 ## Configure
 
@@ -13,7 +13,7 @@ You can configure custom webhooks at `Settings` -> `Integrations` -> `Custom web
 |            |                                                                                                                                                                                    |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Name**   | The name for this integration will not show up in the JSON body.                                                                                                                   |
-| **URL**    | The URL, which will receive an HTTP Post request with the JSON body                                                                                                                |
+| **URL**    | The URL that will receive an HTTP POST request with the JSON body.                                                                                                                 |
 | **Secret** | <p>You may specify a secret that will be used to sign the body. <a href="custom-webhooks.md#verifying-the-signature">Verifying the signature.</a><br><strong>optional</strong></p> |
 | **Team**   | If no team is specified, you'll receive all events. If you do specify a team, you'll only receive events relevant to this team                                                     |
 | **Events** | Choose the events you want to receive.                                                                                                                                             |
@@ -28,11 +28,14 @@ The body contains the event identifier (`event`), the `time`, and the experiment
 
 | Event                | Event Identifier                      | Description                                                                                                                 |
 | -------------------- | ------------------------------------- |-----------------------------------------------------------------------------------------------------------------------------|
+| **Requested**        | `experiment.execution.requested`      | The experiment execution was requested by a user, an API call or a schedule. Targets are not resolved yet.                  |
 | **Created**          | `experiment.execution.created`        | A new experiment execution was just started. As soon as all required agents have connected, the first step will be executed |
 | **Step Started**     | `experiment.execution.step-started`   | One step of a running experiment started.                                                                                   |
 | **Step Completed**   | `experiment.execution.step-completed` | One step of a running experiment completed successfully (e.g. a check succeeded or the attack was performed).               |
 | **Step Failed**      | `experiment.execution.step-failed`    | One step of a running experiment failed (e.g. a check didn't match the defined expectation).                                |
 | **Step Errored**     | `experiment.execution.step-errored`   | One step of a running experiment errored (e.g. a check or attack couldn't be executed due to a technical error).            |
+| **Step Canceled**    | `experiment.execution.step-canceled`  | One step of a running experiment was canceled after it had started, by a user or by the system.                             |
+| **Step Skipped**     | `experiment.execution.step-skipped`   | One step was never executed because the experiment had already stopped.                                                     |
 | **Canceled**         | `experiment.execution.canceled`       | The experiment execution was canceled, e.g., by a user.                                                                     |
 | **Completed**        | `experiment.execution.completed`      | The experiment completed successfully, e.g., all steps have been completed successfully.                                    |
 | **Failed**           | `experiment.execution.failed`         | The experiment execution failed because at least one step failed.                                                           |
@@ -148,7 +151,7 @@ curl --request POST \
 
 ### Verify Webhook Requests
 
-If a secret is provided a signature of the body is computed using `HMAC SHA-256` and sent as `X-SB-Signature` http header. You can use this header to verify the message.
+If a secret is provided, a signature of the body is computed using `HMAC SHA-256` and sent as an `X-SB-Signature` HTTP header. You can use this header to verify the message.
 
 Here is an example of doing this in Java:
 

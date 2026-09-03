@@ -4,25 +4,25 @@ Properties are key-value pairs that can be used to add additional information to
 They can be used to store metadata about the service or experiment, such as the service owner, experiment's purpose, the team responsible for it, the outcome, or just a note of a specific run or any other relevant information.
 
 In general, a user can only assign properties and capture values that have been [defined by an administrator](../../../install-and-configure/manage-properties/#manage-property-definitions).
-Once you - or your administrator - has defined the property, you can assign and capture values per experiment design or experiment run.
+Once you - or your administrator - have defined the property, you can assign and capture values per experiment design or experiment run.
 
 ## Examples
 
 * Defining a service's business criticality
-  * Your administrator has defined a property definition called `serviceCriticality` with the datatype `enumeration (select one)`.
-  * Your administrator has assigned the property definition `serviceCriticality` to all services and marks it as required.
-  * Whenever an administrator or team owner adds or edits a service, he can capture the value of the property (e.g. `Tier 0 - Mission Critical`)
+  * Your administrator has defined a property definition called `serviceCriticality` with the data type `Enumeration`.
+  * Your administrator has assigned the property definition `serviceCriticality` to all services and marked it as required.
+  * Whenever an administrator or team owner adds or edits a service, they can capture the value of the property (e.g. `Tier 0 - Mission Critical`).
 * Adding a mandatory cost center field to each experiment
-  * Your administrator has defined a property definition called `costCenter` with the datatype `integer`.
-  * Your administrator has assigned the property definition `costCenter` to all experiment designs and marks it as required.
+  * Your administrator has defined a property definition called `costCenter` with the data type `Number`.
+  * Your administrator has assigned the property definition `costCenter` to all experiment designs and marked it as required.
   * You need to fill out the cost center for each experiment you want to run.
 * Adding a note to a single experiment run
-  * Your administrator has defined a property definition called `note` with the datatype `rich text`.
-  * You can add the property `note` to a single experiment run, you are allowed to edit, and fill out a Markdown value like "This experiment was _really_ great!".
+  * Your administrator has defined a property definition called `note` with the data type `Rich Text`.
+  * You can add the property `note` to a single experiment run that you are allowed to edit, and fill out a Markdown value like "This experiment was _really_ great!".
 
 ## Assign Properties
 
-Properties that are defined by your administrator, can be assigned to a single service by administrator or team owners and to experiment design or run by any team member.
+Properties defined by your administrator can be assigned to a single service by administrators or team owners, and to an experiment design or run by any team member.
 This way, everyone can add additional context to your experiment designs or for a specific run.
 Properties assigned to an experiment design or an experiment run can be removed later on.
 Properties copied from the experiment design to a run cannot be removed later.

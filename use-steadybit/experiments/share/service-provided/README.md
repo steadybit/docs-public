@@ -17,7 +17,7 @@ Three building blocks are involved:
 * **Service Profile** — groups multiple experiment templates into categories (e.g. Scalability, Redundancy, Dependencies) and defines which templates a service is expected to fulfill.
 * **Service** — links to exactly one service profile and contributes its target scope and validations.
 
-When a service is linked to a profile, Steadybit instantiates each template in the profile on-the-fly, substituting the service's targets and validations.
+When a service is linked to a profile, Steadybit instantiates each template in the profile on the fly, substituting the service's targets and validations.
 The result is a **provided experiment** that appears on the service detail page under *Provided Experiments*, ready to run without any manual design work.
 
 ## Single Source of Truth

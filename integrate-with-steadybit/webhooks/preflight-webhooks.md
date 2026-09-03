@@ -8,7 +8,7 @@ title: Preflight Webhooks
 Preflight webhooks are an enterprise feature. Please [reach out to us](https://steadybit.com/contact) if you want to get access.
 {% endhint %}
 
-Preflight webhooks are triggered by Steadybit whenever an experiment is about to start and allow you to prevent an experiment from running. To decide whether that specific experiment run is allowed to start, you get a list of all expected affected targets in the webhook call. Please note that, due to concurrency, these affected targets may change in case one of the targets is gone when the actual step starts or new ones are discovered.
+Preflight webhooks are triggered by Steadybit whenever an experiment is about to start and allow you to prevent an experiment from running. To decide whether that specific experiment run is allowed to start, you get a list of all the targets expected to be affected in the webhook call. Please note that, due to concurrency, this list may change: a target may be gone by the time the actual step starts, or new ones may be discovered.
 
 ## Configure
 
@@ -20,10 +20,10 @@ A webhook has the following parameters to be specified:
 
 |            |                                                                                                                                                                                        |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name**   | The preflight webhook's name, it is shown in the experiment run.                                                                                                                       |
-| **URL**    | The URL, which will receive an HTTP Post request with the HTTP request body                                                                                                            |
+| **Name**   | The preflight webhook's name, as shown in the experiment run.                                                                                                                          |
+| **URL**    | The URL that will receive an HTTP POST request with the HTTP request body.                                                                                                             |
 | **Secret** | <p>You may specify a secret which is used to sign the body to <a href="preflight-webhooks.md#verify-webhook-requests">verify the webhook request</a>.<br><strong>optional</strong></p> |
-| **Team**   | If no team is specified, preflight checks will be performed for all teams. If you specify a team, preflight checks are only made for this team.                                        |
+| **Team**   | If no team is specified, preflight checks will be performed for all teams. If you specify a team, preflight checks are only performed for that team.                                   |
 | **Events** | Right now, there is only one event here: `Execution preflight checks`, which is triggered before starting an experiment run.                                                           |
 
 ## Experiment Runs
@@ -59,11 +59,11 @@ A webhook will time out after 55 seconds. In that case, the preflight check is m
 
 ### Examples
 
-This section covers some example requests to ease the development of the preflight webhook endpoint. The request body sent to your endpoint depends on the experiment that is tried to be executed.
+This section covers some example requests to ease the development of the preflight webhook endpoint. The request body sent to your endpoint depends on the experiment being executed.
 
 #### Request
 
-The below curl command can be used to mock a preflight request from Steadybit to your endpoint.
+The curl command below can be used to mock a preflight request from Steadybit to your endpoint.
 
 Please note that some of the metadata (i.e., step's `parameters`, and `targetExecutions`' `attributes`) have been omitted.
 
@@ -235,7 +235,7 @@ Properties need to be `editableInExecution` if inherited from the experiment des
 
 ### Verify Webhook Requests
 
-You can verify that the call to the preflight webhook is legitimate by verifying the signature. as soon as the webhook's optional secret is configured. To do that, you need to configure the optional webhook's secret. The body's signature is computed using `HMAC SHA-256` and sent as an `X-SB-Signature` HTTP header.
+Once the webhook's optional secret is configured, you can verify that a call to the preflight webhook is legitimate by checking its signature. The body's signature is computed using `HMAC SHA-256` and sent as an `X-SB-Signature` HTTP header.
 
 You can use this header to verify the message. Here is an example of doing this in Java:
 

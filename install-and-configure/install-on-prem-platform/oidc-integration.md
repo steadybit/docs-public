@@ -5,7 +5,7 @@ navTitle: OIDC Integration
 
 # OIDC Integration
 
-The Steadybit Platform supports integration with OpenID Connect (OIDC) into a centralized user management. 
+The Steadybit Platform supports integration with OpenID Connect (OIDC) for centralized user management.
 This integration enables OIDC-based authentication and automatic team membership assignment.
 
 ## Activation
@@ -16,16 +16,16 @@ To enable the OIDC integration, set the following environment variable:
 STEADYBIT_AUTH_PROVIDER=OAUTH2
 ```
 
-You can use an OIDC compatible authentication provider for user authentication.
+You can use any OIDC-compatible authentication provider for user authentication.
 
 | Config        | Value                                      |
 |---------------|--------------------------------------------|
 | Grant type    | `authorization_code`                       |
-| Redirect uri  | `https://<host>/oauth2/login/code/default` |
-| Login url     | `https://<host>/login`                     |
+| Redirect URI  | `https://<host>/oauth2/login/code/default` |
+| Login URL     | `https://<host>/login`                     |
 | Response type | `code`                                     |
 
-Be aware to configure your ingress / loadbalancer to set the `X-Forwarded-Proto` and `x-forwarded-for` headers. Otherwise, the correct redirect URL will not be generated.
+Be sure to configure your ingress or load balancer to set the `X-Forwarded-Proto` and `X-Forwarded-For` headers. Otherwise, the correct redirect URL will not be generated.
 
 ## Authentication
 
@@ -33,7 +33,7 @@ Be aware to configure your ingress / loadbalancer to set the `X-Forwarded-Proto`
 The first user to sign in will be assigned the `admin` role; all others will be assigned the `user` role.
 {% endhint %}
 
-To connect to a compatible Identity Provider (IdP) set the following environment variables:
+To connect to a compatible Identity Provider (IdP), set the following environment variables:
 
 - `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`: URI for the OpenID Connect discovery endpoint
 - `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`: The client ID to use for the OIDC registration
@@ -46,7 +46,7 @@ For detailed OIDC authentication configuration parameters, refer to [OpenID Conn
 
 ## Synchronization
 
-To automate team assignment, the IdP can return a token with a claim (attribute) containing team identifiers (team keys), the user should be assigned to.
+To automate team assignment, the IdP can return a token with a claim (attribute) containing the team identifiers (team keys) the user should be assigned to.
 
 ### Configuration
 

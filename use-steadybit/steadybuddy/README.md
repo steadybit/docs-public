@@ -164,5 +164,5 @@ Your chat history is scoped to you and your currently selected team, and follows
 ### Usage Limits
 
 AI usage is subject to a budget tied to your plan.
-When the budget for the current period is reached, the chat and suggestions are not available anymore.
+When the budget for the current period is reached, the chat and suggestions are no longer available.
 Please [contact us](https://steadybit.com/contact-us/) to enable AI features again.

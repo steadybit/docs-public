@@ -8,7 +8,7 @@ navTitle: Duplicate
 Duplicating an experiment creates a fully editable copy — even across teams and environments within the same Steadybit tenant.
 
 Use this when another team wants to use your experiment as a **starting point** and adapt it freely, with no expectation that future changes to the original will reach the copy.
-Once you expect increased reusing across teams, consider using the [experiment template](../templates/README.md) approach.
+Once you expect the design to be reused more widely across teams, consider the [experiment template](../templates/README.md) approach.
 
 ## How Sharing Works
 

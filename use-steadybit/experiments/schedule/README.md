@@ -1,9 +1,9 @@
 # Schedule
 
-Experiments can be run on the fly using the UI, API, or CLI or scheduled to run automatically in the future. Scheduling an experiment can be done via [UI](./#scheduling-via-ui) or [API](./#scheduling-via-api).
+Experiments can be run on the fly using the UI, API, or CLI, or scheduled to run automatically in the future. Scheduling an experiment can be done via [UI](./#scheduling-via-ui) or [API](./#scheduling-via-api).
 
 {% hint style="info" %}
-To schedule an experiment, one must have permission to edit it. This means one has to be a member of the team.
+To schedule an experiment, you must have permission to edit it, which means you have to be a member of the team.
 
 Please note that an experiment schedule always starts the experiment. In case of validation errors, these are documented as canceled experiment runs to check them out asynchronously.
 {% endhint %}
@@ -16,7 +16,7 @@ You can open the scheduling configuration dialog in the platform either in the e
 
 When the configuration dialog opens, you can manage multiple experiment schedules. Each schedule can run the experiment just once or repeatedly in the future.
 
-### Once Schedule
+### One-Time Schedule
 
 The configuration is straightforward if you decide to run it once. Just select a date and time in the future and save the schedule. Please keep the "Activate Schedule" toggle enabled. Otherwise, the schedule will be ignored and not run.
 
@@ -26,7 +26,7 @@ The configuration is straightforward if you decide to run it once. Just select a
 The date and time selections are done in the user’s configured timezone.
 {% endhint %}
 
-### Recurrent Schedule
+### Recurring Schedule
 
 Experiments can be scheduled to run repeatedly (like every hour or every Friday morning). To do so, you have to configure a cron-like expression.
 
@@ -38,13 +38,13 @@ Experiments can be scheduled to run repeatedly (like every hour or every Friday 
 
 ### Schedules Overview
 
-In the experiment list section on the left-hand side, you can find a quick overview of all configured schedules. Here, you can easily see when the schedules will be triggered next, enable/disable or even delete the schedule.
+In the experiment list section on the left-hand side, you can find a quick overview of all configured schedules. Here you can see when each schedule will next be triggered, and enable, disable or delete it.
 
 ![Scheduled Experiment overview](../../../.gitbook/assets/experiment-schedule-overview.png)
 
-### Experiment variable overrides
+### Experiment Variable Overrides
 
-If the experiment is making use of an [environment, service, or experiment variable](../variables.md), you can override them in the schedule. As in the experiment editor, the experiment is validated when you enter non supported values (e.g. entering "name" into a duration variable). Schedule variables will override environment, service, or experiment variable values for each run, triggered by this schedule.
+If the experiment is making use of an [environment, service, or experiment variable](../variables.md), you can override them in the schedule. As in the experiment editor, the experiment is validated when you enter unsupported values (e.g. entering "name" into a duration variable). Schedule variables override the environment, service and experiment values for every run triggered by this schedule.
 
 ![Experiment Schedule override](../../../.gitbook/assets/experiment-schedule-overrides.png)
 

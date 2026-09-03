@@ -11,7 +11,7 @@ This part of the documentation is only intended in the context of a supported Po
 If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
 
-This guide helps you with the initial installation and deployment of our Steadybit platform On-Premise on a Minikube with NGINX ingress. It is explicitly of use for spaces where you just want to try out the platform and can't take advantage of our Software as a Service (SaaS) platform. After completing this getting started, continue by [setting up Steadybit](../install-agent/).
+This guide helps you with the initial installation and deployment of our Steadybit platform on-premise on Minikube with an NGINX ingress. It is explicitly of use for spaces where you just want to try out the platform and can't take advantage of our Software as a Service (SaaS) platform. After completing this getting started, continue by [setting up Steadybit](../install-agent/).
 
 Installing and deploying the Steadybit platform on your machine is simple:
 
@@ -32,18 +32,18 @@ Before continuing, make sure that access to the following URLs via HTTPS (443) i
 The platform itself exposes the following ports:
 
 * Port `8080`: Application port for UI/API
-* Port `7878`: Acceptor port for agents
+* Port `7878`: WebSocket port for agents
 
 ## Step 1 - Get your keys
 
 To install the platform on-premise and connect the agents against it you need an agent key and a valid license.\
-Get in touch with us and we will provide you an on-prem license key and an agent key.
+Get in touch with us, and we will provide you with an on-prem license key and an agent key.
 
 The agent key is also used to authenticate against our Docker registry `docker.steadybit.io` hosting the platform images. The username is `_` and the password is the agent key. The Helm chart used below automatically creates the Kubernetes image pull secret from your agent key, so no manual `docker login` is required.
 
 ## Step 2 - Install Minikube
 
-First install Minikube to run on your system: https://minikube.sigs.k8s.io/docs/start
+First, install Minikube on your system by following the [Minikube get-started guide](https://minikube.sigs.k8s.io/docs/start).
 
 Start the cluster and enable the ingress resource:
 
@@ -52,7 +52,7 @@ minikube start
 minikube addons enable ingress
 ```
 
-Verify the ingress is running
+Verify that the ingress is running:
 
 ```bash
 kubectl get pods -n ingress-nginx
@@ -82,10 +82,10 @@ helm upgrade --install steadybit-platform \
   steadybit/steadybit-platform
 ```
 
-Make the ingress accessible
+Make the ingress accessible:
 
 ```bash
 minikube tunnel
 ```
 
-Now you should be able to access the platform in your browser on http://localhost
+Now you should be able to access the platform in your browser at http://localhost.

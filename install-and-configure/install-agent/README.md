@@ -15,7 +15,7 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 * https://ghcr.io and https://github.com and https://*.docker.io (Container Images; Kubernetes and Docker installation only)
 
 {% hint style="info" %}
-If you want to check if your environment is properly configured to install and run an agent, you run our `env-check` tool on the target machine:
+If you want to check if your environment is properly configured to install and run an agent, you can run our `env-check` tool on the target machine:
 
 ```bash
 curl -sfL https://get.steadybit.com/env-check.sh | sh -s
@@ -23,7 +23,7 @@ curl -sfL https://get.steadybit.com/env-check.sh | sh -s
 {% endhint %}
 
 {% hint style="warning" %}
-**Container image retention.** Steadybit publishes container images for the agent, extensions on `ghcr.io/steadybit/...` and retains each image for **1 year** after publication. Older images — including tagged releases — are pruned automatically. If you need to keep specific versions available beyond that window, mirror them into your own registry before they expire.
+**Container image retention.** Steadybit publishes container images for the agent and extensions on `ghcr.io/steadybit/...` and retains each image for **1 year** after publication. Older images — including tagged releases — are pruned automatically. If you need to keep specific versions available beyond that window, mirror them into your own registry before they expire.
 {% endhint %}
 
 ## Setup of Agents
@@ -35,4 +35,4 @@ We offer the following deployment options:
 * [Host](install-on-linux-hosts.md)
 * [Windows](install-on-windows-hosts.md)
 
-More configuration options can be found in [Advanced Configuration](advanced-configuration.md)
+More configuration options can be found in [Advanced Configuration](advanced-configuration.md).
