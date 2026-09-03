@@ -211,16 +211,37 @@ def links_in(line: str):
 # ----------------------------------------------------------------------- the checks
 
 
+# what is written  ->  what it should say.
+# Matching is case-insensitive, so keys must be lowercase; the assertion below
+# enforces that, since a capitalised key would silently never match anything.
+# Every entry is a mistake this repo has actually contained.
 DENYLIST = {
-    "langauge": "Language", "kuberneters": "Kubernetes", "receieve": "receive",
-    "recieve": "receive", "succesfully": "successfully", "expermiment": "experiment",
-    "refering": "referring", "versionized": "versioned", "verfiy": "verify",
-    "similiar": "similar", "usally": "usually", "looses": "loses",
-    "cirds": "CIDRs", "custer": "cluster", "groupd": "group",
-    "identifiert": "identifier", "wether": "whether", "exeriment": "experiment",
-    "mostly likely": "most likely", "heat dump": "heap dump",
-    "productive usage": "production use", "per default": "by default",
-    "on the long run": "in the long run",
+    # misspellings
+    "langauge":         "language",
+    "kuberneters":      "Kubernetes",
+    "receieve":         "receive",
+    "recieve":          "receive",
+    "succesfully":      "successfully",
+    "expermiment":      "experiment",
+    "exeriment":        "experiment",
+    "refering":         "referring",
+    "versionized":      "versioned",
+    "verfiy":           "verify",
+    "similiar":         "similar",
+    "usally":           "usually",
+    "looses":           "loses",
+    "cirds":            "CIDRs",
+    "custer":           "cluster",
+    "groupd":           "group",
+    "identifiert":      "identifier",
+    "wether":           "whether",
+    # wrong word or phrase
+    "mostly likely":    "most likely",
+    "heat dump":        "heap dump",
+    # German turns of phrase
+    "productive usage": "production use",
+    "per default":      "by default",
+    "on the long run":  "in the long run",
 }
 
 # The docs are US English throughout. These forms are simply not US spellings,
@@ -309,8 +330,20 @@ def check_code_blocks(tree: Tree, res: Result):
 
 
 def _scan(line: str) -> str:
-    """Line with inline code spans and URLs blanked out."""
-    return re.sub(r"\S*://\S+", " ", strip_code(line)).lower()
+    """Line with inline code spans and URLs blanked out.
+
+    Case is preserved so a finding can quote the text as it appears in the file;
+    the lookups below are case-insensitive instead.
+    """
+    return re.sub(r"\S*://\S+", " ", strip_code(line))
+
+
+def _misspelled(table: dict[str, str], line: str):
+    """Yield (text as written, suggestion) for each table entry found in line."""
+    for bad, good in table.items():
+        m = re.search(rf"(?<![\w-]){re.escape(bad)}(?![\w-])", line, re.IGNORECASE)
+        if m:
+            yield m.group(0), good
 
 
 def check_denylist(tree: Tree, res: Result):
@@ -321,18 +354,14 @@ def check_denylist(tree: Tree, res: Result):
         # "Kuberneters" typos we fixed lived in `//` comments inside query
         # examples. None of these strings can be a legitimate identifier.
         for i, line in enumerate(text.split("\n"), 1):
-            bare = _scan(line)
-            for bad, good in DENYLIST.items():
-                if re.search(rf"(?<![\w-]){re.escape(bad)}(?![\w-])", bare):
-                    res.add("spelling", path, f'"{bad}" should be "{good}"', i)
+            for written, good in _misspelled(DENYLIST, _scan(line)):
+                res.add("spelling", path, f'"{written}" should be "{good}"', i)
 
         # British spellings are prose-only. A config key or field really can be
         # named `labelled`, and renaming someone's identifier is not our call.
         for i, line in prose_lines(text):
-            bare = _scan(line)
-            for bad, good in BRITISH.items():
-                if re.search(rf"(?<![\w-]){re.escape(bad)}(?![\w-])", bare):
-                    res.add("us-english", path, f'"{bad}" should be "{good}"', i)
+            for written, good in _misspelled(BRITISH, _scan(line)):
+                res.add("us-english", path, f'"{written}" should be "{good}"', i)
 
 
 def check_product_names(tree: Tree, res: Result):
@@ -457,6 +486,9 @@ def check_moved_files(head: Tree, base: Tree, res: Result):
                     f'"{path}" was removed or moved but no redirect for "{url}" '
                     f"was added to .gitbook.yml")
 
+
+assert all(k == k.lower() for k in {**DENYLIST, **BRITISH}), \
+    "denylist keys must be lowercase; lookups are case-insensitive"
 
 CHECKS = [check_links_and_anchors, check_code_blocks, check_denylist,
           check_product_names, check_heading_case, check_tables,
