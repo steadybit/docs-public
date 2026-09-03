@@ -33,7 +33,7 @@ A variable only needs to be defined in one scope to be usable. You can, for inst
 
 ### Environment
 
-Some values are associated with an experiment's environment and change whenever you use another environment in an experiment. Also, once you change the variable's value, all experiments using the same environment will also use the new value. Environment-scoped variables are the perfect place to name, e.g., common infrastructure components. You can edit environment-scoped variables under Settings -> Environments. Admins can edit all environment variables; users can only edit variables of environments their team can access.
+Some values are associated with an experiment's environment and change whenever you use another environment in an experiment. Also, once you change the variable's value, all experiments using the same environment will also use the new value. Environment-scoped variables are the perfect place to name, e.g., common infrastructure components. You can edit environment-scoped variables under Settings → Environments. Admins can edit all environment variables; users can only edit variables of environments their team can access.
 
 ![Variables scoped to an environment](../../.gitbook/assets/variable-environment.png)
 

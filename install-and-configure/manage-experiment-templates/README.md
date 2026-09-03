@@ -12,7 +12,7 @@ Only admin users can manage experiment templates and thus create, import, edit, 
 
 ## Create Templates
 
-Create and edit a template via the `Platform's settings` -> `Templates` section. Choose the Blank approach to start from scratch. Alternatively, you can upload a template from a file or create one from an existing experiment via `Save as Template`.
+Create and edit a template via the `Platform's settings` → `Templates` section. Choose the Blank approach to start from scratch. Alternatively, you can upload a template from a file or create one from an existing experiment via `Save as Template`.
 
 ![The template editor's welcome screen](../../.gitbook/assets/template-editor.png)
 
@@ -76,11 +76,11 @@ After you delete a template, users can't create an experiment from it anymore. H
 
 ![Template list provide capability to hide templates](../../.gitbook/assets/template-hide.png)
 
-By default, all saved templates are discoverable when creating a new experiment from a template. However, you can hide a template to prevent users from using it. To hide a template, change the toggle in `Settings` > `Template` of a specific template. Experiments that have already been created from that template are not affected.
+By default, all saved templates are discoverable when creating a new experiment from a template. However, you can hide a template to prevent users from using it. To hide a template, change the toggle in `Settings` → `Template` of a specific template. Experiments that have already been created from that template are not affected.
 
 ## Export Templates as Files
 
-Once you've saved your template, you can export it as a file from the template details modal in `Settings` -> `Template`.
+Once you've saved your template, you can export it as a file from the template details modal in `Settings` → `Template`.
 
 ![Template details including possibility to download it as a file](../../.gitbook/assets/template-export-file.png)
 
@@ -88,7 +88,7 @@ The saved file can be imported later on, either as a template or as an experimen
 
 ## Import Template Files
 
-You can upload a template file into your Steadybit platform either as a new template so that everyone can create an experiment from it (via `Settings` -> `Template` -> `Create Template`), or directly as an experiment by uploading it into the experiment creation flow (`Experiments` -> `New Experiment`) and running through the template wizard. While the first option is only available to administrators, the second option is available to everyone.
+You can upload a template file into your Steadybit platform either as a new template so that everyone can create an experiment from it (via `Settings` → `Template` → `Create Template`), or directly as an experiment by uploading it into the experiment creation flow (`Experiments` → `New Experiment`) and running through the template wizard. While the first option is only available to administrators, the second option is available to everyone.
 
 {% hint style="warning" %}
 When you export a template, the file contains a unique UUID of the template. Whenever you import the template again, and the UUID already exists, the existing template is overwritten.
@@ -102,7 +102,7 @@ Instead of sharing template files directly, you can also use Steadybit's [hub co
 
 The hub connection makes it super easy to benefit from the best practices of the Chaos Engineering community (e.g., via Steadybit's [Reliability Hub](https://hub.steadybit.com/)). Furthermore, if you're using Steadybit on-premise, you can easily keep multiple platforms in sync by using the hub connections via API.
 
-To import a template from a hub, go to `Settings` -> `Templates` -> `Create Template` -> `From Hub`. You first have to select a connected hub ([learn how to connect a new hub](../../integrate-with-steadybit/hubs/#connect-new-hubs)).
+To import a template from a hub, go to `Settings` → `Templates` → `Create Template` → `From Hub`. You first have to select a connected hub ([learn how to connect a new hub](../../integrate-with-steadybit/hubs/#connect-new-hubs)).
 
 ![Import template by selecting the hub connection](../../.gitbook/assets/template-share-1.png)
 
