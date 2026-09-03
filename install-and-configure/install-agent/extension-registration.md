@@ -38,7 +38,7 @@ If you want to fine-tune the auto registration, you can configure the mechanism 
 * include only extensions from a specific namespace
 
 {% tabs %}
-{% tab title="using Helm Chart" %}
+{% tab title="Using Helm Chart" %}
 ```yaml
 agent:
   extensions:
@@ -51,7 +51,7 @@ agent:
 ```
 {% endtab %}
 
-{% tab title="using Environment Variables" %}
+{% tab title="Using Environment Variables" %}
 ```
 STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_MATCHLABELS_0_KEY=custom/extension-i-want-to-discover
 STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_MATCHLABELS_0_VALUE=true

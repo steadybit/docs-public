@@ -11,7 +11,7 @@ You want to receive a Slack message whenever an experiment has started or failed
 |              |                                                                                                                                                             |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Name**     | The name for this integration will not show up in the message.                                                                                              |
-| **URL**      | The Slack webhook URL, which you can create in Slack by navigating to `Manage apps` → `Custom Integrations` → `Incoming Webhooks`.                        |
+| **URL**      | The Slack webhook URL, which you can create in Slack by navigating to `Manage apps` → `Custom Integrations` → `Incoming Webhooks`.                          |
 | **Channel**  | <p>The Slack channel which receives the message. If omitted the default from the Slack Webhook configuration will be used.<br><strong>optional</strong></p> |
 | **Icon URL** | <p>You may specify a different icon to be used for the message.<br><strong>optional</strong></p>                                                            |
 | **Team**     | If no team is specified, you'll receive all events. If you do specify a team, you'll only receive notifications relevant to that team.                      |
