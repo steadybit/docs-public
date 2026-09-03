@@ -75,7 +75,7 @@ Some common examples for this are
 * attacking a random Kubernetes pod of a specific deployment
 * attacking one random service's components, but all in a random availability zone
 
-The screenshot below shows an example where we group containers first on the label `k8s.label.domain`, and afterwards - within each group - on the availability zone. We will select 50% of the service groups and one availability zone.
+The screenshot below shows an example where we group containers first on the label `k8s.label.domain`, and afterwards — within each group — on the availability zone. We will select 50% of the service groups and one availability zone.
 
 ![Create Experiment - Limiting Targets in the Editor via Advanced Blast Radius](../../.gitbook/assets/create-experiment-blank-limit-targets-advanced-blast-radius.png)
 

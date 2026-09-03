@@ -18,7 +18,7 @@ The advice has automatically discovered that your target's configuration require
 
 ![Advice for target 'fashion-bestseller' in state 'Action Needed'](../../.gitbook/assets/advice-action-needed.png)
 
-As soon as you implement the suggested instruction, Steadybit automatically discovers the change and - depending on the advice definition - asks you to validate your changes (lifecycle 'Validation Needed') or marks the advice as 'Implemented'.
+As soon as you implement the suggested instruction, Steadybit automatically discovers the change and — depending on the advice definition — asks you to validate your changes (lifecycle 'Validation Needed') or marks the advice as 'Implemented'.
 
 ### 2. Validation Needed
 

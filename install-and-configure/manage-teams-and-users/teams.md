@@ -21,7 +21,7 @@ You must enter a **key** for the team consisting of one to eight characters. The
 In the edit/create dialog, admins can control
 
 * which attacks a team is allowed to execute, and
-* which [environments](../manage-environments/README.md) - and therefore which targets - the team is allowed to operate on.
+* which [environments](../manage-environments/README.md) — and therefore which targets — the team is allowed to operate on.
 
 You can think of it as the maximum blast radius this team can attack.
 
