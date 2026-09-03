@@ -56,11 +56,11 @@ We use Resilience4j for the retry mechanism. The default configuration is to ret
 
 ### The agent takes a long time to register the extensions and submit the first targets
 
-In a very large cluster, it might take a while to read all pods in your cluster and scan them for extensions. You can limit the extension auto-registration to a single namespace using the environment variable `STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_NAMESPACE` (helm-value `agent.extensions.autoregistration.namespace`).
+In a very large cluster, it might take a while to read all pods in your cluster and scan them for extensions. You can limit the extension auto-registration to a single namespace using the environment variable `STEADYBIT_AGENT_EXTENSIONS_AUTOREGISTRATION_NAMESPACE` (Helm value `agent.extensions.autoregistration.namespace`).
 
 ### Install the agent and extension-kubernetes in a managed Kubernetes cluster where you may only deploy to one namespace
 
-Install the agent/extension with the following helm settings to use Roles instead of ClusterRoles:
+Install the agent/extension with the following Helm settings to use Roles instead of ClusterRoles:
 
 ```shell
   --set rbac.roleKind="role" \

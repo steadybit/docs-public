@@ -58,7 +58,7 @@ kubectl get po -A
 
 **Deploy the example application**
 
-Now we use helm to deploy the demo by running the following command:
+Now we use Helm to deploy the demo by running the following command:
 
 ```bash
 helm repo add steadybit-shopping-demo https://steadybit.github.io/shopping-demo
@@ -196,7 +196,7 @@ ip-192-168-68-23.us-west-2.compute.internal    Ready    <none>   118s   v1.17.12
 
 **Deploy the Shopping Demo**
 
-Now we use helm to deploy the demo by running the following command:
+Now we use Helm to deploy the demo by running the following command:
 
 ```bash
 helm repo add steadybit-shopping-demo https://steadybit.github.io/shopping-demo

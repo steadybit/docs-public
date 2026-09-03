@@ -162,8 +162,8 @@ A Redis message broker is required to run the platform with multiple instances.
 | Environment Variable                   | Required | Description                                                                                                                                                                                         |
 |----------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `STEADYBIT_WEB_PUBLIC_URL`             |          | URL to point to your Steadybit installation. Use this if your platform runs behind a reverse proxy doing path rewriting. Also, it is used for the links in notifications.                           |
-| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` |          | By default, the Websocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.              |
-| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL`  |          | By default, the Websocket connections are advertised using the same URL name as the agents register to. You can override the advertised URL if you run a separate load balancer for the websockets. |
+| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` |          | By default, the WebSocket connections are advertised to the agents on port 7878. If the public port differs (e.g. because of a proxy) use this property to advertise a different port.              |
+| `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL`  |          | By default, the WebSocket connections are advertised using the same URL name as the agents register to. You can override the advertised URL if you run a separate load balancer for the WebSocket connections. |
 
 ## Log Configuration
 

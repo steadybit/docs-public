@@ -85,7 +85,7 @@ If you have successfully configured the client certificate for the agent, the lo
 
 {% tabs %}
 {% tab title="Using Helm Chart" %}
-The `steadybit-agent` helm charts include all extensions provided by Steadybit using an `extension-*` prefix. This sample is for `extension-container`; the options shown here apply to the other extensions as well. If you use an extension's helm chart directly, strip the prefix from the examples.
+The `steadybit-agent` Helm charts include all extensions provided by Steadybit using an `extension-*` prefix. This sample is for `extension-container`; the options shown here apply to the other extensions as well. If you use an extension's Helm chart directly, strip the prefix from the examples.
 
 For the extension to require client certificates, you need to configure both the server certificate and allowed client certificates. If you only specify a server certificate, TLS is used, but client certificates are not mandatory.
 

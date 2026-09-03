@@ -12,7 +12,7 @@ When deploying the extension-container, the extension startup may fail with an e
 MountVolume.SetUp failed for volume "..." : hostPath type check failed: /run/.../runc/k8s.io is not a directory
 ```
 
-This error indicates that the extension runs on the wrong container runtime (Docker, cri-o, or containerd). To fix this, configure the correct one in the installation. You can change the extension's runtime with a helm parameter: if you used the agent helm chart to deploy the agent and its extensions, set `extension-container.container.engine`.
+This error indicates that the extension runs on the wrong container runtime (Docker, cri-o, or containerd). To fix this, configure the correct one in the installation. You can change the extension's runtime with a Helm parameter: if you used the agent Helm chart to deploy the agent and its extensions, set `extension-container.container.engine`.
 
 ```
   --set extension-container.container.engine=... //containerd, docker or cri-o
@@ -55,7 +55,7 @@ Warning  FailedMount  11s (x6 over 26s)  kubelet            MountVolume.SetUp fa
 
 #### We see intermittent OOMs on extensions or timeouts due to high CPU usage. This makes the extensions unreliable.
 
-We aim for sane defaults in our helm charts for CPU and memory requests and limits and design the extensions to have a low resource consumption. However, resource usage depends on the size of your environment. You need to increase the settings if you have massive Kubernetes clusters or big container hosts.\
+We aim for sane defaults in our Helm charts for CPU and memory requests and limits and design the extensions to have a low resource consumption. However, resource usage depends on the size of your environment. You need to increase the settings if you have massive Kubernetes clusters or big container hosts.\
 \
 Running observability tools that instrument your applications by injecting processes (e.g., Dynatrace) or manipulating bytecode (e.g., Instana) can lead to increased resource consumption. You might want to exclude the Steadybit agent and extensions from this, or need to adapt your resource requests.
 

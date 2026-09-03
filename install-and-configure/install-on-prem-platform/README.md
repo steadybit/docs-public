@@ -27,7 +27,7 @@ Before continuing, make sure that access to the following URLs via HTTPS (443) i
 * https://docker.steadybit.io and https://index.docker.io (Docker Image)
 * https://packages.steadybit.com (Agent Linux Installation)
 * https://get.steadybit.com (Setup Scripts)
-* https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
+* https://steadybit.github.io/helm-charts (when using Kubernetes and Helm)
 
 The platform itself exposes the following ports:
 
@@ -80,7 +80,7 @@ helm install steadybit-platform \
 
 The Helm chart automatically creates the Kubernetes image pull secret for `docker.steadybit.io` from your agent key, so no manual `docker login` is required.
 
-To make it convenient for you, we have a default for everything. That's also why we include the necessary Postgres database and set up everything for you automatically. Nevertheless, feel free to adjust parameters after having a look at the helm chart in our public [GitHub repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-platform).
+To make it convenient for you, we have a default for everything. That's also why we include the necessary Postgres database and set up everything for you automatically. Nevertheless, feel free to adjust parameters after having a look at the Helm chart in our public [GitHub repository](https://github.com/steadybit/helm-charts/tree/master/charts/steadybit-platform).
 
 > **BE AWARE:** The database is not backed up and if the pod is deleted the data is lost!
 >
