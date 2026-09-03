@@ -15,7 +15,7 @@ The following diagram shows this in an example of three hosts, one with the agen
 ![Steadybit agent and extension architecture](../../.gitbook/assets/architecture-agent.png)
 
 The Steadybit agent periodically polls its registered extensions for discovery data using HTTP. For each call, only the delta of the discovery data is sent to the platform.\
-If an experiment is to be executed for the agent, the agent connects via a websocket to the platform and receives the actions to be executed. The agent will then control the action execution and calls the respective HTTP endpoints of the extension. If the connection between the platform and agent or agent and extension is interrupted, the agent immediately stops and rolls back any active action.
+If an experiment is to be executed for the agent, the agent connects via a WebSocket to the platform and receives the actions to be executed. The agent will then control the action execution and calls the respective HTTP endpoints of the extension. If the connection between the platform and agent or agent and extension is interrupted, the agent immediately stops and rolls back any active action.
 
 {% hint style="info" %}
 The Steadybit platform never connects to the agent or any extensions:\

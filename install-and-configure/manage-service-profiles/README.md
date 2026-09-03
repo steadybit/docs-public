@@ -69,7 +69,7 @@ Custom profiles are managed in **Settings** → **Service Profiles**.
 
 ![Custom Service Profile](service-profile.png)
 
-You can mark one service profile as the default, which is then used for every new service. 
+You can mark one service profile as the default, which is then used for every new service.
 
 {% hint style="info" %}
 Only administrators can create and manage service profiles.

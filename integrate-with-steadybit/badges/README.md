@@ -5,7 +5,7 @@ Get a badge for your experiment to integrate the latest run state, e.g., in wiki
 We support two badges:
 
 * an [experiment badge](./#experiment-badges) that shows the latest run state of a specific experiment
-* a [tag badge](./#tag-badges) that either offers to create an experiment linked to an external reference, or - once such an experiment exists - shows the state of its latest run
+* a [tag badge](./#tag-badges) that either offers to create an experiment linked to an external reference, or — once such an experiment exists — shows the state of its latest run
 
 ## Experiment Badges
 

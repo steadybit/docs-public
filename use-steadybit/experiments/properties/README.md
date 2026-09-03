@@ -4,7 +4,7 @@ Properties are key-value pairs that can be used to add additional information to
 They can be used to store metadata about the service or experiment, such as the service owner, experiment's purpose, the team responsible for it, the outcome, or just a note of a specific run or any other relevant information.
 
 In general, a user can only assign properties and capture values that have been [defined by an administrator](../../../install-and-configure/manage-properties/#manage-property-definitions).
-Once you - or your administrator - have defined the property, you can assign and capture values per experiment design or experiment run.
+Once you — or your administrator — have defined the property, you can assign and capture values per experiment design or experiment run.
 
 ## Examples
 

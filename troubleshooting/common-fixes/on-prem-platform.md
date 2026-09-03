@@ -87,8 +87,8 @@ scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
 
 *   Check if the agent can reach the WebSocket port of the platform.
 
-    * This is usually port 7878 and can be configured in the platform manifest via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` (helm chart: `platform.publicWebsocketPort`)
-    * If setting the port is not enough, you can set the URL via the environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL` (helm chart: `platform.ingressOrigin`)
+    * This is usually port 7878 and can be configured in the platform manifest via environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_PORT` (Helm chart: `platform.publicWebsocketPort`)
+    * If setting the port is not enough, you can set the URL via the environment variable `STEADYBIT_WEB_PUBLIC_EXPERIMENT_URL` (Helm chart: `platform.ingressOrigin`)
     * Please also check your ingress configuration.
 
     ```yaml
@@ -112,7 +112,7 @@ scp ec2-user@1.2.3.4:/PATH_TO_BE_MOUNTED/heapdump-*.hprof /tmp/
                       number: 80
     ```
 
-    * You can try to connect to the websocket port via curl:
+    * You can try to connect to the WebSocket port via curl:
 
     ```bash
     curl 'https://platform.steadybit.com:443/ws' \

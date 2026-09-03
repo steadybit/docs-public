@@ -1,6 +1,6 @@
 # Variables
 
-Steadybit supports using variables in an experiment, so you only need to define specific values once and benefit from a single source of truth. Variables are helpful when multiple steps refer to the same configuration (e.g., in a query defining the target, or an HTTP endpoint URL - see the example below), or when several experiments use the same infrastructure names in their definitions (e.g., a Kubernetes cluster name).
+Steadybit supports using variables in an experiment, so you only need to define specific values once and benefit from a single source of truth. Variables are helpful when multiple steps refer to the same configuration (e.g., in a query defining the target, or an HTTP endpoint URL — see the example below), or when several experiments use the same infrastructure names in their definitions (e.g., a Kubernetes cluster name).
 
 ![Variables in an experiment](../../.gitbook/assets/variable-experiment.png)
 
@@ -33,7 +33,7 @@ A variable only needs to be defined in one scope to be usable. You can, for inst
 
 ### Environment
 
-Some values are associated with an experiment's environment and change whenever you use another environment in an experiment. Also, once you change the variable's value, all experiments using the same environment will also use the new value. Environment-scoped variables are the perfect place to name, e.g., common infrastructure components. You can edit environment-scoped variables under Settings -> Environments. Admins can edit all environment variables; users can only edit variables of environments their team can access.
+Some values are associated with an experiment's environment and change whenever you use another environment in an experiment. Also, once you change the variable's value, all experiments using the same environment will also use the new value. Environment-scoped variables are the perfect place to name, e.g., common infrastructure components. You can edit environment-scoped variables under Settings → Environments. Admins can edit all environment variables; users can only edit variables of environments their team can access.
 
 ![Variables scoped to an environment](../../.gitbook/assets/variable-environment.png)
 
@@ -114,7 +114,7 @@ The configuration consists of:
 - Evaluation scope _(only for service variables)_ — whether to sample from the service's own targets or the whole environment (see [Evaluation scope](#evaluation-scope)).
 - Filter _(optional)_ — a query that restricts the candidate targets before a value is picked (e.g., only pods in a certain namespace).
 
-You also control the **cardinality** of the selection - how many of the matching values are picked: a single value or several. When more than one value is selected, the variable carries the whole set. In a blast-radius query such as `... IN ({{var}})` it expands to one comparison value per selected value; where a single string is expected, the selected values are combined into a comma-separated list.
+You also control the **cardinality** of the selection — how many of the matching values are picked: a single value or several. When more than one value is selected, the variable carries the whole set. In a blast-radius query such as `... IN ({{var}})` it expands to one comparison value per selected value; where a single string is expected, the selected values are combined into a comma-separated list.
 
 #### Evaluation scope
 
@@ -138,7 +138,7 @@ A dynamic value resolves to a value from the target index. If, at run time, no t
 #### Sample Values in Experiment Editor
 
 Because a dynamic value is only resolved for real when a run starts, the concrete values it will take are not known while you design the experiment.
-To give you a meaningful preview, Steadybit draws **one sample** of the matching values - when you open the experiment, when you change the environment, and whenever you create or edit a dynamic value - and uses that same sample everywhere in the editor.
+To give you a meaningful preview, Steadybit draws **one sample** of the matching values — when you open the experiment, when you change the environment, and whenever you create or edit a dynamic value — and uses that same sample everywhere in the editor.
 As a result, the target counts per step, the _show targets_ list, and the sampled values shown beneath each dynamic variable all agree with one another, instead of changing every time a preview is recalculated.
 
 The sampled values are shown directly under the variable's definition in the variables popup:

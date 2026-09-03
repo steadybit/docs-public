@@ -14,7 +14,7 @@ On-premise platform installations connect to a bundled local copy of our Reliabi
 
 ### Connect New Hubs
 
-Steadybit supports connecting your own hub to the platform. An administrator can manage hub connections via `Settings` > `Hubs`. To add a hub, you need to specify the URL to the hub's index.json (see section [hub convention](./#hub-convention)).
+Steadybit supports connecting your own hub to the platform. An administrator can manage hub connections via `Settings` → `Hubs`. To add a hub, you need to specify the URL to the hub's index.json (see section [hub convention](./#hub-convention)).
 
 ![Platform - connect new hub](../../.gitbook/assets/hub-connect.png)
 

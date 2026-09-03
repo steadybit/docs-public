@@ -7,7 +7,7 @@ This method will install the Steadybit Agent on your Kubernetes Cluster using [H
 You must be able to access the following URLs via HTTPS (443) on your target environment:
 
 * https://platform.steadybit.com (Platform)
-* https://steadybit.github.io (Kubernetes helm repository)
+* https://steadybit.github.io (Kubernetes Helm repository)
 * https://ghcr.io and https://github.com (Container Images)
 
 ## Installation
@@ -53,19 +53,19 @@ If you are running on-prem, make sure to set the URL of the platform: `--set age
 ### Extensions
 
 The agent's purpose is to establish communication between the platform and your systems. Discovering your systems, and bringing Chaos Engineering to a given technology, is the job of extensions.
-By default, the official helm chart already installs the extensions [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container), [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host), [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http) and [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension_kubernetes).
+By default, the official Helm chart already installs the extensions [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container), [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host), [extension-http](https://hub.steadybit.com/extension/com.steadybit.extension_http) and [extension-kubernetes](https://hub.steadybit.com/extension/com.steadybit.extension_kubernetes).
 
 In order to discover all extensions in the Kubernetes cluster the agent needs to access the Kubernetes API. For more details, please take a look at the [Kubernetes Auto Registration](extension-registration.md#kubernetes-auto-registration) documentation.
 
 #### Add more Extensions
 
-Further extensions can be enabled via helm values of steadybit-agent. For example, [`extension-postman`](https://github.com/steadybit/extension-postman) can be enabled by setting `extension-postman.enabled=true`. See our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-agent) for a detailed list of all the configuration parameters.
+Further extensions can be enabled via Helm values of steadybit-agent. For example, [`extension-postman`](https://github.com/steadybit/extension-postman) can be enabled by setting `extension-postman.enabled=true`. See our [GitHub Repository](https://github.com/steadybit/helm-charts/tree/main/charts/steadybit-agent) for a detailed list of all the configuration parameters.
 
-Alternatively, you can also install extensions independently with their own helm charts. The installation instructions are listed in the Github repositories of the extension and can be browsed via the [Reliability Hub](https://hub.steadybit.com/).
+Alternatively, you can also install extensions independently with their own Helm charts. The installation instructions are listed in the GitHub repositories of the extension and can be browsed via the [Reliability Hub](https://hub.steadybit.com/).
 
 #### Disable Default Extensions
 
-If you want to disable some, or all, of the default extensions, please set the following values in helm:
+If you want to disable some, or all, of the default extensions, please set the following values in Helm:
 
 * [extension-container](https://hub.steadybit.com/extension/com.steadybit.extension_container): `--set extension-container.enabled=false`
 * [extension-host](https://hub.steadybit.com/extension/com.steadybit.extension_host): `--set extension-host.enabled=false`
@@ -74,7 +74,7 @@ If you want to disable some, or all, of the default extensions, please set the f
 
 ### Alternative: OpenShift installation (< 4.18)
 
-The SecurityContextConstraints for OpenShift are included in our helm chart. You need to configure the CRI-O container runtime and we're good to go.
+The SecurityContextConstraints for OpenShift are included in our Helm chart. You need to configure the CRI-O container runtime and we're good to go.
 
 ```bash
 helm repo add steadybit https://steadybit.github.io/helm-charts
@@ -89,7 +89,7 @@ helm template steadybit-agent --namespace steadybit-agent \
 
 ### Alternative: OpenShift installation (>= 4.18)
 
-The SecurityContextConstraints for OpenShift are included in our helm chart. You need to configure the CRI-O container runtime and the crun container engine, and we're good to go.
+The SecurityContextConstraints for OpenShift are included in our Helm chart. You need to configure the CRI-O container runtime and the crun container engine, and we're good to go.
 
 ```bash
 helm repo add steadybit https://steadybit.github.io/helm-charts
@@ -143,7 +143,7 @@ helm upgrade --install steadybit-agent --namespace steadybit-agent \
 
 ### Alternative: Generate Kubernetes Manifests
 
-We currently don't provide a static Kubernetes manifest, but you can generate it from the helm chart. We recommend using the helm chart, as it is easier to update the agent and extensions.
+We currently don't provide a static Kubernetes manifest, but you can generate it from the Helm chart. We recommend using the Helm chart, as it is easier to update the agent and extensions.
 
 ```shell
 helm repo add steadybit https://steadybit.github.io/helm-charts

@@ -18,13 +18,13 @@ The first step is to think about the scenario you want to test. Good sources of 
 
 In our case, we want to identify how our shopping demo behaves when one of the product backend services is unavailable. We can simply use one of the existing templates to create this experiment step-by-step.
 
-In the Steadybit platform, go to 'Experiments' -> 'New Experiment' -> 'From Template' and search for a template with the tag `Shopping Demo Quick Start`.
+In the Steadybit platform, go to 'Experiments' → 'New Experiment' → 'From Template' and search for a template with the tag `Shopping Demo Quick Start`.
 
 ![Run Experiment - Step 1: Use Template](../../.gitbook/assets/run-experiment-step-1.png)
 
 You can see the overall experiment structure in the template details or continue this tutorial by choosing 'Use This Template'.
 
-> If this experiment template is missing from your Steadybit platform, you can [download the resulting experiment here](experiment.json) and import it via 'Experiments' -> 'New Experiment' -> 'Upload'. Continue to [Step 3 - Experiment Design](./#step-3-experiment-design). In the future, the template will also be available in your tenant.
+> If this experiment template is missing from your Steadybit platform, you can [download the resulting experiment here](experiment.json) and import it via 'Experiments' → 'New Experiment' → 'Upload'. Continue to [Step 3 - Experiment Design](./#step-3-experiment-design). In the future, the template will also be available in your tenant.
 
 ## Step 2 - Define experiment
 

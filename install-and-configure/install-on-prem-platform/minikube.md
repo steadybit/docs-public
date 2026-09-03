@@ -27,7 +27,7 @@ Before continuing, make sure that access to the following URLs via HTTPS (443) i
 * https://docker.steadybit.io and https://index.docker.io (Docker Image)
 * https://packages.steadybit.com (Agent Linux Installation)
 * https://get.steadybit.com (Setup Scripts)
-* https://steadybit.github.io/helm-charts (when using Kubernetes and helm)
+* https://steadybit.github.io/helm-charts (when using Kubernetes and Helm)
 
 The platform itself exposes the following ports:
 
@@ -67,7 +67,7 @@ helm repo add steadybit https://steadybit.github.io/helm-charts
 helm repo update
 ```
 
-Install the platform using a parameterized helm script to make the platform available on port 80. You also need to replace the placeholders `replace-with-agent-key` and `replace-with-license-key` with your agent key and license key of [Step 1 - Get your keys](minikube.md#step-1-get-your-keys):
+Install the platform using a parameterized Helm script to make the platform available on port 80. You also need to replace the placeholders `replace-with-agent-key` and `replace-with-license-key` with your agent key and license key of [Step 1 - Get your keys](minikube.md#step-1-get-your-keys):
 
 ```bash
 helm upgrade --install steadybit-platform \
