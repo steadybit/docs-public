@@ -150,3 +150,36 @@ Keys containing special characters like `:` and `/` need to be quoted to work pr
 // Quoting keys with special characters is necessary
 "label.aws:ec2launchtemplate/version"="some value"
 ```
+
+### Comments
+
+A query can explain itself. Anything from `//` to the end of the line is a comment: it is ignored
+when the query is evaluated, and it is stored with the query, so the reason a target was excluded
+stays next to the exclusion.
+
+A comment can stand on its own line:
+
+```
+// The canary tier is deployed continuously, so it is expected to be unstable.
+k8s.cluster-name="prod" AND NOT k8s.label.tier="canary"
+```
+
+or follow a query on the same line:
+
+```
+k8s.cluster-name="prod" // only production
+```
+
+Comments work everywhere queries do — environment scopes, service target scopes, experiment blast
+radii, the target explorer and the API.
+
+Two things to be aware of:
+
+- A `//` inside a quoted value is part of the value, not a comment, so URLs keep working:
+  `"label.url"="https://example.com"`.
+- A query made up of nothing but comments is treated as an empty query. A query only ever *narrows*
+  what its scope already contains, so commenting one out stops the narrowing rather than emptying
+  the selection: an experiment's blast radius then covers every target of that action's target type
+  in the experiment's environment, and a service's target scope every target in its environment. The
+  one to watch is an [environment's own scope](/install-and-configure/manage-environments/#define-your-own-environment),
+  where the query *is* the boundary — commenting that out covers every target in the tenant.
