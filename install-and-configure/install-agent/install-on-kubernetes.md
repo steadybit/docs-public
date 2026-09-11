@@ -10,6 +10,10 @@ You must be able to access the following URLs via HTTPS (443) on your target env
 * https://steadybit.github.io (Kubernetes Helm repository)
 * https://ghcr.io and https://github.com (Container Images)
 
+## Supported Architectures
+
+The agent and extension images are multi-architecture and run on x86-64 (`amd64`) as well as on 64-bit ARM (`arm64`) nodes, such as AWS Graviton node groups. No extra Helm values are needed: the DaemonSets are scheduled on every node, and each node pulls the image for its own architecture. Clusters with a mix of x86-64 and ARM nodes work the same way, and all host and container attacks are available on both.
+
 ## Installation
 
 To deploy the agent to Kubernetes, you can copy the installation script from the [setup page](https://platform.steadybit.com/settings/agents/setup) in the SaaS platform.

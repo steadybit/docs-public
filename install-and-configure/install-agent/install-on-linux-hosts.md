@@ -8,6 +8,10 @@ Using the respective package managers, this method will install the Steadybit ag
 * dnf
 * yum
 
+## Supported Architectures
+
+The packages are published for x86-64 (`amd64` / `x86_64`) and 64-bit ARM (`arm64` / `aarch64`), including AWS Graviton instances. The package manager picks the build matching your machine, so the installation command below is the same on both. All attacks of extension-host and extension-container are available on either architecture.
+
 ## Prerequisites
 
 To install the agent, you must be able to access the following URLs via HTTPS (443) on your target environment:
