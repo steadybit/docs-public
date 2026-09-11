@@ -6,9 +6,17 @@ These actions can be combined in a timeline-based editor to build your chaos eng
 This page gives you an overview of the supported technologies.\
 A detailed list is available on the [Steadybit Reliability Hub](https://hub.steadybit.com).
 
+## Supported CPU Architectures
+
+All host and container attacks run on both **x86-64** (`amd64`, `x86_64`) and **64-bit ARM** (`arm64`, `aarch64`) Linux. This covers AWS Graviton instances and Graviton-based EKS node groups, the ARM machine types of Azure and Google Cloud, ARM hardware on-prem, and Docker Desktop on Apple Silicon.
+
+There is nothing to configure for this. The agent and extension container images are multi-architecture, and the `.deb` and `.rpm` packages are published for both architectures, so the same installation command works either way. Clusters that mix x86-64 and ARM nodes are supported too, as every node pulls the image matching its own architecture.
+
+The Windows agent and extension-host-windows are x86-64 only, which is why the Windows rows below are marked `(x64)`.
+
 ## Containers
 
-The following capabilities are available when targeting containers, running standalone or in a container orchestration platform like Kubernetes:
+The following capabilities are available when targeting containers, running standalone or in a container orchestration platform like Kubernetes, on x86-64 as well as on 64-bit ARM nodes:
 
 ### Network Attacks
 
@@ -127,7 +135,7 @@ Steadybit can interfere with traffic routed through ingress controllers in the c
 
 ## Physical and Virtual Hosts
 
-The following attacks are available when working with physical hosts and virtual machines (both 64-bit PC and 64-bit ARM architectures).
+The following attacks are available when working with physical hosts and virtual machines. Every Linux distribution listed below is supported on x86-64 and on 64-bit ARM alike; only the Windows rows are limited to x86-64. See [Supported CPU Architectures](./#supported-cpu-architectures) for details.
 
 ### Network Attacks
 

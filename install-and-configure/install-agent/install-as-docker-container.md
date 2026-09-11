@@ -16,6 +16,8 @@ To install the agent, you must be able to access the following URLs via HTTPS (4
 * Windows (using Docker Desktop using the WSL2 engine)
 * MacOS (using Docker Desktop)
 
+The agent and extension images are multi-architecture, so they run on x86-64 and on 64-bit ARM machines (AWS Graviton, Apple Silicon) alike. Docker pulls the matching build automatically.
+
 {% hint style="warning" %}
 **Docker Desktop:** You're only able to attack containers and processes running on Docker.
 
