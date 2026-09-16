@@ -45,7 +45,7 @@ There are two ways to authenticate an MCP client. Pick whichever fits your clien
 | Method | Endpoint | Best for |
 | --- | --- | --- |
 | **Access token** | `https://platform.steadybit.com/mcp` | Any MCP client; scripted or headless setups |
-| **OAuth** | `https://platform.steadybit.com/mcp/<tenant>` | Clients with an interactive browser login |
+| **OAuth** | `https://platform.steadybit.com/mcp` | Clients with an interactive browser login |
 
 ### Method 1 — Access token
 
@@ -63,14 +63,16 @@ The same works for any other MCP client — point it at `https://platform.steady
 
 ### Method 2 — OAuth
 
-With OAuth, the client opens your browser, you log in to Steadybit through your identity provider, and you approve access on a consent screen — no token to copy or store. Point the client at the tenant-scoped endpoint `https://platform.steadybit.com/mcp/<tenant>`, replacing `<tenant>` with your tenant key.
+With OAuth, the client opens your browser, you log in to Steadybit through your identity provider, and you approve access on a consent screen — no token to copy or store. Point the client at `https://platform.steadybit.com/mcp`; your tenant is taken from your Steadybit membership.
 
 For [Claude Code](https://docs.claude.com/en/docs/claude-code):
 
 ```bash
 claude mcp add --transport http steadybit \
-  https://platform.steadybit.com/mcp/<tenant>
+  https://platform.steadybit.com/mcp
 ```
+
+If you belong to more than one tenant, the connection cannot tell which one you mean, and fails with an error listing the tenant-scoped URLs to choose from. Connect to the one you want instead: `https://platform.steadybit.com/mcp/<tenant>`, replacing `<tenant>` with your tenant key.
 
 On first use the client opens a browser window where you sign in and confirm the connection:
 
