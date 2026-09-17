@@ -42,10 +42,10 @@ Running an experiment injects **real faults** into your infrastructure. Treat th
 
 There are two ways to authenticate an MCP client. Pick whichever fits your client and workflow — both connect to the same server and expose the same capabilities.
 
-| Method | Endpoint | Best for |
-| --- | --- | --- |
+| Method           | Endpoint                             | Best for                                    |
+| ---------------- | ------------------------------------ | ------------------------------------------- |
 | **Access token** | `https://platform.steadybit.com/mcp` | Any MCP client; scripted or headless setups |
-| **OAuth** | `https://platform.steadybit.com/mcp` | Clients with an interactive browser login |
+| **OAuth**        | `https://platform.steadybit.com/mcp` | Clients with an interactive browser login   |
 
 ### Method 1 — Access token
 
