@@ -15,11 +15,11 @@ Spans are exported to the OTLP endpoint you configure, so an experiment run's tr
 
 Every span the platform, the agent and the extensions record for a run carries the run's identifier as an `experiment.execution.id` attribute. Search your tracing backend for it to pull up everything that happened during that run:
 
-| Backend | Query |
-|---------|-------|
+| Backend       | Query                                         |
+|---------------|-----------------------------------------------|
 | Grafana Tempo | `{ span.experiment.execution.id = "138004" }` |
-| Jaeger | tag `experiment.execution.id=138004` |
-| Datadog | `@experiment.execution.id:138004` |
+| Jaeger        | tag `experiment.execution.id=138004`          |
+| Datadog       | `@experiment.execution.id:138004`             |
 
 The experiment run view shows the identifier and these queries for the run you are looking at.
 
@@ -58,12 +58,12 @@ Extensions built on `extension-kit` v1.12.1 or later export spans for every requ
 
 Extensions are configured through the standard `OTEL_*` environment variables:
 
-| Variable | Meaning | Default |
-|----------|---------|---------|
-| `OTEL_EXPORTER_OTLP_ENDPOINT` | Where to export to. **Tracing stays off while this is unset.** | |
-| `OTEL_EXPORTER_OTLP_PROTOCOL` | `grpc` or `http/protobuf` | `grpc` |
-| `OTEL_SERVICE_NAME` | Service name on the exported spans | |
-| `OTEL_SDK_DISABLED` | `true` turns tracing off even with an endpoint configured | `false` |
+| Variable                      | Meaning                                                        | Default |
+|-------------------------------|----------------------------------------------------------------|---------|
+| `OTEL_EXPORTER_OTLP_ENDPOINT` | Where to export to. **Tracing stays off while this is unset.** |         |
+| `OTEL_EXPORTER_OTLP_PROTOCOL` | `grpc` or `http/protobuf`                                      | `grpc`  |
+| `OTEL_SERVICE_NAME`           | Service name on the exported spans                             |         |
+| `OTEL_SDK_DISABLED`           | `true` turns tracing off even with an endpoint configured      | `false` |
 
 Sampling and batching use the standard SDK variables (`OTEL_TRACES_SAMPLER`, `OTEL_BSP_*`).
 
