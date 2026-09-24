@@ -129,8 +129,9 @@ yum remove steadybit-agent \
 
 If you want to use additional extensions (e.g. [extension-jvm](https://hub.steadybit.com/extension/com.steadybit.extension_jvm) for attacking Java applications), you can apply the `--extensions` parameter.
 
-<pre><code><strong>./agent-linux.sh --key &#x3C;agent-key> --extensions steadybit-extension-host,steadybit-extension-container,steadybit-extension-http,steadybit-extension-jvm
-</strong></code></pre>
+```shell
+./agent-linux.sh --key <agent-key> --extensions steadybit-extension-host,steadybit-extension-container,steadybit-extension-http,steadybit-extension-jvm
+```
 
 ## Using a single agent across multiple hosts
 

@@ -1,6 +1,6 @@
 # Using Mutual TLS for Extensions
 
-For stronger security, the communication between the agent and extensions can be secured using mutual TLS.&#x20;
+For stronger security, the communication between the agent and extensions can be secured using mutual TLS.
 
 You need to configure a client certificate on the agent, which is used to communicate with the extensions, plus a server certificate and client CAs on the extension to verify that client certificate.
 
