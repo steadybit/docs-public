@@ -1,50 +1,84 @@
 # OpenTelemetry Integration
 
-For every experiment run, Steadybit collects distributed tracing spans using [OpenTelemetry](https://opentelemetry.io/) across the Steadybit platform and agents. Access to this data benefits users, extension authors and Steadybit maintainers alike. Here are some scenarios as part of which you might access this data:
+The Steadybit agent and extensions are instrumented with [OpenTelemetry](https://opentelemetry.io/). Once you point them at your own OTLP endpoint, every experiment run produces distributed traces in your tracing backend, such as Grafana Tempo, Jaeger, Zipkin, or Datadog. Here are some scenarios in which this data helps:
 
-* Your organization is interested in Steadybit, and you are in the process of building trust in the solution. As part of this, you want to understand what is happening as part of experiments – including the nitty-gritty details.
+* Your organization is evaluating Steadybit, and you want to understand what is happening during experiments — including the nitty-gritty details.
 * You are developing an extension, and something went wrong. You want to know precisely how your extension was called, the parameters, and how it responded.
-* You want to correlate experiment runs with other monitoring and observability data, e.g., in your Jaeger or Zipkin installations.
-* Something went wrong, and you need help from Steadybit's support staff to resolve the situation. Attach the distributed tracing data to give them context.
+* You want to correlate experiment runs with your other monitoring and observability data.
+* Something went wrong, and you need help from Steadybit's support staff to resolve the situation. Share the run's trace to give them context.
 
-As the following sections show, Steadybit enables the collection of this data automatically for simple use cases. However, you can instruct the Steadybit agents to report this data to your observability pipeline. This document explains both approaches.
+Steadybit does not store traces itself: they go only to the backend you configure.
 
 ![Trace encompassing the Steadybit platform and three Steadybit agents in Jaeger](<../../../.gitbook/assets/Screenshot 2023-04-12 at 11.47.53.png>)
 
-## Download through the Experiment Run View
+## Find a Run's Traces
 
-Steadybit collects and persists distributed tracing data across its platform and agents without further configuration for every experiment run. This is the simplest way to get started – and the option relevant to most customers.
+Every span of an experiment run carries an `experiment.execution.id` attribute holding the run's ID. The **Tracing** tab of the experiment run view shows that ID together with ready-to-copy queries for common backends:
 
-You can download the distributed tracing data as multiple [OTLP JSON files](https://opentelemetry.io/docs/reference/specification/protocol/). The UI explains importing and inspecting this data within the open-source tool [Jaeger](https://www.jaegertracing.io/).
+| Backend                 | Query                                        |
+|-------------------------|----------------------------------------------|
+| Grafana Tempo (TraceQL) | `{ span.experiment.execution.id = "<id>" }`  |
+| Jaeger (tag)            | `experiment.execution.id=<id>`               |
+| Datadog                 | `@experiment.execution.id:<id>`              |
 
-Distributed tracing data for experiments is retained for 28 days within the Steadybit platform.
+Tracing backends search a time window rather than all history, so make sure the window covers the run. A matching span belongs to a trace that spans the agent and the extensions it called, so opening any result shows the whole call — including what happened inside the extension.
 
-![Downloading a zip file containing distributed tracing data through the experiment run view](../../../.gitbook/assets/traces-download.png)
+## Export OpenTelemetry Data
 
-## Exporting OpenTelemetry Data
-
-_**Note: OpenTelemetry data export is currently an experimental capability.**_
-
-It can be helpful to have Steadybit observability data within your systems. Steadybit agents can be instructed to export distributed tracing data to OpenTelemetry-compatible systems.
-
-This section explains how to configure the Steadybit agents to achieve this. To validate the configuration, the section contains optional guidance on how to set up a local Jaeger instance, a local Zipkin instance and an OpenTelemetry collector.
+Tracing is off by default. Each component exports on its own, configured through the standard OpenTelemetry environment variables, so enable it for the agent and for every extension whose spans you want to see.
 
 ### Agent Configuration
 
-The Steadybit agent internally leverages the OpenTelemetry SDK auto-configuration module. Consequently, all of the [module's configuration parameters](https://github.com/open-telemetry/opentelemetry-java/blob/v1.24.0/sdk-extensions/autoconfigure/README.md#sampler) are supported. This section only shows the most basic configuration to achieve data export.
-
-The configuration parameters are set through environment variables, as the following `shell` snippet shows. You may also pass these environment variables when deploying the agent through any other mechanism, e.g., Helm charts.
+The Steadybit agent uses the [OpenTelemetry SDK auto-configuration module](https://opentelemetry.io/docs/languages/java/configuration/), so all of its configuration parameters are supported. Setting `OTEL_JAVA_GLOBAL_AUTOCONFIGURE_ENABLED=true` switches tracing on. Without it, the agent records nothing but still passes the trace context on to the extensions it calls.
 
 ```bash
-# enable the auto-configuration mechanism
-export JAVA_OPTS="-Dotel.java.global-autoconfigure.enabled=true"
+# switch tracing on
+export OTEL_JAVA_GLOBAL_AUTOCONFIGURE_ENABLED="true"
 # Name the service. You most likely want to keep it as 'steadybit-agent'
 export OTEL_SERVICE_NAME="steadybit-agent"
-# Define where to export the data to.
+# Define where to export the data to. The agent defaults to OTLP over gRPC.
 export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4317"
-# The Steadybit agent does not currently expose any metrics through OpenTelemetry.
+# The Steadybit agent does not expose any metrics through OpenTelemetry.
 export OTEL_METRICS_EXPORTER="none"
 ```
+
+When you install the agent with the `steadybit-agent` Helm chart, pass the same variables through `agent.env`:
+
+```yaml
+agent:
+  env:
+    - name: OTEL_JAVA_GLOBAL_AUTOCONFIGURE_ENABLED
+      value: "true"
+    - name: OTEL_SERVICE_NAME
+      value: "steadybit-agent"
+    - name: OTEL_EXPORTER_OTLP_ENDPOINT
+      value: "http://otel-collector:4317"
+    - name: OTEL_METRICS_EXPORTER
+      value: "none"
+```
+
+To switch tracing off again, remove `OTEL_JAVA_GLOBAL_AUTOCONFIGURE_ENABLED` or set `OTEL_SDK_DISABLED=true`.
+
+### Extension Configuration
+
+Extensions built on [extension-kit](https://github.com/steadybit/extension-kit) export as soon as an OTLP endpoint is configured. Unlike the agent, they default to OTLP over HTTP, so set `OTEL_EXPORTER_OTLP_PROTOCOL=grpc` when you point them at a gRPC port such as 4317 — otherwise nothing is exported. With the Helm chart, set the variables through each extension's `extraEnv`:
+
+```yaml
+extension-host:
+  extraEnv:
+    - name: OTEL_EXPORTER_OTLP_ENDPOINT
+      value: "http://otel-collector:4317"
+    - name: OTEL_EXPORTER_OTLP_PROTOCOL
+      value: "grpc"
+    - name: OTEL_SERVICE_NAME
+      value: "extension-host"
+```
+
+`OTEL_SDK_DISABLED=true` switches an extension's tracing off even when an endpoint is configured. See the [extension-kit README](https://github.com/steadybit/extension-kit#opentelemetry-tracing) for details.
+
+### On-Prem Platform
+
+An on-prem platform can export its own spans the same way as the agent: set `OTEL_JAVA_GLOBAL_AUTOCONFIGURE_ENABLED=true` and the `OTEL_*` variables on the platform. Its spans then join the agent's and extensions' in the same traces.
 
 ### Sample Jaeger and OpenTelemetry Collector Setup
 
