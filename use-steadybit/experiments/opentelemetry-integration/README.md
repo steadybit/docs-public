@@ -2,7 +2,7 @@
 
 The Steadybit agent and extensions are instrumented with [OpenTelemetry](https://opentelemetry.io/). Once you point them at your own OTLP endpoint, every experiment run produces distributed traces in your tracing backend, such as Grafana Tempo, Jaeger, Zipkin, or Datadog. Here are some scenarios in which this data helps:
 
-* Your organization is evaluating Steadybit, and you want to understand what is happening during experiments — including the nitty-gritty details.
+* Your organization is evaluating Steadybit, and you want to understand what is happening during experiments, including the nitty-gritty details.
 * You are developing an extension, and something went wrong. You want to know precisely how your extension was called, the parameters, and how it responded.
 * You want to correlate experiment runs with your other monitoring and observability data.
 * Something went wrong, and you need help from Steadybit's support staff to resolve the situation. Share the run's trace to give them context.
@@ -21,7 +21,7 @@ Every span of an experiment run carries an `experiment.execution.id` attribute h
 | Jaeger (tag)            | `experiment.execution.id=<id>`               |
 | Datadog                 | `@experiment.execution.id:<id>`              |
 
-Tracing backends search a time window rather than all history, so make sure the window covers the run. A matching span belongs to a trace that spans the agent and the extensions it called, so opening any result shows the whole call — including what happened inside the extension.
+Tracing backends search a time window rather than all history, so make sure the window covers the run. A matching span belongs to a trace that spans the agent and the extensions it called, so opening any result shows the whole call, including what happened inside the extension.
 
 ## Export OpenTelemetry Data
 
@@ -61,7 +61,7 @@ To switch tracing off again, remove `OTEL_JAVA_GLOBAL_AUTOCONFIGURE_ENABLED` or 
 
 ### Extension Configuration
 
-Extensions built on [extension-kit](https://github.com/steadybit/extension-kit) export as soon as an OTLP endpoint is configured. Unlike the agent, they default to OTLP over HTTP, so set `OTEL_EXPORTER_OTLP_PROTOCOL=grpc` when you point them at a gRPC port such as 4317 — otherwise nothing is exported. With the Helm chart, set the variables through each extension's `extraEnv`:
+Extensions built on [extension-kit](https://github.com/steadybit/extension-kit) export as soon as an OTLP endpoint is configured. Unlike the agent, they default to OTLP over HTTP, so set `OTEL_EXPORTER_OTLP_PROTOCOL=grpc` when you point them at a gRPC port such as 4317. Otherwise, nothing is exported. With the Helm chart, set the variables through each extension's `extraEnv`:
 
 ```yaml
 extension-host:
