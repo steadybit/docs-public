@@ -10,9 +10,9 @@ Boiling down to a set of targets can result in complex statements. For instance,
 
 <figure><img src="../../.gitbook/assets/query-ui-and-language.png" alt=""><figcaption><p>The same query can be expressed with the Query UI on the left and the Query Language on the right</p></figcaption></figure>
 
-When introducing the Query Language, we added a new tab to the already known query UI. Clicking it will switch the edit mode to the Query Language. The already configured query will be translated into the textual form and rendered within the text editor. You can go ahead and write your own query expressions there. Like the Query UI, the editor will provide you with auto-completion on available keys and values.&#x20;
+When introducing the Query Language, we added a new tab to the already known query UI. Clicking it will switch the edit mode to the Query Language. The already configured query will be translated into the textual form and rendered within the text editor. You can go ahead and write your own query expressions there. Like the Query UI, the editor will provide you with auto-completion on available keys and values.
 
-Please note that the Query UI is limited with regard to the queries you can write. For instance, one cannot express a query like `(a="b" AND d="e") OR f="g"` with the Query UI. The interface will tell you when the query can only be edited with the language editor.&#x20;
+Please note that the Query UI is limited with regard to the queries you can write. For instance, one cannot express a query like `(a="b" AND d="e") OR f="g"` with the Query UI. The interface will tell you when the query can only be edited with the language editor.
 
 <figure><img src="../../.gitbook/assets/query-too-complex.png" alt=""><figcaption><p>Complex queries can only be edited in the Query language editor.</p></figcaption></figure>
 

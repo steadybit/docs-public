@@ -201,7 +201,7 @@ You can use an LDAP server for [authentication and synchronization](ldap-integra
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_SEARCH_FILTER`  |          | <p>The filter for the groupOfNames/groupOfUniqueNames for the teams<br><strong>Example:</strong> <code>ou=teams,ou=groups,dc=steadybit,dc=com</code></p>                          |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_KEY_ATTRIBUTE`  |          | <p>The name of the LDAP attribute to use as Team key<br><strong>Example:</strong> <code>cn</code></p>                                                                             |
 | `STEADYBIT_AUTH_LDAP_SYNC_TEAM_NAME_ATTRIBUTE` |          | <p>The name of the LDAP attribute to use as Team name<br><strong>Example:</strong> <code>description</code></p>                                                                   |
-| `STEADYBIT_AUTH_LDAP_SYNC_CRON`                |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 &#42;/2 ? * * *</code> (every two hours)</p>                     |
+| `STEADYBIT_AUTH_LDAP_SYNC_CRON`                |          | <p>Cron Expression which defines the periods for the LDAP synchronization<br><strong>Default:</strong> <code>0 0 */2 ? * * *</code> (every two hours)</p>                         |
 
 ## OpenID Connect Authentication
 
