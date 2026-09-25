@@ -59,7 +59,7 @@ curl -X 'POST' \
   'https://platform.steadybit.com/api/access-tokens/v2' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: accessToken <admin-token>' \
+  -H 'Authorization: Bearer <admin-token>' \
   -d '{
   "name": "CI/CD access token",
   "type": "TEAM",
@@ -120,7 +120,11 @@ We provide an [OpenAPI 3.0 Specification for the API](https://platform.steadybit
 
 ### Requests and Responses
 
-All API requests require an access token, passed via the `Authorization` header in the format `Authorization: accessToken <token>`.
+All API requests require an access token, passed via the `Authorization` header in the standard bearer format `Authorization: Bearer <token>`. HTTP clients, API tools, and generated SDKs support this format out of the box.
+
+{% hint style="info" %}
+The legacy format `Authorization: accessToken <token>` is still supported, so existing scripts and pipelines keep working. On-prem installations running an older platform version accept only the legacy format.
+{% endhint %}
 
 Where applicable, request and response bodies are JSON or YAML, depending on the `Content-Type` and `Accept` headers you send. Success or failure of an API call is expressed via the HTTP status code.
 
@@ -133,7 +137,7 @@ In this case, the `Retry-After` response header contains the number of seconds t
 ```bash
 curl \
  -v \
- -H "Authorization: accessToken <token>"\
+ -H "Authorization: Bearer <token>"\
  -H "Accept: application/json"\
  https://platform.steadybit.com/api/<endpoint>
 [...]
@@ -153,7 +157,7 @@ This is how you can create an experiment. The example uses YAML; JSON is support
 curl \
   -i \
   -H 'Content-Type: application/x-yaml' \
-  -H 'Authorization: accessToken <token>' \
+  -H 'Authorization: Bearer <token>' \
   https://platform.steadybit.com/api/experiments \
   --data '
 ---
@@ -193,7 +197,7 @@ You can then run the experiment:
 curl \
   -i \
   -X POST \
-  -H 'Authorization: accessToken <token>' \
+  -H 'Authorization: Bearer <token>' \
   https://platform.steadybit.com/api/experiments/ADM-1/execute
 ```
 
