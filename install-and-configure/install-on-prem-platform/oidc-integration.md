@@ -68,6 +68,21 @@ If the IdP returns team names in a claim called `mygroups`, configure:
 STEADYBIT_AUTH_OAUTH2_CLAIMS_TEAM_NAME_ATTRIBUTE_NAME=mygroups
 ```
 
+#### Team Key Pattern
+
+By default the team key is the first 16 characters of the claim value. If your group names share a long common prefix (for example `steadybit-team-platform` and `steadybit-team-payments`), the first 16 characters collide and both groups would map to the same team. Configure a regular expression whose first capture group selects the part of the group name that should become the team key:
+
+```
+STEADYBIT_AUTH_OAUTH2_TEAM_KEY_PATTERN=^steadybit-team-(.+)$
+```
+
+- The captured text is uppercased, runs of characters other than letters, digits and `_` are replaced by `_`, and the result is cut to 16 characters.
+- The pattern is matched with "find" semantics, so an unanchored pattern matches anywhere in the value. Anchor it with `^` and `$` to require a full match.
+- The pattern is compiled in DOTALL mode, so `.` also matches line breaks inside a group name.
+- Claim entries the pattern does not match are ignored and do not create a team, so the pattern also restricts synchronization to a subset of the groups your IdP returns.
+- The default is `^(.{0,16})`. Changing the pattern changes the keys derived for existing groups: the next login creates the teams anew under the new keys and removes the user's OIDC-managed memberships from the teams under the old keys. The old teams themselves, and any experiments they own, are kept, but nobody is assigned to them by OIDC anymore. Decide on the pattern before teams have accumulated experiments, or move the experiments afterwards.
+- The same option exists for LDAP synchronization as `STEADYBIT_AUTH_LDAP_SYNC_TEAM_KEY_PATTERN`. Note that LDAP synchronization deletes previously synchronized teams whose keys no longer appear in the directory, so changing the pattern there deletes the teams under the old keys together with their experiments.
+
 #### Scoping
 
 If the claim used for team association is not included by default, request it via the scope parameter in your OIDC configuration.
@@ -86,7 +101,7 @@ During authentication, the platform inspects the returned OIDC ID token for the 
 
 1. Read the configured claim from the ID token and validate that it is an array of strings.
 2. For each team key:
-   - The team key is derived from the claim value: the first 16 characters, uppercased (for example, `"my-developers"` becomes `MY-DEVELOPERS`).
+   - The team key is derived from the claim value: by default the first 16 characters, with runs of characters other than letters, digits and `_` replaced by `_` and the result uppercased (for example, `"my-developers"` becomes `MY_DEVELOPERS`). The full claim value is used as the team name. See [Team key pattern](#team-key-pattern) to change how the key is extracted.
    - Look up the corresponding team in Steadybit.
    - If the team does not exist, create it.
    - Assign the authenticated user to the team with the role `member`.
