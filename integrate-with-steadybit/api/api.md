@@ -145,6 +145,26 @@ curl \
 [...]
 ```
 
+#### Concurrent Updates
+
+Experiments, experiment templates, teams, environments, services, service profiles, and webhook, Slack, and preflight integrations carry a `version` that increases with every change. Responses always include it, and an update returns the version it saved.
+
+Sending the `version` in an update is optional:
+
+* Without it, the update applies to the current state, and the last write wins.
+* With it, the update is rejected with `409 Conflict` when the resource changed after you read that version. Read the resource again, apply your change to it, and send it with the new version.
+
+Updating an experiment from its template, via `POST /api/experiments/templates/{id}/experiment-update/{key}`, accepts the experiment's `version` the same way.
+
+```bash
+curl \
+  -i \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: accessToken <token>' \
+  https://platform.steadybit.com/api/experiments/ADM-1 \
+  --data '{"version": 3, "name": "Experiment API Test", "team": "ADM", "environment": "Global", "lanes": [{"steps": [{"type": "wait", "parameters": {"duration": "10s"}}]}]}'
+```
+
 ### Example: Create Experiment
 
 This is how you can create an experiment. The example uses YAML; JSON is supported as well:
