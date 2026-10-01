@@ -28,6 +28,8 @@ Alternatively:
 
 {% hint style="info" %}
 Up to version 5, the CLI was an npm package. That package is no longer updated: uninstall it with `npm uninstall -g steadybit` and install the CLI as above. Commands, flags, and profiles in `~/.steadybit` keep working.
+
+The `steadybit/run-experiment` GitHub Action is deprecated in favor of the CLI, which does everything it does. Each of its inputs has an `experiment run` flag: see [moving from steadybit/run-experiment](https://github.com/steadybit/cli#moving-from-steadybitrun-experiment).
 {% endhint %}
 
 ## Authentication
