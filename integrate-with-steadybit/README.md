@@ -6,7 +6,7 @@ Steadybit is highly flexible, and you can seamlessly integrate it into your use 
 
 ### Command-Line Interface (CLI)
 
-The CLI is ideal for integrating experiment runs, or advice checks, into your Continuous Integration/Continuous Delivery (CI/CD) pipeline. Under the hood, it uses the platform's [API](./#api). Because the CLI is an npm package, it is agnostic to your actual CI/CD tool in action. [Learn more about the CLI](cli.md).
+The CLI is ideal for running experiments and checking advice in your Continuous Integration/Continuous Delivery (CI/CD) pipeline, and for keeping experiments, templates, schedules, services, and the platform's configuration as files in Git. Under the hood, it uses the platform's [API](./#api). It is a single binary for Linux, macOS, and Windows, also available as a container image and a GitHub Action, so it works with any CI/CD tool. [Learn more about the CLI](cli.md).
 
 ### API
 
@@ -51,11 +51,15 @@ The remaining Extension Kits ([AdviceKit](extensions/extension-kits.md#advicekit
 
 ### CLI vs. API
 
-|     | [Validate advice status](../use-steadybit/explorer/advice.md) | [CRUD of experiments](../use-steadybit/experiments/design.md) | [Run experiments](../use-steadybit/experiments/run.md) | [Use experiment templates](../use-steadybit/experiments/design.md#from-template) | [Schedule Experiments](../use-steadybit/experiments/schedule/) | [Emergency stop](../use-steadybit/experiments/emergencyStop.md) | [Read targets](../use-steadybit/explorer/targets.md) | [Configure Steadybit](#user-content-fn-2)[^2] |
-| --- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------- | --------------------------------------------- |
-| CLI | ✅                                                             | ✅                                                             | ✅                                                      | ❌                                                                                | ❌                                                              | ❌                                                               | ❌                                                    | ❌                                             |
-| API | ✅                                                             | ✅                                                             | ✅                                                      | ✅                                                                                | ✅                                                              | ✅                                                               | ✅                                                    | ✅                                             |
+The CLI covers the same use cases as the API. It runs experiments, checks advice, and triggers the emergency stop. It manages experiments, templates, schedules, services, teams, environments, access tokens, integrations, and the rest of the platform's configuration. It reads targets, reports, and the audit log. Because it calls the API under the hood, the difference is how you work with it:
+
+|                       | CLI                                                                                                                               | API                                                                                                       |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Best for              | CI/CD pipelines and GitOps, one command per step                                                                                  | Your own tools and integrations, in any language                                                          |
+| Setup                 | One binary, a container image, or a GitHub Action                                                                                 | Any HTTP client, or a client generated from the [OpenAPI specification](api/api.md#openapi-specification) |
+| Configuration as code | Files in Git: `apply`, `diff` (exits with 2 on drift), and `export` of a whole team                                               | One JSON or YAML request per resource                                                                     |
+| Running experiments   | Waits for the run, fails the pipeline when the run fails, cancels the run when the pipeline is canceled, and writes JUnit reports | Start the run, then poll its state                                                                        |
+
+A few things are only available through the API: the license report, target statistics, saved landscape views, experiment badges, and searching runs across all experiments.
 
 [^1]: Only when the action is part of the experiment design and is currently running.
-
-[^2]: Administrative functionality like managing [teams and users](../install-and-configure/manage-teams-and-users/), [environments](../install-and-configure/manage-environments/), [experiment templates](../install-and-configure/manage-experiment-templates/), [hub connections](hubs/), and [properties](../install-and-configure/manage-properties/).
