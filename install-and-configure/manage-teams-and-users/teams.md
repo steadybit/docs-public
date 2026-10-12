@@ -34,3 +34,5 @@ Admins or team owners can add members to or remove members from the team, and as
 ## Integrations
 
 Team and team member management can be automated by the [OIDC Integration](../install-on-prem-platform/oidc-integration.md) and [LDAP Integration](../install-on-prem-platform/ldap-integration.md).
+
+To keep teams, their permissions, and members in Git and apply them from a pipeline, see [Manage Teams and Environments as Code](manage-as-code.md).

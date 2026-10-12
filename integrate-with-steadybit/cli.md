@@ -58,4 +58,6 @@ steadybit diff -d ./chaos                 # what differs from the platform; exit
 steadybit apply -d ./chaos                # create or update them on the platform
 ```
 
+Teams, environments, and the rest of the tenant's configuration can be kept in Git the same way: see [Manage Teams and Environments as Code](../install-and-configure/manage-teams-and-users/manage-as-code.md).
+
 Every command documents its options and examples in `--help`, for example `steadybit experiment run --help`. The [README](https://github.com/steadybit/cli#readme) covers everything else, including GitLab CI and shell completion.
