@@ -21,7 +21,7 @@ You must enter a **key** for the team consisting of one to eight characters. The
 Each experiment and each [service](../../use-steadybit/services/README.md) belongs to exactly one team:
 
 * **Experiments** — including their runs and schedules. Admins and team owners can [share an experiment with other teams](../../use-steadybit/experiments/share/share-experiment/README.md), so that their members can run and schedule it, too.
-* **Services** — a service stays with the team it was created in and can't be moved to another team later. Admins and owners of that team can create and edit its services. Team members can run the service's experiments, link custom experiments, and validate advice.
+* **Services** — a service stays with the team it was created in and can't be moved to another team later. Admins and owners of that team can create and edit its services. Team members can create and run the service's provided experiments, link custom experiments, and validate advice.
 
 Other things are scoped to teams as well:
 
