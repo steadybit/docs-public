@@ -31,7 +31,7 @@ Keys and values can be compared using `=`, `!=`, `~`, `!~`, `=*`, `!=*`, `~*`, `
 // Simple equals check to get all targets of Kubernetes Cluster 'prod'
 k8s.cluster-name="prod"
 
-// Get all Daemonsets/Deployments/Statefulsets (needs platform >= 2.3.7)
+// Get all Daemonsets/Deployments/Statefulsets
 target.type IN ("com.steadybit.extension_kubernetes.kubernetes-daemonset", "com.steadybit.extension_kubernetes.kubernetes-deployment", "com.steadybit.extension_kubernetes.kubernetes-statefulset")  
 ```
 
@@ -39,7 +39,7 @@ target.type IN ("com.steadybit.extension_kubernetes.kubernetes-daemonset", "com.
 // Not equals check to get all targets not running in the Kubernetes Cluster 'prod'
 k8s.cluster-name!="prod"
 
-// Get all targets that are not a Daemonset/Deployment/Statefulset (needs platform >= 2.3.7)
+// Get all targets that are not a Daemonset/Deployment/Statefulset
 target.type NOT IN ("com.steadybit.extension_kubernetes.kubernetes-daemonset", "com.steadybit.extension_kubernetes.kubernetes-deployment", "com.steadybit.extension_kubernetes.kubernetes-statefulset")  
 ```
 
