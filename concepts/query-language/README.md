@@ -2,17 +2,22 @@
 
 ## What is the Query Language?
 
-There are some use cases where you want to restrict the targets discovered by Steadybit. One use case is that you want to [design an experiment](/use-steadybit/experiments/design.md#basic-elements) and make sure that only targets of a specific Kubernetes cluster are affected by the experiment. Another use case is that you want to restrict the available targets when [configuring an environment](/install-and-configure/manage-environments/#define-your-own-environment).
+A query selects targets from Steadybit's [discovery data](../discovery/) by their attributes. You use queries wherever targets need to be narrowed down: in an [environment's scope](/install-and-configure/manage-environments/#define-environment-scope), a service's target scope, an experiment's [blast radius](/use-steadybit/experiments/design.md#basic-elements), and the target explorer.
 
-Boiling down to a set of targets can result in complex statements. For instance, you want to make sure that the targets are matching some sets of key-value pairs but also not in your production cluster. Expressions like these can now easily be written in Steadybit's Query Language. The Query Language is a textual representation of the Query UI but with a more advanced feature set. It allows you to build semantic expression blocks, combining them with other expressions or negating them. The Query UI and the Query Language always come together, so it is up to you to choose the style.
+You can write a query in two ways:
+
+* **Query UI** (default): pick keys and values from dropdowns. All conditions are combined with `AND`, which covers simple queries like "cluster `prod`, namespace `shop`".
+* **Query Language**: write the query as text. It supports everything the Query UI does, plus `OR`, `NOT`, parentheses, partial and case-insensitive matches, lists of values, presence checks, aggregations, and comments.
+
+The rest of this page is about the Query Language.
 
 ## How to switch between the Query UI and the Query Language
 
 <figure><img src="../../.gitbook/assets/query-ui-and-language.png" alt=""><figcaption><p>The same query can be expressed with the Query UI on the left and the Query Language on the right</p></figcaption></figure>
 
-When introducing the Query Language, we added a new tab to the already known query UI. Clicking it will switch the edit mode to the Query Language. The already configured query will be translated into the textual form and rendered within the text editor. You can go ahead and write your own query expressions there. Like the Query UI, the editor will provide you with auto-completion on available keys and values.
+Both editors work on the same query. Switch to the Query Language tab, and the query you built in the Query UI is translated into text, ready to extend. Like the Query UI, the editor offers auto-completion for keys and values.
 
-Please note that the Query UI is limited with regard to the queries you can write. For instance, one cannot express a query like `(a="b" AND d="e") OR f="g"` with the Query UI. The interface will tell you when the query can only be edited with the language editor.
+The Query UI can only show queries that combine conditions with `AND`. A query like `(a="b" AND d="e") OR f="g"` can only be edited with the Query Language, and the interface tells you when that's the case.
 
 <figure><img src="../../.gitbook/assets/query-too-complex.png" alt=""><figcaption><p>Complex queries can only be edited in the Query language editor.</p></figcaption></figure>
 
