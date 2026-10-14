@@ -24,7 +24,11 @@ To create or change an environment go to `/settings/environments` and choose to 
 
 With the query UI, you can build regular queries which are connected with an AND expression. For most use cases that is sufficient. Sometimes, though, you need more control over the query — for instance, to check whether a key-value pair exists at all, or to match everything except one specific attribute, e.g. `cluster.name="prod"`. Queries like that can easily be written with the Query Language. For detailed information, please [visit the query language documentation](../../concepts/query-language/).
 
-#### Examples
+Finally, don't forget to assign the environment to a team and give it a meaningful name. That's it, you are ready to use that environment in an experiment!
+
+![Create a new environment](../../.gitbook/assets/new_environment.png)
+
+#### Example Scopes
 
 A good environment scope always answers two questions: **which stage** (e.g. staging or production) and **which part of the infrastructure** the team is responsible for. Typically, you'll create one environment per team and stage, using the same query for the team's part and changing only the stage.
 
@@ -74,10 +78,6 @@ OR host.hostname~"shop-stg-"
 ```
 
 Queries like this can only be edited with the Query Language, not the Query UI. Check every `OR` branch for the stage: a branch without one, e.g. `host.hostname~"shop-"`, would pull production targets into a staging environment.
-
-Finally, don't forget to assign the environment to a team and give it a meaningful name. That's it, you are ready to use that environment in an experiment!
-
-![Create a new environment](../../.gitbook/assets/new_environment.png)
 
 ### Use Environments
 
