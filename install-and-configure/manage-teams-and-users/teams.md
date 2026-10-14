@@ -4,7 +4,7 @@ title: Teams
 
 # Teams
 
-Teams are the grouping element for multiple users. Each team consists of multiple users and has its own permissions for environments and attacks, allowing fine-grained access control for your experiments. Creating teams requires the `admin` permission. A team can also have owners, who manage the team and its members.
+Teams are the grouping element for multiple users. Each team consists of multiple users and has its own permissions for environments and attacks, allowing fine-grained access control for your experiments and services. Creating teams requires the `admin` permission. A team can also have owners, who manage the team and its members.
 
 ## Default Team: Administrators
 
@@ -15,6 +15,12 @@ By default, one team is created called `Administrators` (key: `ADM`). It contain
 In the create dialog, you first enter a **name** for the team. The name can be edited after creation by admins or team owners.
 
 You must enter a **key** for the team consisting of one to eight characters. The key cannot be changed after the creation. Each experiment belonging to this team is assigned an identifier with the team key as a prefix.
+
+## What Belongs to a Team
+
+Each experiment and each [service](../../use-steadybit/services/README.md) belongs to exactly one team.
+
+A service belongs to the team it was created in and stays with that team — it can't be moved to another team later. Admins and owners of that team can create and edit its services. Team members can run the service's experiments, link custom experiments, and validate advice.
 
 ## Permissions
 
