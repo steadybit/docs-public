@@ -18,9 +18,16 @@ You must enter a **key** for the team consisting of one to eight characters. The
 
 ## What Belongs to a Team
 
-Each experiment and each [service](../../use-steadybit/services/README.md) belongs to exactly one team.
+Each experiment and each [service](../../use-steadybit/services/README.md) belongs to exactly one team:
 
-A service belongs to the team it was created in and stays with that team — it can't be moved to another team later. Admins and owners of that team can create and edit its services. Team members can run the service's experiments, link custom experiments, and validate advice.
+* **Experiments** — including their runs and schedules. Admins and team owners can [share an experiment with other teams](../../use-steadybit/experiments/share/share-experiment/README.md), so that their members can run and schedule it, too.
+* **Services** — a service stays with the team it was created in and can't be moved to another team later. Admins and owners of that team can create and edit its services. Team members can run the service's experiments, link custom experiments, and validate advice.
+
+Other things are scoped to teams as well:
+
+* **Saved views** in the [Landscape](../../use-steadybit/explorer/landscape.md#saved-views) are shared with the members of your team.
+* **Team and wildcard [access tokens](../../integrate-with-steadybit/api/api.md#token-types)** grant access to the experiments and operations of their teams.
+* **[Webhooks](../../integrate-with-steadybit/webhooks/custom-webhooks.md), [preflight webhooks](../../integrate-with-steadybit/webhooks/preflight-webhooks.md), [preflight actions](../../integrate-with-steadybit/preflightactions/preflight-actions.md), and [Slack notifications](../../integrate-with-steadybit/slack-notifications.md)** can be restricted to a single team. Without a team, they apply to all teams.
 
 ## Permissions
 
