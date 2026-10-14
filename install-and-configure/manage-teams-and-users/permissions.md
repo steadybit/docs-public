@@ -30,7 +30,7 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 ## Doing Chaos Engineering
 | Permission/Role                                                                                           | Admin | Team Owner | Team Member | Shared-with Team Member[^4]  | Any Authenticated User |
 |-----------------------------------------------------------------------------------------------------------|-------|------------|-------------|------------------------------|------------------------|
-| [Work within services](/use-steadybit/services/)                                                          | ✅     | ✅          | ❌           | ❌                            | ❌                      |
+| [Work within services](/use-steadybit/services/)[^6]                                                      | ✅     | ✅          | ✅           | ❌                            | ❌                      |
 | [Design experiments](/use-steadybit/experiments/design.md)                                                | ✅     | ✅          | ✅           | ❌                            | ❌                      |
 | [Share Experiment](/use-steadybit/experiments/share/share-experiment/)                                    | ✅     | ✅          | ❌           | ❌                            | ❌                      |
 | [Run](/use-steadybit/experiments/run.md), and [schedule experiments](/use-steadybit/experiments/schedule) | ✅     | ✅          | ✅           | ✅                            | ❌                      |
@@ -48,3 +48,5 @@ The roles in Steadybit are associated with permissions, which cannot be altered.
 [^4]: A member of a team that an experiment has been [shared with](/use-steadybit/experiments/share/share-experiment/)
 
 [^5]: A shared-with team member can edit the properties of a run, but not the properties of the design
+
+[^6]: Within the services of their team, members can create and run provided experiments, link custom experiments, and validate advice. Which provided experiments a service offers is defined by its [service profile](/install-and-configure/manage-service-profiles/), and changing a service's profile requires [managing the service](/use-steadybit/services/#managing-services)
