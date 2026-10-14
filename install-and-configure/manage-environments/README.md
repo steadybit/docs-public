@@ -22,7 +22,14 @@ To create or change an environment go to `/settings/environments` and choose to 
 
 ### Define Environment Scope
 
-With the query UI, you can build regular queries which are connected with an AND expression. For most use cases that is sufficient. Sometimes, though, you need more control over the query — for instance, to check whether a key-value pair exists at all, or to match everything except one specific attribute, e.g. `cluster.name="prod"`. Queries like that can easily be written with the Query Language. For detailed information, please [visit the query language documentation](../../concepts/query-language/).
+The environment scope is a query over the [discovery data](../../concepts/discovery/) that decides which targets belong to the environment. It describes the targets by their attributes rather than listing them one by one, so the environment keeps up with your system: a new pod in the team's namespace joins automatically, and a target that no longer matches leaves. Experiments in the environment can only ever attack targets inside its scope, which makes the scope the safety boundary for every team using the environment.
+
+You can write the scope in two ways:
+
+* **Query UI** (default): pick keys and values from dropdowns. All conditions are combined with `AND`, which is enough for simple scopes like one namespace in one cluster.
+* **Query Language**: write the query as text, with auto-completion for keys and values. On top of what the Query UI offers, it supports `OR`, `NOT`, parentheses, partial and case-insensitive matches, lists of values, presence checks, and comments. As soon as a scope spans more than one part of your system — like the combined example below — you need the Query Language.
+
+For the full syntax, see the [Query Language documentation](../../concepts/query-language/).
 
 Finally, don't forget to assign the environment to a team and give it a meaningful name. That's it, you are ready to use that environment in an experiment!
 
