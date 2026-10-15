@@ -12,7 +12,8 @@ Steadybit implements SCIM 2.0 (RFC 7643 and RFC 7644) and is tested with **Okta*
 ## Requirements
 
 - **License:** SCIM is a license feature. Contact your Steadybit account team to have it added to your license.
-- **Single sign-on on SaaS:** on Steadybit SaaS, your users must sign in through your identity provider. Steadybit sets up this connection for your tenant; ask your Steadybit contact. Steadybit accepts a SCIM token only after an admin has signed in through that connection once. On-prem installations need no extra setup.
+- **Single sign-on on SaaS:** on Steadybit SaaS, your users must sign in through your identity provider. Steadybit sets up this connection for your tenant; ask your Steadybit contact. Steadybit accepts a SCIM token only after an admin has signed in through that connection once.
+- **Reachable from your identity provider (on-prem):** your identity provider must reach `https://<your platform host>/scim/v2` over HTTPS. Cloud identity providers such as Okta and Entra call it from the internet; if your installation is not reachable from there, use your identity provider's on-prem provisioning agent, e.g. the Microsoft Entra provisioning agent.
 
 ## Set Up SCIM
 
@@ -74,6 +75,8 @@ Back on **Settings → SCIM**, decide what your identity provider's groups mean.
 
 As your identity provider has already sent its groups, the page previews what saving would change: which teams the groups would create or take over, who would become an admin, and whether you would lose your own admin role. Groups that match neither setting stay without effect.
 
+How the team key is derived from a group name: Steadybit takes the pattern's first capture group, turns every run of characters other than letters, digits, and `_` into a single `_`, upper-cases the result, and cuts it to 16 characters. With `^steadybit-team-(.+)$`, the group `steadybit-team-data.platform` becomes the team `DATA_PLATFORM`. A group whose key would be `ADM`, or that does not match the pattern, becomes no team. Without a pattern, no group becomes a team.
+
 ## What Is Supported
 
 | Area                 | Supported                                                                                                                                 |
@@ -109,7 +112,9 @@ As your identity provider has already sent its groups, the page previews what sa
 | A group matches neither setting                          | Nothing happens. The SCIM page lists it as not mapped.                                                                                                                                                                              |
 | A group would map to the Administrators team (`ADM`)     | It is not mapped. Only the admin group fills the Administrators team.                                                                                                                                                               |
 
-In Steadybit, a team managed by SCIM cannot be renamed or deleted, its SCIM members cannot be removed, and nobody can be added to it by hand — add people to the group in your identity provider instead. Members the team had before SCIM took it over stay as members you manage in Steadybit: SCIM leaves them alone, and the SCIM page shows how many there are.
+In Steadybit, a team managed by SCIM cannot be renamed or deleted, its SCIM members cannot be removed, and nobody can be added to it by hand — add people to the group in your identity provider instead. Members the team had before SCIM took it over stay as members you manage in Steadybit: SCIM leaves them alone, and the SCIM page shows how many there are. Admins can still change the team's allowed actions, environments, and logo, and the role of its members, e.g. make someone an owner.
+
+Nothing on a team is lost: when SCIM takes a team over or its group is deleted, the team keeps its experiments, schedules, and settings. When someone leaves, the experiments they created stay with their team.
 
 Changing the team-key pattern maps only groups that are not mapped yet. A group that already backs a team keeps it, even if its name no longer matches, so a typo in the pattern never takes people out of their teams.
 
@@ -117,7 +122,13 @@ Changing the team-key pattern maps only groups that are not mapped yet. A group 
 
 - **Without an admin group,** SCIM does not manage roles. Provisioned users start as `user`, and admins change roles on the Users page.
 - **With an admin group,** members of the group are `admin`, and every other provisioned user is `user`. Their roles cannot be changed in Steadybit. Removing the admin group from the settings hands the roles back: everyone keeps the role they have, and you manage it in Steadybit again.
-- **The last admin always stays an admin.** If a change would leave your tenant without an admin, Steadybit keeps that user's admin role.
+- **Losing the admin role takes effect at once:** the user is signed out, and their admin access tokens are deleted.
+- **The last admin always stays an admin.** If a change would leave your tenant without an admin, Steadybit keeps that user's admin role. As soon as someone else is in the admin group, that user becomes a `user` too.
+
+### Single Sign-On and SCIM
+
+- **SCIM decides who has access, single sign-on how people sign in.** While SCIM is on, signing in no longer adds anyone to your tenant or changes their teams. Teams that sign-ins created from a groups claim stay as they are, unless a SCIM group maps to the same team key and takes them over; the members the sign-ins added then stay as members you manage in Steadybit.
+- **A sign-in has to find its provisioned user.** Steadybit looks the user up by user name first and by email second. Provision the user name people sign in with — the default mappings do (Okta: `userName`, Entra: `userPrincipalName`) — or make sure the email your identity provider provisions is exactly the one the sign-in sends, including upper and lower case. A sign-in that finds no provisioned user gets an account without access to your tenant.
 
 ### Users and Teams Steadybit Manages
 
