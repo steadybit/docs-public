@@ -146,7 +146,6 @@ The following attacks are available when working with physical hosts and virtual
 | Ubuntu 24.04              | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | Fedora Latest             | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | Debian Bookworm           | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
-| Amazon Linux 2            | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | Amazon Linux 2023         | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ✅                   | ✅         |
 | Windows 11 (x64)          | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ❌                   | ❌         |
 | Windows Server 2022 (x64) | ✅         | ✅             | ✅                         | ✅                      | ✅                     | ✅                        | ❌                   | ❌         |
@@ -164,7 +163,6 @@ Other .exe, .deb and .rpm-based distributions will most likely work, too, but ar
 | Ubuntu 24.04              | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
 | Fedora Latest             | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
 | Debian Bookworm           | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
-| Amazon Linux 2            | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
 | Amazon Linux 2023         | ✅         | ✅           | ✅          | ✅         | ✅             | ✅         |
 | Windows 11 (x64)          | ✅         | ✅           | ✅          | ✅         | ❌             | ❌         |
 | Windows Server 2022 (x64) | ✅         | ✅           | ✅          | ✅         | ❌             | ❌         |
@@ -182,7 +180,6 @@ Other .deb and .rpm-based distributions will most likely work, too, but aren't e
 | Ubuntu 24.04              | ✅             | ✅            | ✅           |
 | Fedora Latest             | ✅             | ✅            | ✅           |
 | Debian Bookworm           | ✅             | ✅            | ✅           |
-| Amazon Linux 2            | ✅             | ✅            | ✅           |
 | Amazon Linux 2023         | ✅             | ✅            | ✅           |
 | Windows 11 (x64)          | ✅             | ✅            | ✅           |
 | Windows Server 2022 (x64) | ✅             | ✅            | ✅           |
