@@ -21,10 +21,10 @@ Steadybit implements SCIM 2.0 (RFC 7643 and RFC 7644) and is tested with **Okta*
 
 Go to **Settings → SCIM** in Steadybit. Before you connect your identity provider, decide what its groups mean:
 
-| Setting                           | Effect                                                                                                                                                                                                  |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Group for Admin role assignment   | Members of this group are admins and members of the Administrators team (`ADM`); every other provisioned user is a `user`. Leave it empty to manage roles in Steadybit.                                 |
-| Team-key pattern                  | A regular expression for group names. A group whose name matches becomes a team; the first capture group is the team key, e.g. `^steadybit-team-(.+)$` turns `steadybit-team-payments` into `PAYMENTS`. |
+| Setting                             | Effect                                                                                                                                                                                                    |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Group for Admin role assignment     | Members of this group are admins and members of the Administrators team (`ADM`); every other provisioned user is a `user`. Leave it empty to manage roles in Steadybit.                                   |
+| Team-key pattern                    | A regular expression for group names. A group whose name matches becomes a team; the first capture group is the team key, e.g. `^steadybit-team-(.+)$` turns `steadybit-team-payments` into `PAYMENTS`.   |
 
 The page previews what saving would change, e.g. which teams a group would create and whether you would lose your own admin role. Groups that match neither setting are stored but have no effect.
 
@@ -77,40 +77,40 @@ To provision only some of the users who can sign in, add a **scoping filter** to
 
 ## What Is Supported
 
-| Area             | Supported                                                                                                                    |
-|------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Resources        | `Users` and `Groups`, plus the discovery endpoints `ServiceProviderConfig`, `ResourceTypes`, and `Schemas`                   |
-| Operations       | Create, read, replace (`PUT`), update (`PATCH`, including the request shapes Okta and Entra send), and delete                |
-| Filters          | Users by `userName`, `externalId`, or `emails.value`; groups by `displayName` or `externalId` (`eq`, combined with `and`)    |
-| User attributes  | User name, display name and name parts, email, photo, and active state                                                       |
-| Authentication   | The tenant's SCIM token as a bearer token                                                                                    |
-| Not supported    | Bulk operations, sorting, ETags, and password changes                                                                        |
+| Area               | Supported                                                                                                                      |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| Resources          | `Users` and `Groups`, plus the discovery endpoints `ServiceProviderConfig`, `ResourceTypes`, and `Schemas`                     |
+| Operations         | Create, read, replace (`PUT`), update (`PATCH`, including the request shapes Okta and Entra send), and delete                  |
+| Filters            | Users by `userName`, `externalId`, or `emails.value`; groups by `displayName` or `externalId` (`eq`, combined with `and`)      |
+| User attributes    | User name, display name and name parts, email, photo, and active state                                                         |
+| Authentication     | The tenant's SCIM token as a bearer token                                                                                      |
+| Not supported      | Bulk operations, sorting, ETags, and password changes                                                                          |
 
 ## How Steadybit Behaves
 
 ### Users
 
-| In your identity provider                                          | In Steadybit                                                                                                                                                                                                                |
-|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| A person is assigned                                               | The user is created as a `user` of your tenant. No welcome email is sent; the user signs in through single sign-on.                                                                                                         |
-| A person is assigned who already has a Steadybit account           | The existing account is taken over, matched by user name and otherwise by email. No second account is created.                                                                                                              |
-| Name, email, or photo change                                       | The profile is updated, as long as the user belongs to no other Steadybit tenant. Users cannot change their own name in Steadybit.                                                                                          |
-| A person is unassigned or deactivated                              | The user loses access to your tenant right away: they leave all its teams, their access tokens for the tenant are deleted, and they are signed out. A user who belongs to no other tenant is deleted.                       |
-| The person is assigned again                                       | The user comes back, with the teams of their groups and the role from the admin group.                                                                                                                                      |
-| Someone signs in through single sign-on without being provisioned  | They see a page saying they have no access to your tenant, instead of getting access.                                                                                                                                       |
+| In your identity provider                                            | In Steadybit                                                                                                                                                                                                                  |
+|----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| A person is assigned                                                 | The user is created as a `user` of your tenant. No welcome email is sent; the user signs in through single sign-on.                                                                                                           |
+| A person is assigned who already has a Steadybit account             | The existing account is taken over, matched by user name and otherwise by email. No second account is created.                                                                                                                |
+| Name, email, or photo change                                         | The profile is updated, as long as the user belongs to no other Steadybit tenant. Users cannot change their own name in Steadybit.                                                                                            |
+| A person is unassigned or deactivated                                | The user loses access to your tenant right away: they leave all its teams, their access tokens for the tenant are deleted, and they are signed out. A user who belongs to no other tenant is deleted.                         |
+| The person is assigned again                                         | The user comes back, with the teams of their groups and the role from the admin group.                                                                                                                                        |
+| Someone signs in through single sign-on without being provisioned    | They see a page saying they have no access to your tenant, instead of getting access.                                                                                                                                         |
 
 ### Teams
 
-| In your identity provider                            | In Steadybit                                                                                                                                                                              |
-|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| A group matching the team-key pattern is pushed      | A team with the derived key is created, managed by SCIM. If a team with that key exists, SCIM takes it over; its earlier members stay as members you manage in Steadybit.                 |
-| Members are added to or removed from the group       | They are added to or removed from the team.                                                                                                                                               |
-| The group is renamed                                 | The team is renamed; its key never changes.                                                                                                                                               |
-| The group is deleted or no longer pushed             | The members SCIM added leave the team; the team stays and is managed in Steadybit again. The SCIM page marks it as no longer backed by a group.                                           |
-| A group matches neither setting                      | Nothing happens. The SCIM page lists it as not mapped.                                                                                                                                    |
-| A group would map to the Administrators team (`ADM`) | It is not mapped. Only the admin group fills the Administrators team.                                                                                                                     |
+| In your identity provider                              | In Steadybit                                                                                                                                                                                                                      |
+|--------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| A group matching the team-key pattern is pushed        | A team with the derived key is created, managed by SCIM. If a team with that key exists, SCIM takes it over: earlier members who are in the group become SCIM members, the others stay as members you manage in Steadybit.        |
+| Members are added to or removed from the group         | They are added to or removed from the team.                                                                                                                                                                                       |
+| The group is renamed                                   | The team is renamed; its key never changes.                                                                                                                                                                                       |
+| The group is deleted or no longer pushed               | The group's members leave the team, including earlier members who were in the group too; the other earlier members stay. The team stays and is managed in Steadybit again. The SCIM page marks it as no longer backed by a group. |
+| A group matches neither setting                        | Nothing happens. The SCIM page lists it as not mapped.                                                                                                                                                                            |
+| A group would map to the Administrators team (`ADM`)   | It is not mapped. Only the admin group fills the Administrators team.                                                                                                                                                             |
 
-In Steadybit, a team managed by SCIM cannot be renamed, and its SCIM members cannot be removed. You can still add members by hand; SCIM leaves them alone, and the SCIM page shows how many there are.
+In Steadybit, a team managed by SCIM cannot be renamed or deleted, its SCIM members cannot be removed, and nobody can be added to it by hand — add people to the group in your identity provider instead. Members the team had before SCIM took it over stay as members you manage in Steadybit: SCIM leaves them alone, and the SCIM page shows how many there are.
 
 Changing the team-key pattern maps only groups that are not mapped yet. A group that already backs a team keeps it, even if its name no longer matches, so a typo in the pattern never takes people out of their teams.
 
@@ -126,4 +126,4 @@ Users you invited before SCIM, and users your identity provider does not provisi
 
 ### Switch SCIM Off
 
-Deleting the SCIM token switches SCIM off. Every team SCIM manages is handed back to Steadybit with its current members, and everyone keeps their current role. Your identity provider can no longer reach Steadybit. Creating a token again switches SCIM back on: the groups take their teams over again, and roles follow the admin group again.
+**Disable SCIM Provisioning only** on the SCIM page deletes the SCIM token and switches SCIM off. Every team SCIM manages is handed back to Steadybit with its current members, and everyone keeps their current role. Your identity provider can no longer reach Steadybit. Creating a token again switches SCIM back on: the groups take their teams over again, and roles follow the admin group again.
