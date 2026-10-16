@@ -73,7 +73,7 @@ Back on **Settings → SCIM**, decide what your identity provider's groups mean.
 | Group for Admin role assignment | Members of this group are admins and members of the Administrators team (`ADM`); every other provisioned user is a `user`. Leave it empty to manage roles in Steadybit.                                 |
 | Team-key pattern                | A regular expression for group names. A group whose name matches becomes a team; the first capture group is the team key, e.g. `^steadybit-team-(.+)$` turns `steadybit-team-payments` into `PAYMENTS`. |
 
-As your identity provider has already sent its groups, the page previews what saving would change: which teams the groups would create or take over, who would become an admin, and whether you would lose your own admin role. Groups that match neither setting stay without effect.
+As your identity provider has already sent its groups, the page previews what saving would change: which teams the groups would create or take over, and whether you would lose your own admin role. It does not save a group for Admin role assignment that would leave your tenant without an admin. Groups that match neither setting stay without effect.
 
 How the team key is derived from a group name: Steadybit takes the pattern's first capture group, turns every run of characters other than letters, digits, and `_` into a single `_`, upper-cases the result, and cuts it to 16 characters. With `^steadybit-team-(.+)$`, the group `steadybit-team-data.platform` becomes the team `DATA_PLATFORM`. A group whose key would be `ADM`, or that does not match the pattern, becomes no team. Without a pattern, no group becomes a team.
 
@@ -123,7 +123,8 @@ Changing the team-key pattern maps only groups that are not mapped yet. A group 
 - **Without an admin group,** SCIM does not manage roles. Provisioned users start as `user`, and admins change roles on the Users page.
 - **With an admin group,** members of the group are `admin`, and every other provisioned user is `user`. Their roles cannot be changed in Steadybit. Removing the admin group from the settings hands the roles back: everyone keeps the role they have, and you manage it in Steadybit again.
 - **Losing the admin role takes effect at once:** the user is signed out, and their admin access tokens are deleted.
-- **The last admin always stays an admin.** If a change would leave your tenant without an admin, Steadybit keeps that user's admin role. As soon as someone else is in the admin group, that user becomes a `user` too.
+- **Your identity provider decides.** Steadybit applies role changes exactly as your identity provider sends them, even when they take the admin role from your tenant's last admin. Keep at least one person in your admin group.
+- **Saving the settings never leaves your tenant without an admin.** If a new group for Admin role assignment would take the admin role from every admin of your tenant, synced or not, Steadybit refuses to save it. You can make yourself a `user` this way, as long as another admin remains.
 
 ### Single Sign-On and SCIM
 
