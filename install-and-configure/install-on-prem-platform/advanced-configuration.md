@@ -7,7 +7,9 @@ navTitle: Advanced Configuration
 
 ## Machine Requirements
 
-The machine you are installing Steadybit onto must have **at least** 4 CPUs and 8 GB available memory.
+Each platform instance needs **at least** 2 vCPUs and 4 GB of available memory. With more than 100k targets in the platform, we recommend doubling this to 4 vCPUs and 8 GB per instance.
+
+The platform image is published for x86-64 (`amd64`) and 64-bit ARM (`arm64`), so it runs on either architecture, including AWS Graviton.
 
 | Environment Variable     | Required | Description                                                                                                        |
 |--------------------------|----------|--------------------------------------------------------------------------------------------------------------------|

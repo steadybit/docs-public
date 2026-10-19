@@ -34,6 +34,8 @@ The platform itself exposes the following ports:
 * Port `8080`: Application port for UI/API/agents
 * Port `7878`: WebSocket port for agents
 
+Each platform instance needs at least 2 vCPUs and 4 GB of memory; with more than 100k targets, plan for 4 vCPUs and 8 GB. See [Machine Requirements](advanced-configuration.md#machine-requirements).
+
 ### Database
 
 The platform needs a PostgreSQL 15 database. For a quick evaluation, the Helm chart can deploy one for you (see [Step 2](./#step-2-deploy-platform)); for production use, bring your own PostgreSQL instance. In that case prepare the following before the first start:
