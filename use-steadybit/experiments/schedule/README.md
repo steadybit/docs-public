@@ -48,6 +48,19 @@ If the experiment is making use of an [environment, service, or experiment varia
 
 ![Experiment Schedule override](../../../.gitbook/assets/experiment-schedule-overrides.png)
 
+### Run in Parallel
+
+Two toggles decide what a schedule does when it is due while experiments are already running:
+
+* **Run Experiments in parallel**: run even when another experiment is running.
+* **Run while this experiment is running**: run even when a run of this same experiment is still in progress. Both runs may attack the same targets, so it is off by default.
+
+A scheduled run held back by either is recorded as a canceled run, with the reason on its page.
+
+![Schedule toggles to run in parallel with other experiments and while the experiment itself is running](../../../.gitbook/assets/experiment-schedule-run-again.png)
+
+Via the API, these are the schedule's `allowParallel` and `allowRunningAgain` fields.
+
 ## Scheduling via API
 
 Schedules can also be configured using the following API endpoints. Check out [Integrate with Steadybit / API](../../../integrate-with-steadybit/api/api.md) to learn how to access the API.
