@@ -21,10 +21,8 @@ SteadyBuddy reads your actions, environments, targets, advice, and experiment ru
 It can also **save experiments and run them** for you.
 
 {% hint style="warning" %}
-**SteadyBuddy asks before it changes anything.**
-By default, every save or run is put to you as a question with buttons, and nothing happens until you agree.
-Only [auto mode](#approve-or-let-steadybuddy-act-on-its-own), which you have to turn on for a conversation, lets it save and run experiments without asking.
-Even then, it is held to the same permission checks as you are: it can only save experiments for your team and only run what you are allowed to run.
+**SteadyBuddy asks before it changes anything**, unless you turn on [auto mode](#approve-or-let-steadybuddy-act-on-its-own) for a conversation.
+Either way, it can only save and run what you are allowed to.
 {% endhint %}
 
 ## Availability and Setup
@@ -111,43 +109,34 @@ Experiment suggestions use the same flow described in [the following section](#c
 ### Create Experiments from Scratch via Chat
 
 Describe the experiment you want in your own words — for example, *"Test how my checkout service behaves when one of its pods is killed"*.
-SteadyBuddy asks clarifying questions when needed, then produces an experiment draft.
-The draft is scoped to your selected environment and uses only actions and targets your team can access.
+SteadyBuddy asks clarifying questions when needed, then shows an experiment draft and asks whether to save it, or to save and run it if you asked for a run.
 
 ![SteadyBuddy chat showing an experiment draft and the question whether to save it](chat-create-experiment.png)
 
-Every draft comes with the question *"Do you want SteadyBuddy to save this experiment?"*.
-If you asked for the experiment to be run, the question is *"Do you want SteadyBuddy to save and run this experiment?"* instead, so saving and starting it is one decision.
+- **Yes, save it** adds the experiment to your team. SteadyBuddy then offers to run it.
+- **Decline** saves nothing. **Open Experiment Draft** and **Run Experiment** let you still review the draft in the editor or run it yourself.
 
-- **Yes, save it** (or **Yes, save and run it**) saves the experiment to your team, so it appears in the Experiments section.
-  After a plain save, SteadyBuddy offers to run it.
-- **Decline** saves nothing. SteadyBuddy then offers **Open Experiment Draft** and **Run Experiment**, so you can still review the draft in the editor or run it yourself.
-  A draft that was not saved does not appear in the Experiments section and cannot be run later.
-
-You can also ask SteadyBuddy to run an experiment that already exists, for example *"Run ADM-20"*. It asks *"Do you want SteadyBuddy to run this experiment?"* first.
-While the run is in progress, the chat shows it with a stop button. When it ends while the chat is open, SteadyBuddy tells you how it went and, if it failed, offers to [analyze the run](#analyze-an-experiment-run).
+To run an existing experiment, name it — for example *"Run ADM-20"* — and confirm.
+The chat shows the run with a stop button and, if it fails, offers to [analyze it](#analyze-an-experiment-run).
 
 ### Approve or Let SteadyBuddy Act on Its Own
 
-Every conversation is in one of two modes, shown in the message box:
+The message box shows the conversation's mode:
 
-- **Manual** (*Manually approve*) — the default. SteadyBuddy asks before every save or run, as described above.
-- **Auto** (*Automatically approve*) — SteadyBuddy saves and runs experiments without asking until you switch back to manual mode.
+- **Manual** — the default. SteadyBuddy asks before every save or run.
+- **Auto** — SteadyBuddy saves and runs without asking while you have the chat open. If you leave, it asks again and waits for your answer.
 
-Switch the mode in the message box, or choose **Yes, and switch to auto mode** on a question to agree to it and stop being asked for the rest of the conversation.
+Switch the mode there, or answer a question with **Yes, and switch to auto mode**.
+A new chat starts in the mode you last chose in this browser.
 
 ![SteadyBuddy mode switch in the message box with Manually approve and Automatically approve](chat-mode-switch.png)
 
 {% hint style="warning" %}
 Running an experiment injects **real faults** into your infrastructure.
-Only turn on auto mode in a conversation where you would agree to every save and run SteadyBuddy proposes.
+Only use auto mode where you would agree to every save and run SteadyBuddy proposes.
 {% endhint %}
 
-A few things worth knowing:
-
-- Auto mode only skips the question. A save or run you would not be allowed to do yourself is still refused.
-- In auto mode, SteadyBuddy also accepts its own offers that change nothing, such as analyzing a failed run. An offer to *run* an experiment is still put to you.
-- The mode belongs to the conversation. A new chat starts in the mode you last chose in this browser, and in manual mode if there is none.
+Auto mode only skips the question: what you may not do yourself is still refused, and an offer to *run* an experiment is still put to you.
 
 ### Analyze an Experiment Run
 
