@@ -8,41 +8,57 @@ The [Steadybit CLI](https://github.com/steadybit/cli) runs experiments from your
 
 ## Installation
 
-The CLI is a single binary for Linux, macOS, and Windows, on amd64 (x86-64) and arm64. On Windows, download the archive for your platform, listed below.
+The CLI is a single binary for macOS, Linux, and Windows, on amd64 (x86-64) and arm64. The downloads below are those of the latest release; the [releases](https://github.com/steadybit/cli/releases) have the earlier versions, and each release's `checksums.txt` lists the SHA-256 of its files.
 
-With Homebrew on macOS or Linux, which also installs the shell completions:
+{% hint style="info" %}
+Up to version 5, the CLI was an npm package. That package is no longer updated: uninstall it with `npm uninstall -g steadybit` and install the CLI as described below. Commands, flags, and profiles in `~/.steadybit` keep working.
+
+The `steadybit/run-experiment` GitHub Action is deprecated in favor of the CLI, which does everything it does. Each of its inputs has an `experiment run` flag: see [moving from steadybit/run-experiment](https://github.com/steadybit/cli#moving-from-steadybitrun-experiment).
+{% endhint %}
+
+### macOS
+
+With Homebrew, which also installs the shell completions:
 
 ```bash
 brew install steadybit/tap/steadybit
 ```
 
-Or download the archive for your platform from the latest release and put the binary on your `PATH`: `steadybit`, or `steadybit.exe` on Windows. `checksums.txt` lists the SHA-256 of every file, and the [releases](https://github.com/steadybit/cli/releases) have the earlier versions.
+Or download [steadybit_darwin_arm64.tar.gz](https://github.com/steadybit/cli/releases/latest/download/steadybit_darwin_arm64.tar.gz) (Apple silicon) or [steadybit_darwin_amd64.tar.gz](https://github.com/steadybit/cli/releases/latest/download/steadybit_darwin_amd64.tar.gz) (Intel) and put `steadybit` on your `PATH`.
 
-| Platform | amd64 (x86-64)                                                                                                           | arm64                                                                                                                    |
-| -------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| Windows  | [steadybit_windows_amd64.zip](https://github.com/steadybit/cli/releases/latest/download/steadybit_windows_amd64.zip)     | [steadybit_windows_arm64.zip](https://github.com/steadybit/cli/releases/latest/download/steadybit_windows_arm64.zip)     |
-| macOS    | [steadybit_darwin_amd64.tar.gz](https://github.com/steadybit/cli/releases/latest/download/steadybit_darwin_amd64.tar.gz) | [steadybit_darwin_arm64.tar.gz](https://github.com/steadybit/cli/releases/latest/download/steadybit_darwin_arm64.tar.gz) |
-| Linux    | [steadybit_linux_amd64.tar.gz](https://github.com/steadybit/cli/releases/latest/download/steadybit_linux_amd64.tar.gz)   | [steadybit_linux_arm64.tar.gz](https://github.com/steadybit/cli/releases/latest/download/steadybit_linux_arm64.tar.gz)   |
+### Linux
 
-For example, on Linux:
+With Homebrew, as on macOS.
+
+On Debian, Ubuntu, Fedora, or RHEL, install the package attached to every release, which also installs the shell completions:
+
+```bash
+# Debian, Ubuntu
+curl -fsSLO https://github.com/steadybit/cli/releases/latest/download/steadybit-cli_amd64.deb
+sudo apt-get install ./steadybit-cli_amd64.deb
+# Fedora, RHEL, Amazon Linux
+curl -fsSLO https://github.com/steadybit/cli/releases/latest/download/steadybit-cli_amd64.rpm
+sudo dnf install ./steadybit-cli_amd64.rpm
+```
+
+For arm64, use `steadybit-cli_arm64.deb` and `steadybit-cli_arm64.rpm`.
+
+Or download [steadybit_linux_amd64.tar.gz](https://github.com/steadybit/cli/releases/latest/download/steadybit_linux_amd64.tar.gz) or [steadybit_linux_arm64.tar.gz](https://github.com/steadybit/cli/releases/latest/download/steadybit_linux_arm64.tar.gz) and put `steadybit` on your `PATH`:
 
 ```bash
 curl -sL https://github.com/steadybit/cli/releases/latest/download/steadybit_linux_amd64.tar.gz | tar -xz steadybit
 sudo mv steadybit /usr/local/bin/
 ```
 
-Alternatively:
+### Windows
 
-* **Debian, Ubuntu, Fedora, RHEL**: install the `.deb` or `.rpm` package attached to every release, which also installs the shell completions. See the [CLI README](https://github.com/steadybit/cli#installation).
+Download [steadybit_windows_amd64.zip](https://github.com/steadybit/cli/releases/latest/download/steadybit_windows_amd64.zip) (x64) or [steadybit_windows_arm64.zip](https://github.com/steadybit/cli/releases/latest/download/steadybit_windows_arm64.zip) (Arm) and put `steadybit.exe` in a folder on your `PATH`.
+
+### Other Ways
+
 * **Container image**: `steadybit/cli`, for example `docker run --rm -e STEADYBIT_TOKEN steadybit/cli experiment run -k ADM-1 --yes`
 * **GitHub Actions**: `uses: steadybit/cli@v6` installs the CLI on the runner.
 * **Go**: `go install github.com/steadybit/cli/v6/cmd/steadybit@latest`
-
-{% hint style="info" %}
-Up to version 5, the CLI was an npm package. That package is no longer updated: uninstall it with `npm uninstall -g steadybit` and install the CLI as above. Commands, flags, and profiles in `~/.steadybit` keep working.
-
-The `steadybit/run-experiment` GitHub Action is deprecated in favor of the CLI, which does everything it does. Each of its inputs has an `experiment run` flag: see [moving from steadybit/run-experiment](https://github.com/steadybit/cli#moving-from-steadybitrun-experiment).
-{% endhint %}
 
 ## Authentication
 
