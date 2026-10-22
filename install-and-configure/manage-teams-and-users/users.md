@@ -26,4 +26,4 @@ When an invitation is accepted, the corresponding user is created and gains acce
 
 ## Integrations
 
-User management can be automated by the [OIDC Integration](../install-on-prem-platform/oidc-integration.md) and [LDAP Integration](../install-on-prem-platform/ldap-integration.md).
+User management can be automated by [SCIM Provisioning](scim.md) from your identity provider, the [OIDC Integration](../install-on-prem-platform/oidc-integration.md), and the [LDAP Integration](../install-on-prem-platform/ldap-integration.md).
