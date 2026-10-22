@@ -114,7 +114,7 @@ Describe the experiment you want in your own words — for example, *"Test how m
 SteadyBuddy asks clarifying questions when needed, then produces an experiment draft.
 The draft is scoped to your selected environment and uses only actions and targets your team can access.
 
-![SteadyBuddy chat conversation showing an inline experiment draft with Open/Run options](chat-create-experiment.png)
+![SteadyBuddy chat showing an experiment draft and the question whether to save it](chat-create-experiment.png)
 
 Every draft comes with the question *"Do you want SteadyBuddy to save this experiment?"*.
 If you asked for the experiment to be run, the question is *"Do you want SteadyBuddy to save and run this experiment?"* instead, so saving and starting it is one decision.
@@ -135,6 +135,8 @@ Every conversation is in one of two modes, shown in the message box:
 - **Auto** (*Automatically approve*) — SteadyBuddy saves and runs experiments without asking until you switch back to manual mode.
 
 Switch the mode in the message box, or choose **Yes, and switch to auto mode** on a question to agree to it and stop being asked for the rest of the conversation.
+
+![SteadyBuddy mode switch in the message box with Manually approve and Automatically approve](chat-mode-switch.png)
 
 {% hint style="warning" %}
 Running an experiment injects **real faults** into your infrastructure.
