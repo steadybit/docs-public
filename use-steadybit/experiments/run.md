@@ -9,9 +9,37 @@ Once your [experiment is fully designed](./), you can use the `Run` button to ex
 
 Otherwise, you'll get an error message and the experiment is not started.
 
+## Stop a Run
+
+While the experiment runs, the `Run Experiment` button in the experiment editor turns into a `Stop` button. With one run in progress, it shows the remaining time and stops the run with a click.
+
+![Stop button with the remaining time of the run in progress](../../.gitbook/assets/run-experiment-stop-single-run.png)
+
+With several runs in progress, it shows how many there are and opens a list of them, where you stop one run or all of them.
+
+![Stop button listing two runs in progress, each with its own stop, and Stop all](../../.gitbook/assets/run-experiment-stop-several-runs.png)
+
+Each run's page also has a `Stop run` button next to the run's state. To stop every running experiment at once, use the [emergency stop](emergencyStop.md).
+
+In the experiment list and on service cards, the round button of a running experiment stops its run. With several runs in progress, it shows how many there are and opens the same list.
+
+![Experiment list with a running experiment's stop button showing two runs in progress](../../.gitbook/assets/experiment-list-runs-in-progress.png)
+
+## Run an Experiment Again
+
+You can start another run of an experiment while a run of it is still in progress, for example with a [variables override](variables.md#run) or another environment. Open the menu of the `Stop` button and choose **Run experiment again**, or **Run again with variables override** or **Run again with sample values** for the [run-scoped options](variables.md#run-with-sample-values). Choosing one starts the run right away; if another experiment is running, you are asked whether to run in parallel, as for any run.
+
+![Stop button menu offering Run experiment again, Run again with variables override, and Run again with sample values](../../.gitbook/assets/run-experiment-run-again-menu.png)
+
+{% hint style="warning" %}
+Runs of the same experiment attack the same targets. Start another run only when that is what you want to test.
+{% endhint %}
+
+A [schedule](schedule/README.md#run-in-parallel) starts a run while the experiment is still running only when it is configured to. Through the [API](../../integrate-with-steadybit/api/api.md#example-run-an-experiment-again), a request for a running experiment returns the run in progress unless it asks to run again.
+
 ## Run View
 
-As soon as the experiment starts, the platform automatically switches over to the run view. The first step of the platform is to establish the connection to the matching agents. In addition, a running experiment is indicated by the run icon in the top right.
+As soon as the experiment starts, the platform automatically switches over to the run view. The first step of the platform is to establish the connection to the matching agents. In addition, a running experiment is indicated by the `Stop` button in the top right (see [Stop a Run](run.md#stop-a-run)).
 
 ![Experiment Run View](../../.gitbook/assets/run-experiment.png)
 

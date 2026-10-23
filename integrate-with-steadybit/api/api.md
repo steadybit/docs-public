@@ -201,6 +201,25 @@ curl \
   https://platform.steadybit.com/api/experiments/ADM-1/execute
 ```
 
+While the experiment is already running, the response is the run in progress rather than a new one. Both a new run and a run returned this way answer with `201`; compare the `executionId` of the response to tell them apart.
+
+### Example: Run an Experiment Again
+
+To start another run of an experiment that is already running, pass `allowRunningAgain=true` together with an `Idempotency-Key` header, any unique value such as a UUID, up to 255 characters:
+
+```bash
+curl \
+  -i \
+  -X POST \
+  -H 'Authorization: Bearer <token>' \
+  -H "Idempotency-Key: $(uuidgen)" \
+  'https://platform.steadybit.com/api/experiments/ADM-1/execute?allowRunningAgain=true'
+```
+
+The key makes the request safe to retry: while the run started with it is in progress, sending the same request with the same key returns that run instead of starting another one. Use a new key for every run you want to start. Without the key, a request with `allowRunningAgain=true` is rejected with `400`.
+
+`allowRunningAgain` only concerns runs of the same experiment. While another experiment is running, the request is still refused with `422` unless `allowParallel=true` is set as well. The same parameters work for `POST /api/experiments/execute` and `POST /api/experiments/templates/{id}/experiment-execute`, which save an experiment and run it.
+
 ### Create a Go client with oapi-codegen
 
 In case you want to [generate the structs](https://github.com/oapi-codegen/oapi-codegen), you should add this parameter to your configuration file:
