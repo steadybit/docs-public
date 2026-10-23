@@ -17,12 +17,12 @@ Every question, suggestion, and experiment draft is scoped to:
 - **Your team** — only the actions, environments, and targets available to your currently selected team are used as context.
 - **Your permissions** — SteadyBuddy reads the same data you can read in the UI/API. It cannot surface targets, environments, or runs you have no access to.
 
-{% hint style="warning" %}
-**SteadyBuddy never performs destructive operations on its own.**
-Today, it performs **read-only** operations: it reads your actions, environments, targets, advice, and experiment runs to answer questions and to draft experiments.
-It does not create, modify, or delete anything without an explicit, human-initiated action — for example, you clicking a button in the UI.
+SteadyBuddy reads your actions, environments, targets, advice, and experiment runs to answer questions and to draft experiments.
+It can also **save experiments and run them** for you.
 
-As the assistant gains the ability to take more actions on your behalf, we will add additional safeguards around potentially destructive operations.
+{% hint style="warning" %}
+**SteadyBuddy asks before it changes anything**, unless you turn on [auto mode](#approve-or-let-steadybuddy-act-on-its-own) for a conversation.
+Either way, it can only save and run what you are allowed to.
 {% endhint %}
 
 ## Availability and Setup
@@ -109,17 +109,34 @@ Experiment suggestions use the same flow described in [the following section](#c
 ### Create Experiments from Scratch via Chat
 
 Describe the experiment you want in your own words — for example, *"Test how my checkout service behaves when one of its pods is killed"*.
-SteadyBuddy asks clarifying questions when needed, then produces an experiment draft.
-You can:
+SteadyBuddy asks clarifying questions when needed, then shows an experiment draft and asks whether to save it, or to save and run it if you asked for a run.
 
-- **Open Experiment Draft** to review and edit it in the experiment editor, or
-- **Run Experiment** to execute it immediately.
+![SteadyBuddy chat showing an experiment draft and the question whether to save it](chat-create-experiment.png)
 
-The draft is scoped to your selected environment and uses only actions and targets your team can access.
+- **Yes, save it** adds the experiment to your team. SteadyBuddy then offers to run it.
+- **Decline** saves nothing. **Open Experiment Draft** and **Run Experiment** let you still review the draft in the editor or run it yourself.
 
-![SteadyBuddy chat conversation showing an inline experiment draft with Open/Run options](chat-create-experiment.png)
+To run an existing experiment, name it — for example *"Run ADM-20"* — and confirm.
+The chat shows the run with a stop button and, if it fails, offers to [analyze it](#analyze-an-experiment-run).
 
-The experiment draft must be saved manually before it appears in the Experiments section or can be run later.
+### Approve or Let SteadyBuddy Act on Its Own
+
+The message box shows the conversation's mode:
+
+- **Manual** — the default. SteadyBuddy asks before every save or run.
+- **Auto** — SteadyBuddy saves and runs without asking while you have the chat open. If you leave, it asks again and waits for your answer.
+
+Switch the mode there, or answer a question with **Yes, and switch to auto mode**.
+A new chat starts in the mode you last chose in this browser.
+
+![SteadyBuddy mode switch in the message box with Manually approve and Automatically approve](chat-mode-switch.png)
+
+{% hint style="warning" %}
+Running an experiment injects **real faults** into your infrastructure.
+Only use auto mode where you would agree to every save and run SteadyBuddy proposes.
+{% endhint %}
+
+Auto mode only skips the question: what you may not do yourself is still refused, and an offer to *run* an experiment is still put to you.
 
 ### Analyze an Experiment Run
 
