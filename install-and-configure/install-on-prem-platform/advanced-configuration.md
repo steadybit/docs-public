@@ -91,12 +91,11 @@ to act on by hand. Suggestions and the DDL to run manually are logged under `[Ta
 
 ### RDS Machine Requirements
 
-The workload is bound by the database CPU on peaks.
+The workload is bound by the database CPU during peaks.
 
-If you have ~100k targets simultaneously in the platform, we recommend a burstable instance with four vCPUs (e.g., db.t4g.xlarge). Regarding disk size, 20 GB should be enough to start with (as extending on AWS should not be a problem).
+The database instance needs **at least** 2 vCPUs, 8 GiB of memory, and 10 GB of disk (e.g., db.t4g.large). With around 100k targets in the platform, we recommend a burstable instance with 4 vCPUs (e.g., db.t4g.xlarge) and 20 GB of disk. Storage on RDS can be extended later without downtime, so there is no need to over-provision disk up front.
 
-If you choose a smaller instance for cost savings, the target ingestion will be slower, so it will take a bit longer until the target data in the platform is
-consistent.
+An instance between the minimum and the recommendation still works, but target ingestion is slower, so it takes longer until the target data in the platform is consistent.
 
 ### AWS RDS IAM Authentication
 

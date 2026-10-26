@@ -43,6 +43,7 @@ The platform needs a PostgreSQL 15 database. For a quick evaluation, the Helm ch
 * An empty database (e.g. `steadybitdb`) and an application user for the platform. The user does **not** need to be a superuser, but it must be allowed to `CONNECT` to and `CREATE` schemas in that database: the platform creates the schemas `steadybit` and `sb_onprem` on startup and owns all objects inside them.
 * The PostgreSQL extensions `pg_trgm` and `btree_gin` in the `public` schema. Both are trusted extensions, so the platform installs missing ones itself if the user has `CREATE` on schema `public`; alternatively, install them beforehand. No superuser is required at any point.
 * Database and platform clocks in sync.
+* A database instance with at least 2 vCPUs, 8 GiB of memory, and 10 GB of disk. With around 100k targets, plan for 4 vCPUs. See [RDS Machine Requirements](advanced-configuration.md#rds-machine-requirements).
 
 The exact `GRANT` and `CREATE EXTENSION` statements are listed under [Database Permissions](advanced-configuration.md#database-permissions).
 
