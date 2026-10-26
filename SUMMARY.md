@@ -43,6 +43,7 @@
 * [Manage Teams and Users](install-and-configure/manage-teams-and-users/README.md)
   * [Teams](install-and-configure/manage-teams-and-users/teams.md)
   * [Users](install-and-configure/manage-teams-and-users/users.md)
+  * [SCIM Provisioning](install-and-configure/manage-teams-and-users/scim.md)
   * [Permissions](install-and-configure/manage-teams-and-users/permissions.md)
   * [Manage as Code](install-and-configure/manage-teams-and-users/manage-as-code.md)
 * [Manage Environments](install-and-configure/manage-environments/README.md)
