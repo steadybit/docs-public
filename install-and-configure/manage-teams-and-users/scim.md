@@ -24,6 +24,8 @@ Go to **Settings → SCIM** in Steadybit, create the SCIM token, and copy it rig
 - SaaS: `https://platform.steadybit.com/scim/v2`
 - On-prem: `https://<your platform host>/scim/v2`
 
+![The SCIM page before a token is created, showing the SCIM base URL](../../.gitbook/assets/scim-activate.png)
+
 {% hint style="info" %}
 Creating the token switches SCIM on. From then on, your identity provider manages the users it provisions, and some actions in Steadybit are locked for them — see [How Steadybit Behaves](#how-steadybit-behaves). Groups have no effect until you map them in step 3.
 {% endhint %}
@@ -75,7 +77,11 @@ Back on **Settings → SCIM**, decide what your identity provider's groups mean.
 
 As your identity provider has already sent its groups, the page previews what saving would change: which teams the groups would create or take over, and whether you would lose your own admin role. It does not save a group for Admin role assignment that would leave your tenant without an admin. Groups that match neither setting stay without effect.
 
+![Changing the group for Admin role assignment previews who becomes, stays, or stops being an admin](../../.gitbook/assets/scim-admin-role.png)
+
 How the team key is derived from a group name: Steadybit takes the pattern's first capture group, turns every run of characters other than letters, digits, and `_` into a single `_`, upper-cases the result, and cuts it to 16 characters. With `^steadybit-team-(.+)$`, the group `steadybit-team-data.platform` becomes the team `DATA_PLATFORM`. A group whose key would be `ADM`, or that does not match the pattern, becomes no team. Without a pattern, no group becomes a team.
+
+![Saving a team-key pattern lets you try it on a group name and see the resulting team key](../../.gitbook/assets/scim-group-mapping.png)
 
 ## What Is Supported
 
