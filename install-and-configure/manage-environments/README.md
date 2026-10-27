@@ -20,6 +20,8 @@ To create or change an environment go to `/settings/environments` and choose to 
 * **Team**: To use an environment for running an experiment, you need to assign a team to it. You can do this from the environment side (`/settings/environments`) as well as from the team side (`/settings/teams`). This restricts a team's users to certain environments, and therefore to certain targets.
 * **Environment Scope**: The environment scope defines targets belonging to an environment by using our [discovery data](../../concepts/discovery/). This is the upper limit of targets that can be attacked when running an experiment in a certain environment.
 
+The environment editor has two tabs: **Scope** for the name, teams, and environment scope, and **Variables** for the environment's [variables](#environment-variables).
+
 ### Define Environment Scope
 
 The environment scope is a query over the [discovery data](../../concepts/discovery/) that decides which targets belong to the environment. It describes the targets by their attributes rather than listing them one by one, so the environment keeps up with your system: a new pod in the team's namespace joins automatically, and a target that no longer matches leaves. Experiments in the environment can only ever attack targets inside its scope, which makes the scope the safety boundary for every team using the environment.
@@ -33,6 +35,7 @@ For the full syntax, see the [Query Language documentation](../../concepts/query
 
 Finally, don't forget to assign the environment to a team and give it a meaningful name. That's it, you are ready to use that environment in an experiment!
 
+<!-- TODO: replace with a screenshot of the new environment editor, Scope tab open (tabs Scope / Variables visible) -->
 ![Create a new environment](../../.gitbook/assets/new_environment.png)
 
 #### Example Scopes
@@ -93,3 +96,11 @@ Once the environments are defined and assigned to teams, you can make use of the
 ## Environment Variables
 
 With an environment often come variables that are useful in an experiment associated with the provided environment (e.g., the name of the Kubernetes cluster, the HTTP base path of a load-balanced ingress, or the AWS account). You can manage environment variables to define those and use them consistently across all your experiments referencing the environment. Each variable can hold a fixed value or a [dynamic value](../../use-steadybit/experiments/variables.md#value-settings) that is resolved from your infrastructure when an experiment run starts. You can [learn more in the experiment's variable section](../../use-steadybit/experiments/variables.md).
+
+### Edit Environment Variables
+
+Administrators edit an environment's variables in the **Variables** tab of the environment editor. You can already add them while creating an environment, so it is ready to use right away. Changes apply when you save the environment. Before changed or deleted variables are saved, Steadybit asks you to confirm, since every experiment using them will run with the new values and may become invalid. Adding new variables doesn't ask, as no experiment uses them yet.
+
+Members of a team the environment is assigned to can edit its variables too, without an administrator — for example, to keep a shared URL up to date. In the environments list, they open an environment's variables via the `fx` icon or the environment's name, and save their changes with **Save Variables**. They can't change the environment's scope or teams.
+
+<!-- TODO: add a screenshot of the Variables tab in the environment editor -->

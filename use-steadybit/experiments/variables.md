@@ -33,8 +33,9 @@ A variable only needs to be defined in one scope to be usable. You can, for inst
 
 ### Environment
 
-Some values are associated with an experiment's environment and change whenever you use another environment in an experiment. Also, once you change the variable's value, all experiments using the same environment will also use the new value. Environment-scoped variables are the perfect place to name, e.g., common infrastructure components. You can edit environment-scoped variables under Settings → Environments. Admins can edit all environment variables; users can only edit variables of environments their team can access.
+Some values are associated with an experiment's environment and change whenever you use another environment in an experiment. Also, once you change the variable's value, all experiments using the same environment will also use the new value. Environment-scoped variables are the perfect place to name, e.g., common infrastructure components. You manage environment-scoped variables under Settings → Environments, in the environment's **Variables** tab — see [Edit Environment Variables](../../install-and-configure/manage-environments/README.md#edit-environment-variables). Admins can edit all environment variables; users can edit the variables of environments their team can access, via the `fx` icon in the environments list. Changes apply once you save them.
 
+<!-- TODO: replace with a screenshot of the Variables tab in the environment editor; this one shows the removed standalone page -->
 ![Variables scoped to an environment](../../.gitbook/assets/variable-environment.png)
 
 ### Service
