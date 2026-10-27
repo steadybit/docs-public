@@ -35,7 +35,6 @@ For the full syntax, see the [Query Language documentation](../../concepts/query
 
 Finally, don't forget to assign the environment to a team and give it a meaningful name. That's it, you are ready to use that environment in an experiment!
 
-<!-- TODO: replace with a screenshot of the new environment editor, Scope tab open (tabs Scope / Variables visible) -->
 ![Create a new environment](../../.gitbook/assets/new_environment.png)
 
 #### Example Scopes
@@ -103,4 +102,4 @@ Administrators edit an environment's variables in the **Variables** tab of the e
 
 Members of a team the environment is assigned to can edit its variables too, without an administrator — for example, to keep a shared URL up to date. In the environments list, they open an environment's variables via the `fx` icon or the environment's name, and save their changes with **Save Variables**. They can't change the environment's scope or teams.
 
-<!-- TODO: add a screenshot of the Variables tab in the environment editor -->
+![Environment variables in the Variables tab of the environment editor](../../.gitbook/assets/variable-environment.png)
