@@ -48,7 +48,7 @@ The user has the type `user` (see [Permissions](../manage-teams-and-users/permis
 
 For detailed OIDC authentication configuration parameters, refer to [OpenID Connect Authentication](./advanced-configuration.md#openid-connect-authentication).
 
-## Provider configuration
+## Provider Configuration
 
 Some IdPs don't publish their provider configuration at a location derived from the issuer. IBM Security Verify Access, for example, serves it under a path per OIDC definition, while the issuer is the bare host. In that case, tell the platform where to find the endpoints in one of two ways.
 
@@ -63,7 +63,7 @@ STEADYBIT_AUTH_OAUTH2_DISCOVERY_URI=https://idp.example.com/sps/oauth/oauth20/me
 
 The document is fetched as-is, without appending a path. Its `issuer` must equal `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`.
 
-### Explicit endpoints
+### Explicit Endpoints
 
 If the IdP doesn't serve a provider configuration at all, set the endpoints directly:
 
