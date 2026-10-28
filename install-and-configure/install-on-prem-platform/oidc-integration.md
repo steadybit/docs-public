@@ -35,14 +35,51 @@ The first user to sign in will be assigned the `admin` role; all others will be 
 
 To connect to a compatible Identity Provider (IdP), set the following environment variables:
 
-- `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`: URI for the OpenID Connect discovery endpoint
+- `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`: The issuer of your IdP; it must equal the `iss` claim of the ID tokens
 - `STEADYBIT_AUTH_OAUTH2_CLIENT_ID`: The client ID to use for the OIDC registration
 - `STEADYBIT_AUTH_OAUTH2_CLIENT_SECRET`: The client secret to use for the OIDC registration
+
+The platform reads the IdP's endpoints from its provider configuration at `<issuer>/.well-known/openid-configuration` (or the [RFC 8414](https://www.rfc-editor.org/rfc/rfc8414) variants). If your IdP doesn't serve it there, see [Provider configuration](#provider-configuration).
+
+ID tokens are accepted with every signature algorithm the keys in the IdP's JWK Set support (for example `RS256`, `PS256` or `ES256`). ID tokens signed with the client secret (`HS256`) are not supported.
 
 When a user authenticates via OIDC in the Steadybit Platform for the first time, a corresponding Steadybit user object is created.
 The user has the type `user` (see [Permissions](../manage-teams-and-users/permissions.md)). If the ID token contains a groups claim, the user is automatically assigned to the corresponding teams (see [Synchronization](#synchronization)).
 
 For detailed OIDC authentication configuration parameters, refer to [OpenID Connect Authentication](./advanced-configuration.md#openid-connect-authentication).
+
+## Provider Configuration
+
+Some IdPs don't publish their provider configuration at a location derived from the issuer. IBM Security Verify Access, for example, serves it under a path per OIDC definition, while the issuer is the bare host. In that case, tell the platform where to find the endpoints in one of two ways.
+
+### Discovery URI
+
+If the IdP serves the provider configuration at another URL, set it:
+
+```
+STEADYBIT_AUTH_OAUTH2_ISSUER_URI=https://idp.example.com
+STEADYBIT_AUTH_OAUTH2_DISCOVERY_URI=https://idp.example.com/sps/oauth/oauth20/metadata/steadybit
+```
+
+The document is fetched as-is, without appending a path. Its `issuer` must equal `STEADYBIT_AUTH_OAUTH2_ISSUER_URI`.
+
+### Explicit Endpoints
+
+If the IdP doesn't serve a provider configuration at all, set the endpoints directly:
+
+```
+STEADYBIT_AUTH_OAUTH2_ISSUER_URI=https://idp.example.com
+STEADYBIT_AUTH_OAUTH2_AUTHORIZATION_URI=https://idp.example.com/oauth2/authorize
+STEADYBIT_AUTH_OAUTH2_TOKEN_URI=https://idp.example.com/oauth2/token
+STEADYBIT_AUTH_OAUTH2_JWK_SET_URI=https://idp.example.com/oauth2/jwks
+```
+
+- The authorization, token and JWK Set URIs must be set together.
+- `STEADYBIT_AUTH_OAUTH2_USER_INFO_URI` and `STEADYBIT_AUTH_OAUTH2_END_SESSION_URI` are optional. Without an end-session endpoint, logging out of Steadybit doesn't log the user out of the IdP.
+- `STEADYBIT_AUTH_OAUTH2_ISSUER_URI` is still required; it is used to validate the `iss` claim of the ID tokens.
+- The explicit endpoints cannot be combined with `STEADYBIT_AUTH_OAUTH2_DISCOVERY_URI`.
+
+The platform reads the provider configuration when it starts, so with a discovery URI the IdP must be reachable at that time. With explicit endpoints, no request is made at startup. Incomplete or conflicting settings stop the platform from starting.
 
 ## Synchronization
 
