@@ -50,7 +50,7 @@ Entra offers SCIM provisioning only for enterprise applications created as a non
 
 1. On the application, open **Provisioning** and set the provisioning mode to **Automatic**.
 2. Under **Admin Credentials**, set:
-   - Tenant URL: the SCIM base URL from step 1 followed by `?aadOptscim062020`, e.g. `https://platform.steadybit.com/scim/v2?aadOptscim062020` — the flag makes Entra send standard-compliant requests
+   - Tenant URL: the SCIM base URL from step 1 followed by `?aadOptscim062020`, e.g. `https://platform.steadybit.com/scim/v2?aadOptscim062020`. The flag makes Entra send [standard-compliant PATCH requests](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior), which is Microsoft's recommendation for non-gallery applications. For now, Steadybit also accepts the requests Entra sends without it.
    - Secret token: the SCIM token
    - Then select **Test Connection**.
 3. Under **Mappings**, keep **Provision Microsoft Entra ID Users** (`userPrincipalName` → `userName`, `mail` → the work email) and enable **Provision Microsoft Entra ID Groups**. Entra sends no email for users whose `mail` attribute is empty.
