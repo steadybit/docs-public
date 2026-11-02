@@ -59,6 +59,8 @@ Once you activate the 'Show Advice' in the sidebar, the general advice icon indi
 
 In the Explorer Advice, you can see all supported advice, followed by the applicable targets and the respective status. It's the perfect place if you want to resolve the same advice for multiple targets. You can also filter by advice status to concentrate, for example, on the targets that require action for a specific piece of advice first.
 
+The environment and the target filter are [shared with the other two tabs](README.md#one-scope-for-all-three) and can be kept in a [saved view](README.md#saved-views), so this list covers the same targets you were looking at in the Landscape or the table. Advice whose targets are all outside the filter stays in the list, grayed out and showing `0`, rather than disappearing from it.
+
 ![Explorer Advice showing you advice and targets](../../.gitbook/assets/advice-explorer-advice.png)
 
 ## Query Language
