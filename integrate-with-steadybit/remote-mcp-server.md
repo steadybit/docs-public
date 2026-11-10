@@ -72,13 +72,23 @@ claude mcp add --transport http steadybit \
   https://platform.steadybit.com/mcp
 ```
 
-If you belong to more than one tenant, the connection cannot tell which one you mean, and fails with an error listing the tenant-scoped URLs to choose from. Connect to the one you want instead: `https://platform.steadybit.com/mcp/<tenant>`, replacing `<tenant>` with your tenant key.
+If you belong to more than one tenant, connect to the one you want: `https://platform.steadybit.com/mcp/<tenant>`, replacing `<tenant>` with your tenant key. On the plain `/mcp` the connection cannot tell which tenant you mean: it connects, but offers only a setup tool that lists your tenant keys, and the assistant passes that on when you ask it anything.
+
+If you added Steadybit from Claude's connector directory and belong to several tenants, add a custom connector with your tenant's URL instead — the directory connector's URL cannot be changed.
 
 On first use the client opens a browser window where you sign in and confirm the connection:
 
 <figure><img src="../.gitbook/assets/mcp-oauth-consent.png" alt="OAuth consent screen granting an MCP client access to Steadybit"><figcaption></figcaption></figure>
 
 Access is granted based on your existing Steadybit membership: the assistant acts as you, within the same tenant and permissions you already have.
+
+#### New to Steadybit
+
+You don't need a Steadybit account before you connect. On the sign-in page, choose **Sign up** and create an account with your email address (you confirm it with a code we send you) or with a social login. If your account doesn't belong to a Steadybit tenant yet, Steadybit then offers a free 30-day trial: choose **Create trial & connect**, and the client connects to your new tenant, which comes with sample data to explore. Choose **Cancel** to stop without a trial — the client then reports that access was denied.
+
+{% hint style="info" %}
+With enterprise SSO, use an [access token](#method-1-access-token), or ask Steadybit to enable OAuth for your identity provider.
+{% endhint %}
 
 #### Supported clients
 
