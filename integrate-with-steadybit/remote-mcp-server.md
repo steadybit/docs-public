@@ -90,7 +90,7 @@ The OAuth path works with MCP clients that Steadybit has registered with its ide
 
 Other clients that require Dynamic Client Registration (for example Cursor, Windsurf, the Codex CLI, and the GitHub Copilot CLI) are not supported on the OAuth path today. Use the [access token](#method-1-access-token) method with those clients instead.
 
-### OAuth on a self-hosted platform
+### OAuth on a Self-Hosted Platform
 
 On a self-hosted platform, the MCP server can use OAuth through the same OpenID Connect identity provider that your users sign in with. Your identity provider is the authorization server. The MCP client opens a browser, the user signs in there, and the client sends the resulting access token to the platform. Steadybit stores no MCP credentials, and no traffic goes through Steadybit or a third party: the client talks directly to your identity provider and your platform.
 
@@ -147,11 +147,11 @@ Then run `/mcp` in Claude Code, select `steadybit` and choose **Authenticate**. 
 Okta cannot register MCP clients automatically: its dynamic client registration requires an admin token. That is why every client needs the client id of the app from step 3, and why clients that only support dynamic client registration (for example Cursor, Windsurf, the Codex CLI and the GitHub Copilot CLI) can't use OAuth with Okta. Use an [access token](#method-1-access-token) with those clients.
 {% endhint %}
 
-#### Organization-wide connectors in Claude
+#### Organization-Wide Connectors in Claude
 
 Connectors that an organization adds for all its members in Claude (claude.ai Team and Enterprise) are called from Anthropic's cloud, not from the user's computer. To use one, both `https://<your-platform>/mcp` and your identity provider's token endpoint must be reachable from the internet. A platform that is only reachable inside your network can't be used as such a connector. Claude Code, in contrast, connects from the developer's computer, so it works with a platform inside your network.
 
-#### Okta on older platform versions
+#### Okta on Older Platform Versions
 
 Platforms older than `2.8.12` lack `STEADYBIT_MCP_AUTH_OAUTH_USER_NAME_ATTRIBUTE`. From `2.8.1` on, they can identify users by a claim that Okta can put into both tokens:
 
