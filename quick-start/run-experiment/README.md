@@ -8,7 +8,7 @@ We will now use Steadybit to design and run our first experiment in just 4 simpl
 
 ## Prerequisites
 
-* You have already signed up for an account [on our website](https://platform.steadybit.com/signup)
+* You have already signed up for an account [on our website](https://signup.steadybit.com)
 * You can log in to the [Steadybit SaaS platform](https://platform.steadybit.com)
 * You have already [installed an agent and extensions](../set-up-agents/)
 

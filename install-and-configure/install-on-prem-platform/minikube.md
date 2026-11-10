@@ -8,7 +8,7 @@ navTitle: Minikube
 {% hint style="info" %}
 This part of the documentation is only intended in the context of a supported PoC (Proof of Concept) together with the Steadybit team. Please, [book an appointment](https://www.steadybit.com/book-demo) to scope your PoC before continuing to evaluate the on-prem solution.
 
-If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://platform.steadybit.com/signup).
+If you just want to try out Steadybit, we recommend you [sign up for our SaaS platform](https://signup.steadybit.com).
 {% endhint %}
 
 This guide helps you with the initial installation and deployment of our Steadybit platform on-premise on Minikube with an NGINX ingress. It is explicitly of use for spaces where you just want to try out the platform and can't take advantage of our Software as a Service (SaaS) platform. After completing this getting started, continue by [setting up Steadybit](../install-agent/).

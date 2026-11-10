@@ -11,7 +11,7 @@ In case something is not working out for you, [let us help you](https://www.stea
 
 ## Prerequisites
 
-* You have already signed up for an account [on our website](https://platform.steadybit.com/signup)
+* You have already signed up for an account [on our website](https://signup.steadybit.com/)
 * You are able to log in to the [Steadybit SaaS platform](https://platform.steadybit.com/)
 
 ## Step 1 - Install Agent and Extensions
