@@ -86,10 +86,6 @@ Access is granted based on your existing Steadybit membership: the assistant act
 
 You don't need a Steadybit account before you connect. On the sign-in page, choose **Sign up** and create an account with your email address (you confirm it with a code we send you) or with a social login. If your account doesn't belong to a Steadybit tenant yet, Steadybit then offers a free 30-day trial: choose **Create trial & connect**, and the client connects to your new tenant, which comes with sample data to explore. Choose **Cancel** to stop without a trial — the client then reports that access was denied.
 
-{% hint style="info" %}
-With enterprise SSO, use an [access token](#method-1-access-token), or ask Steadybit to enable OAuth for your identity provider.
-{% endhint %}
-
 #### Supported clients
 
 The OAuth path works with MCP clients that Steadybit has registered with its identity provider:
