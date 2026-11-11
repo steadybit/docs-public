@@ -99,3 +99,77 @@ The OAuth path works with MCP clients that Steadybit has registered with its ide
 * **VS Code** — including **GitHub Copilot** chat and agent mode, which connect through VS Code's built-in MCP client
 
 Other clients that require Dynamic Client Registration (for example Cursor, Windsurf, the Codex CLI, and the GitHub Copilot CLI) are not supported on the OAuth path today. Use the [access token](#method-1-access-token) method with those clients instead.
+
+### OAuth on a Self-Hosted Platform
+
+On a self-hosted platform, the MCP server can use OAuth through the same OpenID Connect identity provider that your users sign in with. Your identity provider is the authorization server. The MCP client opens a browser, the user signs in there, and the client sends the resulting access token to the platform. Steadybit stores no MCP credentials, and no traffic goes through Steadybit or a third party: the client talks directly to your identity provider and your platform.
+
+The platform trusts the access token only to identify the user. Tenant, role and teams come from the user's existing Steadybit account, exactly as for a sign-in to the UI. So every user must have signed in to the platform at least once before connecting an MCP client.
+
+#### Requirements
+
+* Platform version `2.8.12` or later. For older versions, see [Okta on older platform versions](#okta-on-older-platform-versions).
+* Users sign in to the platform with OpenID Connect (`STEADYBIT_AUTH_PROVIDER=oauth2`).
+* `platform.publicWebUrl` is set. The MCP endpoint is `<publicWebUrl>/mcp`, and this exact URL is the audience the access tokens must be issued for.
+* Your license includes the MCP server.
+
+Your identity provider must issue access tokens that are:
+
+* **JWTs from the same issuer as the platform's sign-in** (`STEADYBIT_AUTH_OAUTH2_ISSUER_URI`). The platform verifies the MCP tokens with the same keys and issuer as the sign-in.
+* **Issued for the audience** `<publicWebUrl>/mcp`.
+* **Carrying a claim that identifies the user** the same way the sign-in does. By default this is the claim set in `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE` (default `sub`). If your identity provider puts the user's identifier into a different claim of the access token, set `STEADYBIT_MCP_AUTH_OAUTH_USER_NAME_ATTRIBUTE` to that claim.
+
+#### Example: Okta
+
+1. **Authorization server.** Under **Security → API**, use a custom authorization server (`default` or a dedicated one). Okta's org authorization server cannot be used, because it only issues tokens for Okta's own APIs. The platform's sign-in must use the **same** authorization server: set `STEADYBIT_AUTH_OAUTH2_ISSUER_URI` to its issuer, e.g. `https://<your-org>.okta.com/oauth2/<authorization-server-id>`.
+2. On that authorization server:
+   * **Audience:** `https://<your-platform>/mcp`
+   * **Scopes:** add a scope `read`. `offline_access` already exists.
+   * **Access policy:** a policy for the platform's sign-in app and the MCP app below, with a rule that allows the **Authorization Code** grant. A short access token lifetime (5–15 minutes) means a user disabled in Okta loses MCP access quickly; refresh tokens keep the session going in the meantime.
+3. **App for the MCP clients.** Create an **OIDC – Native Application**:
+   * **Grant types:** Authorization Code and Refresh Token
+   * **Client authentication:** none, with PKCE required
+   * **Sign-in redirect URI:** `http://localhost:<port>/callback`, with a fixed port of your choice, e.g. `8765`
+   * **Assignments:** the users or groups that may connect
+4. **Platform configuration.** Okta puts the user's login into the `sub` claim of access tokens, while the sign-in identifies users by their Okta user id, which access tokens carry in `uid`. Add to your Helm values:
+
+```yaml
+platform:
+  publicWebUrl: https://<your-platform>
+  env:
+    - name: STEADYBIT_MCP_AUTH_OAUTH_ENABLED
+      value: "true"
+    - name: STEADYBIT_MCP_AUTH_OAUTH_USER_NAME_ATTRIBUTE
+      value: uid
+```
+
+5. **Connect Claude Code** with the client id of the app from step 3 and the port of its redirect URI:
+
+```bash
+claude mcp add --transport http steadybit \
+  --client-id <client-id-of-the-native-app> --callback-port 8765 \
+  https://<your-platform>/mcp
+```
+
+Then run `/mcp` in Claude Code, select `steadybit` and choose **Authenticate**. To roll this out to all developers at once, distribute the same server entry, including the client id, through Claude Code's managed MCP configuration.
+
+{% hint style="info" %}
+Okta cannot register MCP clients automatically: its dynamic client registration requires an admin token. That is why every client needs the client id of the app from step 3, and why clients that only support dynamic client registration (for example Cursor, Windsurf, the Codex CLI and the GitHub Copilot CLI) can't use OAuth with Okta. Use an [access token](#method-1-access-token) with those clients.
+{% endhint %}
+
+#### Organization-Wide Connectors in Claude
+
+Connectors that an organization adds for all its members in Claude (claude.ai Team and Enterprise) are called from Anthropic's cloud, not from the user's computer. To use one, both `https://<your-platform>/mcp` and your identity provider's token endpoint must be reachable from the internet. A platform that is only reachable inside your network can't be used as such a connector. Claude Code, in contrast, connects from the developer's computer, so it works with a platform inside your network.
+
+#### Okta on Older Platform Versions
+
+Platforms older than `2.8.12` lack `STEADYBIT_MCP_AUTH_OAUTH_USER_NAME_ATTRIBUTE`. From `2.8.1` on, they can identify users by a claim that Okta can put into both tokens:
+
+1. Set `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE=preferred_username` on the platform. Okta's ID token carries the user's login in that claim.
+2. On the authorization server, add a claim `preferred_username` to the **access token** with the value `user.login`.
+3. Have each user sign in to the platform once after the change, before they connect an MCP client. Existing users are matched by their email address, so they keep their accounts, teams and roles.
+
+Depending on the version, also:
+
+* **Before `2.8.7`:** set `STEADYBIT_MCP_ENABLED=true`. The MCP server is on by default only from `2.8.7` on.
+* **Before `2.8.6`:** connect clients to `https://<your-platform>/mcp/<tenant-key>` instead of `https://<your-platform>/mcp`.
