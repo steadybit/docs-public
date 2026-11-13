@@ -17,6 +17,8 @@ When using the Landscape, you have the following capabilities at hand to better 
 * **Size by** to size targets according to how many distinct values one of their attributes has
 * **Color by** to highlight and differentiate attribute values
 
+The first two are shared with the [Targets table](targets.md) and [Advice](advice.md): set them here and those tabs show the same set of targets. The last three change how the map is drawn, so they appear on this tab only.
+
 ![Explorer Landscape to analyze your system](../../.gitbook/assets/landscape-explorer-view.png)
 
 For every target or group of targets, you can view the discovered target types and attributes.
@@ -29,7 +31,7 @@ For 'grouping by' an attribute, you can additionally configure:
 
 ![Explorer Landscape Attribute Configuration](../../.gitbook/assets/explorer-landscape-attribute-configuration.png)
 
-* **Show "unknown" group** controls whether a target that doesn't have a value for the chosen attribute (e.g., `k8s.deployment`) is added to the `unknown` group. If deactivated, the target will be hidden. Otherwise, you see an additional `unknown` group.
+* **Show "unknown" group** controls whether a target that doesn't have a value for the chosen attribute (e.g., `k8s.deployment`) is added to the `unknown` group. If deactivated, the target will be hidden. Otherwise, you see an additional `unknown` group. Deactivating it can empty the map entirely, when no target has a value for the attribute you are grouping by — the Landscape says so and offers to show the group again.
 * **Assign unmapped values to "unknown"** controls whether a target's attribute value that isn't assigned to a bucket (see below) is added to that same "unknown" group, or kept as its own group.
 * **Buckets** allow you to group multiple target attribute values into one. For instance, grouping deployments named `hot-deals`, `fashion-bestseller`, and `toys-bestseller` into the bucket `products` shows them in the grouping as if all three deployments were named `products`.
 
@@ -51,8 +53,4 @@ Once you have identified a relevant group of targets for an experiment, you can 
 
 ## Saved Views
 
-You can save all views you have created with the Landscape to share them automatically with your team members. In addition, you can always share a view with someone else using a deep link to that particular view. Whenever you have made changes to a saved view, the Landscape asks whether you want to keep them in that view or save them as a new one.
-
-In addition, Steadybit shares some predefined views that will help you to get started with the Landscape. They depend on the targets actually discovered, showing a Kubernetes map only when at least one Kubernetes cluster is discovered.
-
-![Landscape views](../../.gitbook/assets/landscape-explorer-views.png)
+A [saved view](README.md#saved-views) belongs to the whole Explorer and opens on the tab it was saved from. What the Landscape adds to it is the grouping, sizing, and coloring described above, so a view saved here reopens the map exactly as you left it.
