@@ -18,7 +18,7 @@ The agent sorts its endpoints into three groups:
 | `/env` and `/threaddump`                                                                                                        | Only the agent's own host or pod. Credentials don't grant access from elsewhere.                   |
 | All other endpoints, such as `/extensions`, `/extensions/bulk`, `/discovery/targets`, `/actions/metadata`, and the OpenAPI spec | The agent's own host or pod without credentials, or any other host with HTTP basic authentication. |
 
-The default username is `_`, with the agent key as the password. A request that sends wrong credentials is rejected, even from the agent's own host or pod.
+The default username is `_`, with the agent key as the password. While authentication is on, a request that sends wrong credentials is rejected, even from the agent's own host or pod.
 
 ```bash
 curl -u _:<agent key> http://<host>:42899/extensions
@@ -37,4 +37,4 @@ If you change the username or password, the auto-registration sidecar needs the 
 - **Helm:** set `agent.api.auth.username` and `agent.api.auth.password` in the `steadybit-agent` chart. The chart passes them to both the agent and the sidecar. Set the password with `agent.api.auth.password.value` to store it in the chart's secret, or with `agent.api.auth.password.valueFrom` to reference an existing secret. `agent.api.auth.enabled: false` turns authentication off.
 - **Amazon ECS:** set `STEADYBIT_EXTENSION_AGENT_API_USERNAME` and `STEADYBIT_EXTENSION_AGENT_API_PASSWORD` on the auto-registration sidecar container. Without a custom password on the agent, set `STEADYBIT_EXTENSION_AGENT_API_PASSWORD` to the agent key. The sidecar's former `STEADYBIT_EXTENSION_AGENT_KEY` is deprecated and still read when `STEADYBIT_EXTENSION_AGENT_API_PASSWORD` is not set.
 
-Agents from 2.3.10 to 2.4.10 behave differently: only `/health` and `/prometheus` are reachable from other hosts without credentials, extension registration (`POST` and `DELETE` on `/extensions`) requires basic authentication from every host, and all other endpoints are reachable from the agent's own host or pod only.
+Agents 2.3.10 to 2.4.11 behave differently: only `/health` and `/prometheus` are reachable from other hosts without credentials, extension registration (`POST` and `DELETE` on `/extensions`) requires basic authentication from every host, and all other endpoints are reachable from the agent's own host or pod only.
