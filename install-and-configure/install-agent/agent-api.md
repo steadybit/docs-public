@@ -28,8 +28,13 @@ You can change the credentials, or turn authentication off, with these settings:
 
 | Environment Variable                | Property                            | Description                                                                                                                                                                           |
 |-------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `STEADYBIT_AGENT_API_AUTH_USERNAME` | `steadybit.agent.api.auth.username` | Username for basic authentication. **Default:** `_`. The auto-registration sidecars always use `_`.                                                                                   |
+| `STEADYBIT_AGENT_API_AUTH_USERNAME` | `steadybit.agent.api.auth.username` | Username for basic authentication. **Default:** `_`.                                                                                                                                  |
 | `STEADYBIT_AGENT_API_AUTH_PASSWORD` | `steadybit.agent.api.auth.password` | Password for basic authentication. **Default:** the agent key.                                                                                                                        |
 | `STEADYBIT_AGENT_API_AUTH_ENABLED`  | `steadybit.agent.api.auth.enabled`  | Set to `false` to let any host call the endpoints in the last group without credentials. Use this only if your network already restricts who can reach the agent. **Default:** `true` |
+
+If you change the username or password, the auto-registration sidecar needs the same credentials:
+
+- **Helm:** set `agent.api.auth.username` and `agent.api.auth.password` in the `steadybit-agent` chart. The chart passes them to both the agent and the sidecar. Set the password with `agent.api.auth.password.value` to store it in the chart's secret, or with `agent.api.auth.password.valueFrom` to reference an existing secret. `agent.api.auth.enabled: false` turns authentication off.
+- **Amazon ECS:** set `STEADYBIT_EXTENSION_AGENT_API_USERNAME` and `STEADYBIT_EXTENSION_AGENT_API_PASSWORD` on the auto-registration sidecar container. When the password is set, the sidecar no longer needs `STEADYBIT_EXTENSION_AGENT_KEY`.
 
 Agents from 2.3.10 to 2.4.10 behave differently: only `/health` and `/prometheus` are reachable from other hosts without credentials, extension registration (`POST` and `DELETE` on `/extensions`) requires basic authentication from every host, and all other endpoints are reachable from the agent's own host or pod only.
