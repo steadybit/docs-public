@@ -70,7 +70,7 @@
           "value": "INFO"
         },
         {
-          "name": "STEADYBIT_EXTENSION_AGENT_KEY",
+          "name": "STEADYBIT_EXTENSION_AGENT_API_PASSWORD",
           "value": "MY-AGENT-KEY"
         },
         {

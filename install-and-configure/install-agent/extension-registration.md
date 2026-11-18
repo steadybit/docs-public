@@ -125,6 +125,8 @@ Extension registrations are persisted using the configured persistence provider.
 
 You can find detailed information about the agent API in the [Agent API](agent-api.md) documentation.
 
+Calls from the agent's own host or pod need no credentials. Calls from other hosts need basic authentication; see [Access and Authentication](agent-api.md#access-and-authentication).
+
 Example:
 
 **POST** `http://localhost:42899/extensions`
