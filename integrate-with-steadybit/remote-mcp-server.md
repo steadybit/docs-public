@@ -4,7 +4,7 @@ title: Remote MCP Server
 
 # Remote MCP Server
 
-Steadybit ships a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server, so you can connect AI agents such as Claude, Claude Code, ChatGPT, or GitHub Copilot in VS Code directly to your Steadybit tenant. Once connected, the assistant can explore your environments, targets, actions, services, experiments, and execution results — and, with the right permissions, help you design, save, and run experiments — so you can understand your system, reason about resilience, and act on it.
+Steadybit ships a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server, so you can connect AI agents such as Claude, Claude Code, ChatGPT, Codex, or GitHub Copilot in VS Code directly to your Steadybit tenant. Once connected, the assistant can explore your environments, targets, actions, services, experiments, and execution results — and, with the right permissions, help you design, save, and run experiments — so you can understand your system, reason about resilience, and act on it.
 
 Every tool runs with the permissions of the credential you connect with — the same team permissions, environment allowances, and license that apply in the UI and public API — so the assistant can only do what that credential is allowed to do. With OAuth the credential is your own user account; an access token acts with the token's own scope (a single team, all teams, or an admin token's tenant-wide access).
 
@@ -78,7 +78,7 @@ claude mcp add --transport http steadybit \
 
 If you belong to more than one tenant, connect to the one you want: `https://platform.steadybit.com/mcp/<tenant>`, replacing `<tenant>` with your tenant key. On the plain `/mcp` the connection cannot tell which tenant you mean: it connects, but offers only a setup tool that lists your tenant keys, and the assistant passes that on when you ask it anything.
 
-If you added Steadybit from [Claude's connector directory](https://claude.com/connectors/steadybit) and belong to several tenants, add a custom connector with your tenant's URL instead — the directory connector's URL cannot be changed. The same applies in ChatGPT: add a custom MCP server with your tenant's URL.
+If you added Steadybit from [Claude's connector directory](https://claude.com/connectors/steadybit) or [ChatGPT's plugin directory](https://chatgpt.com/plugins/plugin_asdk_app_6afbf494ccd48191befe9a24274dcc63) and belong to several tenants, add a custom connector (in ChatGPT: a custom MCP server) with your tenant's URL instead — the directory entry's URL cannot be changed.
 
 On first use the client opens a browser window where you sign in and confirm the connection:
 
@@ -96,10 +96,11 @@ The OAuth path works with MCP clients that Steadybit has registered with its ide
 
 * **Claude (web, desktop and mobile)** — add the [Steadybit connector](https://claude.com/connectors/steadybit) from Claude's connector directory, or add a custom connector with `https://platform.steadybit.com/mcp`.
 * **Claude Code** — see the command above.
-* **ChatGPT** — add a custom MCP server: open **Plugins**, choose **+** and **Add custom MCP server**, enter `https://platform.steadybit.com/mcp` and choose OAuth.
+* **ChatGPT** — add the [Steadybit plugin](https://chatgpt.com/plugins/plugin_asdk_app_6afbf494ccd48191befe9a24274dcc63) from ChatGPT's plugin directory, or add a custom MCP server: open **Plugins**, choose **+** and **Add custom MCP server**, enter `https://platform.steadybit.com/mcp` and choose OAuth.
+* **Codex** — install the [Steadybit plugin](https://chatgpt.com/plugins/plugin_asdk_app_6afbf494ccd48191befe9a24274dcc63); Codex shares ChatGPT's plugin directory.
 * **VS Code** — including **GitHub Copilot** chat and agent mode, which connect through VS Code's built-in MCP client.
 
-Other clients that require Dynamic Client Registration (for example Cursor, Windsurf, the Codex CLI, and the GitHub Copilot CLI) are not supported on the OAuth path today. Use the [access token](#method-1-access-token) method with those clients instead.
+Other clients that require Dynamic Client Registration (for example Cursor, Windsurf, the GitHub Copilot CLI, and a server added by hand in the Codex CLI with `codex mcp add`) are not supported on the OAuth path today. Use the [access token](#method-1-access-token) method with those clients instead.
 
 ### OAuth on a Self-Hosted Platform
 
