@@ -4,7 +4,7 @@ title: Remote MCP Server
 
 # Remote MCP Server
 
-Steadybit ships a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server, so you can connect AI agents such as Claude Code, Claude Desktop, or GitHub Copilot in VS Code directly to your Steadybit tenant. Once connected, the assistant can explore your environments, targets, actions, services, experiments, and execution results — and, with the right permissions, help you design, save, and run experiments — so you can understand your system, reason about resilience, and act on it.
+Steadybit ships a hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server, so you can connect AI agents such as Claude, Claude Code, ChatGPT, Codex, or GitHub Copilot in VS Code directly to your Steadybit tenant. Once connected, the assistant can explore your environments, targets, actions, services, experiments, and execution results — and, with the right permissions, help you design, save, and run experiments — so you can understand your system, reason about resilience, and act on it.
 
 Every tool runs with the permissions of the credential you connect with — the same team permissions, environment allowances, and license that apply in the UI and public API — so the assistant can only do what that credential is allowed to do. With OAuth the credential is your own user account; an access token acts with the token's own scope (a single team, all teams, or an admin token's tenant-wide access).
 
@@ -40,12 +40,16 @@ Running an experiment injects **real faults** into your infrastructure. Treat th
 
 ## Authentication
 
-There are two ways to authenticate an MCP client. Pick whichever fits your client and workflow — both connect to the same server and expose the same capabilities.
+There are two ways to authenticate an MCP client. Pick whichever fits your client and workflow — both use the same endpoint and expose the same capabilities:
 
-| Method           | Endpoint                             | Best for                                    |
-| ---------------- | ------------------------------------ | ------------------------------------------- |
-| **Access token** | `https://platform.steadybit.com/mcp` | Any MCP client; scripted or headless setups |
-| **OAuth**        | `https://platform.steadybit.com/mcp` | Clients with an interactive browser login   |
+```
+https://platform.steadybit.com/mcp
+```
+
+| Method           | Best for                                    |
+| ---------------- | ------------------------------------------- |
+| **Access token** | Any MCP client; scripted or headless setups |
+| **OAuth**        | Clients with an interactive browser login   |
 
 ### Method 1 — Access token
 
@@ -74,7 +78,7 @@ claude mcp add --transport http steadybit \
 
 If you belong to more than one tenant, connect to the one you want: `https://platform.steadybit.com/mcp/<tenant>`, replacing `<tenant>` with your tenant key. On the plain `/mcp` the connection cannot tell which tenant you mean: it connects, but offers only a setup tool that lists your tenant keys, and the assistant passes that on when you ask it anything.
 
-If you added Steadybit from Claude's connector directory and belong to several tenants, add a custom connector with your tenant's URL instead — the directory connector's URL cannot be changed.
+If you added Steadybit from [Claude's connector directory](https://claude.com/connectors/steadybit) or [ChatGPT's plugin directory](https://chatgpt.com/plugins/plugin_asdk_app_6afbf494ccd48191befe9a24274dcc63) and belong to several tenants, add a custom connector (in ChatGPT: a custom MCP server) with your tenant's URL instead — the directory entry's URL cannot be changed.
 
 On first use the client opens a browser window where you sign in and confirm the connection:
 
@@ -90,11 +94,13 @@ You don't need a Steadybit account before you connect. On the sign-in page, choo
 
 The OAuth path works with MCP clients that Steadybit has registered with its identity provider:
 
-* **Claude Code**
-* **Claude Desktop / Web**
-* **VS Code** — including **GitHub Copilot** chat and agent mode, which connect through VS Code's built-in MCP client
+* **Claude (web, desktop and mobile)** — add the [Steadybit connector](https://claude.com/connectors/steadybit) from Claude's connector directory, or add a custom connector with `https://platform.steadybit.com/mcp`.
+* **Claude Code** — see the command above.
+* **ChatGPT** — add the [Steadybit plugin](https://chatgpt.com/plugins/plugin_asdk_app_6afbf494ccd48191befe9a24274dcc63) from ChatGPT's plugin directory, or add a custom MCP server: open **Plugins**, choose **+** and **Add custom MCP server**, enter `https://platform.steadybit.com/mcp` and choose OAuth.
+* **Codex** — install the [Steadybit plugin](https://chatgpt.com/plugins/plugin_asdk_app_6afbf494ccd48191befe9a24274dcc63); Codex shares ChatGPT's plugin directory.
+* **VS Code** — including **GitHub Copilot** chat and agent mode, which connect through VS Code's built-in MCP client.
 
-Other clients that require Dynamic Client Registration (for example Cursor, Windsurf, the Codex CLI, and the GitHub Copilot CLI) are not supported on the OAuth path today. Use the [access token](#method-1-access-token) method with those clients instead.
+Other clients that require Dynamic Client Registration (for example Cursor, Windsurf, the GitHub Copilot CLI, and a server added by hand in the Codex CLI with `codex mcp add`) are not supported on the OAuth path today. Use the [access token](#method-1-access-token) method with those clients instead.
 
 ### OAuth on a Self-Hosted Platform
 
@@ -104,7 +110,7 @@ The platform trusts the access token only to identify the user. Tenant, role and
 
 #### Requirements
 
-* Platform version `2.8.12` or later. For older versions, see [Okta on older platform versions](#okta-on-older-platform-versions).
+* Platform version `2.8.12` or later.
 * Users sign in to the platform with OpenID Connect (`STEADYBIT_AUTH_PROVIDER=oauth2`).
 * `platform.publicWebUrl` is set. The MCP endpoint is `<publicWebUrl>/mcp`, and this exact URL is the audience the access tokens must be issued for.
 * Your license includes the MCP server.
@@ -156,16 +162,3 @@ Okta cannot register MCP clients automatically: its dynamic client registration 
 #### Organization-Wide Connectors in Claude
 
 Connectors that an organization adds for all its members in Claude (claude.ai Team and Enterprise) are called from Anthropic's cloud, not from the user's computer. To use one, both `https://<your-platform>/mcp` and your identity provider's token endpoint must be reachable from the internet. A platform that is only reachable inside your network can't be used as such a connector. Claude Code, in contrast, connects from the developer's computer, so it works with a platform inside your network.
-
-#### Okta on Older Platform Versions
-
-Platforms older than `2.8.12` lack `STEADYBIT_MCP_AUTH_OAUTH_USER_NAME_ATTRIBUTE`. From `2.8.1` on, they can identify users by a claim that Okta can put into both tokens:
-
-1. Set `STEADYBIT_AUTH_OAUTH2_USER_NAME_ATTRIBUTE=preferred_username` on the platform. Okta's ID token carries the user's login in that claim.
-2. On the authorization server, add a claim `preferred_username` to the **access token** with the value `user.login`.
-3. Have each user sign in to the platform once after the change, before they connect an MCP client. Existing users are matched by their email address, so they keep their accounts, teams and roles.
-
-Depending on the version, also:
-
-* **Before `2.8.7`:** set `STEADYBIT_MCP_ENABLED=true`. The MCP server is on by default only from `2.8.7` on.
-* **Before `2.8.6`:** connect clients to `https://<your-platform>/mcp/<tenant-key>` instead of `https://<your-platform>/mcp`.
