@@ -344,14 +344,21 @@ On-prem, it is **disabled until you configure a model provider** and requires th
 
 #### Amazon Bedrock
 
-| Environment Variable                               | Required | Description                                        | Default                                                  |
-|----------------------------------------------------|----------|----------------------------------------------------|----------------------------------------------------------|
-| `STEADYBIT_STEADYBUDDY_PROVIDER`                   | yes      | Set to <code>BEDROCK</code> to use Amazon Bedrock. | none — AI disabled                                       |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_REGION`             |          | AWS region for Bedrock.                            | <code>eu-central-1</code>                                |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_MODEL_NAME` |          | Inference profile id for the capable model.        | <code>eu.anthropic.claude-sonnet-4-6</code>              |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.           | <code>4096</code>                                        |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MODEL_NAME`   |          | Inference profile id for the classifier model.     | <code>eu.anthropic.claude-haiku-4-5-20251001-v1:0</code> |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.        | <code>1024</code>                                        |
+| Environment Variable                                | Required | Description                                                                                         | Default                                   |
+|-----------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------|-------------------------------------------|
+| `STEADYBIT_STEADYBUDDY_PROVIDER`                    | yes      | Set to <code>BEDROCK</code> to use Amazon Bedrock.                                                  | none — AI disabled                        |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_REGION`              |          | AWS region for Bedrock.                                                                             | <code>eu-central-1</code>                 |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_MODEL_NAME`  |          | Inference profile id for the capable model.                                                         | <code>eu.anthropic.claude-sonnet-5-5</code> |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_MAX_TOKENS`  |          | Max output tokens for the capable model.                                                            | <code>4096</code>                         |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_TEMPERATURE` |          | Sampling temperature for the capable model. Set it only for a model that accepts it (see below).    | not set                                   |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MODEL_NAME`    |          | Inference profile id for the classifier model.                                                      | <code>eu.anthropic.claude-haiku-5-5</code> |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MAX_TOKENS`    |          | Max output tokens for the classifier model.                                                         | <code>1024</code>                         |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_TEMPERATURE`   |          | Sampling temperature for the classifier model. Set it only for a model that accepts it (see below). | not set                                   |
+
+The default model names are EU inference profiles. Outside the EU, set the region and the matching profiles, for
+example `us.anthropic.claude-sonnet-5-5` / `us.anthropic.claude-haiku-5-5` or the cross-region
+`global.anthropic.claude-sonnet-5-5` / `global.anthropic.claude-haiku-5-5`. List the profiles available in a region
+with `aws bedrock list-inference-profiles --type-equals SYSTEM_DEFINED --region <region>`.
 
 #### Ollama
 
@@ -364,25 +371,35 @@ On-prem, it is **disabled until you configure a model provider** and requires th
 
 #### Anthropic
 
-| Environment Variable                                 | Required | Description                                               | Default                        |
-|------------------------------------------------------|----------|-----------------------------------------------------------|--------------------------------|
-| `STEADYBIT_STEADYBUDDY_PROVIDER`                     | yes      | Set to <code>ANTHROPIC</code> to use Anthropic.           | none — AI disabled             |
-| `STEADYBIT_STEADYBUDDY_ANTHROPIC_API_KEY`            | yes      | API key for Anthropic. Treat it as sensitive information. | —                              |
-| `STEADYBIT_STEADYBUDDY_ANTHROPIC_REGULAR_MODEL_NAME` |          | Capable model.                                            | <code>claude-sonnet-4-6</code> |
-| `STEADYBIT_STEADYBUDDY_ANTHROPIC_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.                  | <code>8192</code>              |
-| `STEADYBIT_STEADYBUDDY_ANTHROPIC_CHEAP_MODEL_NAME`   |          | Classifier model.                                         | <code>claude-haiku-4-5</code>  |
-| `STEADYBIT_STEADYBUDDY_ANTHROPIC_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.               | <code>1024</code>              |
+| Environment Variable                                  | Required | Description                                                                                         | Default                        |
+|-------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------|--------------------------------|
+| `STEADYBIT_STEADYBUDDY_PROVIDER`                      | yes      | Set to <code>ANTHROPIC</code> to use Anthropic.                                                     | none — AI disabled             |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_API_KEY`             | yes      | API key for Anthropic. Treat it as sensitive information.                                           | —                              |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_REGULAR_MODEL_NAME`  |          | Capable model.                                                                                      | <code>claude-sonnet-5-5</code> |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_REGULAR_MAX_TOKENS`  |          | Max output tokens for the capable model.                                                            | <code>8192</code>              |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_REGULAR_TEMPERATURE` |          | Sampling temperature for the capable model. Set it only for a model that accepts it (see below).    | not set                        |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_CHEAP_MODEL_NAME`    |          | Classifier model.                                                                                   | <code>claude-haiku-5-5</code>  |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_CHEAP_MAX_TOKENS`    |          | Max output tokens for the classifier model.                                                         | <code>1024</code>              |
+| `STEADYBIT_STEADYBUDDY_ANTHROPIC_CHEAP_TEMPERATURE`   |          | Sampling temperature for the classifier model. Set it only for a model that accepts it (see below). | not set                        |
 
 #### OpenAI
 
-| Environment Variable                              | Required | Description                                            | Default                   |
-|---------------------------------------------------|----------|--------------------------------------------------------|---------------------------|
-| `STEADYBIT_STEADYBUDDY_PROVIDER`                  | yes      | Set to <code>OPENAI</code> to use OpenAI.              | none — AI disabled        |
-| `STEADYBIT_STEADYBUDDY_OPENAI_API_KEY`            | yes      | API key for OpenAI. Treat it as sensitive information. | —                         |
-| `STEADYBIT_STEADYBUDDY_OPENAI_REGULAR_MODEL_NAME` |          | Capable model.                                         | <code>gpt-5.4</code>      |
-| `STEADYBIT_STEADYBUDDY_OPENAI_REGULAR_MAX_TOKENS` |          | Max output tokens for the capable model.               | <code>4096</code>         |
-| `STEADYBIT_STEADYBUDDY_OPENAI_CHEAP_MODEL_NAME`   |          | Classifier model.                                      | <code>gpt-5.4-mini</code> |
-| `STEADYBIT_STEADYBUDDY_OPENAI_CHEAP_MAX_TOKENS`   |          | Max output tokens for the classifier model.            | <code>1024</code>         |
+| Environment Variable                               | Required | Description                                                                                         | Default                   |
+|----------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------|---------------------------|
+| `STEADYBIT_STEADYBUDDY_PROVIDER`                   | yes      | Set to <code>OPENAI</code> to use OpenAI.                                                           | none — AI disabled        |
+| `STEADYBIT_STEADYBUDDY_OPENAI_API_KEY`             | yes      | API key for OpenAI. Treat it as sensitive information.                                              | —                         |
+| `STEADYBIT_STEADYBUDDY_OPENAI_REGULAR_MODEL_NAME`  |          | Capable model.                                                                                      | <code>gpt-5.4</code>      |
+| `STEADYBIT_STEADYBUDDY_OPENAI_REGULAR_MAX_TOKENS`  |          | Max output tokens for the capable model.                                                            | <code>4096</code>         |
+| `STEADYBIT_STEADYBUDDY_OPENAI_REGULAR_TEMPERATURE` |          | Sampling temperature for the capable model. Set it only for a model that accepts it (see below).    | not set                   |
+| `STEADYBIT_STEADYBUDDY_OPENAI_CHEAP_MODEL_NAME`    |          | Classifier model.                                                                                   | <code>gpt-5.4-mini</code> |
+| `STEADYBIT_STEADYBUDDY_OPENAI_CHEAP_MAX_TOKENS`    |          | Max output tokens for the classifier model.                                                         | <code>1024</code>         |
+| `STEADYBIT_STEADYBUDDY_OPENAI_CHEAP_TEMPERATURE`   |          | Sampling temperature for the classifier model. Set it only for a model that accepts it (see below). | not set                   |
+
+#### Temperature
+
+By default SteadyBuddy sends no sampling temperature, so the model uses its own default. Newer models reject the
+parameter: Claude Sonnet 5.5 and Haiku 5.5, for example, fail every request that sets it. Set the
+`…_TEMPERATURE` variables only for a model that accepts a temperature.
 
 ## Endpoint Rate Limits
 
