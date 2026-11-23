@@ -344,16 +344,16 @@ On-prem, it is **disabled until you configure a model provider** and requires th
 
 #### Amazon Bedrock
 
-| Environment Variable                                | Required | Description                                                                                         | Default                                   |
-|-----------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------|-------------------------------------------|
-| `STEADYBIT_STEADYBUDDY_PROVIDER`                    | yes      | Set to <code>BEDROCK</code> to use Amazon Bedrock.                                                  | none — AI disabled                        |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_REGION`              |          | AWS region for Bedrock.                                                                             | <code>eu-central-1</code>                 |
+| Environment Variable                                | Required | Description                                                                                         | Default                                     |
+|-----------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------|---------------------------------------------|
+| `STEADYBIT_STEADYBUDDY_PROVIDER`                    | yes      | Set to <code>BEDROCK</code> to use Amazon Bedrock.                                                  | none — AI disabled                          |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_REGION`              |          | AWS region for Bedrock.                                                                             | <code>eu-central-1</code>                   |
 | `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_MODEL_NAME`  |          | Inference profile id for the capable model.                                                         | <code>eu.anthropic.claude-sonnet-5-5</code> |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_MAX_TOKENS`  |          | Max output tokens for the capable model.                                                            | <code>4096</code>                         |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_TEMPERATURE` |          | Sampling temperature for the capable model. Set it only for a model that accepts it (see below).    | not set                                   |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MODEL_NAME`    |          | Inference profile id for the classifier model.                                                      | <code>eu.anthropic.claude-haiku-5-5</code> |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MAX_TOKENS`    |          | Max output tokens for the classifier model.                                                         | <code>1024</code>                         |
-| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_TEMPERATURE`   |          | Sampling temperature for the classifier model. Set it only for a model that accepts it (see below). | not set                                   |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_MAX_TOKENS`  |          | Max output tokens for the capable model.                                                            | <code>4096</code>                           |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_REGULAR_TEMPERATURE` |          | Sampling temperature for the capable model. Set it only for a model that accepts it (see below).    | not set                                     |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MODEL_NAME`    |          | Inference profile id for the classifier model.                                                      | <code>eu.anthropic.claude-haiku-5-5</code>  |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_MAX_TOKENS`    |          | Max output tokens for the classifier model.                                                         | <code>1024</code>                           |
+| `STEADYBIT_STEADYBUDDY_BEDROCK_CHEAP_TEMPERATURE`   |          | Sampling temperature for the classifier model. Set it only for a model that accepts it (see below). | not set                                     |
 
 The default model names are EU inference profiles. Outside the EU, set the region and the matching profiles, for
 example `us.anthropic.claude-sonnet-5-5` / `us.anthropic.claude-haiku-5-5` or the cross-region
