@@ -18,7 +18,7 @@ You can use the following metrics to learn whether maintenance on the Steadybit 
 
 The maintenance and incident API endpoints are only reachable through the admin port `9090` on the platform Kubernetes deployment workload. This port is not exposed to users by default, and you should only use it for administrative purposes.
 
-Reading the maintenance or incident configuration (`GET`) needs no authentication. Setting or clearing it (`POST`, `DELETE`) only works from inside the platform pod and needs the secret the platform writes to `/opt/steadybit/platform/data/admin-secret` on every start, sent in the `X-Steadybit-Admin-Secret` header. Requests without it are rejected with 403.
+Reading the maintenance or incident configuration (`GET`) needs no authentication. Setting or clearing it (`POST`, `DELETE`) only accepts local connections to the platform pod, directly or through `kubectl port-forward`, and needs the secret the platform writes to `/opt/steadybit/platform/data/admin-secret` on every start, sent in the `X-Steadybit-Admin-Secret` header. Requests without it are rejected with 403.
 
 One option to reach this port from your local machine is a port forward. Read the secret from the same pod you forward to, as the following snippet shows, since every pod has its own secret:
 
