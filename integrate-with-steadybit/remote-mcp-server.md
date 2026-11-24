@@ -97,10 +97,16 @@ The OAuth path works with MCP clients that Steadybit has registered with its ide
 * **Claude (web, desktop and mobile)** — add the [Steadybit connector](https://claude.com/connectors/steadybit) from Claude's connector directory, or add a custom connector with `https://platform.steadybit.com/mcp`.
 * **Claude Code** — see the command above.
 * **ChatGPT** — add the [Steadybit plugin](https://chatgpt.com/plugins/plugin_asdk_app_6afbf494ccd48191befe9a24274dcc63) from ChatGPT's plugin directory, or add a custom MCP server: open **Plugins**, choose **+** and **Add custom MCP server**, enter `https://platform.steadybit.com/mcp` and choose OAuth.
-* **Codex** — install the [Steadybit plugin](https://chatgpt.com/plugins/plugin_asdk_app_6afbf494ccd48191befe9a24274dcc63); Codex shares ChatGPT's plugin directory.
+* **Codex** — install the [Steadybit plugin](https://chatgpt.com/plugins/plugin_asdk_app_6afbf494ccd48191befe9a24274dcc63); Codex shares ChatGPT's plugin directory. Or add the server by hand, which opens the sign-in in your browser:
+
+  ```bash
+  codex mcp add steadybit --url https://platform.steadybit.com/mcp
+  ```
+
+  Codex signs in on the plain `/mcp` only, not on a tenant URL. If you belong to more than one tenant, connect Codex with an [access token](#method-1-access-token) instead: `codex mcp add steadybit --url https://platform.steadybit.com/mcp --bearer-token-env-var STEADYBIT_TOKEN`, with the token in the environment variable `STEADYBIT_TOKEN`.
 * **VS Code** — including **GitHub Copilot** chat and agent mode, which connect through VS Code's built-in MCP client.
 
-Other clients that require Dynamic Client Registration (for example Cursor, Windsurf, the GitHub Copilot CLI, and a server added by hand in the Codex CLI with `codex mcp add`) are not supported on the OAuth path today. Use the [access token](#method-1-access-token) method with those clients instead.
+Other clients that require Dynamic Client Registration (for example Cursor, Windsurf and the GitHub Copilot CLI) are not supported on the OAuth path today. Use the [access token](#method-1-access-token) method with those clients instead.
 
 ### OAuth on a Self-Hosted Platform
 
@@ -156,7 +162,7 @@ claude mcp add --transport http steadybit \
 Then run `/mcp` in Claude Code, select `steadybit` and choose **Authenticate**. To roll this out to all developers at once, distribute the same server entry, including the client id, through Claude Code's managed MCP configuration.
 
 {% hint style="info" %}
-Okta cannot register MCP clients automatically: its dynamic client registration requires an admin token. That is why every client needs the client id of the app from step 3, and why clients that only support dynamic client registration (for example Cursor, Windsurf, the Codex CLI and the GitHub Copilot CLI) can't use OAuth with Okta. Use an [access token](#method-1-access-token) with those clients.
+Okta cannot register MCP clients automatically: its dynamic client registration requires an admin token. That is why every client needs the client id of the app from step 3, and why clients that only support dynamic client registration (for example Cursor, Windsurf and the GitHub Copilot CLI) can't use OAuth with Okta. Use an [access token](#method-1-access-token) with those clients.
 {% endhint %}
 
 #### Organization-Wide Connectors in Claude
