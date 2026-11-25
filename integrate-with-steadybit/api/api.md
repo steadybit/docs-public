@@ -28,17 +28,27 @@ Tokens are automatically invalidated if the conditions they were created under n
 
 Access tokens can have an optional expiration date. Once expired, a token can no longer be used for authentication. Tokens without an expiration date never expire.
 
-Expired tokens can be **recreated** with a new expiration date. Recreating a token generates a new secret while preserving the original name, type, and team associations. The old token is invalidated.
+### Rotating a Token
+
+Rotating a token gives it a new secret. Its id (the part of the token before the dot), name, type, teams and creator stay the same.
+
+To replace a secret without downtime, choose a grace period of up to 7 days: the previous secret keeps working until it ends, giving you time to switch your systems over. The previous secret never outlives the old or the new expiration date of the token. Without a grace period, the previous secret stops working immediately. Rotating again ends the grace period of the secret replaced before.
+
+You can keep the expiration date or set a new one, also for a token that has already expired.
+
+Rotate a token in the UI under Settings → API Access Tokens.
 
 ### Token Permissions
 
 Who can manage tokens depends on the token type:
 
-| Action   | Admin Token | Team Token and Wildcard Token                 |
-|----------|-------------|-----------------------------------------------|
-| Create   | Admin only  | Admin or team owner (of all associated teams) |
-| Delete   | Admin only  | Admin or token creator                        |
-| Recreate | Admin only  | Admin or token creator                        |
+| Action | Admin Token | Team Token and Wildcard Token                                                  |
+|--------|-------------|--------------------------------------------------------------------------------|
+| Create | Admin only  | Admin or team owner (of all associated teams)                                  |
+| Delete | Admin only  | Admin or token creator                                                         |
+| Rotate | Admin only  | Admin, the token creator while still allowed to create it, or the token itself |
+
+Admin includes admin tokens. A request authenticated with a previous secret during its grace period cannot create, delete or rotate tokens.
 
 ### Creating a Token via the UI
 
@@ -71,7 +81,24 @@ curl -X 'POST' \
 }'
 ```
 
-Details on the Access Token API endpoint can be found in the specification linked from the [OpenAPI Specification](#openapi-specification) section.
+### Rotating a Token via the API
+
+A token can rotate itself, so a pipeline can renew its own secret before the old one stops working. Pass the token id, the part of the token before the dot:
+
+```bash
+curl -X 'POST' \
+  'https://platform.steadybit.com/api/access-tokens/v2/<token-id>/rotate?gracePeriod=24h&expiresAt=2027-07-01T00:00:00Z' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer <token>'
+```
+
+The response contains the token with its new secret and `previousSecretExpiresAt`, the time until which the previous secret still works. `gracePeriod` defaults to `0s`; without `expiresAt` the token keeps its expiration date.
+
+{% hint style="info" %}
+`POST /api/access-tokens/v2/{id}/recreate` is deprecated and will be removed after August 2027. Use `rotate` instead.
+{% endhint %}
+
+Details on the Access Token API endpoints can be found in the specification linked from the [OpenAPI Specification](#openapi-specification) section.
 
 ### Creating an Admin Token via Internal API (On-Prem)
 
