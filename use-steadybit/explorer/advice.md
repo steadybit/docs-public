@@ -27,7 +27,7 @@ The advice has discovered that your target's configuration follows best practice
 * Experiments: The advice suggests an experiment you should run to validate whether the target's configuration is working.
 * Text: The advice gives additional context for manually checking whether the target's configuration works.
 
-![Advice for target 'toys-bestseller' in state 'Validation Needed'](../../.gitbook/assets/advice-validation-needed.png)
+![Advice for target 'gateway' in state 'Validation Needed'](../../.gitbook/assets/advice-validation-needed.png)
 
 To perform the validation, we suggest you do the corresponding action (run an experiment or follow the text-based instruction) and mark the validation as done. When you've performed all validations, the advice's state goes to the end state ('Implemented').
 

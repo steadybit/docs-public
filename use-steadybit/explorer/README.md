@@ -29,8 +29,10 @@ A view belongs to the whole Explorer rather than to one tab. It opens on the tab
 
 To switch views, open the list next to the view's name. It shows your team's views and the ones shared by Steadybit, each with the tab it opens on and its environment, and you can narrow it to the views that open on Landscape, Targets, or Advice. **Open all saved views** shows them all as tiles: a Landscape view with a picture of its map, a Targets or Advice view with its filter and how many targets or advice it matches.
 
+![The view switcher listing your team's views and the ones shared by Steadybit](../../.gitbook/assets/explorer-view-switcher.png)
+
+![All saved views shown as tiles](../../.gitbook/assets/landscape-explorer-views.png)
+
 Changing anything in a view — the filter, the name, the grouping — reveals **Save view** and a discard button in the header. Nothing is saved until you press Save view, and leaving the Explorer never interrupts you to ask: exploring is what the Explorer is for. Saving lets you rename the view, edit its description, and tells you which tab it will open on — the one you are saving from. To keep the original as it is, use the duplicate button next to delete instead: it saves the view as a second one under a new name.
 
 In addition, Steadybit shares some predefined views that help you get started. They depend on the targets actually discovered, showing a Kubernetes map only when at least one Kubernetes cluster is discovered. These cannot be changed in place — changing one offers **Save as new view**, which saves a copy to your team.
-
-![Landscape views](../../.gitbook/assets/landscape-explorer-views.png)
