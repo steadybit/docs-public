@@ -100,7 +100,7 @@ The following factors reduce the risk of a service:
 - **Strong validation coverage** — service validations, and additional checks and load tests inside your experiments increase confidence.
 - **Resolved advice** — working through the [advice](#advice) of the service reduces the risk of the affected category. Advice that requires action carries a high risk (`100`), advice that requires a validation carries a medium risk (`50`), and implemented advice carries a low risk (`10`).
 
-The product surfaces inline guidance next to each experiment and category, showing you the most impactful next steps to lower the risk.
+Hover an experiment's risk in the [experiments table](#experiments) to see the most impactful next step to lower it — for example, to fix a failure and run the experiment again.
 
 ![Suggestions on how to lower the risk](service-risk-suggestions.png)
 
