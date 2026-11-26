@@ -119,6 +119,13 @@ platform's user inside the container can read the file, and its content changes 
 before each call. If you set `STEADYBIT_PLATFORM_WORKING_DIR`, the file is `$STEADYBIT_PLATFORM_WORKING_DIR/data/admin-secret`.
 {% endhint %}
 
+{% hint style="warning" %}
+If your automation can't read the file, you can turn the secret off with `STEADYBIT_MANAGEMENT_ADMIN_SECRET_REQUIRED=false`.
+The endpoint then accepts every request from localhost, so also set
+`STEADYBIT_CONNECTIVITY_OUTGOING_DENY_PRIVATE_ADDRESSES=true`: otherwise anyone who can create a webhook can point it at
+`localhost:9090` and create an admin token. Requests from other pods are refused either way.
+{% endhint %}
+
 ## OpenAPI Specification
 
 We provide an [OpenAPI 3.0 Specification for the API](https://platform.steadybit.com/api/spec) as well as an [interactive documentation](https://platform.steadybit.com/api/swagger). In case you are using our on-prem variant you can access it at `http://<your-installation-url>/api/spec`.
