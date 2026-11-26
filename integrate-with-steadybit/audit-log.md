@@ -5,9 +5,22 @@ The audit log retains historical information about actions triggered within the 
 * When was the experiment executed, by whom, and which hosts did it affect?
 * When did we engage the experiment kill switch?
 
-At the moment, only a handful of activities are logged for auditing purposes. In the future, this will be extended.
+## What Is Logged
 
-You can access the audit log through the `/api/audit-log` endpoint. For more information, please see our [API documentation](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Audit%20Log).
+The audit log records:
+
+* **Experiment runs** — the full lifecycle of every run, including each step and each attacked target, who started it and how, and changes to its properties
+* **The [emergency stop](../use-steadybit/experiments/emergencyStop.md)** — when it was engaged and released
+* **Experiments, templates, schedules, and experiment suites** — creation, changes, and deletion
+* **Teams, users, and access** — teams, invitations, memberships, and access tokens
+* **Environments, services, and service profiles** — including their variables
+* **Configuration** — properties, webhooks, preflight action integrations, hubs, and tenant settings
+
+Each entry records who triggered it (a user, an access token, or a schedule), when, and the affected team and environment.
+
+## Access the Audit Log
+
+You can access the audit log through the `/api/audit-log` endpoint or with the [Steadybit CLI](cli.md) (`steadybit audit-log`). For more information, please see our [API documentation](https://platform.steadybit.com/api/swagger/swagger-ui/index.html?configUrl=/api/spec/swagger-config#/Audit%20Log).
 
 ## Retention
 
