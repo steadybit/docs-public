@@ -123,7 +123,8 @@ before each call. If you set `STEADYBIT_PLATFORM_WORKING_DIR`, the file is `$STE
 If your automation can't read the file, you can turn the secret off with `STEADYBIT_MANAGEMENT_ADMIN_SECRET_REQUIRED=false`.
 The endpoint then accepts every request from localhost, so we recommend also setting
 `STEADYBIT_CONNECTIVITY_OUTGOING_DENY_PRIVATE_ADDRESSES=true`: without it, anyone who can create a webhook can point it
-at `localhost:9090` and create an admin token. Requests from other pods are refused either way.
+at `localhost:9090` and create an admin token. Webhooks to internal hosts keep working if you list them in
+`STEADYBIT_CONNECTIVITY_OUTGOING_ALLOWED_PRIVATE_ADDRESSES`. Requests from other pods are refused either way.
 {% endhint %}
 
 ## OpenAPI Specification
