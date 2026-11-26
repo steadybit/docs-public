@@ -24,45 +24,59 @@ Based on how thoroughly and how recently those have been validated, Steadybit de
 
 ## Service Detail
 
-Once a service is set up, its detail view gives you a tab per profile category (e.g., Scalability, Redundancy, Dependencies).
-Within each tab, it distinguishes between _Provided Experiments_, _Custom Experiments_, and _Advice_ (see below).
+The service detail page shows everything about a service on one page: a header with the service's facts, a summary band, all of its experiments in one table, and the advice for its targets.
 
-The header bar always shows you a quick summary of the service — the environment it uses, the number of resolved targets, active validations, any service properties, and the associated [risk](#risk).
+![Service detail page](./service-detail.png)
 
-### Provided Experiments
+The header shows the team and environment of the service, the number of resolved targets, its validations, variables, and service properties — click an entry to edit it.
+Use the menu in the top-right corner to edit or delete the service, or to explore its targets.
 
-Provided experiments are automatically generated from the linked service profile.
+### Summary Band
+
+The summary band at the top answers the most important questions at a glance:
+
+- **Service risk** — the overall [risk](#risk) of the service. Open **How is the risk calculated?** for a detailed explanation.
+- **By category** — the risk per category of the service profile (e.g., Redundancy, Scalability, Dependency).
+- **Needs attention** — how many experiments are still to create, have never run, or failed on their last run, and how many advice items need action.
+
+Click a category or an item under **Needs attention** to filter the experiments and advice below accordingly.
+
+### Experiments
+
+One table lists every experiment of the service: [SteadyBuddy's suggestions](../steadybuddy/README.md#get-experiment-suggestions) on top, followed by the service's provided and custom experiments.
+
+![Service's experiments](./service-detail-experiments.png)
+
+Search by key or name, filter by risk, source (provided or custom), category, or what needs attention, and sort by name or last run.
+Each experiment shows its category, source, risk, the trend of its last runs, and when it last ran — click the date to open that run.
+Hold the play button of an experiment to run it right from the table; the risk updates once the run has finished.
+
+#### Provided Experiments
+
+Provided experiments come from the linked service profile.
 Each experiment template in the profile is instantiated with your service's targets and validations, giving you ready-to-run experiments without manual setup.
-
-![Service's provided experiments](./service-detail-provided.png)
-
-Experiments are grouped by the categories defined in the service profile (e.g., Scalability, Redundancy, Dependencies).
-Each card shows the experiment name, its last run status, and a quick-run button.
-You can filter the list by category using the filter pills at the top.
+A provided experiment that hasn't been created yet shows a **+** in front of its name: create it with a click, then run it.
 
 The generated experiments use your service's targets and validations directly — for example, the **Pod Redundancy** experiment is created as `SHOP-3073 Pod Redundancy` and scoped to the exact pods in your service's target scope.
 
 ![Service's provided experiment for pod redundancy](./service-detail-provided-experiment.png)
 
-### Custom Experiments
+#### Custom Experiments
 
 Beyond provided experiments, you can link any existing experiment to the service to keep all relevant reliability work in one place.
-
-![Service's custom experiments](./service-detail-custom.png)
-
-Click **Link Experiments** to associate one or more existing experiments with the service.
-Linked experiments appear alongside the provided experiments, giving your team a complete picture of all reliability validation for this service.
+Click **Link experiments** to associate one or more existing experiments with the service; they appear in the same table, marked as _Custom_.
 
 You can use the `Service Validation` step inside a custom experiment to reuse the service's validations, or use other actions (e.g. checks or load tests) to validate your infrastructure's behavior.
 
-If you are unsure what else is worth testing for this service, use **Get suggestions** in the SteadyBuddy banner to let [SteadyBuddy propose experiments](../steadybuddy/README.md#get-experiment-suggestions) based on the service's targets.
+If you are unsure what else is worth testing for this service, use **Get suggestions** to let [SteadyBuddy propose experiments](../steadybuddy/README.md#get-experiment-suggestions) based on the service's targets.
 
 ### Advice
 
-The **advice** tab surfaces reliability recommendations for the targets within your service's scope.
+Below the experiments, the **Advice** card lists the reliability recommendations for the targets within your service's scope.
 Each advice item is categorized (e.g., Scalability, Redundancy) and indicates its current state — making it easy to identify gaps and prioritize improvements.
+Filter by status, category, or target, and select an advice to see its details, validations, and how to implement it next to the list.
 
-![Service's advice](service-detail-advice.png)
+![Service's advice](./service-detail-advice.png)
 
 Advice is generated based on the discovered targets and [installed advice-supported extensions](https://hub.steadybit.com/extensions?tags=Advice) in your service's scope.
 [Learn more about advice](../explorer/advice.md).
@@ -72,7 +86,7 @@ Advice is generated based on the discovered targets and [installed advice-suppor
 Every service has a **risk** associated with it, giving you a quick indicator of its reliability posture.
 
 The risk is calculated per category defined in the service profile (e.g., Scalability, Redundancy, Dependencies), and the overall service risk is a rollup across those categories.
-You can see both the overall risk and the per-category breakdown in the header of the service detail page, and open **How is the risk calculated?** for a detailed explanation in the product.
+You can see both the overall risk and the per-category breakdown in the [summary band](#summary-band) of the service detail page, and open **How is the risk calculated?** for a detailed explanation in the product.
 
 The riskier the service, the higher the risk value: 100 is the highest risk, and 10 the lowest achievable one.
 The risk never reaches zero, because reliability is a continuous effort: the service always needs ongoing validation to stay trustworthy.
@@ -84,7 +98,7 @@ The following factors reduce the risk of a service:
 - **Successful experiment runs** — each linked experiment (both [provided](#provided-experiments) and [custom](#custom-experiments)) that finishes with state `COMPLETED` lowers the risk. Failed, errored, or never-executed experiments keep the risk high.
 - **Recent runs** — the risk reflects how recently experiments were executed. Re-run your experiments at least every 30 days; the older the last run, the more the risk drifts back up.
 - **Strong validation coverage** — service validations, and additional checks and load tests inside your experiments increase confidence.
-- **Resolved advice** — working through items on the [Advice](#advice) tab reduces the risk of the affected category. Advice that requires action carries a high risk (`100`), advice that requires a validation carries a medium risk (`50`), and implemented advice carries a low risk (`10`).
+- **Resolved advice** — working through the [advice](#advice) of the service reduces the risk of the affected category. Advice that requires action carries a high risk (`100`), advice that requires a validation carries a medium risk (`50`), and implemented advice carries a low risk (`10`).
 
 The product surfaces inline guidance next to each experiment and category, showing you the most impactful next steps to lower the risk.
 
@@ -104,7 +118,7 @@ The risk is also surfaced outside the service detail page so you can spot where 
 You can explore the targets of a service directly from two entry points:
 
 - **Services overview** — click **Explore Services** to open the Explorer with all targets across all services.
-- **Service detail** — click **Explore Targets** in the top-right corner to open the Explorer scoped to the targets of that specific service.
+- **Service detail** — choose **Explore targets** in the menu in the top-right corner to open the Explorer scoped to the targets of that specific service.
 
 In the Explorer, you can group and filter targets by any attribute — for example, by Kubernetes labels, AWS zone, or deployment — to understand how your service's infrastructure is distributed and identify potential reliability gaps.
 
