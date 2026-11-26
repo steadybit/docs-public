@@ -8,9 +8,9 @@ All API requests require an access token for authentication.
 
 To authenticate API requests, create an access token and pass it via the `Authorization` header in your request.
 
-Access tokens can be managed in the UI under Settings → API Access Tokens.
+Access tokens can be managed in the UI under Settings → API access tokens.
 
-![Management of API Access Token](../../.gitbook/assets/api-access-token-overview.png)
+![Management of API access tokens](../../.gitbook/assets/api-access-token-overview.png)
 
 ### Token Types
 
@@ -36,7 +36,7 @@ To replace a secret without downtime, choose a grace period of up to 7 days: the
 
 You can keep the expiration date or set a new one, also for a token that has already expired.
 
-Rotate a token in the UI under Settings → API Access Tokens.
+Rotate a token in the UI under Settings → API access tokens.
 
 ### Token Permissions
 
@@ -52,7 +52,7 @@ Admin includes admin tokens. A request authenticated with a previous secret duri
 
 ### Creating a Token via the UI
 
-You can create a new access token in the UI under Settings → API Access Tokens.
+You can create a new access token in the UI under Settings → API access tokens.
 
 ![Add a new API access token](../../.gitbook/assets/api-access-token-create-new.png)
 
