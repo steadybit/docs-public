@@ -85,7 +85,8 @@ Experiments scheduled with such a token will continue to execute even after the 
 
 **Via CLI**
 
-SSH into the platform server and run:
+Run the bundled script inside the platform container, for example with `kubectl exec <platform-pod> --` on Kubernetes
+or `docker exec <platform-container>` on Docker:
 
 ```bash
 /scripts/createAdminToken.sh -t <tenantKey> -n <name>
@@ -94,24 +95,36 @@ SSH into the platform server and run:
 Example:
 
 ```bash
-/scripts/createAdminToken.sh -t onprem -n AdminToken
+kubectl exec -n steadybit-platform <platform-pod> -- /scripts/createAdminToken.sh -t onprem -n AdminToken
 Z8pChlF2*************
 ```
 
 **Via HTTP API**
 
-SSH into the platform server and call:
+Inside the platform container, send the secret the platform writes to `/opt/steadybit/platform/data/admin-secret`
+on every start in the `X-Steadybit-Admin-Secret` header:
 
 ```bash
 curl \
   -H 'Content-Type: application/json' \
+  -H "X-Steadybit-Admin-Secret: $(cat /opt/steadybit/platform/data/admin-secret)" \
   -X POST \
   -d '{"name":"'$NAME'","tenantKey":"'$TENANTKEY'"}' \
   http://localhost:9090/actuator/adminaccesstoken
 ```
 
 {% hint style="info" %}
-This endpoint is only accessible from localhost and is not reachable from outside the server.
+The endpoint only accepts requests from localhost that carry this secret, and answers all others with 403. Only the
+platform's user inside the container can read the file, and its content changes on every restart, so read it right
+before each call. If you set `STEADYBIT_PLATFORM_WORKING_DIR`, the file is `$STEADYBIT_PLATFORM_WORKING_DIR/data/admin-secret`.
+{% endhint %}
+
+{% hint style="warning" %}
+If your automation can't read the file, you can turn the secret off with `STEADYBIT_MANAGEMENT_ADMIN_SECRET_REQUIRED=false`.
+The endpoint then accepts every request from localhost, so we recommend also setting
+`STEADYBIT_CONNECTIVITY_OUTGOING_DENY_PRIVATE_ADDRESSES=true`: without it, anyone who can create a webhook can point it
+at `localhost:9090` and create an admin token. Webhooks to internal hosts keep working if you list them in
+`STEADYBIT_CONNECTIVITY_OUTGOING_ALLOWED_PRIVATE_ADDRESSES`. Requests from other pods are refused either way.
 {% endhint %}
 
 ## OpenAPI Specification
