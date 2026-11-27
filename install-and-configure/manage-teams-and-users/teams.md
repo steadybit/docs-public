@@ -38,7 +38,7 @@ In the edit/create dialog, admins can control
 
 You can think of it as the maximum blast radius this team can attack.
 
-If permissions for teams with existing experiments are removed, the blast radius of the experiments is not widened. If you add permissions to teams with existing experiments, the new permissions will be applied to the experiments.
+Permissions are checked every time an experiment runs. If you remove an environment or an attack from a team, the team's experiments that use it can no longer run until you grant the permission again or change the experiment. An experiment never switches to another environment on its own, so removing a permission never changes what an experiment attacks. Adding or removing permissions doesn't modify existing experiments.
 
 ## Managing Team Members
 
