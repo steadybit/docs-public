@@ -30,11 +30,7 @@ Access tokens can have an optional expiration date. Once expired, a token can no
 
 ### Rotating a Token
 
-Rotating a token gives it a new secret. Its id (the part of the token before the dot), name, type, teams and creator stay the same.
-
-To replace a secret without downtime, choose a grace period of up to 7 days: the previous secret keeps working until it ends, giving you time to switch your systems over. The previous secret never outlives the old or the new expiration date of the token. Without a grace period, the previous secret stops working immediately. Rotating again ends the grace period of the secret replaced before.
-
-You can keep the expiration date or set a new one, also for a token that has already expired.
+Rotating a token gives it a new secret and keeps everything else. To avoid downtime, choose a grace period of up to 7 days: the previous secret keeps working while you switch your systems over. Without a grace period, it stops working immediately.
 
 Rotate a token in the UI under Settings → API access tokens.
 
@@ -42,13 +38,11 @@ Rotate a token in the UI under Settings → API access tokens.
 
 Who can manage tokens depends on the token type:
 
-| Action | Admin Token | Team Token and Wildcard Token                                                  |
-|--------|-------------|--------------------------------------------------------------------------------|
-| Create | Admin only  | Admin or team owner (of all associated teams)                                  |
-| Delete | Admin only  | Admin or token creator                                                         |
-| Rotate | Admin only  | Admin, the token creator while still allowed to create it, or the token itself |
-
-Admin includes admin tokens. A request authenticated with a previous secret during its grace period cannot create, delete or rotate tokens.
+| Action | Admin Token | Team Token and Wildcard Token                 |
+|--------|-------------|-----------------------------------------------|
+| Create | Admin only  | Admin or team owner (of all associated teams) |
+| Delete | Admin only  | Admin or token creator                        |
+| Rotate | Admin only  | Admin, token creator, or the token itself     |
 
 ### Creating a Token via the UI
 
@@ -83,16 +77,16 @@ curl -X 'POST' \
 
 ### Rotating a Token via the API
 
-A token can rotate itself, so a pipeline can renew its own secret before the old one stops working. Pass the token id, the part of the token before the dot:
+A token can rotate itself, so a pipeline can renew its own secret. The token id is the part of the token before the dot:
 
 ```bash
 curl -X 'POST' \
-  'https://platform.steadybit.com/api/access-tokens/v2/<token-id>/rotate?gracePeriod=24h&expiresAt=2027-07-01T00:00:00Z' \
+  'https://platform.steadybit.com/api/access-tokens/v2/<token-id>/rotate?gracePeriod=24h' \
   -H 'accept: application/json' \
   -H 'Authorization: Bearer <token>'
 ```
 
-The response contains the token with its new secret and `previousSecretExpiresAt`, the time until which the previous secret still works. `gracePeriod` defaults to `0s`; without `expiresAt` the token keeps its expiration date.
+The token keeps its expiration date unless you pass `expiresAt`, a date-time or `never`.
 
 {% hint style="info" %}
 `POST /api/access-tokens/v2/{id}/recreate` is deprecated and will be removed after August 2027. Use `rotate` instead.
