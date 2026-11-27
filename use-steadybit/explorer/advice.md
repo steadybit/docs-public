@@ -16,7 +16,7 @@ Depending on its definition, a piece of advice may skip a particular state.
 
 The advice has automatically discovered that your target's configuration requires changes to follow best practices. For instance, it may advise you to address the redundancy configuration of a Kubernetes deployment, or to deploy your application across multiple availability zones of your cloud vendor. The advice summarizes the matter, gives additional motivation to explain why you should address it, and gives specific instructions to improve it.
 
-![Advice for target 'fashion-bestseller' in state 'Action Needed'](../../.gitbook/assets/advice-action-needed.png)
+![Advice for target 'hot-deals' in state 'Action Needed'](../../.gitbook/assets/advice-action-needed.png)
 
 As soon as you implement the suggested instruction, Steadybit automatically discovers the change and — depending on the advice definition — asks you to validate your changes (lifecycle 'Validation Needed') or marks the advice as 'Implemented'.
 
@@ -27,7 +27,7 @@ The advice has discovered that your target's configuration follows best practice
 * Experiments: The advice suggests an experiment you should run to validate whether the target's configuration is working.
 * Text: The advice gives additional context for manually checking whether the target's configuration works.
 
-![Advice for target 'toys-bestseller' in state 'Validation Needed'](../../.gitbook/assets/advice-validation-needed.png)
+![Advice for target 'hot-deals' in state 'Validation Needed'](../../.gitbook/assets/advice-validation-needed.png)
 
 To perform the validation, we suggest you do the corresponding action (run an experiment or follow the text-based instruction) and mark the validation as done. When you've performed all validations, the advice's state goes to the end state ('Implemented').
 
@@ -35,7 +35,7 @@ To perform the validation, we suggest you do the corresponding action (run an ex
 
 Great job! You followed the advice and have fulfilled all required actions and validations.
 
-![Advice for target 'gateway' in state 'Implemented'](../../.gitbook/assets/advice-implemented.png)
+![Advice for target 'hot-deals' in state 'Implemented'](../../.gitbook/assets/advice-implemented.png)
 
 In case you invalidate one of the validations or the discovery detects a required configuration change, the advice will return to the 'Validation Needed' or 'Action Needed' state.
 
@@ -58,6 +58,8 @@ Once you activate the 'Show Advice' in the sidebar, the general advice icon indi
 ### Advice
 
 In the Explorer Advice, you can see all supported advice, followed by the applicable targets and the respective status. It's the perfect place if you want to resolve the same advice for multiple targets. You can also filter by advice status to concentrate, for example, on the targets that require action for a specific piece of advice first.
+
+The environment and the target filter are [shared with the other two tabs](README.md#one-scope-for-all-three) and can be kept in a [saved view](README.md#saved-views), so this list covers the same targets you were looking at in the Landscape or the table. Advice whose targets are all outside the filter stays in the list, grayed out and showing `0`, rather than disappearing from it.
 
 ![Explorer Advice showing you advice and targets](../../.gitbook/assets/advice-explorer-advice.png)
 
