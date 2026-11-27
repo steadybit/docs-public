@@ -102,7 +102,7 @@ You can scope suggestions in two ways:
 ![SteadyBuddy showing experiment suggestions for the selected environment](experiment-suggestions.png)
 
 **For a service** — on a [service's detail page](../services/README.md#service-detail), use **Get suggestions** in the SteadyBuddy banner (or **Suggest experiments for this service** in the sidebar).
-The suggestions are scoped to that service's targets and its environment, and appear in the sidebar next to the service, so you can compare them against the service's existing [provided](../services/README.md#provided-experiments) and [custom experiments](../services/README.md#custom-experiments) without leaving the page.
+The suggestions are scoped to that service's targets and its environment, and appear on top of the service's experiment table, so you can compare them against the service's existing [provided](../services/README.md#provided-experiments) and [custom experiments](../services/README.md#custom-experiments) without leaving the page.
 
 Experiment suggestions use the same flow described in [the following section](#create-experiments-from-scratch-via-chat).
 
