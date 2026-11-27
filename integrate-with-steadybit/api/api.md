@@ -8,9 +8,9 @@ All API requests require an access token for authentication.
 
 To authenticate API requests, create an access token and pass it via the `Authorization` header in your request.
 
-Access tokens can be managed in the UI under Settings → API Access Tokens.
+Access tokens can be managed in the UI under Settings → API access tokens.
 
-![Management of API Access Token](../../.gitbook/assets/api-access-token-overview.png)
+![Management of API access tokens](../../.gitbook/assets/api-access-token-overview.png)
 
 ### Token Types
 
@@ -28,21 +28,25 @@ Tokens are automatically invalidated if the conditions they were created under n
 
 Access tokens can have an optional expiration date. Once expired, a token can no longer be used for authentication. Tokens without an expiration date never expire.
 
-Expired tokens can be **recreated** with a new expiration date. Recreating a token generates a new secret while preserving the original name, type, and team associations. The old token is invalidated.
+### Rotating a Token
+
+Rotating a token gives it a new secret and keeps everything else. To avoid downtime, choose a grace period of up to 7 days: the previous secret keeps working while you switch your systems over. Without a grace period, it stops working immediately.
+
+Rotate a token in the UI under Settings → API access tokens.
 
 ### Token Permissions
 
 Who can manage tokens depends on the token type:
 
-| Action   | Admin Token | Team Token and Wildcard Token                 |
-|----------|-------------|-----------------------------------------------|
-| Create   | Admin only  | Admin or team owner (of all associated teams) |
-| Delete   | Admin only  | Admin or token creator                        |
-| Recreate | Admin only  | Admin or token creator                        |
+| Action | Admin Token | Team Token and Wildcard Token                 |
+|--------|-------------|-----------------------------------------------|
+| Create | Admin only  | Admin or team owner (of all associated teams) |
+| Delete | Admin only  | Admin or token creator                        |
+| Rotate | Admin only  | Admin, token creator, or the token itself     |
 
 ### Creating a Token via the UI
 
-You can create a new access token in the UI under Settings → API Access Tokens.
+You can create a new access token in the UI under Settings → API access tokens.
 
 ![Add a new API access token](../../.gitbook/assets/api-access-token-create-new.png)
 
@@ -71,7 +75,24 @@ curl -X 'POST' \
 }'
 ```
 
-Details on the Access Token API endpoint can be found in the specification linked from the [OpenAPI Specification](#openapi-specification) section.
+### Rotating a Token via the API
+
+A token can rotate itself, so a pipeline can renew its own secret. The token id is the part of the token before the dot:
+
+```bash
+curl -X 'POST' \
+  'https://platform.steadybit.com/api/access-tokens/v2/<token-id>/rotate?gracePeriod=24h' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer <token>'
+```
+
+The token keeps its expiration date unless you pass `expiresAt`, a date-time or `never`.
+
+{% hint style="info" %}
+`POST /api/access-tokens/v2/{id}/recreate` is deprecated and will be removed after August 2027. Use `rotate` instead.
+{% endhint %}
+
+Details on the Access Token API endpoints can be found in the specification linked from the [OpenAPI Specification](#openapi-specification) section.
 
 ### Creating an Admin Token via Internal API (On-Prem)
 
